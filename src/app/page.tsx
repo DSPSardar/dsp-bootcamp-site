@@ -9,6 +9,8 @@ import Outcomes from '@/components/Outcomes'
 import Project from '@/components/Project'
 import Certificates from '@/components/Certificates'
 import About from '@/components/About'
+import Faq from '@/components/Faq'
+import Admission from '@/components/Admission'
 
 export default function Page() {
   return (
@@ -24,6 +26,8 @@ export default function Page() {
       <Project />
       <Certificates />
       <About />
+      <Faq />
+      <Admission />
     </>
   )
 }
