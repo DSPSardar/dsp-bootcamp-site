@@ -24,7 +24,6 @@ export default function Reveal({
           setTimeout(() => {
             el.classList.remove('reveal-hidden')
             el.classList.add('reveal-visible')
-            el.style.animationDelay = `${delay}ms`
           }, delay)
           observer.disconnect()
         }

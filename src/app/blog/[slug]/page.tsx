@@ -108,6 +108,24 @@ export default async function PostPage({ params }: Props) {
               )
             }
           }
+          if (/^\d+\.\s/.test(line)) {
+            const content = line.replace(/^\d+\.\s/, '')
+            const boldMatch = content.match(/^\*\*(.+?)\*\*\s*[-—]\s*(.+)/)
+            if (boldMatch) {
+              return (
+                <p key={i} style={{ marginBottom: '0.5rem', paddingLeft: '1.5rem' }}>
+                  <strong style={{ color: 'var(--text)' }}>{boldMatch[1]}</strong>
+                  {' — '}
+                  {boldMatch[2]}
+                </p>
+              )
+            }
+            return (
+              <p key={i} style={{ marginBottom: '0.5rem', paddingLeft: '1.5rem' }}>
+                {content}
+              </p>
+            )
+          }
           if (line.trim() === '') return <br key={i} />
           return <p key={i} style={{ marginBottom: '0.75rem' }}>{line}</p>
         })}

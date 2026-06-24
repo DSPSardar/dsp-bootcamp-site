@@ -16,29 +16,25 @@ export default function BookingForm() {
   const [phone, setPhone] = useState('')
   const [background, setBackground] = useState('')
   const [submitted, setSubmitted] = useState(false)
-  const [loading, setLoading] = useState(false)
-
-  async function handleSubmit(e: FormEvent) {
+  function handleSubmit(e: FormEvent) {
     e.preventDefault()
     if (!name.trim() || !phone.trim()) return
-
-    setLoading(true)
 
     const waText = encodeURIComponent(
       `Hi DSP! I want to book a free intro session.\n\nName: ${name}\nPhone: ${phone}\nBackground: ${background || 'Not specified'}\n\nمیں بوٹ کیمپ میں شامل ہونا چاہتا/چاہتی ہوں۔`
     )
     const waUrl = `https://wa.me/923118122222?text=${waText}`
 
-    // Fire-and-forget — never blocks WhatsApp open
+    // Open WhatsApp synchronously in the gesture handler — must come before any await
+    window.open(waUrl, '_blank', 'noopener,noreferrer')
+
+    // Fire-and-forget — never blocks the WhatsApp open
     fetch('/api/lead', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, phone, background }),
     }).catch(() => {})
 
-    window.open(waUrl, '_blank', 'noopener,noreferrer')
-
-    setLoading(false)
     setSubmitted(true)
   }
 
@@ -199,15 +195,15 @@ export default function BookingForm() {
 
       <button
         type="submit"
-        disabled={loading || !name.trim() || !phone.trim()}
+        disabled={!name.trim() || !phone.trim()}
         className="btn-primary"
         style={{
           justifyContent: 'center',
-          opacity: loading || !name.trim() || !phone.trim() ? 0.6 : 1,
-          cursor: loading || !name.trim() || !phone.trim() ? 'not-allowed' : 'pointer',
+          opacity: !name.trim() || !phone.trim() ? 0.6 : 1,
+          cursor: !name.trim() || !phone.trim() ? 'not-allowed' : 'pointer',
         }}
       >
-        {loading ? 'Opening WhatsApp…' : 'Book Free Intro on WhatsApp →'}
+        Book Free Intro on WhatsApp →
       </button>
 
       <p

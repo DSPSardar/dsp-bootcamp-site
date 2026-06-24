@@ -27,21 +27,12 @@ export default function Roadmap() {
           </h2>
         </Reveal>
 
-        <ol style={{ listStyle: 'none', position: 'relative' }}>
-          {/* Gradient spine */}
-          <li
+        <div style={{ position: 'relative' }}>
+          <div
             aria-hidden
-            style={{
-              position: 'absolute',
-              left: 19,
-              top: 0,
-              bottom: 0,
-              width: 2,
-              background:
-                'linear-gradient(180deg, var(--gold) 0%, var(--mint) 100%)',
-              borderRadius: 2,
-            }}
+            style={{ position: 'absolute', left: 19, top: 0, bottom: 0, width: 2, background: 'linear-gradient(180deg, var(--gold) 0%, var(--mint) 100%)', borderRadius: 2 }}
           />
+          <ol style={{ listStyle: 'none' }}>
 
           {STEPS.map((step, i) => (
             <Reveal key={step.range} delay={i * 80}>
@@ -110,6 +101,7 @@ export default function Roadmap() {
             </Reveal>
           ))}
         </ol>
+        </div>
       </div>
     </section>
   )

@@ -72,6 +72,7 @@ export default function Faq() {
               <dt>
                 <button
                   aria-expanded={open === i}
+                  aria-controls={`faq-answer-${i}`}
                   onClick={() => setOpen(open === i ? null : i)}
                   style={{
                     width: '100%',
@@ -112,6 +113,7 @@ export default function Faq() {
               </dt>
               {open === i && (
                 <dd
+                  id={`faq-answer-${i}`}
                   style={{
                     padding: '0 1.25rem 1.25rem',
                     fontFamily: 'var(--font-body)',

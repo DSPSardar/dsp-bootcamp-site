@@ -230,6 +230,24 @@ h1, h2, h3, h4, h5, h6 {
   50%       { filter: drop-shadow(0 0 14px var(--mint)); opacity: 0.8; }
 }
 
+/* Skip to content link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  padding: 0.5rem 1rem;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.875rem;
+  z-index: 9999;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
 /* Scroll reveal — initial hidden state set by JS, avoid FOUC */
 .reveal-hidden {
   opacity: 0;

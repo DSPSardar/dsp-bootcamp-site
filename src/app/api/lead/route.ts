@@ -9,7 +9,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: 'Invalid JSON' }, { status: 400 })
   }
 
-  const { name, phone, background } = body as Record<string, string>
+  const name = String((body as Record<string, string>).name ?? '').slice(0, 200)
+  const phone = String((body as Record<string, string>).phone ?? '').slice(0, 30)
+  const background = String((body as Record<string, string>).background ?? '').slice(0, 100)
 
   if (!name || !phone) {
     return NextResponse.json({ ok: false, error: 'name and phone required' }, { status: 400 })
