@@ -6,7 +6,8 @@
     "dev": "next dev --no-turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:nav": "node scripts/check-nav-links.mjs"
   },
   "dependencies": {
     "next": "16.2.9",

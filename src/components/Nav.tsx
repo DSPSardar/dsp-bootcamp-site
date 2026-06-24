@@ -4,14 +4,14 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const links = [
-  { label: 'The Shift', href: '#shift' },
-  { label: 'Learn', href: '#learn' },
-  { label: 'Roadmap', href: '#roadmap' },
-  { label: 'Modules', href: '#modules' },
-  { label: 'Certificates', href: '#certificates' },
+  { label: 'The Shift', href: '/#shift' },
+  { label: 'Learn', href: '/#learn' },
+  { label: 'Roadmap', href: '/#roadmap' },
+  { label: 'Modules', href: '/#modules' },
+  { label: 'Certificates', href: '/#certificates' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'FAQ', href: '/#faq' },
 ]
 
 export default function Nav() {
