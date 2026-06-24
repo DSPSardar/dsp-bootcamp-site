@@ -27,6 +27,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://digitalservicesprogram.com'),
   title: 'DSP · 15-Day AI Agents & Vibe Coding Bootcamp',
   description:
     'Live Zoom bootcamp for beginners in Pakistan. Build real-world AI agents in 15 days — no coding experience needed.',
