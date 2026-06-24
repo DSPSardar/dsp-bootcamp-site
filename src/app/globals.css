@@ -1,26 +1,241 @@
+/* src/app/globals.css */
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ink: #0A0E1C;
+  --ink-1: #0F1528;
+  --panel: #141B33;
+  --panel-2: #1A2240;
+  --text: #E9EDF8;
+  --muted: #969FBB;
+  --line: rgba(255, 255, 255, 0.08);
+  --gold: #FFC34D;
+  --gold-deep: #E5A12C;
+  --mint: #54E6C0;
+
+  --font-display: var(--font-space-grotesk);
+  --font-body: var(--font-ibm-plex-sans);
+  --font-mono: var(--font-ibm-plex-mono);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--ink);
+  color: var(--text);
+  font-family: var(--font-body), system-ui, sans-serif;
+  background-image:
+    radial-gradient(ellipse 60% 50% at 90% 0%, rgba(255, 195, 77, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 10% 0%, rgba(84, 230, 192, 0.06) 0%, transparent 60%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display), system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* Eyebrow label style */
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mint);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--mint);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eyebrow::before {
+    animation: none;
+  }
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--mint) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button styles */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--font-body), sans-serif;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-primary:hover {
+  background: var(--gold-deep);
+  transform: translateY(-1px);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-body), sans-serif;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.btn-ghost:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* Panel / card */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.panel-2 {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+/* Section spacing */
+.section {
+  padding: 5rem 1.25rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 6rem 2rem;
+  }
+}
+
+/* AgentConsole terminal card */
+.console-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  font-family: var(--font-mono), monospace;
+}
+
+.console-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--panel-2);
+  border-bottom: 1px solid var(--line);
+}
+
+.console-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.console-label {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-left: 0.25rem;
+}
+
+.console-body {
+  padding: 1.5rem;
+}
+
+.console-log {
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--mint);
+  min-height: 1.2em;
+}
+
+.console-log-prefix {
+  color: var(--muted);
+}
+
+/* Keyframes */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+@keyframes fade-rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes token-glow {
+  0%, 100% { filter: drop-shadow(0 0 4px var(--gold)); }
+  50%       { filter: drop-shadow(0 0 10px var(--gold)); }
+}
+
+@keyframes mint-glow-pulse {
+  0%, 100% { filter: drop-shadow(0 0 6px var(--mint)); opacity: 1; }
+  50%       { filter: drop-shadow(0 0 14px var(--mint)); opacity: 0.8; }
+}
+
+/* Scroll reveal — initial hidden state set by JS, avoid FOUC */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.reveal-visible {
+  animation: fade-rise 0.55s ease forwards;
 }
