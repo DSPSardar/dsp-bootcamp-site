@@ -81,6 +81,8 @@ export default async function BlogPost(
     year: 'numeric', month: 'long', day: 'numeric',
   })
 
+  const heroImage = post.image || '/blog/what-is-an-ai-agent.jpg'
+
   return (
     <article className="dsp-post">
       <script
@@ -102,7 +104,7 @@ export default async function BlogPost(
 
         <div className="dsp-post__hero">
           <Image
-            src={post.image}
+            src={heroImage}
             alt={post.title}
             width={1200}
             height={630}

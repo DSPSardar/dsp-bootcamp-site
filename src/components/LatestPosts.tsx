@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { getAllPosts } from '@/lib/posts'
 
@@ -54,6 +55,16 @@ export default function LatestPosts() {
                 background: 'rgba(255,255,255,0.03)',
               }}
             >
+              <div style={{ marginBottom: '0.8rem', overflow: 'hidden', borderRadius: 12 }}>
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  width={600}
+                  height={315}
+                  sizes="(max-width: 700px) 100vw, 360px"
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                />
+              </div>
               <p
                 style={{
                   fontFamily: 'var(--font-mono)',
