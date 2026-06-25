@@ -22,7 +22,7 @@ export default function Certificates() {
               marginBottom: '3rem',
             }}
           >
-            Four certificates on completion.
+            The Only AI Bootcamp That Comes With 3 Official Claude/Anthropic Certificates
           </h2>
         </Reveal>
 

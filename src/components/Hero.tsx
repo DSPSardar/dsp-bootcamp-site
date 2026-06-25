@@ -4,9 +4,9 @@ import AgentConsole from './AgentConsole'
 const CHIPS = [
   'Live Zoom Training',
   'Beginner Friendly',
+  '3 Anthropic Certificates',
   'Hands-On Practice',
   'Final Project',
-  '4 Certificates',
 ]
 
 export default function Hero() {
@@ -52,9 +52,7 @@ export default function Hero() {
               lineHeight: 1.05,
             }}
           >
-            Build real-world{' '}
-            <span className="gradient-text">AI agents</span>
-            {' '}in 15&nbsp;days.
+            AI Agents Bootcamp — Build Real-World AI in 15 Days
           </h1>
 
           <p
@@ -66,9 +64,9 @@ export default function Hero() {
               maxWidth: 520,
             }}
           >
-            No coding experience needed. Learn how AI agents plan goals, use
-            tools, remember context, and act autonomously — in a live Zoom
-            bootcamp designed for beginners.
+            No coding experience needed. Live Zoom training. 3 official
+            Claude/Anthropic certificates + 1 DSP certificate. Beginner-friendly
+            and built for the future of work.
           </p>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
