@@ -216,8 +216,8 @@
 .dsp-post__cta p { margin: 0 0 1rem; color: rgba(10, 14, 28, 0.77); }
 .dsp-post__cta-btn {
   display: inline-block;
-  background: var(--ink);
-  color: var(--text);
+  background: #fff;
+  color: #0A0E1C;
   font-weight: 700;
   padding: 0.85rem 1.4rem;
   border-radius: 999px;

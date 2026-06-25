@@ -125,6 +125,8 @@ export default async function BlogPost(
           <a
             href="https://wa.me/923118122222?text=Hi%20DSP%2C%20I%20want%20to%20join%20the%20bootcamp"
             className="dsp-post__cta-btn"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Join the Bootcamp →
           </a>
