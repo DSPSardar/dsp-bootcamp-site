@@ -12,6 +12,7 @@ import Certificates from '@/components/Certificates'
 import About from '@/components/About'
 import Faq from '@/components/Faq'
 import Admission from '@/components/Admission'
+import LatestPosts from '@/components/LatestPosts'
 import SeoSchema from './components/SeoSchema'
 
 export default function Page() {
@@ -29,6 +30,7 @@ export default function Page() {
       <Outcomes />
       <Project />
       <Certificates />
+      <LatestPosts />
       <About />
       <Faq />
       <Admission />

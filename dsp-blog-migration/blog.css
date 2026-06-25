@@ -1,0 +1,91 @@
+/* blog.css — DSP blog styles. Import in app/blog/layout.tsx or globals.css */
+.dsp-blog, .dsp-post {
+  --navy: #06101f;
+  --ink: #e8edf6;
+  --muted: #8b93a7;
+  --accent: #3b5bff;
+  --accent2: #7c3aed;
+  --card: #0d1830;
+  --line: rgba(255,255,255,0.08);
+  background: var(--navy);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+/* ---------- INDEX ---------- */
+.dsp-blog { padding: 64px 20px 96px; max-width: 1100px; margin: 0 auto; }
+.dsp-blog__eyebrow {
+  text-transform: uppercase; letter-spacing: .18em; font-size: 12px;
+  color: var(--accent); font-weight: 700; margin: 0 0 8px;
+}
+.dsp-blog__title { font-size: clamp(40px, 7vw, 72px); font-weight: 800; margin: 0; line-height: .98; }
+.dsp-blog__sub { color: var(--muted); margin: 14px 0 0; font-size: 16px; }
+
+.dsp-blog__featured {
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px;
+  margin: 48px 0; padding: 22px; border: 1px solid var(--line);
+  border-radius: 20px; background: var(--card); text-decoration: none; color: inherit;
+  transition: border-color .2s, transform .2s;
+}
+.dsp-blog__featured:hover { border-color: var(--accent); transform: translateY(-2px); }
+.dsp-blog__featured-img img, .dsp-blog__card-img img {
+  width: 100%; height: auto; border-radius: 12px; display: block; object-fit: cover;
+}
+.dsp-blog__featured-text h2 { font-size: 26px; margin: 8px 0 10px; line-height: 1.2; }
+
+.dsp-blog__grid {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px;
+}
+.dsp-blog__card a {
+  display: block; text-decoration: none; color: inherit; height: 100%;
+  border: 1px solid var(--line); border-radius: 16px; background: var(--card);
+  padding: 16px; transition: border-color .2s, transform .2s;
+}
+.dsp-blog__card a:hover { border-color: var(--accent); transform: translateY(-2px); }
+.dsp-blog__card h3 { font-size: 18px; margin: 8px 0 8px; line-height: 1.3; }
+.dsp-blog__meta { color: var(--accent); font-size: 12px; font-weight: 600; margin: 12px 0 0; text-transform: uppercase; letter-spacing: .05em; }
+.dsp-blog__excerpt { color: var(--muted); font-size: 14px; line-height: 1.55; margin: 0 0 14px; }
+.dsp-blog__read { color: var(--ink); font-weight: 600; font-size: 14px; }
+
+/* ---------- SINGLE POST ---------- */
+.dsp-post__inner { max-width: 760px; margin: 0 auto; padding: 56px 20px 96px; }
+.dsp-post__back { color: var(--muted); text-decoration: none; font-size: 14px; }
+.dsp-post__back:hover { color: var(--ink); }
+.dsp-post__eyebrow { display: flex; gap: 10px; align-items: center; color: var(--accent); font-size: 13px; font-weight: 600; margin: 24px 0 10px; }
+.dsp-post__title { font-size: clamp(30px, 5vw, 46px); font-weight: 800; line-height: 1.12; margin: 0 0 12px; }
+.dsp-post__byline { color: var(--muted); font-size: 14px; margin: 0 0 28px; }
+.dsp-post__hero img { width: 100%; height: auto; border-radius: 16px; display: block; margin: 0 0 36px; }
+
+.dsp-post__body { font-size: 17px; line-height: 1.75; color: #d4dbe9; }
+.dsp-post__body h1, .dsp-post__body h2 { color: #fff; font-weight: 700; line-height: 1.25; margin: 36px 0 14px; }
+.dsp-post__body h1 { font-size: 26px; }
+.dsp-post__body h2 { font-size: 22px; }
+.dsp-post__body p { margin: 0 0 18px; }
+.dsp-post__body ul, .dsp-post__body ol { margin: 0 0 18px; padding-left: 22px; }
+.dsp-post__body li { margin: 0 0 8px; }
+.dsp-post__body a { color: var(--accent); text-decoration: underline; }
+.dsp-post__body strong { color: #fff; }
+
+.dsp-post__cta {
+  margin: 48px 0 0; padding: 32px; border-radius: 18px; text-align: center;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+}
+.dsp-post__cta h2 { margin: 0 0 8px; font-size: 22px; color: #fff; }
+.dsp-post__cta p { margin: 0 0 20px; color: rgba(255,255,255,.85); }
+.dsp-post__cta-btn {
+  display: inline-block; background: #fff; color: var(--navy); font-weight: 700;
+  padding: 13px 30px; border-radius: 100px; text-decoration: none; font-size: 15px;
+}
+.dsp-post__related { margin: 56px 0 0; border-top: 1px solid var(--line); padding-top: 28px; }
+.dsp-post__related h2 { font-size: 18px; margin: 0 0 14px; }
+.dsp-post__related ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.dsp-post__related a { color: var(--ink); text-decoration: none; font-size: 16px; }
+.dsp-post__related a:hover { color: var(--accent); }
+
+@media (max-width: 760px) {
+  .dsp-blog__featured { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dsp-blog__featured, .dsp-blog__card a { transition: none; }
+}
