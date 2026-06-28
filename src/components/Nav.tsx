@@ -8,6 +8,7 @@ const links = [
   { label: 'Learn', href: '/#learn' },
   { label: 'Roadmap', href: '/#roadmap' },
   { label: 'Modules', href: '/#modules' },
+  { label: 'Student Projects', href: '/#student-projects' },
   { label: 'Certificates', href: '/#certificates' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },

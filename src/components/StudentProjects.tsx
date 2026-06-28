@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function StudentProjects() {
   return (
-    <section className="py-20 px-4 md:px-6" style={{ background: '#0f1419' }}>
+    <section id="student-projects" className="py-20 px-4 md:px-6" style={{ background: '#0f1419' }}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
