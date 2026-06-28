@@ -13,6 +13,7 @@ import About from '@/components/About'
 import Faq from '@/components/Faq'
 import Admission from '@/components/Admission'
 import LatestPosts from '@/components/LatestPosts'
+import StudentProjects from '@/components/StudentProjects'
 import SeoSchema from './components/SeoSchema'
 
 export default function Page() {
@@ -29,6 +30,7 @@ export default function Page() {
       <Audience />
       <Outcomes />
       <Project />
+      <StudentProjects />
       <Certificates />
       <LatestPosts />
       <About />
