@@ -69,6 +69,29 @@ export default function Learn() {
             </Reveal>
           ))}
         </div>
+
+        {/* Course Outline Download Card */}
+        <div style={{ marginTop: '4rem', padding: '2rem', background: 'var(--panel)', borderRadius: 12, border: '1px solid var(--line)', textAlign: 'center' }}>
+          <Reveal>
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--mint)', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+              📋 Detailed Curriculum
+            </p>
+            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', color: 'var(--text)', marginBottom: '0.5rem' }}>
+              Get the Full Course Outline
+            </h3>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.9375rem', color: 'var(--muted)', marginBottom: '1.5rem', maxWidth: 500, margin: '0 auto 1.5rem' }}>
+              Download the complete 5-day curriculum with learning objectives, daily projects, and deliverables
+            </p>
+            <a
+              href="/DSP_Bootcamp_Course_Outline.docx"
+              download="DSP_Bootcamp_Course_Outline.docx"
+              className="btn-primary"
+              style={{ display: 'inline-flex', gap: '0.5rem' }}
+            >
+              ⬇️ Download (DOCX)
+            </a>
+          </Reveal>
+        </div>
       </div>
     </section>
   )

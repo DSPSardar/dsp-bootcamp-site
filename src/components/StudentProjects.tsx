@@ -2,9 +2,208 @@
 
 import Link from 'next/link'
 
+const styles = `
+  .featured-project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .featured-project-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .featured-left {
+      border-right: none !important;
+      border-bottom: 1px solid #374151 !important;
+      padding: 16px !important;
+    }
+    
+    .featured-left h3 {
+      font-size: 20px !important;
+      margin-bottom: 4px !important;
+    }
+
+    .featured-left .emoji-icon {
+      font-size: 28px !important;
+      margin-bottom: 8px !important;
+    }
+    
+    .featured-left > p,
+    .featured-left p {
+      font-size: 13px !important;
+      margin-bottom: 12px !important;
+    }
+
+    .featured-left .feature-item {
+      margin-bottom: 12px !important;
+    }
+
+    .featured-left .feature-title {
+      font-size: 12px !important;
+      margin-bottom: 2px !important;
+    }
+
+    .featured-left .feature-desc {
+      font-size: 11px !important;
+    }
+    
+    .featured-right {
+      padding: 16px !important;
+    }
+
+    .featured-right h4 {
+      font-size: 12px !important;
+      margin-bottom: 12px !important;
+    }
+
+    .featured-right .stat-grid {
+      gap: 12px !important;
+    }
+
+    .featured-right .stat-item {
+      padding: 12px !important;
+    }
+
+    .featured-right .stat-label {
+      font-size: 10px !important;
+      margin-bottom: 6px !important;
+    }
+
+    .featured-right .stat-value {
+      font-size: 24px !important;
+      margin-bottom: 2px !important;
+    }
+
+    .featured-right .stat-desc {
+      font-size: 10px !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .featured-left {
+      padding: 12px !important;
+    }
+
+    .featured-right {
+      padding: 12px !important;
+    }
+
+    .featured-left h3 {
+      font-size: 18px !important;
+    }
+
+    .featured-left > p,
+    .featured-left p {
+      font-size: 12px !important;
+    }
+
+    .featured-buttons {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+    }
+
+    .featured-buttons a {
+      flex: 1 !important;
+      font-size: 12px !important;
+      padding: 10px 12px !important;
+    }
+  }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+  
+  @media (max-width: 1024px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .project-card {
+      padding: 16px !important;
+    }
+
+    .project-card .project-icon {
+      font-size: 24px !important;
+      margin-bottom: 12px !important;
+    }
+
+    .project-card h4 {
+      font-size: 14px !important;
+      margin-bottom: 8px !important;
+    }
+
+    .project-card p {
+      font-size: 12px !important;
+      margin-bottom: 8px !important;
+    }
+
+    .project-card .built-by {
+      font-size: 10px !important;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* CTA section mobile */
+  @media (max-width: 768px) {
+    .cta-section {
+      padding: 24px !important;
+    }
+
+    .cta-section h3 {
+      font-size: 22px !important;
+      margin-bottom: 12px !important;
+    }
+
+    .cta-section p {
+      font-size: 13px !important;
+      margin-bottom: 16px !important;
+    }
+
+    .cta-buttons {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+      margin-bottom: 12px !important;
+    }
+
+    .cta-buttons a {
+      flex: 1 !important;
+      font-size: 13px !important;
+      padding: 12px 16px !important;
+      text-align: center !important;
+    }
+
+    .cta-contact {
+      font-size: 12px !important;
+    }
+  }
+`
+
 export default function StudentProjects() {
   return (
     <section id="student-projects" className="py-20 px-4 md:px-6" style={{ background: '#0f1419' }}>
+      <style>{styles}</style>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -24,14 +223,20 @@ export default function StudentProjects() {
           overflow: 'hidden',
           marginBottom: '64px'
         }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0' }}>
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: '1fr 1fr', 
+            gap: '0'
+          }} 
+          className="featured-project-grid">
             {/* Left */}
             <div style={{ 
               padding: '48px',
               borderRight: '1px solid #374151'
-            }}>
+            }} 
+            className="featured-left">
               <div style={{ marginBottom: '24px' }}>
-                <div style={{ fontSize: '36px', marginBottom: '12px' }}>✈️</div>
+                <div style={{ fontSize: '36px', marginBottom: '12px' }} className="emoji-icon">✈️</div>
                 <h3 style={{ 
                   fontSize: '32px',
                   fontWeight: '700',
@@ -66,21 +271,21 @@ export default function StudentProjects() {
                   { title: '✓ Zero Python Required', desc: 'Built entirely through Vibe Coding' },
                   { title: '✓ Production Ready', desc: 'Public URL + Custom domain + CI/CD' }
                 ].map((feature, i) => (
-                  <div key={i} style={{ marginBottom: '16px' }}>
+                  <div key={i} style={{ marginBottom: '16px' }} className="feature-item">
                     <p style={{
                       fontWeight: '600',
                       color: '#ffffff',
                       fontSize: '14px',
                       marginBottom: '4px',
                       margin: '0 0 4px 0'
-                    }}>
+                    }} className="feature-title">
                       {feature.title}
                     </p>
                     <p style={{
                       fontSize: '13px',
                       color: '#9ca3af',
                       margin: '0'
-                    }}>
+                    }} className="feature-desc">
                       {feature.desc}
                     </p>
                   </div>
@@ -97,12 +302,13 @@ export default function StudentProjects() {
                 fontSize: '14px',
                 color: '#d1d5db',
                 lineHeight: '1.6'
-              }}>
+              }}
+              className="vibe-explainer">
                 <span style={{ color: '#ffffff', fontWeight: '600' }}>What is Vibe Coding?</span> You describe what you want in plain English. AI writes the code. This entire Travel Agent was built through prompts—zero Python written by hand.
               </div>
 
               {/* Buttons */}
-              <div style={{ display: 'flex', gap: '12px', marginTop: '24px' }}>
+              <div style={{ display: 'flex', gap: '12px', marginTop: '24px' }} className="featured-buttons">
                 <Link
                   href="https://travel.digitalservicesprogram.com"
                   target="_blank"
@@ -160,7 +366,8 @@ export default function StudentProjects() {
             <div style={{ 
               padding: '48px',
               background: '#111827'
-            }}>
+            }}
+            className="featured-right">
               <h4 style={{
                 fontWeight: '600',
                 color: '#ffffff',
@@ -170,7 +377,7 @@ export default function StudentProjects() {
                 Project Highlights
               </h4>
               
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '24px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '24px' }} className="stat-grid">
                 {[
                   { label: 'Built in', value: '15', desc: 'Days' },
                   { label: 'Programming', value: 'Zero', desc: 'Vibe Coding' },
@@ -182,7 +389,7 @@ export default function StudentProjects() {
                     borderRadius: '6px',
                     padding: '16px',
                     background: '#1a2332'
-                  }}>
+                  }} className="stat-item">
                     <p style={{
                       fontSize: '11px',
                       color: '#9ca3af',
@@ -191,7 +398,7 @@ export default function StudentProjects() {
                       fontWeight: '600',
                       marginBottom: '8px',
                       margin: '0 0 8px 0'
-                    }}>
+                    }} className="stat-label">
                       {stat.label}
                     </p>
                     <p style={{
@@ -200,14 +407,14 @@ export default function StudentProjects() {
                       color: '#FFC107',
                       marginBottom: '4px',
                       margin: '0 0 4px 0'
-                    }}>
+                    }} className="stat-value">
                       {stat.value}
                     </p>
                     <p style={{
                       fontSize: '12px',
                       color: '#9ca3af',
                       margin: '0'
-                    }}>
+                    }} className="stat-desc">
                       {stat.desc}
                     </p>
                   </div>
@@ -253,7 +460,8 @@ export default function StudentProjects() {
             gridTemplateColumns: 'repeat(3, 1fr)',
             gap: '24px',
             marginBottom: '48px'
-          }}>
+          }}
+          className="projects-grid">
             {[
               {
                 icon: '📊',
@@ -283,6 +491,7 @@ export default function StudentProjects() {
                   background: '#1a2332',
                   transition: 'all 0.2s'
                 }}
+                className="project-card"
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = '#4b5563'
                   e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.3)'
@@ -292,7 +501,7 @@ export default function StudentProjects() {
                   e.currentTarget.style.boxShadow = 'none'
                 }}
               >
-                <div style={{ fontSize: '32px', marginBottom: '16px' }}>
+                <div style={{ fontSize: '32px', marginBottom: '16px' }} className="project-icon">
                   {project.icon}
                 </div>
                 <h4 style={{
@@ -318,7 +527,7 @@ export default function StudentProjects() {
                   color: '#6b7280',
                   fontWeight: '600',
                   margin: '0'
-                }}>
+                }} className="built-by">
                   Built by: {project.student}
                 </p>
               </div>
@@ -333,7 +542,7 @@ export default function StudentProjects() {
           padding: '48px',
           background: '#1a2332',
           textAlign: 'center'
-        }}>
+        }} className="cta-section">
           <h3 style={{
             fontSize: '32px',
             fontWeight: '700',
@@ -359,7 +568,7 @@ export default function StudentProjects() {
             justifyContent: 'center',
             flexWrap: 'wrap',
             marginBottom: '24px'
-          }}>
+          }} className="cta-buttons">
             <Link
               href="https://wa.me/923118122222?text=Hi%20DSP%2C%20I%20want%20to%20join%20the%20bootcamp"
               style={{
@@ -408,7 +617,7 @@ export default function StudentProjects() {
           <p style={{
             fontSize: '14px',
             color: '#9ca3af'
-          }}>
+          }} className="cta-contact">
             Or call / WhatsApp us:{' '}
             <Link 
               href="tel:+923118122222"

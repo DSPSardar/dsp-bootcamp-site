@@ -31,6 +31,7 @@ export const metadata: Metadata = {
   title: 'AI Agents Bootcamp — Learn AI Agents in 15 Days | DSP',
   description:
     'AI Agents Bootcamp by DSP — 15 days, live Zoom, beginner friendly. Earn 3 Claude/Anthropic certificates + 1 DSP certificate. No coding needed.',
+  viewport: 'width=device-width, initial-scale=1.0, maximum-scale=5.0',
   alternates: {
     canonical: 'https://www.digitalservicesprogram.com/',
   },

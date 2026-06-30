@@ -1,6 +1,32 @@
 // src/app/api/lead/route.ts
 import { NextRequest, NextResponse } from 'next/server'
 
+// Helper to append to Google Sheet via Apps Script
+async function appendToGoogleSheet(data: Record<string, string>) {
+  const sheetsWebhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL
+  if (!sheetsWebhookUrl) {
+    console.warn('[DSP lead] GOOGLE_SHEETS_WEBHOOK_URL not configured')
+    return
+  }
+
+  try {
+    const response = await fetch(sheetsWebhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ...data,
+        timestamp: new Date().toISOString(),
+      }),
+    })
+
+    if (!response.ok) {
+      console.error('[DSP lead] Google Sheets append failed:', response.status, await response.text())
+    }
+  } catch (err) {
+    console.error('[DSP lead] Google Sheets error', err)
+  }
+}
+
 export async function POST(req: NextRequest) {
   let body: unknown
   try {
@@ -17,10 +43,15 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: 'name and phone required' }, { status: 400 })
   }
 
+  const leadData = { name, phone, background }
+
   // console.log is visible in Vercel → Logs (ephemeral).
   // For durable records, configure RESEND_API_KEY + LEAD_EMAIL (email below)
   // alt: store in Vercel KV/Postgres or a Google Sheet
-  console.log('[DSP lead]', { name, phone, background, ts: new Date().toISOString() })
+  console.log('[DSP lead]', { ...leadData, ts: new Date().toISOString() })
+
+  // Append to Google Sheets (async, non-blocking)
+  appendToGoogleSheet(leadData).catch(() => {})
 
   const apiKey = process.env.RESEND_API_KEY
   const leadEmail = process.env.LEAD_EMAIL
