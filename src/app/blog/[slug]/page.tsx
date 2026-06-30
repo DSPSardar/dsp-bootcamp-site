@@ -121,7 +121,7 @@ export default async function BlogPost(
 
         <div className="dsp-post__cta">
           <h2>Ready to build AI agents yourself?</h2>
-          <p>Join DSP&apos;s 15-day live bootcamp — no coding needed.</p>
+          <p>Join DSP&apos;s 7-day live bootcamp — no coding needed.</p>
           <a
             href="https://wa.me/923118122222?text=Hi%20DSP%2C%20I%20want%20to%20join%20the%20bootcamp"
             className="dsp-post__cta-btn"

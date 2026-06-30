@@ -2,11 +2,10 @@
 import Reveal from './Reveal'
 
 const STEPS = [
-  { range: 'Days 1–6',  label: 'Live modules & guided learning' },
-  { range: 'Days 7–8',  label: 'Weekend assignments & practice' },
-  { range: 'Days 9–12', label: 'Build, implement & deploy prep' },
-  { range: 'Days 13–14',label: 'Final project & review' },
-  { range: 'Day 15',    label: 'Presentation, feedback & next steps' },
+  { range: 'Days 1–2',  label: 'Live modules & guided learning' },
+  { range: 'Days 3–4',  label: 'Agent tools, memory & practice' },
+  { range: 'Days 5–6',  label: 'Build, implement & deploy prep' },
+  { range: 'Day 7',     label: 'Final project, showcase & next steps' },
 ]
 
 export default function Roadmap() {
@@ -23,7 +22,7 @@ export default function Roadmap() {
               marginBottom: '3rem',
             }}
           >
-            15-Day Roadmap.
+            7-Day Roadmap.
           </h2>
         </Reveal>
 

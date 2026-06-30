@@ -21,7 +21,7 @@ const FAQS = [
   },
   {
     q: 'What is the final project?',
-    a: 'On Day 15 you build and present a working AI agent: task planner, tools, memory, evaluation, and a live demo to the cohort.',
+    a: 'On Day 7 you build and present a working AI agent: task planner, tools, memory, evaluation, and a live demo to the cohort.',
   },
   {
     q: 'What certificates will I receive?',

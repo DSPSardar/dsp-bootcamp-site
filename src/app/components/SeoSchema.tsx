@@ -4,9 +4,9 @@ export default function SeoSchema() {
     '@graph': [
       {
         '@type': 'Course',
-        name: 'AI Agents Bootcamp — 15-Day Live Program',
+        name: 'AI Agents Bootcamp — 7-Day Live Program',
         description:
-          'Build real-world AI agents in 15 days. Live Zoom training, beginner friendly, 4 certificates. No coding required.',
+          'Build real-world AI agents in 7 days. Live Zoom training, beginner friendly, 4 certificates. No coding required.',
         provider: {
           '@type': 'Organization',
           name: 'Digital Services Program',
@@ -15,7 +15,7 @@ export default function SeoSchema() {
         hasCourseInstance: {
           '@type': 'CourseInstance',
           courseMode: 'online',
-          courseWorkload: 'P15D',
+          courseWorkload: 'P7D',
           instructor: {
             '@type': 'Person',
             name: 'Sardar Ghaffar',

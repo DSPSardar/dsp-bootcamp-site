@@ -52,7 +52,7 @@ export default function Hero() {
               lineHeight: 1.05,
             }}
           >
-            AI Agents Bootcamp — Build Real-World AI in 15 Days
+            AI Agents Bootcamp — Build Real-World AI in 7 Days
           </h1>
 
           <p
@@ -79,7 +79,7 @@ export default function Hero() {
               Join the Bootcamp →
             </a>
             <a href="#roadmap" className="btn-ghost">
-              View 15-Day Roadmap
+              View 7-Day Roadmap
             </a>
           </div>
 

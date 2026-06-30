@@ -44,7 +44,7 @@ export default function WhyDsp() {
             ['Anthropic certificates', '3 official', '—'],
             ['Final project + presentation', 'Yes', 'Rare'],
             ['Post-bootcamp internship', 'Yes', '—'],
-            ['Duration', '15 days, structured', 'Varies'],
+            ['Duration', '7 days, structured', 'Varies'],
           ].map(([feature, dsp, other]) => (
             <div
               key={feature}

@@ -208,7 +208,7 @@ export default function StudentProjects() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#ffffff' }}>
-            What Students Ship on Day 15
+            What Students Ship on Day 7
           </h2>
           <p className="text-lg" style={{ color: '#d1d5db' }}>
             Real projects. Real deployment. No coding experience required. Here's what you'll build in the DSP bootcamp.
@@ -379,7 +379,7 @@ export default function StudentProjects() {
               
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '24px' }} className="stat-grid">
                 {[
-                  { label: 'Built in', value: '15', desc: 'Days' },
+                  { label: 'Built in', value: '7', desc: 'Days' },
                   { label: 'Programming', value: 'Zero', desc: 'Vibe Coding' },
                   { label: 'Agents', value: '4', desc: 'Working together' },
                   { label: 'Status', value: '🟢 Live', desc: 'On Vercel' }
@@ -431,7 +431,7 @@ export default function StudentProjects() {
                   marginBottom: '8px',
                   margin: '0 0 8px 0'
                 }}>
-                  This could be your Day 15 project.
+                  This could be your Day 7 project.
                 </p>
                 <p style={{
                   fontSize: '14px',
@@ -560,7 +560,7 @@ export default function StudentProjects() {
             marginLeft: 'auto',
             marginRight: 'auto'
           }}>
-            You'll ship a real, production-ready AI agent by Day 15. Just like Sardar did. No coding experience required.
+            You'll ship a real, production-ready AI agent by Day 7. Just like Sardar did. No coding experience required.
           </p>
           <div style={{
             display: 'flex',

@@ -28,17 +28,17 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.digitalservicesprogram.com'),
-  title: 'AI Agents Bootcamp — Learn AI Agents in 15 Days | DSP',
+  title: 'AI Agents Bootcamp — Learn AI Agents in 7 Days | DSP',
   description:
-    'AI Agents Bootcamp by DSP — 15 days, live Zoom, beginner friendly. Earn 3 Claude/Anthropic certificates + 1 DSP certificate. No coding needed.',
+    'AI Agents Bootcamp by DSP — 7 days, live Zoom, beginner friendly. Earn 3 Claude/Anthropic certificates + 1 DSP certificate. No coding needed.',
   viewport: 'width=device-width, initial-scale=1.0, maximum-scale=5.0',
   alternates: {
     canonical: 'https://www.digitalservicesprogram.com/',
   },
   openGraph: {
-    title: 'AI Agents Bootcamp — Build Real-World AI in 15 Days | DSP',
+    title: 'AI Agents Bootcamp — Build Real-World AI in 7 Days | DSP',
     description:
-      'Live Zoom bootcamp for beginners. Build real-world AI agents in 15 days. 4 certificates.',
+      'Live Zoom bootcamp for beginners. Build real-world AI agents in 7 days. 4 certificates.',
     url: 'https://www.digitalservicesprogram.com/',
     type: 'website',
     images: [
@@ -46,15 +46,15 @@ export const metadata: Metadata = {
         url: '/logo.webp',
         width: 1200,
         height: 630,
-        alt: 'DSP AI Agents Bootcamp — 15-Day Live Program',
+        alt: 'DSP AI Agents Bootcamp — 7-Day Live Program',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Agents Bootcamp — Learn AI Agents in 15 Days | DSP',
+    title: 'AI Agents Bootcamp — Learn AI Agents in 7 Days | DSP',
     description:
-      'Build real-world AI agents in 15 days. Live Zoom, beginner friendly, 4 certificates.',
+      'Build real-world AI agents in 7 days. Live Zoom, beginner friendly, 4 certificates.',
   },
 }
 

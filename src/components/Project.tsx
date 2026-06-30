@@ -6,7 +6,7 @@ const STEPS = [
   { label: 'Tool Steps',         desc: 'Select and sequence the tools the agent will use.' },
   { label: 'Memory & Context',   desc: 'Add memory so the agent retains relevant information.' },
   { label: 'Final Review',       desc: 'Evaluate agent output and refine behaviour.' },
-  { label: 'Presentation',       desc: 'Present your working agent to the cohort on Day 15.' },
+  { label: 'Presentation',       desc: 'Present your working agent to the cohort on Day 7.' },
 ]
 
 export default function Project() {
@@ -33,7 +33,7 @@ export default function Project() {
                 marginBottom: '1.25rem',
               }}
             >
-              Ship something real on Day&nbsp;15.
+              Ship something real on Day&nbsp;7.
             </h2>
             <p
               style={{
