@@ -459,7 +459,6 @@ export function HomeFooter() {
         </div>
         <div className="foot-legal">
           <span>© 2026 Digital Services Program · SECP-registered company</span>
-          <span>Not affiliated with or endorsed by Anthropic.</span>
         </div>
       </div>
     </footer>
