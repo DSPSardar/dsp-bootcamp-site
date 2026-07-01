@@ -6,6 +6,14 @@ export const metadata: Metadata = {
   title: 'Contact DSP — Book a Free Intro Session',
   description:
     'Get in touch with Digital Services Program. Book a free intro session via WhatsApp or reach us by phone.',
+  alternates: { canonical: '/contact' },
+  openGraph: {
+    title: 'Contact DSP — Book a Free Intro Session',
+    description:
+      'Get in touch with Digital Services Program. Book a free intro session via WhatsApp or reach us by phone.',
+    url: '/contact',
+    type: 'website',
+  },
 }
 
 export default function ContactPage() {
@@ -43,7 +51,7 @@ export default function ContactPage() {
             marginBottom: '2.5rem',
           }}
         >
-          Book a free intro session, ask a question, or just say hi. We're
+          Book a free intro session, ask a question, or just say hi. We&apos;re
           available on WhatsApp every day.
         </p>
 

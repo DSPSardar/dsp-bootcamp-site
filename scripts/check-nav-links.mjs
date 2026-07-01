@@ -6,11 +6,10 @@ const root = dirname(dirname(fileURLToPath(import.meta.url)))
 const navSource = readFileSync(join(root, 'src/components/Nav.tsx'), 'utf8')
 
 const requiredHomeSectionLinks = [
-  '/#shift',
-  '/#learn',
-  '/#roadmap',
-  '/#modules',
-  '/#certificates',
+  '/#week',
+  '/#instructor',
+  '/#projects',
+  '/#pricing',
   '/#faq',
 ]
 

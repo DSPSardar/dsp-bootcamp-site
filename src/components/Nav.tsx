@@ -4,12 +4,10 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const links = [
-  { label: 'The Shift', href: '/#shift' },
-  { label: 'Learn', href: '/#learn' },
-  { label: 'Roadmap', href: '/#roadmap' },
-  { label: 'Modules', href: '/#modules' },
-  { label: 'Student Projects', href: '/#student-projects' },
-  { label: 'Certificates', href: '/#certificates' },
+  { label: 'Schedule', href: '/#week' },
+  { label: 'Instructor', href: '/#instructor' },
+  { label: 'Projects', href: '/#projects' },
+  { label: 'Fee', href: '/#pricing' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
   { label: 'FAQ', href: '/#faq' },
