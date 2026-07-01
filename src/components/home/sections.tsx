@@ -243,13 +243,13 @@ export function ProjectsSection() {
 
         {/* Verified testimonials — quotes pulled directly from real TikTok
             videos via TikTok's public oEmbed API, not authored by hand.
-            Abdul Hadi's video shares the exact same caption text as
-            Riffat's (DSP's standard caption on these posts), so it is
-            NOT duplicated here as a fake distinct quote — his card links
-            straight to his video instead.
+            Abdul Hadi's and Muhammad Usman's videos share the exact same
+            caption text as Riffat's (DSP's standard caption on these
+            posts), so it is NOT duplicated here as a fake distinct quote —
+            their cards link straight to their videos instead.
             Add more cards here as additional verified names + video links
             come in; do not fill empty slots with invented names/quotes. */}
-        <div className="stu-grid" style={{ marginTop: '2.4rem', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', maxWidth: 900, marginLeft: 'auto', marginRight: 'auto' }}>
+        <div className="stu-grid" style={{ marginTop: '2.4rem' }}>
           <div className="stu-card">
             <CheckIcon />
             <p className="quote">I am extremely grateful to be part of the AI Agentic Master Class under the Digital Services Program, taught by Abdul Ghaffar Khan. This course has provided me with practical knowledge of AI agents, automation, prompt engineering, and modern AI tools that are transforming businesses today. The training methodology is highly professional, easy to understand, and focused on real-world applications. Abdul Ghaffar Khan explains complex AI concepts in a simple and engaging way, making learning enjoyable for both beginners and professionals. Thank you, Digital Services Program and Abdul Ghaffar Khan, for providing such an excellent learning opportunity.</p>
@@ -259,6 +259,11 @@ export function ProjectsSection() {
             <CheckIcon />
             <p className="quote">Verified student review from the AI Agentic Master Class — watch his full testimonial on TikTok.</p>
             <p className="who">Abdul Hadi · <a href="https://www.tiktok.com/@digitalservicesprogram/video/7652246560511741191" target="_blank" rel="noopener noreferrer">Watch his testimonial on TikTok</a></p>
+          </div>
+          <div className="stu-card">
+            <CheckIcon />
+            <p className="quote">Verified student review from the AI Agentic Master Class — watch his full testimonial on TikTok.</p>
+            <p className="who">Muhammad Usman · UK · <a href="https://www.tiktok.com/@digitalservicesprogram/video/7654094650680020231" target="_blank" rel="noopener noreferrer">Watch his testimonial on TikTok</a></p>
           </div>
         </div>
 
