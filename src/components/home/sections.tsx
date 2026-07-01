@@ -241,31 +241,15 @@ export function ProjectsSection() {
           </div>
         </div>
 
-        {/* Student work — June 2026 batch.
-            PASTE the exact quotes from your YouTube/TikTok/Facebook/Instagram testimonial
-            videos into the .quote lines below (with each student's permission), and link
-            each card's "Watch" to that student's specific video URL. */}
-        <div className="stu-grid" style={{ marginTop: '2.4rem' }}>
+        {/* Verified testimonial — quote pulled directly from the real TikTok
+            video via TikTok's public oEmbed API, not authored by hand.
+            Add more cards here as additional verified quotes + video links
+            come in; do not fill empty slots with invented names/quotes. */}
+        <div className="stu-grid" style={{ marginTop: '2.4rem', gridTemplateColumns: '1fr', maxWidth: 640, marginLeft: 'auto', marginRight: 'auto' }}>
           <div className="stu-card">
-            <svg className="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18M7 14l4-4 3 3 5-6" /></svg>
-            <h3>Finance Account Agent</h3>
-            <p style={{ color: 'var(--ink-soft)', fontSize: '.95rem' }}>Automated tracking with multi-agent reconciliation.</p>
-            <p className="quote">{/* PASTE exact quote from the student's video */}[Paste Ahmed&apos;s quote from his testimonial video]</p>
-            <p className="who">Ahmed K. · June 2026 batch · <a href="https://www.youtube.com/@DigitalServicesProgram">Watch his testimonial</a></p>
-          </div>
-          <div className="stu-card">
-            <svg className="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10" /></svg>
-            <h3>Real Estate Sales Agent</h3>
-            <p style={{ color: 'var(--ink-soft)', fontSize: '.95rem' }}>Property matching, market analysis, lead qualification.</p>
-            <p className="quote">{/* PASTE exact quote from the student's video */}[Paste Fatima&apos;s quote from her testimonial video]</p>
-            <p className="who">Fatima S. · June 2026 batch · <a href="https://www.youtube.com/@DigitalServicesProgram">Watch her testimonial</a></p>
-          </div>
-          <div className="stu-card">
-            <svg className="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3" /></svg>
-            <h3>SEO Audit Agent</h3>
-            <p style={{ color: 'var(--ink-soft)', fontSize: '.95rem' }}>7-agent orchestration for full website SEO analysis.</p>
-            <p className="quote">{/* PASTE exact quote from the student's video */}[Paste Hassan&apos;s quote from his testimonial video]</p>
-            <p className="who">Hassan M. · June 2026 batch · <a href="https://www.youtube.com/@DigitalServicesProgram">Watch his testimonial</a></p>
+            <CheckIcon />
+            <p className="quote">I am extremely grateful to be part of the AI Agentic Master Class under the Digital Services Program, taught by Abdul Ghaffar Khan. This course has provided me with practical knowledge of AI agents, automation, prompt engineering, and modern AI tools that are transforming businesses today. The training methodology is highly professional, easy to understand, and focused on real-world applications. Abdul Ghaffar Khan explains complex AI concepts in a simple and engaging way, making learning enjoyable for both beginners and professionals. Thank you, Digital Services Program and Abdul Ghaffar Khan, for providing such an excellent learning opportunity.</p>
+            <p className="who">Riffat · Saudi Arabia · <a href="https://www.tiktok.com/@digitalservicesprogram/video/7652245609784560903" target="_blank" rel="noopener noreferrer">Watch her testimonial on TikTok</a></p>
           </div>
         </div>
 
