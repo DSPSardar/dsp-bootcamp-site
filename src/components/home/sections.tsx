@@ -184,14 +184,14 @@ export function InstructorSection() {
             preload="metadata"
             playsInline
             poster="/instructor-poster.jpg"
-            aria-label="Sardar Ghaffar explains the 7-day AI Agents Bootcamp — 8 minutes"
+            aria-label="Sardar Ghaffar explains the 7-day AI Agents Bootcamp — 10 minutes 20 seconds"
           >
             <source src="/instructor-intro.mp4" type="video/mp4" />
             {/* TODO: add captions for accessibility (WCAG 1.2.2):
                 <track kind="captions" src="/instructor-intro.en.vtt" srcLang="en" label="English" /> */}
             Your browser does not support video. <a href="/instructor-intro.mp4">Download the intro video</a>.
           </video>
-          <p className="inst-video-cap">Sardar Ghaffar walks you through the bootcamp — 8 min</p>
+          <p className="inst-video-cap">Sardar Ghaffar walks you through the bootcamp — 10 min 20 sec</p>
         </div>
         <div>
           <p className="eyebrow">Your instructor</p>
