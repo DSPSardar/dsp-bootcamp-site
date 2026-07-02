@@ -22,7 +22,7 @@ export default function LeadForm() {
     const intent =
       intentValue === 'syllabus'
         ? 'Please send me the full syllabus PDF.'
-        : "I want to join Monday's batch (PKR 10,000)."
+        : "I want to join Monday's batch."
     const msg = `Hi DSP, I'm ${name} (${bg}). ${intent} My number: ${phone}`
 
     // Store the lead server-side BEFORE the redirect (keepalive survives navigation).

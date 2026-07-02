@@ -21,29 +21,29 @@ import {
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'AI Agents Bootcamp — 7 Days, 5 Live Zoom Classes, PKR 10,000 | DSP',
+    absolute: 'AI Agents Bootcamp — 7 Days, 5 Live Zoom Classes | DSP',
   },
   description:
-    'Build and deploy your first AI agent in 7 days — no code. 5 live Zoom classes (9–10 PM PKT), 4 certificates, final project showcase. PKR 10,000, everything included.',
+    'Build and deploy your first AI agent in 7 days — no code. 5 live Zoom classes (9–10 PM PKT), 4 certificates, final project showcase. Everything included in one fee.',
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     url: '/',
-    title: 'AI Agents Bootcamp — 7 Days · 5 Live Classes · PKR 10,000 | DSP',
+    title: 'AI Agents Bootcamp — 7 Days · 5 Live Classes | DSP',
     description:
-      'Live on Zoom, 9–10 PM PKT. No coding. 4 certificates. Ship a working AI agent by Day 7. PKR 10,000 — everything included.',
+      'Live on Zoom, 9–10 PM PKT. No coding. 4 certificates. Ship a working AI agent by Day 7. Everything included in one fee.',
     images: [
       {
         url: '/og-card.png',
         width: 1200,
         height: 630,
-        alt: 'DSP AI Agents Bootcamp — 7 days, 5 live Zoom classes, PKR 10,000 all-inclusive',
+        alt: 'DSP AI Agents Bootcamp — 7 days, 5 live Zoom classes, all-inclusive',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Agents Bootcamp — 7 Days · 5 Live Classes · PKR 10,000 | DSP',
+    title: 'AI Agents Bootcamp — 7 Days · 5 Live Classes | DSP',
     description:
       'Live on Zoom, 9–10 PM PKT. No coding. 4 certificates. Ship a working AI agent by Day 7.',
     images: ['/og-card.png'],

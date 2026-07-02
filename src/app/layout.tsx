@@ -28,11 +28,11 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.digitalservicesprogram.com'),
   alternates: { canonical: './' }, // self-referencing on every route
   title: {
-    default: 'AI Agents Bootcamp — 7 Days, 5 Live Zoom Classes, PKR 10,000 | DSP',
+    default: 'AI Agents Bootcamp — 7 Days, 5 Live Zoom Classes | DSP',
     template: '%s | DSP',
   },
   description:
-    'Build and deploy your first AI agent in 7 days — no code. 5 live Zoom classes (9–10 PM PKT), 4 certificates. PKR 10,000, everything included.',
+    'Build and deploy your first AI agent in 7 days — no code. 5 live Zoom classes (9–10 PM PKT), 4 certificates. Everything included in one fee.',
   openGraph: {
     siteName: 'Digital Services Program',
     type: 'website',

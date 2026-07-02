@@ -29,7 +29,7 @@ export default function HomeHeader() {
         </ul>
         <a className="btn btn-primary btn-sm" href="https://wa.me/923118122222?text=Hi%20DSP%2C%20I%20want%20to%20join%20Monday%27s%20batch">
           <WhatsAppIcon />
-          Join — PKR 10,000
+          Join the Bootcamp
         </a>
       </div>
     </header>

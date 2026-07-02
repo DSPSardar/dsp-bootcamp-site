@@ -17,8 +17,8 @@ export function Hero() {
           <p className="sub">Five live Zoom classes, Monday to Friday, 9:00–10:00 PM Pakistan time. No coding. You&apos;ll plan, build, and deploy a working AI agent — and present it live on Day 7.</p>
           <p className="urdu-line" lang="ur">سیکھیں آج، بنائیں کل — اے آئی آپ کی زبان سمجھتی ہے۔</p>
           <div className="fee-flag">
-            <span className="amt">PKR 10,000</span>
-            <span className="lbl">one-time · everything included · all 4 certificates</span>
+            <span className="amt">Everything included</span>
+            <span className="lbl">one simple fee · all 4 certificates · no hidden costs</span>
           </div>
           <div className="hero-ctas">
             <a className="btn btn-primary" href="https://wa.me/923118122222?text=Hi%20DSP%2C%20I%20want%20to%20join%20Monday%27s%20batch">
@@ -62,7 +62,7 @@ export function FactStrip() {
           <li><strong>5 live classes</strong><span>Mon–Fri on Zoom</span></li>
           <li><strong>9–10 PM</strong><span>Pakistan time</span></li>
           <li><strong>4 certificates</strong><span>3 Anthropic + 1 DSP</span></li>
-          <li><strong>PKR 10,000</strong><span>everything included</span></li>
+          <li><strong>All-inclusive</strong><span>one simple fee</span></li>
         </ul>
       </div>
     </div>
@@ -164,7 +164,7 @@ export function CompareSection() {
               <tr><td>Final project</td><td><span className="tick">Built, deployed &amp; presented live</span></td><td className="cross">Rare</td></tr>
               <tr><td>Internship pathway</td><td><span className="tick">Yes — top students, 1 month</span></td><td className="cross">No</td></tr>
               <tr><td>Language</td><td>English + Urdu, your timezone</td><td>English only</td></tr>
-              <tr><td>Fee</td><td><strong>PKR 10,000 — everything included</strong></td><td>PKR 40,000–150,000+</td></tr>
+              <tr><td>Fee</td><td><strong>One-time fee — everything included</strong></td><td>PKR 40,000–150,000+</td></tr>
             </tbody>
           </table>
         </div>
@@ -353,7 +353,7 @@ export function PricingSection() {
             <li><CheckIcon /> Cohort WhatsApp group with instructor support</li>
             <li><CheckIcon /> Internship pathway for top students (1 month)</li>
           </ul>
-          <a className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }} href="https://wa.me/923118122222?text=Hi%20DSP%2C%20I%20want%20to%20reserve%20my%20seat%20for%20Monday%27s%20batch%20(PKR%2010%2C000)">Reserve my seat — PKR 10,000</a>
+          <a className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }} href="https://wa.me/923118122222?text=Hi%20DSP%2C%20I%20want%20to%20reserve%20my%20seat%20for%20Monday%27s%20batch">Reserve my seat</a>
           <p className="guarantee"><strong>Day-1 guarantee:</strong> attend the first live class. If it&apos;s not for you, message us before Day 2 and we refund the full fee.</p>
         </div>
       </div>
@@ -394,7 +394,7 @@ export function PoliciesSection() {
         <details>
           <summary>Refund policy</summary>
           <div className="policy-body">
-            <p><strong>Day-1 guarantee.</strong> Attend the first live class of your cohort. If you decide the bootcamp is not for you, send us a WhatsApp message before the Day 2 class begins and we will refund your full PKR 10,000 fee within 7 working days, to the same payment method.</p>
+            <p><strong>Day-1 guarantee.</strong> Attend the first live class of your cohort. If you decide the bootcamp is not for you, send us a WhatsApp message before the Day 2 class begins and we will refund your full fee within 7 working days, to the same payment method.</p>
             <p>After Day 2 begins, fees are non-refundable, because seats are limited and your seat could have gone to another student. If you cannot attend your cohort, you may transfer your seat to the next cohort once, free of charge, with at least 48 hours&apos; notice before Day 1.</p>
           </div>
         </details>
@@ -408,7 +408,7 @@ export function PoliciesSection() {
         <details>
           <summary>Terms of service</summary>
           <div className="policy-body">
-            <p>Enrolment is confirmed on receipt of the PKR 10,000 fee. Class replays and materials are provided for your personal use within your cohort and may not be redistributed or resold. Certificates are issued on meeting each certificate&apos;s completion requirements. DSP may reschedule a class due to circumstances beyond its control; a replacement session will always be provided.</p>
+            <p>Enrolment is confirmed on receipt of the course fee. Class replays and materials are provided for your personal use within your cohort and may not be redistributed or resold. Certificates are issued on meeting each certificate&apos;s completion requirements. DSP may reschedule a class due to circumstances beyond its control; a replacement session will always be provided.</p>
             <p>Digital Services Program is a SECP-registered company based in Islamabad, Pakistan. Anthropic certificates are issued by Anthropic on completion of its official courses; DSP is an independent organisation and is not affiliated with or endorsed by Anthropic.</p>
           </div>
         </details>
@@ -434,7 +434,7 @@ export function HomeFooter() {
             <h3>Bootcamp</h3>
             <ul>
               <li><a href="#week">7-day schedule</a></li>
-              <li><a href="#pricing">Fee — PKR 10,000</a></li>
+              <li><a href="#pricing">Fee</a></li>
               <li><a href="#certificates">Certificates</a></li>
               <li><a href="#instructor">Instructor</a></li>
               <li><a href="#faq">FAQ</a></li>
@@ -467,7 +467,7 @@ export function HomeFooter() {
 export function StickyCta() {
   return (
     <div className="sticky-cta" role="region" aria-label="Quick actions">
-      <div className="price-tag">PKR 10,000 <small>Next batch: Monday</small></div>
+      <div className="price-tag">Next batch <small>Starts Monday</small></div>
       <a className="btn btn-primary" href="https://wa.me/923118122222?text=Hi%20DSP%2C%20I%20want%20to%20reserve%20my%20seat%20for%20Monday%27s%20batch">
         <WhatsAppIcon />
         Reserve on WhatsApp

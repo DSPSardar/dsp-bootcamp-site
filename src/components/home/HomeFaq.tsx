@@ -17,7 +17,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "What's the refund policy?",
-    a: <p>Attend Day 1 live. If the bootcamp isn&apos;t for you, message us on WhatsApp before Day 2 begins and we refund the full PKR 10,000. See the refund policy below for details.</p>,
+    a: <p>Attend Day 1 live. If the bootcamp isn&apos;t for you, message us on WhatsApp before Day 2 begins and we refund the full fee. See the refund policy below for details.</p>,
   },
   {
     q: 'What are the four certificates, exactly?',
