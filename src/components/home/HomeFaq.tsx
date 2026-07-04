@@ -35,6 +35,14 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
     q: "I'm a marketer / business owner / student — is this for me?",
     a: <p>Yes — the bootcamp is built for non-programmers. Marketers build lead-qualifying agents, business owners automate operations, and students leave with a deployed project for their portfolio. Your final project fits your own work.</p>,
   },
+  {
+    q: 'I work / study during the day. Will I manage?',
+    a: <p>Yes — that&apos;s why classes run 9–10 PM, just one hour a night. Homework takes 20–30 minutes. Every session is recorded, so if you miss a night, you catch up before the next class.</p>,
+  },
+  {
+    q: 'What do I need to join?',
+    a: <p>A laptop and an internet connection. That&apos;s it. No software to install, no coding background, no technical setup — we start from zero together on Day 1.</p>,
+  },
 ]
 
 export default function HomeFaq() {

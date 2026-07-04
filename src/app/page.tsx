@@ -3,10 +3,12 @@ import type { Metadata } from 'next'
 import './home.css'
 import HomeHeader from '@/components/home/HomeHeader'
 import HomeFaq from '@/components/home/HomeFaq'
+import AnnouncementBar from '@/components/home/AnnouncementBar'
 import {
   Hero,
   FactStrip,
   ShiftSection,
+  PersonaSection,
   WeekSchedule,
   CompareSection,
   InstructorSection,
@@ -105,7 +107,7 @@ const courseLd = {
       ],
     },
     startDate: '2026-07-06',
-    instructor: { '@type': 'Person', name: 'Sardar Ghaffar' },
+    instructor: { '@type': 'Person', name: 'Sardar Abdul Ghaffar Khan' },
   },
 }
 
@@ -161,6 +163,22 @@ const faqLd = {
         text: 'Classes are taught in a mix of English and Urdu, so both terminology and explanation land clearly.',
       },
     },
+    {
+      '@type': 'Question',
+      name: 'I work / study during the day. Will I manage?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes — that’s why classes run 9–10 PM, just one hour a night. Homework takes 20–30 minutes. Every session is recorded, so if you miss a night, you catch up before the next class.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What do I need to join?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'A laptop and an internet connection. That’s it. No software to install, no coding background, no technical setup — we start from zero together on Day 1.',
+      },
+    },
   ],
 }
 
@@ -181,12 +199,14 @@ export default function Page() {
       />
 
       <a className="skip" href="#main">Skip to content</a>
+      <AnnouncementBar />
       <HomeHeader />
 
       <main id="main">
         <Hero />
         <FactStrip />
         <ShiftSection />
+        <PersonaSection />
         <WeekSchedule />
         <CompareSection />
         <InstructorSection />

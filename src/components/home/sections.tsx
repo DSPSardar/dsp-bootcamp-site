@@ -14,6 +14,7 @@ export function Hero() {
         <div>
           <span className="cohort-pill"><span className="dot" aria-hidden="true"></span> New batch every Monday · Next: Mon 6 July 2026 · 30 seats</span>
           <h1>Build your first AI agent in <em>7 days</em> — live, at 9&nbsp;PM, in plain English.</h1>
+          <p className="hero-facts">PKR 10,000 all-inclusive · 5 live classes · 4 certificates · Day-1 money-back guarantee</p>
           <p className="sub">Five live Zoom classes, Monday to Friday, 9:00–10:00 PM Pakistan time. No coding. You&apos;ll plan, build, and deploy a working AI agent — and present it live on Day 7.</p>
           <p className="urdu-line" lang="ur">سیکھیں آج، بنائیں کل — اے آئی آپ کی زبان سمجھتی ہے۔</p>
           <div className="fee-flag">
@@ -27,10 +28,12 @@ export function Hero() {
             </a>
             <a className="btn btn-ghost-light" href="#week">See the 7-day schedule</a>
           </div>
+          <p className="cta-guarantee">Attend Day 1. If it&apos;s not for you, full refund — no questions asked.</p>
+          <p className="hero-note">Not sure yet? Watch our students&apos; video reviews below — real names, public TikTok links.</p>
           <p className="hero-note">Prefer to talk? Call <a href="tel:+923118122222">+92 311 8122222</a> · Classes in English + Urdu</p>
         </div>
 
-        <div className="console" role="img" aria-label="Tonight's class console showing the live session at 9 PM Pakistan time and the agent pipeline the cohort will build: plan, tools, memory, evaluate, deploy.">
+        <div className="console" role="img" aria-label="Tonight's class console showing the live session at 9 PM Pakistan time and the agent pipeline the cohort will build: idea, job description, knowledge, tools, ship.">
           <div className="console-bar">
             <span className="dots" aria-hidden="true"><i></i><i></i><i></i></span>
             <span>dsp — tonight&apos;s class</span>
@@ -40,11 +43,11 @@ export function Hero() {
               <ConsoleClock />
               <span className="tz">PKT · LIVE ON ZOOM</span>
             </div>
-            <div className="console-line"><span className="tag">plan</span> break the goal into steps <span className="ok">done</span></div>
-            <div className="console-line"><span className="tag">tools</span> connect search, files, APIs <span className="ok">done</span></div>
-            <div className="console-line"><span className="tag">memory</span> keep context across steps <span className="ok">done</span></div>
-            <div className="console-line"><span className="tag">evaluate</span> test what the agent did <span className="ok">done</span></div>
-            <div className="console-line"><span className="tag">deploy</span> <span className="cursor">shipping your agent</span></div>
+            <div className="console-line"><span className="tag">idea</span> pick one real problem to solve <span className="ok">done</span></div>
+            <div className="console-line"><span className="tag">job desc</span> role, goal, tone, rules <span className="ok">done</span></div>
+            <div className="console-line"><span className="tag">knowledge</span> teach it your business facts <span className="ok">done</span></div>
+            <div className="console-line"><span className="tag">tools</span> calendars, email, WhatsApp <span className="ok">done</span></div>
+            <div className="console-line"><span className="tag">ship</span> <span className="cursor">shipping your agent</span></div>
           </div>
         </div>
       </div>
@@ -58,11 +61,10 @@ export function FactStrip() {
     <div className="facts" aria-label="Bootcamp at a glance">
       <div className="wrap">
         <ul>
-          <li><strong>7 days</strong><span>one focused week</span></li>
-          <li><strong>5 live classes</strong><span>Mon–Fri on Zoom</span></li>
-          <li><strong>9–10 PM</strong><span>Pakistan time</span></li>
-          <li><strong>4 certificates</strong><span>3 Anthropic + 1 DSP</span></li>
-          <li><strong>All-inclusive</strong><span>one simple fee</span></li>
+          <li><strong>5</strong><span>Live Classes</span></li>
+          <li><strong>7</strong><span>Days to Deployed</span></li>
+          <li><strong>30</strong><span>Seats per Batch</span></li>
+          <li><strong>4</strong><span>Certificates</span></li>
         </ul>
       </div>
     </div>
@@ -101,15 +103,45 @@ export function ShiftSection() {
   )
 }
 
+/* ============ WHAT WILL YOU BUILD? ============ */
+const PERSONAS = [
+  { role: 'Marketer', text: 'A lead-qualifier agent that filters serious buyers from time-wasters on WhatsApp — automatically.' },
+  { role: 'Teacher', text: 'A student-helper agent that answers course questions and shares schedules, 24/7.' },
+  { role: 'Shop / Business Owner', text: 'An order-taking agent that answers prices, hours, and bookings while you sleep.' },
+  { role: 'Freelancer', text: 'A client-intake agent that collects requirements and budgets before your first call.' },
+]
+
+export function PersonaSection() {
+  return (
+    <section className="personas" id="personas">
+      <div className="wrap">
+        <div className="sec-head">
+          <p className="eyebrow">Your project</p>
+          <h2>What will YOU build?</h2>
+          <p>Every student builds an agent for their OWN work. Here&apos;s what past students chose:</p>
+        </div>
+        <div className="persona-grid">
+          {PERSONAS.map((p) => (
+            <div className="persona-card" key={p.role}>
+              <p className="role">{p.role}</p>
+              <p>{p.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 /* ============ 7-DAY SCHEDULE ============ */
-const DAYS = [
-  { d: 'Day 1 · Mon', title: <>AI agent thinking &amp; vibe coding</>, desc: 'What an agent really is, and how to build software by describing it in plain English.', when: 'Live · 9–10 PM', live: true },
-  { d: 'Day 2 · Tue', title: <>Tools, APIs &amp; agent-to-agent communication</>, desc: 'Connect your agent to search, files, and services — and make agents pass work to each other.', when: 'Live · 9–10 PM', live: true },
-  { d: 'Day 3 · Wed', title: <>Skills, memory &amp; context</>, desc: 'Give your agent memory so it retains what matters across steps and sessions.', when: 'Live · 9–10 PM', live: true },
-  { d: 'Day 4 · Thu', title: <>Testing, evaluation &amp; security</>, desc: 'Check whether your agent actually did the job — and keep it safe from prompt attacks.', when: 'Live · 9–10 PM', live: true },
-  { d: 'Day 5 · Fri', title: <>Agentic fleets &amp; deployment</>, desc: 'Orchestrate multiple agents and prepare yours for a real, public deployment.', when: 'Live · 9–10 PM', live: true },
-  { d: 'Day 6 · Sat', title: <>Build day</>, desc: 'You build your final project with guided support on the cohort WhatsApp group.', when: 'Guided · flexible', live: false },
-  { d: 'Day 7 · Sun', title: <>Final project showcase</>, desc: 'Demo your working agent live to the cohort. Certificates issued after your presentation.', when: 'Live showcase', live: true },
+const DAYS: { d: string; title: React.ReactNode; desc: string; outcome: string; when: string; live: boolean; gold?: boolean }[] = [
+  { d: 'Day 1 · Mon', title: <>From Idea to Agent</>, desc: 'What makes an AI agent different from a chatbot — and the DSP formula behind every agent: Claude + Job Description + Tools + Loop. You pick one real problem from your own business or work, and build your first working agent tonight, live with us.', outcome: 'You walk away with: your agent v0, answering its first real questions.', when: 'Live · 9–10 PM', live: true },
+  { d: 'Day 2 · Tue', title: <>The Job Description</>, desc: "An agent is only as good as its instructions. You'll learn the DSP 7-Part Job Description — the exact way to tell Claude its role, goal, audience, tone, steps, rules, and examples. This is prompt engineering, taught in plain English.", outcome: 'You walk away with: a professional agent that speaks like a trained employee.', when: 'Live · 9–10 PM', live: true },
+  { d: 'Day 3 · Wed', title: <>Knowledge &amp; Memory</>, desc: 'Tonight your agent learns YOUR business — your prices, your policies, your answers. You\'ll learn the Memory Ladder (Brain, Backpack, Notebook), how to stop your agent from inventing wrong answers, and the one rule that makes it say "I don\'t know" instead of guessing.', outcome: 'You walk away with: an agent that answers from your real business facts.', when: 'Live · 9–10 PM', live: true },
+  { d: 'Day 4 · Thu', title: <>Tools &amp; Claude Code</>, desc: "The big night. Tools give your agent hands — calendars, email, WhatsApp. Then, using Vibe Coding, you'll describe a web page in plain English and watch Claude build it. No syntax. No code. Your English is the programming language.", outcome: 'You walk away with: your agent inside a real, branded web interface.', when: 'Live · 9–10 PM', live: true },
+  { d: 'Day 5 · Fri', title: <>Test, Secure, Ship</>, desc: "Before real users arrive, we attack your agent on purpose. You'll run the DSP 10-Question Test Sheet, learn how strangers try to trick AI agents (prompt injection), and install the security rules that stop them. Then you get your weekend deployment mission.", outcome: 'You walk away with: a tested, secured agent — cleared for launch.', when: 'Live · 9–10 PM', live: true },
+  { d: 'Day 6 · Sat', title: <>Build &amp; Deploy (Capstone)</>, desc: 'You work independently with our support on WhatsApp all day, plus a live 9 PM help clinic. By tonight, your agent is deployed on the internet with a live URL — and three real people have used it.', outcome: 'You walk away with: a LIVE agent anyone in the world can open.', when: 'Guided · flexible', live: false },
+  { d: 'Day 7 · Sun', title: <>Showcase &amp; Certificates</>, desc: "The night it all pays off. You demo your live agent on Zoom — 2 minutes, your story, your build, your link. You'll pass the assessment rubric, receive your certificates, and leave with a portfolio project you can show any client or employer.", outcome: 'You walk away with: a deployed AI agent, 4 certificates, and proof you built it.', when: 'Live showcase', live: true, gold: true },
 ]
 
 export function WeekSchedule() {
@@ -123,12 +155,18 @@ export function WeekSchedule() {
         </div>
 
         {DAYS.map((day) => (
-          <div className="day-row" key={day.d}>
+          <div className={day.gold ? 'day-row gold' : 'day-row'} key={day.d}>
             <span className="d">{day.d}</span>
-            <div><h3>{day.title}</h3><p>{day.desc}</p></div>
+            <div>
+              <h3>{day.title}</h3>
+              <p>{day.desc}</p>
+              <p className="outcome">&ldquo;{day.outcome}&rdquo;</p>
+            </div>
             <span className={day.live ? 'when live' : 'when'}>{day.when}</span>
           </div>
         ))}
+
+        <p className="schedule-teaser">And after the bootcamp? Single agents are just the beginning. Graduates learn about multi-agent systems — teams of AI agents working together — in our advanced track and alumni community.</p>
 
         <div className="syllabus-cta">
           <svg className="ic" viewBox="0 0 24 24" aria-hidden="true" style={{ width: 32, height: 32, color: 'var(--teal)' }}><path d="M6 3h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" /><path d="M14 3v6h6M9 13h6M9 17h6" /></svg>
@@ -184,19 +222,20 @@ export function InstructorSection() {
             preload="metadata"
             playsInline
             poster="/instructor-poster.jpg"
-            aria-label="Sardar Ghaffar explains the 7-day AI Agents Bootcamp — 3 minutes 54 seconds"
+            aria-label="Sardar Abdul Ghaffar Khan explains the 7-day AI Agents Bootcamp — 3 minutes 54 seconds"
           >
             <source src="/instructor-intro.mp4" type="video/mp4" />
             {/* TODO: add captions for accessibility (WCAG 1.2.2):
                 <track kind="captions" src="/instructor-intro.en.vtt" srcLang="en" label="English" /> */}
             Your browser does not support video. <a href="/instructor-intro.mp4">Download the intro video</a>.
           </video>
-          <p className="inst-video-cap">Sardar Ghaffar walks you through the bootcamp — 3 min 54 sec</p>
+          <p className="inst-video-cap">Sardar Abdul Ghaffar Khan walks you through the bootcamp — 3 min 54 sec</p>
         </div>
         <div>
           <p className="eyebrow">Your instructor</p>
           <h2>You&apos;re not buying a course. You&apos;re buying a teacher.</h2>
-          <p><strong>Sardar Ghaffar</strong> has spent 24 years in the IT industry and has taught in London, the UAE, and Pakistan. A Google-certified AI trainer, he teaches every session of this bootcamp himself — live, every night, answering your questions in English and Urdu. Press play and let him explain the course to you directly.</p>
+          <p><strong>Sardar Abdul Ghaffar Khan</strong> has spent 24 years in the IT industry and has taught in London, the UAE, and Pakistan. A Google-certified AI trainer, he teaches every session of this bootcamp himself — live, every night, answering your questions in English and Urdu. Press play and let him explain the course to you directly.</p>
+          <p className="inst-stack">24 years in IT · Google-certified AI trainer · taught in 🇬🇧 🇦🇪 🇵🇰 · builder of <a href="https://getaisales.com">getaisales.com</a></p>
           <ul className="cred-list">
             <li><svg className="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17l-5.9 3 1.2-6.5L2.5 8.9 9.1 8z" /></svg> 24 years in the IT industry across three countries</li>
             <li><svg className="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5" /></svg> Google-certified AI Agentic Trainer</li>
@@ -248,11 +287,14 @@ export function ProjectsSection() {
             posts), so it is NOT duplicated here as a fake distinct quote —
             their cards link straight to their videos instead.
             Add more cards here as additional verified names + video links
-            come in; do not fill empty slots with invented names/quotes. */}
-        <div className="stu-grid" style={{ marginTop: '2.4rem' }}>
+            come in; do not fill empty slots with invented names/quotes.
+            Riffat's quote is truncated for layout — the full text lives in
+            her TikTok caption, linked via "Read more". */}
+        <p className="testi-cap" style={{ marginTop: '2.4rem' }}>From our earlier Master Class cohorts — same instructor, same live-teaching method, now sharpened into this 7-day format.</p>
+        <div className="stu-grid" style={{ marginTop: '1rem' }}>
           <div className="stu-card">
             <CheckIcon />
-            <p className="quote">I am extremely grateful to be part of the AI Agentic Master Class under the Digital Services Program, taught by Abdul Ghaffar Khan. This course has provided me with practical knowledge of AI agents, automation, prompt engineering, and modern AI tools that are transforming businesses today. The training methodology is highly professional, easy to understand, and focused on real-world applications. Abdul Ghaffar Khan explains complex AI concepts in a simple and engaging way, making learning enjoyable for both beginners and professionals. Thank you, Digital Services Program and Abdul Ghaffar Khan, for providing such an excellent learning opportunity.</p>
+            <p className="quote">I am extremely grateful to be part of the AI Agentic Master Class under the Digital Services Program, taught by Sardar Abdul Ghaffar Khan… <a href="https://www.tiktok.com/@digitalservicesprogram/video/7652245609784560903" target="_blank" rel="noopener noreferrer">Read more</a></p>
             <p className="who">Riffat · Saudi Arabia · <a href="https://www.tiktok.com/@digitalservicesprogram/video/7652245609784560903" target="_blank" rel="noopener noreferrer">Watch her testimonial on TikTok</a></p>
           </div>
           <div className="stu-card">

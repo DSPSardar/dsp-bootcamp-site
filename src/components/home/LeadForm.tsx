@@ -2,13 +2,13 @@
 
 // Admissions form: builds a contextual WhatsApp message AND posts the lead
 // to /api/lead before the redirect, so abandoned handoffs are still captured.
-// Includes a honeypot field ("company") that silently drops bots.
+// Includes a honeypot field ("website") that silently drops bots.
 export default function LeadForm() {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const f = e.currentTarget
-    const company = (f.elements.namedItem('company') as HTMLInputElement).value
-    if (company) return // honeypot — silently drop bots
+    const honeypot = (f.elements.namedItem('website') as HTMLInputElement).value
+    if (honeypot) return // honeypot — silently drop bots
 
     const name = (f.elements.namedItem('name') as HTMLInputElement).value.trim()
     const phone = (f.elements.namedItem('phone') as HTMLInputElement).value.trim()
@@ -67,8 +67,8 @@ export default function LeadForm() {
       </div>
       {/* honeypot: bots fill this, humans never see it */}
       <div className="hp" aria-hidden="true">
-        <label htmlFor="f-company">Company</label>
-        <input id="f-company" name="company" type="text" tabIndex={-1} autoComplete="off" />
+        <label htmlFor="f-website">Website</label>
+        <input id="f-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
       <input type="hidden" id="f-intent" defaultValue="seat" />
       <button className="btn btn-primary" type="submit" style={{ justifyContent: 'center' }}>
@@ -78,6 +78,7 @@ export default function LeadForm() {
         </svg>
         Continue on WhatsApp
       </button>
+      <p className="cta-guarantee">Attend Day 1. If it&apos;s not for you, full refund — no questions asked.</p>
       <p className="form-note">
         You&apos;ll be taken to WhatsApp to finish. By continuing you agree to our{' '}
         <a href="#policies">privacy policy</a>. Prefer email?{' '}
