@@ -29,7 +29,7 @@ export function Hero() {
             <a className="btn btn-ghost-light" href="#week">See the 7-day schedule</a>
           </div>
           <p className="cta-guarantee">Attend Day 1. If it&apos;s not for you, full refund — no questions asked.</p>
-          <p className="hero-note">Not sure yet? Watch our students&apos; video reviews below — real names, public TikTok links.</p>
+          <p className="hero-note">Join 60+ students from our first two batches — watch their video reviews below.</p>
           <p className="hero-note">Prefer to talk? Call <a href="tel:+923118122222">+92 311 8122222</a> · Classes in English + Urdu</p>
         </div>
 
@@ -61,10 +61,10 @@ export function FactStrip() {
     <div className="facts" aria-label="Bootcamp at a glance">
       <div className="wrap">
         <ul>
-          <li><strong>5</strong><span>Live Classes</span></li>
-          <li><strong>7</strong><span>Days to Deployed</span></li>
-          <li><strong>30</strong><span>Seats per Batch</span></li>
-          <li><strong>4</strong><span>Certificates</span></li>
+          <li><strong>60+</strong><span>Students Trained</span></li>
+          <li><strong>2</strong><span>Batches Completed</span></li>
+          <li><strong>3rd</strong><span>Batch — Monday</span></li>
+          <li><strong>30</strong><span>Seats Only</span></li>
         </ul>
       </div>
     </div>
