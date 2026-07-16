@@ -1,5 +1,6 @@
 // Static (server-rendered) sections of the homepage, ported 1:1 from index.html.
 import Link from 'next/link'
+import Image from 'next/image'
 import ConsoleClock from './ConsoleClock'
 import SyllabusButton from './SyllabusButton'
 import LeadForm from './LeadForm'
@@ -242,6 +243,19 @@ export function InstructorSection() {
             <li><svg className="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4M16 2v4M3 9h18M5 5h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" /></svg> Every class taught live by the instructor — no pre-recorded stand-ins</li>
             <li><svg className="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4l6 6-9 9H5v-6z" /><path d="M12 6l6 6" /></svg> Builds in public: the demo agent below was built live using this exact method</li>
           </ul>
+          <a
+            className="inst-badge"
+            href="https://www.credential.net/aae3459a-b0b9-463e-86cd-da7806e00e5d"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image src="/gemini-certified-educator-badge.png" alt="Gemini Certified Educator badge issued by Google for Education" width={64} height={64} />
+            <span>
+              <strong>Gemini Certified Educator</strong>
+              <span className="inst-badge-meta">Issued by Google for Education · valid to Oct 2028</span>
+              <span className="inst-badge-verify">Verify credential ↗</span>
+            </span>
+          </a>
         </div>
       </div>
     </section>

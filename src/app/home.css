@@ -185,6 +185,12 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .dsp-home .cred-list{list-style:none;margin-top:1.4rem;display:grid;gap:.7rem}
 .dsp-home .cred-list li{display:flex;gap:.7rem;align-items:flex-start;color:#DDE2F5;font-size:.98rem}
 .dsp-home .cred-list .ic{color:var(--gold);margin-top:.2rem}
+.dsp-home .inst-badge{margin-top:1.4rem;display:inline-flex;gap:.9rem;align-items:center;background:rgba(255,255,255,.06);border:1px solid var(--line-night);border-radius:14px;padding:.8rem 1.1rem;text-decoration:none;color:#DDE2F5;transition:border-color .2s}
+.dsp-home .inst-badge:hover{border-color:var(--gold)}
+.dsp-home .inst-badge img{width:64px;height:64px;border-radius:10px;background:#fff;flex-shrink:0}
+.dsp-home .inst-badge strong{display:block;color:#fff;font-size:.95rem}
+.dsp-home .inst-badge-meta{display:block;font-size:.8rem;color:#8B95C6;margin-top:.15rem}
+.dsp-home .inst-badge-verify{display:block;font-family:var(--mono);font-size:.75rem;color:var(--gold);margin-top:.35rem}
 
 /* ---------- project / demo ---------- */
 .dsp-home .demo-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:2.6rem;align-items:center}
