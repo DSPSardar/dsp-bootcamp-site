@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import Link from 'next/link'
 import { WhatsAppIcon } from './icons'
 
 export default function HomeHeader() {
@@ -8,9 +9,9 @@ export default function HomeHeader() {
   return (
     <header>
       <div className="wrap nav">
-        <a className="brand" href="#top" aria-label="Digital Services Program — home">
+        <Link className="brand" href="/" aria-label="Digital Services Program — home">
           <span className="brand-mark" aria-hidden="true">D</span> Digital Services Program
-        </a>
+        </Link>
         <button
           className="menu-btn"
           aria-expanded={open}
