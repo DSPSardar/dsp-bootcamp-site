@@ -1,9 +1,12 @@
 // src/app/academy/bootcamp/page.tsx — the 7-day Vibe Coding Bootcamp page.
-// Moved 1:1 from the old homepage; keeps the .dsp-home scoped design intact.
+// Section content below the header is a 1:1 port of the old homepage,
+// scoped under .dsp-home. The header itself is the shared SiteHeader so
+// navigation stays consistent with the rest of the site (same links, same
+// logo-goes-home behavior) — see '@/app/site.css' import below.
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import '@/app/home.css'
-import HomeHeader from '@/components/home/HomeHeader'
+import '@/app/site.css'
+import SiteHeader from '@/components/site/SiteHeader'
 import HomeFaq from '@/components/home/HomeFaq'
 import AnnouncementBar from '@/components/home/AnnouncementBar'
 import { bootcamp } from '@/config/site'
@@ -180,11 +183,8 @@ export default function BootcampPage() {
 
       <a className="skip" href="#main">Skip to content</a>
       <AnnouncementBar />
-      <HomeHeader />
-      <div className="crumb-bar">
-        <div className="wrap">
-          <Link href="/academy">← DSP Academy</Link> · part of the Digital Services Program
-        </div>
+      <div className="dsp-site">
+        <SiteHeader />
       </div>
 
       <main id="main">

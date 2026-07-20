@@ -76,11 +76,6 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .dsp-home .btn-sm{padding:.55rem 1.1rem;font-size:.9rem}
 .dsp-home .menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:10px;padding:.5rem .65rem;color:var(--ink)}
 
-/* ---------- breadcrumb bar (link back to /academy) ---------- */
-.dsp-home .crumb-bar{background:var(--paper-2);border-bottom:1px solid var(--line);font-size:.83rem;color:var(--ink-soft);padding:.45rem 0}
-.dsp-home .crumb-bar a{color:var(--teal-deep);text-decoration:none;font-weight:600}
-.dsp-home .crumb-bar a:hover{text-decoration:underline}
-
 /* ---------- hero (the 9 PM class) ---------- */
 .dsp-home .hero{background:
   radial-gradient(1000px 500px at 85% -10%, rgba(2,128,144,.35), transparent 60%),
