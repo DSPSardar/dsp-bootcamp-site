@@ -1,6 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    // Friendly short URLs → canonical course pages
+    return [
+      { source: "/bootcamp", destination: "/academy/bootcamp", permanent: true },
+      { source: "/fde", destination: "/academy/fde", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

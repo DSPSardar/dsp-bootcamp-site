@@ -47,7 +47,7 @@ export default function Footer() {
             { label: 'Contact', href: '/contact' },
             {
               label: 'WhatsApp',
-              href: 'https://wa.me/923118122222',
+              href: 'https://wa.me/923420580864',
               external: true,
             },
           ].map((l) => (

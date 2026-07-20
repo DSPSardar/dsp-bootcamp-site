@@ -27,7 +27,7 @@ export default function HomeHeader() {
           <li><a href="#pricing">Fee</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
-        <a className="btn btn-primary btn-sm" href="https://wa.me/923118122222?text=Hi%20DSP%2C%20I%20want%20to%20join%20Monday%27s%20batch">
+        <a className="btn btn-primary btn-sm" href="https://wa.me/923420580864?text=Hi%20DSP%2C%20I%20want%20to%20join%20Monday%27s%20batch">
           <WhatsAppIcon />
           Join the Bootcamp
         </a>

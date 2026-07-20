@@ -39,7 +39,7 @@ export default function LeadForm() {
       }),
     }).catch(() => {})
 
-    window.location.href = 'https://wa.me/923118122222?text=' + encodeURIComponent(msg)
+    window.location.href = 'https://wa.me/923420580864?text=' + encodeURIComponent(msg)
   }
 
   return (

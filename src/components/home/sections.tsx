@@ -5,6 +5,7 @@ import ConsoleClock from './ConsoleClock'
 import SyllabusButton from './SyllabusButton'
 import LeadForm from './LeadForm'
 import { WhatsAppIcon, CheckIcon } from './icons'
+import { bootcamp } from '@/config/site'
 
 /* ============ HERO: the 9 PM class ============ */
 export function Hero() {
@@ -13,7 +14,7 @@ export function Hero() {
       <div className="stars" aria-hidden="true"></div>
       <div className="wrap hero-grid">
         <div>
-          <span className="cohort-pill"><span className="dot" aria-hidden="true"></span> New batch every Monday · Next: Mon 6 July 2026 · 30 seats</span>
+          <span className="cohort-pill"><span className="dot" aria-hidden="true"></span> {bootcamp.batchCadence} · Next: {bootcamp.nextBatchDisplay} · {bootcamp.seats} seats</span>
           <h1>Build your first AI agent in <em>7 days</em> — live, at 9&nbsp;PM, in plain English.</h1>
           <p className="hero-facts">PKR 10,000 all-inclusive · 5 live classes · 4 certificates · Day-1 money-back guarantee</p>
           <p className="sub">Five live Zoom classes, Monday to Friday, 9:00–10:00 PM Pakistan time. No coding. You&apos;ll plan, build, and deploy a working AI agent — and present it live on Day 7.</p>
@@ -23,15 +24,15 @@ export function Hero() {
             <span className="lbl">one simple fee · all 4 certificates · no hidden costs</span>
           </div>
           <div className="hero-ctas">
-            <a className="btn btn-primary" href="https://wa.me/923118122222?text=Hi%20DSP%2C%20I%20want%20to%20join%20Monday%27s%20batch">
+            <a className="btn btn-primary" href="https://wa.me/923420580864?text=Hi%20DSP%2C%20I%20want%20to%20join%20Monday%27s%20batch">
               <WhatsAppIcon />
               Reserve my seat on WhatsApp
             </a>
             <a className="btn btn-ghost-light" href="#week">See the 7-day schedule</a>
           </div>
           <p className="cta-guarantee">Attend Day 1. If it&apos;s not for you, full refund — no questions asked.</p>
-          <p className="hero-note">Join 60+ students from our first two batches — watch their video reviews below.</p>
-          <p className="hero-note">Prefer to talk? Call <a href="tel:+923118122222">+92 311 8122222</a> · Classes in English + Urdu</p>
+          <p className="hero-note">Join {bootcamp.studentsTrained} students from our first {bootcamp.batchesCompleted} batches — watch their video reviews below.</p>
+          <p className="hero-note">Prefer to talk? Call <a href="tel:+923420580864">+92 342 0580864</a> · Classes in English + Urdu</p>
         </div>
 
         <div className="console" role="img" aria-label="Tonight's class console showing the live session at 9 PM Pakistan time and the agent pipeline the cohort will build: idea, job description, knowledge, tools, ship.">
@@ -62,10 +63,10 @@ export function FactStrip() {
     <div className="facts" aria-label="Bootcamp at a glance">
       <div className="wrap">
         <ul>
-          <li><strong>60+</strong><span>Students Trained</span></li>
-          <li><strong>2</strong><span>Batches Completed</span></li>
-          <li><strong>3rd</strong><span>Batch — Monday</span></li>
-          <li><strong>30</strong><span>Seats Only</span></li>
+          <li><strong>{bootcamp.studentsTrained}</strong><span>Students Trained</span></li>
+          <li><strong>{bootcamp.batchesCompleted}</strong><span>Batches Completed</span></li>
+          <li><strong>{bootcamp.nextBatchOrdinal}</strong><span>Batch — Monday</span></li>
+          <li><strong>{bootcamp.seats}</strong><span>Seats Only</span></li>
         </ul>
       </div>
     </div>
@@ -303,9 +304,18 @@ export function ProjectsSection() {
             Add more cards here as additional verified names + video links
             come in; do not fill empty slots with invented names/quotes.
             Riffat's quote is truncated for layout — the full text lives in
-            her TikTok caption, linked via "Read more". */}
+            her TikTok caption, linked via "Read more".
+            Hussain's card is a Facebook Reel behind Facebook's logged-out
+            login wall — his caption couldn't be independently read, so no
+            quote is attributed to him; card text is DSP-authored description
+            only, per the same no-invented-quotes rule as above. */}
         <p className="testi-cap" style={{ marginTop: '2.4rem' }}>From our earlier Master Class cohorts — same instructor, same live-teaching method, now sharpened into this 7-day format.</p>
         <div className="stu-grid" style={{ marginTop: '1rem' }}>
+          <div className="stu-card">
+            <CheckIcon />
+            <p className="quote">Grade 9, and already shipping multiple agents. Hussain built several AI agents after our bootcamp — watch his story on Facebook.</p>
+            <p className="who">Hussain · Grade 9 student · <a href="https://www.facebook.com/reel/2416896862167908" target="_blank" rel="noopener noreferrer">Watch his story on Facebook</a></p>
+          </div>
           <div className="stu-card">
             <CheckIcon />
             <p className="quote">I am extremely grateful to be part of the AI Agentic Master Class under the Digital Services Program, taught by Sardar Abdul Ghaffar Khan… <a href="https://www.tiktok.com/@digitalservicesprogram/video/7652245609784560903" target="_blank" rel="noopener noreferrer">Read more</a></p>
@@ -400,7 +410,7 @@ export function PricingSection() {
         </div>
         <div className="price-card">
           <p className="big">PKR 10,000 <small>one-time</small></p>
-          <p className="per">A new batch starts every Monday · Next: Mon 6 July 2026 · 30 seats</p>
+          <p className="per">A new batch starts every Monday · Next: {bootcamp.nextBatchDisplay} · {bootcamp.seats} seats</p>
           <ul className="includes">
             <li><CheckIcon /> 5 live Zoom classes (Mon–Fri, 9–10 PM PKT)</li>
             <li><CheckIcon /> Guided build day + Day 7 live showcase</li>
@@ -409,7 +419,7 @@ export function PricingSection() {
             <li><CheckIcon /> Cohort WhatsApp group with instructor support</li>
             <li><CheckIcon /> Internship pathway for top students (1 month)</li>
           </ul>
-          <a className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }} href="https://wa.me/923118122222?text=Hi%20DSP%2C%20I%20want%20to%20reserve%20my%20seat%20for%20Monday%27s%20batch">Reserve my seat</a>
+          <a className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }} href="https://wa.me/923420580864?text=Hi%20DSP%2C%20I%20want%20to%20reserve%20my%20seat%20for%20Monday%27s%20batch">Reserve my seat</a>
           <p className="guarantee"><strong>Day-1 guarantee:</strong> attend the first live class. If it&apos;s not for you, message us before Day 2 and we refund the full fee.</p>
         </div>
       </div>
@@ -484,7 +494,7 @@ export function HomeFooter() {
             <p>Live AI agents training for Pakistan — taught in English and Urdu, one hour a night, by a real instructor.</p>
             <p style={{ marginTop: '.9rem' }}>Islamabad, Pakistan<br />
               <a href="mailto:info@digitalservicesprogram.com">info@digitalservicesprogram.com</a><br />
-              <a href="tel:+923118122222">+92 311 8122222</a> (call &amp; WhatsApp)</p>
+              <a href="tel:+923420580864">+92 342 0580864</a> (call &amp; WhatsApp)</p>
           </div>
           <div>
             <h3>Bootcamp</h3>
@@ -524,7 +534,7 @@ export function StickyCta() {
   return (
     <div className="sticky-cta" role="region" aria-label="Quick actions">
       <div className="price-tag">Next batch <small>Starts Monday</small></div>
-      <a className="btn btn-primary" href="https://wa.me/923118122222?text=Hi%20DSP%2C%20I%20want%20to%20reserve%20my%20seat%20for%20Monday%27s%20batch">
+      <a className="btn btn-primary" href="https://wa.me/923420580864?text=Hi%20DSP%2C%20I%20want%20to%20reserve%20my%20seat%20for%20Monday%27s%20batch">
         <WhatsAppIcon />
         Reserve on WhatsApp
       </a>

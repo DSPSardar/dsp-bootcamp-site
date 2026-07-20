@@ -35,15 +35,22 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: 'Invalid JSON' }, { status: 400 })
   }
 
-  const name = String((body as Record<string, string>).name ?? '').slice(0, 200)
-  const phone = String((body as Record<string, string>).phone ?? '').slice(0, 30)
-  const background = String((body as Record<string, string>).background ?? '').slice(0, 100)
+  const b = body as Record<string, string>
+  const name = String(b.name ?? '').slice(0, 200)
+  const phone = String(b.phone ?? '').slice(0, 30)
+  const background = String(b.background ?? '').slice(0, 100)
+  // Optional fields — used by the FDE application form and lead attribution
+  const email = String(b.email ?? '').slice(0, 200)
+  const type = String(b.type ?? 'bootcamp_lead').slice(0, 50)
+  const why = String(b.why ?? '').slice(0, 2000)
+  const intent = String(b.intent ?? '').slice(0, 50)
+  const source = String(b.source ?? '').slice(0, 200)
 
   if (!name || !phone) {
     return NextResponse.json({ ok: false, error: 'name and phone required' }, { status: 400 })
   }
 
-  const leadData = { name, phone, background }
+  const leadData = { name, phone, background, email, type, why, intent, source }
 
   // console.log is visible in Vercel → Logs (ephemeral).
   // For durable records, configure RESEND_API_KEY + LEAD_EMAIL (email below)
@@ -63,8 +70,21 @@ export async function POST(req: NextRequest) {
       await resend.emails.send({
         from: 'DSP Leads <leads@digitalservicesprogram.com>',
         to: leadEmail,
-        subject: `New bootcamp lead: ${name}`,
-        text: `Name: ${name}\nPhone: ${phone}\nBackground: ${background ?? 'not specified'}\nTime: ${new Date().toISOString()}`,
+        subject:
+          type === 'fde_application'
+            ? `New FDE application: ${name}`
+            : `New bootcamp lead: ${name}`,
+        text: [
+          `Type: ${type}`,
+          `Name: ${name}`,
+          `Phone: ${phone}`,
+          email && `Email: ${email}`,
+          `Background: ${background || 'not specified'}`,
+          why && `Why FDE: ${why}`,
+          `Time: ${new Date().toISOString()}`,
+        ]
+          .filter(Boolean)
+          .join('\n'),
       })
     } catch (err) {
       // Email failure must never fail the response

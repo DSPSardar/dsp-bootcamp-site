@@ -4,13 +4,13 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const links = [
-  { label: 'Schedule', href: '/#week' },
-  { label: 'Instructor', href: '/#instructor' },
-  { label: 'Projects', href: '/#projects' },
-  { label: 'Fee', href: '/#pricing' },
+  { label: 'AI Agents', href: '/agents' },
+  { label: 'Academy', href: '/academy' },
+  { label: 'Bootcamp', href: '/academy/bootcamp' },
+  { label: 'FDE Program', href: '/academy/fde' },
   { label: 'Blog', href: '/blog' },
+  { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
-  { label: 'FAQ', href: '/#faq' },
 ]
 
 export default function Nav() {
@@ -103,7 +103,7 @@ export default function Nav() {
         {/* CTA + hamburger */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <a
-            href="https://wa.me/923118122222?text=Hi%20DSP%2C%20I%20want%20to%20join%20the%20bootcamp"
+            href="https://wa.me/923420580864?text=Hi%20DSP%2C%20I%20want%20to%20join%20the%20bootcamp"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"

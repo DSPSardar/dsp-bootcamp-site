@@ -2,6 +2,8 @@
 import type { Metadata, Viewport } from 'next'
 import { Space_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google'
 import './globals.css'
+import Analytics from '@/components/site/Analytics'
+import { site, socials } from '@/config/site'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -28,11 +30,11 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.digitalservicesprogram.com'),
   alternates: { canonical: './' }, // self-referencing on every route
   title: {
-    default: 'AI Agents Bootcamp — 7 Days, 5 Live Zoom Classes | DSP',
+    default: 'Digital Services Program — We Build AI Agents. We Train You to Build Them.',
     template: '%s | DSP',
   },
   description:
-    'Build and deploy your first AI agent in 7 days — no code. 5 live Zoom classes (9–10 PM PKT), 4 certificates. Everything included in one fee.',
+    'AI agent development company and academy. We build production AI agents for clients worldwide, and train you to build them — from a 7-day bootcamp to a 30-day Forward Deployed Engineer program.',
   openGraph: {
     siteName: 'Digital Services Program',
     type: 'website',
@@ -46,6 +48,22 @@ export const viewport: Viewport = {
   maximumScale: 5,
 }
 
+// Sitewide Organization schema — page-level schemas (Course, Product, Service,
+// Person) live on their own pages.
+const organizationLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.name,
+  alternateName: site.shortName,
+  slogan: site.tagline,
+  url: site.url,
+  logo: `${site.url}/logo.webp`,
+  email: site.email,
+  telephone: '+92-342-0580864',
+  address: { '@type': 'PostalAddress', addressLocality: site.city, addressCountry: 'PK' },
+  sameAs: Object.values(socials),
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -56,7 +74,12 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable}`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
+        />
         {children}
+        <Analytics />
       </body>
     </html>
   )

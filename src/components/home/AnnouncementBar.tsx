@@ -1,12 +1,15 @@
 'use client'
 import { useEffect, useState } from 'react'
+import { bootcamp } from '@/config/site'
 
 // Top announcement bar: days remaining until the coming Monday batch,
 // computed in Asia/Karachi so it matches the cohort clock. Renders a
 // timezone-neutral fallback on the server so hydration matches, then
 // fills in the live count on mount (same pattern as ConsoleClock).
 export default function AnnouncementBar() {
-  const [text, setText] = useState('3rd batch starts Monday · 60+ students already trained · 30 seats')
+  const [text, setText] = useState(
+    `${bootcamp.nextBatchOrdinal} batch starts Monday · ${bootcamp.studentsTrained} students already trained · ${bootcamp.seats} seats`
+  )
 
   useEffect(() => {
     function update() {
@@ -19,7 +22,7 @@ export default function AnnouncementBar() {
       setText(
         days === 0
           ? 'Batch starts TODAY — message us on WhatsApp now'
-          : `3rd batch starts Monday — ${days} days left · 60+ students already trained · 30 seats`
+          : `${bootcamp.nextBatchOrdinal} batch starts Monday — ${days} days left · ${bootcamp.studentsTrained} students already trained · ${bootcamp.seats} seats`
       )
     }
     update()

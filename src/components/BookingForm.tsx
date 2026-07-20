@@ -23,7 +23,7 @@ export default function BookingForm() {
     const waText = encodeURIComponent(
       `Hi DSP! I want to book a free intro session.\n\nName: ${name}\nPhone: ${phone}\nBackground: ${background || 'Not specified'}\n\nمیں بوٹ کیمپ میں شامل ہونا چاہتا/چاہتی ہوں۔`
     )
-    const waUrl = `https://wa.me/923118122222?text=${waText}`
+    const waUrl = `https://wa.me/923420580864?text=${waText}`
 
     // Open WhatsApp synchronously in the gesture handler — must come before any await
     window.open(waUrl, '_blank', 'noopener,noreferrer')

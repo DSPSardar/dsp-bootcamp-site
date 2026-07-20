@@ -5,7 +5,7 @@ import { dirname, join } from 'node:path'
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
 
 const waHref =
-  'https://wa.me/923118122222?text=Hi%20DSP%2C%20I%20want%20to%20join%20the%20bootcamp'
+  'https://wa.me/923420580864?text=Hi%20DSP%2C%20I%20want%20to%20join%20the%20bootcamp'
 
 const blogCopies = [
   {

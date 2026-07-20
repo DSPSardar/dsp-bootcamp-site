@@ -65,15 +65,15 @@ export default function ContactPage() {
           }}
         >
           <a
-            href="https://wa.me/923118122222?text=Hi%20DSP%2C%20I%20want%20to%20learn%20more"
+            href="https://wa.me/923420580864?text=Hi%20DSP%2C%20I%20want%20to%20learn%20more"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"
           >
             WhatsApp Us →
           </a>
-          <a href="tel:+923118122222" className="btn-ghost">
-            +92 311 8122222
+          <a href="tel:+923420580864" className="btn-ghost">
+            +92 342 0580864
           </a>
         </div>
 
