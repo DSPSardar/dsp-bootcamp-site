@@ -119,6 +119,21 @@ export default function AboutPage() {
                 <span style={{ display: 'block', fontFamily: 'var(--mono)', fontSize: '.78rem', color: 'var(--teal-deep)', marginTop: '.3rem' }}>Verify credential ↗</span>
               </span>
             </a>
+            <a
+              className="card"
+              style={{ display: 'flex', gap: '1rem', alignItems: 'center', textDecoration: 'none', marginTop: '1.2rem' }}
+              href="https://www.kaggle.com/certification/badges/abdulghaffarkhan804/108"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element -- external Kaggle SVG badge, served as-is */}
+              <img src="/kaggle-vibecoding-agents-badge.svg" alt="Google/Kaggle 5-Day AI Agents: Intensive Vibe Coding Course certification badge" width={72} height={72} />
+              <span>
+                <strong style={{ display: 'block' }}>Google/Kaggle: 5-Day AI Agents</strong>
+                <span style={{ fontSize: '.85rem', color: 'var(--navy-soft)' }}>Certified by Google — 5-Day AI Agents: Intensive Vibe Coding Course, 2026</span>
+                <span style={{ display: 'block', fontFamily: 'var(--mono)', fontSize: '.78rem', color: 'var(--teal-deep)', marginTop: '.3rem' }}>Verify credential ↗</span>
+              </span>
+            </a>
             <div className="card dark" style={{ marginTop: '1.2rem' }}>
               <p className="kicker">The company</p>
               <h3>{site.tagline}</h3>

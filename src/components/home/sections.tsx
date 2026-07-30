@@ -244,19 +244,35 @@ export function InstructorSection() {
             <li><svg className="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4M16 2v4M3 9h18M5 5h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" /></svg> Every class taught live by the instructor — no pre-recorded stand-ins</li>
             <li><svg className="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4l6 6-9 9H5v-6z" /><path d="M12 6l6 6" /></svg> Builds in public: the demo agent below was built live using this exact method</li>
           </ul>
-          <a
-            className="inst-badge"
-            href="https://www.credential.net/aae3459a-b0b9-463e-86cd-da7806e00e5d"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image src="/gemini-certified-educator-badge.png" alt="Gemini Certified Educator badge issued by Google for Education" width={64} height={64} />
-            <span>
-              <strong>Gemini Certified Educator</strong>
-              <span className="inst-badge-meta">Issued by Google for Education · valid to Oct 2028</span>
-              <span className="inst-badge-verify">Verify credential ↗</span>
-            </span>
-          </a>
+          <div style={{ display: 'flex', gap: '.9rem', flexWrap: 'wrap' }}>
+            <a
+              className="inst-badge"
+              href="https://www.credential.net/aae3459a-b0b9-463e-86cd-da7806e00e5d"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image src="/gemini-certified-educator-badge.png" alt="Gemini Certified Educator badge issued by Google for Education" width={64} height={64} />
+              <span>
+                <strong>Gemini Certified Educator</strong>
+                <span className="inst-badge-meta">Issued by Google for Education · valid to Oct 2028</span>
+                <span className="inst-badge-verify">Verify credential ↗</span>
+              </span>
+            </a>
+            <a
+              className="inst-badge"
+              href="https://www.kaggle.com/certification/badges/abdulghaffarkhan804/108"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element -- external Kaggle SVG badge, served as-is */}
+              <img src="/kaggle-vibecoding-agents-badge.svg" alt="Google/Kaggle 5-Day AI Agents: Intensive Vibe Coding Course certification badge" width={64} height={64} />
+              <span>
+                <strong>Google/Kaggle: 5-Day AI Agents</strong>
+                <span className="inst-badge-meta">Certified by Google — 5-Day AI Agents: Intensive Vibe Coding Course, 2026</span>
+                <span className="inst-badge-verify">Verify credential ↗</span>
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
