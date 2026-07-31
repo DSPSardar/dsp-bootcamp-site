@@ -55,3 +55,9 @@ GA4 events: `whatsapp_cta_click`, `fde_apply_submit`, `restaurant_demo_click`, `
 ## Lead capture
 
 `src/app/api/lead/route.ts` receives form posts (bootcamp `LeadForm.tsx`, contact `BookingForm.tsx`, and FDE applications via `src/components/site/FdeApplicationForm.tsx`, distinguished by a `type` field) and forwards to a Google Sheets Apps Script webhook, plus optional email via Resend. Env vars in `.env.example`: `GOOGLE_SHEETS_WEBHOOK_URL`, `RESEND_API_KEY`, `LEAD_EMAIL`. Failures are logged but never block the response.
+
+## gstack
+
+This project uses [gstack](https://github.com/garrytan/gstack) for AI-assisted workflows. Use the `/browse` skill from gstack for all web browsing — never use `mcp__claude-in-chrome__*` tools.
+
+Available skills: `/office-hours`, `/plan-ceo-review`, `/plan-eng-review`, `/plan-design-review`, `/design-consultation`, `/design-shotgun`, `/design-html`, `/review`, `/ship`, `/land-and-deploy`, `/canary`, `/benchmark`, `/browse`, `/connect-chrome`, `/qa`, `/qa-only`, `/design-review`, `/setup-browser-cookies`, `/setup-deploy`, `/setup-gbrain`, `/retro`, `/investigate`, `/document-release`, `/document-generate`, `/codex`, `/cso`, `/autoplan`, `/plan-devex-review`, `/devex-review`, `/careful`, `/freeze`, `/guard`, `/unfreeze`, `/gstack-upgrade`, `/learn`.
