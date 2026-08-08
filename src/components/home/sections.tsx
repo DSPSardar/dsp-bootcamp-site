@@ -174,8 +174,11 @@ export function WeekSchedule() {
           <svg className="ic" viewBox="0 0 24 24" aria-hidden="true" style={{ width: 32, height: 32, color: 'var(--teal)' }}><path d="M6 3h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" /><path d="M14 3v6h6M9 13h6M9 17h6" /></svg>
           <div style={{ flex: 1, minWidth: 220 }}>
             <h3>Get the full syllabus (PDF)</h3>
-            <p>Daily objectives, projects, and deliverables — sent to your WhatsApp.</p>
+            <p>Daily objectives, projects, and deliverables — sent to your WhatsApp, or download it now.</p>
           </div>
+          <a className="btn btn-ghost" href="/dsp-bootcamp-course-details.pdf" download>
+            Download PDF
+          </a>
           <SyllabusButton />
         </div>
       </div>
