@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: '%s | DSP',
   },
   description:
-    'AI agent development company and academy. We build production AI agents for clients worldwide, and train you to build them — from a 7-day bootcamp to a 30-day Forward Deployed Engineer program.',
+    'AI agent development company and academy. We build production AI agents for clients worldwide, and train you to build them — starting with a 7-day bootcamp.',
   openGraph: {
     siteName: 'Digital Services Program',
     type: 'website',

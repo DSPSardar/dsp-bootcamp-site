@@ -1,22 +1,22 @@
-// src/app/academy/page.tsx — DSP Academy overview: two courses, one ladder.
+// src/app/academy/page.tsx — DSP Academy overview.
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import SiteShell from '@/components/site/SiteShell'
 import TrackedLink from '@/components/site/TrackedLink'
 import { CheckIcon } from '@/components/home/icons'
-import { bootcamp, fde, waLink } from '@/config/site'
+import { bootcamp, waLink } from '@/config/site'
 
 export const metadata: Metadata = {
-  title: { absolute: 'DSP Academy — AI Agents Bootcamp & Forward Deployed Engineer Course' },
+  title: { absolute: 'DSP Academy — AI Agents Bootcamp' },
   description:
-    'Two courses, one ladder: a 7-day Vibe Coding Bootcamp to build your first AI agent, and a 30-day Forward Deployed Engineer program to master the most in-demand AI role in the world.',
+    'DSP Academy trains you to build AI agents: a 7-day Vibe Coding Bootcamp with five live Zoom classes that takes you from complete beginner to a deployed AI agent with a live URL.',
   alternates: { canonical: '/academy' },
   openGraph: {
     type: 'website',
     url: '/academy',
-    title: 'DSP Academy — from first agent to Forward Deployed Engineer',
+    title: 'DSP Academy — build your first AI agent in 7 days',
     description:
-      '7 days to your first AI agent. 30 days to Forward Deployed Engineer. Live teaching, real projects, real deployment.',
+      '7 days to your first AI agent. Live teaching, real projects, real deployment.',
     images: [{ url: '/og-card.png', width: 1200, height: 630 }],
   },
 }
@@ -30,27 +30,23 @@ export default function AcademyPage() {
           <p className="eyebrow">DSP Academy</p>
           <h1>We train the world to <em>build AI agents</em>.</h1>
           <p className="sub">
-            Two courses, one ladder. Start with 7 days to your first working agent. Climb to
-            30 days and the most wanted AI engineering role in the world. Every class live,
-            every project real — taught by the same team that builds agents for clients.
+            Start with 7 days to your first working agent. Every class live, every project
+            real — taught by the same team that builds agents for clients.
           </p>
           <div className="hero-ctas">
             <TrackedLink className="btn btn-primary" href={bootcamp.url} event="academy_cta_click" params={{ cta: 'academy_hero_bootcamp' }}>
               Start with the Bootcamp
             </TrackedLink>
-            <TrackedLink className="btn btn-gold" href={fde.url} event="academy_cta_click" params={{ cta: 'academy_hero_fde' }}>
-              Go straight to FDE
-            </TrackedLink>
           </div>
         </div>
       </section>
 
-      {/* ============ TWO COURSES ============ */}
+      {/* ============ THE COURSE ============ */}
       <section>
         <div className="wrap">
           <div className="sec-head">
-            <p className="eyebrow">The courses</p>
-            <h2>Pick your entry point.</h2>
+            <p className="eyebrow">The course</p>
+            <h2>Start here.</h2>
           </div>
           <div className="grid-2">
             <div className="card">
@@ -70,65 +66,26 @@ export default function AcademyPage() {
               </TrackedLink>
             </div>
             <div className="card dark">
-              <p className="kicker">Course 2 · the flagship</p>
-              <h3>{fde.name}</h3>
+              <p className="kicker">What you leave with</p>
+              <h3>A deployed agent, not a certificate drawer</h3>
               <p>
-                {fde.days} days, zero to master. Customer discovery, POC-to-production, AI systems
-                architecture, and a live client capstone. Curriculum designed by engineers from
-                Google and Facebook — the only program of its kind in Pakistan.
+                On Day 7 you demo a working AI agent with a live URL. You leave with the build
+                method we use on real client work — and {bootcamp.certificates} certificates to
+                show for it.
               </p>
-              <ul className="check-list">
-                <li><CheckIcon /> Only {fde.seats} seats per batch, personally reviewed</li>
-                <li><CheckIcon /> Real client capstone + FDE interview prep</li>
-                <li><CheckIcon /> Bootcamp graduates get {fde.alumniCreditDisplay} credit</li>
-              </ul>
-              <TrackedLink className="btn btn-gold" href={fde.url} event="academy_cta_click" params={{ cta: 'academy_card_fde' }}>
-                Explore the FDE program
-              </TrackedLink>
+              <p style={{ marginTop: '1rem', color: 'var(--navy-soft)', fontSize: '.95rem' }}>
+                Not sure it&apos;s for you? <a href={waLink('Hi DSP, is the Vibe Coding Bootcamp right for me?')}>Ask us on WhatsApp</a>
+                {' '}— we&apos;ll tell you honestly.
+              </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ============ COMPARISON TABLE ============ */}
-      <section style={{ paddingTop: 0 }}>
-        <div className="wrap">
-          <div className="sec-head">
-            <p className="eyebrow">Compare</p>
-            <h2>Side by side.</h2>
-          </div>
-          <div className="table-scroll">
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">&nbsp;</th>
-                  <th scope="col">Vibe Coding Bootcamp</th>
-                  <th scope="col">FDE Program</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>Length</td><td>{bootcamp.days} days</td><td>{fde.days} days</td></tr>
-                <tr><td>Who it&apos;s for</td><td>Complete beginners — no coding</td><td>Ambitious builders going professional</td></tr>
-                <tr><td>Outcome</td><td>Your first deployed AI agent</td><td>Job-ready Forward Deployed Engineer</td></tr>
-                <tr><td>Format</td><td>5 live Zoom classes + build weekend</td><td>Daily live work, roleplays, client capstone</td></tr>
-                <tr><td>Certificates</td><td>{bootcamp.certificates} — 3 Anthropic + 1 DSP</td><td>DSP FDE Certification</td></tr>
-                <tr><td>Seats</td><td>{bootcamp.seats} per batch</td><td><span className="tick">Only {fde.seats} per batch</span></td></tr>
-                <tr><td>Batches</td><td>{bootcamp.batchCadence}</td><td>{fde.batchCadence}</td></tr>
-                <tr><td>Fee</td><td>{bootcamp.feeDisplay} one-time</td><td>{fde.feeDisplay} one-time · {fde.alumniCreditDisplay} alumni credit</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p style={{ marginTop: '1.6rem', color: 'var(--navy-soft)', fontSize: '.95rem' }}>
-            Not sure which fits? <a href={waLink('Hi DSP, help me choose between the Bootcamp and the FDE program.')}>Ask us on WhatsApp</a>
-            {' '}— we&apos;ll tell you honestly, even if the answer is &ldquo;start smaller.&rdquo;
-          </p>
         </div>
       </section>
 
       {/* ============ LADDER ============ */}
       <section className="band-dark" style={{ paddingTop: 56, paddingBottom: 56 }}>
         <div className="wrap" style={{ textAlign: 'center' }}>
-          <h2>7 days to your first agent. 30 days to FDE. Then real client work.</h2>
+          <h2>7 days to your first agent. Then real client work.</h2>
           <p style={{ maxWidth: '38rem', margin: '.8rem auto 0' }}>
             Top graduates step onto live DSP Agents client projects — the training division and
             the software division are the same company. That&apos;s the ladder.

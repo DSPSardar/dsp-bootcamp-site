@@ -7,7 +7,6 @@ const links = [
   { label: 'AI Agents', href: '/agents' },
   { label: 'Academy', href: '/academy' },
   { label: 'Bootcamp', href: '/academy/bootcamp' },
-  { label: 'FDE Program', href: '/academy/fde' },
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },

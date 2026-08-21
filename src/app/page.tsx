@@ -5,26 +5,26 @@ import Link from 'next/link'
 import SiteShell from '@/components/site/SiteShell'
 import TrackedLink from '@/components/site/TrackedLink'
 import { CheckIcon, WhatsAppIcon } from '@/components/home/icons'
-import { bootcamp, fde, restaurantAgent, site, socialProof, socials, waLink } from '@/config/site'
+import { bootcamp, restaurantAgent, site, socialProof, socials, waLink } from '@/config/site'
 
 export const metadata: Metadata = {
   title: { absolute: 'Digital Services Program — We Build AI Agents. We Train You to Build Them.' },
   description:
-    'DSP is an AI agent development company and academy. We build production AI agents for clients worldwide — and train you to build them, from a 7-day bootcamp to a 30-day Forward Deployed Engineer program.',
+    'DSP is an AI agent development company and academy. We build production AI agents for clients worldwide — and train you to build them, starting with a 7-day bootcamp.',
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     url: '/',
     title: 'Digital Services Program — We Build AI Agents. We Train You to Build Them.',
     description:
-      'AI agents built for the world. Training that takes you from first agent to Forward Deployed Engineer.',
+      'AI agents built for the world. Training that takes you from beginner to deployed agent builder.',
     images: [{ url: '/og-card.png', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'DSP — We Build AI Agents. We Train You to Build Them.',
     description:
-      'AI agent development company + academy. 7 days to your first agent, 30 days to FDE.',
+      'AI agent development company + academy. 7 days to your first deployed AI agent.',
     images: ['/og-card.png'],
   },
 }
@@ -43,8 +43,8 @@ export default function HomePage() {
           <h1>We build AI agents. <em>We train you to build them.</em></h1>
           <p className="sub">
             One company, two engines. DSP Agents ships production AI agents for businesses around
-            the world. DSP Academy turns beginners into agent builders — and agent builders into
-            Forward Deployed Engineers.
+            the world. DSP Academy turns beginners into agent builders — live classes, real
+            projects, real deployment.
           </p>
           <div className="hero-ctas">
             <TrackedLink className="btn btn-primary" href="/agents" event="agents_cta_click" params={{ cta: 'home_hero_hire' }}>
@@ -67,7 +67,7 @@ export default function HomePage() {
             <li><strong>{bootcamp.studentsTrained}</strong><span>Students trained</span></li>
             <li><strong>{socialProof.weeklyReach}</strong><span>{socialProof.weeklyReachLabel}</span></li>
             <li><strong>7 days</strong><span>To your first agent</span></li>
-            <li><strong>30 days</strong><span>To FDE, zero to master</span></li>
+            <li><strong>{bootcamp.certificates}</strong><span>Certificates — 3 Anthropic + 1 DSP</span></li>
           </ul>
         </div>
       </div>
@@ -120,62 +120,18 @@ export default function HomePage() {
             <p className="eyebrow">The DSP Ladder</p>
             <h2>From zero to deployed on real client work.</h2>
           </div>
-          <div className="grid-3">
+          <div className="grid-2">
             <div className="card dark" style={{ background: 'rgba(255,255,255,.05)', borderColor: 'var(--line-dark)' }}>
               <p className="kicker">Rung 1 · 7 days</p>
               <h3>Your first agent</h3>
               <p>The Vibe Coding Bootcamp. No code, five live classes, and on Day 7 you demo a deployed agent with a live URL. {bootcamp.certificates} certificates.</p>
               <p style={{ marginTop: '1rem' }}><Link href={bootcamp.url} style={{ color: 'var(--gold)', fontWeight: 600 }}>Start here →</Link></p>
             </div>
-            <div className="card dark" style={{ background: 'rgba(255,255,255,.05)', borderColor: 'var(--line-dark)' }}>
-              <p className="kicker">Rung 2 · 30 days</p>
-              <h3>Forward Deployed Engineer</h3>
-              <p>Zero to master: discovery, POC → production, systems architecture, live client capstone. Only {fde.seats} seats a month.</p>
-              <p style={{ marginTop: '1rem' }}><Link href={fde.url} style={{ color: 'var(--gold)', fontWeight: 600 }}>Climb →</Link></p>
-            </div>
             <div className="card dark" style={{ background: 'rgba(212,175,55,.08)', borderColor: 'rgba(212,175,55,.45)' }}>
-              <p className="kicker">Rung 3 · the payoff</p>
+              <p className="kicker">Rung 2 · the payoff</p>
               <h3>Deployed on real client work</h3>
               <p>Top graduates step onto live DSP Agents projects. The academy and the software company are one firm — the ladder ends in real work, not a certificate drawer.</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ FDE SPOTLIGHT ============ */}
-      <section>
-        <div className="wrap split">
-          <div>
-            <p className="eyebrow">Flagship course</p>
-            <h2>The most wanted AI job in the world.</h2>
-            <p style={{ color: 'var(--navy-soft)', marginTop: '.9rem' }}>
-              Forward Deployed Engineers are how frontier AI companies actually deliver — the
-              engineer who sits with the customer and ships the system. OpenAI, Anthropic,
-              Palantir, and Google Cloud are all hiring for the role.
-            </p>
-            <div className="logo-strip" aria-label="Companies hiring FDEs" style={{ marginBottom: '.4rem' }}>
-              <span style={{ color: 'var(--navy-soft)' }}>OpenAI</span>
-              <span style={{ color: 'var(--navy-soft)' }}>Anthropic</span>
-              <span style={{ color: 'var(--navy-soft)' }}>Palantir</span>
-              <span style={{ color: 'var(--navy-soft)' }}>Google Cloud</span>
-            </div>
-            <div className="hero-ctas">
-              <TrackedLink className="btn btn-gold" href={`${fde.url}#apply`} event="academy_cta_click" params={{ cta: 'home_fde_apply' }}>
-                Apply for the next batch
-              </TrackedLink>
-            </div>
-          </div>
-          <div className="card dark">
-            <p className="kicker">DSP FDE Program</p>
-            <h3>30 days · only {fde.seats} seats per batch</h3>
-            <p>
-              Curriculum designed by engineers from Google and Facebook. Live roleplays, a real
-              client capstone, interview prep for the top labs, and personal supervision by
-              Sardar — the only program of its kind in Pakistan.
-            </p>
-            <p style={{ marginTop: '.9rem', fontFamily: 'var(--mono)', fontSize: '.82rem', color: 'var(--gold)' }}>
-              Next batch: {fde.nextBatchDisplay}
-            </p>
           </div>
         </div>
       </section>

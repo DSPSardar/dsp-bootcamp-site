@@ -1,6 +1,6 @@
 /* ================================================================
    DSP — shared shell for the company pages
-   (/, /agents/*, /academy, /academy/fde, /about)
+   (/, /agents/*, /academy, /about)
    Palette: Navy #17204A · Deep navy #0E2A47 · Teal #028090 ·
             Gold #D4AF37 · Paper #FBF9F4
    Same type system as the bootcamp page so the whole site reads as
@@ -133,11 +133,6 @@
 .dsp-site thead th:nth-child(3){color:var(--gold)}
 .dsp-site tbody tr:last-child td{border-bottom:none}
 .dsp-site .tick{color:var(--ok);font-weight:700}
-
-/* seat counter (FDE) */
-.dsp-site .seat-counter{display:inline-flex;align-items:center;gap:.9rem;background:rgba(212,175,55,.1);border:1.5px solid rgba(212,175,55,.55);border-radius:14px;padding:.9rem 1.3rem;margin-top:1.4rem}
-.dsp-site .seat-counter .num{font-family:var(--disp);font-weight:800;font-size:2.2rem;color:var(--gold);line-height:1}
-.dsp-site .seat-counter .lbl{font-size:.88rem;color:#C9D6EC;max-width:14rem;line-height:1.35}
 
 /* week/curriculum rows */
 .dsp-site .curric-row{display:grid;grid-template-columns:110px 1fr;gap:1.4rem;align-items:baseline;padding:1.3rem 0;border-top:1px solid var(--line)}

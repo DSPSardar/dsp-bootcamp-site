@@ -26,7 +26,6 @@ export default function SiteFooter() {
             <ul>
               <li><Link href="/academy">Compare courses</Link></li>
               <li><Link href="/academy/bootcamp">Vibe Coding Bootcamp</Link></li>
-              <li><Link href="/academy/fde">FDE Program</Link></li>
             </ul>
           </div>
           <div>

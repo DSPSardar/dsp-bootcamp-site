@@ -2,10 +2,13 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   async redirects() {
-    // Friendly short URLs → canonical course pages
+    // Friendly short URLs → canonical course pages.
+    // /academy/fde is retired but Google-indexed — 301 it (and its old
+    // short URL) to /academy so the SEO equity isn't wasted on a 404.
     return [
       { source: "/bootcamp", destination: "/academy/bootcamp", permanent: true },
-      { source: "/fde", destination: "/academy/fde", permanent: true },
+      { source: "/fde", destination: "/academy", permanent: true },
+      { source: "/academy/fde", destination: "/academy", permanent: true },
     ];
   },
   async headers() {

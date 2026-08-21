@@ -167,7 +167,7 @@ export default function AboutPage() {
               <div>
                 <h3>Sardar Abdul Ghaffar Khan</h3>
                 <p style={{ color: 'var(--gold)', fontSize: '.85rem', fontFamily: 'var(--mono)', margin: '.2rem 0 .6rem' }}>Co-Founder &amp; Lead Instructor</p>
-                <p>24+ years in IT across London, the UAE, and Pakistan. Google Certified AI Agentic Trainer and Gemini Certified Educator. Teaches every bootcamp and FDE cohort live.</p>
+                <p>24+ years in IT across London, the UAE, and Pakistan. Google Certified AI Agentic Trainer and Gemini Certified Educator. Teaches every bootcamp cohort live.</p>
               </div>
             </div>
             <div className="card dark" style={{ background: 'rgba(255,255,255,.05)', borderColor: 'var(--line-dark)', display: 'flex', gap: '1.1rem' }}>

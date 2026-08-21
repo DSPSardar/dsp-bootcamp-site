@@ -1,4 +1,4 @@
-// Shared shell for the company pages (/, /agents/*, /academy, /academy/fde,
+// Shared shell for the company pages (/, /agents/*, /academy,
 // /about). The bootcamp page keeps its own .dsp-home shell; blog/contact keep
 // the dark theme. Never mix the three.
 import '@/app/site.css'

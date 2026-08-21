@@ -107,10 +107,9 @@ export default function AgentsPage() {
         <div className="wrap">
           <div className="sec-head">
             <p className="eyebrow">How we work</p>
-            <h2>The FDE method — because we teach it.</h2>
+            <h2>Discovery first. Then ship.</h2>
             <p>
-              Our academy trains Forward Deployed Engineers. Our software division works the same
-              way: discovery first, then POC → pilot → production, with guardrails and evals
+              Discovery first, then POC → pilot → production, with guardrails and evals
               before launch — never a black box.
             </p>
           </div>

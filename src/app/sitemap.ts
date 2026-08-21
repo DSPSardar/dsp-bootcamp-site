@@ -7,7 +7,6 @@ const SITE = 'https://www.digitalservicesprogram.com'
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: SITE, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
-    { url: `${SITE}/academy/fde`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
     { url: `${SITE}/academy/bootcamp`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
     { url: `${SITE}/agents/restaurant-ai`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE}/academy`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.85 },

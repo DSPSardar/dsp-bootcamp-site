@@ -61,23 +61,6 @@ export const bootcamp = {
   url: '/academy/bootcamp',
 } as const
 
-export const fde = {
-  name: 'Forward Deployed Engineer (FDE) Program',
-  days: 30,
-  feePkr: 100_000,
-  feeDisplay: 'PKR 100,000',
-  /** Seat scarcity counter on /academy/fde — edit freely */
-  seats: 20,
-  batchCadence: 'New batch every month',
-  /** Next cohort start — update monthly. Also feeds Course JSON-LD startDate. */
-  nextBatchDate: '2026-08-03',
-  nextBatchDisplay: 'Mon 3 Aug 2026',
-  /** Bootcamp graduates get this off the FDE fee */
-  alumniCreditPkr: 10_000,
-  alumniCreditDisplay: 'PKR 10,000',
-  url: '/academy/fde',
-} as const
-
 export const restaurantAgent = {
   name: 'DSP Restaurant AI — Phone Ordering Agent',
   /** Calendly booking link — set to a real URL when ready; while null,
