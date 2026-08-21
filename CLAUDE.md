@@ -42,7 +42,7 @@ Routes: `/` dual-engine homepage · `/agents` + `/agents/restaurant-ai` + `/agen
 ## Architecture: three visual shells, deliberately isolated
 
 - **Company pages** (`/`, `/agents/*`, `/academy`, `/about`) use `src/components/site/SiteShell.tsx` (SiteHeader/SiteFooter) with `src/app/site.css`, scoped under `.dsp-site`.
-- **Bootcamp page** (`src/app/academy/bootcamp/` + `src/components/home/`) is the 1:1 port of the designed single-file `index.html` (formerly the homepage). All of its CSS lives in `src/app/home.css`, scoped under `.dsp-home`. When editing it, stay inside that scope.
+- **Bootcamp page** (`src/app/academy/bootcamp/` + `src/components/home/`) keeps the content/section order of the original designed page but renders on the shared `.dsp-site` system. Page-specific styles (console, day rows, FAQ, sticky CTA) live in `src/app/bootcamp.css`, scoped under `.page-bootcamp` — put new bootcamp-only CSS there, not in site.css.
 - **Blog and contact** (`src/app/blog/`, `src/app/contact/`) keep the old dark theme: `globals.css` variables plus `src/components/Nav.tsx`/`Footer.tsx`, rendered by their **own route layouts**, not the root layout. The root layout intentionally renders no nav/footer.
 - Root layout (`src/app/layout.tsx`) owns `metadataBase`, `alternates: { canonical: './' }`, the sitewide Organization JSON-LD, and GA4 (`src/components/site/Analytics.tsx`, active only when `NEXT_PUBLIC_GA4_ID` is set). Page-level JSON-LD: Course on the bootcamp page, Service on `/agents`, Product on `/agents/restaurant-ai`, Person on `/about`.
 

@@ -46,43 +46,6 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
 }
 
-/* Eyebrow label style */
-.eyebrow {
-  font-family: var(--font-mono), monospace;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--mint);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.eyebrow::before {
-  content: '';
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--mint);
-  animation: pulse-dot 2s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .eyebrow::before {
-    animation: none;
-  }
-}
-
-/* Gradient text utility */
-.gradient-text {
-  background: linear-gradient(135deg, var(--gold) 0%, var(--mint) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 /* Button styles */
 .btn-primary {
   display: inline-flex;
@@ -138,98 +101,6 @@ h1, h2, h3, h4, h5, h6 {
   outline-offset: 3px;
 }
 
-/* Panel / card */
-.panel {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-}
-
-.panel-2 {
-  background: var(--panel-2);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-}
-
-/* Section spacing */
-.section {
-  padding: 5rem 1.25rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .section {
-    padding: 6rem 2rem;
-  }
-}
-
-/* AgentConsole terminal card */
-.console-card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  overflow: hidden;
-  font-family: var(--font-mono), monospace;
-}
-
-.console-titlebar {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1rem;
-  background: var(--panel-2);
-  border-bottom: 1px solid var(--line);
-}
-
-.console-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-.console-label {
-  font-size: 0.75rem;
-  color: var(--muted);
-  margin-left: 0.25rem;
-}
-
-.console-body {
-  padding: 1.5rem;
-}
-
-.console-log {
-  font-size: 0.75rem;
-  line-height: 1.6;
-  color: var(--mint);
-  min-height: 1.2em;
-}
-
-.console-log-prefix {
-  color: var(--muted);
-}
-
-/* Keyframes */
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.8); }
-}
-
-@keyframes fade-rise {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes token-glow {
-  0%, 100% { filter: drop-shadow(0 0 4px var(--gold)); }
-  50%       { filter: drop-shadow(0 0 10px var(--gold)); }
-}
-
-@keyframes mint-glow-pulse {
-  0%, 100% { filter: drop-shadow(0 0 6px var(--mint)); opacity: 1; }
-  50%       { filter: drop-shadow(0 0 14px var(--mint)); opacity: 0.8; }
-}
-
 /* Skip to content link */
 .skip-link {
   position: absolute;
@@ -248,16 +119,6 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
 }
 
-/* Scroll reveal — initial hidden state set by JS, avoid FOUC */
-.reveal-hidden {
-  opacity: 0;
-  transform: translateY(24px);
-}
-
-.reveal-visible {
-  animation: fade-rise 0.55s ease forwards;
-}
-
 /* ===== MOBILE-FIRST RESPONSIVE IMPROVEMENTS ===== */
 
 /* Better touch targets on mobile */
@@ -270,11 +131,6 @@ h1, h2, h3, h4, h5, h6 {
     min-width: 44px;
     padding: 0.875rem 1.25rem;
     font-size: 1rem;
-  }
-
-  /* Improve spacing on mobile */
-  .section {
-    padding: 3rem 1rem;
   }
 
   /* Reduce gaps on mobile */
@@ -316,13 +172,6 @@ h1, h2, h3, h4, h5, h6 {
 
   h3 {
     font-size: clamp(1.125rem, 3vw, 1.5rem);
-  }
-}
-
-/* Better spacing medium screens */
-@media (min-width: 640px) and (max-width: 1024px) {
-  .section {
-    padding: 4rem 1.5rem;
   }
 }
 

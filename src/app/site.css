@@ -3,9 +3,10 @@
    (/, /agents/*, /academy, /about)
    Palette: Navy #17204A · Deep navy #0E2A47 · Teal #028090 ·
             Gold #D4AF37 · Paper #FBF9F4
-   Same type system as the bootcamp page so the whole site reads as
-   one brand. All rules scoped under .dsp-site — never leaks into the
-   bootcamp page (.dsp-home) or the blog/contact dark shell.
+   Same type system across every company page, including the bootcamp
+   page (which adds bootcamp.css under .page-bootcamp). All rules
+   scoped under .dsp-site — never leaks into the blog/contact dark
+   shell.
    ================================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap');
 

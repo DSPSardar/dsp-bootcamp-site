@@ -10,11 +10,11 @@ import { bootcamp } from '@/config/site'
 /* ============ HERO: the 9 PM class ============ */
 export function Hero() {
   return (
-    <section className="hero" id="top">
+    <section className="hero-dark" id="top">
       <div className="stars" aria-hidden="true"></div>
       <div className="wrap hero-grid">
         <div>
-          <span className="cohort-pill"><span className="dot" aria-hidden="true"></span> {bootcamp.batchCadence} · Next: {bootcamp.nextBatchDisplay} · {bootcamp.seats} seats</span>
+          <span className="hero-pill"><span className="dot" aria-hidden="true"></span> {bootcamp.batchCadence} · Next: {bootcamp.nextBatchDisplay} · {bootcamp.seats} seats</span>
           <h1>Build your first AI agent in <em>7 days</em> — live, at 9&nbsp;PM, in plain English.</h1>
           <p className="hero-facts">PKR 10,000 all-inclusive · 5 live classes · 4 certificates · Day-1 money-back guarantee</p>
           <p className="sub">Five live Zoom classes, Monday to Friday, 9:00–10:00 PM Pakistan time. No coding. You&apos;ll plan, build, and deploy a working AI agent — and present it live on Day 7.</p>
@@ -60,7 +60,7 @@ export function Hero() {
 /* ============ FACT STRIP ============ */
 export function FactStrip() {
   return (
-    <div className="facts" aria-label="Bootcamp at a glance">
+    <div className="stats" aria-label="Bootcamp at a glance">
       <div className="wrap">
         <ul>
           <li><strong>{bootcamp.studentsTrained}</strong><span>Students Trained</span></li>
@@ -83,19 +83,19 @@ export function ShiftSection() {
           <h2>From chatting to acting.</h2>
           <p>Most people have used a chatbot. Very few can direct an agent. That gap is the opportunity this bootcamp trains you for.</p>
         </div>
-        <div className="shift-grid">
-          <div className="shift-card">
-            <p className="stage">Where most people are</p>
+        <div className="grid-3">
+          <div className="card">
+            <p className="kicker">Where most people are</p>
             <h3>Chatbot</h3>
             <p>Replies to prompts. Forgets everything when the chat closes. Takes no action in the real world.</p>
           </div>
-          <div className="shift-card hot">
-            <p className="stage">What you&apos;ll build</p>
+          <div className="card dark">
+            <p className="kicker">What you&apos;ll build</p>
             <h3>AI Agent</h3>
             <p>Plans a goal, uses tools, remembers context, and acts — it does the work, not just the talking.</p>
           </div>
-          <div className="shift-card">
-            <p className="stage">Where this is going</p>
+          <div className="card">
+            <p className="kicker">Where this is going</p>
             <h3>Agentic Fleet</h3>
             <p>Teams of agents passing work to each other, running real business workflows end to end.</p>
           </div>
@@ -122,10 +122,10 @@ export function PersonaSection() {
           <h2>What will YOU build?</h2>
           <p>Every student builds an agent for their OWN work. Here&apos;s what past students chose:</p>
         </div>
-        <div className="persona-grid">
+        <div className="grid-4">
           {PERSONAS.map((p) => (
-            <div className="persona-card" key={p.role}>
-              <p className="role">{p.role}</p>
+            <div className="card" key={p.role}>
+              <p className="kicker">{p.role}</p>
               <p>{p.text}</p>
             </div>
           ))}
@@ -195,7 +195,7 @@ export function CompareSection() {
           <p className="eyebrow">Why DSP</p>
           <h2>Compare before you commit.</h2>
         </div>
-        <div className="compare">
+        <div className="table-scroll">
           <table>
             <thead>
               <tr><th scope="col">What you get</th><th scope="col">DSP Bootcamp</th><th scope="col">Typical online bootcamp</th></tr>
@@ -219,8 +219,8 @@ export function CompareSection() {
 /* ============ INSTRUCTOR ============ */
 export function InstructorSection() {
   return (
-    <section className="instructor" id="instructor">
-      <div className="wrap inst-grid">
+    <section className="band-dark" id="instructor">
+      <div className="wrap split">
         <div className="inst-video">
           <video
             controls
@@ -292,12 +292,12 @@ export function ProjectsSection() {
           <h2>See the method working — live, right now.</h2>
           <p>Before you pay a rupee, try the agent your instructor built with the same 7-day method you&apos;ll follow.</p>
         </div>
-        <div className="demo-grid">
-          <div className="demo-card">
+        <div className="split">
+          <div className="card">
             <span className="built-by">Built live by your instructor</span>
             <h3 style={{ fontSize: '1.4rem' }}>DSP Travel Agent</h3>
-            <p style={{ color: 'var(--ink-soft)', marginTop: '.4rem' }}>Four specialised agents — orchestrator, researcher, planner, writer — planning real trips together, deployed on a public URL.</p>
-            <ul>
+            <p style={{ color: 'var(--navy-soft)', marginTop: '.4rem' }}>Four specialised agents — orchestrator, researcher, planner, writer — planning real trips together, deployed on a public URL.</p>
+            <ul className="check-list" style={{ margin: '1.1rem 0 1.4rem' }}>
               <li><CheckIcon /> 4-agent orchestration, working end to end</li>
               <li><CheckIcon /> Live deployment — public URL, custom domain</li>
               <li><CheckIcon /> Zero hand-written code — built entirely by vibe coding</li>
@@ -310,7 +310,7 @@ export function ProjectsSection() {
           <div>
             <p className="kicker">Your version of this</p>
             <h3 style={{ fontSize: '1.5rem', margin: '.4rem 0 .8rem' }}>On Day 7, you demo your own.</h3>
-            <p style={{ color: 'var(--ink-soft)' }}>Every student plans, tools, and deploys a working agent, then presents it live to the cohort. Your project — a sales agent, a finance tracker, an SEO auditor, whatever fits your work — leaves the bootcamp deployed and demonstrable.</p>
+            <p style={{ color: 'var(--navy-soft)' }}>Every student plans, tools, and deploys a working agent, then presents it live to the cohort. Your project — a sales agent, a finance tracker, an SEO auditor, whatever fits your work — leaves the bootcamp deployed and demonstrable.</p>
           </div>
         </div>
 
@@ -439,7 +439,7 @@ export function PricingSection() {
             <li><CheckIcon /> Internship pathway for top students (1 month)</li>
           </ul>
           <a className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }} href="https://wa.me/923420580864?text=Hi%20DSP%2C%20I%20want%20to%20reserve%20my%20seat%20for%20Monday%27s%20batch">Reserve my seat</a>
-          <p className="guarantee"><strong>Day-1 guarantee:</strong> attend the first live class. If it&apos;s not for you, message us before Day 2 and we refund the full fee.</p>
+          <p className="price-note"><strong>Day-1 guarantee:</strong> attend the first live class. If it&apos;s not for you, message us before Day 2 and we refund the full fee.</p>
         </div>
       </div>
     </section>
@@ -449,7 +449,7 @@ export function PricingSection() {
 /* ============ JOIN ============ */
 export function JoinSection() {
   return (
-    <section className="join" id="join">
+    <section className="band-dark" id="join">
       <div className="wrap join-grid">
         <div className="join-side">
           <p className="eyebrow">Admissions</p>
@@ -505,7 +505,7 @@ export function PoliciesSection() {
 /* ============ FOOTER ============ */
 export function HomeFooter() {
   return (
-    <footer>
+    <footer className="site-footer">
       <div className="wrap">
         <div className="foot-grid">
           <div>

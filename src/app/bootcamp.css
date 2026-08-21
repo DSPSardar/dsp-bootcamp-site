@@ -1,0 +1,161 @@
+/* ================================================================
+   DSP — bootcamp page components (/academy/bootcamp)
+   Page-specific pieces layered on top of site.css: the "tonight's
+   class" console, day rows, FAQ accordion, policies, sticky CTA.
+   Uses the shared .dsp-site tokens (navy/teal/gold #D4AF37 on paper);
+   all rules scoped under .page-bootcamp, applied alongside .dsp-site.
+   Urdu display line needs its own font, imported here only.
+   ================================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600&display=swap');
+
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+
+.page-bootcamp{--urdu:'Noto Nastaliq Urdu',serif}
+
+/* ---------- announcement bar ---------- */
+.page-bootcamp .announce{background:var(--navy);color:var(--gold);text-align:center;font-family:var(--mono);font-size:.78rem;letter-spacing:.05em;padding:.5rem 1rem;border-bottom:1px solid rgba(255,255,255,.08)}
+
+/* ---------- hero extras (base hero styles come from .hero-dark) ---------- */
+.page-bootcamp .hero-dark .stars{position:absolute;inset:0;background-image:radial-gradient(1.5px 1.5px at 20% 30%,rgba(255,255,255,.5),transparent),radial-gradient(1px 1px at 70% 20%,rgba(255,255,255,.4),transparent),radial-gradient(1.5px 1.5px at 85% 60%,rgba(255,255,255,.35),transparent),radial-gradient(1px 1px at 40% 75%,rgba(255,255,255,.3),transparent),radial-gradient(1px 1px at 55% 45%,rgba(255,255,255,.35),transparent);pointer-events:none}
+.page-bootcamp .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:center;position:relative}
+.page-bootcamp .urdu-line{font-family:var(--urdu);color:#C9D6EC;font-size:1.05rem;margin-top:1.1rem;direction:rtl;text-align:left}
+.page-bootcamp .fee-flag{display:inline-flex;align-items:baseline;gap:.5rem;margin-top:1.4rem;background:rgba(255,255,255,.06);border:1px solid var(--line-dark);border-radius:12px;padding:.7rem 1.1rem}
+.page-bootcamp .fee-flag .amt{font-family:var(--disp);font-weight:800;font-size:1.5rem;color:#fff}
+.page-bootcamp .fee-flag .lbl{font-size:.85rem;color:#9FB0CE}
+.page-bootcamp .cta-guarantee{margin-top:1rem;font-size:.88rem;color:var(--navy-soft)}
+.page-bootcamp .hero-dark .cta-guarantee{color:#C9D6EC}
+.page-bootcamp form .cta-guarantee{margin-top:-.2rem}
+
+/* tonight's class console — the signature */
+.page-bootcamp .console{background:linear-gradient(180deg,#122A44,#0B2036);border:1px solid var(--line-dark);border-radius:18px;box-shadow:0 30px 60px rgba(0,0,0,.45);overflow:hidden;font-family:var(--mono)}
+.page-bootcamp .console-bar{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;border-bottom:1px solid var(--line-dark);color:#8FA3C4;font-size:.75rem}
+.page-bootcamp .console-bar .dots{display:flex;gap:.35rem}
+.page-bootcamp .console-bar .dots i{width:9px;height:9px;border-radius:50%;background:#2E4E75;display:block}
+.page-bootcamp .console-body{padding:1.2rem 1.2rem 1.4rem;font-size:.83rem;color:#B9CBEA}
+.page-bootcamp .console-time{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1rem}
+.page-bootcamp .console-time .clock{font-size:1.9rem;color:#fff;font-weight:600;letter-spacing:.03em}
+.page-bootcamp .console-time .tz{color:var(--gold);font-size:.75rem}
+.page-bootcamp .console-line{display:flex;gap:.6rem;padding:.42rem 0;border-top:1px dashed rgba(143,163,196,.25);align-items:center}
+.page-bootcamp .console-line .tag{color:var(--gold);min-width:6.2em}
+.page-bootcamp .console-line .ok{color:var(--ok);margin-left:auto}
+.page-bootcamp .cursor::after{content:"▋";animation:dsp-blink 1s steps(1) infinite;color:var(--teal)}
+@keyframes dsp-blink{50%{opacity:0}}
+
+/* ---------- white bands (schedule, certificates) ---------- */
+.page-bootcamp .week,.page-bootcamp .certs{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+/* ---------- 7-day schedule rows ---------- */
+.page-bootcamp .day-row{display:grid;grid-template-columns:120px 1fr auto;gap:1.4rem;align-items:baseline;padding:1.15rem 0;border-top:1px solid var(--line)}
+.page-bootcamp .day-row:first-of-type{border-top:none}
+.page-bootcamp .day-row .d{font-family:var(--mono);font-size:.82rem;color:var(--teal-deep)}
+.page-bootcamp .day-row h3{font-size:1.08rem}
+.page-bootcamp .day-row p{color:var(--navy-soft);font-size:.95rem;margin-top:.15rem}
+.page-bootcamp .day-row .when{font-family:var(--mono);font-size:.78rem;color:var(--navy-soft);white-space:nowrap;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:.3rem .75rem}
+.page-bootcamp .day-row .when.live{background:rgba(2,128,144,.09);border-color:rgba(2,128,144,.3);color:var(--teal-deep)}
+.page-bootcamp .day-row .outcome{font-family:var(--mono);font-size:.8rem;color:var(--teal-deep);margin-top:.5rem}
+.page-bootcamp .day-row.gold{background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.5);border-radius:var(--radius);padding:1.15rem 1.2rem;margin-top:.4rem}
+.page-bootcamp .day-row.gold .d,.page-bootcamp .day-row.gold .outcome{color:var(--gold-dark)}
+.page-bootcamp .schedule-teaser{margin-top:1.8rem;color:var(--navy-soft);font-size:.97rem;max-width:56rem}
+.page-bootcamp .syllabus-cta{margin-top:2rem;display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);padding:1.3rem 1.5rem}
+.page-bootcamp .syllabus-cta p{color:var(--navy-soft);font-size:.95rem}
+
+/* ---------- comparison table: DSP column (2nd) carries the gold ---------- */
+.page-bootcamp thead th:nth-child(2){color:var(--gold)}
+.page-bootcamp thead th:nth-child(3){color:#fff}
+.page-bootcamp td:nth-child(2){font-weight:600}
+.page-bootcamp .cross{color:#B4543E}
+
+/* ---------- instructor extras (band-dark supplies the base) ---------- */
+.page-bootcamp #instructor .split p{margin-top:.9rem}
+.page-bootcamp .inst-video video{width:100%;aspect-ratio:16/9;border-radius:18px;border:1px solid var(--line-dark);background:#0B2036;box-shadow:0 30px 60px rgba(0,0,0,.45);display:block}
+.page-bootcamp .inst-video-cap{font-family:var(--mono);font-size:.75rem;color:#8FA3C4;margin-top:.7rem;text-align:center}
+.page-bootcamp .inst-stack{font-family:var(--mono);font-size:.82rem;color:var(--gold);letter-spacing:.02em;margin-top:.7rem}
+.page-bootcamp .inst-stack a{color:var(--gold)}
+.page-bootcamp .cred-list{list-style:none;margin-top:1.4rem;display:grid;gap:.7rem}
+.page-bootcamp .cred-list li{display:flex;gap:.7rem;align-items:flex-start;color:#DDE6F5;font-size:.98rem}
+.page-bootcamp .cred-list .ic{color:var(--gold);margin-top:.2rem}
+.page-bootcamp .inst-badge{margin-top:1.4rem;display:inline-flex;gap:.9rem;align-items:center;background:rgba(255,255,255,.06);border:1px solid var(--line-dark);border-radius:14px;padding:.8rem 1.1rem;text-decoration:none;color:#DDE6F5;transition:border-color .2s}
+.page-bootcamp .inst-badge:hover{border-color:var(--gold)}
+.page-bootcamp .inst-badge img{width:64px;height:64px;border-radius:10px;background:#fff;flex-shrink:0}
+.page-bootcamp .inst-badge strong{display:block;color:#fff;font-size:.95rem}
+.page-bootcamp .inst-badge-meta{display:block;font-size:.8rem;color:#8FA3C4;margin-top:.15rem}
+.page-bootcamp .inst-badge-verify{display:block;font-family:var(--mono);font-size:.75rem;color:var(--gold);margin-top:.35rem}
+
+/* ---------- projects / students ---------- */
+.page-bootcamp .kicker{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--navy-soft)}
+.page-bootcamp .built-by{display:inline-block;background:rgba(212,175,55,.16);color:var(--gold-dark);border:1px solid rgba(212,175,55,.5);border-radius:999px;padding:.25rem .8rem;font-size:.8rem;font-weight:600;margin-bottom:.8rem}
+.page-bootcamp .testi-cap{font-size:.88rem;font-style:italic;color:var(--navy-soft)}
+.page-bootcamp .stu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.page-bootcamp .stu-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem;display:flex;flex-direction:column;gap:.7rem}
+.page-bootcamp .stu-card .ic{width:26px;height:26px;color:var(--teal)}
+.page-bootcamp .stu-card .who{font-size:.85rem;color:var(--navy-soft);margin-top:auto}
+.page-bootcamp .quote{border-left:3px solid var(--gold);padding:.2rem 0 .2rem 1rem;font-style:italic;color:var(--navy-soft);font-size:.95rem}
+.page-bootcamp .proof-strip{margin-top:2.4rem;background:var(--navy);color:#fff;border-radius:var(--radius);padding:1.8rem 2rem;display:flex;gap:2rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.page-bootcamp .proof-strip h3{color:#fff}
+.page-bootcamp .proof-strip p{color:#C9D6EC;font-size:.95rem;margin-top:.3rem;max-width:32rem}
+.page-bootcamp .proof-links{list-style:none;display:flex;gap:.8rem;flex-wrap:wrap}
+.page-bootcamp .proof-links a{display:inline-flex;align-items:center;gap:.5rem;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:.55rem 1.05rem;font-size:.9rem;font-weight:600}
+.page-bootcamp .proof-links a:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ---------- certificates ---------- */
+.page-bootcamp .cert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:1.6rem}
+.page-bootcamp .cert-card{border:1px solid var(--line);border-radius:var(--radius);padding:1.4rem;background:var(--paper)}
+.page-bootcamp .cert-card.dsp{background:var(--navy);color:#fff;border-color:var(--navy)}
+.page-bootcamp .cert-card.dsp p{color:#C9D6EC}
+.page-bootcamp .cert-card .seal{width:44px;height:44px;border-radius:50%;background:var(--gold);color:var(--navy);display:grid;place-items:center;margin-bottom:.9rem}
+.page-bootcamp .cert-card h3{font-size:1.02rem;margin-bottom:.35rem}
+.page-bootcamp .cert-card p{font-size:.88rem;color:var(--navy-soft)}
+.page-bootcamp .cert-honesty{margin-top:1.6rem;font-size:.92rem;color:var(--navy-soft);max-width:56rem}
+
+/* keep "one-time" unbroken next to the price */
+.page-bootcamp .price-card .big small{white-space:nowrap}
+
+/* ---------- personas band spacing ---------- */
+.page-bootcamp .personas{padding:56px 0}
+
+/* ---------- FAQ accordion ---------- */
+.page-bootcamp .faq-item{border:1px solid var(--line);border-radius:var(--radius);background:var(--white);margin-bottom:.8rem;overflow:hidden}
+.page-bootcamp .faq-q{width:100%;text-align:left;background:none;border:none;font-family:var(--body);font-weight:600;font-size:1.02rem;color:var(--navy);padding:1.1rem 1.3rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;cursor:pointer}
+.page-bootcamp .faq-q .chev{transition:transform .2s ease;color:var(--teal-deep)}
+.page-bootcamp .faq-q[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.page-bootcamp .faq-a{padding:0 1.3rem 1.2rem;color:var(--navy-soft);font-size:.97rem}
+.page-bootcamp .faq-a[hidden]{display:none}
+
+/* ---------- join (band-dark supplies the base) ---------- */
+.page-bootcamp .join-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.page-bootcamp .join-side ul{list-style:none;margin-top:1.4rem;display:grid;gap:.8rem}
+.page-bootcamp .join-side li{display:flex;gap:.7rem;color:#DDE6F5;font-size:.97rem;align-items:flex-start}
+.page-bootcamp .join-side .ic{color:var(--gold);margin-top:.2rem}
+
+/* ---------- policies ---------- */
+.page-bootcamp .policies{background:var(--paper-2);border-top:1px solid var(--line)}
+.page-bootcamp .policies details{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:.8rem;padding:1rem 1.3rem}
+.page-bootcamp .policies summary{font-weight:600;cursor:pointer}
+.page-bootcamp .policies .policy-body{padding-top:.8rem;color:var(--navy-soft);font-size:.94rem}
+.page-bootcamp .policies .policy-body p{margin-bottom:.7rem}
+
+/* ---------- footer: 3 columns + clearance for the sticky bar ---------- */
+@media (min-width: 961px){
+  .page-bootcamp .site-footer .foot-grid{grid-template-columns:1.6fr 1fr 1fr}
+}
+
+/* ---------- sticky mobile bar ---------- */
+.page-bootcamp .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:120;display:none;gap:.7rem;padding:.7rem 1rem calc(.7rem + env(safe-area-inset-bottom));background:rgba(14,42,71,.97);border-top:1px solid var(--line-dark)}
+.page-bootcamp .sticky-cta .btn{flex:1;justify-content:center;padding:.85rem 1rem}
+.page-bootcamp .sticky-cta .price-tag{display:flex;flex-direction:column;justify-content:center;color:#fff;font-family:var(--disp);font-weight:800;line-height:1.1}
+.page-bootcamp .sticky-cta .price-tag small{font-family:var(--body);font-weight:500;color:#9FB0CE;font-size:.68rem}
+
+/* ---------- responsive ---------- */
+@media (max-width: 960px){
+  .page-bootcamp .hero-grid,.page-bootcamp .join-grid{grid-template-columns:1fr;gap:2.2rem}
+  .page-bootcamp .stu-grid{grid-template-columns:1fr}
+  .page-bootcamp .day-row{grid-template-columns:1fr;gap:.3rem}
+  .page-bootcamp .day-row .when{justify-self:start}
+  .page-bootcamp .cert-grid{grid-template-columns:repeat(2,1fr)}
+  .page-bootcamp .sticky-cta{display:flex}
+  .page-bootcamp .site-footer{padding-bottom:6.5rem}
+}
+@media (max-width: 560px){
+  .page-bootcamp .cert-grid{grid-template-columns:1fr}
+}
