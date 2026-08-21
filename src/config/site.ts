@@ -61,6 +61,17 @@ export const bootcamp = {
   url: '/academy/bootcamp',
 } as const
 
+export const channelops = {
+  name: 'The ChannelOps Course',
+  /** Course fee — shown only in the course offer section, like bootcamp pricing */
+  feePkr: 30_000,
+  feeDisplay: 'PKR 30,000',
+  /** Discounted fee for Vibe Coding Bootcamp alumni */
+  alumniFeePkr: 25_000,
+  alumniFeeDisplay: 'PKR 25,000',
+  url: '/channelops',
+} as const
+
 export const restaurantAgent = {
   name: 'DSP Restaurant AI — Phone Ordering Agent',
   /** Calendly booking link — set to a real URL when ready; while null,

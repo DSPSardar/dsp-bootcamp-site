@@ -6,7 +6,7 @@ import type { Metadata } from 'next'
 import SiteShell from '@/components/site/SiteShell'
 import TrackedLink from '@/components/site/TrackedLink'
 import { CheckIcon, WhatsAppIcon } from '@/components/home/icons'
-import { waLink } from '@/config/site'
+import { channelops, waLink } from '@/config/site'
 
 export const metadata: Metadata = {
   title: { absolute: 'ChannelOps by DSP — AI Agents That Fix Your YouTube Channel' },
@@ -261,9 +261,9 @@ export default function ChannelOpsPage() {
             <p className="kicker">The ChannelOps Course</p>
             <h3>5 live classes + weekend capstone</h3>
             <ul className="check-list">
+              <li><CheckIcon /> {channelops.feeDisplay} one-time</li>
               <li><CheckIcon /> New batch monthly · limited seats</li>
-              <li><CheckIcon /> Fee announced at launch — ask us on WhatsApp</li>
-              <li><CheckIcon /> Bootcamp alumni get a credit off the fee</li>
+              <li><CheckIcon /> Bootcamp alumni: {channelops.alumniFeeDisplay}</li>
             </ul>
           </div>
         </div>
