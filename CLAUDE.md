@@ -36,7 +36,7 @@ Routes: `/` dual-engine homepage · `/agents` + `/agents/restaurant-ai` + `/agen
 
 - Bootcamp: 7 days · 5 live Zoom classes Mon–Fri 9–10 PM PKT · PKR 10,000 one-time (fee shown ONLY in pricing sections — not nav/hero/meta) · 4 certificates (3 Anthropic + 1 DSP) · 30 seats · new batch every Monday
 - The 30-day "zero to master" program was removed in Aug 2026 — do not reintroduce it or link to its old pages
-- WhatsApp: +92 311 8122222 everywhere · email info@digitalservicesprogram.com
+- WhatsApp: +92 342 0580864 everywhere on the site (Meta-approved WhatsApp Business number) · email info@digitalservicesprogram.com. +92 311 8122222 is used privately to reply to clients — never publish it on the site.
 - Never reintroduce "15-Day", "5-day", or the old number 923253966799
 
 ## Architecture: three visual shells, deliberately isolated
