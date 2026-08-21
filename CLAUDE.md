@@ -26,7 +26,7 @@ Pushing to `main` triggers `.github/workflows/deploy.yml`: build + deploy to Ver
 
 Company site for DSP (Digital Services Program): a software division building AI agents (**DSP Agents**) and a training division (**DSP Academy**). Next.js 16.2.9 App Router, React 19, Tailwind 4, TypeScript.
 
-Routes: `/` dual-engine homepage · `/agents` + `/agents/restaurant-ai` + `/agents/case-studies` (software division) · `/academy` + `/academy/bootcamp` (training) · `/about` · `/blog` (43 legacy posts) · `/contact` · `/channelops` (noindex placeholder for an upcoming product). `/bootcamp` 301s to `/academy/bootcamp`; the retired 30-day program's URLs 301 to `/academy` (next.config.ts).
+Routes: `/` dual-engine homepage · `/agents` + `/agents/restaurant-ai` + `/agents/case-studies` (software division) · `/academy` + `/academy/bootcamp` (training) · `/about` · `/blog` (43 legacy posts) · `/contact` · `/channelops` (ChannelOps product: YouTube cleanup as a service + course). `/bootcamp` 301s to `/academy/bootcamp`; the retired 30-day program's URLs 301 to `/academy` (next.config.ts).
 
 ## Config-driven facts
 
@@ -46,7 +46,7 @@ Routes: `/` dual-engine homepage · `/agents` + `/agents/restaurant-ai` + `/agen
 - **Blog and contact** (`src/app/blog/`, `src/app/contact/`) keep the old dark theme: `globals.css` variables plus `src/components/Nav.tsx`/`Footer.tsx`, rendered by their **own route layouts**, not the root layout. The root layout intentionally renders no nav/footer.
 - Root layout (`src/app/layout.tsx`) owns `metadataBase`, `alternates: { canonical: './' }`, the sitewide Organization JSON-LD, and GA4 (`src/components/site/Analytics.tsx`, active only when `NEXT_PUBLIC_GA4_ID` is set). Page-level JSON-LD: Course on the bootcamp page, Service on `/agents`, Product on `/agents/restaurant-ai`, Person on `/about`.
 
-GA4 events: `whatsapp_cta_click`, `restaurant_demo_click`, `academy_cta_click`, `agents_cta_click` — fired via `src/lib/track.ts` and `src/components/site/TrackedLink.tsx`.
+GA4 events: `whatsapp_cta_click`, `restaurant_demo_click`, `academy_cta_click`, `agents_cta_click`, `channelops_course_cta`, `channelops_service_cta`, `channelops_whatsapp_cta` — fired via `src/lib/track.ts` and `src/components/site/TrackedLink.tsx`.
 
 ## Blog
 

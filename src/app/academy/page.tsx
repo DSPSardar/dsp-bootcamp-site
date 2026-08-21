@@ -69,11 +69,11 @@ export default function AcademyPage() {
               <p className="kicker">Coming soon</p>
               <h3>ChannelOps</h3>
               <p>
-                Our next product is on the way. Details soon — follow along, or ask us anything
-                in the meantime.
+                Fix a YouTube channel with five AI agents — learn to build the system in one
+                week, or have us run it for you.
               </p>
               <p style={{ marginTop: '1rem' }}>
-                <Link href="/channelops" style={{ color: 'var(--gold)', fontWeight: 600 }}>ChannelOps — coming soon →</Link>
+                <Link href="/channelops" style={{ color: 'var(--gold)', fontWeight: 600 }}>See ChannelOps →</Link>
               </p>
               <p style={{ marginTop: '1rem', fontSize: '.95rem' }}>
                 Not sure where to start? <a href={waLink('Hi DSP, is the Vibe Coding Bootcamp right for me?')} style={{ color: 'var(--gold)' }}>Ask us on WhatsApp</a>
