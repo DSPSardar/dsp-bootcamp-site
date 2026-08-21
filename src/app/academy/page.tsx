@@ -41,16 +41,16 @@ export default function AcademyPage() {
         </div>
       </section>
 
-      {/* ============ THE COURSE ============ */}
+      {/* ============ THE COURSES ============ */}
       <section>
         <div className="wrap">
           <div className="sec-head">
-            <p className="eyebrow">The course</p>
+            <p className="eyebrow">The courses</p>
             <h2>Start here.</h2>
           </div>
           <div className="grid-2">
             <div className="card">
-              <p className="kicker">Course 1 · start here</p>
+              <p className="kicker">Featured course</p>
               <h3>{bootcamp.name}</h3>
               <p>
                 {bootcamp.days} days, no coding required. Five live Zoom classes, {bootcamp.schedule}.
@@ -66,15 +66,17 @@ export default function AcademyPage() {
               </TrackedLink>
             </div>
             <div className="card dark">
-              <p className="kicker">What you leave with</p>
-              <h3>A deployed agent, not a certificate drawer</h3>
+              <p className="kicker">Coming soon</p>
+              <h3>ChannelOps</h3>
               <p>
-                On Day 7 you demo a working AI agent with a live URL. You leave with the build
-                method we use on real client work — and {bootcamp.certificates} certificates to
-                show for it.
+                Our next product is on the way. Details soon — follow along, or ask us anything
+                in the meantime.
               </p>
-              <p style={{ marginTop: '1rem', color: 'var(--navy-soft)', fontSize: '.95rem' }}>
-                Not sure it&apos;s for you? <a href={waLink('Hi DSP, is the Vibe Coding Bootcamp right for me?')}>Ask us on WhatsApp</a>
+              <p style={{ marginTop: '1rem' }}>
+                <Link href="/channelops" style={{ color: 'var(--gold)', fontWeight: 600 }}>ChannelOps — coming soon →</Link>
+              </p>
+              <p style={{ marginTop: '1rem', fontSize: '.95rem' }}>
+                Not sure where to start? <a href={waLink('Hi DSP, is the Vibe Coding Bootcamp right for me?')} style={{ color: 'var(--gold)' }}>Ask us on WhatsApp</a>
                 {' '}— we&apos;ll tell you honestly.
               </p>
             </div>

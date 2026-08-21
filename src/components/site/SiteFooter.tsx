@@ -24,7 +24,7 @@ export default function SiteFooter() {
           <div>
             <h3>DSP Academy</h3>
             <ul>
-              <li><Link href="/academy">Compare courses</Link></li>
+              <li><Link href="/academy">Academy overview</Link></li>
               <li><Link href="/academy/bootcamp">Vibe Coding Bootcamp</Link></li>
             </ul>
           </div>
