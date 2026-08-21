@@ -9,6 +9,7 @@ const links = [
   { label: 'AI Agents', href: '/agents' },
   { label: 'Academy', href: '/academy' },
   { label: 'Bootcamp', href: '/academy/bootcamp' },
+  { label: 'ChannelOps', href: '/channelops' },
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
 ]

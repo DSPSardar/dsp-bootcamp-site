@@ -113,6 +113,25 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ============ CHANNELOPS ============ */}
+      <section style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <div className="card dark" style={{ display: 'flex', gap: '2rem', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', padding: '2rem' }}>
+            <div style={{ maxWidth: '40rem' }}>
+              <p className="kicker">New product</p>
+              <h3>ChannelOps — AI agents that fix your YouTube channel.</h3>
+              <p style={{ marginTop: '.5rem' }}>
+                Audit, SEO, thumbnails, transcripts, publishing — five agents, a human approving
+                every change. Run as a monthly service, or learn to build the system in one week.
+              </p>
+            </div>
+            <TrackedLink className="btn btn-gold" href="/channelops" event="channelops_service_cta" params={{ cta: 'home_banner' }}>
+              See ChannelOps →
+            </TrackedLink>
+          </div>
+        </div>
+      </section>
+
       {/* ============ THE DSP LADDER ============ */}
       <section className="band-dark">
         <div className="wrap">

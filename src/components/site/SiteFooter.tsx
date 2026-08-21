@@ -18,6 +18,7 @@ export default function SiteFooter() {
             <ul>
               <li><Link href="/agents">Why hire us</Link></li>
               <li><Link href="/agents/restaurant-ai">Restaurant AI</Link></li>
+              <li><Link href="/channelops">ChannelOps</Link></li>
               <li><Link href="/agents/case-studies">Case studies</Link></li>
             </ul>
           </div>
@@ -26,6 +27,7 @@ export default function SiteFooter() {
             <ul>
               <li><Link href="/academy">Academy overview</Link></li>
               <li><Link href="/academy/bootcamp">Vibe Coding Bootcamp</Link></li>
+              <li><Link href="/channelops#course">ChannelOps course</Link></li>
             </ul>
           </div>
           <div>

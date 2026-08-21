@@ -528,6 +528,7 @@ export function HomeFooter() {
           <div>
             <h3>DSP</h3>
             <ul>
+              <li><Link href="/channelops">ChannelOps</Link></li>
               <li><Link href="/blog">Blog</Link></li>
               <li><a href="#policies">Refund policy</a></li>
               <li><a href="#policies">Privacy policy</a></li>
