@@ -127,9 +127,10 @@ export const agency = {
     daysToLive: 7,
   },
 
-  /** Zara's public WhatsApp demo line — confirmed Aug 2026: the ASOS demo
-      agent responds on the main site WhatsApp number. If Zara ever moves to
-      a dedicated line, change only this value. */
+  /** Zara's public WhatsApp demo line — confirmed Aug 2026: Zara works as
+      DSP's own admissions/sales employee on the main site WhatsApp number,
+      so messaging her IS the live demo. If she ever moves to a dedicated
+      line, change only this value. */
   zaraDemoWaNumber: '923420580864' as string | null,
 
   /** Emma's phone demo line (+1 607 400-6476). Gated: publish only after

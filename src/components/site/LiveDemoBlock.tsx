@@ -3,10 +3,12 @@ import { WhatsAppIcon } from '@/components/home/icons'
 import { agency, site } from '@/config/site'
 
 // Teal "talk to one right now" band — shared verbatim between the homepage
-// (section 5) and /ai-employees (section 4). Demo lines are gated in
-// src/config/site.ts until the publish checklist signs them off:
-//  · Zara's ASOS WhatsApp line — falls back to the main site WhatsApp
-//  · Emma's phone line — renders a coming-soon pill while null
+// (section 5) and /ai-employees (section 4). Demo lines live in
+// src/config/site.ts:
+//  · Zara — DSP's own admissions/sales employee answers the site WhatsApp,
+//    so the demo is her real job (falls back to a plain DSP message if the
+//    number is ever unset)
+//  · Emma's phone line — gated; renders a coming-soon pill while null
 
 function zaraHref(): string {
   const number = agency.zaraDemoWaNumber ?? site.whatsappNumber
