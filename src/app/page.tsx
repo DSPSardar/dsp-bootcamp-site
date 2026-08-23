@@ -89,10 +89,10 @@ export default function HomePage() {
             <div className="door">
               <span className="door-emoji" aria-hidden="true">🎓</span>
               <h2>Join the DSP Agentic Lab</h2>
-              {/* Fee deliberately absent — locked fact: PKR fee appears only in pricing sections */}
+              {/* Fee here is an approved exception to the pricing-sections-only rule (see CLAUDE.md) */}
               <p>
-                Learn to build AI agents in our 7-day live bootcamp. {bootcamp.certificates} certificates
-                (3 Anthropic + 1 DSP). {bootcamp.batchCadence}.
+                Learn to build AI agents in our 7-day live bootcamp. {bootcamp.feeDisplay}.{' '}
+                {bootcamp.certificates} certificates (3 Anthropic + 1 DSP). {bootcamp.batchCadence}.
               </p>
               <TrackedLink className="btn btn-navy" href={bootcamp.url} event="academy_cta_click" params={{ cta: 'home_door_lab' }}>
                 Enter the Agentic Lab →

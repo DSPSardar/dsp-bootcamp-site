@@ -127,10 +127,10 @@ export const agency = {
     daysToLive: 7,
   },
 
-  /** Zara's public WhatsApp demo line (the ASOS number). Gated: confirm the
-      number before publish; while null, demo CTAs fall back to the main
-      site WhatsApp with a "talk to Zara" message. */
-  zaraDemoWaNumber: null as string | null,
+  /** Zara's public WhatsApp demo line — confirmed Aug 2026: the ASOS demo
+      agent responds on the main site WhatsApp number. If Zara ever moves to
+      a dedicated line, change only this value. */
+  zaraDemoWaNumber: '923420580864' as string | null,
 
   /** Emma's phone demo line (+1 607 400-6476). Gated: publish only after
       Checkpoint 5 sign-off — while null, the "Call Emma" CTA renders as a
