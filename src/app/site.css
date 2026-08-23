@@ -117,6 +117,8 @@
 .dsp-site .band-dark .sec-head p,.dsp-site .band-dark p{color:#C9D6EC}
 .dsp-site .band-dark .eyebrow{color:var(--gold)}
 .dsp-site .band-dark .eyebrow::before{background:var(--gold)}
+.dsp-site .band-dark > .wrap > .check-list li,.dsp-site .band-dark .split .check-list li{color:#DDE6F5}
+.dsp-site .band-dark > .wrap > .check-list .ic,.dsp-site .band-dark .split .check-list .ic{color:var(--gold)}
 
 /* stat strip */
 .dsp-site .stats{background:var(--navy);color:#fff;padding:0}
@@ -197,8 +199,99 @@
 .dsp-site .foot-brand{display:flex;align-items:center;gap:.6rem;color:#fff;font-family:var(--disp);font-weight:800;margin-bottom:.8rem}
 .dsp-site .foot-legal{border-top:1px solid rgba(255,255,255,.12);margin-top:2.4rem;padding-top:1.4rem;font-size:.83rem;color:#9FB0CE;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 
+/* ================================================================
+   Agency (AI Employees) additions — /, /ai-employees, /pricing
+   ================================================================ */
+
+/* navy button (door card 2, on light card backgrounds) */
+.dsp-site .btn-navy{background:var(--navy);color:#fff;box-shadow:0 6px 18px rgba(23,32,74,.28)}
+.dsp-site .btn-navy:hover{background:var(--navy-deep)}
+
+/* hero door cards */
+.dsp-site .door-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2.2rem}
+.dsp-site .door{background:var(--white);color:var(--navy);border-radius:var(--radius);padding:1.8rem;display:flex;flex-direction:column;gap:.7rem;align-items:flex-start;box-shadow:0 24px 50px rgba(0,0,0,.35)}
+.dsp-site .door h2{font-size:1.35rem;font-weight:800}
+.dsp-site .door p{color:var(--navy-soft);font-size:.97rem;flex:1}
+.dsp-site .door .door-emoji{font-size:1.6rem;line-height:1}
+
+/* founder authority bar (thin navy strip, gold-dot separated) */
+.dsp-site .authority-bar{background:var(--navy);color:#fff;padding:.85rem 0}
+.dsp-site .authority-bar ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 0;font-size:.88rem;color:#DDE6F5}
+.dsp-site .authority-bar li{display:flex;align-items:center}
+.dsp-site .authority-bar li + li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);margin:0 .9rem;flex:none}
+
+/* teal live-demo band — highest-contrast section on the page */
+.dsp-site .band-teal{background:linear-gradient(135deg,var(--teal) 0%,var(--teal-deep) 100%);color:#fff}
+.dsp-site .band-teal h2{color:#fff}
+.dsp-site .band-teal p{color:#D8F0F3}
+.dsp-site .band-teal .eyebrow{color:#BFE8ED}
+.dsp-site .band-teal .eyebrow::before{background:var(--gold)}
+.dsp-site .band-teal .small-print{font-size:.85rem;color:#BFE8ED;margin-top:1.1rem}
+.dsp-site .btn-disabled{background:rgba(255,255,255,.14);color:#D8F0F3;border-color:rgba(255,255,255,.35);cursor:default;box-shadow:none}
+.dsp-site .btn-disabled:hover{transform:none}
+
+/* AI employee cards (avatar + name + role + first-person line) */
+.dsp-site .emp-card{display:flex;flex-direction:column;align-items:flex-start}
+.dsp-site .emp-avatar{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-family:var(--disp);font-weight:800;font-size:1.3rem;color:#fff;background:linear-gradient(135deg,var(--teal),var(--navy));margin-bottom:1rem;border:2px solid var(--gold)}
+.dsp-site .emp-card .role{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:.7rem}
+.dsp-site .emp-card blockquote{border-left:3px solid var(--gold);padding-left:.9rem;font-size:.95rem;color:var(--navy-soft);font-style:italic;flex:1}
+.dsp-site .emp-card .best-for{font-size:.88rem;color:var(--navy-soft);margin-top:.9rem}
+.dsp-site .emp-card .best-for strong{color:var(--navy)}
+.dsp-site .emp-card .btn{margin-top:1.1rem}
+
+/* product proof bar (animated counters) */
+.dsp-site .proof{background:var(--navy-deep);color:#fff;padding:56px 0}
+.dsp-site .proof ul{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;text-align:center}
+.dsp-site .proof strong{display:block;font-family:var(--disp);font-weight:800;font-size:clamp(2rem,4.5vw,3rem);color:var(--gold);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.dsp-site .proof span{font-size:.9rem;color:#C9D6EC}
+.dsp-site .proof .proof-note{text-align:center;margin-top:1.6rem;font-size:.92rem;color:#9FB0CE}
+
+/* condensed process strip (hub page) */
+.dsp-site .process-strip{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;font-family:var(--disp);font-weight:600;font-size:1.05rem}
+.dsp-site .process-strip .arrow{color:var(--gold);font-weight:800}
+.dsp-site .process-strip .step{background:var(--white);border:1px solid var(--line);border-radius:999px;padding:.7rem 1.4rem}
+.dsp-site .process-strip .step small{display:block;font-family:var(--mono);font-weight:400;font-size:.72rem;color:var(--teal-deep);letter-spacing:.08em;text-transform:uppercase}
+
+/* FAQ accordion (light shell) */
+.dsp-site .faq-list{display:grid;gap:.8rem;max-width:760px;margin:0 auto}
+.dsp-site .faq-list details{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:1.1rem 1.4rem}
+.dsp-site .faq-list summary{font-family:var(--disp);font-weight:600;font-size:1.02rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.dsp-site .faq-list summary::-webkit-details-marker{display:none}
+.dsp-site .faq-list summary::after{content:"+";font-family:var(--disp);font-weight:800;font-size:1.3rem;color:var(--teal);flex:none}
+.dsp-site .faq-list details[open] summary::after{content:"–"}
+.dsp-site .faq-list details p{color:var(--navy-soft);font-size:.96rem;margin-top:.7rem}
+
+/* screenshot / real-photo placeholder frame (no stock imagery) */
+.dsp-site .shot-placeholder{background:linear-gradient(180deg,#122A44,#0B2036);border:1px dashed var(--line-dark);border-radius:18px;min-height:280px;display:grid;place-items:center;text-align:center;padding:2rem;font-family:var(--mono);font-size:.85rem;color:#8FA3C4}
+
+/* leadership cards */
+.dsp-site .leader-card{display:flex;flex-direction:column}
+.dsp-site .leader-photo{width:96px;height:96px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);margin-bottom:1.1rem}
+.dsp-site .leader-photo.placeholder{display:grid;place-items:center;background:var(--paper-2);color:var(--navy-soft);font-family:var(--mono);font-size:.62rem;text-align:center;padding:.4rem;border-style:dashed;border-color:var(--line)}
+.dsp-site .leader-card .role{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-deep);margin:.2rem 0 .7rem}
+
+/* breadcrumbs */
+.dsp-site .breadcrumbs{font-size:.85rem;color:#9FB0CE;margin-bottom:1.2rem}
+.dsp-site .breadcrumbs a{color:#C9D6EC;text-decoration:none}
+.dsp-site .breadcrumbs a:hover{text-decoration:underline}
+.dsp-site .breadcrumbs .sep{margin:0 .5rem;color:var(--gold)}
+
+/* gold-featured pricing tier (Most Popular) */
+.dsp-site .tier.gold{border-color:var(--gold);border-width:2px;box-shadow:0 16px 40px rgba(212,175,55,.22)}
+.dsp-site .tier.gold .flag{background:var(--gold);color:var(--navy)}
+.dsp-site .tier .setup-line{font-family:var(--mono);font-size:.8rem;color:var(--teal-deep);letter-spacing:.03em}
+
+/* homepage pricing teaser row */
+.dsp-site .teaser-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin:1.8rem 0 1.2rem}
+.dsp-site .teaser-tiers .card strong.from{display:block;font-family:var(--disp);font-weight:800;font-size:1.7rem;margin-top:.3rem}
+.dsp-site .teaser-tiers .card strong.from small{font-size:.9rem;font-weight:500;color:var(--navy-soft)}
+
 /* ---------- responsive ---------- */
 @media (max-width: 960px){
+  .dsp-site .door-grid,.dsp-site .teaser-tiers{grid-template-columns:1fr}
+  .dsp-site .proof ul{grid-template-columns:repeat(2,1fr)}
+  .dsp-site .authority-bar ul{flex-direction:column;align-items:center;gap:.35rem}
+  .dsp-site .authority-bar li + li::before{display:none}
   .dsp-site section{padding:60px 0}
   .dsp-site .split,.dsp-site .grid-2,.dsp-site .grid-3{grid-template-columns:1fr;gap:1.6rem}
   .dsp-site .split{gap:2.2rem}

@@ -26,11 +26,13 @@ Pushing to `main` triggers `.github/workflows/deploy.yml`: build + deploy to Ver
 
 Company site for DSP (Digital Services Program): a software division building AI agents (**DSP Agents**) and a training division (**DSP Academy**). Next.js 16.2.9 App Router, React 19, Tailwind 4, TypeScript.
 
-Routes: `/` dual-engine homepage · `/agents` + `/agents/restaurant-ai` + `/agents/case-studies` (software division) · `/academy` + `/academy/bootcamp` (training) · `/about` · `/blog` (43 legacy posts) · `/contact` · `/channelops` (ChannelOps product: YouTube cleanup as a service + course). `/bootcamp` 301s to `/academy/bootcamp`; the retired 30-day program's URLs 301 to `/academy` (next.config.ts).
+Routes: `/` two-door homepage (13 locked sections: agency + Agentic Lab) · `/ai-employees` (AI Employees hub: Zara/Adam/Maya/Emma) · `/pricing` (published USD agency pricing) · `/agents` + `/agents/restaurant-ai` + `/agents/case-studies` (software division) · `/academy` + `/academy/bootcamp` (training — rebranded "DSP Agentic Lab" in nav labels; URL frozen for SEO) · `/about` · `/blog` (43 legacy posts) · `/contact` · `/channelops` (ChannelOps product: YouTube cleanup as a service + course). `/bootcamp` 301s to `/academy/bootcamp`; the retired 30-day program's URLs 301 to `/academy` (next.config.ts).
 
 ## Config-driven facts
 
 **`src/config/site.ts` is the single source of truth** for prices, seat counts, batch dates, WhatsApp number, restaurant pricing tiers, and the Calendly URL (null = demo CTAs fall back to WhatsApp). Edit facts there, never in components. The bootcamp cohort start date is one config value (`bootcamp.nextBatchDate`/`nextBatchDisplay`) feeding the hero pill, pricing card, and Course JSON-LD together.
+
+The `agency` export holds all AI Employees facts (employee cards, proof-bar numbers, USD tiers, founder bar) plus **publish-checklist gates that must stay gated until signed off**: `zaraDemoWaNumber` (ASOS demo line — null falls back to site WhatsApp), `emmaDemoPhone`/`emmaDemoPhoneDisplay` (Checkpoint 5), `emmaPricingApproved` (Checkpoint 5 + paid Twilio number), `caseStudiesApproved` (written client permission), `leadership.sundusSurname`/`sundusDegreeLine` (confirm from certificates/LinkedIn — never guess). Components render placeholders while these are null/false.
 
 ## Locked marketing facts — never change without explicit instruction
 

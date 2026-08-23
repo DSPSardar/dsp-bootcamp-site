@@ -102,6 +102,157 @@ export const restaurantAgent = {
   ],
 } as const
 
+/* ──────────────────────────────────────────────────────────────────
+   AI Employees (agency) — feeds /, /ai-employees, /pricing.
+   Gated fields stay null/false until the publish-checklist item they
+   correspond to is signed off; components render placeholders until then.
+   ────────────────────────────────────────────────────────────────── */
+export const agency = {
+  platformName: 'DSPAgentHub',
+
+  /** Founder authority bar on the homepage (4 items, gold-dot separated).
+      Viewer figure: update from platform dashboards when it changes. */
+  founderBar: [
+    'Teaching technology since 2002',
+    'London → UAE → Pakistan',
+    'Google & Anthropic Verified AI Trainer',
+    '2.3M viewers reached in the last 90 days',
+  ],
+
+  /** Product proof bar — our own DSPAgentHub numbers. Update from the dashboard. */
+  proof: {
+    leads: 868,
+    sales: 280,
+    zeroTakeoverPct: 50.7,
+    daysToLive: 7,
+  },
+
+  /** Zara's public WhatsApp demo line (the ASOS number). Gated: confirm the
+      number before publish; while null, demo CTAs fall back to the main
+      site WhatsApp with a "talk to Zara" message. */
+  zaraDemoWaNumber: null as string | null,
+
+  /** Emma's phone demo line (+1 607 400-6476). Gated: publish only after
+      Checkpoint 5 sign-off — while null, the "Call Emma" CTA renders as a
+      coming-soon placeholder. */
+  emmaDemoPhone: null as string | null,
+  emmaDemoPhoneDisplay: null as string | null,
+
+  /** Emma's pricing ($750–1,000 setup · from $299/mo incl. 500 calls).
+      Gated: publish only after Checkpoint 5 sign-off + paid Twilio number.
+      While false, /pricing shows a "quote on request" strip instead. */
+  emmaPricingApproved: false,
+
+  /** Case-study teaser cards. Gated: hold until Autospa / Personal Cars
+      give written permission — while false, placeholder cards render. */
+  caseStudiesApproved: false,
+
+  employees: [
+    {
+      id: 'zara',
+      name: 'Zara',
+      role: 'AI Sales Employee',
+      homeLine:
+        'I answer every lead on WhatsApp in seconds, qualify them, follow up, and close the sale — payment confirmed before I mark it won.',
+      hubLine:
+        'A lead messages you at 11 PM. I reply in 8 seconds. I answer their questions from your price list, qualify them, follow up until they decide, and guide them through payment. I only mark a sale as won when the money is confirmed.',
+      bestFor:
+        'any business selling services or products over WhatsApp — coaching, real estate, retail, agencies.',
+    },
+    {
+      id: 'adam',
+      name: 'Adam',
+      role: 'AI Support Employee',
+      homeLine:
+        'I answer your customers’ questions instantly, 24/7, in their language — and hand over to your team the moment something needs a human.',
+      hubLine:
+        'Your customers ask the same 50 questions every day. I answer all of them instantly — order status, policies, how-tos — in the customer’s own language. Anything sensitive or unusual, I hand to your team with the full conversation attached.',
+      bestFor: 'businesses drowning in repetitive queries — e-commerce, services, software.',
+    },
+    {
+      id: 'maya',
+      name: 'Maya',
+      role: 'AI Booking Employee',
+      homeLine:
+        'I take booking requests any hour of the day, check availability, confirm appointments, and send reminders so your customers actually show up.',
+      hubLine:
+        'I take booking requests around the clock, check your availability, confirm the appointment, and remind the customer before they’re due — so your calendar stays full and your no-shows go down.',
+      bestFor: 'salons, clinics, car services, consultants — any appointment business.',
+    },
+    {
+      id: 'emma',
+      name: 'Emma',
+      role: 'AI Order-Taking Employee',
+      homeLine:
+        'I answer your restaurant’s phone, take the full order — sizes, modifiers, quantities — confirm the price, and text the customer their confirmation.',
+      hubLine:
+        'I answer your restaurant’s phone on the first ring — even during the dinner rush when your staff can’t. I take the complete order with sizes and modifiers, confirm the total, and text the customer their confirmation.',
+      bestFor: 'restaurants, takeaways, and cafes in the US, UK, and Australia.',
+    },
+  ],
+
+  /** USD agency pricing — numbers follow the agreed strategy; confirm final
+      before publish (publish checklist). Cancel-anytime, no annual contracts. */
+  pricing: {
+    tiers: [
+      {
+        id: 'receptionist',
+        name: 'AI Receptionist',
+        setupUsd: 500,
+        monthlyUsd: 199,
+        blurb: 'One AI Booking Employee (Maya) on your WhatsApp',
+        features: [
+          'Takes bookings & appointments 24/7',
+          'Availability checks & confirmations',
+          'Automated reminders (fewer no-shows)',
+          'DSPAgentHub dashboard',
+          'Weekly performance digest',
+        ],
+        cta: 'Start with Maya →',
+      },
+      {
+        id: 'sales',
+        name: 'AI Sales Employee',
+        setupUsd: 1_000,
+        monthlyUsd: 349,
+        featured: true,
+        blurb: 'Zara, fully trained on your business',
+        features: [
+          'Instant response to every lead, 24/7',
+          'Qualification & follow-up sequences',
+          'Payment-confirmed sales tracking',
+          'AI insights & sentiment analysis',
+          'Escalation to your team',
+          'Everything in AI Receptionist',
+        ],
+        cta: 'Hire Zara →',
+      },
+      {
+        id: 'team',
+        name: 'AI Sales Team',
+        setupUsd: 1_500,
+        monthlyUsd: 599,
+        blurb: 'Zara + Adam + Maya on one number',
+        features: [
+          'Sales, support, and bookings combined',
+          'Full analytics & pipeline access',
+          'Priority support & monthly strategy call',
+          'Custom business rules & workflows',
+          'Everything in AI Sales Employee',
+        ],
+        cta: 'Build My Team →',
+      },
+    ],
+  },
+
+  /** Leadership cards. Gated: Sundus's surname + degree/university must be
+      confirmed (certificates/LinkedIn) before filling in — never guess them. */
+  leadership: {
+    sundusSurname: null as string | null,
+    sundusDegreeLine: null as string | null,
+  },
+} as const
+
 export const socials = {
   youtube: 'https://www.youtube.com/@DigitalServicesProgram',
   tiktok: 'https://www.tiktok.com/@digitalservicesprogram',
