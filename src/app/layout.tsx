@@ -71,6 +71,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        {/* site.css/bootcamp.css pull display faces from Google Fonts via @import,
+            so the connection can't start until that CSS parses. Preconnecting
+            shortens the chain to the text LCP on mobile. */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+      </head>
       <body
         className={`${spaceGrotesk.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable}`}
       >

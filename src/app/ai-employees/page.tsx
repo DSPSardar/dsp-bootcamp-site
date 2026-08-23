@@ -34,6 +34,47 @@ const breadcrumbLd = {
   ],
 }
 
+// Service schema for the hub. Prices live on /pricing (which carries the
+// Offer catalog) — here each Employee is listed as the service it performs.
+const serviceLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'AI Employee (managed AI agent) for sales, support, bookings, and phone orders',
+  name: 'DSP AI Employees',
+  description:
+    'Trained AI staff answering, qualifying, booking, and selling on your WhatsApp and phone lines 24/7 in English and Urdu. Built, deployed, and supervised by DSP on DSPAgentHub, live in 7 days.',
+  url: `${site.url}/ai-employees`,
+  provider: {
+    '@type': 'Organization',
+    name: site.name,
+    url: site.url,
+    email: site.email,
+    telephone: '+92-342-0580864',
+  },
+  areaServed: 'Worldwide',
+  availableLanguage: ['en', 'ur'],
+  offers: {
+    '@type': 'Offer',
+    name: 'AI Employee packages',
+    description: 'Setup from $500 one-time, then from $199/month. Cancel anytime.',
+    price: agency.pricing.tiers[0].monthlyUsd,
+    priceCurrency: 'USD',
+    url: `${site.url}/pricing`,
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'AI Employees',
+    itemListElement: agency.employees.map((emp) => ({
+      '@type': 'Offer',
+      name: `${emp.name} — ${emp.role}`,
+      description: emp.hubLine,
+      priceCurrency: 'USD',
+      price: agency.pricing.tiers[0].monthlyUsd,
+      url: `${site.url}/pricing`,
+    })),
+  },
+}
+
 const included = [
   { title: 'DSPAgentHub dashboard', detail: 'live pipeline, every conversation, every outcome' },
   { title: 'AI insights & sentiment analysis', detail: 'know how your customers feel, not just what they said' },
@@ -76,6 +117,10 @@ const faqs = [
 export default function AiEmployeesPage() {
   return (
     <SiteShell>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}

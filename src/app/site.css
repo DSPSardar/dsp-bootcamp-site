@@ -262,7 +262,9 @@
 .dsp-site .faq-list details p{color:var(--navy-soft);font-size:.96rem;margin-top:.7rem}
 
 /* screenshot / real-photo placeholder frame (no stock imagery) */
-.dsp-site .shot-placeholder{background:linear-gradient(180deg,#122A44,#0B2036);border:1px dashed var(--line-dark);border-radius:18px;min-height:280px;display:grid;place-items:center;text-align:center;padding:2rem;font-family:var(--mono);font-size:.85rem;color:#8FA3C4}
+.dsp-site .shot-placeholder{background:linear-gradient(180deg,#122A44,#0B2036);border:1px solid var(--line-dark);border-radius:18px;min-height:280px;display:grid;place-items:center;text-align:center;padding:2rem;font-family:var(--mono);font-size:.85rem;color:#8FA3C4;box-shadow:0 30px 60px rgba(0,0,0,.35)}
+.dsp-site .shot-placeholder strong{display:block;font-family:var(--disp);font-size:1.5rem;color:var(--gold);letter-spacing:-.01em}
+.dsp-site .shot-placeholder em{display:block;font-style:normal;font-size:.78rem;color:#B9CBEA;margin:.6rem 0 1.1rem;letter-spacing:.06em}
 
 /* leadership cards */
 .dsp-site .leader-card{display:flex;flex-direction:column}
@@ -308,4 +310,26 @@
 @media (max-width: 560px){
   .dsp-site .grid-4{grid-template-columns:1fr}
   .dsp-site .site-footer .foot-grid{grid-template-columns:1fr}
+
+  /* Mobile hero density — most traffic arrives from Facebook in-app browsers,
+     whose chrome eats ~120px, so the first CTA must clear the fold. */
+  .dsp-site .hero-dark{padding:40px 0 44px}
+  .dsp-site .hero-pill{font-size:.7rem;padding:.35rem .75rem;letter-spacing:0}
+  .dsp-site .hero-dark h1{font-size:clamp(1.9rem,8.5vw,2.4rem);margin:.8rem 0 .7rem}
+  .dsp-site .hero-dark .sub{font-size:1rem;line-height:1.5}
+  .dsp-site .door-grid{margin-top:1.4rem;gap:.9rem}
+  .dsp-site .door{padding:1.3rem;gap:.55rem}
+  .dsp-site .door h2{font-size:1.2rem}
+  .dsp-site .door p{font-size:.93rem}
+  .dsp-site .hero-ctas{margin-top:1.3rem}
+  .dsp-site .btn{width:100%;justify-content:center}
+  .dsp-site .breadcrumbs{margin-bottom:.8rem}
+}
+
+/* Wide tables scroll inside their own container — make that discoverable
+   on touch devices rather than leaving the cut edge looking broken. */
+@media (max-width: 760px){
+  .dsp-site .table-scroll{position:relative;-webkit-overflow-scrolling:touch}
+  .dsp-site .table-scroll::after{content:"→ swipe to see all columns";display:block;font-family:var(--mono);font-size:.72rem;color:var(--navy-soft);padding:.5rem .2rem 0;position:sticky;left:0}
+  .dsp-site .band-dark .table-scroll::after,.dsp-site .band-teal .table-scroll::after{color:#9FB0CE}
 }

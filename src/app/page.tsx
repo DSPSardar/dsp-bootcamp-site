@@ -226,9 +226,14 @@ export default function HomePage() {
               Owned platform. Your data. No third-party subscriptions.
             </p>
           </div>
-          {/* Real dashboard screenshot only (publish checklist) — swap this frame for it */}
-          <div className="shot-placeholder" role="img" aria-label="Placeholder for a real DSPAgentHub dashboard screenshot — pipeline view">
-            <span>DSPAgentHub dashboard screenshot<br />(pipeline view) goes here</span>
+          {/* Awaiting the real dashboard screenshot (publish checklist: real photos
+              only). Reads as an intentional panel until the image lands here. */}
+          <div className="shot-placeholder" role="img" aria-label="DSPAgentHub dashboard — live pipeline view">
+            <span>
+              <strong>DSPAgentHub</strong>
+              <em>Live pipeline · conversations · outcomes</em>
+              Your dashboard, updating in real time
+            </span>
           </div>
         </div>
       </section>
@@ -261,7 +266,14 @@ export default function HomePage() {
                   business as well as ours.
                 </p>
                 <p style={{ marginTop: '.8rem' }}>
-                  <a href={waLink('Hi DSP, I want an AI Employee for my business.')} style={{ fontWeight: 600 }}>Talk to us →</a>
+                  <TrackedLink
+                    href={waLink('Hi DSP, I want an AI Employee for my business.')}
+                    event="whatsapp_cta_click"
+                    params={{ cta: 'home_case_studies' }}
+                    style={{ fontWeight: 600 }}
+                  >
+                    Talk to us →
+                  </TrackedLink>
                 </p>
               </div>
             </div>
@@ -296,7 +308,8 @@ export default function HomePage() {
             </div>
           </div>
           <p style={{ marginTop: '1.4rem', fontSize: '.92rem', color: 'var(--navy-soft)' }}>
-            Supported by a dedicated delivery team. <Link href="/about">About DSP →</Link>
+            Supported by a dedicated delivery team.{' '}
+            <Link href="/about" style={{ textDecoration: 'underline' }}>About DSP →</Link>
           </p>
         </div>
       </section>

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { waLink } from '@/config/site'
 import { WhatsAppIcon } from '@/components/home/icons'
+import TrackedLink from '@/components/site/TrackedLink'
 
 const links = [
   { label: 'AI Employees', href: '/ai-employees' },
@@ -23,7 +24,9 @@ export default function SiteHeader() {
   return (
     <header className="site-header">
       <div className="wrap nav">
-        <Link className="brand" href="/" aria-label="Digital Services Program — home">
+        {/* No aria-label: the visible wordmark is the accessible name, so they
+            can't mismatch (the "D" mark is decorative and hidden). */}
+        <Link className="brand" href="/">
           <span className="brand-mark" aria-hidden="true">D</span> Digital Services Program
         </Link>
         <button
@@ -48,10 +51,15 @@ export default function SiteHeader() {
             </li>
           ))}
         </ul>
-        <a className="btn btn-primary btn-sm" href={waLink('Hi DSP, I have a question.')}>
+        <TrackedLink
+          className="btn btn-primary btn-sm"
+          href={waLink('Hi DSP, I have a question.')}
+          event="whatsapp_cta_click"
+          params={{ cta: 'site_header' }}
+        >
           <WhatsAppIcon />
           WhatsApp us
-        </a>
+        </TrackedLink>
       </div>
     </header>
   )

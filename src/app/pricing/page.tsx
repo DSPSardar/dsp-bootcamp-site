@@ -132,6 +132,11 @@ export default function PricingPage() {
       {/* ============ 2 · PRICING TIERS ============ */}
       <section>
         <div className="wrap">
+          {/* Section heading keeps the h1 → h2 → h3 order intact for the tier cards */}
+          <div className="sec-head center">
+            <p className="eyebrow">Packages</p>
+            <h2>Choose your first hire.</h2>
+          </div>
           <div className="grid-3" style={{ alignItems: 'stretch', marginTop: '.8rem' }}>
             {agency.pricing.tiers.map((tier) => (
               <div className={`card tier${'featured' in tier && tier.featured ? ' gold' : ''}`} key={tier.id}>
