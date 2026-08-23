@@ -1,11 +1,16 @@
-// src/app/page.tsx — dual-engine company homepage.
-// The bootcamp landing page this replaced lives on at /academy/bootcamp.
+// src/app/page.tsx — two-door company homepage (agency + Agentic Lab).
+// 13 sections in locked order per the homepage copy doc. H1, title, and
+// meta tags are frozen — agency content is added around them.
+// The bootcamp landing page lives on at /academy/bootcamp.
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import SiteShell from '@/components/site/SiteShell'
 import TrackedLink from '@/components/site/TrackedLink'
-import { CheckIcon, WhatsAppIcon } from '@/components/home/icons'
-import { bootcamp, restaurantAgent, site, socialProof, socials, waLink } from '@/config/site'
+import LiveDemoBlock from '@/components/site/LiveDemoBlock'
+import ProofCounters from '@/components/site/ProofCounters'
+import { WhatsAppIcon } from '@/components/home/icons'
+import { agency, bootcamp, site, waLink } from '@/config/site'
 
 export const metadata: Metadata = {
   title: { absolute: 'Digital Services Program — We Build AI Agents. We Train You to Build Them.' },
@@ -29,193 +34,340 @@ export const metadata: Metadata = {
   },
 }
 
-const demoHref =
-  restaurantAgent.calendlyUrl ??
-  waLink('Hi DSP, I run a restaurant and want a demo of the AI phone-ordering agent.')
+const faqs = [
+  {
+    q: 'What exactly is an AI Employee?',
+    a: 'A trained AI agent that handles one job in your business — sales, support, bookings, or phone orders — on your own WhatsApp number or phone line, 24 hours a day.',
+  },
+  {
+    q: 'Which languages does it speak?',
+    a: 'English and Urdu out of the box, including Roman Urdu — and it matches whatever language your customer writes in.',
+  },
+  {
+    q: 'What happens when it gets confused?',
+    a: 'It escalates to your team instantly with the full conversation attached. It never guesses about prices, refunds, or commitments.',
+  },
+  {
+    q: 'How long until it’s working?',
+    a: '7 days from your discovery call to going live. That’s a commitment, not an estimate.',
+  },
+  {
+    q: 'What do I need to provide?',
+    a: 'One discovery call and your business information — menu, price list, FAQs. We handle everything else.',
+  },
+  {
+    q: 'Am I locked into a contract?',
+    a: 'No. Monthly billing, cancel anytime. The setup fee covers your build; the monthly fee keeps your Employee working, monitored, and improving.',
+  },
+]
 
 export default function HomePage() {
   return (
     <SiteShell>
-      {/* ============ HERO: two engines ============ */}
+      {/* ============ 1 · HERO — two doors ============ */}
       <section className="hero-dark">
         <div className="wrap">
           <span className="hero-pill"><span className="dot" aria-hidden="true"></span> Software division + Academy · {site.city}, {site.country} · clients worldwide</span>
           <h1>We build AI agents. <em>We train you to build them.</em></h1>
           <p className="sub">
-            One company, two engines. DSP Agents ships production AI agents for businesses around
-            the world. DSP Academy turns beginners into agent builders — live classes, real
-            projects, real deployment.
+            Digital Services Program builds AI Employees for businesses on our own platform,
+            DSPAgentHub — and trains the next generation of AI agent builders every week in the
+            DSP Agentic Lab.
           </p>
-          <div className="hero-ctas">
-            <TrackedLink className="btn btn-primary" href="/agents" event="agents_cta_click" params={{ cta: 'home_hero_hire' }}>
-              Hire us to build
-            </TrackedLink>
-            <TrackedLink className="btn btn-gold" href="/academy" event="academy_cta_click" params={{ cta: 'home_hero_academy' }}>
-              Join the Academy
-            </TrackedLink>
+          <div className="door-grid">
+            <div className="door">
+              <span className="door-emoji" aria-hidden="true">🤝</span>
+              <h2>Hire an AI Employee</h2>
+              <p>
+                Your business never misses a lead, a call, or a booking again. Sales, support,
+                bookings, and phone orders — handled by AI, live in 7 days.
+              </p>
+              <TrackedLink className="btn btn-gold" href="/ai-employees" event="agents_cta_click" params={{ cta: 'home_door_employees' }}>
+                Meet the AI Employees →
+              </TrackedLink>
+            </div>
+            <div className="door">
+              <span className="door-emoji" aria-hidden="true">🎓</span>
+              <h2>Join the DSP Agentic Lab</h2>
+              {/* Fee deliberately absent — locked fact: PKR fee appears only in pricing sections */}
+              <p>
+                Learn to build AI agents in our 7-day live bootcamp. {bootcamp.certificates} certificates
+                (3 Anthropic + 1 DSP). {bootcamp.batchCadence}.
+              </p>
+              <TrackedLink className="btn btn-navy" href={bootcamp.url} event="academy_cta_click" params={{ cta: 'home_door_lab' }}>
+                Enter the Agentic Lab →
+              </TrackedLink>
+            </div>
           </div>
-          <p className="hero-note">
-            Looking for the 7-day bootcamp? <Link href="/academy/bootcamp" style={{ color: 'var(--gold)' }}>It starts Monday →</Link>
-          </p>
         </div>
       </section>
 
-      {/* ============ NUMBERS ============ */}
-      <div className="stats" aria-label="DSP at a glance">
+      {/* ============ 2 · FOUNDER AUTHORITY BAR ============ */}
+      <div className="authority-bar" aria-label="Founder credentials">
         <div className="wrap">
           <ul>
-            <li><strong>{bootcamp.studentsTrained}</strong><span>Students trained</span></li>
-            <li><strong>{socialProof.weeklyReach}</strong><span>{socialProof.weeklyReachLabel}</span></li>
-            <li><strong>7 days</strong><span>To your first agent</span></li>
-            <li><strong>{bootcamp.certificates}</strong><span>Certificates — 3 Anthropic + 1 DSP</span></li>
+            {agency.founderBar.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
           </ul>
         </div>
       </div>
 
-      {/* ============ RESTAURANT AGENT SHOWCASE ============ */}
+      {/* ============ 3 · PROBLEM STRIP ============ */}
       <section>
-        <div className="wrap split">
-          <div>
-            <p className="eyebrow">Flagship product</p>
-            <h2>Hear our agent take a live order.</h2>
-            <p style={{ color: 'var(--navy-soft)', marginTop: '.9rem' }}>
-              Our multi-tenant phone-ordering AI answers every call to US restaurants — full menu
-              knowledge, order capture, straight to the kitchen. No hold music, no missed
-              tickets, live in days.
+        <div className="wrap">
+          <div className="sec-head center">
+            <p className="eyebrow">The problem</p>
+            <h2>Every unanswered message is money walking out the door.</h2>
+            <p>
+              Most businesses miss more than half their inbound calls and messages — at night,
+              during rush hours, on weekends, on holidays. Each one is a customer who called your
+              competitor next. You don&apos;t have a marketing problem. You have an answering
+              problem. AI Employees fix it permanently.
             </p>
-            <ul className="check-list">
-              <li><CheckIcon /> Answers on the first ring, 24/7</li>
-              <li><CheckIcon /> Keeps your number, learns your menu</li>
-              <li><CheckIcon /> Plans from ${restaurantAgent.tiers[0].priceUsd}/month</li>
-            </ul>
-            <div className="hero-ctas">
-              <TrackedLink className="btn btn-primary" href={demoHref} event="restaurant_demo_click" params={{ cta: 'home_showcase' }}>
-                Get this for your restaurant
-              </TrackedLink>
-              <Link className="btn btn-ghost" href="/agents/restaurant-ai">Product details</Link>
-            </div>
-          </div>
-          {/* Demo audio placeholder — swap for a real <audio> when the recording is ready */}
-          <div className="demo-player" role="img" aria-label="Audio player placeholder: the AI agent taking a live restaurant order">
-            <div className="bar">
-              <span className="play" aria-hidden="true">
-                <svg className="ic" viewBox="0 0 24 24" style={{ width: 22, height: 22 }}><path d="M8 5v14l11-7z" fill="currentColor" stroke="none" /></svg>
-              </span>
-              <span className="wave" aria-hidden="true">
-                {[16, 24, 10, 28, 19, 32, 13, 25, 34, 15, 9, 27, 21, 31, 12, 22, 17, 29, 11, 20, 26, 14, 23, 18].map((h, i) => (
-                  <i key={i} style={{ height: h }} />
-                ))}
-              </span>
-              <span>1:04</span>
-            </div>
-            <p className="cap">▸ &ldquo;Thanks for calling — what can I get started for you?&rdquo; Recording coming here soon.</p>
           </div>
         </div>
       </section>
 
-      {/* ============ CHANNELOPS ============ */}
+      {/* ============ 4 · MEET YOUR AI EMPLOYEES ============ */}
       <section style={{ paddingTop: 0 }}>
         <div className="wrap">
-          <div className="card dark" style={{ display: 'flex', gap: '2rem', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', padding: '2rem' }}>
-            <div style={{ maxWidth: '40rem' }}>
-              <p className="kicker">New product</p>
-              <h3>ChannelOps — AI agents that fix your YouTube channel.</h3>
-              <p style={{ marginTop: '.5rem' }}>
-                Audit, SEO, thumbnails, transcripts, publishing — five agents, a human approving
-                every change. Run as a monthly service, or learn to build the system in one week.
-              </p>
-            </div>
-            <TrackedLink className="btn btn-gold" href="/channelops" event="channelops_service_cta" params={{ cta: 'home_banner' }}>
-              See ChannelOps →
-            </TrackedLink>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ THE DSP LADDER ============ */}
-      <section className="band-dark">
-        <div className="wrap">
           <div className="sec-head">
-            <p className="eyebrow">The DSP Ladder</p>
-            <h2>From zero to deployed on real client work.</h2>
-          </div>
-          <div className="grid-2">
-            <div className="card dark" style={{ background: 'rgba(255,255,255,.05)', borderColor: 'var(--line-dark)' }}>
-              <p className="kicker">Rung 1 · 7 days</p>
-              <h3>Your first agent</h3>
-              <p>The Vibe Coding Bootcamp. No code, five live classes, and on Day 7 you demo a deployed agent with a live URL. {bootcamp.certificates} certificates.</p>
-              <p style={{ marginTop: '1rem' }}><Link href={bootcamp.url} style={{ color: 'var(--gold)', fontWeight: 600 }}>Start here →</Link></p>
-            </div>
-            <div className="card dark" style={{ background: 'rgba(212,175,55,.08)', borderColor: 'rgba(212,175,55,.45)' }}>
-              <p className="kicker">Rung 2 · the payoff</p>
-              <h3>Deployed on real client work</h3>
-              <p>Top graduates step onto live DSP Agents projects. The academy and the software company are one firm — the ladder ends in real work, not a certificate drawer.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ SOCIAL PROOF ============ */}
-      <section className="band-dark">
-        <div className="wrap">
-          <div className="sec-head">
-            <p className="eyebrow">Proof</p>
-            <h2>Real students, on camera.</h2>
-            <p>
-              Verified reviews from our live cohorts, plus a social following that&apos;s
-              growing fast — our content reaches {socialProof.combinedReachNote}, and messages
-              come in from learners around the world asking to join. Watch the reviews in full
-              on our public channels.
-            </p>
+            <p className="eyebrow">AI Employees</p>
+            <h2>Meet the team that never sleeps.</h2>
           </div>
           <div className="grid-4">
-            <div className="card dark" style={{ background: 'rgba(255,255,255,.05)', borderColor: 'var(--line-dark)' }}>
-              <p style={{ fontStyle: 'italic' }}>
-                Grade 9, and already shipping multiple agents. Hussain built several AI
-                agents after our bootcamp.
-              </p>
-              <p style={{ marginTop: '.8rem', fontSize: '.85rem' }}>
-                Hussain · Grade 9 student · <a href="https://www.facebook.com/reel/2416896862167908" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--gold)' }}>Watch his story on Facebook</a>
+            {agency.employees.map((emp) => (
+              <div className="card emp-card" key={emp.id}>
+                <span className="emp-avatar" aria-hidden="true">{emp.name[0]}</span>
+                <h3>{emp.name}</h3>
+                <p className="role">{emp.role}</p>
+                <blockquote>&ldquo;{emp.homeLine}&rdquo;</blockquote>
+                <TrackedLink
+                  className="btn btn-ghost btn-sm"
+                  href={`/ai-employees#${emp.id}`}
+                  event="agents_cta_click"
+                  params={{ cta: `home_hire_${emp.id}` }}
+                >
+                  Hire {emp.name} →
+                </TrackedLink>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ 5 · LIVE DEMO BLOCK ============ */}
+      <LiveDemoBlock
+        heading="Don’t book a demo. Talk to one right now."
+        intro="Other agencies ask you to schedule a call to see a slideshow. Our AI Employees introduce themselves."
+        ctaLocation="home"
+      />
+
+      {/* ============ 6 · PRODUCT PROOF BAR ============ */}
+      <div className="proof" aria-label="DSPAgentHub results">
+        <div className="wrap">
+          <ProofCounters />
+          <p className="proof-note">
+            These are our own numbers. The same AI Employee that runs DSP&apos;s sales runs yours.
+          </p>
+        </div>
+      </div>
+
+      {/* ============ 7 · HOW IT WORKS ============ */}
+      <section>
+        <div className="wrap">
+          <div className="sec-head">
+            <p className="eyebrow">How it works</p>
+            <h2>Live in 7 days. Here&apos;s how.</h2>
+          </div>
+          <div className="grid-3">
+            <div className="card">
+              <p className="kicker">1 · Discover (Day 1)</p>
+              <h3>One structured call</h3>
+              <p>
+                A structured discovery call. We map your services, prices, FAQs, and rules —
+                everything your AI Employee must know.
               </p>
             </div>
-            <div className="card dark" style={{ background: 'rgba(255,255,255,.05)', borderColor: 'var(--line-dark)' }}>
-              <p style={{ fontStyle: 'italic' }}>
-                &ldquo;I am extremely grateful to be part of the AI Agentic Master Class under the
-                Digital Services Program…&rdquo;
-              </p>
-              <p style={{ marginTop: '.8rem', fontSize: '.85rem' }}>
-                Riffat · Saudi Arabia · <a href="https://www.tiktok.com/@digitalservicesprogram/video/7652245609784560903" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--gold)' }}>Watch on TikTok</a>
-              </p>
-            </div>
-            <div className="card dark" style={{ background: 'rgba(255,255,255,.05)', borderColor: 'var(--line-dark)' }}>
-              <p style={{ fontStyle: 'italic' }}>Verified student review from the AI Agentic Master Class.</p>
-              <p style={{ marginTop: '.8rem', fontSize: '.85rem' }}>
-                Abdul Hadi · <a href="https://www.tiktok.com/@digitalservicesprogram/video/7652246560511741191" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--gold)' }}>Watch on TikTok</a>
+            <div className="card">
+              <p className="kicker">2 · Build (Days 2–5)</p>
+              <h3>Your Employee, trained</h3>
+              <p>
+                We write your Employee&apos;s job description on DSPAgentHub, load your business
+                knowledge, and test it against our 10-point acceptance sheet.
               </p>
             </div>
-            <div className="card dark" style={{ background: 'rgba(255,255,255,.05)', borderColor: 'var(--line-dark)' }}>
-              <p style={{ fontStyle: 'italic' }}>Verified student review from the AI Agentic Master Class.</p>
-              <p style={{ marginTop: '.8rem', fontSize: '.85rem' }}>
-                Muhammad Usman · UK · <a href="https://www.tiktok.com/@digitalservicesprogram/video/7654094650680020231" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--gold)' }}>Watch on TikTok</a>
+            <div className="card">
+              <p className="kicker">3 · Go Live (Days 6–7)</p>
+              <h3>You approve, it works</h3>
+              <p>
+                You test it yourself on your own WhatsApp or phone line. When you approve, your AI
+                Employee starts work — and never stops.
               </p>
             </div>
           </div>
-          <p style={{ marginTop: '1.8rem', fontSize: '.95rem' }}>
-            Bootcamp graduates leave with 4 certificates — three from Anthropic&apos;s official
-            Claude courses plus the DSP certificate. All testimonials live on{' '}
-            <a href={socials.youtube} style={{ color: 'var(--gold)' }}>YouTube</a> and{' '}
-            <a href={socials.tiktok} style={{ color: 'var(--gold)' }}>TikTok</a>.
+        </div>
+      </section>
+
+      {/* ============ 8 · PLATFORM ============ */}
+      <section className="band-dark">
+        <div className="wrap split">
+          <div>
+            <p className="eyebrow">DSPAgentHub</p>
+            <h2>Your AI Employee comes with its own office.</h2>
+            <p style={{ marginTop: '.9rem' }}>
+              Every AI Employee runs on <strong>DSPAgentHub</strong>, our own platform — not rented
+              no-code tools that bill you forever. Your dashboard shows every conversation, every
+              qualified lead, every booking, and every sale in real time — with AI insights,
+              sentiment analysis, and a weekly digest delivered to you.
+            </p>
+            <p style={{ marginTop: '1rem', fontWeight: 600, color: '#fff' }}>
+              Owned platform. Your data. No third-party subscriptions.
+            </p>
+          </div>
+          {/* Real dashboard screenshot only (publish checklist) — swap this frame for it */}
+          <div className="shot-placeholder" role="img" aria-label="Placeholder for a real DSPAgentHub dashboard screenshot — pipeline view">
+            <span>DSPAgentHub dashboard screenshot<br />(pipeline view) goes here</span>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ 9 · CASE STUDIES TEASER ============ */}
+      <section>
+        <div className="wrap">
+          <div className="sec-head">
+            <p className="eyebrow">Case studies</p>
+            <h2>Working for real businesses today.</h2>
+          </div>
+          {/* Gated: real client cards publish once written permission is secured
+              (agency.caseStudiesApproved in src/config/site.ts) */}
+          {agency.caseStudiesApproved ? null : (
+            <div className="grid-2">
+              <div className="card">
+                <p className="kicker">Case study · publishing soon</p>
+                <p>
+                  Our first client stories are being written up now — with real numbers, published
+                  with each client&apos;s permission.
+                </p>
+                <p style={{ marginTop: '.8rem' }}>
+                  <Link href="/agents/case-studies" style={{ fontWeight: 600 }}>See our current work →</Link>
+                </p>
+              </div>
+              <div className="card">
+                <p className="kicker">Want to be one?</p>
+                <p>
+                  Early clients get founder-level attention — and a case study that markets your
+                  business as well as ours.
+                </p>
+                <p style={{ marginTop: '.8rem' }}>
+                  <a href={waLink('Hi DSP, I want an AI Employee for my business.')} style={{ fontWeight: 600 }}>Talk to us →</a>
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ============ 10 · LEADERSHIP ============ */}
+      <section style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <div className="sec-head">
+            <p className="eyebrow">Leadership</p>
+            <h2>Built and supervised by the team that has taught AI to thousands.</h2>
+          </div>
+          <div className="grid-2">
+            <div className="card leader-card">
+              <Image className="leader-photo" src="/instructor-poster.jpg" alt="Sardar Ghaffar" width={96} height={96} />
+              <h3>Sardar Ghaffar</h3>
+              <p className="role">Founder &amp; Lead Instructor</p>
+              <p>
+                Teaching technology since 2002 across London, the UAE, and Pakistan. Google &amp;
+                Anthropic verified AI agentic trainer. Founder, Sardar Group of Companies.
+              </p>
+            </div>
+            <div className="card leader-card">
+              {/* Real photo required before publish — placeholder until provided */}
+              <span className="leader-photo placeholder">photo<br />coming</span>
+              {/* Surname + degree/university gated in config until confirmed — never guess */}
+              <h3>Sundus{agency.leadership.sundusSurname ? ` ${agency.leadership.sundusSurname}` : ''}</h3>
+              <p className="role">Co-Founder &amp; Instructor</p>
+              <p>
+                Gold Medalist{agency.leadership.sundusDegreeLine ? ` — ${agency.leadership.sundusDegreeLine}` : ''}.
+                Has trained hundreds of students in AI agent development at DSP.
+              </p>
+            </div>
+          </div>
+          <p style={{ marginTop: '1.4rem', fontSize: '.92rem', color: 'var(--navy-soft)' }}>
+            Supported by a dedicated delivery team. <Link href="/about">About DSP →</Link>
           </p>
-          <div className="hero-ctas">
-            <TrackedLink
-              className="btn btn-primary"
-              href={waLink('Hi DSP, I saw your website and want to know more.')}
-              event="whatsapp_cta_click"
-              params={{ cta: 'home_proof' }}
-            >
-              <WhatsAppIcon /> WhatsApp us — {site.whatsappDisplay}
+        </div>
+      </section>
+
+      {/* ============ 11 · PRICING TEASER ============ */}
+      <section className="band-dark">
+        <div className="wrap">
+          <div className="sec-head center">
+            <p className="eyebrow">Pricing</p>
+            <h2>Simple pricing. No hidden retainers.</h2>
+          </div>
+          <div className="teaser-tiers">
+            {agency.pricing.tiers.map((tier) => (
+              <div className="card" key={tier.id}>
+                <p className="kicker">{tier.name}</p>
+                <strong className="from">from ${tier.monthlyUsd}<small>/mo</small></strong>
+              </div>
+            ))}
+          </div>
+          <p style={{ textAlign: 'center' }}>
+            One-time setup from ${agency.pricing.tiers[0].setupUsd}. Cancel anytime.
+          </p>
+          <div className="hero-ctas" style={{ justifyContent: 'center' }}>
+            <TrackedLink className="btn btn-gold" href="/pricing" event="agents_cta_click" params={{ cta: 'home_pricing_teaser' }}>
+              See Full Pricing →
             </TrackedLink>
           </div>
+        </div>
+      </section>
+
+      {/* ============ 12 · FAQ ============ */}
+      <section>
+        <div className="wrap">
+          <div className="sec-head center">
+            <p className="eyebrow">FAQ</p>
+            <h2>Questions businesses ask us.</h2>
+          </div>
+          <div className="faq-list">
+            {faqs.map((f) => (
+              <details key={f.q}>
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ 13 · FINAL CTA ============ */}
+      <section className="band-dark">
+        <div className="wrap" style={{ textAlign: 'center' }}>
+          <h2>Hire your first AI Employee this week.</h2>
+          <div className="hero-ctas" style={{ justifyContent: 'center' }}>
+            <TrackedLink
+              className="btn btn-gold"
+              href={waLink('Hi DSP, I want to hire an AI Employee for my business.')}
+              event="whatsapp_cta_click"
+              params={{ cta: 'home_final' }}
+            >
+              <WhatsAppIcon /> WhatsApp Us: {site.whatsappDisplay}
+            </TrackedLink>
+          </div>
+          <p style={{ marginTop: '1.2rem', fontSize: '.95rem' }}>
+            Want to build AI agents yourself instead?{' '}
+            <Link href={bootcamp.url} style={{ color: 'var(--gold)', fontWeight: 600 }}>
+              New Agentic Lab batch every Monday →
+            </Link>
+          </p>
         </div>
       </section>
     </SiteShell>
