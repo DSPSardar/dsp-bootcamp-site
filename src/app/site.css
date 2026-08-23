@@ -267,7 +267,6 @@
 /* leadership cards */
 .dsp-site .leader-card{display:flex;flex-direction:column}
 .dsp-site .leader-photo{width:96px;height:96px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);margin-bottom:1.1rem}
-.dsp-site .leader-photo.placeholder{display:grid;place-items:center;background:var(--paper-2);color:var(--navy-soft);font-family:var(--mono);font-size:.62rem;text-align:center;padding:.4rem;border-style:dashed;border-color:var(--line)}
 .dsp-site .leader-card .role{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-deep);margin:.2rem 0 .7rem}
 
 /* breadcrumbs */

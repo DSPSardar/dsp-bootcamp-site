@@ -287,14 +287,11 @@ export default function HomePage() {
               </p>
             </div>
             <div className="card leader-card">
-              {/* Real photo required before publish — placeholder until provided */}
-              <span className="leader-photo placeholder">photo<br />coming</span>
-              {/* Surname + degree/university gated in config until confirmed — never guess */}
-              <h3>Sundus{agency.leadership.sundusSurname ? ` ${agency.leadership.sundusSurname}` : ''}</h3>
+              {/* Published without photo/surname per owner instruction Aug 2026 */}
+              <h3>Sundus</h3>
               <p className="role">Co-Founder &amp; Instructor</p>
               <p>
-                Gold Medalist{agency.leadership.sundusDegreeLine ? ` — ${agency.leadership.sundusDegreeLine}` : ''}.
-                Has trained hundreds of students in AI agent development at DSP.
+                Gold Medalist. Has trained hundreds of students in AI agent development at DSP.
               </p>
             </div>
           </div>

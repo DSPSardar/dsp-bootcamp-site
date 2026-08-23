@@ -245,13 +245,6 @@ export const agency = {
       },
     ],
   },
-
-  /** Leadership cards. Gated: Sundus's surname + degree/university must be
-      confirmed (certificates/LinkedIn) before filling in — never guess them. */
-  leadership: {
-    sundusSurname: null as string | null,
-    sundusDegreeLine: null as string | null,
-  },
 } as const
 
 export const socials = {
