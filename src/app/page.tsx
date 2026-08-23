@@ -9,7 +9,8 @@ import SiteShell from '@/components/site/SiteShell'
 import TrackedLink from '@/components/site/TrackedLink'
 import LiveDemoBlock from '@/components/site/LiveDemoBlock'
 import ProofCounters from '@/components/site/ProofCounters'
-import { WhatsAppIcon } from '@/components/home/icons'
+import PlatformSection from '@/components/site/PlatformSection'
+import FinalCta from '@/components/site/FinalCta'
 import { agency, bootcamp, site, waLink } from '@/config/site'
 
 export const metadata: Metadata = {
@@ -145,7 +146,7 @@ export default function HomePage() {
                 <blockquote>&ldquo;{emp.homeLine}&rdquo;</blockquote>
                 <TrackedLink
                   className="btn btn-ghost btn-sm"
-                  href={`/ai-employees#${emp.id}`}
+                  href={`/ai-employees/${emp.id}`}
                   event="agents_cta_click"
                   params={{ cta: `home_hire_${emp.id}` }}
                 >
@@ -210,33 +211,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ 8 · PLATFORM ============ */}
-      <section className="band-dark">
-        <div className="wrap split">
-          <div>
-            <p className="eyebrow">DSPAgentHub</p>
-            <h2>Your AI Employee comes with its own office.</h2>
-            <p style={{ marginTop: '.9rem' }}>
-              Every AI Employee runs on <strong>DSPAgentHub</strong>, our own platform — not rented
-              no-code tools that bill you forever. Your dashboard shows every conversation, every
-              qualified lead, every booking, and every sale in real time — with AI insights,
-              sentiment analysis, and a weekly digest delivered to you.
-            </p>
-            <p style={{ marginTop: '1rem', fontWeight: 600, color: '#fff' }}>
-              Owned platform. Your data. No third-party subscriptions.
-            </p>
-          </div>
-          {/* Awaiting the real dashboard screenshot (publish checklist: real photos
-              only). Reads as an intentional panel until the image lands here. */}
-          <div className="shot-placeholder" role="img" aria-label="DSPAgentHub dashboard — live pipeline view">
-            <span>
-              <strong>DSPAgentHub</strong>
-              <em>Live pipeline · conversations · outcomes</em>
-              Your dashboard, updating in real time
-            </span>
-          </div>
-        </div>
-      </section>
+      {/* ============ 8 · PLATFORM (shared component) ============ */}
+      <PlatformSection />
 
       {/* ============ 9 · CASE STUDIES TEASER ============ */}
       <section>
@@ -358,28 +334,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ 13 · FINAL CTA ============ */}
-      <section className="band-dark">
-        <div className="wrap" style={{ textAlign: 'center' }}>
-          <h2>Hire your first AI Employee this week.</h2>
-          <div className="hero-ctas" style={{ justifyContent: 'center' }}>
-            <TrackedLink
-              className="btn btn-gold"
-              href={waLink('Hi DSP, I want to hire an AI Employee for my business.')}
-              event="whatsapp_cta_click"
-              params={{ cta: 'home_final' }}
-            >
-              <WhatsAppIcon /> WhatsApp Us: {site.whatsappDisplay}
-            </TrackedLink>
-          </div>
-          <p style={{ marginTop: '1.2rem', fontSize: '.95rem' }}>
-            Want to build AI agents yourself instead?{' '}
-            <Link href={bootcamp.url} style={{ color: 'var(--gold)', fontWeight: 600 }}>
-              New Agentic Lab batch every Monday →
-            </Link>
-          </p>
-        </div>
-      </section>
+      {/* ============ 13 · FINAL CTA (shared component) ============ */}
+      <FinalCta
+        heading="Hire your first AI Employee this week."
+        message="Hi DSP, I want to hire an AI Employee for my business."
+        ctaLocation="home_final"
+      >
+        <p style={{ marginTop: '1.2rem', fontSize: '.95rem' }}>
+          Want to build AI agents yourself instead?{' '}
+          <Link href={bootcamp.url} style={{ color: 'var(--gold)', fontWeight: 600 }}>
+            New Agentic Lab batch every Monday →
+          </Link>
+        </p>
+      </FinalCta>
     </SiteShell>
   )
 }

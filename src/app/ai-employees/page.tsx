@@ -185,16 +185,11 @@ export default function AiEmployeesPage() {
                 <h3>{emp.name} — {emp.role}</h3>
                 <blockquote>&ldquo;{emp.hubLine}&rdquo;</blockquote>
                 <p className="best-for"><strong>Best for:</strong> {emp.bestFor}</p>
-                {/* Individual profile pages (/ai-employees/zara/ …) come later —
-                    until they exist this CTA goes to WhatsApp so it always works */}
-                <TrackedLink
-                  className="btn btn-ghost btn-sm"
-                  href={waLink(`Hi DSP, I’d like to meet ${emp.name}, your ${emp.role}.`)}
-                  event="whatsapp_cta_click"
-                  params={{ cta: `aiemp_meet_${emp.id}` }}
-                >
+                {/* Card CTA goes to the profile page; the WhatsApp prefill is the
+                    CTA on that page, not here. */}
+                <Link className="btn btn-ghost btn-sm" href={`/ai-employees/${emp.id}`}>
                   Meet {emp.name} →
-                </TrackedLink>
+                </Link>
               </div>
             ))}
           </div>

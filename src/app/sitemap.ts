@@ -1,6 +1,7 @@
 // app/sitemap.ts — includes all company pages and ALL blog posts
 import { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/posts'
+import { agency } from '@/config/site'
 
 const SITE = 'https://www.digitalservicesprogram.com'
 
@@ -9,6 +10,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: SITE, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
     { url: `${SITE}/academy/bootcamp`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
     { url: `${SITE}/ai-employees`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+    ...agency.employees.map((e) => ({
+      url: `${SITE}/ai-employees/${e.id}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.85,
+    })),
     { url: `${SITE}/pricing`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE}/agents/restaurant-ai`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE}/academy`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.85 },
