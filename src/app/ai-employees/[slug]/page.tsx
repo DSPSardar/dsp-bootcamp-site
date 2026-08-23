@@ -227,8 +227,8 @@ export default async function EmployeePage({
               <p className="blurb" style={{ marginTop: '.5rem' }}>{tier.blurb}</p>
               {tierIsShared ? (
                 <p className="blurb" style={{ marginTop: '.5rem' }}>
-                  I work as part of this package — {tier.name.toLowerCase()} puts Zara, Adam, and
-                  Maya on one number, each handling what they&apos;re best at.
+                  I work as part of this package: the {tier.name} puts Zara, Adam, and Maya on one
+                  number, each handling what they&apos;re best at.
                 </p>
               ) : null}
               <ul className="check-list">
