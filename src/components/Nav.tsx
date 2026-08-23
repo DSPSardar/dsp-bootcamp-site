@@ -4,9 +4,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const links = [
+  { label: 'AI Employees', href: '/ai-employees' },
   { label: 'AI Agents', href: '/agents' },
   { label: 'Academy', href: '/academy' },
-  { label: 'Bootcamp', href: '/academy/bootcamp' },
+  // Education arm rebranded "DSP Agentic Lab" — label only, URL frozen for SEO
+  { label: 'Agentic Lab', href: '/academy/bootcamp' },
   { label: 'ChannelOps', href: '/channelops' },
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },

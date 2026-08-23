@@ -8,6 +8,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: SITE, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
     { url: `${SITE}/academy/bootcamp`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+    { url: `${SITE}/ai-employees`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+    { url: `${SITE}/pricing`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE}/agents/restaurant-ai`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE}/academy`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.85 },
     { url: `${SITE}/agents`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.85 },
