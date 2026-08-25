@@ -61,6 +61,28 @@ export const bootcamp = {
   url: '/academy/bootcamp',
 } as const
 
+/** DSP AI Agent Mastery — the self-paced program (approved Aug 2026).
+    Distinct from the retired live 30-day program: this is recorded,
+    lifetime-access, $100 one-time, with 12 months of group support. */
+export const mastery = {
+  name: 'DSP AI Agent Mastery — Zero to Master',
+  shortName: 'AI Agent Mastery',
+  priceUsd: 100,
+  priceDisplay: '$100',
+  /** Anchor price shown struck-through after launch */
+  laterPriceDisplay: '$197',
+  access: 'Lifetime',
+  supportMonths: 12,
+  modules: 15,
+  lectureHours: '30+',
+  refundDays: 7,
+  /** Dodo Payments hosted checkout — null until the account is live; CTAs fall back to WhatsApp */
+  checkoutUrl: null as string | null,
+  /** Free Module 1 lead-magnet page — null until built */
+  freeModuleUrl: null as string | null,
+  url: '/mastery',
+} as const
+
 export const channelops = {
   name: 'The ChannelOps Course',
   /** Course fee — shown only in the course offer section, like bootcamp pricing */

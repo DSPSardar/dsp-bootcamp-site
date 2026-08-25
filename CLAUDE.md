@@ -26,7 +26,7 @@ Pushing to `main` triggers `.github/workflows/deploy.yml`: build + deploy to Ver
 
 Company site for DSP (Digital Services Program): a software division building AI agents (**DSP Agents**) and a training division (**DSP Academy**). Next.js 16.2.9 App Router, React 19, Tailwind 4, TypeScript.
 
-Routes: `/` two-door homepage (13 locked sections: agency + Agentic Lab) · `/ai-employees` (AI Employees hub: Zara/Adam/Maya/Emma) · `/pricing` (published USD agency pricing) · `/agents` + `/agents/restaurant-ai` + `/agents/case-studies` (software division) · `/academy` + `/academy/bootcamp` (training — rebranded "DSP Agentic Lab" in nav labels; URL frozen for SEO) · `/about` · `/blog` (43 legacy posts) · `/contact` · `/channelops` (ChannelOps product: YouTube cleanup as a service + course). `/bootcamp` 301s to `/academy/bootcamp`; the retired 30-day program's URLs 301 to `/academy` (next.config.ts).
+Routes: `/mastery` (self-paced AI Agent Mastery, own shell) · `/` two-door homepage (13 locked sections: agency + Agentic Lab) · `/ai-employees` (AI Employees hub: Zara/Adam/Maya/Emma) · `/pricing` (published USD agency pricing) · `/agents` + `/agents/restaurant-ai` + `/agents/case-studies` (software division) · `/academy` + `/academy/bootcamp` (training — rebranded "DSP Agentic Lab" in nav labels; URL frozen for SEO) · `/about` · `/blog` (43 legacy posts) · `/contact` · `/channelops` (ChannelOps product: YouTube cleanup as a service + course). `/bootcamp` 301s to `/academy/bootcamp`; the retired 30-day program's URLs 301 to `/academy` (next.config.ts).
 
 ## Config-driven facts
 
@@ -37,7 +37,7 @@ The `agency` export holds all AI Employees facts (employee cards, proof-bar numb
 ## Locked marketing facts — never change without explicit instruction
 
 - Bootcamp: 7 days · 5 live Zoom classes Mon–Fri 9–10 PM PKT · PKR 10,000 one-time (fee shown ONLY in pricing sections — not nav/hero/meta; one approved exception: the homepage Agentic Lab door card, per owner instruction Aug 2026) · 4 certificates (3 Anthropic + 1 DSP) · 30 seats · new batch every Monday
-- The 30-day "zero to master" program was removed in Aug 2026 — do not reintroduce it or link to its old pages
+- The live 30-day program was removed in Aug 2026 — do not reintroduce it or link to its old pages. **Distinct from it:** `/mastery` is the self-paced **DSP AI Agent Mastery — Zero to Master** (approved by owner 25 Aug 2026): recorded lectures, 15 modules, $100 one-time, lifetime access, 12 months group support. Facts live in `src/config/site.ts` (`mastery`). Page shell is its own (`src/app/mastery/mastery.css`, scoped `.page-mastery`, dark navy) and does not use SiteShell.
 - WhatsApp: +92 342 0580864 everywhere on the site (Meta-approved WhatsApp Business number) · email info@digitalservicesprogram.com. +92 311 8122222 is used privately to reply to clients — never publish it on the site.
 - Never reintroduce "15-Day", "5-day", or the old number 923253966799
 

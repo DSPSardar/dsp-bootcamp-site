@@ -12,6 +12,7 @@ const links = [
   { label: 'Academy', href: '/academy' },
   // Education arm rebranded "DSP Agentic Lab" — label only, URL frozen for SEO
   { label: 'Agentic Lab', href: '/academy/bootcamp' },
+  { label: 'AI Agent Mastery', href: '/mastery' },
   { label: 'ChannelOps', href: '/channelops' },
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
