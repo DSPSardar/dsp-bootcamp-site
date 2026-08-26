@@ -192,9 +192,14 @@
           "source": "LOCAL",
           "status": "Located",
           "chapters": [],
-          "master": null,
+          "master": "M02-L03_4-Ways-AI-Agents-Fail_OWdmU2gYMz8_v1.mp4",
           "kind": "core",
-          "order": "L03"
+          "order": "L03",
+          "bunny": {
+            "guid": "999982c2-cff8-40b7-981e-2d66802c85dc",
+            "status": "processing",
+            "uploaded_at": "2026-08-26T10:10:53.284Z"
+          }
         },
         {
           "file": "M02-S01_How-to-Talk-to-AI_ur0fyow0cPg.mp4",
@@ -728,9 +733,14 @@
           "source": "LOCAL",
           "status": "Located",
           "chapters": [],
-          "master": null,
+          "master": "M09-L01_RAG-Explained_CFQgyH1uJVU_v1.mp4",
           "kind": "core",
-          "order": "L01"
+          "order": "L01",
+          "bunny": {
+            "guid": "10bdc102-a948-4e6e-9140-8bfd59b08ff8",
+            "status": "processing",
+            "uploaded_at": "2026-08-26T10:11:57.604Z"
+          }
         },
         {
           "file": "M09-L02_Claude-Projects-Memory_UFXYqyKQDzI.mp4",
@@ -1150,8 +1160,14 @@
       "source": "LOCAL",
       "status": "Located",
       "chapters": [],
-      "master": null,
-      "kind": "welcome"
+      "master": "00-W02_Inside-DSP-Walkthrough_TICJXTiWpmc_v1.mp4",
+      "kind": "welcome",
+      "bunny": {
+        "guid": "9abb65f7-ac93-4e2b-b14c-c6f7ea245f0d",
+        "status": "ready",
+        "uploaded_at": "2026-08-26T10:09:23.384Z",
+        "length_sec": 1052
+      }
     }
   ],
   "vault": [

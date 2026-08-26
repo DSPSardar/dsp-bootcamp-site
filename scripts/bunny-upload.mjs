@@ -42,7 +42,14 @@ for (const file of files) {
   const prefix = prefixOf(base)
   const lesson = prefix && allLessons.find((l) => l.file.startsWith(prefix))
   if (!lesson) { console.log(`skip  ${base} — no lesson with prefix ${prefix ?? '?'} in course.json`); continue }
-  if (lesson.bunny?.guid) { console.log(`have  ${base} — already uploaded as ${lesson.bunny.guid}`); continue }
+  const ver = Number((base.match(/_v(\d+)\.(mp4|mov|m4v)$/i) || [])[1] || 0)
+  if (lesson.bunny?.guid) {
+    if (ver > (lesson.bunny.version ?? 0)) {
+      process.stdout.write(`replace ${base} — v${ver} supersedes v${lesson.bunny.version ?? 0}, deleting old ${lesson.bunny.guid} … `)
+      await fetch(`${API}/videos/${lesson.bunny.guid}`, { method: 'DELETE', headers: H }); console.log('ok')
+      delete lesson.bunny
+    } else { console.log(`have  ${base} — already uploaded as ${lesson.bunny.guid} (v${lesson.bunny.version ?? 0})`); continue }
+  }
 
   const title = base.replace(/\.(mp4|mov|m4v)$/i, '').replace(/_[A-Za-z0-9_-]{11}(_v\d+)?(_[A-Z-]+)?$/, '').replace(/_/g, ' — ').replace(/-/g, ' ')
   process.stdout.write(`create ${base} → "${title}" … `)
@@ -55,7 +62,7 @@ for (const file of files) {
   if (up.stdout.trim() !== '200') { console.log('FAILED HTTP', up.stdout, up.stderr); continue }
   console.log('done')
 
-  lesson.bunny = { guid: created.guid, status: 'processing', uploaded_at: new Date().toISOString() }
+  lesson.bunny = { guid: created.guid, status: 'processing', version: ver, uploaded_at: new Date().toISOString() }
   lesson.master = base
   save()
 
