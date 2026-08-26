@@ -139,7 +139,12 @@
           "order": "S06"
         }
       ],
-      "build_project": "Pick Your Agent — 5 ideas through the Idea Filter, one chosen"
+      "build_project": "Pick Your Agent — 5 ideas through the Idea Filter, one chosen",
+      "vault_files": [
+        "Agent-Idea-Filter.md",
+        "DSP-AI-Glossary.md",
+        "AI-in-One-Page.md"
+      ]
     },
     {
       "id": "M02",
@@ -228,7 +233,12 @@
           "order": "S03"
         }
       ],
-      "build_project": "Write the JD — 7-Part JD v2 with 3 test inputs"
+      "build_project": "Write the JD — 7-Part JD v2 with 3 test inputs",
+      "vault_files": [
+        "7-Part-JD-Template.md",
+        "25-Starter-Job-Descriptions.md",
+        "Prompt-Iteration-Log.md"
+      ]
     },
     {
       "id": "M03",
@@ -317,7 +327,12 @@
           "order": "S03"
         }
       ],
-      "build_project": "Your Toolkit — Claude Project + tool comparison + setup checklist"
+      "build_project": "Your Toolkit — Claude Project + tool comparison + setup checklist",
+      "vault_files": [
+        "Setup-Checklist.md",
+        "Tool-Comparison-Matrix.md",
+        "Cost-and-Token-Table.md"
+      ]
     },
     {
       "id": "M04",
@@ -382,7 +397,11 @@
           "order": "S01"
         }
       ],
-      "build_project": "AI Employee Part 1: The Skeleton — app running locally on video"
+      "build_project": "AI Employee Part 1: The Skeleton — app running locally on video",
+      "vault_files": [
+        "AI-Employee-Build-Prompts.md",
+        "Claude-Code-Command-Card.md"
+      ]
     },
     {
       "id": "M05",
@@ -423,7 +442,13 @@
           "order": "L02"
         }
       ],
-      "build_project": "AI Employee Part 2: The Café Website — 4 pages, desktop + mobile"
+      "build_project": "AI Employee Part 2: The Café Website — 4 pages, desktop + mobile",
+      "vault_files": [
+        "Website-Spec-Template.md",
+        "10-Landing-Page-Prompts.md",
+        "Design-Polish-Prompt-Pack.md",
+        "Website-vs-WebApp-vs-Agent.md"
+      ]
     },
     {
       "id": "M06",
@@ -476,7 +501,12 @@
           "order": "S01"
         }
       ],
-      "build_project": "AI Employee on GitHub — public repo, 10+ commits, branch + restore"
+      "build_project": "AI Employee on GitHub — public repo, 10+ commits, branch + restore",
+      "vault_files": [
+        "Git-Command-Card.md",
+        "GitHub-Setup-Checklist.md",
+        "403-Permissions-Fix-Guide.md"
+      ]
     },
     {
       "id": "M07",
@@ -595,7 +625,14 @@
           "order": "S03"
         }
       ],
-      "build_project": "AI Employee Part 3: The Ordering Agent — full order demo + architecture page"
+      "build_project": "AI Employee Part 3: The Ordering Agent — full order demo + architecture page",
+      "vault_files": [
+        "Agent-Architecture-Template.md",
+        "7-Layer-Multi-Agent-Design.md",
+        "Tool-Definition-Templates.md",
+        "Reference-JDs-Zara-Concierge.md",
+        "AI-Employee-System-Prompt.md"
+      ]
     },
     {
       "id": "M08",
@@ -660,7 +697,13 @@
           "order": "S02"
         }
       ],
-      "build_project": "AI Employee Part 4: Wired Up — backend + one external API"
+      "build_project": "AI Employee Part 4: Wired Up — backend + one external API",
+      "vault_files": [
+        "API-Integration-Prompt-Pack.md",
+        "Keys-and-env-Checklist.md",
+        "Error-Handling-Patterns.md",
+        "5-Free-Tier-API-Ideas.md"
+      ]
     },
     {
       "id": "M09",
@@ -713,7 +756,13 @@
           "order": "S01"
         }
       ],
-      "build_project": "AI Employee Part 5: Knows the Menu, Remembers the Customer"
+      "build_project": "AI Employee Part 5: Knows the Menu, Remembers the Customer",
+      "vault_files": [
+        "Memory-Ladder-Diagram.md",
+        "Knowledge-Base-Formatting-Guide.md",
+        "Chunking-Retrieval-Prompt-Pack.md",
+        "The-Smart-Library-Overview.md"
+      ]
     },
     {
       "id": "M10",
@@ -754,7 +803,13 @@
           "order": "S01"
         }
       ],
-      "build_project": "AI Employee Part 6: Talks to the Outside World — one MCP tool live"
+      "build_project": "AI Employee Part 6: Talks to the Outside World — one MCP tool live",
+      "vault_files": [
+        "MCP-Setup-Guide.md",
+        "Connector-Directory.md",
+        "MCP-Builder-Prompt-Template.md",
+        "Higgsfield-MCP-Demo-Notes.md"
+      ]
     },
     {
       "id": "M11",
@@ -820,7 +875,14 @@
           "order": "S01"
         }
       ],
-      "build_project": "Break AI Employee — test sheet, 3 fixes, logging"
+      "build_project": "Break AI Employee — test sheet, 3 fixes, logging",
+      "vault_files": [
+        "10-Question-Test-Sheet.md",
+        "Test-Log-Template.md",
+        "Edge-Case-Bank.md",
+        "Testing-Before-After-Launch-Notes.md",
+        "Shipping-Trusted-Agents-Notes.md"
+      ]
     },
     {
       "id": "M12",
@@ -873,7 +935,13 @@
           "order": "S02"
         }
       ],
-      "build_project": "Harden AI Employee — 15-item checklist + 10 injection tests"
+      "build_project": "Harden AI Employee — 15-item checklist + 10 injection tests",
+      "vault_files": [
+        "Security-Checklist.md",
+        "Guardrail-Prompt-Block.md",
+        "Injection-Test-Set.md",
+        "Data-Compliance-Standards.md"
+      ]
     },
     {
       "id": "M13",
@@ -915,7 +983,14 @@
           "order": "L02"
         }
       ],
-      "build_project": "AI Employee LIVE — public URL verified by AI Coach"
+      "build_project": "AI Employee LIVE — public URL verified by AI Coach",
+      "vault_files": [
+        "Deploy-Checklist.md",
+        "Vercel-Railway-Guide.md",
+        "Domain-Env-Setup.md",
+        "Go-Live-QA-List.md",
+        "Test-Secure-Deploy-Notes.md"
+      ]
     },
     {
       "id": "M14",
@@ -968,7 +1043,13 @@
           "order": "S02"
         }
       ],
-      "build_project": "AI Employee for Two Cafés — multi-tenant + owner notification"
+      "build_project": "AI Employee for Two Cafés — multi-tenant + owner notification",
+      "vault_files": [
+        "One-Agent-Many-Clients.md",
+        "Automation-Blueprints-5-Industries.md",
+        "Workflow-Map-Template.md",
+        "Multi-Agent-Decision-Checklist.md"
+      ]
     },
     {
       "id": "M15",
@@ -1036,7 +1117,16 @@
           "order": "S02"
         }
       ],
-      "build_project": "Your First Proposal — discovery sheet + proposal + 3 outreach messages"
+      "build_project": "Your First Proposal — discovery sheet + proposal + 3 outreach messages",
+      "vault_files": [
+        "Client-Discovery-Sheet.md",
+        "Proposal-Template.md",
+        "Pricing-Calculator.md",
+        "SOW-Contract-Template.md",
+        "Outreach-Message-Pack.md",
+        "Demo-Script.md",
+        "Getting-Paid-Guide.md"
+      ]
     }
   ],
   "welcome": [
@@ -1249,7 +1339,9 @@
       "1-page proposal"
     ],
     "badge": "Master",
-    "review": "DSP team; resubmit anytime"
+    "review": "DSP team; resubmit anytime",
+    "brief_file": "Capstone-Brief-and-Rubric.md"
   },
-  "progression": "modules open in order as the student marks them complete; no quizzes, no grading"
+  "progression": "modules open in order as the student marks them complete; no quizzes, no grading",
+  "vault_path": "_BUILD/02-Resource-Vault"
 }

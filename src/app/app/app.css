@@ -1,0 +1,44 @@
+/* Student dashboard — reuses the .page-mastery tokens from mastery.css */
+.page-mastery.app{min-height:100vh}
+.app .topbar{position:sticky;top:0;z-index:20;background:rgba(10,23,48,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.app .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.app .topbar .who{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.app main{padding:40px 0 80px}
+.app .grid{display:grid;grid-template-columns:280px 1fr;gap:32px;align-items:start}
+@media(max-width:900px){.app .grid{grid-template-columns:1fr}}
+.app .side{position:sticky;top:80px;display:flex;flex-direction:column;gap:8px}
+.app .mod{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:rgba(19,43,82,.5);text-decoration:none;color:var(--cream)}
+.app .mod.locked{opacity:.45;pointer-events:none}
+.app .mod.on{border-color:var(--gold)}
+.app .mod .id{font-family:var(--mono);font-size:11px;color:var(--teal2)}
+.app .mod .t{font-size:14px;font-weight:600}
+.app .mod .c{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.app .mod.done .c{color:var(--gold2)}
+.app .ph{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:14px 0 4px}
+.app .panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px}
+.app .panel + .panel{margin-top:18px}
+.app h1{font-size:clamp(28px,3.4vw,40px)}
+.app h2{font-size:22px;margin:0 0 12px}
+.app .lesson{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.app .lesson:last-child{border-bottom:0}
+.app .lesson .k{font-family:var(--mono);font-size:11px;color:var(--teal2)}
+.app .lesson .n{font-weight:600}
+.app .lesson .m{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.app .tick{font-family:var(--mono);font-size:12px;color:var(--gold2)}
+.app .dl{display:flex;flex-direction:column;gap:8px}
+.app .dl a{padding:10px 14px;border:1px solid var(--line);border-radius:10px;color:var(--cream);font-size:14px;background:rgba(10,23,48,.5)}
+.app .dl a:hover{border-color:var(--teal2)}
+.app .progress{height:8px;background:rgba(245,241,230,.1);border-radius:99px;overflow:hidden;margin:12px 0}
+.app .progress i{display:block;height:100%;background:linear-gradient(90deg,var(--teal2),var(--gold));border-radius:99px}
+.app form.inline{display:inline}
+.app input,.app textarea{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:rgba(10,23,48,.6);color:var(--cream);font:inherit}
+.app label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px}
+.app .badge{display:inline-block;padding:6px 12px;border-radius:99px;border:1px solid rgba(212,175,55,.5);color:var(--gold2);font-size:12px;margin:4px 6px 0 0}
+.app .muted{color:var(--muted);font-size:14px}
+.app .note{padding:14px 16px;border:1px dashed rgba(212,175,55,.4);border-radius:12px;color:var(--gold2);font-size:14px;margin-top:14px}
+.app .md{line-height:1.7;font-size:15px}
+.app .md h1,.app .md h2,.app .md h3{margin:22px 0 8px}
+.app .md pre{background:rgba(10,23,48,.7);border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;font-size:13px}
+.app .md code{font-family:var(--mono);font-size:13px}
+.app .md table{border-collapse:collapse;width:100%;font-size:14px}
+.app .md td,.app .md th{border:1px solid var(--line);padding:8px}
