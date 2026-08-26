@@ -81,6 +81,13 @@ export const mastery = {
   /** Free Module 1 lead-magnet page — null until built */
   freeModuleUrl: null as string | null,
   url: '/mastery',
+  /** Local payment rails for Pakistan-based students (card checkout pending). */
+  pkr: {
+    price: 'PKR 28,000',
+    bank: { title: 'Digital Services Program', name: 'Meezan Bank', account: 'ASK ON REQUEST' },
+    jazzcash: 'ASK ON REQUEST',
+    easypaisa: 'ASK ON REQUEST',
+  },
 } as const
 
 export const channelops = {

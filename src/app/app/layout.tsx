@@ -19,6 +19,8 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   if (!user) return <div className={fonts}>{children}</div>  // /app/login renders here
 
   const { data: profile } = await sb.from('mastery_profiles').select('status, full_name').eq('id', user.id).single()
+  const { data: adminRow } = await sb.from('mastery_admins').select('email').eq('email', (user.email ?? '').toLowerCase()).maybeSingle()
+  const isAdmin = Boolean(adminRow)
   if (profile?.status !== 'active') redirect('/app/login?pending=1')
 
   const { data: rows } = await sb.from('mastery_progress').select('lesson_file').eq('user_id', user.id)
@@ -52,6 +54,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
           <div className="ph">Finish</div>
           <a href="/app/capstone" className={`mod ${state['M15'].complete ? '' : 'locked'}`}><span className="id">CAP</span><span className="t">Capstone</span><span className="c">→</span></a>
           <a href="/app/certificate" className="mod"><span className="id">CERT</span><span className="t">Certificate</span><span className="c">→</span></a>
+          {isAdmin && <a href="/app/admin" className="mod"><span className="id">ADM</span><span className="t">Enrolments</span><span className="c">→</span></a>}
         </nav>
         <section>{children}</section>
       </div></main>

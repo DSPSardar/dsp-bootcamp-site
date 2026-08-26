@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 }
 
 export default function MasteryPage() {
-  const enrolHref = mastery.checkoutUrl ?? waLink('Hi DSP, I want to enrol in AI Agent Mastery ($100).')
+  const enrolHref = mastery.checkoutUrl ?? '/mastery/enrol'
   const welcomeSrc = welcomeVideoId?.status === 'ready' ? signedEmbedUrl(welcomeVideoId.guid, 7 * 24 * 3600) : null
   return (
     <div className={`page-mastery ${display.variable} ${bodyFont.variable} ${mono.variable}`}>
@@ -41,7 +41,7 @@ export default function MasteryPage() {
     <p className="lead">A 15-module program from Digital Services Program. No coding background needed. You build one real AI agent — your AI Employee — from an empty folder to a live URL, then your own, with every template and prompt you need and a year of support in the DSP group.</p>
     <div className="cta-row">
       <a className="btn btn-gold" href="#pricing">Enrol now <span className="price-tag">$100 · one-time</span></a>
-      <a className="btn btn-ghost" href="#free">Watch Module 1 free</a>
+      <a className="btn btn-ghost" href="#welcome">Watch Module 1 free</a>
     </div>
     <div className="trust">
       <span><b>24 years</b> teaching IT</span>
@@ -229,9 +229,9 @@ export default function MasteryPage() {
       <div className="big">$100<small>one-time</small></div>
       <p>Founding price. Lifetime access. One year of group support included. No subscription, no upsell required to finish.</p>
       <a className="btn btn-gold" href={enrolHref}>Enrol now — $100</a>
-      <a className="btn btn-ghost" href="#free" style={{width:'100%',justifyContent:'center',marginTop:'10px'}}>Try Module 1 free first</a>
+      <a className="btn btn-ghost" href="#welcome" style={{width:'100%',justifyContent:'center',marginTop:'10px'}}>Watch the 6-minute intro first</a>
       <div className="guarantee">7-day money-back guarantee. Start Module 1; if it isn't for you, email us within 7 days for a full refund.</div>
-      <div className="pay">Card (Visa/Mastercard, any currency) · Apple Pay · Google Pay<br />Pakistan: JazzCash · Easypaisa · bank transfer at PKR price</div>
+      <div className="pay">Pakistan: bank transfer · JazzCash · Easypaisa<br />Card checkout coming shortly — email us to pay by card today</div>
     </aside>
   </div>
 </div></section>
@@ -277,7 +277,7 @@ export default function MasteryPage() {
     <details><summary>Windows or Mac?</summary><p>Both. Setup guides for each are in Module 3, including the fixes for the common Windows issues we've solved with hundreds of students.</p></details>
     <details><summary>What does "one year of free support" mean?</summary><p>You're in the DSP group from day one. Questions are answered in the group within one working day, and there's a weekly live Q&amp;A. It's group support, not private 1:1 debugging — that's how we keep it free and fast for everyone.</p></details>
     <details><summary>Is it in Urdu or English?</summary><p>Lectures are taught in an Urdu–English mix, the way DSP teaches live. All templates, slides and downloads are in English. Subtitles are provided.</p></details>
-    <details><summary>Can I pay from Pakistan?</summary><p>Yes — JazzCash, Easypaisa or bank transfer at the PKR price. Message us on WhatsApp and we enrol you manually within a few hours.</p></details>
+    <details><summary>Can I pay from Pakistan?</summary><p>Yes — bank transfer, JazzCash or Easypaisa. Go to the enrol page, send the payment, upload the screenshot with your email, and we send your sign-in link once it&apos;s verified — usually within a few hours.</p></details>
     <details><summary>Refunds?</summary><p>Seven days, no questions. Start Module 1; if it isn't for you, email us and we refund in full.</p></details>
   </div>
 </div></section>
@@ -289,7 +289,7 @@ export default function MasteryPage() {
   <p className="lead">One hundred dollars, once. Lifetime access. A year of support. A live agent with your name on it at the end.</p>
   <div className="cta-row" style={{justifyContent:'center'}}>
     <a className="btn btn-gold" href={enrolHref}>Enrol now — $100 one-time</a>
-    <a className="btn btn-ghost" href={waLink('Hi DSP, I want to enrol in AI Agent Mastery.')}>WhatsApp us</a>
+    <a className="btn btn-ghost" href={waLink('Hi DSP, I have a question about AI Agent Mastery.')}>Ask a question</a>
   </div>
   <p style={{marginTop:'20px',fontFamily:'var(--mono)',fontSize:'12px',color:'var(--muted)'}}>digitalservicesprogram.com · {site.whatsappDisplay} · Islamabad, Pakistan</p>
 </div></section>
