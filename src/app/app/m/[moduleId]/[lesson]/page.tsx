@@ -9,7 +9,9 @@ import { badges } from '@/lib/mastery/course'
 
 export default async function LessonPage({ params }: { params: Promise<{ moduleId: string; lesson: string }> }) {
   const { moduleId, lesson } = await params
-  const m = moduleFor(moduleId); if (!m) notFound()
+  const foundModule = moduleFor(moduleId); if (!foundModule) notFound()
+  const m = foundModule
+  const moduleId_ = m.id
   const found = m.lessons.find((x) => lessonSlug(x.file) === lesson); if (!found) notFound()
   const l = found
   const lessonFile = l.file
@@ -32,10 +34,10 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
       // Did this complete the module / a phase? Tell ASOS so the WhatsApp nudge can fire.
       const { data: rows } = await sb.from('mastery_progress').select('lesson_file').eq('user_id', user.id)
       const st = unlockState(new Set((rows ?? []).map((r) => r.lesson_file)))
-      if (st[m.id]?.complete && user.email) {
-        void postAsosEvent('module_complete', user.email, { module: m.id })
-        const badge = badges.find((b) => b.after === m.id)
-        if (badge) void postAsosEvent('badge_earned', user.email, { badge: badge.name, module: m.id })
+      if (st[moduleId_]?.complete && user.email) {
+        void postAsosEvent('module_complete', user.email, { module: moduleId_ })
+        const badge = badges.find((b) => b.after === moduleId_)
+        if (badge) void postAsosEvent('badge_earned', user.email, { badge: badge.name, module: moduleId_ })
       }
     }
     revalidatePath('/app', 'layout')
