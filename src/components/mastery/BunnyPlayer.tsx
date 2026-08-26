@@ -4,6 +4,7 @@ import { signedEmbedUrl } from '@/lib/mastery/bunny'
  *  Only ever render this for an authenticated student — the URL is what grants playback. */
 export default function BunnyPlayer({ videoId, title }: { videoId: string; title: string }) {
   const src = signedEmbedUrl(videoId)
+  if (!src) return null
   return (
     <div style={{ position: 'relative', paddingTop: '56.25%', background: '#0A1730', borderRadius: 14, overflow: 'hidden' }}>
       <iframe

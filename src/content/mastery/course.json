@@ -654,10 +654,11 @@
           "order": "L02",
           "bunny": {
             "guid": "9bbc17c2-87e0-4164-89cc-0216780703b5",
-            "status": "processing",
+            "status": "ready",
             "version": 1,
             "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:19.364998Z"
+            "uploaded_at": "2026-08-26T13:36:19.364998Z",
+            "length_sec": 3964
           }
         },
         {
@@ -1185,10 +1186,11 @@
           "order": "L02",
           "bunny": {
             "guid": "b2980465-233a-411d-b98e-dbb2bce9e909",
-            "status": "processing",
+            "status": "ready",
             "version": 1,
             "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:10.031050Z"
+            "uploaded_at": "2026-08-26T13:36:10.031050Z",
+            "length_sec": 2915
           }
         }
       ],
@@ -1622,10 +1624,11 @@
       "kind": "vault",
       "bunny": {
         "guid": "48eaf521-2f3d-42a7-8803-7e6737203a2b",
-        "status": "processing",
+        "status": "ready",
         "version": 1,
         "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:36:07.462682Z"
+        "uploaded_at": "2026-08-26T13:36:07.462682Z",
+        "length_sec": 3091
       }
     },
     {
