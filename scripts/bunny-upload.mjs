@@ -35,7 +35,13 @@ const files = fs.statSync(target).isDirectory()
   ? fs.readdirSync(target).filter((f) => /\.(mp4|mov|m4v)$/i.test(f)).map((f) => path.join(target, f))
   : [target]
 
-const save = () => courseFiles.forEach((f) => fs.writeFileSync(f, JSON.stringify(course, null, 2) + '\n'))
+/** Re-read the manifest and merge only this lesson's bunny/master fields, so concurrent writers never clobber each other. */
+const save = (lesson) => courseFiles.forEach((f) => {
+  const fresh = JSON.parse(fs.readFileSync(f, 'utf8'))
+  const target = [...fresh.welcome, ...fresh.vault, ...fresh.modules.flatMap((m) => m.lessons)].find((l) => l.file === lesson.file)
+  if (target) { if (lesson.bunny) target.bunny = lesson.bunny; else delete target.bunny; if (lesson.master) target.master = lesson.master }
+  fs.writeFileSync(f, JSON.stringify(fresh, null, 2) + '\n')
+})
 
 for (const file of files) {
   const base = path.basename(file)
@@ -64,7 +70,7 @@ for (const file of files) {
 
   lesson.bunny = { guid: created.guid, status: 'processing', version: ver, uploaded_at: new Date().toISOString() }
   lesson.master = base
-  save()
+  save(lesson)
 
   if (wait) {
     process.stdout.write('encoding ')
@@ -72,8 +78,8 @@ for (const file of files) {
       await new Promise((r) => setTimeout(r, 15000))
       const v = await fetch(`${API}/videos/${created.guid}`, { headers: H }).then((r) => r.json())
       // status: 0 queued 1 processing 2 encoding 3 finished 4 resolution finished 5 failed 6 presigned upload started 7 presigned upload finished 8 presigned upload failed 9 captions generated 10 title/description generated
-      if (v.status >= 3 && v.status !== 5) { lesson.bunny.status = 'ready'; lesson.bunny.length_sec = v.length; lesson.bunny.thumbnail = v.thumbnailFileName; save(); console.log(`ready (${Math.round(v.length / 60)} min, ${v.availableResolutions})`); break }
-      if (v.status === 5) { lesson.bunny.status = 'failed'; save(); console.log('FAILED'); break }
+      if (v.status >= 3 && v.status !== 5) { lesson.bunny.status = 'ready'; lesson.bunny.length_sec = v.length; lesson.bunny.thumbnail = v.thumbnailFileName; save(lesson); console.log(`ready (${Math.round(v.length / 60)} min, ${v.availableResolutions})`); break }
+      if (v.status === 5) { lesson.bunny.status = 'failed'; save(lesson); console.log('FAILED'); break }
       process.stdout.write(`${v.encodeProgress ?? 0}% `)
     }
   }

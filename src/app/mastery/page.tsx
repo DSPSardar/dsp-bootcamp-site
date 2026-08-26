@@ -2,12 +2,16 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Bricolage_Grotesque, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google'
 import { site, waLink, mastery } from '@/config/site'
+import { welcomeVideoId } from '@/lib/mastery/course'
+import { signedEmbedUrl } from '@/lib/mastery/bunny'
 import MasteryClient from './MasteryClient'
 import './mastery.css'
 
 const display = Bricolage_Grotesque({ subsets: ['latin'], weight: ['400', '500', '700', '800'], variable: '--font-display' })
 const bodyFont = IBM_Plex_Sans({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-body' })
 const mono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-mono' })
+
+export const revalidate = 86400 // re-sign the welcome video daily (token valid 7 days)
 
 export const metadata: Metadata = {
   title: 'DSP AI Agent Mastery — Zero to Master | Build, deploy and sell AI agents',
@@ -18,6 +22,7 @@ export const metadata: Metadata = {
 
 export default function MasteryPage() {
   const enrolHref = mastery.checkoutUrl ?? waLink('Hi DSP, I want to enrol in AI Agent Mastery ($100).')
+  const welcomeSrc = welcomeVideoId?.status === 'ready' ? signedEmbedUrl(welcomeVideoId.guid, 7 * 24 * 3600) : null
   return (
     <div className={`page-mastery ${display.variable} ${bodyFont.variable} ${mono.variable}`}>
 <nav className="nav"><div className="wrap">
@@ -63,6 +68,19 @@ export default function MasteryPage() {
   </div>
 </div></header>
 
+
+
+{/* WELCOME VIDEO */}
+{welcomeSrc && (
+<section id="welcome" style={{paddingTop:'0'}}><div className="wrap">
+  <div className="eyebrow">Six minutes inside DSP</div>
+  <h2>Watch what you'll be building — running my business today.</h2>
+  <p className="lead" style={{marginBottom:'28px'}}>The AI Employee that handles DSP's admissions, the content system behind 6 million views, and what the program looks like from the inside. Recorded by Sardar, not a marketing team.</p>
+  <div style={{position:'relative',paddingTop:'56.25%',borderRadius:'20px',overflow:'hidden',background:'var(--ink)',border:'1px solid var(--line)'}}>
+    <iframe src={welcomeSrc} title="Welcome to DSP AI Agent Mastery" loading="lazy" style={{border:0,position:'absolute',top:0,left:0,width:'100%',height:'100%'}} allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowFullScreen />
+  </div>
+</div></section>
+)}
 
 <section><div className="wrap">
   <div className="eyebrow">Who this is for</div>

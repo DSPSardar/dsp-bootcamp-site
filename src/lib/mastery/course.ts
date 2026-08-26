@@ -29,3 +29,6 @@ export function unlockState(done: Set<string>) {
 export const badges = [
   { after: 'M06', name: 'Builder' }, { after: 'M10', name: 'Agent Engineer' }, { after: 'M13', name: 'Production-Ready' }, { after: 'M15', name: 'AI Solutions Seller' },
 ]
+
+/** Bunny GUID of the public welcome video (00-W01) — used on the landing page and the free page. */
+export const welcomeVideoId = (course.welcome as { file: string; bunny?: { guid: string; status: string } }[]).find((l) => l.file.startsWith('00-W01'))?.bunny

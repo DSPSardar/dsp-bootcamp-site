@@ -50,9 +50,17 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "YTDown.com_YouTube_AI-and-Ai-Agents-Day-1_Media_MlNJeyjKHxQ_001_1080p.mp4",
           "kind": "core",
-          "order": "L01"
+          "order": "L01",
+          "bunny": {
+            "guid": "d2c42370-384c-46ea-9173-fc51cc7f6409",
+            "status": "ready",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:36:02.462358Z",
+            "length_sec": 2363
+          }
         },
         {
           "file": "M01-L02_Next-Level-of-AI-Fundamentals-Agents-Autonomy_SvFSmcKbx3M.mp4",
@@ -62,9 +70,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "YTDown.com_YouTube_The-Next-Level-of-AI-Fundamentals-Agents_Media_SvFSmcKbx3M_001_1080p.mp4",
           "kind": "core",
-          "order": "L02"
+          "order": "L02",
+          "bunny": {
+            "guid": "fec934a9-a740-462c-abd7-35c777eef14f",
+            "status": "processing",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:37:18.513841Z"
+          }
         },
         {
           "file": "M01-S01_What-is-AI_QSVpTTR8znM.mp4",
@@ -168,9 +183,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "YTDown.com_YouTube_Prompt-Engineering-is-not-Enough-Context_Media_GEpRArti8Uc_001_1080p.mp4",
           "kind": "core",
-          "order": "L01"
+          "order": "L01",
+          "bunny": {
+            "guid": "79fc64e0-186c-464c-87e7-02cf01511466",
+            "status": "processing",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:37:16.030505Z"
+          }
         },
         {
           "file": "M02-L02_Context-Engineering-Day3_enQqyln_uoE.mp4",
@@ -180,9 +202,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "YTDown.com_YouTube_Context-Engineering-Day-3-Master-AI-Cont_Media_enQqyln_uoE_001_1080p.mp4",
           "kind": "core",
-          "order": "L02"
+          "order": "L02",
+          "bunny": {
+            "guid": "6f6e3056-79b7-4606-9d5c-c7fe972a7695",
+            "status": "processing",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:36:58.851437Z"
+          }
         },
         {
           "file": "M02-L03_4-Ways-AI-Agents-Fail_OWdmU2gYMz8.mp4",
@@ -196,9 +225,11 @@
           "kind": "core",
           "order": "L03",
           "bunny": {
-            "guid": "999982c2-cff8-40b7-981e-2d66802c85dc",
-            "status": "processing",
-            "uploaded_at": "2026-08-26T10:10:53.284Z"
+            "guid": "5dd810f7-e344-4fd6-88ca-3dc48c103f7e",
+            "status": "ready",
+            "version": 1,
+            "uploaded_at": "2026-08-26T11:21:17.814Z",
+            "length_sec": 2181
           }
         },
         {
@@ -267,9 +298,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "YTDown.com_YouTube_Claude-AI-Masterclass-Part-1-New-Feature_Media_piOULSKw5pc_001_1080p.mp4",
           "kind": "core",
-          "order": "L01"
+          "order": "L01",
+          "bunny": {
+            "guid": "cf7becde-8385-485c-aa83-c525d0ae9201",
+            "status": "processing",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:36:43.027596Z"
+          }
         },
         {
           "file": "M03-L02_Claude-Chat-Cowork-Code_GUQmCNRqy1g.mp4",
@@ -279,9 +317,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "YTDown.com_YouTube_Claude-Chat-Cowork-_-Code-New-Master-Cla_Media_GUQmCNRqy1g_001_1080p.mp4",
           "kind": "core",
-          "order": "L02"
+          "order": "L02",
+          "bunny": {
+            "guid": "64763cb7-9d41-4d6c-b785-93f3faf9c311",
+            "status": "processing",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:36:50.750217Z"
+          }
         },
         {
           "file": "M03-L03_Google-AI-Studio-Gemini_63bNPgeoxmA.mp4",
@@ -291,9 +336,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "YTDown.com_YouTube_What-is-Google-AI-Studio_Media_63bNPgeoxmA_001_1080p.mp4",
           "kind": "core",
-          "order": "L03"
+          "order": "L03",
+          "bunny": {
+            "guid": "646e8a0a-e2a9-4dbc-99a7-f04e6905a527",
+            "status": "processing",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:37:21.018425Z"
+          }
         },
         {
           "file": "M03-S01_Claude-Step-by-Step-Beginner_tU13d4SN0c4.mp4",
@@ -361,9 +413,16 @@
           "source": "LOCAL",
           "status": "Located",
           "chapters": [],
-          "master": null,
+          "master": "M04-L01_Vibe-Coding-Step-by-Step_bwhLEbC5vjU_v1.mp4",
           "kind": "core",
-          "order": "L01"
+          "order": "L01",
+          "bunny": {
+            "guid": "d701009b-0edf-417f-939f-6bb3f719c878",
+            "status": "ready",
+            "version": 1,
+            "uploaded_at": "2026-08-26T11:33:56.751Z",
+            "length_sec": 2742
+          }
         },
         {
           "file": "M04-L02_Claude-Code-Structuring-Real-Project_QHtJAUbe8fI.mp4",
@@ -373,9 +432,16 @@
           "source": "LOCAL",
           "status": "Located",
           "chapters": [],
-          "master": null,
+          "master": "M04-L02_Claude-Code-Structuring-Real-Project_QHtJAUbe8fI_v1.mp4",
           "kind": "core",
-          "order": "L02"
+          "order": "L02",
+          "bunny": {
+            "guid": "b559d596-4b4b-46f6-8635-1dfeb42b1c78",
+            "status": "ready",
+            "version": 1,
+            "uploaded_at": "2026-08-26T12:22:37.569Z",
+            "length_sec": 3288
+          }
         },
         {
           "file": "M04-L03_Claude-Masterclass-Pt2-Advanced-Coding_hfLCbgKZ498.mp4",
@@ -385,9 +451,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "YTDown.com_YouTube_Claude-AI-Masterclass-Part-2-Advanced-Co_Media_hfLCbgKZ498_001_1080p.mp4",
           "kind": "core",
-          "order": "L03"
+          "order": "L03",
+          "bunny": {
+            "guid": "9e6306d2-065b-4e9b-80e7-0981c9af70b9",
+            "status": "processing",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:36:45.649952Z"
+          }
         },
         {
           "file": "M04-S01_What-is-Vibe-Coding_l5AXZP24KrY.mp4",
@@ -430,9 +503,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "YTDown.com_YouTube_How-to-build-and-publish-websites-live-w_Media_zDnnE55qJdI_001_1080p.mp4",
           "kind": "core",
-          "order": "L01"
+          "order": "L01",
+          "bunny": {
+            "guid": "c7f599d3-18e2-4d3c-84de-1a324bd32f5f",
+            "status": "processing",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:37:08.560713Z"
+          }
         },
         {
           "file": "M05-L02_First-Frontend-with-Claude-Code-Day2_FMsPKSDfft4.mp4",
@@ -442,9 +522,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "YTDown.com_YouTube_Build-Your-First-Frontend-with-Claude-Co_Media_FMsPKSDfft4_001_1080p.mp4",
           "kind": "core",
-          "order": "L02"
+          "order": "L02",
+          "bunny": {
+            "guid": "bdfb6e1b-76be-4376-8f11-29ecb240303b",
+            "status": "processing",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:36:24.415949Z"
+          }
         }
       ],
       "build_project": "AI Employee Part 2: The Café Website — 4 pages, desktop + mobile",
@@ -477,9 +564,16 @@
           "source": "LOCAL",
           "status": "Located",
           "chapters": [],
-          "master": null,
+          "master": "M06-L01_Frontend-Push-to-GitHub_uNKWoml_XS8_v1.mp4",
           "kind": "core",
-          "order": "L01"
+          "order": "L01",
+          "bunny": {
+            "guid": "43c133c5-0a01-4283-9f82-c9059bcfd276",
+            "status": "ready",
+            "version": 1,
+            "uploaded_at": "2026-08-26T12:24:03.001Z",
+            "length_sec": 2785
+          }
         },
         {
           "file": "M06-L02_GitHub-403-Permissions-Fix_NEW.mp4",
@@ -536,13 +630,14 @@
           "source": "LOCAL",
           "status": "Located",
           "chapters": [],
-          "master": "M07-L01_Chatbot-to-AI-Agent-Evolution_TvGRUNA0b3A.mp4",
+          "master": "M07-L01_Chatbot-to-AI-Agent-Evolution_TvGRUNA0b3A_v1.mp4",
           "kind": "core",
           "order": "L01",
           "bunny": {
-            "guid": "561a1718-7286-4fa6-8067-987e8e37f71b",
+            "guid": "82684a06-eafa-4509-be84-6c5059f3fb4c",
             "status": "ready",
-            "uploaded_at": "2026-08-25T21:50:18.246Z",
+            "version": 1,
+            "uploaded_at": "2026-08-26T12:15:06.672Z",
             "length_sec": 3234
           }
         },
@@ -554,9 +649,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "YTDown.com_YouTube_Build-first-Ai-Agent-with-Claude-code-DS_Media_IcDbXP-ohQ4_001_1080p.mp4",
           "kind": "core",
-          "order": "L02"
+          "order": "L02",
+          "bunny": {
+            "guid": "9bbc17c2-87e0-4164-89cc-0216780703b5",
+            "status": "processing",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:36:19.364998Z"
+          }
         },
         {
           "file": "M07-L03_Agents-Master-Pro-Day2__6L90ZqzHRs.mp4",
@@ -568,7 +670,14 @@
           "chapters": [],
           "master": null,
           "kind": "core",
-          "order": "L03"
+          "order": "L03",
+          "bunny": {
+            "guid": "58e53a51-a002-4dd5-91e3-ac99e6ccadb9",
+            "status": "processing",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:37:46.998560+00:00"
+          }
         },
         {
           "file": "M07-L04_Bootcamp-Day3_1LgZxGCnz_Y.mp4",
@@ -578,9 +687,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "YTDown.com_YouTube_dspbootcamp-3rd-day-class_Media_1LgZxGCnz_Y_001_1080p.mp4",
           "kind": "core",
-          "order": "L04"
+          "order": "L04",
+          "bunny": {
+            "guid": "dd5e9852-ab5f-4a19-b537-892c69c01f1f",
+            "status": "processing",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:37:03.279590Z"
+          }
         },
         {
           "file": "M07-L05_CafeBot-Zero-to-Live_ZG3JXm-L8XU.mp4",
@@ -590,9 +706,16 @@
           "source": "LOCAL",
           "status": "Located",
           "chapters": [],
-          "master": null,
+          "master": "M07-L05_CafeBot-Zero-to-Live_ZG3JXm-L8XU_v1.mp4",
           "kind": "core",
-          "order": "L05"
+          "order": "L05",
+          "bunny": {
+            "guid": "601f2c8b-adf9-42e5-aa2c-066cf79470aa",
+            "status": "ready",
+            "version": 1,
+            "uploaded_at": "2026-08-26T12:25:32.657Z",
+            "length_sec": 2934
+          }
         },
         {
           "file": "M07-S01_Build-Agents-Master-Pro-Class1_NmpdMUxnLPQ.mp4",
@@ -602,9 +725,17 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "YTDown.com_YouTube_Build-Ai-Agents-with-Claude-Master-Pro-c_Media_NmpdMUxnLPQ_001_1080p.mp4",
           "kind": "supplement",
-          "order": "S01"
+          "order": "S01",
+          "bunny": {
+            "guid": "cbec2b7a-e9f7-4c38-ab3c-4bf49a8be92c",
+            "status": "ready",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:36:16.822311Z",
+            "length_sec": 1041
+          }
         },
         {
           "file": "M07-S02_Idea-to-Live-Agent_YRzBUTFZiI0.mp4",
@@ -662,9 +793,16 @@
           "source": "LOCAL",
           "status": "Located",
           "chapters": [],
-          "master": null,
+          "master": "M08-L01_API-Keys-and-env-Files_kTUdPQ5MnJc_v1.mp4",
           "kind": "core",
-          "order": "L01"
+          "order": "L01",
+          "bunny": {
+            "guid": "0e320cda-9b96-415a-8135-7de2f6429a6a",
+            "status": "ready",
+            "version": 1,
+            "uploaded_at": "2026-08-26T12:16:59.014Z",
+            "length_sec": 2716
+          }
         },
         {
           "file": "M08-L02_External-API-Integration_NEW.mp4",
@@ -737,9 +875,11 @@
           "kind": "core",
           "order": "L01",
           "bunny": {
-            "guid": "10bdc102-a948-4e6e-9140-8bfd59b08ff8",
-            "status": "processing",
-            "uploaded_at": "2026-08-26T10:11:57.604Z"
+            "guid": "fe4c3c68-62e0-4a24-bdda-a2d325985103",
+            "status": "ready",
+            "version": 1,
+            "uploaded_at": "2026-08-26T12:18:14.145Z",
+            "length_sec": 2194
           }
         },
         {
@@ -750,9 +890,16 @@
           "source": "LOCAL",
           "status": "Located",
           "chapters": [],
-          "master": null,
+          "master": "M09-L02_Claude-Projects-Memory_UFXYqyKQDzI_v1.mp4",
           "kind": "core",
-          "order": "L02"
+          "order": "L02",
+          "bunny": {
+            "guid": "2ea5cdbb-f315-4f43-97e2-c8e5f53eb139",
+            "status": "ready",
+            "version": 1,
+            "uploaded_at": "2026-08-26T12:19:21.744Z",
+            "length_sec": 2838
+          }
         },
         {
           "file": "M09-S01_How-RAG-Works-short_SkT2s4N8wU0.mp4",
@@ -762,9 +909,16 @@
           "source": "LOCAL",
           "status": "Located",
           "chapters": [],
-          "master": null,
+          "master": "M09-S01_How-RAG-Works-short_SkT2s4N8wU0_v1.mp4",
           "kind": "supplement",
-          "order": "S01"
+          "order": "S01",
+          "bunny": {
+            "guid": "a3345174-ca16-4c8c-bbd5-6fa8658c732c",
+            "status": "ready",
+            "version": 1,
+            "uploaded_at": "2026-08-26T12:26:17.200Z",
+            "length_sec": 1028
+          }
         }
       ],
       "build_project": "AI Employee Part 5: Knows the Menu, Remembers the Customer",
@@ -845,9 +999,16 @@
           "source": "LOCAL",
           "status": "Located",
           "chapters": [],
-          "master": null,
+          "master": "M11-L01_Test-Before-After-Launch_0XpTyz0-uUc_v1.mp4",
           "kind": "core",
-          "order": "L01"
+          "order": "L01",
+          "bunny": {
+            "guid": "721b9d2f-64b6-4511-bd05-f55282d3e419",
+            "status": "ready",
+            "version": 1,
+            "uploaded_at": "2026-08-26T12:27:27.076Z",
+            "length_sec": 2328
+          }
         },
         {
           "file": "M11-L02_What-is-Observability_7Os-d68IMq4.mp4",
@@ -857,9 +1018,17 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "YTDown.com_YouTube_Ai-Agents-what-is-observability_Media_7Os-d68IMq4_001_1080p.mp4",
           "kind": "core",
-          "order": "L02"
+          "order": "L02",
+          "bunny": {
+            "guid": "90ce0d5d-3854-4cb2-8d4b-d8231bc83630",
+            "status": "ready",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:35:54.140575Z",
+            "length_sec": 1791
+          }
         },
         {
           "file": "M11-L03_Test-Secure-Deploy__0REF_5Ws50.mp4",
@@ -869,9 +1038,16 @@
           "source": "LOCAL",
           "status": "Located",
           "chapters": [],
-          "master": null,
+          "master": "M11-L03_Test-Secure-Deploy_0REF_5Ws50_v1.mp4",
           "kind": "core",
-          "order": "L03"
+          "order": "L03",
+          "bunny": {
+            "guid": "1214d215-92aa-43b7-a2c8-a0579667ff7e",
+            "status": "ready",
+            "version": 1,
+            "uploaded_at": "2026-08-26T12:28:25.547Z",
+            "length_sec": 2124
+          }
         },
         {
           "file": "M11-S01_Five-Steps-Trusted-Agents_ahafeXcC0mw.mp4",
@@ -917,9 +1093,17 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "YTDown.com_YouTube_AI-Agents-Security-Master-class-part-1_Media_oZTxq7XBZbk_001_1080p.mp4",
           "kind": "core",
-          "order": "L01"
+          "order": "L01",
+          "bunny": {
+            "guid": "fdbbc578-764f-4d2d-bab3-84d0dfb86b28",
+            "status": "ready",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:35:51.576545Z",
+            "length_sec": 2486
+          }
         },
         {
           "file": "M12-S01_Memory-Security-Guardrails_5OR0BOa_Hb4.mp4",
@@ -977,9 +1161,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "YTDown.com_YouTube_Github-to-vercel-final-deployment_Media_oSD-AdRr5AI_001_1080p.mp4",
           "kind": "core",
-          "order": "L01"
+          "order": "L01",
+          "bunny": {
+            "guid": "ed43a974-636f-4430-8376-6c1bbf01bdac",
+            "status": "processing",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:37:05.895197Z"
+          }
         },
         {
           "file": "M13-L02_CafeBot-Deploy-Portion_ZG3JXm-L8XU.mp4",
@@ -989,9 +1180,16 @@
           "source": "CUT-FROM-M07-L04",
           "status": "CUT-FROM-M07-L04",
           "chapters": [],
-          "master": null,
+          "master": "YTDown.com_YouTube_Build-a-Real-AI-Agent-with-Claude-Code-Z_Media_ZG3JXm-L8XU_001_1080p.mp4",
           "kind": "core",
-          "order": "L02"
+          "order": "L02",
+          "bunny": {
+            "guid": "b2980465-233a-411d-b98e-dbb2bce9e909",
+            "status": "processing",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:36:10.031050Z"
+          }
         }
       ],
       "build_project": "AI Employee LIVE — public URL verified by AI Coach",
@@ -1037,9 +1235,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "YTDown.com_YouTube_Build-Your-First-Multi-Agent-AI-System-w_Media_fxfDEBHjpC4_001_1080p.mp4",
           "kind": "supplement",
-          "order": "S01"
+          "order": "S01",
+          "bunny": {
+            "guid": "760b1b83-f3c8-41fa-b691-77f5b1cac874",
+            "status": "processing",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:36:28.462278Z"
+          }
         },
         {
           "file": "M14-S02_Agents-Workflows-Tools_Nw6vPE3d3XU.mp4",
@@ -1087,9 +1292,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "YTDown.com_YouTube_Why-97-of-AI-Agent-Courses-Skip-This-One_Media_oOKyMHilVH4_001_1080p.mp4",
           "kind": "core",
-          "order": "L01"
+          "order": "L01",
+          "bunny": {
+            "guid": "d412ca2e-cd85-4151-9726-1823311dfbfd",
+            "status": "processing",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:37:25.919925Z"
+          }
         },
         {
           "file": "M15-L02_Pricing-Proposal-Delivery_NEW.mp4",
@@ -1149,8 +1361,15 @@
       "source": "NEW",
       "status": "NEW",
       "chapters": [],
-      "master": null,
-      "kind": "welcome"
+      "master": "00-W01_Welcome-Orientation_v1.mp4",
+      "kind": "welcome",
+      "bunny": {
+        "guid": "bb00434f-3a5a-4f02-9eed-1cdba145bdae",
+        "status": "ready",
+        "version": 3,
+        "uploaded_at": "2026-08-26T11:40:00Z",
+        "length_sec": 351
+      }
     },
     {
       "file": "00-W02_Inside-DSP-Walkthrough_TICJXTiWpmc.mp4",
@@ -1163,9 +1382,10 @@
       "master": "00-W02_Inside-DSP-Walkthrough_TICJXTiWpmc_v1.mp4",
       "kind": "welcome",
       "bunny": {
-        "guid": "9abb65f7-ac93-4e2b-b14c-c6f7ea245f0d",
+        "guid": "e3351c30-c8df-4933-b4da-f7b706975664",
         "status": "ready",
-        "uploaded_at": "2026-08-26T10:09:23.384Z",
+        "version": 1,
+        "uploaded_at": "2026-08-26T11:18:04.749Z",
         "length_sec": 1052
       }
     }
@@ -1179,8 +1399,15 @@
       "source": "DOWNLOAD",
       "status": "To download",
       "chapters": [],
-      "master": null,
-      "kind": "vault"
+      "master": "YTDown.com_YouTube_What-is-most-important-before-building-A_Media_YWbxk0Ype54_001_1080p.mp4",
+      "kind": "vault",
+      "bunny": {
+        "guid": "8cf1400d-d92c-44c2-a09d-8f39eacd272b",
+        "status": "processing",
+        "version": 1,
+        "source": "drive-fetch",
+        "uploaded_at": "2026-08-26T13:37:23.543465Z"
+      }
     },
     {
       "file": "V_AI-Myths-vs-Reality-2026_CGjgSI3knNY.mp4",
@@ -1190,8 +1417,16 @@
       "source": "DOWNLOAD",
       "status": "To download",
       "chapters": [],
-      "master": null,
-      "kind": "vault"
+      "master": "YTDown.com_YouTube_AI-myths-Vs-reality-which-is-actually-th_Media_CGjgSI3knNY_001_1080p.mp4",
+      "kind": "vault",
+      "bunny": {
+        "guid": "39b7e72c-8a66-42d3-95ff-e36e13c008f3",
+        "status": "ready",
+        "version": 1,
+        "source": "drive-fetch",
+        "uploaded_at": "2026-08-26T13:36:04.949396Z",
+        "length_sec": 2646
+      }
     },
     {
       "file": "V_Claude-Cowork-Code_hwGJ2ekg3kQ.mp4",
@@ -1201,8 +1436,15 @@
       "source": "DOWNLOAD",
       "status": "To download",
       "chapters": [],
-      "master": null,
-      "kind": "vault"
+      "master": "YTDown.com_YouTube_Claude-claude-cowork-claude-code_Media_hwGJ2ekg3kQ_001_1080p.mp4",
+      "kind": "vault",
+      "bunny": {
+        "guid": "d8b91c47-e226-4932-88e4-ee8161da55d3",
+        "status": "processing",
+        "version": 1,
+        "source": "drive-fetch",
+        "uploaded_at": "2026-08-26T13:36:53.655514Z"
+      }
     },
     {
       "file": "V_Claude-Fundamentals-Beginner-to-Pro_GbDinGY4S00.mp4",
@@ -1212,8 +1454,15 @@
       "source": "DOWNLOAD",
       "status": "To download",
       "chapters": [],
-      "master": null,
-      "kind": "vault"
+      "master": "YTDown.com_YouTube_Claude-AI-Fundamentals-Complete-Beginner_Media_GbDinGY4S00_001_1080p.mp4",
+      "kind": "vault",
+      "bunny": {
+        "guid": "ffd86a64-38b3-4025-9658-f74f705d8fa0",
+        "status": "processing",
+        "version": 1,
+        "source": "drive-fetch",
+        "uploaded_at": "2026-08-26T13:36:40.529523Z"
+      }
     },
     {
       "file": "V_Use-Claude-Better-Than-97pct_pIarK_L8d9I.mp4",
@@ -1223,8 +1472,15 @@
       "source": "DOWNLOAD",
       "status": "To download",
       "chapters": [],
-      "master": null,
-      "kind": "vault"
+      "master": "YTDown.com_YouTube_How-to-use-Claude-better-then-97-of-peop_Media_pIarK_L8d9I_001_1080p.mp4",
+      "kind": "vault",
+      "bunny": {
+        "guid": "fbf9617a-f954-4058-b9a0-107e2fdbd055",
+        "status": "processing",
+        "version": 1,
+        "source": "drive-fetch",
+        "uploaded_at": "2026-08-26T13:37:10.962505Z"
+      }
     },
     {
       "file": "V_Best-AI-Tools-Day4_UpEWUQw-3xI.mp4",
@@ -1234,8 +1490,15 @@
       "source": "DOWNLOAD",
       "status": "To download",
       "chapters": [],
-      "master": null,
-      "kind": "vault"
+      "master": "YTDown.com_YouTube_Claude-_-AI-Tools-Day-4-Best-AI-Tools-Yo_Media_UpEWUQw-3xI_001_1080p.mp4",
+      "kind": "vault",
+      "bunny": {
+        "guid": "5d2e3377-2827-4263-a819-f03929ba7f58",
+        "status": "processing",
+        "version": 1,
+        "source": "drive-fetch",
+        "uploaded_at": "2026-08-26T13:36:33.846083Z"
+      }
     },
     {
       "file": "V_Claude-Cowork-Master-Pro_x_A9RkaLAj4.mp4",
@@ -1245,8 +1508,15 @@
       "source": "DOWNLOAD",
       "status": "To download",
       "chapters": [],
-      "master": null,
-      "kind": "vault"
+      "master": "YTDown.com_YouTube_Claude-cowork-Master-Pro-class-July-2026_Media_x_A9RkaLAj4_001_1080p.mp4",
+      "kind": "vault",
+      "bunny": {
+        "guid": "1814897e-d6f3-43e9-984c-0cdd7ffa0e89",
+        "status": "processing",
+        "version": 1,
+        "source": "drive-fetch",
+        "uploaded_at": "2026-08-26T13:36:56.436639Z"
+      }
     },
     {
       "file": "V_Claude-Certification-Training_swuA7hzsrhQ.mp4",
@@ -1256,8 +1526,15 @@
       "source": "DOWNLOAD",
       "status": "To download",
       "chapters": [],
-      "master": null,
-      "kind": "vault"
+      "master": "YTDown.com_YouTube_Claude-Certification-Complete-Training-N_Media_swuA7hzsrhQ_001_1080p.mp4",
+      "kind": "vault",
+      "bunny": {
+        "guid": "5d960142-fd93-479a-842a-9da8007720e8",
+        "status": "processing",
+        "version": 1,
+        "source": "drive-fetch",
+        "uploaded_at": "2026-08-26T13:36:48.156694Z"
+      }
     },
     {
       "file": "V_Real-AI-Apps-Day1_1oM2aneRSX8.mp4",
@@ -1267,8 +1544,15 @@
       "source": "DOWNLOAD",
       "status": "To download",
       "chapters": [],
-      "master": null,
-      "kind": "vault"
+      "master": "YTDown.com_YouTube_Building-Real-AI-Applications-with-Claud_Media_1oM2aneRSX8_001_1080p.mp4",
+      "kind": "vault",
+      "bunny": {
+        "guid": "7e4abccd-758b-4ec4-8db3-9d53f980326d",
+        "status": "processing",
+        "version": 1,
+        "source": "drive-fetch",
+        "uploaded_at": "2026-08-26T13:36:31.125272Z"
+      }
     },
     {
       "file": "V_Website-in-30-Minutes_1za_ZwBVXNM.mp4",
@@ -1278,8 +1562,16 @@
       "source": "DOWNLOAD",
       "status": "To download",
       "chapters": [],
-      "master": null,
-      "kind": "vault"
+      "master": "YTDown.com_YouTube_Build-a-Website-in-30-Minutes-FREE-_-Liv_Media_1za_ZwBVXNM_001_1080p.mp4",
+      "kind": "vault",
+      "bunny": {
+        "guid": "b645cb96-0462-4eb6-9903-33e9c46b9e29",
+        "status": "ready",
+        "version": 1,
+        "source": "drive-fetch",
+        "uploaded_at": "2026-08-26T13:36:12.488026Z",
+        "length_sec": 1714
+      }
     },
     {
       "file": "V_Website-in-15-Minutes_Hu2qbIsiA50.mp4",
@@ -1289,8 +1581,15 @@
       "source": "DOWNLOAD",
       "status": "To download",
       "chapters": [],
-      "master": null,
-      "kind": "vault"
+      "master": "YTDown.com_YouTube_Build-website-with-Claude-in-15-minutes-_Media_Hu2qbIsiA50_001_1080p.mp4",
+      "kind": "vault",
+      "bunny": {
+        "guid": "4d7bb974-2131-47a1-a1ed-853dff930d9f",
+        "status": "processing",
+        "version": 1,
+        "source": "drive-fetch",
+        "uploaded_at": "2026-08-26T13:36:21.779312Z"
+      }
     },
     {
       "file": "V_Agents-with-Claude_veMqkyjGS4s.mp4",
@@ -1300,8 +1599,16 @@
       "source": "DOWNLOAD",
       "status": "To download",
       "chapters": [],
-      "master": null,
-      "kind": "vault"
+      "master": "YTDown.com_YouTube_Ai-Agents-with-Claude_Media_veMqkyjGS4s_001_1080p.mp4",
+      "kind": "vault",
+      "bunny": {
+        "guid": "274b372e-68ca-4b71-b719-5d16c6e299c7",
+        "status": "ready",
+        "version": 1,
+        "source": "drive-fetch",
+        "uploaded_at": "2026-08-26T13:35:56.627929Z",
+        "length_sec": 2381
+      }
     },
     {
       "file": "V_Idea-to-Live-in-30-Minutes_yzImxj-NX-g.mp4",
@@ -1311,8 +1618,15 @@
       "source": "DOWNLOAD",
       "status": "To download",
       "chapters": [],
-      "master": null,
-      "kind": "vault"
+      "master": "YTDown.com_YouTube_Al-agents-master-pro-class-idea-to-live-_Media_yzImxj-NX-g_001_1080p.mp4",
+      "kind": "vault",
+      "bunny": {
+        "guid": "48eaf521-2f3d-42a7-8803-7e6737203a2b",
+        "status": "processing",
+        "version": 1,
+        "source": "drive-fetch",
+        "uploaded_at": "2026-08-26T13:36:07.462682Z"
+      }
     },
     {
       "file": "V_Practical-Project-Work_hS3wu_PvZSY.mp4",
@@ -1322,8 +1636,15 @@
       "source": "DOWNLOAD",
       "status": "To download",
       "chapters": [],
-      "master": null,
-      "kind": "vault"
+      "master": "YTDown.com_YouTube_Practical-work-on-a-project_Media_hS3wu_PvZSY_001_1080p.mp4",
+      "kind": "vault",
+      "bunny": {
+        "guid": "cd89aaa5-3d2b-47fa-9156-511ea0abf12f",
+        "status": "processing",
+        "version": 1,
+        "source": "drive-fetch",
+        "uploaded_at": "2026-08-26T13:37:13.494281Z"
+      }
     },
     {
       "file": "V_Practical-Project-Discussion__Rz0CVJlQ-0.mp4",
@@ -1334,7 +1655,14 @@
       "status": "To download",
       "chapters": [],
       "master": null,
-      "kind": "vault"
+      "kind": "vault",
+      "bunny": {
+        "guid": "dcd41a38-00be-4f3a-a479-a9ff6a32c112",
+        "status": "processing",
+        "version": 1,
+        "source": "drive-fetch",
+        "uploaded_at": "2026-08-26T13:37:49.451411+00:00"
+      }
     },
     {
       "file": "V_AI-Agents-Prompt-and-Claude_QBTw2gN2_AM.mp4",
@@ -1344,8 +1672,16 @@
       "source": "DOWNLOAD",
       "status": "To download",
       "chapters": [],
-      "master": null,
-      "kind": "vault"
+      "master": "YTDown.com_YouTube_Ai-Ai-Agents-Ai-Agentic-Prompt-and-Claud_Media_QBTw2gN2_AM_001_1080p.mp4",
+      "kind": "vault",
+      "bunny": {
+        "guid": "86848d78-5d65-4494-b6d2-8d0d60576add",
+        "status": "ready",
+        "version": 1,
+        "source": "drive-fetch",
+        "uploaded_at": "2026-08-26T13:35:59.288056Z",
+        "length_sec": 2245
+      }
     }
   ],
   "capstone": {
