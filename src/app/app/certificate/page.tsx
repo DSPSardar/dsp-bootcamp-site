@@ -1,13 +1,13 @@
 import { supabaseServer } from '@/lib/supabase/server'
+import { requireStudent } from '@/lib/mastery/auth'
 import { modules, unlockState, badges } from '@/lib/mastery/course'
 
 export default async function CertificatePage() {
-  const sb = await supabaseServer()
-  const { data: { user } } = await sb.auth.getUser()
-  const { data: rows } = await sb.from('mastery_progress').select('lesson_file').eq('user_id', user!.id)
+  const { sb, user } = await requireStudent()
+  const { data: rows } = await sb.from('mastery_progress').select('lesson_file').eq('user_id', user.id)
   const state = unlockState(new Set((rows ?? []).map((r) => r.lesson_file)))
   const allDone = modules.every((m) => state[m.id].complete)
-  const { data: cert } = await sb.from('mastery_certificates').select('code, issued_at, full_name').eq('user_id', user!.id).maybeSingle()
+  const { data: cert } = await sb.from('mastery_certificates').select('code, issued_at, full_name').eq('user_id', user.id).maybeSingle()
   const earned = badges.filter((b) => state[b.after].complete)
   return (
     <div className="panel">

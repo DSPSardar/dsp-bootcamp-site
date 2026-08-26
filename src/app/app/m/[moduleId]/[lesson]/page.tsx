@@ -1,6 +1,7 @@
 import { notFound, redirect } from 'next/navigation'
 import { revalidatePath } from 'next/cache'
 import { supabaseServer } from '@/lib/supabase/server'
+import { requireStudent } from '@/lib/mastery/auth'
 import { moduleFor, unlockState, lessonTitle, lessonSlug } from '@/lib/mastery/course'
 import BunnyPlayer from '@/components/mastery/BunnyPlayer'
 import { postAsosEvent } from '@/lib/mastery/asos'
@@ -12,9 +13,8 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
   const found = m.lessons.find((x) => lessonSlug(x.file) === lesson); if (!found) notFound()
   const l = found
   const lessonFile = l.file
-  const sb = await supabaseServer()
-  const { data: { user } } = await sb.auth.getUser()
-  const { data: rows } = await sb.from('mastery_progress').select('lesson_file').eq('user_id', user!.id)
+  const { sb, user } = await requireStudent()
+  const { data: rows } = await sb.from('mastery_progress').select('lesson_file').eq('user_id', user.id)
   const done = new Set((rows ?? []).map((r) => r.lesson_file))
   if (!unlockState(done)[m.id].unlocked) redirect('/app')
   const isDone = done.has(l.file)

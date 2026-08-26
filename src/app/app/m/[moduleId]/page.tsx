@@ -1,13 +1,13 @@
 import { notFound, redirect } from 'next/navigation'
 import { supabaseServer } from '@/lib/supabase/server'
+import { requireStudent } from '@/lib/mastery/auth'
 import { moduleFor, unlockState, lessonTitle, lessonSlug } from '@/lib/mastery/course'
 
 export default async function ModulePage({ params }: { params: Promise<{ moduleId: string }> }) {
   const { moduleId } = await params
   const m = moduleFor(moduleId); if (!m) notFound()
-  const sb = await supabaseServer()
-  const { data: { user } } = await sb.auth.getUser()
-  const { data: rows } = await sb.from('mastery_progress').select('lesson_file').eq('user_id', user!.id)
+  const { sb, user } = await requireStudent()
+  const { data: rows } = await sb.from('mastery_progress').select('lesson_file').eq('user_id', user.id)
   const done = new Set((rows ?? []).map((r) => r.lesson_file))
   const s = unlockState(done)[m.id]
   if (!s.unlocked) redirect('/app')
