@@ -75,10 +75,11 @@
           "order": "L02",
           "bunny": {
             "guid": "fec934a9-a740-462c-abd7-35c777eef14f",
-            "status": "processing",
+            "status": "ready",
             "version": 1,
             "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:37:18.513841Z"
+            "uploaded_at": "2026-08-26T13:37:18.513841Z",
+            "length_sec": 2843
           }
         },
         {
@@ -188,10 +189,11 @@
           "order": "L01",
           "bunny": {
             "guid": "79fc64e0-186c-464c-87e7-02cf01511466",
-            "status": "processing",
+            "status": "ready",
             "version": 1,
             "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:37:16.030505Z"
+            "uploaded_at": "2026-08-26T13:37:16.030505Z",
+            "length_sec": 3283
           }
         },
         {
@@ -207,10 +209,11 @@
           "order": "L02",
           "bunny": {
             "guid": "6f6e3056-79b7-4606-9d5c-c7fe972a7695",
-            "status": "processing",
+            "status": "ready",
             "version": 1,
             "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:58.851437Z"
+            "uploaded_at": "2026-08-26T13:36:58.851437Z",
+            "length_sec": 2418
           }
         },
         {
@@ -303,10 +306,11 @@
           "order": "L01",
           "bunny": {
             "guid": "cf7becde-8385-485c-aa83-c525d0ae9201",
-            "status": "processing",
+            "status": "ready",
             "version": 1,
             "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:43.027596Z"
+            "uploaded_at": "2026-08-26T13:36:43.027596Z",
+            "length_sec": 2872
           }
         },
         {
@@ -322,10 +326,11 @@
           "order": "L02",
           "bunny": {
             "guid": "64763cb7-9d41-4d6c-b785-93f3faf9c311",
-            "status": "processing",
+            "status": "ready",
             "version": 1,
             "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:50.750217Z"
+            "uploaded_at": "2026-08-26T13:36:50.750217Z",
+            "length_sec": 1851
           }
         },
         {
@@ -341,10 +346,11 @@
           "order": "L03",
           "bunny": {
             "guid": "646e8a0a-e2a9-4dbc-99a7-f04e6905a527",
-            "status": "processing",
+            "status": "ready",
             "version": 1,
             "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:37:21.018425Z"
+            "uploaded_at": "2026-08-26T13:37:21.018425Z",
+            "length_sec": 1685
           }
         },
         {
@@ -456,10 +462,11 @@
           "order": "L03",
           "bunny": {
             "guid": "9e6306d2-065b-4e9b-80e7-0981c9af70b9",
-            "status": "processing",
+            "status": "ready",
             "version": 1,
             "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:45.649952Z"
+            "uploaded_at": "2026-08-26T13:36:45.649952Z",
+            "length_sec": 3163
           }
         },
         {
@@ -508,10 +515,11 @@
           "order": "L01",
           "bunny": {
             "guid": "c7f599d3-18e2-4d3c-84de-1a324bd32f5f",
-            "status": "processing",
+            "status": "ready",
             "version": 1,
             "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:37:08.560713Z"
+            "uploaded_at": "2026-08-26T13:37:08.560713Z",
+            "length_sec": 2951
           }
         },
         {
@@ -527,10 +535,11 @@
           "order": "L02",
           "bunny": {
             "guid": "bdfb6e1b-76be-4376-8f11-29ecb240303b",
-            "status": "processing",
+            "status": "ready",
             "version": 1,
             "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:24.415949Z"
+            "uploaded_at": "2026-08-26T13:36:24.415949Z",
+            "length_sec": 1829
           }
         }
       ],
@@ -674,10 +683,11 @@
           "order": "L03",
           "bunny": {
             "guid": "58e53a51-a002-4dd5-91e3-ac99e6ccadb9",
-            "status": "processing",
+            "status": "ready",
             "version": 1,
             "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:37:46.998560+00:00"
+            "uploaded_at": "2026-08-26T13:37:46.998560+00:00",
+            "length_sec": 2155
           }
         },
         {
@@ -693,10 +703,11 @@
           "order": "L04",
           "bunny": {
             "guid": "dd5e9852-ab5f-4a19-b537-892c69c01f1f",
-            "status": "processing",
+            "status": "ready",
             "version": 1,
             "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:37:03.279590Z"
+            "uploaded_at": "2026-08-26T13:37:03.279590Z",
+            "length_sec": 3645
           }
         },
         {
@@ -1167,10 +1178,11 @@
           "order": "L01",
           "bunny": {
             "guid": "ed43a974-636f-4430-8376-6c1bbf01bdac",
-            "status": "processing",
+            "status": "ready",
             "version": 1,
             "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:37:05.895197Z"
+            "uploaded_at": "2026-08-26T13:37:05.895197Z",
+            "length_sec": 2281
           }
         },
         {
@@ -1242,10 +1254,11 @@
           "order": "S01",
           "bunny": {
             "guid": "760b1b83-f3c8-41fa-b691-77f5b1cac874",
-            "status": "processing",
+            "status": "ready",
             "version": 1,
             "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:28.462278Z"
+            "uploaded_at": "2026-08-26T13:36:28.462278Z",
+            "length_sec": 958
           }
         },
         {
@@ -1299,10 +1312,11 @@
           "order": "L01",
           "bunny": {
             "guid": "d412ca2e-cd85-4151-9726-1823311dfbfd",
-            "status": "processing",
+            "status": "ready",
             "version": 1,
             "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:37:25.919925Z"
+            "uploaded_at": "2026-08-26T13:37:25.919925Z",
+            "length_sec": 2510
           }
         },
         {
@@ -1363,13 +1377,13 @@
       "source": "NEW",
       "status": "NEW",
       "chapters": [],
-      "master": "00-W01_Welcome-Orientation_v1.mp4",
+      "master": "00-W01_Welcome-Orientation_v4.mp4",
       "kind": "welcome",
       "bunny": {
-        "guid": "bb00434f-3a5a-4f02-9eed-1cdba145bdae",
+        "guid": "882f6262-7c0f-4eef-9481-842974e82797",
         "status": "ready",
-        "version": 3,
-        "uploaded_at": "2026-08-26T11:40:00Z",
+        "version": 4,
+        "uploaded_at": "2026-08-26T15:38:22.892Z",
         "length_sec": 351
       }
     },
@@ -1405,10 +1419,11 @@
       "kind": "vault",
       "bunny": {
         "guid": "8cf1400d-d92c-44c2-a09d-8f39eacd272b",
-        "status": "processing",
+        "status": "ready",
         "version": 1,
         "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:37:23.543465Z"
+        "uploaded_at": "2026-08-26T13:37:23.543465Z",
+        "length_sec": 3854
       }
     },
     {
@@ -1442,10 +1457,11 @@
       "kind": "vault",
       "bunny": {
         "guid": "d8b91c47-e226-4932-88e4-ee8161da55d3",
-        "status": "processing",
+        "status": "ready",
         "version": 1,
         "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:36:53.655514Z"
+        "uploaded_at": "2026-08-26T13:36:53.655514Z",
+        "length_sec": 2799
       }
     },
     {
@@ -1460,10 +1476,11 @@
       "kind": "vault",
       "bunny": {
         "guid": "ffd86a64-38b3-4025-9658-f74f705d8fa0",
-        "status": "processing",
+        "status": "ready",
         "version": 1,
         "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:36:40.529523Z"
+        "uploaded_at": "2026-08-26T13:36:40.529523Z",
+        "length_sec": 1676
       }
     },
     {
@@ -1478,10 +1495,11 @@
       "kind": "vault",
       "bunny": {
         "guid": "fbf9617a-f954-4058-b9a0-107e2fdbd055",
-        "status": "processing",
+        "status": "ready",
         "version": 1,
         "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:37:10.962505Z"
+        "uploaded_at": "2026-08-26T13:37:10.962505Z",
+        "length_sec": 2621
       }
     },
     {
@@ -1496,10 +1514,11 @@
       "kind": "vault",
       "bunny": {
         "guid": "5d2e3377-2827-4263-a819-f03929ba7f58",
-        "status": "processing",
+        "status": "ready",
         "version": 1,
         "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:36:33.846083Z"
+        "uploaded_at": "2026-08-26T13:36:33.846083Z",
+        "length_sec": 2758
       }
     },
     {
@@ -1514,10 +1533,11 @@
       "kind": "vault",
       "bunny": {
         "guid": "1814897e-d6f3-43e9-984c-0cdd7ffa0e89",
-        "status": "processing",
+        "status": "ready",
         "version": 1,
         "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:36:56.436639Z"
+        "uploaded_at": "2026-08-26T13:36:56.436639Z",
+        "length_sec": 1978
       }
     },
     {
@@ -1532,10 +1552,11 @@
       "kind": "vault",
       "bunny": {
         "guid": "5d960142-fd93-479a-842a-9da8007720e8",
-        "status": "processing",
+        "status": "ready",
         "version": 1,
         "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:36:48.156694Z"
+        "uploaded_at": "2026-08-26T13:36:48.156694Z",
+        "length_sec": 1840
       }
     },
     {
@@ -1550,10 +1571,11 @@
       "kind": "vault",
       "bunny": {
         "guid": "7e4abccd-758b-4ec4-8db3-9d53f980326d",
-        "status": "processing",
+        "status": "ready",
         "version": 1,
         "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:36:31.125272Z"
+        "uploaded_at": "2026-08-26T13:36:31.125272Z",
+        "length_sec": 2082
       }
     },
     {
@@ -1587,10 +1609,11 @@
       "kind": "vault",
       "bunny": {
         "guid": "4d7bb974-2131-47a1-a1ed-853dff930d9f",
-        "status": "processing",
+        "status": "ready",
         "version": 1,
         "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:36:21.779312Z"
+        "uploaded_at": "2026-08-26T13:36:21.779312Z",
+        "length_sec": 2621
       }
     },
     {
@@ -1643,10 +1666,11 @@
       "kind": "vault",
       "bunny": {
         "guid": "cd89aaa5-3d2b-47fa-9156-511ea0abf12f",
-        "status": "processing",
+        "status": "ready",
         "version": 1,
         "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:37:13.494281Z"
+        "uploaded_at": "2026-08-26T13:37:13.494281Z",
+        "length_sec": 2492
       }
     },
     {
@@ -1661,10 +1685,11 @@
       "kind": "vault",
       "bunny": {
         "guid": "dcd41a38-00be-4f3a-a479-a9ff6a32c112",
-        "status": "processing",
+        "status": "ready",
         "version": 1,
         "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:37:49.451411+00:00"
+        "uploaded_at": "2026-08-26T13:37:49.451411+00:00",
+        "length_sec": 3280
       }
     },
     {
