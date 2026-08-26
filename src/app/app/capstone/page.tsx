@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation'
 import { revalidatePath } from 'next/cache'
 import { supabaseServer } from '@/lib/supabase/server'
 import { unlockState } from '@/lib/mastery/course'
+import { postAsosEvent } from '@/lib/mastery/asos'
 
 export default async function CapstonePage() {
   const sb = await supabaseServer()
@@ -16,6 +17,7 @@ export default async function CapstonePage() {
     'use server'
     const sb = await supabaseServer(); const { data: { user } } = await sb.auth.getUser(); if (!user) return
     await sb.from('mastery_capstones').insert({ user_id: user.id, live_url: String(fd.get('live_url')), repo_url: String(fd.get('repo_url')), video_url: String(fd.get('video_url') || ''), proposal_url: String(fd.get('proposal_url') || ''), notes: String(fd.get('notes') || '') })
+    if (user.email) void postAsosEvent('capstone_submitted', user.email, { live_url: String(fd.get('live_url')) })
     revalidatePath('/app/capstone')
   }
 

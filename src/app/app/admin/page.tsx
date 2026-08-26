@@ -35,7 +35,7 @@ export default async function AdminPage() {
       const res = await fetch(`${site}/api/mastery/enrol`, {
         method: 'POST',
         headers: { 'content-type': 'application/json', 'x-mastery-secret': process.env.MASTERY_ENROL_SECRET! },
-        body: JSON.stringify({ email: r.email, full_name: r.full_name, source: 'pkr' }),
+        body: JSON.stringify({ email: r.email, full_name: r.full_name, phone: r.phone, source: 'pkr', fee: 28000, currency: 'PKR' }),
       })
       if (!res.ok) { await admin.from('mastery_enrol_requests').update({ admin_note: `enrol API failed: ${res.status}` }).eq('id', id); revalidatePath('/app/admin'); return }
     }

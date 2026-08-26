@@ -3,6 +3,8 @@ import { revalidatePath } from 'next/cache'
 import { supabaseServer } from '@/lib/supabase/server'
 import { moduleFor, unlockState, lessonTitle, lessonSlug } from '@/lib/mastery/course'
 import BunnyPlayer from '@/components/mastery/BunnyPlayer'
+import { postAsosEvent } from '@/lib/mastery/asos'
+import { badges } from '@/lib/mastery/course'
 
 export default async function LessonPage({ params }: { params: Promise<{ moduleId: string; lesson: string }> }) {
   const { moduleId, lesson } = await params
@@ -25,7 +27,17 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
     const { data: { user } } = await sb.auth.getUser(); if (!user) return
     const { data: ex } = await sb.from('mastery_progress').select('lesson_file').eq('user_id', user.id).eq('lesson_file', lessonFile).maybeSingle()
     if (ex) await sb.from('mastery_progress').delete().eq('user_id', user.id).eq('lesson_file', lessonFile)
-    else await sb.from('mastery_progress').insert({ user_id: user.id, lesson_file: lessonFile })
+    else {
+      await sb.from('mastery_progress').insert({ user_id: user.id, lesson_file: lessonFile })
+      // Did this complete the module / a phase? Tell ASOS so the WhatsApp nudge can fire.
+      const { data: rows } = await sb.from('mastery_progress').select('lesson_file').eq('user_id', user.id)
+      const st = unlockState(new Set((rows ?? []).map((r) => r.lesson_file)))
+      if (st[m.id]?.complete && user.email) {
+        void postAsosEvent('module_complete', user.email, { module: m.id })
+        const badge = badges.find((b) => b.after === m.id)
+        if (badge) void postAsosEvent('badge_earned', user.email, { badge: badge.name, module: m.id })
+      }
+    }
     revalidatePath('/app', 'layout')
   }
 
