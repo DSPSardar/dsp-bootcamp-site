@@ -27,7 +27,7 @@ export default async function ModulePage({ params }: { params: Promise<{ moduleI
           const ready = l.bunny?.status === 'ready'
           return (
             <div className="lesson" key={l.file}>
-              <div><div className="k">{lessonSlug(l.file)} · {l.kind}</div><div className="n">{ready ? <a href={`/app/m/${m.id}/${lessonSlug(l.file)}`}>{lessonTitle(l.file)}</a> : <span className="muted">{lessonTitle(l.file)} — coming soon</span>}</div></div>
+              <div><div className="k">{lessonSlug(l.file)} · {l.kind}</div><div className="n"><a href={`/app/m/${m.id}/${lessonSlug(l.file)}`}>{lessonTitle(l.file)}</a>{!ready && <span className="muted"> — video coming soon</span>}</div></div>
               <span className="m">{l.minutes} min</span>
               <span className="tick">{done.has(l.file) ? '✓ done' : ''}</span>
             </div>

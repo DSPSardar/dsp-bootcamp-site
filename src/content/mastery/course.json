@@ -536,8 +536,9 @@
           "order": "L01",
           "bunny": {
             "guid": "561a1718-7286-4fa6-8067-987e8e37f71b",
-            "status": "processing",
-            "uploaded_at": "2026-08-25T21:50:18.246Z"
+            "status": "ready",
+            "uploaded_at": "2026-08-25T21:50:18.246Z",
+            "length_sec": 3234
           }
         },
         {
