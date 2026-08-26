@@ -27,18 +27,14 @@ export default function EnrolPage() {
         <div className="panel" style={{ marginTop: 32 }}>
           <h2>Step 1 — Send {p.price}</h2>
           <div className="dl" style={{ marginTop: 12 }}>
-            <div style={{ padding: '14px 16px', border: '1px solid var(--line)', borderRadius: 10 }}>
-              <b>Bank transfer</b><br />
-              <span className="muted">{p.bank.name} · {p.bank.title}</span><br />
-              <span style={{ fontFamily: 'var(--mono)' }}>{p.bank.account}</span>
-            </div>
-            <div style={{ padding: '14px 16px', border: '1px solid var(--line)', borderRadius: 10 }}>
-              <b>JazzCash</b> <span style={{ fontFamily: 'var(--mono)' }}>{p.jazzcash}</span>
-            </div>
-            <div style={{ padding: '14px 16px', border: '1px solid var(--line)', borderRadius: 10 }}>
-              <b>Easypaisa</b> <span style={{ fontFamily: 'var(--mono)' }}>{p.easypaisa}</span>
+            <div style={{ padding: '16px 18px', border: '1px solid var(--line)', borderRadius: 10, lineHeight: 1.9 }}>
+              <b>Bank transfer</b> — {p.bank.name}, {p.bank.branch}<br />
+              <span className="muted">Account title</span> <span style={{ fontFamily: 'var(--mono)' }}>{p.bank.title}</span><br />
+              <span className="muted">Account number</span> <span style={{ fontFamily: 'var(--mono)' }}>{p.bank.account}</span><br />
+              <span className="muted">IBAN</span> <span style={{ fontFamily: 'var(--mono)' }}>{p.bank.iban}</span>
             </div>
           </div>
+          <p className="muted" style={{ marginTop: 10 }}>JazzCash / Easypaisa work with the IBAN above via &quot;bank transfer&quot; in the app.</p>
           <p className="muted" style={{ marginTop: 14 }}>Outside Pakistan and want to pay by card? Email info@digitalservicesprogram.com — card checkout is coming shortly.</p>
         </div>
 

@@ -84,9 +84,13 @@ export const mastery = {
   /** Local payment rails for Pakistan-based students (card checkout pending). */
   pkr: {
     price: 'PKR 28,000',
-    bank: { title: 'Digital Services Program', name: 'Meezan Bank', account: 'ASK ON REQUEST' },
-    jazzcash: 'ASK ON REQUEST',
-    easypaisa: 'ASK ON REQUEST',
+    bank: {
+      title: 'Digital Services Program PVT Ltd',
+      name: 'Meezan Bank',
+      branch: 'F-10 Markaz, Islamabad (branch code 0304)',
+      account: '0112565644',
+      iban: 'PK17MEZN0003040112565644',
+    },
   },
 } as const
 
