@@ -354,14 +354,17 @@
           "youtube_id": null,
           "minutes": 19,
           "kind": "supplement",
-          "source_note": "recorded 27 Aug 2026",
+          "source_note": "recorded 27 Aug 2026 by Sundus Khan, co-founder, DSP",
           "bunny": {
             "guid": "50fe5df8-c5e6-468e-bcbe-f09c49321868",
             "status": "processing",
             "version": 1,
-            "uploaded_at": "2026-08-27T11:30:54.744Z"
+            "uploaded_at": "2026-08-27T11:30:54.744Z",
+            "length_sec": 1145,
+            "aspect": 1.7778
           },
-          "master": "M02-S04_What-is-Prompt-and-Prompt-Engineering_v1.mp4"
+          "master": "M02-S04_What-is-Prompt-and-Prompt-Engineering_v1.mp4",
+          "instructor": "Sundus Khan"
         }
       ],
       "build_project": "Write the JD — 7-Part JD v2 with 3 test inputs",

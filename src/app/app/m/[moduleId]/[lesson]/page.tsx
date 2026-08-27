@@ -48,7 +48,7 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
       <div className="panel">
         <a className="muted" href={`/app/m/${m.id}`}>← {m.id} · {m.title}</a>
         <h1 style={{ marginTop: 8 }}>{lessonTitle(l.file)}</h1>
-        <p className="muted">{lessonSlug(l.file)} · {l.kind} · {l.minutes} min</p>
+        <p className="muted">{lessonSlug(l.file)} · {l.kind} · {l.minutes} min{(l as { instructor?: string }).instructor ? ` · with ${(l as { instructor?: string }).instructor}` : ''}</p>
         <div style={{ marginTop: 18 }}>
           {l.bunny?.status === 'ready' ? <BunnyPlayer videoId={l.bunny.guid} title={lessonTitle(l.file)} aspect={(l.bunny as { aspect?: number }).aspect} /> : <p className="note">This lesson is being prepared and will appear here soon.</p>}
         </div>
