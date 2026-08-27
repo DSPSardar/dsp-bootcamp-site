@@ -90,9 +90,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M01-S01_What-is-AI_QSVpTTR8znM.mp4",
           "kind": "supplement",
-          "order": "S01"
+          "order": "S01",
+          "bunny": {
+            "guid": "8431a5a1-078c-46cb-97f4-ab8ccc882402",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:33:51.602Z",
+            "length_sec": 130
+          }
         },
         {
           "file": "M01-S02_What-is-Generative-AI_x16B6uejHiU.mp4",
@@ -102,9 +109,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M01-S02_What-is-Generative-AI_x16B6uejHiU.mp4",
           "kind": "supplement",
-          "order": "S02"
+          "order": "S02",
+          "bunny": {
+            "guid": "39bf552d-5411-4581-9a54-8a247ea6e1d2",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:34:06.196Z",
+            "length_sec": 130
+          }
         },
         {
           "file": "M01-S03_What-are-AI-Agents_c4qkhlbs0-w.mp4",
@@ -114,9 +128,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M01-S03_What-are-AI-Agents_c4qkhlbs0-w.mp4",
           "kind": "supplement",
-          "order": "S03"
+          "order": "S03",
+          "bunny": {
+            "guid": "5ef7dbd4-c372-41ce-a756-e65ae21ebbc1",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:34:26.797Z",
+            "length_sec": 326
+          }
         },
         {
           "file": "M01-S04_Generative-to-Agentic_Op7L1HDSMTQ.mp4",
@@ -126,9 +147,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M01-S04_Generative-to-Agentic_Op7L1HDSMTQ.mp4",
           "kind": "supplement",
-          "order": "S04"
+          "order": "S04",
+          "bunny": {
+            "guid": "32b6db6b-428f-413d-9376-8f418c57bb1b",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:34:43.562Z",
+            "length_sec": 361
+          }
         },
         {
           "file": "M01-S05_The-Future-Is-Agentic_7haIkVLGrL8.mp4",
@@ -138,9 +166,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M01-S05_The-Future-Is-Agentic_7haIkVLGrL8.mp4",
           "kind": "supplement",
-          "order": "S05"
+          "order": "S05",
+          "bunny": {
+            "guid": "764e314a-269a-4dc5-b9c4-b83a2c561507",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:35:21.639Z",
+            "length_sec": 441
+          }
         },
         {
           "file": "M01-S06_Evolution-of-Agentic-Web_277rk9Oe2U0.mp4",
@@ -150,9 +185,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M01-S06_Evolution-of-Agentic-Web_277rk9Oe2U0.mp4",
           "kind": "supplement",
-          "order": "S06"
+          "order": "S06",
+          "bunny": {
+            "guid": "8584c244-65c8-40a4-a164-9872b960d791",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:35:37.880Z",
+            "length_sec": 428
+          }
         }
       ],
       "build_project": "Pick Your Agent — 5 ideas through the Idea Filter, one chosen",
@@ -243,9 +285,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M02-S01_How-to-Talk-to-AI_ur0fyow0cPg.mp4",
           "kind": "supplement",
-          "order": "S01"
+          "order": "S01",
+          "bunny": {
+            "guid": "1e47998e-9a93-4ab4-9693-6fde8350622a",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:36:09.133Z",
+            "length_sec": 744
+          }
         },
         {
           "file": "M02-S02_Tokens-and-Context-Windows_PBFNKMQoWW8.mp4",
@@ -255,9 +304,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M02-S02_Tokens-and-Context-Windows_PBFNKMQoWW8.mp4",
           "kind": "supplement",
-          "order": "S02"
+          "order": "S02",
+          "bunny": {
+            "guid": "697911a0-40f0-46c3-b7c0-a998a76e7763",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:36:32.013Z",
+            "length_sec": 651
+          }
         },
         {
           "file": "M02-S03_Token-Mechanics_0fniIyBoNYU.mp4",
@@ -267,9 +323,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M02-S03_Token-Mechanics_0fniIyBoNYU.mp4",
           "kind": "supplement",
-          "order": "S03"
+          "order": "S03",
+          "bunny": {
+            "guid": "ec0d1185-b6ff-47a7-9141-be2ee59773d2",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:36:58.750Z",
+            "length_sec": 475
+          }
         }
       ],
       "build_project": "Write the JD — 7-Part JD v2 with 3 test inputs",
@@ -361,9 +424,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M03-S01_Claude-Step-by-Step-Beginner_tU13d4SN0c4.mp4",
           "kind": "supplement",
-          "order": "S01"
+          "order": "S01",
+          "bunny": {
+            "guid": "cf948aa1-10ca-417d-8ff4-ea9d116e4251",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:37:57.991Z",
+            "length_sec": 796
+          }
         },
         {
           "file": "M03-S02_Website-with-ChatGPT_2NbT-rZKqvU.mp4",
@@ -373,9 +443,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M03-S02_Website-with-ChatGPT_2NbT-rZKqvU.mp4",
           "kind": "supplement",
-          "order": "S02"
+          "order": "S02",
+          "bunny": {
+            "guid": "937853cb-5ba9-46d3-839e-265df7e88b51",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:38:11.706Z",
+            "length_sec": 279
+          }
         },
         {
           "file": "M03-S03_How-Codex-Works_u5yAtqVX3Nw.mp4",
@@ -385,9 +462,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M03-S03_How-Codex-Works_u5yAtqVX3Nw.mp4",
           "kind": "supplement",
-          "order": "S03"
+          "order": "S03",
+          "bunny": {
+            "guid": "68423743-dc10-4dc0-b27a-64803b365751",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:38:28.773Z",
+            "length_sec": 344
+          }
         }
       ],
       "build_project": "Your Toolkit — Claude Project + tool comparison + setup checklist",
@@ -477,9 +561,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M04-S01_What-is-Vibe-Coding_l5AXZP24KrY.mp4",
           "kind": "supplement",
-          "order": "S01"
+          "order": "S01",
+          "bunny": {
+            "guid": "b6da6aff-129a-49a4-91d9-be2bce96a230",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:38:52.201Z",
+            "length_sec": 349
+          }
         }
       ],
       "build_project": "AI Employee Part 1: The Skeleton — app running locally on video",
@@ -604,9 +695,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M06-S01_Git-GitHub-Basics-Vibe-Coders_wbeQ0EZ4ri4.mp4",
           "kind": "supplement",
-          "order": "S01"
+          "order": "S01",
+          "bunny": {
+            "guid": "db1781d3-834a-4647-8da5-9a33025c1790",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:39:07.452Z",
+            "length_sec": 440
+          }
         }
       ],
       "build_project": "AI Employee on GitHub — public repo, 10+ commits, branch + restore",
@@ -757,9 +855,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M07-S02_Idea-to-Live-Agent_YRzBUTFZiI0.mp4",
           "kind": "supplement",
-          "order": "S02"
+          "order": "S02",
+          "bunny": {
+            "guid": "e45d30db-df3b-4b6d-a267-af0f5b90f124",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:39:29.472Z",
+            "length_sec": 480
+          }
         },
         {
           "file": "M07-S03_Knowledge-Memory-Ladder_hmPWKZ72y9w.mp4",
@@ -769,9 +874,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M07-S03_Knowledge-Memory-Ladder_hmPWKZ72y9w.mp4",
           "kind": "supplement",
-          "order": "S03"
+          "order": "S03",
+          "bunny": {
+            "guid": "8c1d31d0-5e3f-4795-ad03-d8ef08736fac",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:39:49.588Z",
+            "length_sec": 221
+          }
         }
       ],
       "build_project": "AI Employee Part 3: The Ordering Agent — full order demo + architecture page",
@@ -836,9 +948,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M08-S01_AI-Agents-API_uLrZhhmjxCQ.mp4",
           "kind": "supplement",
-          "order": "S01"
+          "order": "S01",
+          "bunny": {
+            "guid": "fc009872-eb46-4827-acca-1eee62bed6b6",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:40:05.729Z",
+            "length_sec": 376
+          }
         },
         {
           "file": "M08-S02_What-is-API-and-MCP_wknhpVBlQ8o.mp4",
@@ -848,9 +967,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M08-S02_What-is-API-and-MCP_wknhpVBlQ8o.mp4",
           "kind": "supplement",
-          "order": "S02"
+          "order": "S02",
+          "bunny": {
+            "guid": "b8e9f2e0-a839-46c6-b9c7-8dae92aff559",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:40:39.561Z",
+            "length_sec": 761
+          }
         }
       ],
       "build_project": "AI Employee Part 4: Wired Up — backend + one external API",
@@ -975,9 +1101,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M10-S01_What-is-API-and-MCP_wknhpVBlQ8o.mp4",
           "kind": "supplement",
-          "order": "S01"
+          "order": "S01",
+          "bunny": {
+            "guid": "2c522603-5a33-4a0b-81f7-1fe916eba571",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:41:19.655Z",
+            "length_sec": 761
+          }
         }
       ],
       "build_project": "AI Employee Part 6: Talks to the Outside World — one MCP tool live",
@@ -1069,9 +1202,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M11-S01_Five-Steps-Trusted-Agents_ahafeXcC0mw.mp4",
           "kind": "supplement",
-          "order": "S01"
+          "order": "S01",
+          "bunny": {
+            "guid": "a731b096-5e82-426a-bac8-436933d6e2f1",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:41:31.791Z",
+            "length_sec": 409
+          }
         }
       ],
       "build_project": "Break AI Employee — test sheet, 3 fixes, logging",
@@ -1125,9 +1265,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M12-S01_Memory-Security-Guardrails_5OR0BOa_Hb4.mp4",
           "kind": "supplement",
-          "order": "S01"
+          "order": "S01",
+          "bunny": {
+            "guid": "2d75817c-5fb5-437a-a3bb-c3d5b8bf46b8",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:41:44.943Z",
+            "length_sec": 500
+          }
         },
         {
           "file": "M12-S02_Securing-Agent-Memory_p3XZmeSOLrA.mp4",
@@ -1137,9 +1284,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M12-S02_Securing-Agent-Memory_p3XZmeSOLrA.mp4",
           "kind": "supplement",
-          "order": "S02"
+          "order": "S02",
+          "bunny": {
+            "guid": "2ef34af5-3b94-402f-b280-071e32c734ad",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:41:57.644Z",
+            "length_sec": 376
+          }
         }
       ],
       "build_project": "Harden AI Employee — 15-item checklist + 10 injection tests",
@@ -1269,9 +1423,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M14-S02_Agents-Workflows-Tools_Nw6vPE3d3XU.mp4",
           "kind": "supplement",
-          "order": "S02"
+          "order": "S02",
+          "bunny": {
+            "guid": "a8ccc883-e588-41a2-be77-88042b01ba16",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:42:24.928Z",
+            "length_sec": 821
+          }
         }
       ],
       "build_project": "AI Employee for Two Cafés — multi-tenant + owner notification",
@@ -1339,9 +1500,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M15-S01_Student-Earned-60K_01UefxMiNOc.mp4",
           "kind": "supplement",
-          "order": "S01"
+          "order": "S01",
+          "bunny": {
+            "guid": "2c5ac1cf-9643-4265-9c0a-72af532a84a9",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:42:52.430Z",
+            "length_sec": 260
+          }
         },
         {
           "file": "M15-S02_UK-Finance-Pro-First-Agent_0dwVIkn7pBg.mp4",
@@ -1351,9 +1519,16 @@
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": null,
+          "master": "M15-S02_UK-Finance-Pro-First-Agent_0dwVIkn7pBg.mp4",
           "kind": "supplement",
-          "order": "S02"
+          "order": "S02",
+          "bunny": {
+            "guid": "7e642dff-ebb7-48a5-9da5-e94190716a56",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:43:21.717Z",
+            "length_sec": 169
+          }
         }
       ],
       "build_project": "Your First Proposal — discovery sheet + proposal + 3 outreach messages",
