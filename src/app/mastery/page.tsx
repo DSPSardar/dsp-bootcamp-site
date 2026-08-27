@@ -258,7 +258,8 @@ export default function MasteryPage() {
       <div className="eyebrow">Certificate</div>
       <h2>A certificate that points to something real.</h2>
       <p className="lead">Every certificate has a public verification page showing the capstone URL and repo behind it. An employer or client can open it and see the agent working. Featured capstones earn Master with Distinction.</p>
-      <p className="md" style={{marginTop:'18px'}}><b>Plus three badges issued by Anthropic — not by us.</b> Module 3 walks you through Claude Academy, the free training run by Anthropic, the US company in San Francisco that builds Claude. You finish holding three of their course completion badges with your own name on them — <b>Claude 101</b>, <b>Claude Code 101</b> and <b>Introduction to Claude Cowork</b> — alongside the DSP certificate. DSP students already hold these.</p>
+      <p className="md" style={{marginTop:'18px'}}><b>You finish with four, and three of them are not ours.</b> Module 3 takes you through Claude Academy, the training run by Anthropic — the American company in San Francisco that builds Claude — and you come out holding <b>Claude 101</b>, <b>Claude Code 101</b> and <b>Introduction to Claude Cowork</b>, each with your own name on it. Anthropic issues them, so they say nothing about DSP and everything about you. The fourth is the DSP Master certificate, and it is the one that points at a live agent you built.</p>
+      <p className="md" style={{marginTop:'12px'}}>None of this is out of reach. Every DSP student who follows the module earns all three — no exam fee, no waiting list, no degree required. Ours have been earning them for months, and we publish every one on our channels the week it lands. Scroll down and you will see them holding the badges.</p>
       <div className="badges">
         <span><b>M06</b>Builder</span><span><b>M10</b>Agent Engineer</span><span><b>M13</b>Production-Ready</span><span><b>M15</b>AI Solutions Seller</span><span><b>CAP</b>Master</span>
       </div>
@@ -285,8 +286,8 @@ export default function MasteryPage() {
   <p className="muted" style={{marginTop:'22px'}}>Results depend on the work you put in. These are individual students, not a promise of income.</p>
   <div style={{marginTop:'56px'}}>
     <div className="eyebrow">Certified by Anthropic</div>
-    <h3 style={{fontSize:'26px',margin:'6px 0 10px'}}>DSP students holding the badges — from Anthropic, USA.</h3>
-    <p className="lead" style={{marginBottom:'26px'}}>Claude 101, Claude Code 101 and Introduction to Claude Cowork. These are their own announcement videos on the DSP channel — open any of them on YouTube and check.</p>
+    <h3 style={{fontSize:'26px',margin:'6px 0 10px'}}>Our students are already holding them.</h3>
+    <p className="lead" style={{marginBottom:'26px'}}>Claude 101, Claude Code 101 and Introduction to Claude Cowork — issued by Anthropic, in their own names. These are the videos they recorded the day the badges arrived. Open any one on YouTube and check it yourself.</p>
     <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))',gap:'20px'}}>
       {[
         { id: 'y_jlAv1TnnQ', name: 'Humayun Shaikh' },
