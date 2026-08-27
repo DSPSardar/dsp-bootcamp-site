@@ -16,7 +16,12 @@ for (const l of all) {
   const next = v.status === 5 ? 'failed' : v.status >= 3 && v.status !== 5 && v.availableResolutions ? 'ready' : 'processing'
   const line = `${l.file.padEnd(62)} ${next.padEnd(10)} ${v.encodeProgress ?? 0}%  ${v.availableResolutions ?? ''}`
   console.log(line)
-  if (l.bunny.status !== next) { l.bunny.status = next; l.bunny.length_sec = v.length; changed++ }
+  const aspect = v.width && v.height ? Number((v.width / v.height).toFixed(4)) : null
+  if (l.bunny.status !== next || (aspect && l.bunny.aspect !== aspect)) {
+    l.bunny.status = next; l.bunny.length_sec = v.length
+    if (aspect) l.bunny.aspect = aspect   // player box matches the source shape (some clips are near-square)
+    changed++
+  }
 }
 if (changed) files.forEach((f) => fs.writeFileSync(f, JSON.stringify(course, null, 2) + '\n'))
 console.log(changed ? `updated ${changed} lesson(s)` : 'no changes')
