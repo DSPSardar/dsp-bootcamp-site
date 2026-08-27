@@ -255,8 +255,8 @@ export default function MasteryPage() {
       <div className="id">Verify: digitalservicesprogram.com/verify/XXXX-XXXX</div>
     </div>
     <div>
-      <div className="eyebrow">Certificate</div>
-      <h2>A certificate that points to something real.</h2>
+      <div className="eyebrow">Certificates</div>
+      <h2>Three certificates from Claude — Anthropic, USA. And one from DSP.</h2>
       <p className="lead">Every certificate has a public verification page showing the capstone URL and repo behind it. An employer or client can open it and see the agent working. Featured capstones earn Master with Distinction.</p>
       <p className="md" style={{marginTop:'18px'}}><b>You finish with four, and three of them are not ours.</b> Module 3 takes you through Claude Academy, the training run by Anthropic — the American company in San Francisco that builds Claude — and you come out holding <b>Claude 101</b>, <b>Claude Code 101</b> and <b>Introduction to Claude Cowork</b>, each with your own name on it. Anthropic issues them, so they say nothing about DSP and everything about you. The fourth is the DSP Master certificate, and it is the one that points at a live agent you built.</p>
       <p className="md" style={{marginTop:'12px'}}>None of this is out of reach. Every DSP student who follows the module earns all three — no exam fee, no waiting list, no degree required. Ours have been earning them for months, and we publish every one on our channels the week it lands. Scroll down and you will see them holding the badges.</p>
