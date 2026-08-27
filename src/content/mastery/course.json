@@ -347,6 +347,21 @@
             "length_sec": 475,
             "aspect": 1.7778
           }
+        },
+        {
+          "file": "M02-S04_What-is-Prompt-and-Prompt-Engineering.mp4",
+          "folder": "M02-Prompting-Context-Engineering",
+          "youtube_id": null,
+          "minutes": 19,
+          "kind": "supplement",
+          "source_note": "recorded 27 Aug 2026",
+          "bunny": {
+            "guid": "50fe5df8-c5e6-468e-bcbe-f09c49321868",
+            "status": "processing",
+            "version": 1,
+            "uploaded_at": "2026-08-27T11:30:54.744Z"
+          },
+          "master": "M02-S04_What-is-Prompt-and-Prompt-Engineering_v1.mp4"
         }
       ],
       "build_project": "Write the JD — 7-Part JD v2 with 3 test inputs",
