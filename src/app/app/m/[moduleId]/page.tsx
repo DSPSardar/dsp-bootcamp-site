@@ -1,6 +1,5 @@
 import { notFound, redirect } from 'next/navigation'
-import { supabaseServer } from '@/lib/supabase/server'
-import { requireStudent } from '@/lib/mastery/auth'
+import { requireStudent, isAdminUser } from '@/lib/mastery/auth'
 import { moduleFor, unlockState, lessonTitle, lessonSlug } from '@/lib/mastery/course'
 
 export default async function ModulePage({ params }: { params: Promise<{ moduleId: string }> }) {
@@ -9,7 +8,7 @@ export default async function ModulePage({ params }: { params: Promise<{ moduleI
   const { sb, user } = await requireStudent()
   const { data: rows } = await sb.from('mastery_progress').select('lesson_file').eq('user_id', user.id)
   const done = new Set((rows ?? []).map((r) => r.lesson_file))
-  const s = unlockState(done)[m.id]
+  const s = unlockState(done, await isAdminUser(user.email))[m.id]
   if (!s.unlocked) redirect('/app')
 
   return (

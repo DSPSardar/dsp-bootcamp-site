@@ -9,3 +9,11 @@ export async function requireStudent() {
   if (!user) redirect('/app/login')
   return { sb, user }
 }
+
+/** True when this email is in mastery_admins. Admins can open any module without completing the previous one. */
+export async function isAdminUser(email?: string | null): Promise<boolean> {
+  if (!email) return false
+  const { supabaseAdmin } = await import('@/lib/supabase/server')
+  const { data } = await supabaseAdmin().from('mastery_admins').select('email').eq('email', email.toLowerCase()).maybeSingle()
+  return Boolean(data)
+}

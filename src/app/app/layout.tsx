@@ -25,7 +25,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
 
   const { data: rows } = await sb.from('mastery_progress').select('lesson_file').eq('user_id', user.id)
   const done = new Set((rows ?? []).map((r) => r.lesson_file))
-  const state = unlockState(done)
+  const state = unlockState(done, isAdmin)
   const totalCore = modules.reduce((n, m) => n + state[m.id].total, 0)
   const doneCore = modules.reduce((n, m) => n + state[m.id].doneCount, 0)
 
