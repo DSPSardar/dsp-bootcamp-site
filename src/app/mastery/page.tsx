@@ -23,6 +23,15 @@ export const metadata: Metadata = {
 export default function MasteryPage() {
   const enrolHref = mastery.checkoutUrl ?? '/mastery/enrol'
   const welcomeSrc = welcomeVideoId?.status === 'ready' ? signedEmbedUrl(welcomeVideoId.guid, 7 * 24 * 3600) : null
+  // Real student stories, recorded on camera — the same videos that sit in Module 15.
+  const stories = [
+    { guid: '7e642dff-ebb7-48a5-9da5-e94190716a56', name: 'Mohsin', where: 'United Kingdom',
+      line: 'A finance professional with no software background. He built his first website and AI agent in the program and deployed it live.' },
+    { guid: '2c5ac1cf-9643-4265-9c0a-72af532a84a9', name: 'DSP student', where: 'Pakistan',
+      line: 'Earned PKR 60,000 from AI work before he had even finished the bootcamp.' },
+    { guid: 'e50847ea-7fa4-4e26-ae72-1273fec6ae33', name: 'DSP student', where: 'Agentic Master Class',
+      line: 'Came for practical skills — AI agents, automation and prompt engineering — and says the training changed how she works.', portrait: true },
+  ].map((v) => ({ ...v, src: signedEmbedUrl(v.guid, 7 * 24 * 3600) })).filter((v) => v.src)
   return (
     <div className={`page-mastery ${display.variable} ${bodyFont.variable} ${mono.variable}`}>
 <nav className="nav"><div className="wrap">
@@ -259,12 +268,19 @@ export default function MasteryPage() {
 <section><div className="wrap">
   <div className="eyebrow">Students</div>
   <h2>From the live cohorts this program was recorded in.</h2>
-  <p className="lead" style={{marginBottom:'36px'}}>Replace the three placeholders below with real quotes and names from the testimonial videos on the DSP channel before launch.</p>
-  <div className="grid3">
-    <div className="card"><p className="quote">"[Real quote — student who earned PKR 60,000 before finishing the bootcamp.]"</p><div className="by">[Name] · [City, Country]</div></div>
-    <div className="card"><p className="quote">"[Real quote — UK finance professional who built his first agent.]"</p><div className="by">[Name] · UK</div></div>
-    <div className="card"><p className="quote">"[Real quote — Batch 03 student, August 2026.]"</p><div className="by">[Name] · [City, Country]</div></div>
+  <p className="lead" style={{marginBottom:'36px'}}>Not written quotes — the students themselves, on camera. Both videos are lessons inside Module 15.</p>
+  <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(320px,1fr))',gap:'28px'}}>
+    {stories.map((v) => (
+      <div className="card" key={v.guid} style={{padding:'18px'}}>
+        <div style={{position:'relative',paddingTop:(v as {portrait?:boolean}).portrait?'150%':'56.25%',maxWidth:(v as {portrait?:boolean}).portrait?'300px':undefined,margin:(v as {portrait?:boolean}).portrait?'0 auto':undefined,borderRadius:'12px',overflow:'hidden',background:'var(--ink)'}}>
+          <iframe src={v.src!} title={`${v.name} — DSP student story`} loading="lazy" style={{border:0,position:'absolute',top:0,left:0,width:'100%',height:'100%'}} allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowFullScreen />
+        </div>
+        <p className="md" style={{marginTop:'14px'}}>{v.line}</p>
+        <div className="by">{v.name} · {v.where}</div>
+      </div>
+    ))}
   </div>
+  <p className="muted" style={{marginTop:'22px'}}>Results depend on the work you put in. These are individual students, not a promise of income.</p>
 </div></section>
 
 
