@@ -39,7 +39,7 @@ export default function MasteryPage() {
   <div className="navlinks">
     <a href="#journey">Journey</a><a href="#build">What you build</a><a href="#curriculum">Curriculum</a><a href="#included">What's included</a><a href="#faq">FAQ</a>
   </div>
-  <a className="btn btn-gold btn-sm" href="#pricing">Enrol — $100</a>
+  <a className="btn btn-gold btn-sm" href={enrolHref}>Enrol — $100</a>
 </div></nav>
 
 
@@ -47,36 +47,20 @@ export default function MasteryPage() {
   <div>
     <div className="eyebrow">Self-paced · Lifetime access · 1 year free support</div>
     <h1>Go from zero to <em>building, deploying and selling</em> AI agents.</h1>
-    <p className="lead">A 15-module program from Digital Services Program. No coding background needed. You build one real AI agent — your AI Employee — from an empty folder to a live URL, then your own, with every template and prompt you need and a year of support in the DSP group.</p>
+    <p className="lead">15 modules. One real AI Employee you build from an empty folder to a live URL — then your own. No coding background needed. Taught in Urdu &amp; English, all materials in English.</p>
     <div className="cta-row">
-      <a className="btn btn-gold" href="#pricing">Enrol now <span className="price-tag">$100 · one-time</span></a>
-      <a className="btn btn-ghost" href="#welcome">Watch Module 1 free</a>
+      <a className="btn btn-gold" href={enrolHref}>Start building <span className="price-tag">$100 · one-time</span></a>
+      <a className="btn btn-ghost" href="#welcome">Watch the 6-minute tour</a>
     </div>
     <div className="trust">
       <span><b>24 years</b> teaching IT</span>
       <span><b>Thousands</b> of students</span>
-      <span>Students in <b>8+ countries</b></span>
+      <span>Students in <b>UK, UAE, USA, Canada &amp; more</b></span>
       <span><b>Google &amp; Anthropic</b>-verified trainer</span>
+      <span><b>7-day</b> money-back guarantee</span>
     </div>
-  </div>
-
-  <div className="formula" aria-label="The DSP agent formula">
-    <div className="lab"><span>The one formula behind the whole program</span><i>assembling…</i></div>
-    <div className="eq">
-      <span className="term a">Agent<small>what you ship</small></span>
-      <span className="op">=</span>
-      <span className="term b">Claude<small>the brain · M03</small></span>
-      <span className="op">+</span>
-      <span className="term c">Job Description<small>who it is · M02</small></span>
-      <span className="op">+</span>
-      <span className="term d">Tools<small>what it can do · M08–M10</small></span>
-      <span className="op">+</span>
-      <span className="term e">Loop<small>until done · M07</small></span>
-    </div>
-    <p className="note">Every module adds one piece. By Module 13 you have all four, live, on a URL you can send to anyone.</p>
   </div>
 </div></header>
-
 
 
 {/* WELCOME VIDEO */}
@@ -91,6 +75,97 @@ export default function MasteryPage() {
 </div></section>
 )}
 
+
+<section><div className="wrap">
+  <div className="eyebrow">Why this exists</div>
+  <h2>You already use AI every day. You still can&apos;t build with it.</h2>
+  <p className="lead" style={{marginBottom:'36px'}}>That is the whole gap this program closes — and it is a smaller gap than it looks from the outside.</p>
+  <div className="grid3">
+    <div className="card"><div className="k">Where most people are</div><h3>Chatting, not building</h3><p>You ask Claude or ChatGPT a question, copy the answer, and start again tomorrow. Nothing you made on Monday is still working for you on Friday.</p></div>
+    <div className="card"><div className="k">What stops them</div><h3>Every tutorial assumes you code</h3><p>Free material jumps from &quot;what is an agent&quot; straight to Python and API keys, so you stop at the first error nobody explains.</p></div>
+    <div className="card"><div className="k">What changes here</div><h3>You describe it — then you ship it</h3><p>Fifteen modules, one build at a time, ending in a live URL that keeps running after you close the laptop, and a system you can sell to someone else.</p></div>
+  </div>
+</div></section>
+
+
+<section id="build"><div className="wrap">
+  <div className="eyebrow">What you build</div>
+  <div className="demo">
+    <div>
+      <h2>Meet your AI Employee — the project you build from nothing.</h2>
+      <p className="lead">A café ordering agent. It starts as an empty folder in Module 4 and finishes in Module 14 serving two cafés from one codebase. Every module adds one real capability to it.</p>
+      <ul className="milestones">
+        <li><span className="mnum">M04–05</span><div><b>Website</b><span>Home, menu, about, order form. Responsive. No code written by hand.</span></div></li>
+        <li><span className="mnum">M07</span><div><b>Ordering agent</b><span>Takes an order item by item, handles corrections, confirms the total.</span></div></li>
+        <li><span className="mnum">M08–10</span><div><b>Connected</b><span>Claude API in the backend, orders emailed to the kitchen, written to Sheets via MCP.</span></div></li>
+        <li><span className="mnum">M09</span><div><b>Memory</b><span>Knows the menu and allergens. Remembers a returning customer's last order.</span></div></li>
+        <li><span className="mnum">M11–13</span><div><b>Live</b><span>Tested with the 10-Question sheet, hardened against prompt injection, deployed on Vercel.</span></div></li>
+        <li><span className="mnum">M14</span><div><b>Two cafés, one system</b><span>Multi-tenant. This is the shape of what you sell to clients.</span></div></li>
+      </ul>
+    </div>
+    <div className="chat" aria-label="Example AI Employee conversation">
+      <div className="bar"><i></i> AI Employee · live on ai-employee-yourname.vercel.app</div>
+      <div className="msgs">
+        <div className="m a">Welcome back, Ayesha. Same as last time — one cappuccino and a chicken tikka wrap?</div>
+        <div className="m u">Yes, but make the cappuccino oat milk. And is the wrap spicy?</div>
+        <div className="m a">Medium spice — the marinade has green chilli. Want it mild instead?</div>
+        <div className="m u">Mild please. That's it.</div>
+        <div className="m a">Order: 1 oat cappuccino, 1 chicken tikka wrap (mild). Total $12. Confirm?</div>
+        <div className="m u">Confirm</div>
+        <div className="m t">→ order #0417 sent to kitchen · row added to Sheets · owner notified on WhatsApp</div>
+        <div className="m a">Done. Ready in about 12 minutes.</div>
+      </div>
+    </div>
+  </div>
+  <div className="cta-row" style={{justifyContent:'center',marginTop:'40px'}}>
+    <a className="btn btn-gold" href={enrolHref}>Start building yours <span className="price-tag">$100 · one-time</span></a>
+  </div>
+</div></section>
+
+
+<section><div className="wrap">
+  <div className="eyebrow">Students</div>
+  <h2>From the live cohorts this program was recorded in.</h2>
+  <p className="lead" style={{marginBottom:'36px'}}>Not written quotes — the students themselves, on camera. Both videos are lessons inside Module 15.</p>
+  <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(320px,1fr))',gap:'28px'}}>
+    {stories.map((v) => (
+      <div className="card" key={v.guid} style={{padding:'18px'}}>
+        <div style={{position:'relative',paddingTop:(v as {portrait?:boolean}).portrait?'150%':'56.25%',maxWidth:(v as {portrait?:boolean}).portrait?'300px':undefined,margin:(v as {portrait?:boolean}).portrait?'0 auto':undefined,borderRadius:'12px',overflow:'hidden',background:'var(--ink)'}}>
+          <iframe src={v.src!} title={`${v.name} — DSP student story`} loading="lazy" style={{border:0,position:'absolute',top:0,left:0,width:'100%',height:'100%'}} allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowFullScreen />
+        </div>
+        <p className="md" style={{marginTop:'14px'}}>{v.line}</p>
+        <div className="by">{v.name} · {v.where}</div>
+      </div>
+    ))}
+  </div>
+  <p className="muted" style={{marginTop:'22px'}}>Results depend on the work you put in. These are individual students, not a promise of income.</p>
+  <div style={{marginTop:'56px'}}>
+    <div className="eyebrow">Certified by Anthropic</div>
+    <h3 style={{fontSize:'26px',margin:'6px 0 10px'}}>Our students are already holding them.</h3>
+    <p className="lead" style={{marginBottom:'26px'}}>Claude 101, Claude Code 101 and Introduction to Claude Cowork — issued by Anthropic, in their own names. These are the videos they recorded the day the badges arrived. Open any one on YouTube and check it yourself.</p>
+    <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))',gap:'20px'}}>
+      {[
+        { kind: 'bunny' as const, guid: '629c74ef-9842-4102-bd70-50c6b9a17137', name: 'Mirza Talha Hussain', note: 'Claude 101 + Claude Code 101' },
+        { kind: 'yt' as const, id: 'y_jlAv1TnnQ', name: 'Humayun Shaikh', note: 'Certified by Anthropic' },
+      ].map((c) => {
+        const src = c.kind === 'bunny' ? signedEmbedUrl(c.guid, 7 * 24 * 3600) : `https://www.youtube-nocookie.com/embed/${c.id}`
+        if (!src) return null
+        return (
+        <div className="card" key={c.name} style={{padding:'14px'}}>
+          <div style={{position:'relative',paddingTop:'140%',borderRadius:'12px',overflow:'hidden',background:'var(--ink)'}}>
+            <iframe src={src} title={`${c.name} — certified by Anthropic`} loading="lazy" style={{border:0,position:'absolute',top:0,left:0,width:'100%',height:'100%'}} allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowFullScreen />
+          </div>
+          <div className="by" style={{marginTop:'10px'}}>{c.name}</div>
+          <div className="muted" style={{fontSize:'13px'}}>{c.note}</div>
+        </div>
+        )
+      })}
+    </div>
+  </div>
+
+</div></section>
+
+
 <section><div className="wrap">
   <div className="eyebrow">Who this is for</div>
   <h2>Built for people who use AI every day but have never built with it.</h2>
@@ -101,7 +176,7 @@ export default function MasteryPage() {
     <div className="card"><div className="k">Freelancers</div><h3>Add a $500–$2,000 service line</h3><p>Deliver agents to clients using the same discovery, proposal and pricing templates DSP uses.</p></div>
     <div className="card"><div className="k">Marketers</div><h3>Agents that run your pipeline</h3><p>Lead qualification, follow-up sequences, content research — built by you, connected to your tools.</p></div>
     <div className="card"><div className="k">Business owners</div><h3>Your first AI employee</h3><p>A booking, ordering or support agent for your own business, running on WhatsApp, web or email.</p></div>
-    <div className="card"><div className="k">Overseas Pakistanis</div><h3>Learn in Urdu and English, on your own time</h3><p>Lectures are taught in an Urdu–English mix. Study at 6 am in Dubai or midnight in Manchester. Nothing is live-only.</p></div>
+    <div className="card"><div className="k">Working abroad</div><h3>Learn in Urdu and English, on your own time</h3><p>Lectures are taught in an Urdu–English mix, with English materials and subtitles. Study at 6 am in Dubai or midnight in Manchester. Nothing is live-only.</p></div>
   </div>
 </div></section>
 
@@ -130,63 +205,6 @@ export default function MasteryPage() {
 </div></section>
 
 
-<section id="build"><div className="wrap">
-  <div className="eyebrow">What you build</div>
-  <div className="demo">
-    <div>
-      <h2>Meet your AI Employee — the project you build from nothing.</h2>
-      <p className="lead">A café ordering agent. It starts as an empty folder in Module 4 and finishes in Module 14 serving two cafés from one codebase. Every module adds one real capability to it.</p>
-      <ul className="milestones">
-        <li><span className="mnum">M04–05</span><div><b>Website</b><span>Home, menu, about, order form. Responsive. No code written by hand.</span></div></li>
-        <li><span className="mnum">M07</span><div><b>Ordering agent</b><span>Takes an order item by item, handles corrections, confirms the total.</span></div></li>
-        <li><span className="mnum">M08–10</span><div><b>Connected</b><span>Claude API in the backend, orders emailed to the kitchen, written to Sheets via MCP.</span></div></li>
-        <li><span className="mnum">M09</span><div><b>Memory</b><span>Knows the menu and allergens. Remembers a returning customer's last order.</span></div></li>
-        <li><span className="mnum">M11–13</span><div><b>Live</b><span>Tested with the 10-Question sheet, hardened against prompt injection, deployed on Vercel.</span></div></li>
-        <li><span className="mnum">M14</span><div><b>Two cafés, one system</b><span>Multi-tenant. This is the shape of what you sell to clients.</span></div></li>
-      </ul>
-    </div>
-    <div className="chat" aria-label="Example AI Employee conversation">
-      <div className="bar"><i></i> AI Employee · live on ai-employee-yourname.vercel.app</div>
-      <div className="msgs">
-        <div className="m a">Welcome back, Ayesha. Same as last time — one cappuccino and a chicken tikka wrap?</div>
-        <div className="m u">Yes, but make the cappuccino oat milk. And is the wrap spicy?</div>
-        <div className="m a">Medium spice — the marinade has green chilli. Want it mild instead?</div>
-        <div className="m u">Mild please. That's it.</div>
-        <div className="m a">Order: 1 oat cappuccino, 1 chicken tikka wrap (mild). Total Rs 1,150. Confirm?</div>
-        <div className="m u">Confirm</div>
-        <div className="m t">→ order #0417 sent to kitchen · row added to Sheets · owner notified on WhatsApp</div>
-        <div className="m a">Done. Ready in about 12 minutes.</div>
-      </div>
-    </div>
-  </div>
-</div></section>
-
-
-<section id="curriculum"><div className="wrap">
-  <div className="eyebrow">Curriculum</div>
-  <h2>Fifteen modules. Every one ends with something you built.</h2>
-  <p className="lead" style={{marginBottom:'36px'}}>Around 30 hours of lectures, recorded live with real students asking real questions — cut, chaptered and put in the order a beginner needs.</p>
-  <div className="acc">
-    <details><summary><span className="n">M01</span>AI Foundations<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Explain what an LLM and an agent are, what each can't do, and pick one idea worth building.</div><div><b>You build</b>5 ideas through the Agent Idea Filter, one chosen with a clear user and success condition.</div></div></details>
-    <details><summary><span className="n">M02</span>Prompting &amp; Context Engineering<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Write a production-grade Job Description using the 7-Part JD: Role, Goal, Audience, Tone, Steps, Rules, Examples.</div><div><b>You build</b>Your JD v2 with three real test inputs and a note on what you changed.</div></div></details>
-    <details><summary><span className="n">M03</span>Claude · ChatGPT · Gemini<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Set up Claude, Console, Claude Code, GitHub and Vercel correctly; know when to reach for each tool.</div><div><b>You build</b>A working Claude Project and a completed setup checklist.</div></div></details>
-    <details><summary><span className="n">M04</span>Vibe Coding<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Build software by describing it: PLAN → BUILD ONE FEATURE → TEST → COMMIT → NEXT, with Claude Code.</div><div><b>You build</b>Your AI Employee, Part 1 running locally, on video.</div></div></details>
-    <details><summary><span className="n">M05</span>Websites<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Ship a responsive multi-page site with forms from a one-page spec.</div><div><b>You build</b>the AI Employee's four pages, desktop and mobile screenshots.</div></div></details>
-    <details><summary><span className="n">M06</span>Git &amp; GitHub<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Version-control every project; branch, merge, recover a mistake, fix the common permission errors.</div><div><b>You build</b>A public repo with ten meaningful commits.</div></div></details>
-    <details><summary><span className="n">M07</span>AI Agents<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Build a real agent — Job Description + Tools + Loop — that completes a multi-step task.</div><div><b>You build</b>A demo of your AI Employee taking a full order, plus its architecture on one page.</div></div></details>
-    <details><summary><span className="n">M08</span>APIs<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Connect to the Claude API and one external service; keep keys safe; handle errors and cost.</div><div><b>You build</b>An order sent by email/Sheets from the agent, with a clean repo history.</div></div></details>
-    <details><summary><span className="n">M09</span>RAG &amp; Memory<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Give an agent knowledge and memory using the Memory Ladder; pick the right rung for the job.</div><div><b>You build</b>Five grounded answers from a knowledge base and memory across two sessions.</div></div></details>
-    <details><summary><span className="n">M10</span>MCP<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Connect an agent to real tools — Sheets, Calendar, Gmail — through the Model Context Protocol.</div><div><b>You build</b>An MCP tool executing from the agent, result visible in the external app.</div></div></details>
-    <details><summary><span className="n">M11</span>Testing &amp; Observability<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Test systematically with the DSP 10-Question Test Sheet; read logs instead of guessing.</div><div><b>You build</b>The completed sheet, three fixes with before/after, and a log.</div></div></details>
-    <details><summary><span className="n">M12</span>Security<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Protect keys, block prompt injection, limit what the agent can do and spend.</div><div><b>You build</b>A 15-point checklist signed off and ten injection attempts logged.</div></div></details>
-    <details><summary><span className="n">M13</span>Deployment<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Put your AI Employee on a public HTTPS URL with the backend hosted and env vars set.</div><div><b>You build</b>The live URL — share it in the group.</div></div></details>
-    <details><summary><span className="n">M14</span>Multi-Agent &amp; Business Automation<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Turn one agent into a business system: One Agent Many Clients, notifications, and when multi-agent is worth it.</div><div><b>You build</b>your AI Employee serving two cafés from one deployment.</div></div></details>
-    <details><summary><span className="n">M15</span>Selling AI Solutions<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Run discovery, price the work, write the proposal, deliver, get paid — as a freelancer or a one-person agency.</div><div><b>You build</b>A discovery sheet and a proposal for a real business.</div></div></details>
-    <details><summary><span className="n">CAP</span>Capstone — your own agent<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Build, test, secure, deploy and pitch an original agent for a real use case — not the café AI Employee.</div><div><b>You build</b>Live URL, repo, 3-minute demo, 1-page proposal — reviewed by the DSP team. This earns the certificate.</div></div></details>
-  </div>
-</div></section>
-
-
 <section><div className="wrap">
   <div className="eyebrow">How it works</div>
   <h2>Watch. Build. Share. Move on.</h2>
@@ -196,6 +214,63 @@ export default function MasteryPage() {
     <div className="step"><div className="sn">2</div><b>Build</b><p>A specific project with a template and copy-paste prompts. Always a real artefact.</p></div>
     <div className="step"><div className="sn">3</div><b>Share</b><p>Post your screenshot or URL in the DSP group. Stuck? Ask — someone ahead of you has hit it.</p></div>
     <div className="step"><div className="sn">4</div><b>Move on</b><p>Mark the module complete and the next one opens. Badges at each phase.</p></div>
+  </div>
+
+  <div className="formula" aria-label="The DSP agent formula" style={{marginTop:'48px'}}>
+    <div className="lab"><span>The one formula behind the whole program</span><i>assembling…</i></div>
+    <div className="eq">
+      <span className="term a">Agent<small>what you ship</small></span>
+      <span className="op">=</span>
+      <span className="term b">Claude<small>the brain · M03</small></span>
+      <span className="op">+</span>
+      <span className="term c">Job Description<small>who it is · M02</small></span>
+      <span className="op">+</span>
+      <span className="term d">Tools<small>what it can do · M08–M10</small></span>
+      <span className="op">+</span>
+      <span className="term e">Loop<small>until done · M07</small></span>
+    </div>
+    <p className="note">Every module adds one piece. By Module 13 you have all four, live, on a URL you can send to anyone.</p>
+  </div>
+</div></section>
+
+
+<section><div className="wrap">
+  <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))',gap:'18px',marginBottom:'44px'}}>
+    {[
+      { img: '/mastery/cert-claude-101.jpg', name: 'Claude 101', by: 'Anthropic, USA' },
+      { img: '/mastery/cert-claude-code-101.jpg', name: 'Claude Code 101', by: 'Anthropic, USA' },
+      { img: '/mastery/cert-claude-cowork.jpg', name: 'Introduction to Claude Cowork', by: 'Anthropic, USA' },
+      { img: null, name: 'DSP AI Agent Mastery', by: 'Digital Services Program' },
+    ].map((c) => (
+      <div className="card" key={c.name} style={{padding:'14px',display:'flex',flexDirection:'column'}}>
+        <div style={{position:'relative',paddingTop:'66%',borderRadius:'10px',overflow:'hidden',background:'var(--ink)',border:'1px solid var(--line)'}}>
+          {c.img
+            ? <img src={c.img} alt={`${c.name} — certificate issued by Anthropic`} loading="lazy" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover'}} />
+            : <div style={{position:'absolute',inset:0,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',textAlign:'center',padding:'14px'}}>
+                <div style={{fontFamily:'var(--mono)',fontSize:'10px',letterSpacing:'.12em',color:'var(--gold)'}}>CERTIFICATE OF MASTERY</div>
+                <div style={{fontFamily:'var(--display)',fontWeight:700,fontSize:'17px',lineHeight:1.25,margin:'8px 0 6px'}}>Zero to Master</div>
+                <div style={{fontFamily:'var(--mono)',fontSize:'9px',color:'var(--muted)'}}>verify/XXXX-XXXX</div>
+              </div>}
+        </div>
+        <div className="by" style={{marginTop:'12px'}}>{c.name}</div>
+        <div className="muted" style={{fontSize:'13px'}}>{c.by}</div>
+      </div>
+    ))}
+  </div>
+  <div style={{maxWidth:'840px'}}>
+    <div>
+      <div className="eyebrow">Certificates</div>
+      <h2>Three certificates from Claude — Anthropic, USA. And one from DSP.</h2>
+      <p className="lead">Every certificate has a public verification page showing the capstone URL and repo behind it. An employer or client can open it and see the agent working. Featured capstones earn Master with Distinction.</p>
+      <p className="md" style={{marginTop:'18px'}}><b>You finish with four, and three of them are not ours.</b> Module 3 takes you through Claude Academy, the training run by Anthropic — the American company in San Francisco that builds Claude — and you come out holding <b>Claude 101</b>, <b>Claude Code 101</b> and <b>Introduction to Claude Cowork</b>, each with your own name on it. Anthropic issues them, so they say nothing about DSP and everything about you. The fourth is the DSP Master certificate, and it is the one that points at a live agent you built.</p>
+      <p className="md" style={{marginTop:'12px'}}>None of this is out of reach. Every DSP student who follows the module earns all three — no exam fee, no waiting list, no degree required. Ours have been earning them for months, and we publish every one on our channels the week it lands. Scroll down and you will see them holding the badges.</p>
+      <div className="badges">
+        <span><b>M06</b>Builder</span><span><b>M10</b>Agent Engineer</span><span><b>M13</b>Production-Ready</span><span><b>M15</b>AI Solutions Seller</span><span><b>CAP</b>Master</span>
+      </div>
+    </div>
+  </div>
+  <div className="cta-row" style={{justifyContent:'center',marginTop:'40px'}}>
+    <a className="btn btn-gold" href={enrolHref}>Enrol now — $100</a>
   </div>
 </div></section>
 
@@ -247,84 +322,28 @@ export default function MasteryPage() {
 </div></section>
 
 
-<section><div className="wrap">
-  <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))',gap:'18px',marginBottom:'44px'}}>
-    {[
-      { img: '/mastery/cert-claude-101.jpg', name: 'Claude 101', by: 'Anthropic, USA' },
-      { img: '/mastery/cert-claude-code-101.jpg', name: 'Claude Code 101', by: 'Anthropic, USA' },
-      { img: '/mastery/cert-claude-cowork.jpg', name: 'Introduction to Claude Cowork', by: 'Anthropic, USA' },
-      { img: null, name: 'DSP AI Agent Mastery', by: 'Digital Services Program' },
-    ].map((c) => (
-      <div className="card" key={c.name} style={{padding:'14px',display:'flex',flexDirection:'column'}}>
-        <div style={{position:'relative',paddingTop:'66%',borderRadius:'10px',overflow:'hidden',background:'var(--ink)',border:'1px solid var(--line)'}}>
-          {c.img
-            ? <img src={c.img} alt={`${c.name} — certificate issued by Anthropic`} loading="lazy" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover'}} />
-            : <div style={{position:'absolute',inset:0,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',textAlign:'center',padding:'14px'}}>
-                <div style={{fontFamily:'var(--mono)',fontSize:'10px',letterSpacing:'.12em',color:'var(--gold)'}}>CERTIFICATE OF MASTERY</div>
-                <div style={{fontFamily:'var(--display)',fontWeight:700,fontSize:'17px',lineHeight:1.25,margin:'8px 0 6px'}}>Zero to Master</div>
-                <div style={{fontFamily:'var(--mono)',fontSize:'9px',color:'var(--muted)'}}>verify/XXXX-XXXX</div>
-              </div>}
-        </div>
-        <div className="by" style={{marginTop:'12px'}}>{c.name}</div>
-        <div className="muted" style={{fontSize:'13px'}}>{c.by}</div>
-      </div>
-    ))}
+<section id="curriculum"><div className="wrap">
+  <div className="eyebrow">Curriculum</div>
+  <h2>Fifteen modules. Every one ends with something you built.</h2>
+  <p className="lead" style={{marginBottom:'36px'}}>Around 30 hours of lectures, recorded live with real students asking real questions — cut, chaptered and put in the order a beginner needs.</p>
+  <div className="acc">
+    <details><summary><span className="n">M01</span>AI Foundations<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Explain what an LLM and an agent are, what each can't do, and pick one idea worth building.</div><div><b>You build</b>5 ideas through the Agent Idea Filter, one chosen with a clear user and success condition.</div></div></details>
+    <details><summary><span className="n">M02</span>Prompting &amp; Context Engineering<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Write a production-grade Job Description using the 7-Part JD: Role, Goal, Audience, Tone, Steps, Rules, Examples.</div><div><b>You build</b>Your JD v2 with three real test inputs and a note on what you changed.</div></div></details>
+    <details><summary><span className="n">M03</span>Claude · ChatGPT · Gemini<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Set up Claude, Console, Claude Code, GitHub and Vercel correctly; know when to reach for each tool.</div><div><b>You build</b>A working Claude Project and a completed setup checklist.</div></div></details>
+    <details><summary><span className="n">M04</span>Vibe Coding<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Build software by describing it: PLAN → BUILD ONE FEATURE → TEST → COMMIT → NEXT, with Claude Code.</div><div><b>You build</b>Your AI Employee, Part 1 running locally, on video.</div></div></details>
+    <details><summary><span className="n">M05</span>Websites<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Ship a responsive multi-page site with forms from a one-page spec.</div><div><b>You build</b>the AI Employee's four pages, desktop and mobile screenshots.</div></div></details>
+    <details><summary><span className="n">M06</span>Git &amp; GitHub<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Version-control every project; branch, merge, recover a mistake, fix the common permission errors.</div><div><b>You build</b>A public repo with ten meaningful commits.</div></div></details>
+    <details><summary><span className="n">M07</span>AI Agents<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Build a real agent — Job Description + Tools + Loop — that completes a multi-step task.</div><div><b>You build</b>A demo of your AI Employee taking a full order, plus its architecture on one page.</div></div></details>
+    <details><summary><span className="n">M08</span>APIs<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Connect to the Claude API and one external service; keep keys safe; handle errors and cost.</div><div><b>You build</b>An order sent by email/Sheets from the agent, with a clean repo history.</div></div></details>
+    <details><summary><span className="n">M09</span>RAG &amp; Memory<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Give an agent knowledge and memory using the Memory Ladder; pick the right rung for the job.</div><div><b>You build</b>Five grounded answers from a knowledge base and memory across two sessions.</div></div></details>
+    <details><summary><span className="n">M10</span>MCP<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Connect an agent to real tools — Sheets, Calendar, Gmail — through the Model Context Protocol.</div><div><b>You build</b>An MCP tool executing from the agent, result visible in the external app.</div></div></details>
+    <details><summary><span className="n">M11</span>Testing &amp; Observability<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Test systematically with the DSP 10-Question Test Sheet; read logs instead of guessing.</div><div><b>You build</b>The completed sheet, three fixes with before/after, and a log.</div></div></details>
+    <details><summary><span className="n">M12</span>Security<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Protect keys, block prompt injection, limit what the agent can do and spend.</div><div><b>You build</b>A 15-point checklist signed off and ten injection attempts logged.</div></div></details>
+    <details><summary><span className="n">M13</span>Deployment<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Put your AI Employee on a public HTTPS URL with the backend hosted and env vars set.</div><div><b>You build</b>The live URL — share it in the group.</div></div></details>
+    <details><summary><span className="n">M14</span>Multi-Agent &amp; Business Automation<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Turn one agent into a business system: One Agent Many Clients, notifications, and when multi-agent is worth it.</div><div><b>You build</b>your AI Employee serving two cafés from one deployment.</div></div></details>
+    <details><summary><span className="n">M15</span>Selling AI Solutions<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Run discovery, price the work, write the proposal, deliver, get paid — as a freelancer or a one-person agency.</div><div><b>You build</b>A discovery sheet and a proposal for a real business.</div></div></details>
+    <details><summary><span className="n">CAP</span>Capstone — your own agent<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Build, test, secure, deploy and pitch an original agent for a real use case — not the café AI Employee.</div><div><b>You build</b>Live URL, repo, 3-minute demo, 1-page proposal — reviewed by the DSP team. This earns the certificate.</div></div></details>
   </div>
-  <div style={{maxWidth:'840px'}}>
-    <div>
-      <div className="eyebrow">Certificates</div>
-      <h2>Three certificates from Claude — Anthropic, USA. And one from DSP.</h2>
-      <p className="lead">Every certificate has a public verification page showing the capstone URL and repo behind it. An employer or client can open it and see the agent working. Featured capstones earn Master with Distinction.</p>
-      <p className="md" style={{marginTop:'18px'}}><b>You finish with four, and three of them are not ours.</b> Module 3 takes you through Claude Academy, the training run by Anthropic — the American company in San Francisco that builds Claude — and you come out holding <b>Claude 101</b>, <b>Claude Code 101</b> and <b>Introduction to Claude Cowork</b>, each with your own name on it. Anthropic issues them, so they say nothing about DSP and everything about you. The fourth is the DSP Master certificate, and it is the one that points at a live agent you built.</p>
-      <p className="md" style={{marginTop:'12px'}}>None of this is out of reach. Every DSP student who follows the module earns all three — no exam fee, no waiting list, no degree required. Ours have been earning them for months, and we publish every one on our channels the week it lands. Scroll down and you will see them holding the badges.</p>
-      <div className="badges">
-        <span><b>M06</b>Builder</span><span><b>M10</b>Agent Engineer</span><span><b>M13</b>Production-Ready</span><span><b>M15</b>AI Solutions Seller</span><span><b>CAP</b>Master</span>
-      </div>
-    </div>
-  </div>
-</div></section>
-
-
-<section><div className="wrap">
-  <div className="eyebrow">Students</div>
-  <h2>From the live cohorts this program was recorded in.</h2>
-  <p className="lead" style={{marginBottom:'36px'}}>Not written quotes — the students themselves, on camera. Both videos are lessons inside Module 15.</p>
-  <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(320px,1fr))',gap:'28px'}}>
-    {stories.map((v) => (
-      <div className="card" key={v.guid} style={{padding:'18px'}}>
-        <div style={{position:'relative',paddingTop:(v as {portrait?:boolean}).portrait?'150%':'56.25%',maxWidth:(v as {portrait?:boolean}).portrait?'300px':undefined,margin:(v as {portrait?:boolean}).portrait?'0 auto':undefined,borderRadius:'12px',overflow:'hidden',background:'var(--ink)'}}>
-          <iframe src={v.src!} title={`${v.name} — DSP student story`} loading="lazy" style={{border:0,position:'absolute',top:0,left:0,width:'100%',height:'100%'}} allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowFullScreen />
-        </div>
-        <p className="md" style={{marginTop:'14px'}}>{v.line}</p>
-        <div className="by">{v.name} · {v.where}</div>
-      </div>
-    ))}
-  </div>
-  <p className="muted" style={{marginTop:'22px'}}>Results depend on the work you put in. These are individual students, not a promise of income.</p>
-  <div style={{marginTop:'56px'}}>
-    <div className="eyebrow">Certified by Anthropic</div>
-    <h3 style={{fontSize:'26px',margin:'6px 0 10px'}}>Our students are already holding them.</h3>
-    <p className="lead" style={{marginBottom:'26px'}}>Claude 101, Claude Code 101 and Introduction to Claude Cowork — issued by Anthropic, in their own names. These are the videos they recorded the day the badges arrived. Open any one on YouTube and check it yourself.</p>
-    <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))',gap:'20px'}}>
-      {[
-        { kind: 'bunny' as const, guid: '629c74ef-9842-4102-bd70-50c6b9a17137', name: 'Mirza Talha Hussain', note: 'Claude 101 + Claude Code 101' },
-        { kind: 'yt' as const, id: 'y_jlAv1TnnQ', name: 'Humayun Shaikh', note: 'Certified by Anthropic' },
-      ].map((c) => {
-        const src = c.kind === 'bunny' ? signedEmbedUrl(c.guid, 7 * 24 * 3600) : `https://www.youtube-nocookie.com/embed/${c.id}`
-        if (!src) return null
-        return (
-        <div className="card" key={c.name} style={{padding:'14px'}}>
-          <div style={{position:'relative',paddingTop:'140%',borderRadius:'12px',overflow:'hidden',background:'var(--ink)'}}>
-            <iframe src={src} title={`${c.name} — certified by Anthropic`} loading="lazy" style={{border:0,position:'absolute',top:0,left:0,width:'100%',height:'100%'}} allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowFullScreen />
-          </div>
-          <div className="by" style={{marginTop:'10px'}}>{c.name}</div>
-          <div className="muted" style={{fontSize:'13px'}}>{c.note}</div>
-        </div>
-        )
-      })}
-    </div>
-  </div>
-
 </div></section>
 
 
@@ -335,6 +354,7 @@ export default function MasteryPage() {
     <details><summary>I have never coded. Can I really do this?</summary><p>Yes. That is the audience this was built for. You describe what you want and Claude Code writes the code. Your job is to plan, direct, test and ship — which is what the program teaches. If you can write a clear WhatsApp message, you can write a Job Description.</p></details>
     <details><summary>How much time does it take?</summary><p>About an hour a day for 30 days, or four sessions a week for eight weeks. Each module is one to three lectures plus a build. Lifetime access means you can go slower — the only thing that doesn't work is stopping.</p></details>
     <details><summary>Windows or Mac?</summary><p>Both. Setup guides for each are in Module 3, including the fixes for the common Windows issues we've solved with hundreds of students.</p></details>
+    <details><summary>Is $100 really all I pay?</summary><p>$100 covers the entire program, lifetime. You will need a Claude account to build with during the modules — Module 3 walks you through setup and the free-tier route, and paid Claude plans start at $20/month if you choose to upgrade. GitHub and Vercel are free for what this program uses. No other purchase is required to finish.</p></details>
     <details><summary>What does "one year of free support" mean?</summary><p>You're in the DSP group from day one. Questions are answered in the group within one working day, and there's a weekly live Q&amp;A. It's group support, not private 1:1 debugging — that's how we keep it free and fast for everyone.</p></details>
     <details><summary>Is it in Urdu or English?</summary><p>Lectures are taught in an Urdu–English mix, the way DSP teaches live. All templates, slides and downloads are in English. Subtitles are provided.</p></details>
     <details><summary>Can I pay from Pakistan?</summary><p>Yes — bank transfer, JazzCash or Easypaisa. Go to the enrol page, send the payment, upload the screenshot with your email, and we send your sign-in link once it&apos;s verified — usually within a few hours.</p></details>
@@ -355,14 +375,16 @@ export default function MasteryPage() {
   <p style={{marginTop:'20px',fontFamily:'var(--mono)',fontSize:'12px',color:'var(--muted)'}}>digitalservicesprogram.com · {site.whatsappDisplay} · Islamabad, Pakistan</p>
 </div></section>
 
+
+
 <footer><div className="wrap">
   <span>© 2026 Digital Services Program · Sardar Group of Companies</span>
   <span>Privacy · Terms · Refund policy</span>
 </div></footer>
 
 <div className="sticky" id="sticky"><div className="wrap">
-  <div className="l"><b>DSP AI Agent Mastery</b> <span>· $100 one-time · lifetime · 1 year support</span></div>
-  <a className="btn btn-gold btn-sm" href="#pricing">Enrol now</a>
+  <div className="l"><b>DSP AI Agent Mastery</b> <span>· $100 one-time · 7-day refund</span></div>
+  <a className="btn btn-gold btn-sm" href={enrolHref}>Enrol now</a>
 </div></div>
 
 <div id="free" hidden></div>
