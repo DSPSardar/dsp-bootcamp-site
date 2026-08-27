@@ -290,18 +290,21 @@ export default function MasteryPage() {
     <p className="lead" style={{marginBottom:'26px'}}>Claude 101, Claude Code 101 and Introduction to Claude Cowork — issued by Anthropic, in their own names. These are the videos they recorded the day the badges arrived. Open any one on YouTube and check it yourself.</p>
     <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))',gap:'20px'}}>
       {[
-        { id: 'y_jlAv1TnnQ', name: 'Humayun Shaikh' },
-        { id: '0jnqomjgtjY', name: 'Muhammad Khuram' },
-        { id: 'G_JUJ29Kaco', name: 'Saeed Iqbal' },
-        { id: 'NSW3t-grkfg', name: 'Muhammad Zubair' },
-      ].map((c) => (
-        <div className="card" key={c.id} style={{padding:'14px'}}>
+        { kind: 'bunny' as const, guid: '629c74ef-9842-4102-bd70-50c6b9a17137', name: 'Mirza Talha Hussain', note: 'Claude 101 + Claude Code 101' },
+        { kind: 'yt' as const, id: 'y_jlAv1TnnQ', name: 'Humayun Shaikh', note: 'Certified by Anthropic' },
+      ].map((c) => {
+        const src = c.kind === 'bunny' ? signedEmbedUrl(c.guid, 7 * 24 * 3600) : `https://www.youtube-nocookie.com/embed/${c.id}`
+        if (!src) return null
+        return (
+        <div className="card" key={c.name} style={{padding:'14px'}}>
           <div style={{position:'relative',paddingTop:'140%',borderRadius:'12px',overflow:'hidden',background:'var(--ink)'}}>
-            <iframe src={`https://www.youtube-nocookie.com/embed/${c.id}`} title={`${c.name} — certified by Anthropic`} loading="lazy" style={{border:0,position:'absolute',top:0,left:0,width:'100%',height:'100%'}} allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowFullScreen />
+            <iframe src={src} title={`${c.name} — certified by Anthropic`} loading="lazy" style={{border:0,position:'absolute',top:0,left:0,width:'100%',height:'100%'}} allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowFullScreen />
           </div>
           <div className="by" style={{marginTop:'10px'}}>{c.name}</div>
+          <div className="muted" style={{fontSize:'13px'}}>{c.note}</div>
         </div>
-      ))}
+        )
+      })}
     </div>
   </div>
 
