@@ -82,6 +82,13 @@ export default function RootLayout({
         className={`${spaceGrotesk.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable}`}
       >
         <script
+          id="auth-fragment-forward"
+          dangerouslySetInnerHTML={{
+            __html:
+              "if(location.hash.indexOf('access_token=')>-1||location.hash.indexOf('error_code=')>-1){if(location.pathname!=='/auth/confirm'){location.replace('/auth/confirm'+location.search+location.hash)}}",
+          }}
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
         />
