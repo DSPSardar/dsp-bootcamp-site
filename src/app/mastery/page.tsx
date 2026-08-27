@@ -231,7 +231,7 @@ export default function MasteryPage() {
       <li className="hi"><span>One year of free support in the DSP group</span><span>12 months</span></li>
       <li><span>Weekly live Q&amp;A, recorded</span><span>weekly</span></li>
       <li><span>DSP Master certificate with a verifiable URL + 4 milestone badges</span><span>on completion</span></li>
-      <li><span>Guided through Claude Academy so you earn Anthropic&apos;s own course completion badges</span><span>free, issued by Anthropic</span></li>
+      <li><span>Guided through Claude Academy to earn 3 course completion badges</span><span>issued by Anthropic, USA</span></li>
       <li><span>Lifetime access and every future update</span><span>lifetime</span></li>
     </ul>
     <aside className="pricebox">
@@ -258,7 +258,7 @@ export default function MasteryPage() {
       <div className="eyebrow">Certificate</div>
       <h2>A certificate that points to something real.</h2>
       <p className="lead">Every certificate has a public verification page showing the capstone URL and repo behind it. An employer or client can open it and see the agent working. Featured capstones earn Master with Distinction.</p>
-      <p className="md" style={{marginTop:'18px'}}><b>Plus badges issued by Anthropic, not by us.</b> Module 3 walks you through Claude Academy — Anthropic&apos;s own free training — and you finish the program holding their course completion badges alongside the DSP certificate. Those come from the company that builds Claude, with your name on them, and DSP students already hold them.</p>
+      <p className="md" style={{marginTop:'18px'}}><b>Plus three badges issued by Anthropic — not by us.</b> Module 3 walks you through Claude Academy, the free training run by Anthropic, the US company in San Francisco that builds Claude. You finish holding three of their course completion badges with your own name on them, alongside the DSP certificate. DSP students already hold these.</p>
       <div className="badges">
         <span><b>M06</b>Builder</span><span><b>M10</b>Agent Engineer</span><span><b>M13</b>Production-Ready</span><span><b>M15</b>AI Solutions Seller</span><span><b>CAP</b>Master</span>
       </div>
@@ -296,7 +296,7 @@ export default function MasteryPage() {
     <details><summary>What does "one year of free support" mean?</summary><p>You're in the DSP group from day one. Questions are answered in the group within one working day, and there's a weekly live Q&amp;A. It's group support, not private 1:1 debugging — that's how we keep it free and fast for everyone.</p></details>
     <details><summary>Is it in Urdu or English?</summary><p>Lectures are taught in an Urdu–English mix, the way DSP teaches live. All templates, slides and downloads are in English. Subtitles are provided.</p></details>
     <details><summary>Can I pay from Pakistan?</summary><p>Yes — bank transfer, JazzCash or Easypaisa. Go to the enrol page, send the payment, upload the screenshot with your email, and we send your sign-in link once it&apos;s verified — usually within a few hours.</p></details>
-    <details><summary>Do I get a recognised certificate?</summary><p>Two kinds. The DSP Master certificate has a public verification page showing the live agent you built — that is proof of work, not attendance. Separately, Module 3 walks you through Claude Academy, Anthropic&apos;s own free training, so you finish holding their course completion badges with your name on them. Those are issued by Anthropic. Neither is a university accreditation; what employers and clients actually check is the working agent behind the link.</p></details>
+    <details><summary>Do I get a recognised certificate?</summary><p>Two kinds. The DSP Master certificate has a public verification page showing the live agent you built — that is proof of work, not attendance. Separately, Module 3 walks you through Claude Academy, the free training run by Anthropic — the US company that builds Claude — so you finish holding three of their course completion badges with your name on them. Those are issued by Anthropic, not by DSP. Neither is a university accreditation; what employers and clients actually check is the working agent behind the link.</p></details>
     <details><summary>Refunds?</summary><p>Seven days, no questions. Start Module 1; if it isn't for you, email us and we refund in full.</p></details>
   </div>
 </div></section>
