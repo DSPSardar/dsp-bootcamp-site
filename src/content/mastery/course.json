@@ -357,7 +357,7 @@
           "source_note": "recorded 27 Aug 2026 by Sundus Khan, co-founder, DSP",
           "bunny": {
             "guid": "50fe5df8-c5e6-468e-bcbe-f09c49321868",
-            "status": "processing",
+            "status": "ready",
             "version": 1,
             "uploaded_at": "2026-08-27T11:30:54.744Z",
             "length_sec": 1145,
