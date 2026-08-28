@@ -401,9 +401,11 @@
           "order": "L01",
           "bunny": {
             "guid": "25932e5b-699e-41e7-bae4-d3660a518123",
-            "status": "processing",
+            "status": "ready",
             "version": 2,
-            "uploaded_at": "2026-08-28T08:20:03.965Z"
+            "uploaded_at": "2026-08-28T08:20:03.965Z",
+            "length_sec": 3234,
+            "aspect": 1.7778
           },
           "source_note": "live class 25 Aug 2026 — Claude masterclass (updated)"
         },
@@ -646,9 +648,11 @@
           "order": "L01",
           "bunny": {
             "guid": "0ef70693-31e1-4b26-bc03-33740a146d9c",
-            "status": "processing",
+            "status": "ready",
             "version": 3,
-            "uploaded_at": "2026-08-28T08:00:27.013Z"
+            "uploaded_at": "2026-08-28T08:00:27.013Z",
+            "length_sec": 2742,
+            "aspect": 1.7778
           },
           "source_note": "live class 24 Aug 2026 — complete step-by-step: vibe coding, website, chatbot, AI agents with Claude"
         },
