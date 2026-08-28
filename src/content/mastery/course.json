@@ -650,7 +650,9 @@
             "guid": "3e4f29e5-3629-4f1a-9faa-17e64a2df94f",
             "status": "processing",
             "version": 2,
-            "uploaded_at": "2026-08-28T07:40:42.813Z"
+            "uploaded_at": "2026-08-28T07:40:42.813Z",
+            "length_sec": 2109,
+            "aspect": 1.7778
           },
           "source_note": "re-recorded 17 Aug 2026 (replaces the earlier cut)"
         },
@@ -1574,9 +1576,11 @@
           "source_note": "live class, 27 Aug 2026",
           "bunny": {
             "guid": "bd24af1d-a235-4027-ae86-bc168d4f5089",
-            "status": "processing",
+            "status": "ready",
             "version": 1,
-            "uploaded_at": "2026-08-27T17:56:59.957Z"
+            "uploaded_at": "2026-08-27T17:56:59.957Z",
+            "length_sec": 3129,
+            "aspect": 1.7778
           }
         },
         {
