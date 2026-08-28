@@ -639,22 +639,20 @@
           "file": "M05-L01_Build-and-Publish-Websites-Live_zDnnE55qJdI.mp4",
           "folder": "Phase-1-Builder/M05-Websites",
           "youtube_id": "zDnnE55qJdI",
-          "minutes": 35,
+          "minutes": 46,
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": "M05-L01_Build-and-Publish-Websites-Live_zDnnE55qJdI_v2.mp4",
+          "master": "M05-L01_Build-and-Publish-Websites-Live_zDnnE55qJdI_v3.mp4",
           "kind": "core",
           "order": "L01",
           "bunny": {
-            "guid": "3e4f29e5-3629-4f1a-9faa-17e64a2df94f",
+            "guid": "0ef70693-31e1-4b26-bc03-33740a146d9c",
             "status": "processing",
-            "version": 2,
-            "uploaded_at": "2026-08-28T07:40:42.813Z",
-            "length_sec": 2109,
-            "aspect": 1.7778
+            "version": 3,
+            "uploaded_at": "2026-08-28T08:00:27.013Z"
           },
-          "source_note": "re-recorded 17 Aug 2026 (replaces the earlier cut)"
+          "source_note": "live class 24 Aug 2026 — complete step-by-step: vibe coding, website, chatbot, AI agents with Claude"
         },
         {
           "file": "M05-L02_First-Frontend-with-Claude-Code-Day2_FMsPKSDfft4.mp4",
