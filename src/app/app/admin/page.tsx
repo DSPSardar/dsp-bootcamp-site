@@ -39,6 +39,7 @@ export default async function AdminPage() {
           {signed[i] && <p><a className="btn btn-ghost btn-sm" href={signed[i]!} target="_blank" rel="noreferrer">View payment proof</a></p>}
           {r.admin_note && <p className="note">{r.admin_note}</p>}
           {r.status === 'pending' && <DecideButtons id={r.id} />}
+          {r.status === 'approved' && <DecideButtons id={r.id} approved />}
         </div>
       ))}
     </>

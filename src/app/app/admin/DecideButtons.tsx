@@ -3,13 +3,13 @@ import { useState } from 'react'
 
 type Result = { status: string; email?: string; phone?: string | null; full_name?: string; temp_password?: string | null; email_sent?: boolean; login_url?: string }
 
-export default function DecideButtons({ id }: { id: string }) {
+export default function DecideButtons({ id, approved = false }: { id: string; approved?: boolean }) {
   const [note, setNote] = useState('')
   const [busy, setBusy] = useState(false)
   const [err, setErr] = useState<string | null>(null)
   const [res, setRes] = useState<Result | null>(null)
 
-  async function decide(action: 'approve' | 'reject') {
+  async function decide(action: 'approve' | 'reject' | 'resend') {
     setBusy(true); setErr(null)
     const r = await fetch('/api/mastery/admin/decide', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ id, action, note }) })
     const d = await r.json().catch(() => ({}))
@@ -32,6 +32,16 @@ export default function DecideButtons({ id }: { id: string }) {
       </div>
     )
   }
+
+  if (approved)
+    return (
+      <div style={{ marginTop: 10 }}>
+        {err && <p className="note">{err}</p>}
+        <button className="btn btn-ghost btn-sm" disabled={busy} onClick={() => decide('resend')}>
+          {busy ? 'Working…' : 'Send access again (new password)'}
+        </button>
+      </div>
+    )
 
   return (
     <div style={{ marginTop: 12 }}>

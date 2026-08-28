@@ -15,6 +15,19 @@ export async function POST(req: Request) {
   const { data: r } = await admin.from('mastery_enrol_requests').select('*').eq('id', id).single()
   if (!r) return NextResponse.json({ error: 'request not found' }, { status: 404 })
 
+  // Re-issue access for a student whose password was lost or never delivered.
+  if (action === 'resend') {
+    const gen = () => { const a = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789'; let x = ''; for (let i = 0; i < 12; i++) x += a[Math.floor(Math.random() * a.length)]; return x }
+    const pw = gen()
+    const { data: list } = await admin.auth.admin.listUsers({ perPage: 1000 })
+    const u = list?.users.find((x) => x.email?.toLowerCase() === r.email.toLowerCase())
+    if (!u) return NextResponse.json({ error: 'no account for that email — approve first' }, { status: 404 })
+    const { error } = await admin.auth.admin.updateUserById(u.id, { password: pw, email_confirm: true })
+    if (error) return NextResponse.json({ error: error.message }, { status: 500 })
+    return NextResponse.json({ ok: true, status: 'approved', email: r.email, phone: r.phone, full_name: r.full_name,
+      temp_password: pw, email_sent: false, login_url: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.digitalservicesprogram.com'}/app/login` })
+  }
+
   if (action === 'reject') {
     await admin.from('mastery_enrol_requests').update({ status: 'rejected', admin_note: note || null, reviewed_at: new Date().toISOString() }).eq('id', id)
     return NextResponse.json({ ok: true, status: 'rejected' })
