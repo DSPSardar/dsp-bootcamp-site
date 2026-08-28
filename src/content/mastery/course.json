@@ -392,22 +392,20 @@
           "file": "M03-L01_Claude-Masterclass-Pt1-Setup-Workflows_piOULSKw5pc.mp4",
           "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
           "youtube_id": "piOULSKw5pc",
-          "minutes": 48,
+          "minutes": 54,
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": "YTDown.com_YouTube_Claude-AI-Masterclass-Part-1-New-Feature_Media_piOULSKw5pc_001_1080p.mp4",
+          "master": "M03-L01_Claude-Masterclass-Pt1-Setup-Workflows_piOULSKw5pc_v2.mp4",
           "kind": "core",
           "order": "L01",
           "bunny": {
-            "guid": "cf7becde-8385-485c-aa83-c525d0ae9201",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:43.027596Z",
-            "length_sec": 2872,
-            "aspect": 1.7778
-          }
+            "guid": "25932e5b-699e-41e7-bae4-d3660a518123",
+            "status": "processing",
+            "version": 2,
+            "uploaded_at": "2026-08-28T08:20:03.965Z"
+          },
+          "source_note": "live class 25 Aug 2026 — Claude masterclass (updated)"
         },
         {
           "file": "M03-L02_Claude-Chat-Cowork-Code_GUQmCNRqy1g.mp4",
