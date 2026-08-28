@@ -59,6 +59,7 @@
 .page-mastery .term.c{animation-delay:1.0s}
 .page-mastery .term.d{animation-delay:1.4s}
 .page-mastery .term.e{animation-delay:1.8s}
+.page-mastery .term.f{animation-delay:2.2s}
 .page-mastery .term:hover{border-color:var(--teal2)}
 @keyframes pop{to{opacity:1;transform:none}}
 .page-mastery .formula .note{margin-top:22px;font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}

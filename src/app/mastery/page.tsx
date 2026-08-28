@@ -60,6 +60,24 @@ export default function MasteryPage() {
       <span><b>7-day</b> money-back guarantee</span>
     </div>
   </div>
+
+  <div className="formula" aria-label="The DSP agent formula">
+    <div className="lab"><span>The one formula behind the whole program</span><i>assembling…</i></div>
+    <div className="eq">
+      <span className="term a">Agent<small>what you ship</small></span>
+      <span className="op">=</span>
+      <span className="term b">Claude<small>the brain · M03</small></span>
+      <span className="op">+</span>
+      <span className="term c">Job Description<small>who it is · M02</small></span>
+      <span className="op">+</span>
+      <span className="term d">Tools<small>what it can do · M08–M10</small></span>
+      <span className="op">+</span>
+      <span className="term e">Memory<small>what it remembers · M09</small></span>
+      <span className="op">+</span>
+      <span className="term f">Loop<small>until done · M07</small></span>
+    </div>
+    <p className="note">Every module adds one piece. By Module 13 you have all five, live, on a URL you can send to anyone.</p>
+  </div>
 </div></header>
 
 

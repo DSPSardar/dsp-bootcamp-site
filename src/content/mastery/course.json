@@ -639,22 +639,20 @@
           "file": "M05-L01_Build-and-Publish-Websites-Live_zDnnE55qJdI.mp4",
           "folder": "Phase-1-Builder/M05-Websites",
           "youtube_id": "zDnnE55qJdI",
-          "minutes": 49,
+          "minutes": 35,
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": "YTDown.com_YouTube_How-to-build-and-publish-websites-live-w_Media_zDnnE55qJdI_001_1080p.mp4",
+          "master": "M05-L01_Build-and-Publish-Websites-Live_zDnnE55qJdI_v2.mp4",
           "kind": "core",
           "order": "L01",
           "bunny": {
-            "guid": "c7f599d3-18e2-4d3c-84de-1a324bd32f5f",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:37:08.560713Z",
-            "length_sec": 2951,
-            "aspect": 1.7778
-          }
+            "guid": "3e4f29e5-3629-4f1a-9faa-17e64a2df94f",
+            "status": "processing",
+            "version": 2,
+            "uploaded_at": "2026-08-28T07:40:42.813Z"
+          },
+          "source_note": "re-recorded 17 Aug 2026 (replaces the earlier cut)"
         },
         {
           "file": "M05-L02_First-Frontend-with-Claude-Code-Day2_FMsPKSDfft4.mp4",
