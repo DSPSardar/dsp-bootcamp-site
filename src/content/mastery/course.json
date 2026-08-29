@@ -1397,7 +1397,22 @@
       "badge_after": "Production-Ready",
       "lessons": [
         {
-          "file": "M13-L01_GitHub-to-Vercel-Deployment_oSD-AdRr5AI.mp4",
+          "file": "M13-L01_Complete-Deployment-Zero-to-Live.mp4",
+          "folder": "M13-Deployment",
+          "youtube_id": null,
+          "minutes": 20,
+          "kind": "core",
+          "source_note": "live class 29 Aug 2026 — full deployment, zero to live URL with Claude Code",
+          "bunny": {
+            "guid": "c62121ee-36f4-4220-b818-7af1e549894b",
+            "status": "processing",
+            "version": 1,
+            "uploaded_at": "2026-08-29T17:51:44.411Z"
+          },
+          "master": "M13-L01_Complete-Deployment-Zero-to-Live_v1.mp4"
+        },
+        {
+          "file": "M13-L02_GitHub-to-Vercel-Deployment_oSD-AdRr5AI.mp4",
           "folder": "Phase-3-Production/M13-Deployment",
           "youtube_id": "oSD-AdRr5AI",
           "minutes": 38,
@@ -1418,7 +1433,7 @@
           }
         },
         {
-          "file": "M13-L02_CafeBot-Deploy-Portion_ZG3JXm-L8XU.mp4",
+          "file": "M13-L03_CafeBot-Deploy-Portion_ZG3JXm-L8XU.mp4",
           "folder": "Phase-3-Production/M13-Deployment",
           "youtube_id": "ZG3JXm-L8XU",
           "minutes": 0,
