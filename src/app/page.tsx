@@ -160,7 +160,9 @@ export default function HomePage() {
         <div className="wrap">
           <ProofCounters />
           <p className="proof-note">
-            These are our own numbers. The same AI Employee that runs DSP&apos;s sales runs yours.
+            These are our own numbers, as of{' '}
+            {new Date(agency.proof.asOf).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}.
+            The same AI Employee that runs DSP&apos;s sales runs yours.
           </p>
         </div>
       </div>

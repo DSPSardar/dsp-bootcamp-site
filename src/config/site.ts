@@ -151,12 +151,16 @@ export const agency = {
     '2.3M viewers reached in the last 90 days',
   ],
 
-  /** Product proof bar — our own DSPAgentHub numbers. Update from the dashboard. */
+  /** Product proof bar — our own DSPAgentHub numbers. Update from the
+      dashboard, and move `asOf` forward with every update. These are
+      server-rendered into the HTML — the static markup must never show a
+      zero (see ProofCounters). */
   proof: {
     leads: 868,
     sales: 280,
     zeroTakeoverPct: 50.7,
     daysToLive: 7,
+    asOf: '2026-08-23',
   },
 
   /** Zara's public WhatsApp demo line — confirmed Aug 2026: Zara works as
