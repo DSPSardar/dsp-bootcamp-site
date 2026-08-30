@@ -1,28 +1,30 @@
 // src/app/layout.tsx
 import type { Metadata, Viewport } from 'next'
-import { Space_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google'
+import { Instrument_Serif, Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Analytics from '@/components/site/Analytics'
 import { site, socials } from '@/config/site'
 
-const spaceGrotesk = Space_Grotesk({
+// Blueprint §6: display serif on hero + H2 only, Inter for body/UI,
+// JetBrains Mono for code — all self-hosted via next/font (no runtime
+// Google Fonts @import anywhere).
+const instrumentSerif = Instrument_Serif({
   subsets: ['latin'],
-  weight: ['700'],
-  variable: '--font-space-grotesk',
+  weight: '400', // the face's only weight — serif headings are 400 by design
+  style: ['normal', 'italic'],
+  variable: '--font-instrument-serif',
   display: 'swap',
 })
 
-const ibmPlexSans = IBM_Plex_Sans({
+const inter = Inter({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-ibm-plex-sans',
+  variable: '--font-inter',
   display: 'swap',
 })
 
-const ibmPlexMono = IBM_Plex_Mono({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
-  weight: ['500', '600'],
-  variable: '--font-ibm-plex-mono',
+  variable: '--font-jetbrains-mono',
   display: 'swap',
 })
 
@@ -71,15 +73,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        {/* site.css/bootcamp.css pull display faces from Google Fonts via @import,
-            so the connection can't start until that CSS parses. Preconnecting
-            shortens the chain to the text LCP on mobile. */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-      </head>
       <body
-        className={`${spaceGrotesk.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable}`}
+        className={`${instrumentSerif.variable} ${inter.variable} ${jetbrainsMono.variable}`}
       >
         <script
           id="auth-fragment-forward"

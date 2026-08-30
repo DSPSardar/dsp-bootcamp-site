@@ -13,9 +13,12 @@
   --gold-deep: #E5A12C;
   --mint: #54E6C0;
 
-  --font-display: var(--font-space-grotesk);
-  --font-body: var(--font-ibm-plex-sans);
-  --font-mono: var(--font-ibm-plex-mono);
+  /* Blueprint §6: --font-serif sits on h1/h2 only; --font-display is the
+     UI display sans (same face as body) used by chrome, stats, and labels. */
+  --font-serif: var(--font-instrument-serif);
+  --font-display: var(--font-inter);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
 *,
@@ -40,10 +43,17 @@ body {
   background-attachment: fixed;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display), system-ui, sans-serif;
-  letter-spacing: -0.02em;
+h1, h2 {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
   line-height: 1.1;
+}
+
+h3, h4, h5, h6 {
+  font-family: var(--font-body), system-ui, sans-serif;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
 /* Button styles */

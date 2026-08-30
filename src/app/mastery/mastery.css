@@ -2,6 +2,7 @@
 .page-mastery{--ink:#0A1730; --navy:#0E2A47; --navy2:#17204A; --panel:#132B52;
   --teal:#028090; --teal2:#19B3C4; --gold:#D4AF37; --gold2:#F0D27A;
   --cream:#F5F1E6; --muted:#A9B4C8; --line:rgba(245,241,230,.12);
+  --serif:var(--font-serif),Georgia,serif;
   --display:var(--font-display),system-ui,sans-serif;
   --body:var(--font-body),system-ui,sans-serif;
   --mono:var(--font-mono),ui-monospace,monospace;
@@ -12,9 +13,10 @@
 .page-mastery img{max-width:100%;display:block}
 .page-mastery .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
 .page-mastery section{padding:96px 0}
-.page-mastery h1,.page-mastery h2,.page-mastery h3{font-family:var(--display);line-height:1.05;letter-spacing:-.02em}
-.page-mastery h1{font-size:clamp(40px,6.2vw,76px);font-weight:800}
-.page-mastery h2{font-size:clamp(30px,4vw,48px);font-weight:700;margin-bottom:16px}
+.page-mastery h1,.page-mastery h2{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.01em}
+.page-mastery h3{font-family:var(--display);line-height:1.2;letter-spacing:-.01em}
+.page-mastery h1{font-size:clamp(40px,6.2vw,76px)}
+.page-mastery h2{font-size:clamp(30px,4vw,48px);margin-bottom:16px}
 .page-mastery h3{font-size:22px;font-weight:700}
 .page-mastery .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal2);margin-bottom:18px;display:flex;gap:10px;align-items:center}
 .page-mastery .eyebrow::before{content:"";width:22px;height:1px;background:var(--teal2)}
