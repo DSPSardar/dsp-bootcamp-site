@@ -8,6 +8,7 @@ const SITE = 'https://www.digitalservicesprogram.com'
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: SITE, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
+    { url: `${SITE}/mastery`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
     { url: `${SITE}/academy/bootcamp`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
     { url: `${SITE}/ai-employees`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
     ...agency.employees.map((e) => ({

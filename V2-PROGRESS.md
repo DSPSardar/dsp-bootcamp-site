@@ -8,7 +8,7 @@ Working branch: `claude/dsp-website-v2-build-gkpkaw` · one PR per phase, title 
 |---|------|--------|--------|
 | 0A | Repo audit (read-only) | done — reported in session | — |
 | Fix 1 | noindex `/mastery/enrol` + `/app` nofollow + `robots.ts` (option B: enrol not robots-disallowed yet) | done | see git log |
-| Fix 2 | Add `/mastery` to sitemap | not started | |
+| Fix 2 | Add `/mastery` to sitemap (`/verify` deferred to Phase 5) | done | see git log |
 | Fix 3 | Stale bootcamp `nextBatchDate` feeding Course JSON-LD | blocked — needs owner decision (see below) | |
 | Fix 4 | Proof counters: server-render real values + `asOf: '2026-08-23'` | not started | |
 | Fix 5 | Bunny tokens on `/mastery` → per-request signing | not started | |
