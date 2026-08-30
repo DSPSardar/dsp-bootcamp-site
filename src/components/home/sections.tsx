@@ -364,13 +364,10 @@ export function PoliciesSection() {
           <p className="eyebrow">The fine print</p>
           <h2>Policies, in plain language.</h2>
         </div>
-        <details>
-          <summary>Refund policy</summary>
-          <div className="policy-body">
-            <p><strong>Day-1 guarantee.</strong> Attend the first live class of your cohort. If you decide the bootcamp is not for you, send us a WhatsApp message before the Day 2 class begins and we will refund your full fee within 7 working days, to the same payment method.</p>
-            <p>After Day 2 begins, fees are non-refundable, because seats are limited and your seat could have gone to another student. If you cannot attend your cohort, you may transfer your seat to the next cohort once, free of charge, with at least 48 hours&apos; notice before Day 1.</p>
-          </div>
-        </details>
+        {/* The refund policy and enrolment terms were removed at the
+            sunset (2026-08-30) — they governed live-batch enrolment, which
+            no longer exists. Privacy and the company/Anthropic disclaimers
+            remain: they still apply. */}
         <details>
           <summary>Privacy policy</summary>
           <div className="policy-body">
@@ -381,7 +378,7 @@ export function PoliciesSection() {
         <details>
           <summary>Terms of service</summary>
           <div className="policy-body">
-            <p>Enrolment is confirmed on receipt of the course fee. Class replays and materials are provided for your personal use within your cohort and may not be redistributed or resold. Certificates are issued on meeting each certificate&apos;s completion requirements. DSP may reschedule a class due to circumstances beyond its control; a replacement session will always be provided.</p>
+            <p>Course materials and class replays are provided for students&apos; personal use and may not be redistributed or resold. Certificates were issued on meeting each certificate&apos;s completion requirements.</p>
             <p>Digital Services Program is a SECP-registered company based in Islamabad, Pakistan. Anthropic certificates are issued by Anthropic on completion of its official courses; DSP is an independent organisation and is not affiliated with or endorsed by Anthropic.</p>
           </div>
         </details>
