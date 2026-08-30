@@ -1,5 +1,6 @@
 // src/app/agents/case-studies/page.tsx — Problem → Architecture → Result.
 import type { Metadata } from 'next'
+import { breadcrumbLd } from '@/lib/schema'
 import SiteShell from '@/components/site/SiteShell'
 import TrackedLink from '@/components/site/TrackedLink'
 import { WhatsAppIcon } from '@/components/home/icons'
@@ -62,6 +63,8 @@ const CASES: CaseStudy[] = [
 export default function CaseStudiesPage() {
   return (
     <SiteShell>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd([{ name: 'AI Agents', path: '/agents' }, { name: 'Case studies', path: '/agents/case-studies' }])) }} />
+
       {/* ============ HERO ============ */}
       <section className="hero-dark" style={{ paddingBottom: 56 }}>
         <div className="wrap">

@@ -1,5 +1,6 @@
 // app/blog/[slug]/page.tsx — single blog post (Server Component)
 import type { Metadata } from 'next'
+import { breadcrumbLd } from '@/lib/schema'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -88,6 +89,10 @@ export default async function BlogPost(
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd([{ name: 'Blog', path: '/blog' }, { name: post.title, path: `/blog/${post.slug}` }])) }}
       />
 
       <div className="dsp-post__inner">

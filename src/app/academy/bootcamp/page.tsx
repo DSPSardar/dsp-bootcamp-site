@@ -6,6 +6,7 @@
 // enrolment signals for them. Page-specific styles still live in
 // bootcamp.css under the .page-bootcamp co-scope.
 import type { Metadata } from 'next'
+import { breadcrumbLd, faqPageLd } from '@/lib/schema'
 import '@/app/site.css'
 import '@/app/bootcamp.css'
 import SiteHeader from '@/components/site/SiteHeader'
@@ -56,36 +57,23 @@ export const metadata: Metadata = {
 
 // FAQPage schema: only the questions that stay accurate after the sunset —
 // nothing about fees, batches, start dates, or joining a cohort.
-const faqLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Did students need coding experience?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'No. The bootcamp used vibe coding: students described what they wanted in plain English and directed AI to build it. No Python, no syntax.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What certificates did students receive?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "During the bootcamp students completed three of Anthropic's official Claude courses — guided live by DSP — and earned each course's certificate of completion. They also received the DSP Bootcamp Certificate after presenting their final project. Four certificates in total.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What language were classes taught in?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Classes were taught in a mix of English and Urdu, so both terminology and explanation landed clearly.',
-      },
-    },
-  ],
-}
+// Keep in sync with the visible FAQ (HomeFaq.tsx).
+const faqLd = faqPageLd([
+  {
+    q: 'Did students need coding experience?',
+    a: 'No. The bootcamp used vibe coding: students described what they wanted in plain English and directed AI to build it. No Python, no syntax.',
+  },
+  {
+    q: 'What certificates did students receive?',
+    a: "During the bootcamp students completed three of Anthropic's official Claude courses — guided live by DSP — and earned each course's certificate of completion. They also received the DSP Bootcamp Certificate after presenting their final project. Four certificates in total.",
+  },
+  {
+    q: 'What language were classes taught in?',
+    a: 'Classes were taught in a mix of English and Urdu, so both terminology and explanation landed clearly.',
+  },
+])
+
+const breadcrumb = breadcrumbLd([{ name: 'The Agentic Lab', path: '/academy/bootcamp' }])
 
 export default function BootcampPage() {
   return (
@@ -93,6 +81,10 @@ export default function BootcampPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
 
       <a className="skip" href="#main">Skip to content</a>

@@ -8,40 +8,47 @@
    scoped under .dsp-site — never leaks into the blog/contact dark
    shell.
    ================================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap');
-
+/* Fonts are self-hosted via next/font (src/app/layout.tsx) — no runtime
+   @import. --serif carries Instrument Serif for h1/h2 only (blueprint §6);
+   --disp is the UI display sans, same face as body. */
 .dsp-site{
-  --navy:#17204A;
+  /* re-pointed at the shared :root tokens (tokens.css) — values unified,
+     scope isolated. Shell-local colors (teal, navy tints) stay local. */
+  --navy:var(--t-navy);
   --navy-deep:#0E2A47;
   --navy-soft:#3A4370;
-  --paper:#FBF9F4;
+  --paper:var(--t-paper);
   --paper-2:#F3EFE6;
   --white:#FFFFFF;
   --teal:#028090;
   --teal-deep:#02616D;
   --gold:#D4AF37;
   --gold-dark:#7A5D0E;
-  --line:#E4DFD2;
+  --accent:var(--t-accent);
+  --accent-deep:var(--t-accent-deep);
+  --line:var(--t-line);
   --line-dark:#244063;
-  --ok:#2F9E68;
+  --ok:var(--t-success);
   --radius:14px;
-  --disp:'Bricolage Grotesque','Segoe UI',sans-serif;
-  --body:'Instrument Sans','Segoe UI',sans-serif;
-  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --serif:var(--font-instrument-serif),Georgia,serif;
+  --disp:var(--font-inter),'Segoe UI',sans-serif;
+  --body:var(--font-inter),'Segoe UI',sans-serif;
+  --mono:var(--font-jetbrains-mono),ui-monospace,monospace;
 }
 .dsp-site *{margin:0;padding:0;box-sizing:border-box}
 @media (prefers-reduced-motion: reduce){
   .dsp-site *,.dsp-site *::before,.dsp-site *::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
 }
-.dsp-site{font-family:var(--body);color:var(--navy);background:var(--paper);line-height:1.65;font-size:17px}
+.dsp-site{font-family:var(--body);color:var(--navy);background:var(--paper);line-height:var(--t-leading-body);font-size:18px}
 .dsp-site img{max-width:100%;display:block}
 .dsp-site a{color:var(--teal-deep)}
 .dsp-site :focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:4px}
 .dsp-site .skip{position:absolute;left:-9999px;top:0;background:var(--navy);color:#fff;padding:.75rem 1.25rem;z-index:200;border-radius:0 0 8px 0}
 .dsp-site .skip:focus{left:0}
 .dsp-site .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-.dsp-site h1,.dsp-site h2,.dsp-site h3{font-family:var(--disp);line-height:1.12;letter-spacing:-.015em}
-.dsp-site h2{font-size:clamp(1.7rem,3.6vw,2.5rem);font-weight:800}
+.dsp-site h1,.dsp-site h2{font-family:var(--serif);font-weight:400;line-height:1.12;letter-spacing:-.01em}
+.dsp-site h3{font-family:var(--body);line-height:1.25;letter-spacing:-.01em}
+.dsp-site h2{font-size:clamp(1.9rem,3.6vw,var(--t-fs-2))}
 .dsp-site h3{font-size:1.15rem;font-weight:600}
 .dsp-site section{padding:76px 0}
 .dsp-site .sec-head{max-width:680px;margin-bottom:2.4rem}
@@ -57,8 +64,11 @@
 .dsp-site .btn:hover{transform:translateY(-1px)}
 .dsp-site .btn-primary{background:var(--teal);color:#fff;box-shadow:0 6px 18px rgba(2,128,144,.28)}
 .dsp-site .btn-primary:hover{background:var(--teal-deep)}
-.dsp-site .btn-gold{background:var(--gold);color:var(--navy);box-shadow:0 6px 18px rgba(212,175,55,.3)}
-.dsp-site .btn-gold:hover{background:#C6A230}
+/* Primary CTA — terracotta accent (blueprint §5: CTAs only). The class
+   keeps its historical name so no TSX changes; white text passes AA on
+   the corrected accent (5.13:1). */
+.dsp-site .btn-gold{background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(176,82,47,.3)}
+.dsp-site .btn-gold:hover{background:var(--accent-deep)}
 .dsp-site .btn-ghost{border-color:var(--navy);color:var(--navy);background:transparent}
 .dsp-site .btn-ghost-light{border-color:rgba(255,255,255,.5);color:#fff;background:transparent}
 .dsp-site .btn-ghost-light:hover{border-color:#fff}
@@ -80,8 +90,8 @@
   radial-gradient(700px 420px at 10% 110%, rgba(212,175,55,.15), transparent 60%),
   var(--navy-deep);
   color:#fff;padding:84px 0 72px;position:relative;overflow:hidden}
-.dsp-site .hero-dark h1{font-size:clamp(2.2rem,5.2vw,3.8rem);font-weight:800;margin:1.1rem 0 1rem;letter-spacing:-.02em}
-.dsp-site .hero-dark h1 em{font-style:normal;color:var(--gold)}
+.dsp-site .hero-dark h1{font-size:clamp(2.2rem,5.2vw,3.8rem);font-weight:400;margin:1.1rem 0 1rem;letter-spacing:-.01em}
+.dsp-site .hero-dark h1 em{font-style:italic;color:var(--gold)}
 .dsp-site .hero-dark .sub{color:#C9D6EC;font-size:1.13rem;max-width:38rem}
 .dsp-site .hero-dark .eyebrow{color:var(--gold)}
 .dsp-site .hero-dark .eyebrow::before{background:var(--gold)}
@@ -210,7 +220,7 @@
 /* hero door cards */
 .dsp-site .door-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2.2rem}
 .dsp-site .door{background:var(--white);color:var(--navy);border-radius:var(--radius);padding:1.8rem;display:flex;flex-direction:column;gap:.7rem;align-items:flex-start;box-shadow:0 24px 50px rgba(0,0,0,.35)}
-.dsp-site .door h2{font-size:1.35rem;font-weight:800}
+.dsp-site .door h2{font-size:1.35rem}
 .dsp-site .door p{color:var(--navy-soft);font-size:.97rem;flex:1}
 .dsp-site .door .door-emoji{font-size:1.6rem;line-height:1}
 

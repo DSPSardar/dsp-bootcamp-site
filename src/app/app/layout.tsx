@@ -1,20 +1,16 @@
 import { redirect } from 'next/navigation'
-import { Bricolage_Grotesque, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google'
 import { supabaseServer } from '@/lib/supabase/server'
 import { modules, phases, unlockState } from '@/lib/mastery/course'
 import '../mastery/mastery.css'
 import './app.css'
 
-const display = Bricolage_Grotesque({ subsets: ['latin'], weight: ['400', '700', '800'], variable: '--font-display' })
-const bodyFont = IBM_Plex_Sans({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-body' })
-const mono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-mono' })
-
+// Fonts cascade from the root layout's next/font trio — no local loads.
 export const metadata = { title: 'DSP AI Agent Mastery — Dashboard', robots: { index: false, follow: false } }
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
   const sb = await supabaseServer()
   const { data: { user } } = await sb.auth.getUser()
-  const fonts = `page-mastery app ${display.variable} ${bodyFont.variable} ${mono.variable}`
+  const fonts = "page-mastery app"
 
   if (!user) return <div className={fonts}>{children}</div>  // /app/login renders here
 

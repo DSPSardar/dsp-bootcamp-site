@@ -28,7 +28,7 @@ export default async function MasteryPreview({ searchParams }: { searchParams: P
       )}
       <ul style={{ marginTop: 24, lineHeight: 1.9 }}>
         {lessons.map((l) => (
-          <li key={l.bunny!.guid}><a style={{ color: '#F0D27A' }} href={`?key=${key}&v=${l.bunny!.guid}`}>{l.module} — {l.file} ({l.minutes} min)</a></li>
+          <li key={l.bunny!.guid}><a style={{ color: '#E08D66' }} href={`?key=${key}&v=${l.bunny!.guid}`}>{l.module} — {l.file} ({l.minutes} min)</a></li>
         ))}
       </ul>
     </main>

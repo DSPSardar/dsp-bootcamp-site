@@ -3,6 +3,7 @@
 // human-approval rule repeats in the hero, the system section, and the
 // FAQ deliberately — it is the differentiator.
 import type { Metadata } from 'next'
+import { breadcrumbLd } from '@/lib/schema'
 import SiteShell from '@/components/site/SiteShell'
 import TrackedLink from '@/components/site/TrackedLink'
 import { CheckIcon, WhatsAppIcon } from '@/components/home/icons'
@@ -84,6 +85,8 @@ const faqs = [
 export default function ChannelOpsPage() {
   return (
     <SiteShell>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd([{ name: 'ChannelOps', path: '/channelops' }])) }} />
+
       {/* ============ HERO ============ */}
       <section className="hero-dark">
         <div className="wrap split">
