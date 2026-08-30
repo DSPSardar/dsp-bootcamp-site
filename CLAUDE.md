@@ -49,7 +49,7 @@ The `agency` export holds all AI Employees facts (employee cards, proof-bar numb
 - **Blog and contact** (`src/app/blog/`, `src/app/contact/`) keep the old dark theme: `globals.css` variables plus `src/components/Nav.tsx`/`Footer.tsx`, rendered by their **own route layouts**, not the root layout. The root layout intentionally renders no nav/footer.
 - Root layout (`src/app/layout.tsx`) owns `metadataBase`, `alternates: { canonical: './' }`, the sitewide Organization JSON-LD, and GA4 (`src/components/site/Analytics.tsx`, active only when `NEXT_PUBLIC_GA4_ID` is set). Page-level JSON-LD: FAQPage on the bootcamp page (Course schema was removed at the sunset — do not re-add it), Service on `/agents`, Product on `/agents/restaurant-ai`, Person on `/about`.
 
-GA4 events: `whatsapp_cta_click`, `restaurant_demo_click`, `academy_cta_click`, `agents_cta_click`, `channelops_course_cta`, `channelops_service_cta`, `channelops_whatsapp_cta` — fired via `src/lib/track.ts` and `src/components/site/TrackedLink.tsx`.
+GA4 events: `whatsapp_cta_click`, `restaurant_demo_click`, `academy_cta_click`, `agents_cta_click`, `channelops_course_cta`, `channelops_service_cta`, `channelops_whatsapp_cta`, `begin_enrol` (nav CTAs + `/mastery` "Pay directly" links, `{cta, location}`), `whatsapp_click` (`/mastery` primary CTAs, `{location}` — WhatsApp-first by owner ruling 2026-08-30), `view_evolution_complete`, `hire_band_click` — fired via `src/lib/track.ts` and `src/components/site/TrackedLink.tsx`.
 
 ## Blog
 
