@@ -15,7 +15,7 @@ npm run lint     # eslint
 There is no test framework. Tests are standalone Node scripts that statically check source files and exit non-zero on failure:
 
 ```bash
-npm run test:nav            # Nav.tsx must keep /agents /mastery /blog /about links
+npm run test:nav            # both navs (Nav.tsx + SiteHeader.tsx) must keep /ai-employees /mastery /pricing /blog /about + the /mastery/enrol CTA
 npm run test:mobile-layout
 npm run test:blog-cta
 ```

@@ -42,7 +42,11 @@ export default function Footer() {
           aria-label="Footer navigation"
           style={{ display: 'flex', flexWrap: 'wrap', gap: '0.25rem 1.5rem' }}
         >
+          {/* /agents and /channelops left the header at the Phase 2 nav
+              rebuild (blueprint §2) — they stay reachable from here. */}
           {[
+            { label: 'AI Agents', href: '/agents' },
+            { label: 'ChannelOps', href: '/channelops' },
             { label: 'Blog', href: '/blog' },
             { label: 'Contact', href: '/contact' },
             {

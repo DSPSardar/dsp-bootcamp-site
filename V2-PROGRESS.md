@@ -3,6 +3,14 @@
 Working branch: `claude/dsp-website-v2-build-gkpkaw` · one PR per phase, title prefixed `[Phase N]` · owner merges, never Claude.
 Governing document: `docs/DSP-Website-V2-Master-Blueprint.md` (supersedes the original brief; §0.4 records the bootcamp sunset; `/learn` is cancelled).
 
+## Phase 2 — navigation (PR #3)
+
+| Unit | What | Notes |
+|---|---|---|
+| header (company shell) | SiteHeader rebuilt per blueprint §2: AI Employees · Mastery · Hire · Blog · About + one CTA **[Enrol — $100]** → `/mastery/enrol` (fires `begin_enrol`, price from `mastery.priceUsd`); WhatsApp button out of the header | **Hire → `/pricing`** (judgment call: §2 rules /agents and /contact out of nav; /pricing is the agency's commercial page — one-line change if ruled otherwise). **Student Work deferred** until `/student-work` ships in Phase 5 — never link a 404 |
+| header (blog shell) | Nav.tsx mirrors the same five items + Enrol CTA; `test:nav` extended to guard both nav components and the CTA in the same commit | /contact left the header, stays in Footer |
+| footer reachability | blog-shell Footer picks up /agents + /channelops (their only links on that shell after the rebuild); SiteFooter already carries all out-of-nav pages | Out of nav, still live: /agents, /channelops, /academy/bootcamp, /contact |
+
 ## Phase 1 — fonts + design tokens (PR #2)
 
 | Unit | What | Notes |
