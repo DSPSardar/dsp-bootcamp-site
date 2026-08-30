@@ -3,7 +3,7 @@
 // ASOS demo number) come from src/config/site.ts and render placeholders
 // until the publish checklist signs them off.
 import type { Metadata } from 'next'
-import { breadcrumbLd as breadcrumbLd_build } from '@/lib/schema'
+import { breadcrumbLd as breadcrumbLd_build, faqPageLd } from '@/lib/schema'
 import Link from 'next/link'
 import SiteShell from '@/components/site/SiteShell'
 import TrackedLink from '@/components/site/TrackedLink'
@@ -118,6 +118,11 @@ export default function AiEmployeesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+      {/* Mirrors the visible FAQ below verbatim (faqs is the single source). */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageLd(faqs)) }}
       />
 
       {/* ============ 1 · HERO ============ */}
