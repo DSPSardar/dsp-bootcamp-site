@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: '%s | DSP',
   },
   description:
-    'AI agent development company and academy. We build production AI agents for clients worldwide, and train you to build them — starting with a 7-day bootcamp.',
+    'DSP builds AI Employees for businesses worldwide — AI agents that handle sales, support, bookings, and phone orders — and teaches you to build them through DSP AI Agent Mastery, a self-paced program.',
   openGraph: {
     siteName: 'Digital Services Program',
     type: 'website',

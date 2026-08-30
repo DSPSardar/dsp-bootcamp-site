@@ -1,7 +1,8 @@
-// src/app/page.tsx — two-door company homepage (agency + Agentic Lab).
-// 13 sections in locked order per the homepage copy doc. H1, title, and
-// meta tags are frozen — agency content is added around them.
-// The bootcamp landing page lives on at /academy/bootcamp.
+// src/app/page.tsx — company homepage (AI Employees + Mastery).
+// 13 sections in locked order per the homepage copy doc. The Agentic Lab
+// door and CTAs were removed at the bootcamp sunset (2026-08-30); Phase 4
+// rebuilds the page around Mastery. The Lab's evergreen explainer lives
+// at /academy/bootcamp.
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -16,7 +17,7 @@ import { agency, site } from '@/config/site'
 export const metadata: Metadata = {
   title: { absolute: 'Digital Services Program — We Build AI Agents. We Train You to Build Them.' },
   description:
-    'DSP is an AI agent development company and academy. We build production AI agents for clients worldwide — and train you to build them, starting with a 7-day bootcamp.',
+    'DSP builds AI Employees — AI agents that handle sales, support, bookings, and phone orders for your business — and teaches you to build them through DSP AI Agent Mastery, a self-paced program.',
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'DSP — We Build AI Agents. We Train You to Build Them.',
     description:
-      'AI agent development company + academy. 7 days to your first deployed AI agent.',
+      'AI Employees for your business + DSP AI Agent Mastery, self-paced training to build your own.',
     images: ['/og-card.png'],
   },
 }
@@ -72,8 +73,8 @@ export default function HomePage() {
           <h1>We build AI agents. <em>We train you to build them.</em></h1>
           <p className="sub">
             Digital Services Program builds AI Employees for businesses on our own platform,
-            DSPAgentHub — and trains the next generation of AI agent builders every week in the
-            DSP Agentic Lab.
+            DSPAgentHub — and teaches you to build your own through DSP AI Agent Mastery,
+            our self-paced program.
           </p>
           <div className="door-grid">
             <div className="door">
