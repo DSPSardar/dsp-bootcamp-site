@@ -1,10 +1,35 @@
 import type { Metadata } from 'next'
+import { breadcrumbLd, faqPageLd, masteryCourseLd } from '@/lib/schema'
 import Image from 'next/image'
 import { site, waLink, mastery } from '@/config/site'
 import { welcomeVideoId } from '@/lib/mastery/course'
 import { bunnyConfigured } from '@/lib/mastery/bunny'
 import MasteryClient from './MasteryClient'
 import './mastery.css'
+
+
+// Structured data (blueprint §10): Course + Offer, FAQPage mirroring the
+// visible FAQ below (keep MASTERY_FAQS in sync with it), and breadcrumbs.
+const MASTERY_FAQS = [
+  { q: 'I have never coded. Can I really do this?',
+    a: 'Yes. That is the audience this was built for. You describe what you want and Claude Code writes the code. Your job is to plan, direct, test and ship — which is what the program teaches. If you can write a clear WhatsApp message, you can write a Job Description.' },
+  { q: 'How much time does it take?',
+    a: 'About an hour a day for 30 days, or four sessions a week for eight weeks. Each module is one to three lectures plus a build. Lifetime access means you can go slower — the only thing that doesn\u2019t work is stopping.' },
+  { q: 'Windows or Mac?',
+    a: 'Both. Setup guides for each are in Module 3, including the fixes for the common Windows issues we\u2019ve solved with hundreds of students.' },
+  { q: 'Is $100 really all I pay?',
+    a: '$100 covers the entire program, lifetime. You will need a Claude account to build with during the modules — Module 3 walks you through setup and the free-tier route, and paid Claude plans start at $20/month if you choose to upgrade. GitHub and Vercel are free for what this program uses. No other purchase is required to finish.' },
+  { q: 'What does \u201cone year of free support\u201d mean?',
+    a: 'You\u2019re in the DSP group from day one. Questions are answered in the group within one working day, and there\u2019s a weekly live Q&A. It\u2019s group support, not private 1:1 debugging — that\u2019s how we keep it free and fast for everyone.' },
+  { q: 'Is it in Urdu or English?',
+    a: 'Lectures are taught in an Urdu–English mix, the way DSP teaches live. All templates, slides and downloads are in English. Subtitles are provided.' },
+  { q: 'Can I pay from Pakistan?',
+    a: 'Yes — bank transfer, JazzCash or Easypaisa. Go to the enrol page, send the payment, upload the screenshot with your email, and we send your sign-in link once it\u2019s verified — usually within a few hours.' },
+  { q: 'Do I get a recognised certificate?',
+    a: 'Two kinds. The DSP Master certificate has a public verification page showing the live agent you built — that is proof of work, not attendance. Separately, Module 3 walks you through Claude Academy, the free training run by Anthropic — the US company that builds Claude — so you finish holding three of their course completion badges with your name on them — Claude 101, Claude Code 101 and Introduction to Claude Cowork. Those are issued by Anthropic, not by DSP. Neither is a university accreditation; what employers and clients actually check is the working agent behind the link.' },
+  { q: 'Refunds?',
+    a: 'Seven days, no questions. Start Module 1; if it isn\u2019t for you, email us and we refund in full.' },
+]
 
 // Fonts cascade from the root layout's next/font trio (Instrument Serif /
 // Inter / JetBrains Mono) via the :root variable mapping — no local loads.
@@ -32,6 +57,9 @@ export default function MasteryPage() {
   ].map((v) => ({ ...v, src: bunnyConfigured ? `/api/video/${v.guid}` : null })).filter((v) => v.src)
   return (
     <div className="page-mastery">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(masteryCourseLd()) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageLd(MASTERY_FAQS)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd([{ name: 'AI Agent Mastery', path: '/mastery' }])) }} />
 <nav className="nav"><div className="wrap">
   <a className="logo" href="#top">DSP <span>·</span> AI Agent Mastery</a>
   <div className="navlinks">

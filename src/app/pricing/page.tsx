@@ -4,6 +4,7 @@
 // Deliberate wording: usage limits stay a "generous monthly AI-usage
 // allowance" — never publish raw token numbers.
 import type { Metadata } from 'next'
+import { breadcrumbLd as breadcrumbLd_build } from '@/lib/schema'
 import Link from 'next/link'
 import SiteShell from '@/components/site/SiteShell'
 import TrackedLink from '@/components/site/TrackedLink'
@@ -61,14 +62,7 @@ const pricingLd = {
   },
 }
 
-const breadcrumbLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
-    { '@type': 'ListItem', position: 2, name: 'Pricing', item: `${site.url}/pricing` },
-  ],
-}
+const breadcrumbLd = breadcrumbLd_build([{ name: 'Pricing', path: '/pricing' }])
 
 const featureMatrix: Array<[string, boolean, boolean, boolean]> = [
   ['24/7 WhatsApp coverage', true, true, true],

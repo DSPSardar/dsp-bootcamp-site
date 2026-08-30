@@ -1,5 +1,6 @@
 // src/app/about/page.tsx — Sardar Abdul Ghaffar Khan and the company.
 import type { Metadata } from 'next'
+import { breadcrumbLd } from '@/lib/schema'
 import Image from 'next/image'
 import Link from 'next/link'
 import SiteShell from '@/components/site/SiteShell'
@@ -58,6 +59,8 @@ const sundasLd = {
 export default function AboutPage() {
   return (
     <SiteShell>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd([{ name: 'About', path: '/about' }])) }} />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}

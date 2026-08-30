@@ -1,5 +1,6 @@
 // src/app/agents/restaurant-ai/page.tsx — flagship product page (US audience).
 import type { Metadata } from 'next'
+import { breadcrumbLd } from '@/lib/schema'
 import SiteShell from '@/components/site/SiteShell'
 import TrackedLink from '@/components/site/TrackedLink'
 import { CheckIcon } from '@/components/home/icons'
@@ -81,6 +82,8 @@ const STEPS = [
 export default function RestaurantAiPage() {
   return (
     <SiteShell>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd([{ name: 'AI Agents', path: '/agents' }, { name: 'Restaurant AI', path: '/agents/restaurant-ai' }])) }} />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productLd) }}

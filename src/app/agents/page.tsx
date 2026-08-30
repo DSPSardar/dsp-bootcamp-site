@@ -1,5 +1,6 @@
 // src/app/agents/page.tsx — DSP Agents: the software division.
 import type { Metadata } from 'next'
+import { breadcrumbLd } from '@/lib/schema'
 import Link from 'next/link'
 import SiteShell from '@/components/site/SiteShell'
 import TrackedLink from '@/components/site/TrackedLink'
@@ -41,6 +42,8 @@ const serviceLd = {
 export default function AgentsPage() {
   return (
     <SiteShell>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd([{ name: 'AI Agents', path: '/agents' }])) }} />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }}

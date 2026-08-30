@@ -6,6 +6,7 @@
 // Section order is fixed: hero → what I do → live demo → how I'm trained →
 // my dashboard → my pricing → final CTA.
 import type { Metadata } from 'next'
+import { breadcrumbLd as breadcrumbLd_build } from '@/lib/schema'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import SiteShell from '@/components/site/SiteShell'
@@ -60,15 +61,10 @@ export default async function EmployeePage({
   // Adam has no solo package — support/FAQ handling ships in the Sales Team tier.
   const tierIsShared = emp.tierId === 'team'
 
-  const breadcrumbLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
-      { '@type': 'ListItem', position: 2, name: 'AI Employees', item: `${site.url}/ai-employees` },
-      { '@type': 'ListItem', position: 3, name: emp.name, item: `${site.url}/ai-employees/${emp.id}` },
-    ],
-  }
+  const breadcrumbLd = breadcrumbLd_build([
+    { name: 'AI Employees', path: '/ai-employees' },
+    { name: emp.name, path: `/ai-employees/${emp.id}` },
+  ])
 
   const serviceLd = {
     '@context': 'https://schema.org',

@@ -3,6 +3,7 @@
 // ASOS demo number) come from src/config/site.ts and render placeholders
 // until the publish checklist signs them off.
 import type { Metadata } from 'next'
+import { breadcrumbLd as breadcrumbLd_build } from '@/lib/schema'
 import Link from 'next/link'
 import SiteShell from '@/components/site/SiteShell'
 import TrackedLink from '@/components/site/TrackedLink'
@@ -25,14 +26,7 @@ export const metadata: Metadata = {
   },
 }
 
-const breadcrumbLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
-    { '@type': 'ListItem', position: 2, name: 'AI Employees', item: `${site.url}/ai-employees` },
-  ],
-}
+const breadcrumbLd = breadcrumbLd_build([{ name: 'AI Employees', path: '/ai-employees' }])
 
 // Service schema for the hub. Prices live on /pricing (which carries the
 // Offer catalog) — here each Employee is listed as the service it performs.

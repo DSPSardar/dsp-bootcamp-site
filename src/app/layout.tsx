@@ -4,7 +4,8 @@ import { Instrument_Serif, Inter, JetBrains_Mono } from 'next/font/google'
 import './tokens.css'
 import './globals.css'
 import Analytics from '@/components/site/Analytics'
-import { site, socials } from '@/config/site'
+
+import { organizationLd } from '@/lib/schema'
 
 // Blueprint §6: display serif on hero + H2 only, Inter for body/UI,
 // JetBrains Mono for code — all self-hosted via next/font (no runtime
@@ -51,21 +52,8 @@ export const viewport: Viewport = {
   maximumScale: 5,
 }
 
-// Sitewide Organization schema — page-level schemas (Course, Product, Service,
-// Person) live on their own pages.
-const organizationLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: site.name,
-  alternateName: site.shortName,
-  slogan: site.tagline,
-  url: site.url,
-  logo: `${site.url}/logo.webp`,
-  email: site.email,
-  telephone: '+92-342-0580864',
-  address: { '@type': 'PostalAddress', addressLocality: site.city, addressCountry: 'PK' },
-  sameAs: Object.values(socials),
-}
+// Sitewide Organization schema via the typed builder (src/lib/schema.ts) —
+// page-level schemas (Course, Product, Service, Person) live on their own pages.
 
 export default function RootLayout({
   children,
@@ -86,7 +74,7 @@ export default function RootLayout({
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd()) }}
         />
         {children}
         <Analytics />
