@@ -3,6 +3,13 @@
 Working branch: `claude/dsp-website-v2-build-gkpkaw` · one PR per phase, title prefixed `[Phase N]` · owner merges, never Claude.
 Governing document: `docs/DSP-Website-V2-Master-Blueprint.md` (supersedes the original brief; §0.4 records the bootcamp sunset; `/learn` is cancelled).
 
+## Phase 4 — homepage v2 (PR #5)
+
+| Unit | What | Notes |
+|---|---|---|
+| evolution | `src/components/home/Evolution.tsx` — §4-02 rail (AI Employee at 2x weight), the site's ONE animation (§7): IntersectionObserver reveal, 200ms, no library; SSR/no-JS/reduced-motion render fully lit; fires `view_evolution_complete` once | Dim happens via rAF after mount (lint: no sync setState in effects) |
+| homepage | `/` rebuilt to the §4 thirteen-section locked order, Mastery-primary. Agency appears exactly twice (proof + hire band, §0.1). All proof pre-existing: `agency.proof` counters + as-of, 180+/6 cohort history, the /mastery Bunny student videos (existing `/api/video` allowlist, hidden when Bunny env is absent), Anthropic cert photos, earnings disclaimer kept. FAQ = 8 already-published answers + FAQPage LD. Enrol CTAs → `/mastery/enrol` (`begin_enrol` ×3); `hire_band_click`; hero italic uses `--t-accent-bright` (AA-large 3.45:1 on navy-deep) — the homepage's last legacy gold is gone | Sundus card moved off the homepage per §4 ("INSTRUCTOR — Sardar") — she stays on /about. Employee cards / live demo / platform / pricing teaser left the homepage, all still live on their own pages. Legacy classes (authority-bar, hero-pill, door-grid, teaser-tiers) stay in site.css — restaurant-ai and the bootcamp explainer still use them |
+
 ## Phase 3 — /ai-employees pillar (PR #4)
 
 | Unit | What | Notes |
