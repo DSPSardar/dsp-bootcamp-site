@@ -49,10 +49,6 @@ export const bootcamp = {
   schedule: 'Mon–Fri, 9–10 PM PKT',
   /** 4 certificates (3 Anthropic + 1 DSP) — earned by past students */
   certificates: 4,
-  /** Still read by /academy (pending sunset ruling on that page) —
-      remove both once /academy stops advertising batches. */
-  seats: 30,
-  batchCadence: 'New batch every Monday',
   /** Final totals at sunset */
   batchesCompleted: 6,
   /** Estimate: batchesCompleted × 30 seats. Update with the real total if known precisely. */

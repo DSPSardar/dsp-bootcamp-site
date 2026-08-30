@@ -3,12 +3,16 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async redirects() {
     // Friendly short URLs → canonical course pages.
-    // /academy/fde is retired but Google-indexed — 301 it (and its old
-    // short URL) to /academy so the SEO equity isn't wasted on a 404.
+    // /academy was retired at the bootcamp sunset (2026-08-30): education
+    // intent now lands on /mastery, DSP's only educational product. The
+    // retired FDE track's URLs point there directly (no redirect chains).
+    // /academy/bootcamp itself stays live — an exact-match /academy source
+    // does not catch it.
     return [
       { source: "/bootcamp", destination: "/academy/bootcamp", permanent: true },
-      { source: "/fde", destination: "/academy", permanent: true },
-      { source: "/academy/fde", destination: "/academy", permanent: true },
+      { source: "/academy", destination: "/mastery", permanent: true },
+      { source: "/fde", destination: "/mastery", permanent: true },
+      { source: "/academy/fde", destination: "/mastery", permanent: true },
     ];
   },
   async headers() {

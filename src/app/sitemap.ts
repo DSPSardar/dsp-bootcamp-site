@@ -19,7 +19,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     { url: `${SITE}/pricing`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE}/agents/restaurant-ai`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${SITE}/academy`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.85 },
     { url: `${SITE}/agents`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.85 },
     { url: `${SITE}/channelops`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE}/agents/case-studies`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },

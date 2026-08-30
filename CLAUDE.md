@@ -26,7 +26,7 @@ Pushing to `main` triggers `.github/workflows/deploy.yml`: build + deploy to Ver
 
 Company site for DSP (Digital Services Program): a software division building AI agents (**DSP Agents**) and a training division (**DSP Academy**). Next.js 16.2.9 App Router, React 19, Tailwind 4, TypeScript.
 
-Routes: `/mastery` (self-paced AI Agent Mastery — DSP's only educational product, own shell) · `/` homepage (agency + Mastery; V2 rebuild pending, see V2-PROGRESS.md) · `/ai-employees` (AI Employees hub: Zara/Adam/Maya/Emma) · `/pricing` (published USD agency pricing) · `/agents` + `/agents/restaurant-ai` + `/agents/case-studies` (software division) · `/academy` + `/academy/bootcamp` (the sunset Agentic Lab — see locked facts below; URLs frozen for SEO) · `/about` · `/blog` (43 legacy posts) · `/contact` · `/channelops` (ChannelOps product: YouTube cleanup as a service + course). `/bootcamp` 301s to `/academy/bootcamp`; the retired 30-day program's URLs 301 to `/academy` (next.config.ts).
+Routes: `/mastery` (self-paced AI Agent Mastery — DSP's only educational product, own shell) · `/` homepage (agency + Mastery; V2 rebuild pending, see V2-PROGRESS.md) · `/ai-employees` (AI Employees hub: Zara/Adam/Maya/Emma) · `/pricing` (published USD agency pricing) · `/agents` + `/agents/restaurant-ai` + `/agents/case-studies` (software division) · `/academy/bootcamp` (the sunset Agentic Lab's evergreen explainer — see locked facts below; URL frozen for SEO) · `/about` · `/blog` (43 legacy posts) · `/contact` · `/channelops` (ChannelOps product: YouTube cleanup as a service + course). `/bootcamp` 301s to `/academy/bootcamp`; `/academy` (retired at the sunset) and the retired 30-day program's URLs 301 to `/mastery` (next.config.ts).
 
 ## Config-driven facts
 
@@ -44,7 +44,7 @@ The `agency` export holds all AI Employees facts (employee cards, proof-bar numb
 
 ## Architecture: three visual shells, deliberately isolated
 
-- **Company pages** (`/`, `/agents/*`, `/academy`, `/about`) use `src/components/site/SiteShell.tsx` (SiteHeader/SiteFooter) with `src/app/site.css`, scoped under `.dsp-site`.
+- **Company pages** (`/`, `/agents/*`, `/about`) use `src/components/site/SiteShell.tsx` (SiteHeader/SiteFooter) with `src/app/site.css`, scoped under `.dsp-site`.
 - **Bootcamp page** (`src/app/academy/bootcamp/` + `src/components/home/`) is the sunset Agentic Lab's evergreen explainer, rendered on the shared `.dsp-site` system. Page-specific styles (day rows, FAQ) live in `src/app/bootcamp.css`, scoped under `.page-bootcamp` — put new bootcamp-only CSS there, not in site.css.
 - **Blog and contact** (`src/app/blog/`, `src/app/contact/`) keep the old dark theme: `globals.css` variables plus `src/components/Nav.tsx`/`Footer.tsx`, rendered by their **own route layouts**, not the root layout. The root layout intentionally renders no nav/footer.
 - Root layout (`src/app/layout.tsx`) owns `metadataBase`, `alternates: { canonical: './' }`, the sitewide Organization JSON-LD, and GA4 (`src/components/site/Analytics.tsx`, active only when `NEXT_PUBLIC_GA4_ID` is set). Page-level JSON-LD: FAQPage on the bootcamp page (Course schema was removed at the sunset — do not re-add it), Service on `/agents`, Product on `/agents/restaurant-ai`, Person on `/about`.
