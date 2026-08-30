@@ -15,9 +15,11 @@ Working branch: `claude/dsp-website-v2-build-gkpkaw` · one PR per phase, title 
 | Fix 6 | Removed duplicate 4-part formula block on `/mastery` (5-part hero version kept) | done | see git log |
 | Fix 7 | Homepage dead CTAs removed: case-studies teaser section gone; Emma placeholder hidden on the homepage only (`emmaPlaceholder={false}`), still shown on /ai-employees; real Emma button auto-appears everywhere once `emmaDemoPhone` is set | done | see git log |
 
-## Decisions needed from the owner
+## Sunset reference audit — executed under the owner's blanket ruling (2026-08-30)
 
-- **Sunset reference audit**: rulings pending on the remaining bootcamp/batch references outside the homepage and `/academy/bootcamp` (list reported in session — notably `/academy`, `/about`, homepage + root metadata descriptions, and two flagged `/mastery` lines: "Weekly live Q&A, recorded" and "recorded live with real students", both untouched by instruction).
+One commit per surface: **C** `/academy` retired, 301 → `/mastery` (FDE redirects re-pointed there too, no chains) · **B** sitewide + homepage metadata and hero lead with AI Employees + Mastery · **D** `/about` past-tensed, CTA → `/mastery` · **A** Agentic Lab left primary nav; SiteFooter carries the history entry "The Agentic Lab (2025–2026)"; blog-shell "Join Bootcamp" CTA → Mastery; `test:nav` updated in the same commit · **blog** post CTA → `/mastery`, `test:blog-cta` rewritten (app copy only; `dsp-blog-migration/` is a frozen archive) · **E** ChannelOps "Bootcamp" → "Agentic Lab alumni", perk + PKR 25,000 alumni fee kept live (meaning-preserving, flagged) · **G** bootcamp PDF + DOCX handouts removed from `public/` (the PDF printed the private phone number, the fee, and weekly batches), syllabus-download block removed, bootcamp sitemap entry demoted to monthly/0.5.
+
+Untouched by owner exception: `/mastery` "Weekly live Q&A, recorded" (+ same promise in its FAQ), "recorded live with real students", all student testimonials referencing the bootcamp, and the `/academy/bootcamp` URL (live, indexed, no 301).
 
 ## Open items
 
