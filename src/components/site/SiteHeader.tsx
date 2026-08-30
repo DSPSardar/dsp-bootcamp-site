@@ -2,17 +2,17 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { waLink } from '@/config/site'
-import { WhatsAppIcon } from '@/components/home/icons'
+import { mastery } from '@/config/site'
 import TrackedLink from '@/components/site/TrackedLink'
 
-// The Agentic Lab left primary nav at the bootcamp sunset (2026-08-30);
-// its evergreen explainer stays reachable via the footer history entry.
+// Blueprint §2: AI Employees · Mastery · Student Work · Hire · Blog · About
+// + one CTA [Enrol — $100]. /agents, /channelops, /academy/bootcamp and
+// /contact are out of nav but stay live (linked from SiteFooter).
+// Student Work joins when /student-work ships (Phase 5) — never link a 404.
 const links = [
   { label: 'AI Employees', href: '/ai-employees' },
-  { label: 'AI Agents', href: '/agents' },
-  { label: 'AI Agent Mastery', href: '/mastery' },
-  { label: 'ChannelOps', href: '/channelops' },
+  { label: 'Mastery', href: '/mastery' },
+  { label: 'Hire', href: '/pricing' },
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
 ]
@@ -53,12 +53,11 @@ export default function SiteHeader() {
         </ul>
         <TrackedLink
           className="btn btn-primary btn-sm"
-          href={waLink('Hi DSP, I have a question.')}
-          event="whatsapp_cta_click"
+          href="/mastery/enrol"
+          event="begin_enrol"
           params={{ cta: 'site_header' }}
         >
-          <WhatsAppIcon />
-          WhatsApp us
+          Enrol — ${mastery.priceUsd}
         </TrackedLink>
       </div>
     </header>
