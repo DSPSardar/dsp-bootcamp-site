@@ -1480,16 +1480,23 @@
       "badge_after": null,
       "lessons": [
         {
-          "file": "M14-L01_Multi-Agent-One-Agent-Many-Clients_NEW.mp4",
+          "file": "M14-L01_Multi-Agent-Systems-Business-Automation.mp4",
           "folder": "Phase-4-Seller/M14-Multi-Agent-Business-Automation",
           "youtube_id": null,
-          "minutes": 45,
+          "minutes": 42,
           "source": "NEW",
           "status": "NEW",
           "chapters": [],
-          "master": null,
+          "master": "M14-L01_Multi-Agent-Systems-Business-Automation_v1.mp4",
           "kind": "core",
-          "order": "L01"
+          "order": "L01",
+          "source_note": "live class 30 Aug 2026",
+          "bunny": {
+            "guid": "4f2e1b02-d851-488d-8c8c-f28c841a2dba",
+            "status": "processing",
+            "version": 1,
+            "uploaded_at": "2026-08-30T17:58:31.842Z"
+          }
         },
         {
           "file": "M14-S01_First-Multi-Agent-System_fxfDEBHjpC4.mp4",
