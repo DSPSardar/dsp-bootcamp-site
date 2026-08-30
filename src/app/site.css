@@ -306,6 +306,56 @@
 .dsp-site .teaser-tiers .card strong.from{display:block;font-family:var(--disp);font-weight:800;font-size:1.7rem;margin-top:.3rem}
 .dsp-site .teaser-tiers .card strong.from small{font-size:.9rem;font-weight:500;color:var(--navy-soft)}
 
+/* ---------- homepage v2 (blueprint §4) ---------- */
+/* 02 · evolution rail — the site's ONE animation (§7). Stages reveal on
+   scroll (200ms opacity/translate); no-JS and reduced-motion render lit. */
+.dsp-site .evo{list-style:none;display:grid;grid-template-columns:1fr 1fr 1fr 1.7fr 1fr;gap:1rem;align-items:stretch}
+.dsp-site .evo li{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:1.25rem;opacity:.22;transform:translateY(12px);transition:opacity .2s ease,transform .2s ease}
+.dsp-site .evo li.on{opacity:1;transform:none}
+.dsp-site .evo .stage-verb{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-deep);display:block;margin-bottom:.5rem}
+.dsp-site .evo h3{font-size:1.1rem;margin-bottom:.35rem}
+.dsp-site .evo p{font-size:.9rem;color:var(--navy-soft)}
+.dsp-site .evo li.featured{background:var(--navy);border-color:var(--navy);padding:1.6rem 1.4rem}
+.dsp-site .evo li.featured h3{color:#fff;font-size:1.35rem}
+.dsp-site .evo li.featured p{color:#C9D6EC;font-size:.97rem}
+.dsp-site .evo li.featured .stage-verb{color:#9FD6DD}
+
+/* 01 · hero italic — bright terracotta, large/decorative only
+   (§5: --t-accent-bright; 3.45:1 on navy-deep passes AA-large) */
+.dsp-site .home-hero h1 em{color:var(--t-accent-bright)}
+
+/* 06 · proof — student videos + Anthropic certificates */
+.dsp-site .video-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.dsp-site .video-frame{position:relative;aspect-ratio:16/9;background:var(--navy-deep);border-radius:var(--radius);overflow:hidden}
+.dsp-site .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.dsp-site .video-caption{font-size:.9rem;color:var(--navy-soft);margin-top:.6rem}
+.dsp-site .video-caption strong{color:var(--navy)}
+.dsp-site .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:1.4rem}
+.dsp-site .cert-grid figure{margin:0}
+.dsp-site .cert-grid img{border-radius:10px;border:1px solid var(--line);width:100%;height:auto}
+.dsp-site .cert-grid figcaption{font-family:var(--mono);font-size:.75rem;color:var(--navy-soft);margin-top:.5rem}
+.dsp-site .fineprint{font-size:.88rem;color:var(--navy-soft);font-style:italic;margin-top:1.2rem}
+
+/* 08 · what-you-build flow */
+.dsp-site .flow{list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:.7rem;font-family:var(--disp);font-weight:600;font-size:.98rem}
+.dsp-site .flow li{background:var(--white);border:1px solid var(--line);border-radius:999px;padding:.65rem 1.2rem}
+.dsp-site .flow li small{display:block;font-family:var(--mono);font-weight:400;font-size:.68rem;color:var(--teal-deep);letter-spacing:.08em;text-transform:uppercase}
+.dsp-site .flow li.core{background:var(--navy);color:#fff;border-color:var(--navy)}
+.dsp-site .flow li.core small{color:#9FD6DD}
+.dsp-site .flow .arrow{color:var(--navy-soft);font-weight:800;flex:none}
+
+/* 11 · hire band — small, one sentence, one link, no accent (§4) */
+.dsp-site .hire-band{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 0}
+.dsp-site .hire-band .wrap{display:flex;align-items:center;justify-content:space-between;gap:1.4rem;flex-wrap:wrap}
+.dsp-site .hire-band p{color:var(--navy-soft);font-size:1rem;margin:0}
+.dsp-site .hire-band a{font-weight:600;color:var(--navy);white-space:nowrap}
+
+@media (max-width:960px){
+  .dsp-site .evo{grid-template-columns:1fr}
+  .dsp-site .video-grid{grid-template-columns:1fr}
+  .dsp-site .cert-grid{grid-template-columns:1fr}
+}
+
 /* ---------- responsive ---------- */
 @media (max-width: 960px){
   .dsp-site .door-grid,.dsp-site .teaser-tiers{grid-template-columns:1fr}
