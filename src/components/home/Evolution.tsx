@@ -56,7 +56,9 @@ export default function Evolution() {
       return // keep everything lit, no animation
     }
     const items = Array.from(el.children)
-    setLit(0)
+    // Dim on the next frame (not synchronously in the effect) — the server
+    // HTML stays fully lit until the observer takes over.
+    const raf = requestAnimationFrame(() => setLit(0))
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -73,7 +75,10 @@ export default function Evolution() {
       { threshold: 0.5 }
     )
     items.forEach((item) => observer.observe(item))
-    return () => observer.disconnect()
+    return () => {
+      cancelAnimationFrame(raf)
+      observer.disconnect()
+    }
   }, [])
 
   return (
