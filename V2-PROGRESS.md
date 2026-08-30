@@ -24,7 +24,7 @@ Untouched by owner exception: `/mastery` "Weekly live Q&A, recorded" (+ same pro
 ## Open items
 
 - Add `/mastery/enrol` to the robots.txt disallow list after confirming de-index in Google Search Console — earliest 4 weeks from 2026-08-30 (owner ruling: option B; see TODO in `src/app/robots.ts`).
-- Lint cleanup: 25 pre-existing `react/no-unescaped-entities` errors in `mastery/page.tsx` + three `/app` pages — dedicated cleanup commit at the end of Phase 0, not before.
+- ~~Lint cleanup~~ done (end of Phase 0): the 25 pre-existing `react/no-unescaped-entities` errors in `mastery/page.tsx` + three `/app` pages are fixed (JSX escaping only — rendered copy unchanged), plus two genuinely unused `supabaseServer` imports removed. `npm run lint` is now error-free; the one remaining warning is the deliberate `<img>` on `/mastery`.
 
 ## Notes
 

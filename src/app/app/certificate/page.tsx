@@ -1,4 +1,3 @@
-import { supabaseServer } from '@/lib/supabase/server'
 import { requireStudent } from '@/lib/mastery/auth'
 import { modules, unlockState, badges } from '@/lib/mastery/course'
 
