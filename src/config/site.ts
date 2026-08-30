@@ -91,10 +91,11 @@ export const mastery = {
 
 export const channelops = {
   name: 'The ChannelOps Course',
-  /** Course fee — shown only in the course offer section, like bootcamp pricing */
+  /** Course fee — shown only in the course offer section */
   feePkr: 30_000,
   feeDisplay: 'PKR 30,000',
-  /** Discounted fee for Vibe Coding Bootcamp alumni */
+  /** Discounted fee for alumni of the sunset Agentic Lab bootcamp —
+      a live perk for past students, not an offer of the Lab itself */
   alumniFeePkr: 25_000,
   alumniFeeDisplay: 'PKR 25,000',
   url: '/channelops',

@@ -157,7 +157,7 @@ export default function ChannelOpsPage() {
               <ul className="check-list">
                 <li><CheckIcon /> 5 live classes + weekend capstone on a real channel</li>
                 <li><CheckIcon /> You keep everything you build</li>
-                <li><CheckIcon /> Bootcamp graduates get priority seats</li>
+                <li><CheckIcon /> Agentic Lab alumni get priority seats</li>
               </ul>
               <TrackedLink className="btn btn-gold" href="#course" event="channelops_course_cta" params={{ cta: 'door_builders' }}>
                 See the course →
@@ -263,7 +263,7 @@ export default function ChannelOpsPage() {
             <ul className="check-list">
               <li><CheckIcon /> {channelops.feeDisplay} one-time</li>
               <li><CheckIcon /> New batch monthly · limited seats</li>
-              <li><CheckIcon /> Bootcamp alumni: {channelops.alumniFeeDisplay}</li>
+              <li><CheckIcon /> Agentic Lab alumni: {channelops.alumniFeeDisplay}</li>
             </ul>
           </div>
         </div>
