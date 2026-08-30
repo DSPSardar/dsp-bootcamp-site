@@ -2,17 +2,19 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { mastery } from '@/config/site'
+import { track } from '@/lib/track'
 
-// The Agentic Lab left primary nav at the bootcamp sunset (2026-08-30);
-// education links now point at /mastery, DSP's only educational product.
+// Blueprint §2 nav, mirrored on the blog/contact shell: AI Employees ·
+// Mastery · Student Work · Hire · Blog · About + one CTA [Enrol — $100].
+// /agents, /channelops and /contact are out of nav but live (see Footer).
+// Student Work joins when /student-work ships (Phase 5) — never link a 404.
 const links = [
   { label: 'AI Employees', href: '/ai-employees' },
-  { label: 'AI Agents', href: '/agents' },
-  { label: 'AI Agent Mastery', href: '/mastery' },
-  { label: 'ChannelOps', href: '/channelops' },
+  { label: 'Mastery', href: '/mastery' },
+  { label: 'Hire', href: '/pricing' },
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
 ]
 
 export default function Nav() {
@@ -105,11 +107,12 @@ export default function Nav() {
         {/* CTA + hamburger */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <a
-            href="/mastery"
+            href="/mastery/enrol"
             className="btn-primary"
             style={{ fontSize: '0.8125rem', padding: '0.5rem 1rem', whiteSpace: 'nowrap' }}
+            onClick={() => track('begin_enrol', { cta: 'blog_header' })}
           >
-            AI Agent Mastery →
+            Enrol — ${mastery.priceUsd}
           </a>
           <button
             aria-label={open ? 'Close menu' : 'Open menu'}

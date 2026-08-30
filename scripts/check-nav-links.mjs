@@ -3,26 +3,47 @@ import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
-const navSource = readFileSync(join(root, 'src/components/Nav.tsx'), 'utf8')
 
-// The blog/contact nav must always reach both company divisions and the
-// education product. (/academy and the Agentic Lab left primary nav at the
-// bootcamp sunset, 2026-08-30 — education links point at /mastery now; the
-// Lab's evergreen explainer at /academy/bootcamp is linked from SiteFooter.)
+// Blueprint §2 primary nav, mirrored on both shells: AI Employees · Mastery ·
+// Student Work · Hire · Blog · About + one CTA [Enrol]. Student Work joins the
+// required list when /student-work ships (Phase 5). /agents, /channelops,
+// /academy/bootcamp and /contact are out of nav but stay live via the footers.
+const navSources = [
+  'src/components/Nav.tsx', // blog/contact shell
+  'src/components/site/SiteHeader.tsx', // company shell
+]
+
 const requiredLinks = [
-  '/agents',
+  '/ai-employees',
   '/mastery',
+  '/pricing', // "Hire"
   '/blog',
   '/about',
 ]
 
-const missing = requiredLinks.filter(
-  (href) => !navSource.includes(`href: '${href}'`)
-)
+// The single nav CTA must point at the enrolment flow.
+const requiredCta = '/mastery/enrol'
 
-if (missing.length > 0) {
-  console.error(
-    `Site navigation links must work from every page. Missing: ${missing.join(', ')}`
+let failed = false
+
+for (const file of navSources) {
+  const source = readFileSync(join(root, file), 'utf8')
+
+  const missing = requiredLinks.filter(
+    (href) => !source.includes(`href: '${href}'`)
   )
+  if (missing.length > 0) {
+    console.error(`${file}: missing required nav links: ${missing.join(', ')}`)
+    failed = true
+  }
+
+  if (!source.includes(`"${requiredCta}"`)) {
+    console.error(`${file}: nav CTA must link ${requiredCta}`)
+    failed = true
+  }
+}
+
+if (failed) {
+  console.error('Site navigation must work from every page (blueprint §2).')
   process.exit(1)
 }
