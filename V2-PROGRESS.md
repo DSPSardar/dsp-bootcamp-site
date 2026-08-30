@@ -12,7 +12,9 @@ Governing document: `docs/DSP-Website-V2-Master-Blueprint.md` (supersedes the or
 | tokens | `src/app/tokens.css`: blueprint §5 palette + type scale at `:root`; shells re-point VALUES, scopes stay isolated; body 17→18px; h2 caps at 48px; light + dark shell CTAs → terracotta/white | **WCAG**: blueprint `#C15F3C` fails AA at 16px (3.99:1 on paper, 4.23:1 under white); shipped accent is the proposed darker `#B0522F` (4.84 / 5.13 — both pass). `#C15F3C` kept as `--t-accent-bright` for large/decorative only |
 | mastery swap | Gold → terracotta on the mastery shell, one revertable commit; dark-shell tints `#D97B52`/`#E08D66` (AA on ink/panel), enrol button `#B0522F` + white | Revert this commit alone to restore gold |
 
-Deferred within Phase 1 (owner to confirm scope): blueprint §10 schema builders (`src/lib/schema.ts`, Course+Offer+FAQPage on /mastery, BreadcrumbList). Accent-restraint pass (max 2 accent uses/viewport) lands with the Phase 4 homepage rebuild; decorative golds on the light shell stay until then.
+| schema | `src/lib/schema.ts` typed builders (organization/breadcrumb/faqPage/masteryCourse — **no CourseInstance/Schedule, ever**); /mastery gains Course+Offer+FAQPage(9)+breadcrumb (it had none); breadcrumbs on all major indexed pages + every blog post; Organization + bootcamp FAQ migrated to builders | Page-unique Service/Product/Person/BlogPosting stay as typed literals in their pages |
+
+Accent-restraint pass (max 2 accent uses/viewport) lands with the Phase 4 homepage rebuild; decorative golds on the light shell stay until then.
 
 ## Phase 0 — Audit + emergency fixes
 
