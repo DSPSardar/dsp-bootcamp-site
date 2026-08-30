@@ -1,16 +1,13 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Bricolage_Grotesque, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google'
 import { site, waLink, mastery } from '@/config/site'
 import { welcomeVideoId } from '@/lib/mastery/course'
 import { bunnyConfigured } from '@/lib/mastery/bunny'
 import MasteryClient from './MasteryClient'
 import './mastery.css'
 
-const display = Bricolage_Grotesque({ subsets: ['latin'], weight: ['400', '500', '700', '800'], variable: '--font-display' })
-const bodyFont = IBM_Plex_Sans({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-body' })
-const mono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-mono' })
-
+// Fonts cascade from the root layout's next/font trio (Instrument Serif /
+// Inter / JetBrains Mono) via the :root variable mapping — no local loads.
 // Embed tokens are no longer baked into this page: iframes point at
 // /api/video/[videoId], which signs a short-lived token per request.
 
@@ -34,7 +31,7 @@ export default function MasteryPage() {
       line: 'Came for practical skills — AI agents, automation and prompt engineering — and says the training changed how she works.', portrait: true },
   ].map((v) => ({ ...v, src: bunnyConfigured ? `/api/video/${v.guid}` : null })).filter((v) => v.src)
   return (
-    <div className={`page-mastery ${display.variable} ${bodyFont.variable} ${mono.variable}`}>
+    <div className="page-mastery">
 <nav className="nav"><div className="wrap">
   <a className="logo" href="#top">DSP <span>·</span> AI Agent Mastery</a>
   <div className="navlinks">

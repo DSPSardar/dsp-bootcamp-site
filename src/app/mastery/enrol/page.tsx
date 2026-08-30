@@ -1,13 +1,9 @@
 import type { Metadata } from 'next'
-import { Bricolage_Grotesque, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google'
 import { mastery } from '@/config/site'
 import EnrolForm from './EnrolForm'
 import '../mastery.css'
 
-const display = Bricolage_Grotesque({ subsets: ['latin'], weight: ['400', '700', '800'], variable: '--font-display' })
-const bodyFont = IBM_Plex_Sans({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-body' })
-const mono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-mono' })
-
+// Fonts cascade from the root layout's next/font trio — no local loads.
 export const metadata: Metadata = {
   title: 'Enrol — DSP AI Agent Mastery',
   description: 'Pay in PKR by bank transfer, JazzCash or Easypaisa and get your dashboard access.',
@@ -19,7 +15,7 @@ export const metadata: Metadata = {
 export default function EnrolPage() {
   const p = mastery.pkr
   return (
-    <div className={`page-mastery ${display.variable} ${bodyFont.variable} ${mono.variable}`}>
+    <div className="page-mastery">
       <section style={{ paddingTop: '56px' }}><div className="wrap" style={{ maxWidth: 900 }}>
         <a className="muted" href="/mastery">← Back to the program</a>
         <div className="eyebrow" style={{ marginTop: 18 }}>Enrol · pay in PKR</div>
