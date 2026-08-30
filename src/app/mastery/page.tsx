@@ -205,30 +205,6 @@ export default function MasteryPage() {
     ))}
   </div>
   <p className="muted" style={{marginTop:'22px'}}>Results depend on the work you put in. These are individual students, not a promise of income.</p>
-  <div style={{marginTop:'56px'}}>
-    <div className="eyebrow">Certified by Anthropic</div>
-    <h3 style={{fontSize:'26px',margin:'6px 0 10px'}}>Our students are already holding them.</h3>
-    <p className="lead" style={{marginBottom:'26px'}}>Claude 101, Claude Code 101 and Introduction to Claude Cowork — issued by Anthropic, in their own names. These are the videos they recorded the day the badges arrived. Open any one on YouTube and check it yourself.</p>
-    <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))',gap:'20px'}}>
-      {[
-        { kind: 'bunny' as const, guid: '629c74ef-9842-4102-bd70-50c6b9a17137', name: 'Mirza Talha Hussain', note: 'Claude 101 + Claude Code 101' },
-        { kind: 'yt' as const, id: 'y_jlAv1TnnQ', name: 'Humayun Shaikh', note: 'Certified by Anthropic' },
-      ].map((c) => {
-        const src = c.kind === 'bunny' ? (bunnyConfigured ? `/api/video/${c.guid}` : null) : `https://www.youtube-nocookie.com/embed/${c.id}`
-        if (!src) return null
-        return (
-        <div className="card" key={c.name} style={{padding:'14px'}}>
-          <div style={{position:'relative',paddingTop:'140%',borderRadius:'12px',overflow:'hidden',background:'var(--ink)'}}>
-            <iframe src={src} title={`${c.name} — certified by Anthropic`} loading="lazy" style={{border:0,position:'absolute',top:0,left:0,width:'100%',height:'100%'}} allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowFullScreen />
-          </div>
-          <div className="by" style={{marginTop:'10px'}}>{c.name}</div>
-          <div className="muted" style={{fontSize:'13px'}}>{c.note}</div>
-        </div>
-        )
-      })}
-    </div>
-  </div>
-
 </div></section>
 
 
@@ -314,7 +290,7 @@ export default function MasteryPage() {
       <h2>Three certificates from Claude — Anthropic, USA. And one from DSP.</h2>
       <p className="lead">Every certificate has a public verification page showing the capstone URL and repo behind it. An employer or client can open it and see the agent working. Featured capstones earn Master with Distinction.</p>
       <p className="md" style={{marginTop:'18px'}}><b>You finish with four, and three of them are not ours.</b> Module 3 takes you through Claude Academy, the training run by Anthropic — the American company in San Francisco that builds Claude — and you come out holding <b>Claude 101</b>, <b>Claude Code 101</b> and <b>Introduction to Claude Cowork</b>, each with your own name on it. Anthropic issues them, so they say nothing about DSP and everything about you. The fourth is the DSP Master certificate, and it is the one that points at a live agent you built.</p>
-      <p className="md" style={{marginTop:'12px'}}>None of this is out of reach. Every DSP student who follows the module earns all three — no exam fee, no waiting list, no degree required. Ours have been earning them for months, and we publish every one on our channels the week it lands. Scroll down and you will see them holding the badges.</p>
+      <p className="md" style={{marginTop:'12px'}}>None of this is out of reach. Every DSP student who follows the module earns all three — no exam fee, no waiting list, no degree required. Ours have been earning them for months, and we publish every one on our channels the week it lands.</p>
       <div className="badges">
         <span><b>M06</b>Builder</span><span><b>M10</b>Agent Engineer</span><span><b>M13</b>Production-Ready</span><span><b>M15</b>AI Solutions Seller</span><span><b>CAP</b>Master</span>
       </div>
