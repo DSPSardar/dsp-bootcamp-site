@@ -26,7 +26,7 @@ export default async function CapstonePage() {
       <div className="panel">
         <div className="eyebrow">Capstone</div>
         <h1>Your own AI solution</h1>
-        <p className="md">Build, test, secure, deploy and pitch an original agent — not the café AI Employee. The DSP team reviews it; if something needs fixing you'll get specific feedback and can resubmit any time.</p>
+        <p className="md">Build, test, secure, deploy and pitch an original agent — not the café AI Employee. The DSP team reviews it; if something needs fixing you&apos;ll get specific feedback and can resubmit any time.</p>
         {latest && <p className="note">Latest submission: <b>{latest.status.replace('_', ' ')}</b>{latest.feedback ? ` — ${latest.feedback}` : ''}</p>}
       </div>
       <div className="panel">

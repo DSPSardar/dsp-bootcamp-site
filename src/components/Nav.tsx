@@ -3,12 +3,12 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
+// The Agentic Lab left primary nav at the bootcamp sunset (2026-08-30);
+// education links now point at /mastery, DSP's only educational product.
 const links = [
   { label: 'AI Employees', href: '/ai-employees' },
   { label: 'AI Agents', href: '/agents' },
-  { label: 'Academy', href: '/academy' },
-  // Education arm rebranded "DSP Agentic Lab" — label only, URL frozen for SEO
-  { label: 'Agentic Lab', href: '/academy/bootcamp' },
+  { label: 'AI Agent Mastery', href: '/mastery' },
   { label: 'ChannelOps', href: '/channelops' },
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
@@ -105,13 +105,11 @@ export default function Nav() {
         {/* CTA + hamburger */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <a
-            href="https://wa.me/923420580864?text=Hi%20DSP%2C%20I%20want%20to%20join%20the%20bootcamp"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/mastery"
             className="btn-primary"
             style={{ fontSize: '0.8125rem', padding: '0.5rem 1rem', whiteSpace: 'nowrap' }}
           >
-            Join Bootcamp →
+            AI Agent Mastery →
           </a>
           <button
             aria-label={open ? 'Close menu' : 'Open menu'}

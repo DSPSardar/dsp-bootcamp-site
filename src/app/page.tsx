@@ -1,7 +1,8 @@
-// src/app/page.tsx — two-door company homepage (agency + Agentic Lab).
-// 13 sections in locked order per the homepage copy doc. H1, title, and
-// meta tags are frozen — agency content is added around them.
-// The bootcamp landing page lives on at /academy/bootcamp.
+// src/app/page.tsx — company homepage (AI Employees + Mastery).
+// 13 sections in locked order per the homepage copy doc. The Agentic Lab
+// door and CTAs were removed at the bootcamp sunset (2026-08-30); Phase 4
+// rebuilds the page around Mastery. The Lab's evergreen explainer lives
+// at /academy/bootcamp.
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -11,12 +12,12 @@ import LiveDemoBlock from '@/components/site/LiveDemoBlock'
 import ProofCounters from '@/components/site/ProofCounters'
 import PlatformSection from '@/components/site/PlatformSection'
 import FinalCta from '@/components/site/FinalCta'
-import { agency, bootcamp, site, waLink } from '@/config/site'
+import { agency, site } from '@/config/site'
 
 export const metadata: Metadata = {
   title: { absolute: 'Digital Services Program — We Build AI Agents. We Train You to Build Them.' },
   description:
-    'DSP is an AI agent development company and academy. We build production AI agents for clients worldwide — and train you to build them, starting with a 7-day bootcamp.',
+    'DSP builds AI Employees — AI agents that handle sales, support, bookings, and phone orders for your business — and teaches you to build them through DSP AI Agent Mastery, a self-paced program.',
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'DSP — We Build AI Agents. We Train You to Build Them.',
     description:
-      'AI agent development company + academy. 7 days to your first deployed AI agent.',
+      'AI Employees for your business + DSP AI Agent Mastery, self-paced training to build your own.',
     images: ['/og-card.png'],
   },
 }
@@ -72,8 +73,8 @@ export default function HomePage() {
           <h1>We build AI agents. <em>We train you to build them.</em></h1>
           <p className="sub">
             Digital Services Program builds AI Employees for businesses on our own platform,
-            DSPAgentHub — and trains the next generation of AI agent builders every week in the
-            DSP Agentic Lab.
+            DSPAgentHub — and teaches you to build your own through DSP AI Agent Mastery,
+            our self-paced program.
           </p>
           <div className="door-grid">
             <div className="door">
@@ -87,18 +88,8 @@ export default function HomePage() {
                 Meet the AI Employees →
               </TrackedLink>
             </div>
-            <div className="door">
-              <span className="door-emoji" aria-hidden="true">🎓</span>
-              <h2>Join the DSP Agentic Lab</h2>
-              {/* Fee here is an approved exception to the pricing-sections-only rule (see CLAUDE.md) */}
-              <p>
-                Learn to build AI agents in our 7-day live bootcamp. {bootcamp.feeDisplay}.{' '}
-                {bootcamp.certificates} certificates (3 Anthropic + 1 DSP). {bootcamp.batchCadence}.
-              </p>
-              <TrackedLink className="btn btn-navy" href={bootcamp.url} event="academy_cta_click" params={{ cta: 'home_door_lab' }}>
-                Enter the Agentic Lab →
-              </TrackedLink>
-            </div>
+            {/* The Agentic Lab door was removed at the bootcamp sunset
+                (2026-08-30) — Phase 4 rebuilds the homepage around Mastery. */}
           </div>
         </div>
       </section>
@@ -163,6 +154,7 @@ export default function HomePage() {
         heading="Don’t book a demo. Talk to one right now."
         intro="Other agencies ask you to schedule a call to see a slideshow. Our AI Employees introduce themselves."
         ctaLocation="home"
+        emmaPlaceholder={false}
       />
 
       {/* ============ 6 · PRODUCT PROOF BAR ============ */}
@@ -170,7 +162,9 @@ export default function HomePage() {
         <div className="wrap">
           <ProofCounters />
           <p className="proof-note">
-            These are our own numbers. The same AI Employee that runs DSP&apos;s sales runs yours.
+            These are our own numbers, as of{' '}
+            {new Date(agency.proof.asOf).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}.
+            The same AI Employee that runs DSP&apos;s sales runs yours.
           </p>
         </div>
       </div>
@@ -214,48 +208,9 @@ export default function HomePage() {
       {/* ============ 8 · PLATFORM (shared component) ============ */}
       <PlatformSection />
 
-      {/* ============ 9 · CASE STUDIES TEASER ============ */}
-      <section>
-        <div className="wrap">
-          <div className="sec-head">
-            <p className="eyebrow">Case studies</p>
-            <h2>Working for real businesses today.</h2>
-          </div>
-          {/* Gated: real client cards publish once written permission is secured
-              (agency.caseStudiesApproved in src/config/site.ts) */}
-          {agency.caseStudiesApproved ? null : (
-            <div className="grid-2">
-              <div className="card">
-                <p className="kicker">Case study · publishing soon</p>
-                <p>
-                  Our first client stories are being written up now — with real numbers, published
-                  with each client&apos;s permission.
-                </p>
-                <p style={{ marginTop: '.8rem' }}>
-                  <Link href="/agents/case-studies" style={{ fontWeight: 600 }}>See our current work →</Link>
-                </p>
-              </div>
-              <div className="card">
-                <p className="kicker">Want to be one?</p>
-                <p>
-                  Early clients get founder-level attention — and a case study that markets your
-                  business as well as ours.
-                </p>
-                <p style={{ marginTop: '.8rem' }}>
-                  <TrackedLink
-                    href={waLink('Hi DSP, I want an AI Employee for my business.')}
-                    event="whatsapp_cta_click"
-                    params={{ cta: 'home_case_studies' }}
-                    style={{ fontWeight: 600 }}
-                  >
-                    Talk to us →
-                  </TrackedLink>
-                </p>
-              </div>
-            </div>
-          )}
-        </div>
-      </section>
+      {/* ============ 9 · CASE STUDIES TEASER — removed until real,
+          permissioned client stories exist (agency.caseStudiesApproved).
+          The /agents/case-studies page itself stays live and indexed. */}
 
       {/* ============ 10 · LEADERSHIP ============ */}
       <section style={{ paddingTop: 0 }}>
@@ -339,14 +294,7 @@ export default function HomePage() {
         heading="Hire your first AI Employee this week."
         message="Hi DSP, I want to hire an AI Employee for my business."
         ctaLocation="home_final"
-      >
-        <p style={{ marginTop: '1.2rem', fontSize: '.95rem' }}>
-          Want to build AI agents yourself instead?{' '}
-          <Link href={bootcamp.url} style={{ color: 'var(--gold)', fontWeight: 600 }}>
-            New Agentic Lab batch every Monday →
-          </Link>
-        </p>
-      </FinalCta>
+      />
     </SiteShell>
   )
 }

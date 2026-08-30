@@ -2,9 +2,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { agency } from '@/config/site'
 
-// Product proof bar: 4 stat blocks whose numbers count up when scrolled
-// into view. Falls back to static numbers when reduced motion is set or
-// IntersectionObserver is unavailable.
+// Product proof bar: 4 stat blocks. The REAL values are rendered into the
+// server HTML (progress starts at 1) so crawlers and no-JS users never see
+// zeros; the count-up animation only runs on top of them, after mount, for
+// users without reduced-motion. Values + as-of date live in config.
 const DURATION_MS = 1400
 
 const stats = [
@@ -16,17 +17,20 @@ const stats = [
 
 export default function ProofCounters() {
   const ref = useRef<HTMLUListElement>(null)
-  const [progress, setProgress] = useState(0)
+  // 1 = final values, matching the server-rendered HTML exactly.
+  const [progress, setProgress] = useState(1)
 
   useEffect(() => {
     const el = ref.current
     if (!el) return
-    let raf = 0
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduceMotion || typeof IntersectionObserver === 'undefined') {
-      raf = requestAnimationFrame(() => setProgress(1))
-      return () => cancelAnimationFrame(raf)
+    // Reduced motion or no IntersectionObserver: keep the static values.
+    if (
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      typeof IntersectionObserver === 'undefined'
+    ) {
+      return
     }
+    let raf = 0
     const observer = new IntersectionObserver(
       (entries) => {
         if (!entries.some((e) => e.isIntersecting)) return

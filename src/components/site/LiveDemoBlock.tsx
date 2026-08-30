@@ -23,10 +23,15 @@ export default function LiveDemoBlock({
   heading,
   intro,
   ctaLocation,
+  emmaPlaceholder = true,
 }: {
   heading: string
   intro?: string
   ctaLocation: string
+  /** Show the "phone demo launching soon" pill while Emma's line is gated.
+      The homepage passes false — no dead CTAs there; the real button still
+      appears everywhere once agency.emmaDemoPhone is set. */
+  emmaPlaceholder?: boolean
 }) {
   return (
     <section className="band-teal">
@@ -53,9 +58,9 @@ export default function LiveDemoBlock({
             >
               📞 Call Emma: {agency.emmaDemoPhoneDisplay}
             </TrackedLink>
-          ) : (
+          ) : emmaPlaceholder ? (
             <span className="btn btn-disabled">📞 Call Emma — phone demo launching soon</span>
-          )}
+          ) : null}
         </div>
         <p className="small-print" style={{ textAlign: 'center' }}>
           Real AI. No script. Ask them anything about your business.

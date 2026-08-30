@@ -9,7 +9,7 @@ const display = Bricolage_Grotesque({ subsets: ['latin'], weight: ['400', '700',
 const bodyFont = IBM_Plex_Sans({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-body' })
 const mono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-mono' })
 
-export const metadata = { title: 'DSP AI Agent Mastery — Dashboard', robots: { index: false } }
+export const metadata = { title: 'DSP AI Agent Mastery — Dashboard', robots: { index: false, follow: false } }
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
   const sb = await supabaseServer()

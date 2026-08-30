@@ -6,12 +6,12 @@ const root = dirname(dirname(fileURLToPath(import.meta.url)))
 const navSource = readFileSync(join(root, 'src/components/Nav.tsx'), 'utf8')
 
 // The blog/contact nav must always reach both company divisions and the
-// course page. (The old /#section anchors moved with the bootcamp page to
-// /academy/bootcamp in the July 2026 restructure.)
+// education product. (/academy and the Agentic Lab left primary nav at the
+// bootcamp sunset, 2026-08-30 — education links point at /mastery now; the
+// Lab's evergreen explainer at /academy/bootcamp is linked from SiteFooter.)
 const requiredLinks = [
   '/agents',
-  '/academy',
-  '/academy/bootcamp',
+  '/mastery',
   '/blog',
   '/about',
 ]

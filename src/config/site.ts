@@ -36,27 +36,22 @@ export function waLink(message: string): string {
   return `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(message)}`
 }
 
+/** The Agentic Lab bootcamp — SUNSET 2026-08-30. No more live batches;
+    Mastery (below) is DSP's only educational product. These facts remain
+    as historical record for the evergreen /academy/bootcamp explainer and
+    /about. Do not add batch dates, seat counts, or enrolment copy back. */
 export const bootcamp = {
   name: 'Vibe Coding Bootcamp',
-  /** Locked: 7-day bootcamp */
+  /** 7-day format (historical) */
   days: 7,
-  /** Locked: 5 live Zoom classes Mon–Fri 9–10 PM PKT */
+  /** 5 live Zoom classes Mon–Fri 9–10 PM PKT (historical) */
   liveClasses: 5,
   schedule: 'Mon–Fri, 9–10 PM PKT',
-  /** Locked: PKR 10,000 one-time — shown ONLY in pricing sections */
-  feePkr: 10_000,
-  feeDisplay: 'PKR 10,000',
-  seats: 30,
-  /** Locked: 4 certificates (3 Anthropic + 1 DSP) */
+  /** 4 certificates (3 Anthropic + 1 DSP) — earned by past students */
   certificates: 4,
-  batchCadence: 'New batch every Monday',
-  /** Next cohort start — update weekly. Also feeds Course JSON-LD startDate. */
-  nextBatchDate: '2026-07-27',
-  nextBatchDisplay: 'Mon 27 July 2026',
-  /** Completed batches and the ordinal of the next one — update together */
+  /** Final totals at sunset */
   batchesCompleted: 6,
-  nextBatchOrdinal: '7th',
-  /** Estimate: batchesCompleted × seats. Update with the real total if known precisely. */
+  /** Estimate: batchesCompleted × 30 seats. Update with the real total if known precisely. */
   studentsTrained: '180+',
   url: '/academy/bootcamp',
 } as const
@@ -96,10 +91,11 @@ export const mastery = {
 
 export const channelops = {
   name: 'The ChannelOps Course',
-  /** Course fee — shown only in the course offer section, like bootcamp pricing */
+  /** Course fee — shown only in the course offer section */
   feePkr: 30_000,
   feeDisplay: 'PKR 30,000',
-  /** Discounted fee for Vibe Coding Bootcamp alumni */
+  /** Discounted fee for alumni of the sunset Agentic Lab bootcamp —
+      a live perk for past students, not an offer of the Lab itself */
   alumniFeePkr: 25_000,
   alumniFeeDisplay: 'PKR 25,000',
   url: '/channelops',
@@ -152,12 +148,16 @@ export const agency = {
     '2.3M viewers reached in the last 90 days',
   ],
 
-  /** Product proof bar — our own DSPAgentHub numbers. Update from the dashboard. */
+  /** Product proof bar — our own DSPAgentHub numbers. Update from the
+      dashboard, and move `asOf` forward with every update. These are
+      server-rendered into the HTML — the static markup must never show a
+      zero (see ProofCounters). */
   proof: {
     leads: 868,
     sales: 280,
     zeroTakeoverPct: 50.7,
     daysToLive: 7,
+    asOf: '2026-08-23',
   },
 
   /** Zara's public WhatsApp demo line — confirmed Aug 2026: Zara works as

@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   title: 'Enrol — DSP AI Agent Mastery',
   description: 'Pay in PKR by bank transfer, JazzCash or Easypaisa and get your dashboard access.',
   alternates: { canonical: '/mastery/enrol' },
+  // Transactional page showing payment/bank details — keep out of search.
+  robots: { index: false, follow: false },
 }
 
 export default function EnrolPage() {
