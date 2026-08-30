@@ -2,7 +2,9 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #0A0E1C;
+  /* --ink re-pointed at the shared token (tokens.css); the rest of this
+     dark shell's palette is intentionally its own. */
+  --ink: var(--t-ink);
   --ink-1: #0F1528;
   --panel: #141B33;
   --panel-2: #1A2240;
@@ -11,6 +13,8 @@
   --line: rgba(255, 255, 255, 0.08);
   --gold: #FFC34D;
   --gold-deep: #E5A12C;
+  --accent: var(--t-accent);
+  --accent-deep: var(--t-accent-deep);
   --mint: #54E6C0;
 
   /* Blueprint §6: --font-serif sits on h1/h2 only; --font-display is the
@@ -62,8 +66,9 @@ h3, h4, h5, h6 {
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: var(--gold);
-  color: var(--ink);
+  /* Terracotta CTA (blueprint §5) — white text passes AA (5.13:1) */
+  background: var(--accent);
+  color: #fff;
   font-family: var(--font-body), sans-serif;
   font-weight: 700;
   font-size: 0.9375rem;
@@ -75,7 +80,7 @@ h3, h4, h5, h6 {
 }
 
 .btn-primary:hover {
-  background: var(--gold-deep);
+  background: var(--accent-deep);
   transform: translateY(-1px);
 }
 

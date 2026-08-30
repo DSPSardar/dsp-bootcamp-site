@@ -1,0 +1,37 @@
+/* ================================================================
+   DSP V2 design tokens — blueprint §5–6 (docs/DSP-Website-V2-Master-Blueprint.md)
+   VALUES are unified here at :root; the three shells (.dsp-site,
+   .page-mastery, globals.css dark theme) re-point their own scoped
+   variables at these primitives. The SCOPES stay isolated — that
+   isolation is load-bearing (CLAUDE.md). Never style elements here.
+
+   Accent note (WCAG): the blueprint's terracotta #C15F3C fails AA at
+   16px — 3.99:1 on paper (needs 4.5) and 4.23:1 under white button
+   text. --t-accent is the corrected step darker (#B0522F: 4.84 on
+   paper, 5.13 under white — both AA). #C15F3C survives only as
+   --t-accent-bright for large (≥24px bold) or decorative use, where
+   3:1 applies. Owner ruling 2026-08-30: propose darker, don't ship
+   a failing accent.
+   ================================================================ */
+:root{
+  /* palette */
+  --t-ink:#0E1116;
+  --t-paper:#FAF8F5;
+  --t-navy:#17204A;
+  --t-accent:#B0522F;        /* AA-corrected terracotta — CTAs only, max 2/viewport */
+  --t-accent-deep:#9E4526;   /* hover/active */
+  --t-accent-bright:#C15F3C; /* blueprint value — large text/decorative ONLY (fails AA at 16px) */
+  --t-muted:#6B7280;         /* light backgrounds only — 4.56:1 on paper */
+  --t-line:#E5E1DA;
+  --t-success:#2F7A5A;
+
+  /* type scale (px reference: 64/48/32/24/18/16/14) */
+  --t-fs-1:4rem;
+  --t-fs-2:3rem;
+  --t-fs-3:2rem;
+  --t-fs-4:1.5rem;
+  --t-fs-5:1.125rem;
+  --t-fs-6:1rem;
+  --t-fs-7:.875rem;
+  --t-leading-body:1.65;
+}

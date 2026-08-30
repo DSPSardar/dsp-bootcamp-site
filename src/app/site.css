@@ -12,19 +12,23 @@
    @import. --serif carries Instrument Serif for h1/h2 only (blueprint §6);
    --disp is the UI display sans, same face as body. */
 .dsp-site{
-  --navy:#17204A;
+  /* re-pointed at the shared :root tokens (tokens.css) — values unified,
+     scope isolated. Shell-local colors (teal, navy tints) stay local. */
+  --navy:var(--t-navy);
   --navy-deep:#0E2A47;
   --navy-soft:#3A4370;
-  --paper:#FBF9F4;
+  --paper:var(--t-paper);
   --paper-2:#F3EFE6;
   --white:#FFFFFF;
   --teal:#028090;
   --teal-deep:#02616D;
   --gold:#D4AF37;
   --gold-dark:#7A5D0E;
-  --line:#E4DFD2;
+  --accent:var(--t-accent);
+  --accent-deep:var(--t-accent-deep);
+  --line:var(--t-line);
   --line-dark:#244063;
-  --ok:#2F9E68;
+  --ok:var(--t-success);
   --radius:14px;
   --serif:var(--font-instrument-serif),Georgia,serif;
   --disp:var(--font-inter),'Segoe UI',sans-serif;
@@ -35,7 +39,7 @@
 @media (prefers-reduced-motion: reduce){
   .dsp-site *,.dsp-site *::before,.dsp-site *::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
 }
-.dsp-site{font-family:var(--body);color:var(--navy);background:var(--paper);line-height:1.65;font-size:17px}
+.dsp-site{font-family:var(--body);color:var(--navy);background:var(--paper);line-height:var(--t-leading-body);font-size:18px}
 .dsp-site img{max-width:100%;display:block}
 .dsp-site a{color:var(--teal-deep)}
 .dsp-site :focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:4px}
@@ -44,7 +48,7 @@
 .dsp-site .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
 .dsp-site h1,.dsp-site h2{font-family:var(--serif);font-weight:400;line-height:1.12;letter-spacing:-.01em}
 .dsp-site h3{font-family:var(--body);line-height:1.25;letter-spacing:-.01em}
-.dsp-site h2{font-size:clamp(1.7rem,3.6vw,2.5rem)}
+.dsp-site h2{font-size:clamp(1.9rem,3.6vw,var(--t-fs-2))}
 .dsp-site h3{font-size:1.15rem;font-weight:600}
 .dsp-site section{padding:76px 0}
 .dsp-site .sec-head{max-width:680px;margin-bottom:2.4rem}
@@ -60,8 +64,11 @@
 .dsp-site .btn:hover{transform:translateY(-1px)}
 .dsp-site .btn-primary{background:var(--teal);color:#fff;box-shadow:0 6px 18px rgba(2,128,144,.28)}
 .dsp-site .btn-primary:hover{background:var(--teal-deep)}
-.dsp-site .btn-gold{background:var(--gold);color:var(--navy);box-shadow:0 6px 18px rgba(212,175,55,.3)}
-.dsp-site .btn-gold:hover{background:#C6A230}
+/* Primary CTA — terracotta accent (blueprint §5: CTAs only). The class
+   keeps its historical name so no TSX changes; white text passes AA on
+   the corrected accent (5.13:1). */
+.dsp-site .btn-gold{background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(176,82,47,.3)}
+.dsp-site .btn-gold:hover{background:var(--accent-deep)}
 .dsp-site .btn-ghost{border-color:var(--navy);color:var(--navy);background:transparent}
 .dsp-site .btn-ghost-light{border-color:rgba(255,255,255,.5);color:#fff;background:transparent}
 .dsp-site .btn-ghost-light:hover{border-color:#fff}

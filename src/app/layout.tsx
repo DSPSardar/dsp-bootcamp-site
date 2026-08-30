@@ -1,6 +1,7 @@
 // src/app/layout.tsx
 import type { Metadata, Viewport } from 'next'
 import { Instrument_Serif, Inter, JetBrains_Mono } from 'next/font/google'
+import './tokens.css'
 import './globals.css'
 import Analytics from '@/components/site/Analytics'
 import { site, socials } from '@/config/site'

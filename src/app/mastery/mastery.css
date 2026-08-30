@@ -1,5 +1,8 @@
 /* Mastery landing page — scoped under .page-mastery. Generated from _BUILD/04-Landing-Page/index.html */
-.page-mastery{--ink:#0A1730; --navy:#0E2A47; --navy2:#17204A; --panel:#132B52;
+/* --navy2 re-pointed at the shared token (same value); the rest of this
+   shell's dark-navy palette — and its gold accent — stays local until the
+   separate, revertable accent-swap commit (owner constraint 2). */
+.page-mastery{--ink:#0A1730; --navy:#0E2A47; --navy2:var(--t-navy); --panel:#132B52;
   --teal:#028090; --teal2:#19B3C4; --gold:#D4AF37; --gold2:#F0D27A;
   --cream:#F5F1E6; --muted:#A9B4C8; --line:rgba(245,241,230,.12);
   --serif:var(--font-serif),Georgia,serif;
