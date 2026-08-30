@@ -1,6 +1,18 @@
 # DSP Website V2 — Progress
 
 Working branch: `claude/dsp-website-v2-build-gkpkaw` · one PR per phase, title prefixed `[Phase N]` · owner merges, never Claude.
+Governing document: `docs/DSP-Website-V2-Master-Blueprint.md` (supersedes the original brief; §0.4 records the bootcamp sunset; `/learn` is cancelled).
+
+## Phase 1 — fonts + design tokens (PR #2)
+
+| Unit | What | Notes |
+|---|---|---|
+| fonts | Instrument Serif (h1/h2 only, single 400 weight + italic) · Inter (body + UI display) · JetBrains Mono — all via next/font in the root layout; both runtime Google Fonts @imports killed; preconnects removed | Noto Nastaliq Urdu **dropped, not ported** — zero Urdu-script glyphs remain in src/ after the sunset (owner notified pre-merge) |
+| fonts fix | /mastery, /mastery/enrol, /app had their own Bricolage/IBM Plex next/font loads shadowing the root mapping — removed; everything cascades from the root trio | |
+| tokens | `src/app/tokens.css`: blueprint §5 palette + type scale at `:root`; shells re-point VALUES, scopes stay isolated; body 17→18px; h2 caps at 48px; light + dark shell CTAs → terracotta/white | **WCAG**: blueprint `#C15F3C` fails AA at 16px (3.99:1 on paper, 4.23:1 under white); shipped accent is the proposed darker `#B0522F` (4.84 / 5.13 — both pass). `#C15F3C` kept as `--t-accent-bright` for large/decorative only |
+| mastery swap | Gold → terracotta on the mastery shell, one revertable commit; dark-shell tints `#D97B52`/`#E08D66` (AA on ink/panel), enrol button `#B0522F` + white | Revert this commit alone to restore gold |
+
+Deferred within Phase 1 (owner to confirm scope): blueprint §10 schema builders (`src/lib/schema.ts`, Course+Offer+FAQPage on /mastery, BreadcrumbList). Accent-restraint pass (max 2 accent uses/viewport) lands with the Phase 4 homepage rebuild; decorative golds on the light shell stay until then.
 
 ## Phase 0 — Audit + emergency fixes
 
