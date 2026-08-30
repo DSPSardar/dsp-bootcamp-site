@@ -6,12 +6,11 @@ import { waLink } from '@/config/site'
 import { WhatsAppIcon } from '@/components/home/icons'
 import TrackedLink from '@/components/site/TrackedLink'
 
+// The Agentic Lab left primary nav at the bootcamp sunset (2026-08-30);
+// its evergreen explainer stays reachable via the footer history entry.
 const links = [
   { label: 'AI Employees', href: '/ai-employees' },
   { label: 'AI Agents', href: '/agents' },
-  { label: 'Academy', href: '/academy' },
-  // Education arm rebranded "DSP Agentic Lab" — label only, URL frozen for SEO
-  { label: 'Agentic Lab', href: '/academy/bootcamp' },
   { label: 'AI Agent Mastery', href: '/mastery' },
   { label: 'ChannelOps', href: '/channelops' },
   { label: 'Blog', href: '/blog' },

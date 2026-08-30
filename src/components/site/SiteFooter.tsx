@@ -27,9 +27,10 @@ export default function SiteFooter() {
           <div>
             <h3>DSP Academy</h3>
             <ul>
-              <li><Link href="/academy">Academy overview</Link></li>
-              <li><Link href="/academy/bootcamp">Agentic Lab (7-day bootcamp)</Link></li>
+              <li><Link href="/mastery">AI Agent Mastery</Link></li>
               <li><Link href="/channelops#course">ChannelOps course</Link></li>
+              {/* History entry, not an offer — owner ruling 2026-08-30 */}
+              <li><Link href="/academy/bootcamp">The Agentic Lab (2025–2026)</Link></li>
             </ul>
           </div>
           <div>
