@@ -1,56 +1,31 @@
-// Static (server-rendered) sections of the homepage, ported 1:1 from index.html.
+// Static (server-rendered) sections of the Agentic Lab bootcamp page.
+// The live bootcamp was sunset on 2026-08-30 — this page is an evergreen
+// explainer of what the Lab was and what it taught. The only CTA on the
+// page points to /mastery (see Hero); do not add enrolment CTAs back.
 import Link from 'next/link'
 import Image from 'next/image'
-import ConsoleClock from './ConsoleClock'
-import SyllabusButton from './SyllabusButton'
-import LeadForm from './LeadForm'
-import { WhatsAppIcon, CheckIcon } from './icons'
+import { CheckIcon } from './icons'
 import { bootcamp } from '@/config/site'
 
-/* ============ HERO: the 9 PM class ============ */
+/* ============ HERO: what the Lab was ============ */
 export function Hero() {
   return (
     <section className="hero-dark" id="top">
       <div className="stars" aria-hidden="true"></div>
-      <div className="wrap hero-grid">
-        <div>
-          <span className="hero-pill"><span className="dot" aria-hidden="true"></span> {bootcamp.batchCadence} · Next: {bootcamp.nextBatchDisplay} · {bootcamp.seats} seats</span>
-          <h1>Build your first AI agent in <em>7 days</em> — live, at 9&nbsp;PM, in plain English.</h1>
-          <p className="hero-facts">PKR 10,000 all-inclusive · 5 live classes · 4 certificates · Day-1 money-back guarantee</p>
-          <p className="sub">Five live Zoom classes, Monday to Friday, 9:00–10:00 PM Pakistan time. No coding. You&apos;ll plan, build, and deploy a working AI agent — and present it live on Day 7.</p>
-          <p className="urdu-line" lang="ur">سیکھیں آج، بنائیں کل — اے آئی آپ کی زبان سمجھتی ہے۔</p>
-          <div className="fee-flag">
-            <span className="amt">Everything included</span>
-            <span className="lbl">one simple fee · all 4 certificates · no hidden costs</span>
-          </div>
-          <div className="hero-ctas">
-            <a className="btn btn-primary" href="https://wa.me/923420580864?text=Hi%20DSP%2C%20I%20want%20to%20join%20Monday%27s%20batch">
-              <WhatsAppIcon />
-              Reserve my seat on WhatsApp
-            </a>
-            <a className="btn btn-ghost-light" href="#week">See the 7-day schedule</a>
-          </div>
-          <p className="cta-guarantee">Attend Day 1. If it&apos;s not for you, full refund — no questions asked.</p>
-          <p className="hero-note">Join {bootcamp.studentsTrained} students from our first {bootcamp.batchesCompleted} batches — watch their video reviews below.</p>
-          <p className="hero-note">Prefer to talk? Call <a href="tel:+923420580864">+92 342 0580864</a> · Classes in English + Urdu</p>
-        </div>
-
-        <div className="console" role="img" aria-label="Tonight's class console showing the live session at 9 PM Pakistan time and the agent pipeline the cohort will build: idea, job description, knowledge, tools, ship.">
-          <div className="console-bar">
-            <span className="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-            <span>dsp — tonight&apos;s class</span>
-          </div>
-          <div className="console-body">
-            <div className="console-time">
-              <ConsoleClock />
-              <span className="tz">PKT · LIVE ON ZOOM</span>
-            </div>
-            <div className="console-line"><span className="tag">idea</span> pick one real problem to solve <span className="ok">done</span></div>
-            <div className="console-line"><span className="tag">job desc</span> role, goal, tone, rules <span className="ok">done</span></div>
-            <div className="console-line"><span className="tag">knowledge</span> teach it your business facts <span className="ok">done</span></div>
-            <div className="console-line"><span className="tag">tools</span> calendars, email, WhatsApp <span className="ok">done</span></div>
-            <div className="console-line"><span className="tag">ship</span> <span className="cursor">shipping your agent</span></div>
-          </div>
+      <div className="wrap">
+        <span className="hero-pill"><span className="dot" aria-hidden="true"></span> DSP Agentic Lab · ran live through August 2026</span>
+        <h1>The Agentic Lab: our live 7-day <em>AI agents bootcamp</em>.</h1>
+        <p className="sub">
+          For six batches, the Agentic Lab took complete beginners from zero to a deployed AI agent in
+          one week: five live Zoom classes, a guided build day, and a Day 7 showcase — taught in English
+          and Urdu, no coding required. This page explains what the Lab was and what it taught.
+        </p>
+        <p className="sub" style={{ marginTop: '.9rem' }}>
+          <strong>DSP now teaches this material as a self-paced program</strong> — DSP AI Agent Mastery:
+          15 modules, recorded lectures, lifetime access.
+        </p>
+        <div className="hero-ctas">
+          <Link className="btn btn-primary" href="/mastery">Explore DSP AI Agent Mastery →</Link>
         </div>
       </div>
     </section>
@@ -60,13 +35,13 @@ export function Hero() {
 /* ============ FACT STRIP ============ */
 export function FactStrip() {
   return (
-    <div className="stats" aria-label="Bootcamp at a glance">
+    <div className="stats" aria-label="The Agentic Lab at a glance">
       <div className="wrap">
         <ul>
           <li><strong>{bootcamp.studentsTrained}</strong><span>Students Trained</span></li>
           <li><strong>{bootcamp.batchesCompleted}</strong><span>Batches Completed</span></li>
-          <li><strong>{bootcamp.nextBatchOrdinal}</strong><span>Batch — Monday</span></li>
-          <li><strong>{bootcamp.seats}</strong><span>Seats Only</span></li>
+          <li><strong>{bootcamp.liveClasses}</strong><span>Live Classes a Week</span></li>
+          <li><strong>{bootcamp.certificates}</strong><span>Certificates</span></li>
         </ul>
       </div>
     </div>
@@ -81,7 +56,7 @@ export function ShiftSection() {
         <div className="sec-head">
           <p className="eyebrow">The shift</p>
           <h2>From chatting to acting.</h2>
-          <p>Most people have used a chatbot. Very few can direct an agent. That gap is the opportunity this bootcamp trains you for.</p>
+          <p>Most people have used a chatbot. Very few can direct an agent. That gap is what the Lab trained people for.</p>
         </div>
         <div className="grid-3">
           <div className="card">
@@ -90,7 +65,7 @@ export function ShiftSection() {
             <p>Replies to prompts. Forgets everything when the chat closes. Takes no action in the real world.</p>
           </div>
           <div className="card dark">
-            <p className="kicker">What you&apos;ll build</p>
+            <p className="kicker">What students built</p>
             <h3>AI Agent</h3>
             <p>Plans a goal, uses tools, remembers context, and acts — it does the work, not just the talking.</p>
           </div>
@@ -105,7 +80,7 @@ export function ShiftSection() {
   )
 }
 
-/* ============ WHAT WILL YOU BUILD? ============ */
+/* ============ WHAT STUDENTS BUILT ============ */
 const PERSONAS = [
   { role: 'Marketer', text: 'A lead-qualifier agent that filters serious buyers from time-wasters on WhatsApp — automatically.' },
   { role: 'Teacher', text: 'A student-helper agent that answers course questions and shares schedules, 24/7.' },
@@ -118,9 +93,9 @@ export function PersonaSection() {
     <section className="personas" id="personas">
       <div className="wrap">
         <div className="sec-head">
-          <p className="eyebrow">Your project</p>
-          <h2>What will YOU build?</h2>
-          <p>Every student builds an agent for their OWN work. Here&apos;s what past students chose:</p>
+          <p className="eyebrow">The projects</p>
+          <h2>What students built</h2>
+          <p>Every student built an agent for their OWN work. Here&apos;s what past students chose:</p>
         </div>
         <div className="grid-4">
           {PERSONAS.map((p) => (
@@ -135,15 +110,15 @@ export function PersonaSection() {
   )
 }
 
-/* ============ 7-DAY SCHEDULE ============ */
+/* ============ THE 7-DAY CURRICULUM ============ */
 const DAYS: { d: string; title: React.ReactNode; desc: string; outcome: string; when: string; live: boolean; gold?: boolean }[] = [
-  { d: 'Day 1 · Mon', title: <>From Idea to Agent</>, desc: 'What makes an AI agent different from a chatbot — and the DSP formula behind every agent: Claude + Job Description + Tools + Loop. You pick one real problem from your own business or work, and build your first working agent tonight, live with us.', outcome: 'You walk away with: your agent v0, answering its first real questions.', when: 'Live · 9–10 PM', live: true },
-  { d: 'Day 2 · Tue', title: <>The Job Description</>, desc: "An agent is only as good as its instructions. You'll learn the DSP 7-Part Job Description — the exact way to tell Claude its role, goal, audience, tone, steps, rules, and examples. This is prompt engineering, taught in plain English.", outcome: 'You walk away with: a professional agent that speaks like a trained employee.', when: 'Live · 9–10 PM', live: true },
-  { d: 'Day 3 · Wed', title: <>Knowledge &amp; Memory</>, desc: 'Tonight your agent learns YOUR business — your prices, your policies, your answers. You\'ll learn the Memory Ladder (Brain, Backpack, Notebook), how to stop your agent from inventing wrong answers, and the one rule that makes it say "I don\'t know" instead of guessing.', outcome: 'You walk away with: an agent that answers from your real business facts.', when: 'Live · 9–10 PM', live: true },
-  { d: 'Day 4 · Thu', title: <>Tools &amp; Claude Code</>, desc: "The big night. Tools give your agent hands — calendars, email, WhatsApp. Then, using Vibe Coding, you'll describe a web page in plain English and watch Claude build it. No syntax. No code. Your English is the programming language.", outcome: 'You walk away with: your agent inside a real, branded web interface.', when: 'Live · 9–10 PM', live: true },
-  { d: 'Day 5 · Fri', title: <>Test, Secure, Ship</>, desc: "Before real users arrive, we attack your agent on purpose. You'll run the DSP 10-Question Test Sheet, learn how strangers try to trick AI agents (prompt injection), and install the security rules that stop them. Then you get your weekend deployment mission.", outcome: 'You walk away with: a tested, secured agent — cleared for launch.', when: 'Live · 9–10 PM', live: true },
-  { d: 'Day 6 · Sat', title: <>Build &amp; Deploy (Capstone)</>, desc: 'You work independently with our support on WhatsApp all day, plus a live 9 PM help clinic. By tonight, your agent is deployed on the internet with a live URL — and three real people have used it.', outcome: 'You walk away with: a LIVE agent anyone in the world can open.', when: 'Guided · flexible', live: false },
-  { d: 'Day 7 · Sun', title: <>Showcase &amp; Certificates</>, desc: "The night it all pays off. You demo your live agent on Zoom — 2 minutes, your story, your build, your link. You'll pass the assessment rubric, receive your certificates, and leave with a portfolio project you can show any client or employer.", outcome: 'You walk away with: a deployed AI agent, 4 certificates, and proof you built it.', when: 'Live showcase', live: true, gold: true },
+  { d: 'Day 1 · Mon', title: <>From Idea to Agent</>, desc: 'What makes an AI agent different from a chatbot — and the DSP formula behind every agent: Claude + Job Description + Tools + Loop. Students picked one real problem from their own business or work and built their first working agent that night, live.', outcome: 'Students left with: their agent v0, answering its first real questions.', when: 'Live · 9–10 PM', live: true },
+  { d: 'Day 2 · Tue', title: <>The Job Description</>, desc: 'An agent is only as good as its instructions. The Lab taught the DSP 7-Part Job Description — the exact way to tell Claude its role, goal, audience, tone, steps, rules, and examples. Prompt engineering, taught in plain English.', outcome: 'Students left with: a professional agent that speaks like a trained employee.', when: 'Live · 9–10 PM', live: true },
+  { d: 'Day 3 · Wed', title: <>Knowledge &amp; Memory</>, desc: 'The night each agent learned its owner\'s business — prices, policies, answers. The Memory Ladder (Brain, Backpack, Notebook), how to stop an agent from inventing wrong answers, and the one rule that makes it say "I don\'t know" instead of guessing.', outcome: 'Students left with: an agent that answers from real business facts.', when: 'Live · 9–10 PM', live: true },
+  { d: 'Day 4 · Thu', title: <>Tools &amp; Claude Code</>, desc: 'The big night. Tools give an agent hands — calendars, email, WhatsApp. Then, using Vibe Coding, students described a web page in plain English and watched Claude build it. No syntax. No code. Plain English as the programming language.', outcome: 'Students left with: their agent inside a real, branded web interface.', when: 'Live · 9–10 PM', live: true },
+  { d: 'Day 5 · Fri', title: <>Test, Secure, Ship</>, desc: 'Before real users arrived, each agent was attacked on purpose: the DSP 10-Question Test Sheet, how strangers try to trick AI agents (prompt injection), and the security rules that stop them. Then the weekend deployment mission.', outcome: 'Students left with: a tested, secured agent — cleared for launch.', when: 'Live · 9–10 PM', live: true },
+  { d: 'Day 6 · Sat', title: <>Build &amp; Deploy (Capstone)</>, desc: 'Students worked independently with support on WhatsApp all day, plus a live 9 PM help clinic. By that night, each agent was deployed on the internet with a live URL — and three real people had used it.', outcome: 'Students left with: a LIVE agent anyone in the world could open.', when: 'Guided · flexible', live: false },
+  { d: 'Day 7 · Sun', title: <>Showcase &amp; Certificates</>, desc: 'The night it all paid off. Each student demoed their live agent on Zoom — 2 minutes, their story, their build, their link — passed the assessment rubric, received their certificates, and left with a portfolio project to show any client or employer.', outcome: 'Students left with: a deployed AI agent, 4 certificates, and proof they built it.', when: 'Live showcase', live: true, gold: true },
 ]
 
 export function WeekSchedule() {
@@ -151,9 +126,9 @@ export function WeekSchedule() {
     <section className="week" id="week">
       <div className="wrap">
         <div className="sec-head">
-          <p className="eyebrow">Schedule</p>
+          <p className="eyebrow">The curriculum</p>
           <h2>One week. Five live classes. One shipped agent.</h2>
-          <p>Live classes run Monday to Friday, 9:00–10:00 PM PKT on Zoom. The weekend is where you build and show your work.</p>
+          <p>Live classes ran Monday to Friday, 9:00–10:00 PM PKT on Zoom. The weekend was where students built and showed their work.</p>
         </div>
 
         {DAYS.map((day) => (
@@ -168,48 +143,17 @@ export function WeekSchedule() {
           </div>
         ))}
 
-        <p className="schedule-teaser">And after the bootcamp? Single agents are just the beginning. Graduates learn about multi-agent systems — teams of AI agents working together — in our advanced track and alumni community.</p>
+        <p className="schedule-teaser">Single agents were just the beginning — graduates went on to multi-agent systems, teams of AI agents working together, in the DSP alumni community.</p>
 
         <div className="syllabus-cta">
           <svg className="ic" viewBox="0 0 24 24" aria-hidden="true" style={{ width: 32, height: 32, color: 'var(--teal)' }}><path d="M6 3h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" /><path d="M14 3v6h6M9 13h6M9 17h6" /></svg>
           <div style={{ flex: 1, minWidth: 220 }}>
-            <h3>Get the full syllabus (PDF)</h3>
-            <p>Daily objectives, projects, and deliverables — sent to your WhatsApp, or download it now.</p>
+            <h3>The full syllabus (PDF)</h3>
+            <p>Daily objectives, projects, and deliverables — as taught in the live batches.</p>
           </div>
           <a className="btn btn-ghost" href="/dsp-bootcamp-course-details.pdf" download>
             Download PDF
           </a>
-          <SyllabusButton />
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ============ COMPARISON ============ */
-export function CompareSection() {
-  return (
-    <section id="compare">
-      <div className="wrap">
-        <div className="sec-head">
-          <p className="eyebrow">Why DSP</p>
-          <h2>Compare before you commit.</h2>
-        </div>
-        <div className="table-scroll">
-          <table>
-            <thead>
-              <tr><th scope="col">What you get</th><th scope="col">DSP Bootcamp</th><th scope="col">Typical online bootcamp</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Coding prerequisites</td><td><span className="tick">None — plain English</span></td><td className="cross">Usually required</td></tr>
-              <tr><td>Format</td><td>5 live Zoom classes, 9–10 PM PKT</td><td>Self-paced videos</td></tr>
-              <tr><td>Certificates</td><td>4 — three from Anthropic&apos;s official courses + DSP</td><td>1 platform certificate</td></tr>
-              <tr><td>Final project</td><td><span className="tick">Built, deployed &amp; presented live</span></td><td className="cross">Rare</td></tr>
-              <tr><td>Internship pathway</td><td><span className="tick">Yes — top students, 1 month</span></td><td className="cross">No</td></tr>
-              <tr><td>Language</td><td>English + Urdu, your timezone</td><td>English only</td></tr>
-              <tr><td>Fee</td><td><strong>One-time fee — everything included</strong></td><td>PKR 40,000–150,000+</td></tr>
-            </tbody>
-          </table>
         </div>
       </div>
     </section>
@@ -234,12 +178,12 @@ export function InstructorSection() {
                 <track kind="captions" src="/instructor-intro.en.vtt" srcLang="en" label="English" /> */}
             Your browser does not support video. <a href="/instructor-intro.mp4">Download the intro video</a>.
           </video>
-          <p className="inst-video-cap">Sardar Abdul Ghaffar Khan walks you through the bootcamp — 3 min 54 sec</p>
+          <p className="inst-video-cap">Sardar Abdul Ghaffar Khan walks through the bootcamp — 3 min 54 sec</p>
         </div>
         <div>
-          <p className="eyebrow">Your instructor</p>
-          <h2>You&apos;re not buying a course. You&apos;re buying a teacher.</h2>
-          <p><strong>Sardar Abdul Ghaffar Khan</strong> has spent 24 years in the IT industry and has taught in London, the UAE, and Pakistan. A Google-certified AI trainer, he teaches every session of this bootcamp himself — live, every night, answering your questions in English and Urdu. Press play and let him explain the course to you directly.</p>
+          <p className="eyebrow">The instructor</p>
+          <h2>Not a course library. A teacher.</h2>
+          <p><strong>Sardar Abdul Ghaffar Khan</strong> has spent 24 years in the IT industry and has taught in London, the UAE, and Pakistan. A Google-certified AI trainer, he taught every session of the Lab himself — live, every night, answering questions in English and Urdu. Press play and let him explain the program directly.</p>
           <p className="inst-stack">24 years in IT · Google-certified AI trainer · taught in 🇬🇧 🇦🇪 🇵🇰 · builder of <a href="https://getaisales.com">getaisales.com</a></p>
           <ul className="cred-list">
             <li><svg className="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17l-5.9 3 1.2-6.5L2.5 8.9 9.1 8z" /></svg> 24 years in the IT industry across three countries</li>
@@ -290,11 +234,11 @@ export function ProjectsSection() {
         <div className="sec-head">
           <p className="eyebrow">Proof, not promises</p>
           <h2>See the method working — live, right now.</h2>
-          <p>Before you pay a rupee, try the agent your instructor built with the same 7-day method you&apos;ll follow.</p>
+          <p>Try the agent the instructor built with the same 7-day method students followed.</p>
         </div>
         <div className="split">
           <div className="card">
-            <span className="built-by">Built live by your instructor</span>
+            <span className="built-by">Built live by the instructor</span>
             <h3 style={{ fontSize: '1.4rem' }}>DSP Travel Agent</h3>
             <p style={{ color: 'var(--navy-soft)', marginTop: '.4rem' }}>Four specialised agents — orchestrator, researcher, planner, writer — planning real trips together, deployed on a public URL.</p>
             <ul className="check-list" style={{ margin: '1.1rem 0 1.4rem' }}>
@@ -308,9 +252,9 @@ export function ProjectsSection() {
             </div>
           </div>
           <div>
-            <p className="kicker">Your version of this</p>
-            <h3 style={{ fontSize: '1.5rem', margin: '.4rem 0 .8rem' }}>On Day 7, you demo your own.</h3>
-            <p style={{ color: 'var(--navy-soft)' }}>Every student plans, tools, and deploys a working agent, then presents it live to the cohort. Your project — a sales agent, a finance tracker, an SEO auditor, whatever fits your work — leaves the bootcamp deployed and demonstrable.</p>
+            <p className="kicker">The students&apos; versions</p>
+            <h3 style={{ fontSize: '1.5rem', margin: '.4rem 0 .8rem' }}>On Day 7, every student demoed their own.</h3>
+            <p style={{ color: 'var(--navy-soft)' }}>Every student planned, tooled, and deployed a working agent, then presented it live to the cohort. Their projects — sales agents, finance trackers, SEO auditors, whatever fit their work — left the bootcamp deployed and demonstrable.</p>
           </div>
         </div>
 
@@ -328,7 +272,7 @@ export function ProjectsSection() {
             login wall — his caption couldn't be independently read, so no
             quote is attributed to him; card text is DSP-authored description
             only, per the same no-invented-quotes rule as above. */}
-        <p className="testi-cap" style={{ marginTop: '2.4rem' }}>From our earlier Master Class cohorts — same instructor, same live-teaching method, now sharpened into this 7-day format.</p>
+        <p className="testi-cap" style={{ marginTop: '2.4rem' }}>From the earlier Master Class cohorts — same instructor, same live-teaching method, later sharpened into the 7-day format.</p>
         <div className="stu-grid" style={{ marginTop: '1rem' }}>
           <div className="stu-card">
             <CheckIcon />
@@ -387,8 +331,8 @@ export function CertificatesSection() {
       <div className="wrap">
         <div className="sec-head">
           <p className="eyebrow">Certificates</p>
-          <h2>Finish the week with four certificates.</h2>
-          <p>During the bootcamp you complete three of Anthropic&apos;s official Claude courses — guided live by DSP — and earn each course&apos;s certificate of completion. Present your final project and DSP awards the fourth.</p>
+          <h2>Students finished the week with four certificates.</h2>
+          <p>During the bootcamp students completed three of Anthropic&apos;s official Claude courses — guided live by DSP — and earned each course&apos;s certificate of completion. Presenting the final project earned the fourth, from DSP.</p>
         </div>
         <div className="cert-grid">
           <div className="cert-card">
@@ -409,59 +353,10 @@ export function CertificatesSection() {
           <div className="cert-card dsp">
             <span className="seal" aria-hidden="true"><svg className="ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg></span>
             <h3>DSP Bootcamp Certificate</h3>
-            <p>Awarded by DSP after you present your working agent at the Day 7 showcase.</p>
+            <p>Awarded by DSP after students presented their working agent at the Day 7 showcase.</p>
           </div>
         </div>
-        <p className="cert-honesty">The three Claude certificates are issued by Anthropic on completing its official courses; DSP guides you through them live as part of the bootcamp. DSP is an independent training organisation and is not affiliated with or endorsed by Anthropic. {/* Add: <a href="/certificates">See sample certificates →</a> once images are ready */}</p>
-      </div>
-    </section>
-  )
-}
-
-/* ============ PRICING ============ */
-export function PricingSection() {
-  return (
-    <section id="pricing">
-      <div className="wrap">
-        <div className="sec-head" style={{ textAlign: 'center', marginLeft: 'auto', marginRight: 'auto' }}>
-          <p className="eyebrow" style={{ justifyContent: 'center' }}>Fee</p>
-          <h2>One fee. Nothing hidden.</h2>
-        </div>
-        <div className="price-card">
-          <p className="big">PKR 10,000 <small>one-time</small></p>
-          <p className="per">A new batch starts every Monday · Next: {bootcamp.nextBatchDisplay} · {bootcamp.seats} seats</p>
-          <ul className="includes">
-            <li><CheckIcon /> 5 live Zoom classes (Mon–Fri, 9–10 PM PKT)</li>
-            <li><CheckIcon /> Guided build day + Day 7 live showcase</li>
-            <li><CheckIcon /> All 4 certificates — 3 Anthropic + 1 DSP</li>
-            <li><CheckIcon /> Session replays for your cohort</li>
-            <li><CheckIcon /> Cohort WhatsApp group with instructor support</li>
-            <li><CheckIcon /> Internship pathway for top students (1 month)</li>
-          </ul>
-          <a className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }} href="https://wa.me/923420580864?text=Hi%20DSP%2C%20I%20want%20to%20reserve%20my%20seat%20for%20Monday%27s%20batch">Reserve my seat</a>
-          <p className="price-note"><strong>Day-1 guarantee:</strong> attend the first live class. If it&apos;s not for you, message us before Day 2 and we refund the full fee.</p>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ============ JOIN ============ */
-export function JoinSection() {
-  return (
-    <section className="band-dark" id="join">
-      <div className="wrap join-grid">
-        <div className="join-side">
-          <p className="eyebrow">Admissions</p>
-          <h2>Reserve your seat for Monday.</h2>
-          <p>A fresh batch starts every Monday, 9 PM PKT. Fill in your details and we&apos;ll open WhatsApp with everything pre-filled — a real person (helped by one of our own AI agents, the same kind you&apos;ll learn to build) replies within the hour, 9 AM – 11 PM PKT.</p>
-          <ul>
-            <li><CheckIcon /> 30 seats per cohort — small enough for every question to get answered</li>
-            <li><CheckIcon /> Free 15-minute intro call before you pay, if you want one</li>
-            <li><CheckIcon /> Day-1 money-back guarantee</li>
-          </ul>
-        </div>
-        <LeadForm />
+        <p className="cert-honesty">The three Claude certificates are issued by Anthropic on completing its official courses; DSP guided students through them live as part of the bootcamp. DSP is an independent training organisation and is not affiliated with or endorsed by Anthropic.</p>
       </div>
     </section>
   )
@@ -510,19 +405,19 @@ export function HomeFooter() {
         <div className="foot-grid">
           <div>
             <p className="foot-brand"><span className="brand-mark" aria-hidden="true">D</span> Digital Services Program</p>
-            <p>Live AI agents training for Pakistan — taught in English and Urdu, one hour a night, by a real instructor.</p>
+            <p>AI agents training for Pakistan — taught in English and Urdu by a real instructor.</p>
             <p style={{ marginTop: '.9rem' }}>Islamabad, Pakistan<br />
               <a href="mailto:info@digitalservicesprogram.com">info@digitalservicesprogram.com</a><br />
               <a href="tel:+923420580864">+92 342 0580864</a> (call &amp; WhatsApp)</p>
           </div>
           <div>
-            <h3>Bootcamp</h3>
+            <h3>The Agentic Lab</h3>
             <ul>
-              <li><a href="#week">7-day schedule</a></li>
-              <li><a href="#pricing">Fee</a></li>
+              <li><a href="#week">The 7-day curriculum</a></li>
               <li><a href="#certificates">Certificates</a></li>
               <li><a href="#instructor">Instructor</a></li>
               <li><a href="#faq">FAQ</a></li>
+              <li><Link href="/mastery">DSP AI Agent Mastery</Link></li>
             </ul>
           </div>
           <div>
@@ -546,18 +441,5 @@ export function HomeFooter() {
         </div>
       </div>
     </footer>
-  )
-}
-
-/* ============ Sticky mobile CTA ============ */
-export function StickyCta() {
-  return (
-    <div className="sticky-cta" role="region" aria-label="Quick actions">
-      <div className="price-tag">Next batch <small>Starts Monday</small></div>
-      <a className="btn btn-primary" href="https://wa.me/923420580864?text=Hi%20DSP%2C%20I%20want%20to%20reserve%20my%20seat%20for%20Monday%27s%20batch">
-        <WhatsAppIcon />
-        Reserve on WhatsApp
-      </a>
-    </div>
   )
 }

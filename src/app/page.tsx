@@ -11,7 +11,7 @@ import LiveDemoBlock from '@/components/site/LiveDemoBlock'
 import ProofCounters from '@/components/site/ProofCounters'
 import PlatformSection from '@/components/site/PlatformSection'
 import FinalCta from '@/components/site/FinalCta'
-import { agency, bootcamp, site, waLink } from '@/config/site'
+import { agency, site, waLink } from '@/config/site'
 
 export const metadata: Metadata = {
   title: { absolute: 'Digital Services Program — We Build AI Agents. We Train You to Build Them.' },
@@ -87,18 +87,8 @@ export default function HomePage() {
                 Meet the AI Employees →
               </TrackedLink>
             </div>
-            <div className="door">
-              <span className="door-emoji" aria-hidden="true">🎓</span>
-              <h2>Join the DSP Agentic Lab</h2>
-              {/* Fee here is an approved exception to the pricing-sections-only rule (see CLAUDE.md) */}
-              <p>
-                Learn to build AI agents in our 7-day live bootcamp. {bootcamp.feeDisplay}.{' '}
-                {bootcamp.certificates} certificates (3 Anthropic + 1 DSP). {bootcamp.batchCadence}.
-              </p>
-              <TrackedLink className="btn btn-navy" href={bootcamp.url} event="academy_cta_click" params={{ cta: 'home_door_lab' }}>
-                Enter the Agentic Lab →
-              </TrackedLink>
-            </div>
+            {/* The Agentic Lab door was removed at the bootcamp sunset
+                (2026-08-30) — Phase 4 rebuilds the homepage around Mastery. */}
           </div>
         </div>
       </section>
@@ -339,14 +329,7 @@ export default function HomePage() {
         heading="Hire your first AI Employee this week."
         message="Hi DSP, I want to hire an AI Employee for my business."
         ctaLocation="home_final"
-      >
-        <p style={{ marginTop: '1.2rem', fontSize: '.95rem' }}>
-          Want to build AI agents yourself instead?{' '}
-          <Link href={bootcamp.url} style={{ color: 'var(--gold)', fontWeight: 600 }}>
-            New Agentic Lab batch every Monday →
-          </Link>
-        </p>
-      </FinalCta>
+      />
     </SiteShell>
   )
 }

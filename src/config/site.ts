@@ -36,27 +36,26 @@ export function waLink(message: string): string {
   return `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(message)}`
 }
 
+/** The Agentic Lab bootcamp — SUNSET 2026-08-30. No more live batches;
+    Mastery (below) is DSP's only educational product. These facts remain
+    as historical record for the evergreen /academy/bootcamp explainer and
+    /about. Do not add batch dates, seat counts, or enrolment copy back. */
 export const bootcamp = {
   name: 'Vibe Coding Bootcamp',
-  /** Locked: 7-day bootcamp */
+  /** 7-day format (historical) */
   days: 7,
-  /** Locked: 5 live Zoom classes Mon–Fri 9–10 PM PKT */
+  /** 5 live Zoom classes Mon–Fri 9–10 PM PKT (historical) */
   liveClasses: 5,
   schedule: 'Mon–Fri, 9–10 PM PKT',
-  /** Locked: PKR 10,000 one-time — shown ONLY in pricing sections */
-  feePkr: 10_000,
-  feeDisplay: 'PKR 10,000',
-  seats: 30,
-  /** Locked: 4 certificates (3 Anthropic + 1 DSP) */
+  /** 4 certificates (3 Anthropic + 1 DSP) — earned by past students */
   certificates: 4,
+  /** Still read by /academy (pending sunset ruling on that page) —
+      remove both once /academy stops advertising batches. */
+  seats: 30,
   batchCadence: 'New batch every Monday',
-  /** Next cohort start — update weekly. Also feeds Course JSON-LD startDate. */
-  nextBatchDate: '2026-07-27',
-  nextBatchDisplay: 'Mon 27 July 2026',
-  /** Completed batches and the ordinal of the next one — update together */
+  /** Final totals at sunset */
   batchesCompleted: 6,
-  nextBatchOrdinal: '7th',
-  /** Estimate: batchesCompleted × seats. Update with the real total if known precisely. */
+  /** Estimate: batchesCompleted × 30 seats. Update with the real total if known precisely. */
   studentsTrained: '180+',
   url: '/academy/bootcamp',
 } as const

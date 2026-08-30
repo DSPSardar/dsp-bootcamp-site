@@ -9,7 +9,7 @@ Working branch: `claude/dsp-website-v2-build-gkpkaw` · one PR per phase, title 
 | 0A | Repo audit (read-only) | done — reported in session | — |
 | Fix 1 | noindex `/mastery/enrol` + `/app` nofollow + `robots.ts` (option B: enrol not robots-disallowed yet) | done | see git log |
 | Fix 2 | Add `/mastery` to sitemap (`/verify` deferred to Phase 5) | done | see git log |
-| Fix 3 | Stale bootcamp `nextBatchDate` feeding Course JSON-LD | blocked — needs owner decision (see below) | |
+| Fix 3 (replaced) | **Bootcamp sunset pass** (owner ruling 2026-08-30): Course/CourseInstance/Schedule JSON-LD removed from `/academy/bootcamp`; FAQPage pruned to 3 evergreen questions; page rewritten as past-tense explainer with a single `/mastery` CTA; homepage Agentic Lab door + final-band bootcamp CTA removed; `nextBatchDate`/`nextBatchDisplay`/`nextBatchOrdinal`/fee fields removed from config; enrolment components (LeadForm, AnnouncementBar, StickyCta, SyllabusButton, ConsoleClock, Compare/Pricing/Join sections) deleted; CLAUDE.md locked facts updated to Mastery-only | done | see git log |
 | Fix 4 | Proof counters: server-render real values + `asOf: '2026-08-23'` | not started | |
 | Fix 5 | Bunny tokens on `/mastery` → per-request signing | not started | |
 | Fix 6 | Remove duplicate 4-part formula block on `/mastery` | not started | |
@@ -17,7 +17,7 @@ Working branch: `claude/dsp-website-v2-build-gkpkaw` · one PR per phase, title 
 
 ## Decisions needed from the owner
 
-- **Fix 3**: correct next batch date for `bootcamp.nextBatchDate` (currently `2026-07-27`, in the past) — or confirm batches are continuous so the schema can drop the hardcoded date (proposal to follow at Fix 3 time).
+- **Sunset reference audit**: rulings pending on the remaining bootcamp/batch references outside the homepage and `/academy/bootcamp` (list reported in session — notably `/academy`, `/about`, homepage + root metadata descriptions, and two flagged `/mastery` lines: "Weekly live Q&A, recorded" and "recorded live with real students", both untouched by instruction).
 
 ## Open items
 
