@@ -11,7 +11,7 @@ import LiveDemoBlock from '@/components/site/LiveDemoBlock'
 import ProofCounters from '@/components/site/ProofCounters'
 import PlatformSection from '@/components/site/PlatformSection'
 import FinalCta from '@/components/site/FinalCta'
-import { agency, site, waLink } from '@/config/site'
+import { agency, site } from '@/config/site'
 
 export const metadata: Metadata = {
   title: { absolute: 'Digital Services Program — We Build AI Agents. We Train You to Build Them.' },
@@ -153,6 +153,7 @@ export default function HomePage() {
         heading="Don’t book a demo. Talk to one right now."
         intro="Other agencies ask you to schedule a call to see a slideshow. Our AI Employees introduce themselves."
         ctaLocation="home"
+        emmaPlaceholder={false}
       />
 
       {/* ============ 6 · PRODUCT PROOF BAR ============ */}
@@ -206,48 +207,9 @@ export default function HomePage() {
       {/* ============ 8 · PLATFORM (shared component) ============ */}
       <PlatformSection />
 
-      {/* ============ 9 · CASE STUDIES TEASER ============ */}
-      <section>
-        <div className="wrap">
-          <div className="sec-head">
-            <p className="eyebrow">Case studies</p>
-            <h2>Working for real businesses today.</h2>
-          </div>
-          {/* Gated: real client cards publish once written permission is secured
-              (agency.caseStudiesApproved in src/config/site.ts) */}
-          {agency.caseStudiesApproved ? null : (
-            <div className="grid-2">
-              <div className="card">
-                <p className="kicker">Case study · publishing soon</p>
-                <p>
-                  Our first client stories are being written up now — with real numbers, published
-                  with each client&apos;s permission.
-                </p>
-                <p style={{ marginTop: '.8rem' }}>
-                  <Link href="/agents/case-studies" style={{ fontWeight: 600 }}>See our current work →</Link>
-                </p>
-              </div>
-              <div className="card">
-                <p className="kicker">Want to be one?</p>
-                <p>
-                  Early clients get founder-level attention — and a case study that markets your
-                  business as well as ours.
-                </p>
-                <p style={{ marginTop: '.8rem' }}>
-                  <TrackedLink
-                    href={waLink('Hi DSP, I want an AI Employee for my business.')}
-                    event="whatsapp_cta_click"
-                    params={{ cta: 'home_case_studies' }}
-                    style={{ fontWeight: 600 }}
-                  >
-                    Talk to us →
-                  </TrackedLink>
-                </p>
-              </div>
-            </div>
-          )}
-        </div>
-      </section>
+      {/* ============ 9 · CASE STUDIES TEASER — removed until real,
+          permissioned client stories exist (agency.caseStudiesApproved).
+          The /agents/case-studies page itself stays live and indexed. */}
 
       {/* ============ 10 · LEADERSHIP ============ */}
       <section style={{ paddingTop: 0 }}>
