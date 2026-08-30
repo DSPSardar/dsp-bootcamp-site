@@ -3,7 +3,7 @@
 // ASOS demo number) come from src/config/site.ts and render placeholders
 // until the publish checklist signs them off.
 import type { Metadata } from 'next'
-import { breadcrumbLd as breadcrumbLd_build } from '@/lib/schema'
+import { breadcrumbLd as breadcrumbLd_build, faqPageLd } from '@/lib/schema'
 import Link from 'next/link'
 import SiteShell from '@/components/site/SiteShell'
 import TrackedLink from '@/components/site/TrackedLink'
@@ -118,6 +118,11 @@ export default function AiEmployeesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+      {/* Mirrors the visible FAQ below verbatim (faqs is the single source). */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageLd(faqs)) }}
       />
 
       {/* ============ 1 · HERO ============ */}
@@ -281,7 +286,35 @@ export default function AiEmployeesPage() {
         </div>
       </section>
 
-      {/* ============ 9 · FINAL CTA ============ */}
+      {/* ============ 9 · LEARN TO BUILD THEM ============ */}
+      {/* Blueprint §1: "You can hire one, or learn to build them." The second
+          door on the category page — kept to one sentence and one link, no
+          pricing, mirroring the homepage hire-band restraint. */}
+      <section style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <div className="sec-head center">
+            <p className="eyebrow">The other door</p>
+            <h2>Or learn to build them.</h2>
+            <p>
+              DSP is where AI Employees come from — you can hire one, or learn to build them.
+              The working method behind every Employee on this page is what we teach in
+              DSP AI Agent Mastery, self-paced, from zero.
+            </p>
+          </div>
+          <p style={{ textAlign: 'center' }}>
+            <TrackedLink
+              className="btn btn-ghost"
+              href="/mastery"
+              event="academy_cta_click"
+              params={{ cta: 'aiemp_learn_band' }}
+            >
+              Explore AI Agent Mastery →
+            </TrackedLink>
+          </p>
+        </div>
+      </section>
+
+      {/* ============ 10 · FINAL CTA ============ */}
       <section className="band-dark">
         <div className="wrap" style={{ textAlign: 'center' }}>
           <h2>Your first AI Employee can start Monday.</h2>

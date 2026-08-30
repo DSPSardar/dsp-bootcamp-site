@@ -3,6 +3,13 @@
 Working branch: `claude/dsp-website-v2-build-gkpkaw` · one PR per phase, title prefixed `[Phase N]` · owner merges, never Claude.
 Governing document: `docs/DSP-Website-V2-Master-Blueprint.md` (supersedes the original brief; §0.4 records the bootcamp sunset; `/learn` is cancelled).
 
+## Phase 3 — /ai-employees pillar (PR #4)
+
+| Unit | What | Notes |
+|---|---|---|
+| learn band | The category pillar gains its second door per §1 ("hire one, or learn to build them"): one sentence + one ghost link to /mastery (`academy_cta_click {cta:'aiemp_learn_band'}`), no pricing — hire-band restraint mirrored | Existing agency copy (approved copy doc) untouched; employee slug pages deliberately left hire-only |
+| FAQ schema | FAQPage LD on the hub via `faqPageLd` — the visible `faqs` array is the single source | Verified in built HTML: Organization + Service + BreadcrumbList + FAQPage(4) |
+
 ## Phase 2 — navigation (PR #3)
 
 | Unit | What | Notes |
