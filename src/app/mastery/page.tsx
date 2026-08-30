@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Bricolage_Grotesque, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google'
 import { site, waLink, mastery } from '@/config/site'
 import { welcomeVideoId } from '@/lib/mastery/course'
-import { signedEmbedUrl } from '@/lib/mastery/bunny'
+import { bunnyConfigured } from '@/lib/mastery/bunny'
 import MasteryClient from './MasteryClient'
 import './mastery.css'
 
@@ -11,7 +11,8 @@ const display = Bricolage_Grotesque({ subsets: ['latin'], weight: ['400', '500',
 const bodyFont = IBM_Plex_Sans({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-body' })
 const mono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-mono' })
 
-export const revalidate = 86400 // re-sign the welcome video daily (token valid 7 days)
+// Embed tokens are no longer baked into this page: iframes point at
+// /api/video/[videoId], which signs a short-lived token per request.
 
 export const metadata: Metadata = {
   title: 'DSP AI Agent Mastery — Zero to Master | Build, deploy and sell AI agents',
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function MasteryPage() {
   const enrolHref = mastery.checkoutUrl ?? '/mastery/enrol'
-  const welcomeSrc = welcomeVideoId?.status === 'ready' ? signedEmbedUrl(welcomeVideoId.guid, 7 * 24 * 3600) : null
+  const welcomeSrc = welcomeVideoId?.status === 'ready' && bunnyConfigured ? `/api/video/${welcomeVideoId.guid}` : null
   // Real student stories, recorded on camera — the same videos that sit in Module 15.
   const stories = [
     { guid: '7e642dff-ebb7-48a5-9da5-e94190716a56', name: 'Mohsin', where: 'United Kingdom',
@@ -31,7 +32,7 @@ export default function MasteryPage() {
       line: 'Earned PKR 60,000 from AI work before he had even finished the bootcamp.' },
     { guid: 'e50847ea-7fa4-4e26-ae72-1273fec6ae33', name: 'DSP student', where: 'Agentic Master Class',
       line: 'Came for practical skills — AI agents, automation and prompt engineering — and says the training changed how she works.', portrait: true },
-  ].map((v) => ({ ...v, src: signedEmbedUrl(v.guid, 7 * 24 * 3600) })).filter((v) => v.src)
+  ].map((v) => ({ ...v, src: bunnyConfigured ? `/api/video/${v.guid}` : null })).filter((v) => v.src)
   return (
     <div className={`page-mastery ${display.variable} ${bodyFont.variable} ${mono.variable}`}>
 <nav className="nav"><div className="wrap">
@@ -166,7 +167,7 @@ export default function MasteryPage() {
         { kind: 'bunny' as const, guid: '629c74ef-9842-4102-bd70-50c6b9a17137', name: 'Mirza Talha Hussain', note: 'Claude 101 + Claude Code 101' },
         { kind: 'yt' as const, id: 'y_jlAv1TnnQ', name: 'Humayun Shaikh', note: 'Certified by Anthropic' },
       ].map((c) => {
-        const src = c.kind === 'bunny' ? signedEmbedUrl(c.guid, 7 * 24 * 3600) : `https://www.youtube-nocookie.com/embed/${c.id}`
+        const src = c.kind === 'bunny' ? (bunnyConfigured ? `/api/video/${c.guid}` : null) : `https://www.youtube-nocookie.com/embed/${c.id}`
         if (!src) return null
         return (
         <div className="card" key={c.name} style={{padding:'14px'}}>
