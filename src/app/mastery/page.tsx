@@ -267,17 +267,11 @@ export default function MasteryPage() {
       { img: '/mastery/cert-claude-101.jpg', name: 'Claude 101', by: 'Anthropic, USA' },
       { img: '/mastery/cert-claude-code-101.jpg', name: 'Claude Code 101', by: 'Anthropic, USA' },
       { img: '/mastery/cert-claude-cowork.jpg', name: 'Introduction to Claude Cowork', by: 'Anthropic, USA' },
-      { img: null, name: 'DSP AI Agent Mastery', by: 'Digital Services Program' },
+      { img: '/mastery/cert-dsp-master.jpg', name: 'DSP AI Agent Mastery', by: 'Digital Services Program' },
     ].map((c) => (
       <div className="card" key={c.name} style={{padding:'14px',display:'flex',flexDirection:'column'}}>
         <div style={{position:'relative',paddingTop:'66%',borderRadius:'10px',overflow:'hidden',background:'var(--ink)',border:'1px solid var(--line)'}}>
-          {c.img
-            ? <img src={c.img} alt={`${c.name} — certificate issued by Anthropic`} loading="lazy" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover'}} />
-            : <div style={{position:'absolute',inset:0,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',textAlign:'center',padding:'14px'}}>
-                <div style={{fontFamily:'var(--mono)',fontSize:'10px',letterSpacing:'.12em',color:'var(--gold)'}}>CERTIFICATE OF MASTERY</div>
-                <div style={{fontFamily:'var(--display)',fontWeight:700,fontSize:'17px',lineHeight:1.25,margin:'8px 0 6px'}}>Zero to Master</div>
-                <div style={{fontFamily:'var(--mono)',fontSize:'9px',color:'var(--muted)'}}>verify/XXXX-XXXX</div>
-              </div>}
+          <img src={c.img} alt={`${c.name} — certificate issued by ${c.by}`} loading="lazy" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover'}} />
         </div>
         <div className="by" style={{marginTop:'12px'}}>{c.name}</div>
         <div className="muted" style={{fontSize:'13px'}}>{c.by}</div>
