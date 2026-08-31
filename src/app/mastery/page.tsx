@@ -37,7 +37,7 @@ const MASTERY_FAQS = [
   { q: 'Is $100 really all I pay?',
     a: '$100 covers the entire program, lifetime. You will need a Claude account to build with during the modules — Module 3 walks you through setup and the free-tier route, and paid Claude plans start at $20/month if you choose to upgrade. GitHub and Vercel are free for what this program uses. No other purchase is required to finish.' },
   { q: 'What does \u201cone year of free support\u201d mean?',
-    a: 'You\u2019re in the DSP group from day one. Questions are answered in the group within one working day, and there\u2019s a weekly live Q&A. It\u2019s group support, not private 1:1 debugging — that\u2019s how we keep it free and fast for everyone.' },
+    a: 'You\u2019re in the DSP group from day one, and questions there are answered within one working day. On top of that there\u2019s a live session every weekend — bring your build, we debug your errors on the call, and every session is recorded. Support runs for a full year.' },
   { q: 'Is it in Urdu or English?',
     a: 'Lectures are taught in an Urdu–English mix, the way DSP teaches live. All templates, slides and downloads are in English. Subtitles are provided.' },
   { q: 'Can I pay from Pakistan?',
@@ -326,7 +326,7 @@ export default function MasteryPage() {
       <li className="hi"><span>Client Acquisition Kit — discovery sheet, proposal, pricing calculator, contract, outreach pack</span><span>bonus</span></li>
       <li className="hi"><span>One Agent Many Clients blueprint — the multi-tenant model DSP sells</span><span>bonus</span></li>
       <li className="hi"><span>One year of free support in the DSP group</span><span>12 months</span></li>
-      <li><span>Weekly live Q&amp;A, recorded</span><span>weekly</span></li>
+      <li className="hi"><span>Live weekend session — bring your build, we debug it on the call, recorded</span><span>every weekend</span></li>
       <li><span>DSP Master certificate with a verifiable URL + 4 milestone badges</span><span>on completion</span></li>
       <li><span>Claude Academy badges: Claude 101, Claude Code 101, Claude Cowork</span><span>issued by Anthropic, USA</span></li>
       <li><span>Lifetime access and every future update</span><span>lifetime</span></li>
@@ -378,7 +378,7 @@ export default function MasteryPage() {
     <details><summary>How much time does it take?</summary><p>About an hour a day for 30 days, or four sessions a week for eight weeks. Each module is one to three lectures plus a build. Lifetime access means you can go slower — the only thing that doesn&apos;t work is stopping.</p></details>
     <details><summary>Windows or Mac?</summary><p>Both. Setup guides for each are in Module 3, including the fixes for the common Windows issues we&apos;ve solved with hundreds of students.</p></details>
     <details><summary>Is $100 really all I pay?</summary><p>$100 covers the entire program, lifetime. You will need a Claude account to build with during the modules — Module 3 walks you through setup and the free-tier route, and paid Claude plans start at $20/month if you choose to upgrade. GitHub and Vercel are free for what this program uses. No other purchase is required to finish.</p></details>
-    <details><summary>What does &quot;one year of free support&quot; mean?</summary><p>You&apos;re in the DSP group from day one. Questions are answered in the group within one working day, and there&apos;s a weekly live Q&amp;A. It&apos;s group support, not private 1:1 debugging — that&apos;s how we keep it free and fast for everyone.</p></details>
+    <details><summary>What does &quot;one year of free support&quot; mean?</summary><p>You&apos;re in the DSP group from day one, and questions there are answered within one working day. On top of that there&apos;s a live session every weekend — bring your build, we debug your errors on the call, and every session is recorded. Support runs for a full year.</p></details>
     <details><summary>Is it in Urdu or English?</summary><p>Lectures are taught in an Urdu–English mix, the way DSP teaches live. All templates, slides and downloads are in English. Subtitles are provided.</p></details>
     <details><summary>Can I pay from Pakistan?</summary><p>Yes — bank transfer, JazzCash or Easypaisa. Go to the enrol page, send the payment, upload the screenshot with your email, and we send your sign-in link once it&apos;s verified — usually within a few hours.</p></details>
     <details><summary>Do I get a recognised certificate?</summary><p>Two kinds. The DSP Master certificate has a public verification page showing the live agent you built — that is proof of work, not attendance. Separately, Module 3 walks you through Claude Academy, the free training run by Anthropic — the US company that builds Claude — so you finish holding three of their course completion badges with your name on them — Claude 101, Claude Code 101 and Introduction to Claude Cowork. Those are issued by Anthropic, not by DSP. Neither is a university accreditation; what employers and clients actually check is the working agent behind the link.</p></details>

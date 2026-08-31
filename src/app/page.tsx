@@ -91,7 +91,7 @@ const faqs = [
   { q: 'Is it in Urdu or English?',
     a: 'Lectures are taught in an Urdu–English mix, the way DSP teaches live. All templates, slides and downloads are in English. Subtitles are provided.' },
   { q: 'What does “one year of free support” mean?',
-    a: 'You’re in the DSP group from day one. Questions are answered in the group within one working day, and there’s a weekly live Q&A. It’s group support, not private 1:1 debugging — that’s how we keep it free and fast for everyone.' },
+    a: 'You’re in the DSP group from day one, and questions there are answered within one working day. On top of that there’s a live session every weekend — bring your build, we debug your errors on the call, and every session is recorded. Support runs for a full year.' },
   { q: 'Refunds?',
     a: 'Seven days, no questions. Start Module 1; if it isn’t for you, email us and we refund in full.' },
 ]
