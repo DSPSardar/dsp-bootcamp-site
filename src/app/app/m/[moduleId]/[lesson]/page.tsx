@@ -21,6 +21,17 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
   const done = new Set((rows ?? []).map((r) => r.lesson_file))
   if (!unlockState(done, await isAdminUser(user.email))[m.id].unlocked) redirect('/app')
   const isDone = done.has(l.file)
+
+  // A lesson only counts once the player says they watched most of it. Stops
+  // click-through completion and makes the progress record defensible.
+  const WATCH_THRESHOLD = 0.8
+  const { data: view } = await sb.from('mastery_views').select('seconds, duration')
+    .eq('user_id', user.id).eq('lesson_file', l.file).maybeSingle()
+  const lessonSecs = view?.duration || (l.minutes ?? 0) * 60
+  const watchedSecs = view?.seconds ?? 0
+  const watchedFrac = lessonSecs > 0 ? watchedSecs / lessonSecs : 0
+  const hasVideo = l.bunny?.status === 'ready'
+  const canComplete = isDone || !hasVideo || watchedFrac >= WATCH_THRESHOLD
   const idx = m.lessons.findIndex((x) => x.file === l.file)
   const nextL = m.lessons.slice(idx + 1).find((x) => x.bunny?.status === 'ready')
 
@@ -31,6 +42,10 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
     const { data: ex } = await sb.from('mastery_progress').select('lesson_file').eq('user_id', user.id).eq('lesson_file', lessonFile).maybeSingle()
     if (ex) await sb.from('mastery_progress').delete().eq('user_id', user.id).eq('lesson_file', lessonFile)
     else {
+      // Re-check server-side: never trust the button being visible.
+      const { data: v } = await sb.from('mastery_views').select('seconds, duration').eq('user_id', user.id).eq('lesson_file', lessonFile).maybeSingle()
+      const secs = v?.duration || (l.minutes ?? 0) * 60
+      if (l.bunny?.status === 'ready' && secs > 0 && (v?.seconds ?? 0) / secs < 0.8) return
       await sb.from('mastery_progress').insert({ user_id: user.id, lesson_file: lessonFile })
       // Did this complete the module / a phase? Tell ASOS so the WhatsApp nudge can fire.
       const { data: rows } = await sb.from('mastery_progress').select('lesson_file').eq('user_id', user.id)
@@ -54,7 +69,12 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
           {l.bunny?.status === 'ready' ? <><WatchTracker lesson={l.file} /><BunnyPlayer videoId={l.bunny.guid} title={lessonTitle(l.file)} aspect={(l.bunny as { aspect?: number }).aspect} /></> : <p className="note">This lesson is being prepared and will appear here soon.</p>}
         </div>
         <div style={{ display: 'flex', gap: 12, marginTop: 18, flexWrap: 'wrap' }}>
-          <form action={toggle} className="inline"><button className={`btn ${isDone ? 'btn-ghost' : 'btn-gold'}`} type="submit">{isDone ? '✓ Marked complete — undo' : 'Mark lesson complete'}</button></form>
+          <form action={toggle} className="inline">
+            <button className={`btn ${isDone ? 'btn-ghost' : 'btn-gold'}`} type="submit" disabled={!canComplete}
+              title={canComplete ? undefined : 'Watch the lesson through to mark it complete'}>
+              {isDone ? '✓ Marked complete — undo' : canComplete ? 'Mark lesson complete' : `Keep watching — ${Math.round(watchedFrac * 100)}% of 80%`}
+            </button>
+          </form>
           {nextL && <a className="btn btn-ghost" href={`/app/m/${m.id}/${lessonSlug(nextL.file)}`}>Next: {lessonTitle(nextL.file)} →</a>}
         </div>
       </div>
