@@ -41,6 +41,11 @@ export default async function ModulePage({ params }: { params: Promise<{ moduleI
       <div className="panel">
         <h2>Downloads</h2>
         <div className="dl">
+          {(m.slides ?? []).length > 0 && (
+            <a href={`/api/mastery/slides?m=${m.id}`} className="dl-slides" style={{ display: 'block', fontWeight: 600, border: '1px solid rgba(255,255,255,.18)', borderRadius: 10, padding: '12px 14px', marginBottom: 10, textDecoration: 'none' }}>
+              ⬇ Download all slides for this module ({(m.slides ?? []).length} {(m.slides ?? []).length === 1 ? 'deck' : 'decks'} · ZIP)
+            </a>
+          )}
           {(m.vault_files ?? []).map((f) => <a key={f} href={`/app/m/${m.id}/doc?f=${encodeURIComponent(f)}`}>{f.replace(/\.md$/, '').replace(/-/g, ' ')}</a>)}
         </div>
       </div>

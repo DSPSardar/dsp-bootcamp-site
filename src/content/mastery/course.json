@@ -1,2038 +1,2272 @@
 {
-  "course": "DSP AI Agent Mastery — Zero to Master",
-  "version": "0.9.0",
-  "price_usd": 100,
-  "access": "lifetime",
-  "support": "12 months group support",
-  "formula": "Agent = Claude + Job Description + Tools + Loop",
-  "project": "AI Employee (café ordering agent)",
-  "phases": [
-    {
-      "id": "0",
-      "name": "Zero — Foundations"
-    },
-    {
-      "id": "1",
-      "name": "Builder"
-    },
-    {
-      "id": "2",
-      "name": "Agent Engineer"
-    },
-    {
-      "id": "3",
-      "name": "Production"
-    },
-    {
-      "id": "4",
-      "name": "Seller"
-    }
-  ],
-  "modules": [
-    {
-      "id": "M01",
-      "title": "AI Foundations",
-      "phase": "0",
-      "phase_name": "Zero — Foundations",
-      "outcome": "Explain what an LLM and an agent are, what each can't do, and pick one idea worth building using the Agent Idea Filter.",
-      "downloads": [
-        "Agent Idea Filter worksheet",
-        "DSP AI Glossary",
-        "AI in One Page cheat sheet"
-      ],
-      "badge_after": null,
-      "lessons": [
-        {
-          "file": "M01-L01_AI-and-AI-Agents-Day1_MlNJeyjKHxQ.mp4",
-          "folder": "Phase-0-Zero/M01-AI-Foundations",
-          "youtube_id": "MlNJeyjKHxQ",
-          "minutes": 39,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_AI-and-Ai-Agents-Day-1_Media_MlNJeyjKHxQ_001_1080p.mp4",
-          "kind": "core",
-          "order": "L01",
-          "bunny": {
-            "guid": "d2c42370-384c-46ea-9173-fc51cc7f6409",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:02.462358Z",
-            "length_sec": 2363,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M01-L02_Next-Level-of-AI-Fundamentals-Agents-Autonomy_SvFSmcKbx3M.mp4",
-          "folder": "Phase-0-Zero/M01-AI-Foundations",
-          "youtube_id": "SvFSmcKbx3M",
-          "minutes": 47,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_The-Next-Level-of-AI-Fundamentals-Agents_Media_SvFSmcKbx3M_001_1080p.mp4",
-          "kind": "core",
-          "order": "L02",
-          "bunny": {
-            "guid": "fec934a9-a740-462c-abd7-35c777eef14f",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:37:18.513841Z",
-            "length_sec": 2843,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M01-S01_What-is-AI_QSVpTTR8znM.mp4",
-          "folder": "Phase-0-Zero/M01-AI-Foundations",
-          "youtube_id": "QSVpTTR8znM",
-          "minutes": 2,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M01-S01_What-is-AI_QSVpTTR8znM.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "8431a5a1-078c-46cb-97f4-ab8ccc882402",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:33:51.602Z",
-            "length_sec": 130,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M01-S02_What-is-Generative-AI_x16B6uejHiU.mp4",
-          "folder": "Phase-0-Zero/M01-AI-Foundations",
-          "youtube_id": "x16B6uejHiU",
-          "minutes": 2,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M01-S02_What-is-Generative-AI_x16B6uejHiU.mp4",
-          "kind": "supplement",
-          "order": "S02",
-          "bunny": {
-            "guid": "39bf552d-5411-4581-9a54-8a247ea6e1d2",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:34:06.196Z",
-            "length_sec": 130,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M01-S03_What-are-AI-Agents_c4qkhlbs0-w.mp4",
-          "folder": "Phase-0-Zero/M01-AI-Foundations",
-          "youtube_id": "c4qkhlbs0-w",
-          "minutes": 5,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M01-S03_What-are-AI-Agents_c4qkhlbs0-w.mp4",
-          "kind": "supplement",
-          "order": "S03",
-          "bunny": {
-            "guid": "5ef7dbd4-c372-41ce-a756-e65ae21ebbc1",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:34:26.797Z",
-            "length_sec": 326,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M01-S04_Generative-to-Agentic_Op7L1HDSMTQ.mp4",
-          "folder": "Phase-0-Zero/M01-AI-Foundations",
-          "youtube_id": "Op7L1HDSMTQ",
-          "minutes": 6,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M01-S04_Generative-to-Agentic_Op7L1HDSMTQ.mp4",
-          "kind": "supplement",
-          "order": "S04",
-          "bunny": {
-            "guid": "32b6db6b-428f-413d-9376-8f418c57bb1b",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:34:43.562Z",
-            "length_sec": 361,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M01-S05_The-Future-Is-Agentic_7haIkVLGrL8.mp4",
-          "folder": "Phase-0-Zero/M01-AI-Foundations",
-          "youtube_id": "7haIkVLGrL8",
-          "minutes": 7,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M01-S05_The-Future-Is-Agentic_7haIkVLGrL8.mp4",
-          "kind": "supplement",
-          "order": "S05",
-          "bunny": {
-            "guid": "764e314a-269a-4dc5-b9c4-b83a2c561507",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:35:21.639Z",
-            "length_sec": 441,
-            "aspect": 0.9651
-          }
-        },
-        {
-          "file": "M01-S06_Evolution-of-Agentic-Web_277rk9Oe2U0.mp4",
-          "folder": "Phase-0-Zero/M01-AI-Foundations",
-          "youtube_id": "277rk9Oe2U0",
-          "minutes": 7,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M01-S06_Evolution-of-Agentic-Web_277rk9Oe2U0.mp4",
-          "kind": "supplement",
-          "order": "S06",
-          "bunny": {
-            "guid": "8584c244-65c8-40a4-a164-9872b960d791",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:35:37.880Z",
-            "length_sec": 428,
-            "aspect": 1.7778
-          }
-        }
-      ],
-      "build_project": "Pick Your Agent — 5 ideas through the Idea Filter, one chosen",
-      "vault_files": [
-        "Agent-Idea-Filter.md",
-        "DSP-AI-Glossary.md",
-        "AI-in-One-Page.md"
-      ]
-    },
-    {
-      "id": "M02",
-      "title": "Prompting & Context Engineering",
-      "phase": "0",
-      "phase_name": "Zero — Foundations",
-      "outcome": "Write a production-grade Job Description using the 7-Part JD and explain why context decides whether an agent works.",
-      "downloads": [
-        "7-Part JD template",
-        "25 starter JDs",
-        "Prompt iteration log",
-        "Context failure-modes checklist"
-      ],
-      "badge_after": null,
-      "lessons": [
-        {
-          "file": "M02-L01_Prompt-Eng-Not-Enough-Context-Eng_GEpRArti8Uc.mp4",
-          "folder": "Phase-0-Zero/M02-Prompting-Context-Engineering",
-          "youtube_id": "GEpRArti8Uc",
-          "minutes": 55,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_Prompt-Engineering-is-not-Enough-Context_Media_GEpRArti8Uc_001_1080p.mp4",
-          "kind": "core",
-          "order": "L01",
-          "bunny": {
-            "guid": "79fc64e0-186c-464c-87e7-02cf01511466",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:37:16.030505Z",
-            "length_sec": 3283,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M02-L02_Context-Engineering-Day3_enQqyln_uoE.mp4",
-          "folder": "Phase-0-Zero/M02-Prompting-Context-Engineering",
-          "youtube_id": "enQqyln_uoE",
-          "minutes": 40,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_Context-Engineering-Day-3-Master-AI-Cont_Media_enQqyln_uoE_001_1080p.mp4",
-          "kind": "core",
-          "order": "L02",
-          "bunny": {
-            "guid": "6f6e3056-79b7-4606-9d5c-c7fe972a7695",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:58.851437Z",
-            "length_sec": 2418,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M02-L03_4-Ways-AI-Agents-Fail_OWdmU2gYMz8.mp4",
-          "folder": "Phase-0-Zero/M02-Prompting-Context-Engineering",
-          "youtube_id": "OWdmU2gYMz8",
-          "minutes": 37,
-          "source": "LOCAL",
-          "status": "Located",
-          "chapters": [],
-          "master": "M02-L03_4-Ways-AI-Agents-Fail_OWdmU2gYMz8_v1.mp4",
-          "kind": "core",
-          "order": "L03",
-          "bunny": {
-            "guid": "5dd810f7-e344-4fd6-88ca-3dc48c103f7e",
-            "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-26T11:21:17.814Z",
-            "length_sec": 2181,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M02-S01_How-to-Talk-to-AI_ur0fyow0cPg.mp4",
-          "folder": "Phase-0-Zero/M02-Prompting-Context-Engineering",
-          "youtube_id": "ur0fyow0cPg",
-          "minutes": 12,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M02-S01_How-to-Talk-to-AI_ur0fyow0cPg.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "1e47998e-9a93-4ab4-9693-6fde8350622a",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:36:09.133Z",
-            "length_sec": 744,
-            "aspect": 0.9651
-          }
-        },
-        {
-          "file": "M02-S02_Tokens-and-Context-Windows_PBFNKMQoWW8.mp4",
-          "folder": "Phase-0-Zero/M02-Prompting-Context-Engineering",
-          "youtube_id": "PBFNKMQoWW8",
-          "minutes": 11,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M02-S02_Tokens-and-Context-Windows_PBFNKMQoWW8.mp4",
-          "kind": "supplement",
-          "order": "S02",
-          "bunny": {
-            "guid": "697911a0-40f0-46c3-b7c0-a998a76e7763",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:36:32.013Z",
-            "length_sec": 651,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M02-S03_Token-Mechanics_0fniIyBoNYU.mp4",
-          "folder": "Phase-0-Zero/M02-Prompting-Context-Engineering",
-          "youtube_id": "0fniIyBoNYU",
-          "minutes": 8,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M02-S03_Token-Mechanics_0fniIyBoNYU.mp4",
-          "kind": "supplement",
-          "order": "S03",
-          "bunny": {
-            "guid": "ec0d1185-b6ff-47a7-9141-be2ee59773d2",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:36:58.750Z",
-            "length_sec": 475,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M02-S04_What-is-Prompt-and-Prompt-Engineering.mp4",
-          "folder": "M02-Prompting-Context-Engineering",
-          "youtube_id": null,
-          "minutes": 19,
-          "kind": "supplement",
-          "source_note": "recorded 27 Aug 2026 by Sundus Khan, co-founder, DSP",
-          "bunny": {
-            "guid": "50fe5df8-c5e6-468e-bcbe-f09c49321868",
-            "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-27T11:30:54.744Z",
-            "length_sec": 1145,
-            "aspect": 1.7778
-          },
-          "master": "M02-S04_What-is-Prompt-and-Prompt-Engineering_v1.mp4",
-          "instructor": "Sundus Khan"
-        }
-      ],
-      "build_project": "Write the JD — 7-Part JD v2 with 3 test inputs",
-      "vault_files": [
-        "7-Part-JD-Template.md",
-        "25-Starter-Job-Descriptions.md",
-        "Prompt-Iteration-Log.md"
-      ]
-    },
-    {
-      "id": "M03",
-      "title": "Claude / ChatGPT / Gemini",
-      "phase": "0",
-      "phase_name": "Zero — Foundations",
-      "outcome": "Set up Claude, Console, Claude Code, GitHub and Vercel; know when to reach for each tool; understand tokens and cost.",
-      "downloads": [
-        "Setup checklist (Mac+Windows)",
-        "Tool comparison matrix",
-        "Cost & token table",
-        "Windows/Cowork troubleshooting"
-      ],
-      "badge_after": null,
-      "lessons": [
-        {
-          "file": "M03-L01_Claude-Masterclass-Pt1-Setup-Workflows_piOULSKw5pc.mp4",
-          "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
-          "youtube_id": "piOULSKw5pc",
-          "minutes": 54,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M03-L01_Claude-Masterclass-Pt1-Setup-Workflows_piOULSKw5pc_v2.mp4",
-          "kind": "core",
-          "order": "L01",
-          "bunny": {
-            "guid": "25932e5b-699e-41e7-bae4-d3660a518123",
-            "status": "ready",
-            "version": 2,
-            "uploaded_at": "2026-08-28T08:20:03.965Z",
-            "length_sec": 3234,
-            "aspect": 1.7778
-          },
-          "source_note": "live class 25 Aug 2026 — Claude masterclass (updated)"
-        },
-        {
-          "file": "M03-L02_Claude-Chat-Cowork-Code_GUQmCNRqy1g.mp4",
-          "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
-          "youtube_id": "GUQmCNRqy1g",
-          "minutes": 31,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_Claude-Chat-Cowork-_-Code-New-Master-Cla_Media_GUQmCNRqy1g_001_1080p.mp4",
-          "kind": "core",
-          "order": "L02",
-          "bunny": {
-            "guid": "64763cb7-9d41-4d6c-b785-93f3faf9c311",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:50.750217Z",
-            "length_sec": 1851,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M03-L03_Google-AI-Studio-Gemini_63bNPgeoxmA.mp4",
-          "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
-          "youtube_id": "63bNPgeoxmA",
-          "minutes": 28,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_What-is-Google-AI-Studio_Media_63bNPgeoxmA_001_1080p.mp4",
-          "kind": "core",
-          "order": "L03",
-          "bunny": {
-            "guid": "646e8a0a-e2a9-4dbc-99a7-f04e6905a527",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:37:21.018425Z",
-            "length_sec": 1685,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M03-S01_Claude-Step-by-Step-Beginner_tU13d4SN0c4.mp4",
-          "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
-          "youtube_id": "tU13d4SN0c4",
-          "minutes": 13,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M03-S01_Claude-Step-by-Step-Beginner_tU13d4SN0c4.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "cf948aa1-10ca-417d-8ff4-ea9d116e4251",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:37:57.991Z",
-            "length_sec": 796,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M03-S02_Website-with-ChatGPT_2NbT-rZKqvU.mp4",
-          "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
-          "youtube_id": "2NbT-rZKqvU",
-          "minutes": 5,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M03-S02_Website-with-ChatGPT_2NbT-rZKqvU.mp4",
-          "kind": "supplement",
-          "order": "S02",
-          "bunny": {
-            "guid": "937853cb-5ba9-46d3-839e-265df7e88b51",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:38:11.706Z",
-            "length_sec": 279,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M03-S03_How-Codex-Works_u5yAtqVX3Nw.mp4",
-          "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
-          "youtube_id": "u5yAtqVX3Nw",
-          "minutes": 6,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M03-S03_How-Codex-Works_u5yAtqVX3Nw.mp4",
-          "kind": "supplement",
-          "order": "S03",
-          "bunny": {
-            "guid": "68423743-dc10-4dc0-b27a-64803b365751",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:38:28.773Z",
-            "length_sec": 344,
-            "aspect": 0.9651
-          }
-        }
-      ],
-      "build_project": "Your Toolkit — Claude Project + tool comparison + setup checklist",
-      "vault_files": [
-        "Setup-Checklist.md",
-        "Tool-Comparison-Matrix.md",
-        "Cost-and-Token-Table.md"
-      ]
-    },
-    {
-      "id": "M04",
-      "title": "Vibe Coding",
-      "phase": "1",
-      "phase_name": "Builder",
-      "outcome": "Build working software by describing it with Claude Code: PLAN → BUILD ONE FEATURE → TEST → COMMIT → NEXT.",
-      "downloads": [
-        "AI Employee build-prompts PDF",
-        "Claude Code command card",
-        "/context /compact /clear guide",
-        "Setup troubleshooting"
-      ],
-      "badge_after": null,
-      "lessons": [
-        {
-          "file": "M04-L01_Vibe-Coding-Step-by-Step_bwhLEbC5vjU.mp4",
-          "folder": "Phase-1-Builder/M04-Vibe-Coding",
-          "youtube_id": "bwhLEbC5vjU",
-          "minutes": 46,
-          "source": "LOCAL",
-          "status": "Located",
-          "chapters": [],
-          "master": "M04-L01_Vibe-Coding-Step-by-Step_bwhLEbC5vjU_v1.mp4",
-          "kind": "core",
-          "order": "L01",
-          "bunny": {
-            "guid": "d701009b-0edf-417f-939f-6bb3f719c878",
-            "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-26T11:33:56.751Z",
-            "length_sec": 2742,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M04-L02_Claude-Code-Structuring-Real-Project_QHtJAUbe8fI.mp4",
-          "folder": "Phase-1-Builder/M04-Vibe-Coding",
-          "youtube_id": "QHtJAUbe8fI",
-          "minutes": 55,
-          "source": "LOCAL",
-          "status": "Located",
-          "chapters": [],
-          "master": "M04-L02_Claude-Code-Structuring-Real-Project_QHtJAUbe8fI_v1.mp4",
-          "kind": "core",
-          "order": "L02",
-          "bunny": {
-            "guid": "b559d596-4b4b-46f6-8635-1dfeb42b1c78",
-            "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-26T12:22:37.569Z",
-            "length_sec": 3288,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M04-L03_Claude-Masterclass-Pt2-Advanced-Coding_hfLCbgKZ498.mp4",
-          "folder": "Phase-1-Builder/M04-Vibe-Coding",
-          "youtube_id": "hfLCbgKZ498",
-          "minutes": 53,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_Claude-AI-Masterclass-Part-2-Advanced-Co_Media_hfLCbgKZ498_001_1080p.mp4",
-          "kind": "core",
-          "order": "L03",
-          "bunny": {
-            "guid": "9e6306d2-065b-4e9b-80e7-0981c9af70b9",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:45.649952Z",
-            "length_sec": 3163,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M04-S01_What-is-Vibe-Coding_l5AXZP24KrY.mp4",
-          "folder": "Phase-1-Builder/M04-Vibe-Coding",
-          "youtube_id": "l5AXZP24KrY",
-          "minutes": 6,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M04-S01_What-is-Vibe-Coding_l5AXZP24KrY.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "b6da6aff-129a-49a4-91d9-be2bce96a230",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:38:52.201Z",
-            "length_sec": 349,
-            "aspect": 0.9651
-          }
-        }
-      ],
-      "build_project": "AI Employee Part 1: The Skeleton — app running locally on video",
-      "vault_files": [
-        "AI-Employee-Build-Prompts.md",
-        "Claude-Code-Command-Card.md"
-      ]
-    },
-    {
-      "id": "M05",
-      "title": "Websites",
-      "phase": "1",
-      "phase_name": "Builder",
-      "outcome": "Ship a responsive multi-page website with forms from a one-page spec, no hand-written code.",
-      "downloads": [
-        "Website spec template",
-        "10 landing-page prompts",
-        "Design-polish prompt pack",
-        "Website vs Web App vs Agent PDF"
-      ],
-      "badge_after": null,
-      "lessons": [
-        {
-          "file": "M05-L01_Build-and-Publish-Websites-Live_zDnnE55qJdI.mp4",
-          "folder": "Phase-1-Builder/M05-Websites",
-          "youtube_id": "zDnnE55qJdI",
-          "minutes": 46,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M05-L01_Build-and-Publish-Websites-Live_zDnnE55qJdI_v3.mp4",
-          "kind": "core",
-          "order": "L01",
-          "bunny": {
-            "guid": "0ef70693-31e1-4b26-bc03-33740a146d9c",
-            "status": "ready",
-            "version": 3,
-            "uploaded_at": "2026-08-28T08:00:27.013Z",
-            "length_sec": 2742,
-            "aspect": 1.7778
-          },
-          "source_note": "live class 24 Aug 2026 — complete step-by-step: vibe coding, website, chatbot, AI agents with Claude"
-        },
-        {
-          "file": "M05-L02_First-Frontend-with-Claude-Code-Day2_FMsPKSDfft4.mp4",
-          "folder": "Phase-1-Builder/M05-Websites",
-          "youtube_id": "FMsPKSDfft4",
-          "minutes": 31,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_Build-Your-First-Frontend-with-Claude-Co_Media_FMsPKSDfft4_001_1080p.mp4",
-          "kind": "core",
-          "order": "L02",
-          "bunny": {
-            "guid": "bdfb6e1b-76be-4376-8f11-29ecb240303b",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:24.415949Z",
-            "length_sec": 1829,
-            "aspect": 1.7778
-          }
-        }
-      ],
-      "build_project": "AI Employee Part 2: The Café Website — 4 pages, desktop + mobile",
-      "vault_files": [
-        "Website-Spec-Template.md",
-        "10-Landing-Page-Prompts.md",
-        "Design-Polish-Prompt-Pack.md",
-        "Website-vs-WebApp-vs-Agent.md"
-      ]
-    },
-    {
-      "id": "M06",
-      "title": "Git & GitHub",
-      "phase": "1",
-      "phase_name": "Builder",
-      "outcome": "Version-control every project: commit, push, branch, recover a mistake, fix permission errors.",
-      "downloads": [
-        "Git command card",
-        "GitHub setup checklist",
-        "403 fix guide",
-        "Git & GitHub Basics PDF"
-      ],
-      "badge_after": "Builder",
-      "lessons": [
-        {
-          "file": "M06-L01_Frontend-Push-to-GitHub_uNKWoml_XS8.mp4",
-          "folder": "Phase-1-Builder/M06-Git-GitHub",
-          "youtube_id": "uNKWoml_XS8",
-          "minutes": 46,
-          "source": "LOCAL",
-          "status": "Located",
-          "chapters": [],
-          "master": "M06-L01_Frontend-Push-to-GitHub_uNKWoml_XS8_v1.mp4",
-          "kind": "core",
-          "order": "L01",
-          "bunny": {
-            "guid": "43c133c5-0a01-4283-9f82-c9059bcfd276",
-            "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-26T12:24:03.001Z",
-            "length_sec": 2785,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M06-L02_Git-and-GitHub-with-Claude-Code.mp4",
-          "folder": "Phase-1-Builder/M06-Git-GitHub",
-          "youtube_id": null,
-          "minutes": 19,
-          "source": "NEW",
-          "status": "NEW",
-          "chapters": [],
-          "master": "M06-L02_Git-and-GitHub-with-Claude-Code_v1.mp4",
-          "kind": "core",
-          "order": "L02",
-          "source_note": "cut from the 26 Aug 2026 live class from 19:05",
-          "bunny": {
-            "guid": "2d13fd6f-f243-4e3a-b110-c2934be58220",
-            "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-27T06:37:38.244Z",
-            "length_sec": 1160,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M06-S01_Git-GitHub-Basics-Vibe-Coders_wbeQ0EZ4ri4.mp4",
-          "folder": "Phase-1-Builder/M06-Git-GitHub",
-          "youtube_id": "wbeQ0EZ4ri4",
-          "minutes": 7,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M06-S01_Git-GitHub-Basics-Vibe-Coders_wbeQ0EZ4ri4.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "db1781d3-834a-4647-8da5-9a33025c1790",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:39:07.452Z",
-            "length_sec": 440,
-            "aspect": 1.7778
-          }
-        }
-      ],
-      "build_project": "AI Employee on GitHub — public repo, 10+ commits, branch + restore",
-      "vault_files": [
-        "Git-Command-Card.md",
-        "GitHub-Setup-Checklist.md",
-        "403-Permissions-Fix-Guide.md"
-      ]
-    },
-    {
-      "id": "M07",
-      "title": "AI Agents",
-      "phase": "2",
-      "phase_name": "Agent Engineer",
-      "outcome": "Build a real agent with Job Description + Tools + Loop that completes a multi-step task; read a 7-layer multi-agent design.",
-      "downloads": [
-        "Agent architecture template",
-        "7-layer multi-agent PDF",
-        "Tool definition templates",
-        "Zara + Concierge reference JDs",
-        "CafeBot system prompt"
-      ],
-      "badge_after": null,
-      "lessons": [
-        {
-          "file": "M07-L01_Chatbot-to-AI-Agent-Evolution_TvGRUNA0b3A.mp4",
-          "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
-          "youtube_id": "TvGRUNA0b3A",
-          "minutes": 54,
-          "source": "LOCAL",
-          "status": "Located",
-          "chapters": [],
-          "master": "M07-L01_Chatbot-to-AI-Agent-Evolution_TvGRUNA0b3A_v1.mp4",
-          "kind": "core",
-          "order": "L01",
-          "bunny": {
-            "guid": "82684a06-eafa-4509-be84-6c5059f3fb4c",
-            "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-26T12:15:06.672Z",
-            "length_sec": 3234,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M07-L02_Build-First-AI-Agent-Class4_IcDbXP-ohQ4.mp4",
-          "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
-          "youtube_id": "IcDbXP-ohQ4",
-          "minutes": 66,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_Build-first-Ai-Agent-with-Claude-code-DS_Media_IcDbXP-ohQ4_001_1080p.mp4",
-          "kind": "core",
-          "order": "L02",
-          "bunny": {
-            "guid": "9bbc17c2-87e0-4164-89cc-0216780703b5",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:19.364998Z",
-            "length_sec": 3964,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M07-L03_Agents-Master-Pro-Day2__6L90ZqzHRs.mp4",
-          "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
-          "youtube_id": "_6L90ZqzHRs",
-          "minutes": 36,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": null,
-          "kind": "core",
-          "order": "L03",
-          "bunny": {
-            "guid": "58e53a51-a002-4dd5-91e3-ac99e6ccadb9",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:37:46.998560+00:00",
-            "length_sec": 2155,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M07-L04_Bootcamp-Day3_1LgZxGCnz_Y.mp4",
-          "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
-          "youtube_id": "1LgZxGCnz_Y",
-          "minutes": 61,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_dspbootcamp-3rd-day-class_Media_1LgZxGCnz_Y_001_1080p.mp4",
-          "kind": "core",
-          "order": "L04",
-          "bunny": {
-            "guid": "dd5e9852-ab5f-4a19-b537-892c69c01f1f",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:37:03.279590Z",
-            "length_sec": 3645,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M07-L05_CafeBot-Zero-to-Live_ZG3JXm-L8XU.mp4",
-          "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
-          "youtube_id": "ZG3JXm-L8XU",
-          "minutes": 49,
-          "source": "LOCAL",
-          "status": "Located",
-          "chapters": [],
-          "master": "M07-L05_CafeBot-Zero-to-Live_ZG3JXm-L8XU_v1.mp4",
-          "kind": "core",
-          "order": "L05",
-          "bunny": {
-            "guid": "601f2c8b-adf9-42e5-aa2c-066cf79470aa",
-            "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-26T12:25:32.657Z",
-            "length_sec": 2934,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M07-S01_Build-Agents-Master-Pro-Class1_NmpdMUxnLPQ.mp4",
-          "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
-          "youtube_id": "NmpdMUxnLPQ",
-          "minutes": 17,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_Build-Ai-Agents-with-Claude-Master-Pro-c_Media_NmpdMUxnLPQ_001_1080p.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "cbec2b7a-e9f7-4c38-ab3c-4bf49a8be92c",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:16.822311Z",
-            "length_sec": 1041,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M07-S02_Idea-to-Live-Agent_YRzBUTFZiI0.mp4",
-          "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
-          "youtube_id": "YRzBUTFZiI0",
-          "minutes": 8,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M07-S02_Idea-to-Live-Agent_YRzBUTFZiI0.mp4",
-          "kind": "supplement",
-          "order": "S02",
-          "bunny": {
-            "guid": "e45d30db-df3b-4b6d-a267-af0f5b90f124",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:39:29.472Z",
-            "length_sec": 480,
-            "aspect": 0.9651
-          }
-        },
-        {
-          "file": "M07-S03_Knowledge-Memory-Ladder_hmPWKZ72y9w.mp4",
-          "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
-          "youtube_id": "hmPWKZ72y9w",
-          "minutes": 4,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M07-S03_Knowledge-Memory-Ladder_hmPWKZ72y9w.mp4",
-          "kind": "supplement",
-          "order": "S03",
-          "bunny": {
-            "guid": "8c1d31d0-5e3f-4795-ad03-d8ef08736fac",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:39:49.588Z",
-            "length_sec": 221,
-            "aspect": 1.7778
-          }
-        }
-      ],
-      "build_project": "AI Employee Part 3: The Ordering Agent — full order demo + architecture page",
-      "vault_files": [
-        "Agent-Architecture-Template.md",
-        "7-Layer-Multi-Agent-Design.md",
-        "Tool-Definition-Templates.md",
-        "Reference-JDs-Zara-Concierge.md",
-        "AI-Employee-System-Prompt.md"
-      ]
-    },
-    {
-      "id": "M08",
-      "title": "APIs",
-      "phase": "2",
-      "phase_name": "Agent Engineer",
-      "outcome": "Connect to the Claude API and one external service; keep keys in .env; handle errors and cost.",
-      "downloads": [
-        "API integration prompt pack",
-        "Keys & env checklist",
-        "Error-handling patterns",
-        "5 free-tier API ideas"
-      ],
-      "badge_after": null,
-      "lessons": [
-        {
-          "file": "M08-L01_API-Keys-and-env-Files_kTUdPQ5MnJc.mp4",
-          "folder": "Phase-2-Agent-Engineer/M08-APIs",
-          "youtube_id": "kTUdPQ5MnJc",
-          "minutes": 45,
-          "source": "LOCAL",
-          "status": "Located",
-          "chapters": [],
-          "master": "M08-L01_API-Keys-and-env-Files_kTUdPQ5MnJc_v1.mp4",
-          "kind": "core",
-          "order": "L01",
-          "bunny": {
-            "guid": "0e320cda-9b96-415a-8135-7de2f6429a6a",
-            "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-26T12:16:59.014Z",
-            "length_sec": 2716,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M08-L02_External-API-Integration_NEW.mp4",
-          "folder": "Phase-2-Agent-Engineer/M08-APIs",
-          "youtube_id": null,
-          "minutes": 30,
-          "source": "NEW",
-          "status": "NEW",
-          "chapters": [],
-          "master": null,
-          "kind": "core",
-          "order": "L02"
-        },
-        {
-          "file": "M08-S01_AI-Agents-API_uLrZhhmjxCQ.mp4",
-          "folder": "Phase-2-Agent-Engineer/M08-APIs",
-          "youtube_id": "uLrZhhmjxCQ",
-          "minutes": 6,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M08-S01_AI-Agents-API_uLrZhhmjxCQ.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "fc009872-eb46-4827-acca-1eee62bed6b6",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:40:05.729Z",
-            "length_sec": 376,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M08-S02_What-is-API-and-MCP_wknhpVBlQ8o.mp4",
-          "folder": "Phase-2-Agent-Engineer/M08-APIs",
-          "youtube_id": "wknhpVBlQ8o",
-          "minutes": 13,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M08-S02_What-is-API-and-MCP_wknhpVBlQ8o.mp4",
-          "kind": "supplement",
-          "order": "S02",
-          "bunny": {
-            "guid": "b8e9f2e0-a839-46c6-b9c7-8dae92aff559",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:40:39.561Z",
-            "length_sec": 761,
-            "aspect": 1.7778
-          }
-        }
-      ],
-      "build_project": "AI Employee Part 4: Wired Up — backend + one external API",
-      "vault_files": [
-        "API-Integration-Prompt-Pack.md",
-        "Keys-and-env-Checklist.md",
-        "Error-Handling-Patterns.md",
-        "5-Free-Tier-API-Ideas.md"
-      ]
-    },
-    {
-      "id": "M09",
-      "title": "RAG & Memory",
-      "phase": "2",
-      "phase_name": "Agent Engineer",
-      "outcome": "Give an agent knowledge and memory using the Memory Ladder; pick the right rung.",
-      "downloads": [
-        "Memory Ladder diagram",
-        "Knowledge-base formatting guide",
-        "Chunking & retrieval prompts",
-        "The Smart Library PDF"
-      ],
-      "badge_after": null,
-      "lessons": [
-        {
-          "file": "M09-L01_RAG-Explained_CFQgyH1uJVU.mp4",
-          "folder": "Phase-2-Agent-Engineer/M09-RAG-Memory",
-          "youtube_id": "CFQgyH1uJVU",
-          "minutes": 37,
-          "source": "LOCAL",
-          "status": "Located",
-          "chapters": [],
-          "master": "M09-L01_RAG-Explained_CFQgyH1uJVU_v1.mp4",
-          "kind": "core",
-          "order": "L01",
-          "bunny": {
-            "guid": "fe4c3c68-62e0-4a24-bdda-a2d325985103",
-            "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-26T12:18:14.145Z",
-            "length_sec": 2194,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M09-L02_Claude-Projects-Memory_UFXYqyKQDzI.mp4",
-          "folder": "Phase-2-Agent-Engineer/M09-RAG-Memory",
-          "youtube_id": "UFXYqyKQDzI",
-          "minutes": 47,
-          "source": "LOCAL",
-          "status": "Located",
-          "chapters": [],
-          "master": "M09-L02_Claude-Projects-Memory_UFXYqyKQDzI_v1.mp4",
-          "kind": "core",
-          "order": "L02",
-          "bunny": {
-            "guid": "2ea5cdbb-f315-4f43-97e2-c8e5f53eb139",
-            "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-26T12:19:21.744Z",
-            "length_sec": 2838,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M09-S01_How-RAG-Works-short_SkT2s4N8wU0.mp4",
-          "folder": "Phase-2-Agent-Engineer/M09-RAG-Memory",
-          "youtube_id": "SkT2s4N8wU0",
-          "minutes": 17,
-          "source": "LOCAL",
-          "status": "Located",
-          "chapters": [],
-          "master": "M09-S01_How-RAG-Works-short_SkT2s4N8wU0_v1.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "a3345174-ca16-4c8c-bbd5-6fa8658c732c",
-            "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-26T12:26:17.200Z",
-            "length_sec": 1028,
-            "aspect": 1.7778
-          }
-        }
-      ],
-      "build_project": "AI Employee Part 5: Knows the Menu, Remembers the Customer",
-      "vault_files": [
-        "Memory-Ladder-Diagram.md",
-        "Knowledge-Base-Formatting-Guide.md",
-        "Chunking-Retrieval-Prompt-Pack.md",
-        "The-Smart-Library-Overview.md"
-      ]
-    },
-    {
-      "id": "M10",
-      "title": "MCP",
-      "phase": "2",
-      "phase_name": "Agent Engineer",
-      "outcome": "Connect an agent to real tools via the Model Context Protocol and explain what MCP standardises.",
-      "downloads": [
-        "MCP setup guide",
-        "Connector directory",
-        "MCP-builder prompt",
-        "Higgsfield MCP demo notes"
-      ],
-      "badge_after": "Agent Engineer",
-      "lessons": [
-        {
-          "file": "M10-L01_MCP-Full-Lecture_NEW.mp4",
-          "folder": "Phase-2-Agent-Engineer/M10-MCP",
-          "youtube_id": null,
-          "minutes": 45,
-          "source": "NEW",
-          "status": "NEW",
-          "chapters": [],
-          "master": null,
-          "kind": "core",
-          "order": "L01"
-        },
-        {
-          "file": "M10-S01_What-is-API-and-MCP_wknhpVBlQ8o.mp4",
-          "folder": "Phase-2-Agent-Engineer/M10-MCP",
-          "youtube_id": "wknhpVBlQ8o",
-          "minutes": 13,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M10-S01_What-is-API-and-MCP_wknhpVBlQ8o.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "2c522603-5a33-4a0b-81f7-1fe916eba571",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:41:19.655Z",
-            "length_sec": 761,
-            "aspect": 1.7778
-          }
-        }
-      ],
-      "build_project": "AI Employee Part 6: Talks to the Outside World — one MCP tool live",
-      "vault_files": [
-        "MCP-Setup-Guide.md",
-        "Connector-Directory.md",
-        "MCP-Builder-Prompt-Template.md",
-        "Higgsfield-MCP-Demo-Notes.md"
-      ]
-    },
-    {
-      "id": "M11",
-      "title": "Testing & Observability",
-      "phase": "3",
-      "phase_name": "Production",
-      "outcome": "Test systematically with the DSP 10-Question Test Sheet and read logs to diagnose.",
-      "downloads": [
-        "10-Question Test Sheet",
-        "Test log template",
-        "Edge-case bank (50)",
-        "Testing PDF",
-        "Shipping Trusted Agents PDF"
-      ],
-      "badge_after": null,
-      "lessons": [
-        {
-          "file": "M11-L01_Test-Before-After-Launch_0XpTyz0-uUc.mp4",
-          "folder": "Phase-3-Production/M11-Testing-Observability",
-          "youtube_id": "0XpTyz0-uUc",
-          "minutes": 39,
-          "source": "LOCAL",
-          "status": "Located",
-          "chapters": [],
-          "master": "M11-L01_Test-Before-After-Launch_0XpTyz0-uUc_v1.mp4",
-          "kind": "core",
-          "order": "L01",
-          "bunny": {
-            "guid": "721b9d2f-64b6-4511-bd05-f55282d3e419",
-            "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-26T12:27:27.076Z",
-            "length_sec": 2328,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M11-L02_What-is-Observability_7Os-d68IMq4.mp4",
-          "folder": "Phase-3-Production/M11-Testing-Observability",
-          "youtube_id": "7Os-d68IMq4",
-          "minutes": 30,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_Ai-Agents-what-is-observability_Media_7Os-d68IMq4_001_1080p.mp4",
-          "kind": "core",
-          "order": "L02",
-          "bunny": {
-            "guid": "90ce0d5d-3854-4cb2-8d4b-d8231bc83630",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:35:54.140575Z",
-            "length_sec": 1791,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M11-L03_Test-Secure-Deploy__0REF_5Ws50.mp4",
-          "folder": "Phase-3-Production/M11-Testing-Observability",
-          "youtube_id": "_0REF_5Ws50",
-          "minutes": 35,
-          "source": "LOCAL",
-          "status": "Located",
-          "chapters": [],
-          "master": "M11-L03_Test-Secure-Deploy_0REF_5Ws50_v1.mp4",
-          "kind": "core",
-          "order": "L03",
-          "bunny": {
-            "guid": "1214d215-92aa-43b7-a2c8-a0579667ff7e",
-            "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-26T12:28:25.547Z",
-            "length_sec": 2124,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M11-S01_Five-Steps-Trusted-Agents_ahafeXcC0mw.mp4",
-          "folder": "Phase-3-Production/M11-Testing-Observability",
-          "youtube_id": "ahafeXcC0mw",
-          "minutes": 7,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M11-S01_Five-Steps-Trusted-Agents_ahafeXcC0mw.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "a731b096-5e82-426a-bac8-436933d6e2f1",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:41:31.791Z",
-            "length_sec": 409,
-            "aspect": 1.7778
-          }
-        }
-      ],
-      "build_project": "Break AI Employee — test sheet, 3 fixes, logging",
-      "vault_files": [
-        "10-Question-Test-Sheet.md",
-        "Test-Log-Template.md",
-        "Edge-Case-Bank.md",
-        "Testing-Before-After-Launch-Notes.md",
-        "Shipping-Trusted-Agents-Notes.md"
-      ]
-    },
-    {
-      "id": "M12",
-      "title": "Security",
-      "phase": "3",
-      "phase_name": "Production",
-      "outcome": "Protect keys, block prompt injection, limit what the agent can do and spend, handle data responsibly.",
-      "downloads": [
-        "Security checklist (15)",
-        "Guardrail prompt block",
-        "Injection test set (10)",
-        "Data Compliance PDF"
-      ],
-      "badge_after": null,
-      "lessons": [
-        {
-          "file": "M12-L01_Security-Masterclass-Pt1_oZTxq7XBZbk.mp4",
-          "folder": "Phase-3-Production/M12-Security",
-          "youtube_id": "oZTxq7XBZbk",
-          "minutes": 41,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_AI-Agents-Security-Master-class-part-1_Media_oZTxq7XBZbk_001_1080p.mp4",
-          "kind": "core",
-          "order": "L01",
-          "bunny": {
-            "guid": "fdbbc578-764f-4d2d-bab3-84d0dfb86b28",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:35:51.576545Z",
-            "length_sec": 2486,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M12-S01_Memory-Security-Guardrails_5OR0BOa_Hb4.mp4",
-          "folder": "Phase-3-Production/M12-Security",
-          "youtube_id": "5OR0BOa_Hb4",
-          "minutes": 8,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M12-S01_Memory-Security-Guardrails_5OR0BOa_Hb4.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "2d75817c-5fb5-437a-a3bb-c3d5b8bf46b8",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:41:44.943Z",
-            "length_sec": 500,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M12-S02_Securing-Agent-Memory_p3XZmeSOLrA.mp4",
-          "folder": "Phase-3-Production/M12-Security",
-          "youtube_id": "p3XZmeSOLrA",
-          "minutes": 6,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M12-S02_Securing-Agent-Memory_p3XZmeSOLrA.mp4",
-          "kind": "supplement",
-          "order": "S02",
-          "bunny": {
-            "guid": "2ef34af5-3b94-402f-b280-071e32c734ad",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:41:57.644Z",
-            "length_sec": 376,
-            "aspect": 1.7778
-          }
-        }
-      ],
-      "build_project": "Harden AI Employee — 15-item checklist + 10 injection tests",
-      "vault_files": [
-        "Security-Checklist.md",
-        "Guardrail-Prompt-Block.md",
-        "Injection-Test-Set.md",
-        "Data-Compliance-Standards.md"
-      ]
-    },
-    {
-      "id": "M13",
-      "title": "Deployment",
-      "phase": "3",
-      "phase_name": "Production",
-      "outcome": "Put CafeBot on a public HTTPS URL with hosted backend, env vars and go-live QA.",
-      "downloads": [
-        "Deploy checklist",
-        "Vercel + Railway guide",
-        "Domain & env setup",
-        "Go-live QA list",
-        "Test-Secure-Ship PDF"
-      ],
-      "badge_after": "Production-Ready",
-      "lessons": [
-        {
-          "file": "M13-L01_Complete-Deployment-Zero-to-Live.mp4",
-          "folder": "M13-Deployment",
-          "youtube_id": null,
-          "minutes": 20,
-          "kind": "core",
-          "source_note": "live class 29 Aug 2026 — full deployment, zero to live URL with Claude Code",
-          "bunny": {
-            "guid": "c62121ee-36f4-4220-b818-7af1e549894b",
-            "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-29T17:51:44.411Z",
-            "length_sec": 1185,
-            "aspect": 1.7778
-          },
-          "master": "M13-L01_Complete-Deployment-Zero-to-Live_v1.mp4"
-        },
-        {
-          "file": "M13-L02_GitHub-to-Vercel-Deployment_oSD-AdRr5AI.mp4",
-          "folder": "Phase-3-Production/M13-Deployment",
-          "youtube_id": "oSD-AdRr5AI",
-          "minutes": 38,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_Github-to-vercel-final-deployment_Media_oSD-AdRr5AI_001_1080p.mp4",
-          "kind": "core",
-          "order": "L01",
-          "bunny": {
-            "guid": "ed43a974-636f-4430-8376-6c1bbf01bdac",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:37:05.895197Z",
-            "length_sec": 2281,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M13-L03_CafeBot-Deploy-Portion_ZG3JXm-L8XU.mp4",
-          "folder": "Phase-3-Production/M13-Deployment",
-          "youtube_id": "ZG3JXm-L8XU",
-          "minutes": 0,
-          "source": "CUT-FROM-M07-L04",
-          "status": "CUT-FROM-M07-L04",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_Build-a-Real-AI-Agent-with-Claude-Code-Z_Media_ZG3JXm-L8XU_001_1080p.mp4",
-          "kind": "core",
-          "order": "L02",
-          "bunny": {
-            "guid": "b2980465-233a-411d-b98e-dbb2bce9e909",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:10.031050Z",
-            "length_sec": 2915,
-            "aspect": 1.7778
-          }
-        }
-      ],
-      "build_project": "AI Employee LIVE — public URL verified by AI Coach",
-      "vault_files": [
-        "Deploy-Checklist.md",
-        "Vercel-Railway-Guide.md",
-        "Domain-Env-Setup.md",
-        "Go-Live-QA-List.md",
-        "Test-Secure-Deploy-Notes.md"
-      ]
-    },
-    {
-      "id": "M14",
-      "title": "Multi-Agent & Business Automation",
-      "phase": "4",
-      "phase_name": "Seller",
-      "outcome": "Turn one agent into a business system: One Agent Many Clients, notifications, and when multi-agent is justified.",
-      "downloads": [
-        "One Agent Many Clients PDF",
-        "Automation blueprints (5 industries)",
-        "Workflow map",
-        "Multi-agent decision checklist"
-      ],
-      "badge_after": null,
-      "lessons": [
-        {
-          "file": "M14-L01_Multi-Agent-Systems-Business-Automation.mp4",
-          "folder": "Phase-4-Seller/M14-Multi-Agent-Business-Automation",
-          "youtube_id": null,
-          "minutes": 42,
-          "source": "NEW",
-          "status": "NEW",
-          "chapters": [],
-          "master": "M14-L01_Multi-Agent-Systems-Business-Automation_v1.mp4",
-          "kind": "core",
-          "order": "L01",
-          "source_note": "live class 30 Aug 2026",
-          "bunny": {
-            "guid": "4f2e1b02-d851-488d-8c8c-f28c841a2dba",
-            "status": "processing",
-            "version": 1,
-            "uploaded_at": "2026-08-30T17:58:31.842Z"
-          }
-        },
-        {
-          "file": "M14-S01_First-Multi-Agent-System_fxfDEBHjpC4.mp4",
-          "folder": "Phase-4-Seller/M14-Multi-Agent-Business-Automation",
-          "youtube_id": "fxfDEBHjpC4",
-          "minutes": 16,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_Build-Your-First-Multi-Agent-AI-System-w_Media_fxfDEBHjpC4_001_1080p.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "760b1b83-f3c8-41fa-b691-77f5b1cac874",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:28.462278Z",
-            "length_sec": 958,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M14-S02_Agents-Workflows-Tools_Nw6vPE3d3XU.mp4",
-          "folder": "Phase-4-Seller/M14-Multi-Agent-Business-Automation",
-          "youtube_id": "Nw6vPE3d3XU",
-          "minutes": 14,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M14-S02_Agents-Workflows-Tools_Nw6vPE3d3XU.mp4",
-          "kind": "supplement",
-          "order": "S02",
-          "bunny": {
-            "guid": "a8ccc883-e588-41a2-be77-88042b01ba16",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:42:24.928Z",
-            "length_sec": 821,
-            "aspect": 0.9651
-          }
-        }
-      ],
-      "build_project": "AI Employee for Two Cafés — multi-tenant + owner notification",
-      "vault_files": [
-        "One-Agent-Many-Clients.md",
-        "Automation-Blueprints-5-Industries.md",
-        "Workflow-Map-Template.md",
-        "Multi-Agent-Decision-Checklist.md"
-      ]
-    },
-    {
-      "id": "M15",
-      "title": "Selling AI Solutions",
-      "phase": "4",
-      "phase_name": "Seller",
-      "outcome": "Find a client, run discovery, price, propose, deliver and get paid.",
-      "downloads": [
-        "Client Discovery Sheet",
-        "Proposal template",
-        "Pricing calculator",
-        "SOW/contract",
-        "Outreach pack",
-        "Demo script",
-        "Getting-paid guide"
-      ],
-      "badge_after": "AI Solutions Seller",
-      "lessons": [
-        {
-          "file": "M15-L01_Why-97pct-Courses-Skip-This_oOKyMHilVH4.mp4",
-          "folder": "Phase-4-Seller/M15-Selling-AI-Solutions",
-          "youtube_id": "oOKyMHilVH4",
-          "minutes": 42,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_Why-97-of-AI-Agent-Courses-Skip-This-One_Media_oOKyMHilVH4_001_1080p.mp4",
-          "kind": "core",
-          "order": "L01",
-          "bunny": {
-            "guid": "d412ca2e-cd85-4151-9726-1823311dfbfd",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:37:25.919925Z",
-            "length_sec": 2510,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M15-L02_Finding-Clients-Worldwide.mp4",
-          "folder": "Phase-4-Seller/M15-Selling-AI-Solutions",
-          "youtube_id": null,
-          "minutes": 52,
-          "source": "NEW",
-          "status": "NEW",
-          "chapters": [],
-          "master": "M15-L02_Finding-Clients-Worldwide_v1.mp4",
-          "kind": "core",
-          "order": "L02",
-          "source_note": "live class, 27 Aug 2026",
-          "bunny": {
-            "guid": "bd24af1d-a235-4027-ae86-bc168d4f5089",
-            "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-27T17:56:59.957Z",
-            "length_sec": 3129,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M15-S01_Student-Earned-60K_01UefxMiNOc.mp4",
-          "folder": "Phase-4-Seller/M15-Selling-AI-Solutions",
-          "youtube_id": "01UefxMiNOc",
-          "minutes": 4,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M15-S01_Student-Earned-60K_01UefxMiNOc.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "2c5ac1cf-9643-4265-9c0a-72af532a84a9",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:42:52.430Z",
-            "length_sec": 260,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M15-S02_UK-Finance-Pro-First-Agent_0dwVIkn7pBg.mp4",
-          "folder": "Phase-4-Seller/M15-Selling-AI-Solutions",
-          "youtube_id": "0dwVIkn7pBg",
-          "minutes": 3,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M15-S02_UK-Finance-Pro-First-Agent_0dwVIkn7pBg.mp4",
-          "kind": "supplement",
-          "order": "S02",
-          "bunny": {
-            "guid": "7e642dff-ebb7-48a5-9da5-e94190716a56",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:43:21.717Z",
-            "length_sec": 169,
-            "aspect": 1.7778
-          }
-        }
-      ],
-      "build_project": "Your First Proposal — discovery sheet + proposal + 3 outreach messages",
-      "vault_files": [
-        "Client-Discovery-Sheet.md",
-        "Proposal-Template.md",
-        "Pricing-Calculator.md",
-        "SOW-Contract-Template.md",
-        "Outreach-Message-Pack.md",
-        "Demo-Script.md",
-        "Getting-Paid-Guide.md"
-      ]
-    }
-  ],
-  "welcome": [
-    {
-      "file": "00-W01_Welcome-Orientation_NEW.mp4",
-      "folder": "00-Welcome",
-      "youtube_id": null,
-      "minutes": 5,
-      "source": "NEW",
-      "status": "NEW",
-      "chapters": [],
-      "master": "00-W01_Welcome-Orientation_v4.mp4",
-      "kind": "welcome",
-      "bunny": {
-        "guid": "882f6262-7c0f-4eef-9481-842974e82797",
-        "status": "ready",
-        "version": 4,
-        "uploaded_at": "2026-08-26T15:38:22.892Z",
-        "length_sec": 351,
-        "aspect": 1.7778
-      }
-    },
-    {
-      "file": "00-W02_Inside-DSP-Walkthrough_TICJXTiWpmc.mp4",
-      "folder": "00-Welcome",
-      "youtube_id": "TICJXTiWpmc",
-      "minutes": 18,
-      "source": "LOCAL",
-      "status": "Located",
-      "chapters": [],
-      "master": "00-W02_Inside-DSP-Walkthrough_TICJXTiWpmc_v1.mp4",
-      "kind": "welcome",
-      "bunny": {
-        "guid": "e3351c30-c8df-4933-b4da-f7b706975664",
-        "status": "ready",
-        "version": 1,
-        "uploaded_at": "2026-08-26T11:18:04.749Z",
-        "length_sec": 1052,
-        "aspect": 1.7778
-      }
-    }
-  ],
-  "vault": [
-    {
-      "file": "V_Before-Building-Agents_YWbxk0Ype54.mp4",
-      "folder": "_Vault-Bonus",
-      "youtube_id": "YWbxk0Ype54",
-      "minutes": 64,
-      "source": "DOWNLOAD",
-      "status": "To download",
-      "chapters": [],
-      "master": "YTDown.com_YouTube_What-is-most-important-before-building-A_Media_YWbxk0Ype54_001_1080p.mp4",
-      "kind": "vault",
-      "bunny": {
-        "guid": "8cf1400d-d92c-44c2-a09d-8f39eacd272b",
-        "status": "ready",
-        "version": 1,
-        "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:37:23.543465Z",
-        "length_sec": 3854,
-        "aspect": 1.7778
-      }
-    },
-    {
-      "file": "V_AI-Myths-vs-Reality-2026_CGjgSI3knNY.mp4",
-      "folder": "_Vault-Bonus",
-      "youtube_id": "CGjgSI3knNY",
-      "minutes": 44,
-      "source": "DOWNLOAD",
-      "status": "To download",
-      "chapters": [],
-      "master": "YTDown.com_YouTube_AI-myths-Vs-reality-which-is-actually-th_Media_CGjgSI3knNY_001_1080p.mp4",
-      "kind": "vault",
-      "bunny": {
-        "guid": "39b7e72c-8a66-42d3-95ff-e36e13c008f3",
-        "status": "ready",
-        "version": 1,
-        "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:36:04.949396Z",
-        "length_sec": 2646,
-        "aspect": 1.7778
-      }
-    },
-    {
-      "file": "V_Claude-Cowork-Code_hwGJ2ekg3kQ.mp4",
-      "folder": "_Vault-Bonus",
-      "youtube_id": "hwGJ2ekg3kQ",
-      "minutes": 47,
-      "source": "DOWNLOAD",
-      "status": "To download",
-      "chapters": [],
-      "master": "YTDown.com_YouTube_Claude-claude-cowork-claude-code_Media_hwGJ2ekg3kQ_001_1080p.mp4",
-      "kind": "vault",
-      "bunny": {
-        "guid": "d8b91c47-e226-4932-88e4-ee8161da55d3",
-        "status": "ready",
-        "version": 1,
-        "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:36:53.655514Z",
-        "length_sec": 2799,
-        "aspect": 1.7778
-      }
-    },
-    {
-      "file": "V_Claude-Fundamentals-Beginner-to-Pro_GbDinGY4S00.mp4",
-      "folder": "_Vault-Bonus",
-      "youtube_id": "GbDinGY4S00",
-      "minutes": 28,
-      "source": "DOWNLOAD",
-      "status": "To download",
-      "chapters": [],
-      "master": "YTDown.com_YouTube_Claude-AI-Fundamentals-Complete-Beginner_Media_GbDinGY4S00_001_1080p.mp4",
-      "kind": "vault",
-      "bunny": {
-        "guid": "ffd86a64-38b3-4025-9658-f74f705d8fa0",
-        "status": "ready",
-        "version": 1,
-        "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:36:40.529523Z",
-        "length_sec": 1676,
-        "aspect": 1.7778
-      }
-    },
-    {
-      "file": "V_Use-Claude-Better-Than-97pct_pIarK_L8d9I.mp4",
-      "folder": "_Vault-Bonus",
-      "youtube_id": "pIarK_L8d9I",
-      "minutes": 44,
-      "source": "DOWNLOAD",
-      "status": "To download",
-      "chapters": [],
-      "master": "YTDown.com_YouTube_How-to-use-Claude-better-then-97-of-peop_Media_pIarK_L8d9I_001_1080p.mp4",
-      "kind": "vault",
-      "bunny": {
-        "guid": "fbf9617a-f954-4058-b9a0-107e2fdbd055",
-        "status": "ready",
-        "version": 1,
-        "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:37:10.962505Z",
-        "length_sec": 2621,
-        "aspect": 1.7778
-      }
-    },
-    {
-      "file": "V_Best-AI-Tools-Day4_UpEWUQw-3xI.mp4",
-      "folder": "_Vault-Bonus",
-      "youtube_id": "UpEWUQw-3xI",
-      "minutes": 46,
-      "source": "DOWNLOAD",
-      "status": "To download",
-      "chapters": [],
-      "master": "YTDown.com_YouTube_Claude-_-AI-Tools-Day-4-Best-AI-Tools-Yo_Media_UpEWUQw-3xI_001_1080p.mp4",
-      "kind": "vault",
-      "bunny": {
-        "guid": "5d2e3377-2827-4263-a819-f03929ba7f58",
-        "status": "ready",
-        "version": 1,
-        "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:36:33.846083Z",
-        "length_sec": 2758,
-        "aspect": 1.7778
-      }
-    },
-    {
-      "file": "V_Claude-Cowork-Master-Pro_x_A9RkaLAj4.mp4",
-      "folder": "_Vault-Bonus",
-      "youtube_id": "x_A9RkaLAj4",
-      "minutes": 33,
-      "source": "DOWNLOAD",
-      "status": "To download",
-      "chapters": [],
-      "master": "YTDown.com_YouTube_Claude-cowork-Master-Pro-class-July-2026_Media_x_A9RkaLAj4_001_1080p.mp4",
-      "kind": "vault",
-      "bunny": {
-        "guid": "1814897e-d6f3-43e9-984c-0cdd7ffa0e89",
-        "status": "ready",
-        "version": 1,
-        "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:36:56.436639Z",
-        "length_sec": 1978,
-        "aspect": 1.7778
-      }
-    },
-    {
-      "file": "V_Claude-Certification-Training_swuA7hzsrhQ.mp4",
-      "folder": "_Vault-Bonus",
-      "youtube_id": "swuA7hzsrhQ",
-      "minutes": 31,
-      "source": "DOWNLOAD",
-      "status": "To download",
-      "chapters": [],
-      "master": "YTDown.com_YouTube_Claude-Certification-Complete-Training-N_Media_swuA7hzsrhQ_001_1080p.mp4",
-      "kind": "vault",
-      "bunny": {
-        "guid": "5d960142-fd93-479a-842a-9da8007720e8",
-        "status": "ready",
-        "version": 1,
-        "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:36:48.156694Z",
-        "length_sec": 1840,
-        "aspect": 1.7778
-      }
-    },
-    {
-      "file": "V_Real-AI-Apps-Day1_1oM2aneRSX8.mp4",
-      "folder": "_Vault-Bonus",
-      "youtube_id": "1oM2aneRSX8",
-      "minutes": 35,
-      "source": "DOWNLOAD",
-      "status": "To download",
-      "chapters": [],
-      "master": "YTDown.com_YouTube_Building-Real-AI-Applications-with-Claud_Media_1oM2aneRSX8_001_1080p.mp4",
-      "kind": "vault",
-      "bunny": {
-        "guid": "7e4abccd-758b-4ec4-8db3-9d53f980326d",
-        "status": "ready",
-        "version": 1,
-        "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:36:31.125272Z",
-        "length_sec": 2082,
-        "aspect": 1.7778
-      }
-    },
-    {
-      "file": "V_Website-in-30-Minutes_1za_ZwBVXNM.mp4",
-      "folder": "_Vault-Bonus",
-      "youtube_id": "1za_ZwBVXNM",
-      "minutes": 29,
-      "source": "DOWNLOAD",
-      "status": "To download",
-      "chapters": [],
-      "master": "YTDown.com_YouTube_Build-a-Website-in-30-Minutes-FREE-_-Liv_Media_1za_ZwBVXNM_001_1080p.mp4",
-      "kind": "vault",
-      "bunny": {
-        "guid": "b645cb96-0462-4eb6-9903-33e9c46b9e29",
-        "status": "ready",
-        "version": 1,
-        "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:36:12.488026Z",
-        "length_sec": 1714,
-        "aspect": 1.7778
-      }
-    },
-    {
-      "file": "V_Website-in-15-Minutes_Hu2qbIsiA50.mp4",
-      "folder": "_Vault-Bonus",
-      "youtube_id": "Hu2qbIsiA50",
-      "minutes": 44,
-      "source": "DOWNLOAD",
-      "status": "To download",
-      "chapters": [],
-      "master": "YTDown.com_YouTube_Build-website-with-Claude-in-15-minutes-_Media_Hu2qbIsiA50_001_1080p.mp4",
-      "kind": "vault",
-      "bunny": {
-        "guid": "4d7bb974-2131-47a1-a1ed-853dff930d9f",
-        "status": "ready",
-        "version": 1,
-        "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:36:21.779312Z",
-        "length_sec": 2621,
-        "aspect": 1.7778
-      }
-    },
-    {
-      "file": "V_Agents-with-Claude_veMqkyjGS4s.mp4",
-      "folder": "_Vault-Bonus",
-      "youtube_id": "veMqkyjGS4s",
-      "minutes": 40,
-      "source": "DOWNLOAD",
-      "status": "To download",
-      "chapters": [],
-      "master": "YTDown.com_YouTube_Ai-Agents-with-Claude_Media_veMqkyjGS4s_001_1080p.mp4",
-      "kind": "vault",
-      "bunny": {
-        "guid": "274b372e-68ca-4b71-b719-5d16c6e299c7",
-        "status": "ready",
-        "version": 1,
-        "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:35:56.627929Z",
-        "length_sec": 2381,
-        "aspect": 1.7778
-      }
-    },
-    {
-      "file": "V_Idea-to-Live-in-30-Minutes_yzImxj-NX-g.mp4",
-      "folder": "_Vault-Bonus",
-      "youtube_id": "yzImxj-NX-g",
-      "minutes": 52,
-      "source": "DOWNLOAD",
-      "status": "To download",
-      "chapters": [],
-      "master": "YTDown.com_YouTube_Al-agents-master-pro-class-idea-to-live-_Media_yzImxj-NX-g_001_1080p.mp4",
-      "kind": "vault",
-      "bunny": {
-        "guid": "48eaf521-2f3d-42a7-8803-7e6737203a2b",
-        "status": "ready",
-        "version": 1,
-        "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:36:07.462682Z",
-        "length_sec": 3091,
-        "aspect": 1.7778
-      }
-    },
-    {
-      "file": "V_Practical-Project-Work_hS3wu_PvZSY.mp4",
-      "folder": "_Vault-Bonus",
-      "youtube_id": "hS3wu_PvZSY",
-      "minutes": 42,
-      "source": "DOWNLOAD",
-      "status": "To download",
-      "chapters": [],
-      "master": "YTDown.com_YouTube_Practical-work-on-a-project_Media_hS3wu_PvZSY_001_1080p.mp4",
-      "kind": "vault",
-      "bunny": {
-        "guid": "cd89aaa5-3d2b-47fa-9156-511ea0abf12f",
-        "status": "ready",
-        "version": 1,
-        "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:37:13.494281Z",
-        "length_sec": 2492,
-        "aspect": 1.7778
-      }
-    },
-    {
-      "file": "V_Practical-Project-Discussion__Rz0CVJlQ-0.mp4",
-      "folder": "_Vault-Bonus",
-      "youtube_id": "_Rz0CVJlQ-0",
-      "minutes": 55,
-      "source": "DOWNLOAD",
-      "status": "To download",
-      "chapters": [],
-      "master": null,
-      "kind": "vault",
-      "bunny": {
-        "guid": "dcd41a38-00be-4f3a-a479-a9ff6a32c112",
-        "status": "ready",
-        "version": 1,
-        "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:37:49.451411+00:00",
-        "length_sec": 3280,
-        "aspect": 1.7778
-      }
-    },
-    {
-      "file": "V_AI-Agents-Prompt-and-Claude_QBTw2gN2_AM.mp4",
-      "folder": "_Vault-Bonus",
-      "youtube_id": "QBTw2gN2_AM",
-      "minutes": 37,
-      "source": "DOWNLOAD",
-      "status": "To download",
-      "chapters": [],
-      "master": "YTDown.com_YouTube_Ai-Ai-Agents-Ai-Agentic-Prompt-and-Claud_Media_QBTw2gN2_AM_001_1080p.mp4",
-      "kind": "vault",
-      "bunny": {
-        "guid": "86848d78-5d65-4494-b6d2-8d0d60576add",
-        "status": "ready",
-        "version": 1,
-        "source": "drive-fetch",
-        "uploaded_at": "2026-08-26T13:35:59.288056Z",
-        "length_sec": 2245,
-        "aspect": 1.7778
-      }
-    }
-  ],
-  "capstone": {
-    "deliverables": [
-      "Live HTTPS URL",
-      "Public GitHub repo (20+ commits)",
-      "3-minute demo video",
-      "1-page proposal"
-    ],
-    "badge": "Master",
-    "review": "DSP team; resubmit anytime",
-    "brief_file": "Capstone-Brief-and-Rubric.md"
+ "course": "DSP AI Agent Mastery — Zero to Master",
+ "version": "0.9.0",
+ "price_usd": 100,
+ "access": "lifetime",
+ "support": "12 months group support",
+ "formula": "Agent = Claude + Job Description + Tools + Loop",
+ "project": "AI Employee (café ordering agent)",
+ "phases": [
+  {
+   "id": "0",
+   "name": "Zero — Foundations"
   },
-  "progression": "modules open in order as the student marks them complete; no quizzes, no grading",
-  "vault_path": "_BUILD/02-Resource-Vault"
+  {
+   "id": "1",
+   "name": "Builder"
+  },
+  {
+   "id": "2",
+   "name": "Agent Engineer"
+  },
+  {
+   "id": "3",
+   "name": "Production"
+  },
+  {
+   "id": "4",
+   "name": "Seller"
+  }
+ ],
+ "modules": [
+  {
+   "id": "M01",
+   "title": "AI Foundations",
+   "phase": "0",
+   "phase_name": "Zero — Foundations",
+   "outcome": "Explain what an LLM and an agent are, what each can't do, and pick one idea worth building using the Agent Idea Filter.",
+   "downloads": [
+    "Agent Idea Filter worksheet",
+    "DSP AI Glossary",
+    "AI in One Page cheat sheet"
+   ],
+   "badge_after": null,
+   "lessons": [
+    {
+     "file": "M01-L01_AI-and-AI-Agents-Day1_MlNJeyjKHxQ.mp4",
+     "folder": "Phase-0-Zero/M01-AI-Foundations",
+     "youtube_id": "MlNJeyjKHxQ",
+     "minutes": 39,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "YTDown.com_YouTube_AI-and-Ai-Agents-Day-1_Media_MlNJeyjKHxQ_001_1080p.mp4",
+     "kind": "core",
+     "order": "L01",
+     "bunny": {
+      "guid": "d2c42370-384c-46ea-9173-fc51cc7f6409",
+      "status": "ready",
+      "version": 1,
+      "source": "drive-fetch",
+      "uploaded_at": "2026-08-26T13:36:02.462358Z",
+      "length_sec": 2363,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M01-L02_Next-Level-of-AI-Fundamentals-Agents-Autonomy_SvFSmcKbx3M.mp4",
+     "folder": "Phase-0-Zero/M01-AI-Foundations",
+     "youtube_id": "SvFSmcKbx3M",
+     "minutes": 47,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "YTDown.com_YouTube_The-Next-Level-of-AI-Fundamentals-Agents_Media_SvFSmcKbx3M_001_1080p.mp4",
+     "kind": "core",
+     "order": "L02",
+     "bunny": {
+      "guid": "fec934a9-a740-462c-abd7-35c777eef14f",
+      "status": "ready",
+      "version": 1,
+      "source": "drive-fetch",
+      "uploaded_at": "2026-08-26T13:37:18.513841Z",
+      "length_sec": 2843,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M01-S01_What-is-AI_QSVpTTR8znM.mp4",
+     "folder": "Phase-0-Zero/M01-AI-Foundations",
+     "youtube_id": "QSVpTTR8znM",
+     "minutes": 2,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M01-S01_What-is-AI_QSVpTTR8znM.mp4",
+     "kind": "supplement",
+     "order": "S01",
+     "bunny": {
+      "guid": "8431a5a1-078c-46cb-97f4-ab8ccc882402",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:33:51.602Z",
+      "length_sec": 130,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M01-S02_What-is-Generative-AI_x16B6uejHiU.mp4",
+     "folder": "Phase-0-Zero/M01-AI-Foundations",
+     "youtube_id": "x16B6uejHiU",
+     "minutes": 2,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M01-S02_What-is-Generative-AI_x16B6uejHiU.mp4",
+     "kind": "supplement",
+     "order": "S02",
+     "bunny": {
+      "guid": "39bf552d-5411-4581-9a54-8a247ea6e1d2",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:34:06.196Z",
+      "length_sec": 130,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M01-S03_What-are-AI-Agents_c4qkhlbs0-w.mp4",
+     "folder": "Phase-0-Zero/M01-AI-Foundations",
+     "youtube_id": "c4qkhlbs0-w",
+     "minutes": 5,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M01-S03_What-are-AI-Agents_c4qkhlbs0-w.mp4",
+     "kind": "supplement",
+     "order": "S03",
+     "bunny": {
+      "guid": "5ef7dbd4-c372-41ce-a756-e65ae21ebbc1",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:34:26.797Z",
+      "length_sec": 326,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M01-S04_Generative-to-Agentic_Op7L1HDSMTQ.mp4",
+     "folder": "Phase-0-Zero/M01-AI-Foundations",
+     "youtube_id": "Op7L1HDSMTQ",
+     "minutes": 6,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M01-S04_Generative-to-Agentic_Op7L1HDSMTQ.mp4",
+     "kind": "supplement",
+     "order": "S04",
+     "bunny": {
+      "guid": "32b6db6b-428f-413d-9376-8f418c57bb1b",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:34:43.562Z",
+      "length_sec": 361,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M01-S05_The-Future-Is-Agentic_7haIkVLGrL8.mp4",
+     "folder": "Phase-0-Zero/M01-AI-Foundations",
+     "youtube_id": "7haIkVLGrL8",
+     "minutes": 7,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M01-S05_The-Future-Is-Agentic_7haIkVLGrL8.mp4",
+     "kind": "supplement",
+     "order": "S05",
+     "bunny": {
+      "guid": "764e314a-269a-4dc5-b9c4-b83a2c561507",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:35:21.639Z",
+      "length_sec": 441,
+      "aspect": 0.9651
+     }
+    },
+    {
+     "file": "M01-S06_Evolution-of-Agentic-Web_277rk9Oe2U0.mp4",
+     "folder": "Phase-0-Zero/M01-AI-Foundations",
+     "youtube_id": "277rk9Oe2U0",
+     "minutes": 7,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M01-S06_Evolution-of-Agentic-Web_277rk9Oe2U0.mp4",
+     "kind": "supplement",
+     "order": "S06",
+     "bunny": {
+      "guid": "8584c244-65c8-40a4-a164-9872b960d791",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:35:37.880Z",
+      "length_sec": 428,
+      "aspect": 1.7778
+     }
+    }
+   ],
+   "build_project": "Pick Your Agent — 5 ideas through the Idea Filter, one chosen",
+   "vault_files": [
+    "Agent-Idea-Filter.md",
+    "DSP-AI-Glossary.md",
+    "AI-in-One-Page.md"
+   ],
+   "slides": [
+    {
+     "file": "M01-S01_Evolution-to-Agentic-AI-Day1.pdf",
+     "title": "Evolution to Agentic AI Day1",
+     "type": "pdf",
+     "bytes": 14363249,
+     "path": "_SLIDES/M01-AI-Foundations/M01-S01_Evolution-to-Agentic-AI-Day1.pdf"
+    },
+    {
+     "file": "M01-S02_Website-vs-AI-Agent.pdf",
+     "title": "Website vs AI Agent",
+     "type": "pdf",
+     "bytes": 2654126,
+     "path": "_SLIDES/M01-AI-Foundations/M01-S02_Website-vs-AI-Agent.pdf"
+    }
+   ],
+   "slides_zip": "_SLIDES/_ZIP/M01-slides.zip"
+  },
+  {
+   "id": "M02",
+   "title": "Prompting & Context Engineering",
+   "phase": "0",
+   "phase_name": "Zero — Foundations",
+   "outcome": "Write a production-grade Job Description using the 7-Part JD and explain why context decides whether an agent works.",
+   "downloads": [
+    "7-Part JD template",
+    "25 starter JDs",
+    "Prompt iteration log",
+    "Context failure-modes checklist"
+   ],
+   "badge_after": null,
+   "lessons": [
+    {
+     "file": "M02-L01_Prompt-Eng-Not-Enough-Context-Eng_GEpRArti8Uc.mp4",
+     "folder": "Phase-0-Zero/M02-Prompting-Context-Engineering",
+     "youtube_id": "GEpRArti8Uc",
+     "minutes": 55,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "YTDown.com_YouTube_Prompt-Engineering-is-not-Enough-Context_Media_GEpRArti8Uc_001_1080p.mp4",
+     "kind": "core",
+     "order": "L01",
+     "bunny": {
+      "guid": "79fc64e0-186c-464c-87e7-02cf01511466",
+      "status": "ready",
+      "version": 1,
+      "source": "drive-fetch",
+      "uploaded_at": "2026-08-26T13:37:16.030505Z",
+      "length_sec": 3283,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M02-L02_Context-Engineering-Day3_enQqyln_uoE.mp4",
+     "folder": "Phase-0-Zero/M02-Prompting-Context-Engineering",
+     "youtube_id": "enQqyln_uoE",
+     "minutes": 40,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "YTDown.com_YouTube_Context-Engineering-Day-3-Master-AI-Cont_Media_enQqyln_uoE_001_1080p.mp4",
+     "kind": "core",
+     "order": "L02",
+     "bunny": {
+      "guid": "6f6e3056-79b7-4606-9d5c-c7fe972a7695",
+      "status": "ready",
+      "version": 1,
+      "source": "drive-fetch",
+      "uploaded_at": "2026-08-26T13:36:58.851437Z",
+      "length_sec": 2418,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M02-L03_4-Ways-AI-Agents-Fail_OWdmU2gYMz8.mp4",
+     "folder": "Phase-0-Zero/M02-Prompting-Context-Engineering",
+     "youtube_id": "OWdmU2gYMz8",
+     "minutes": 37,
+     "source": "LOCAL",
+     "status": "Located",
+     "chapters": [],
+     "master": "M02-L03_4-Ways-AI-Agents-Fail_OWdmU2gYMz8_v1.mp4",
+     "kind": "core",
+     "order": "L03",
+     "bunny": {
+      "guid": "5dd810f7-e344-4fd6-88ca-3dc48c103f7e",
+      "status": "ready",
+      "version": 1,
+      "uploaded_at": "2026-08-26T11:21:17.814Z",
+      "length_sec": 2181,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M02-S01_How-to-Talk-to-AI_ur0fyow0cPg.mp4",
+     "folder": "Phase-0-Zero/M02-Prompting-Context-Engineering",
+     "youtube_id": "ur0fyow0cPg",
+     "minutes": 12,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M02-S01_How-to-Talk-to-AI_ur0fyow0cPg.mp4",
+     "kind": "supplement",
+     "order": "S01",
+     "bunny": {
+      "guid": "1e47998e-9a93-4ab4-9693-6fde8350622a",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:36:09.133Z",
+      "length_sec": 744,
+      "aspect": 0.9651
+     }
+    },
+    {
+     "file": "M02-S02_Tokens-and-Context-Windows_PBFNKMQoWW8.mp4",
+     "folder": "Phase-0-Zero/M02-Prompting-Context-Engineering",
+     "youtube_id": "PBFNKMQoWW8",
+     "minutes": 11,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M02-S02_Tokens-and-Context-Windows_PBFNKMQoWW8.mp4",
+     "kind": "supplement",
+     "order": "S02",
+     "bunny": {
+      "guid": "697911a0-40f0-46c3-b7c0-a998a76e7763",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:36:32.013Z",
+      "length_sec": 651,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M02-S03_Token-Mechanics_0fniIyBoNYU.mp4",
+     "folder": "Phase-0-Zero/M02-Prompting-Context-Engineering",
+     "youtube_id": "0fniIyBoNYU",
+     "minutes": 8,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M02-S03_Token-Mechanics_0fniIyBoNYU.mp4",
+     "kind": "supplement",
+     "order": "S03",
+     "bunny": {
+      "guid": "ec0d1185-b6ff-47a7-9141-be2ee59773d2",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:36:58.750Z",
+      "length_sec": 475,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M02-S04_What-is-Prompt-and-Prompt-Engineering.mp4",
+     "folder": "M02-Prompting-Context-Engineering",
+     "youtube_id": null,
+     "minutes": 19,
+     "kind": "supplement",
+     "source_note": "recorded 27 Aug 2026 by Sundus Khan, co-founder, DSP",
+     "bunny": {
+      "guid": "50fe5df8-c5e6-468e-bcbe-f09c49321868",
+      "status": "ready",
+      "version": 1,
+      "uploaded_at": "2026-08-27T11:30:54.744Z",
+      "length_sec": 1145,
+      "aspect": 1.7778
+     },
+     "master": "M02-S04_What-is-Prompt-and-Prompt-Engineering_v1.mp4",
+     "instructor": "Sundus Khan"
+    }
+   ],
+   "build_project": "Write the JD — 7-Part JD v2 with 3 test inputs",
+   "vault_files": [
+    "7-Part-JD-Template.md",
+    "25-Starter-Job-Descriptions.md",
+    "Prompt-Iteration-Log.md"
+   ],
+   "slides": [
+    {
+     "file": "M02-S01_Context-Engineering-Day3.pdf",
+     "title": "Context Engineering Day3",
+     "type": "pdf",
+     "bytes": 9282369,
+     "path": "_SLIDES/M02-Prompting-Context-Engineering/M02-S01_Context-Engineering-Day3.pdf"
+    },
+    {
+     "file": "M02-S02_Prompt-Reference-and-Context-Cheatsheet.pdf",
+     "title": "Prompt Reference and Context Cheatsheet",
+     "type": "pdf",
+     "bytes": 248076,
+     "path": "_SLIDES/M02-Prompting-Context-Engineering/M02-S02_Prompt-Reference-and-Context-Cheatsheet.pdf"
+    }
+   ],
+   "slides_zip": "_SLIDES/_ZIP/M02-slides.zip"
+  },
+  {
+   "id": "M03",
+   "title": "Claude / ChatGPT / Gemini",
+   "phase": "0",
+   "phase_name": "Zero — Foundations",
+   "outcome": "Set up Claude, Console, Claude Code, GitHub and Vercel; know when to reach for each tool; understand tokens and cost.",
+   "downloads": [
+    "Setup checklist (Mac+Windows)",
+    "Tool comparison matrix",
+    "Cost & token table",
+    "Windows/Cowork troubleshooting"
+   ],
+   "badge_after": null,
+   "lessons": [
+    {
+     "file": "M03-L01_Claude-Masterclass-Pt1-Setup-Workflows_piOULSKw5pc.mp4",
+     "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
+     "youtube_id": "piOULSKw5pc",
+     "minutes": 54,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M03-L01_Claude-Masterclass-Pt1-Setup-Workflows_piOULSKw5pc_v2.mp4",
+     "kind": "core",
+     "order": "L01",
+     "bunny": {
+      "guid": "25932e5b-699e-41e7-bae4-d3660a518123",
+      "status": "ready",
+      "version": 2,
+      "uploaded_at": "2026-08-28T08:20:03.965Z",
+      "length_sec": 3234,
+      "aspect": 1.7778
+     },
+     "source_note": "live class 25 Aug 2026 — Claude masterclass (updated)"
+    },
+    {
+     "file": "M03-L02_Claude-Chat-Cowork-Code_GUQmCNRqy1g.mp4",
+     "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
+     "youtube_id": "GUQmCNRqy1g",
+     "minutes": 31,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "YTDown.com_YouTube_Claude-Chat-Cowork-_-Code-New-Master-Cla_Media_GUQmCNRqy1g_001_1080p.mp4",
+     "kind": "core",
+     "order": "L02",
+     "bunny": {
+      "guid": "64763cb7-9d41-4d6c-b785-93f3faf9c311",
+      "status": "ready",
+      "version": 1,
+      "source": "drive-fetch",
+      "uploaded_at": "2026-08-26T13:36:50.750217Z",
+      "length_sec": 1851,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M03-L03_Google-AI-Studio-Gemini_63bNPgeoxmA.mp4",
+     "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
+     "youtube_id": "63bNPgeoxmA",
+     "minutes": 28,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "YTDown.com_YouTube_What-is-Google-AI-Studio_Media_63bNPgeoxmA_001_1080p.mp4",
+     "kind": "core",
+     "order": "L03",
+     "bunny": {
+      "guid": "646e8a0a-e2a9-4dbc-99a7-f04e6905a527",
+      "status": "ready",
+      "version": 1,
+      "source": "drive-fetch",
+      "uploaded_at": "2026-08-26T13:37:21.018425Z",
+      "length_sec": 1685,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M03-S01_Claude-Step-by-Step-Beginner_tU13d4SN0c4.mp4",
+     "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
+     "youtube_id": "tU13d4SN0c4",
+     "minutes": 13,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M03-S01_Claude-Step-by-Step-Beginner_tU13d4SN0c4.mp4",
+     "kind": "supplement",
+     "order": "S01",
+     "bunny": {
+      "guid": "cf948aa1-10ca-417d-8ff4-ea9d116e4251",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:37:57.991Z",
+      "length_sec": 796,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M03-S02_Website-with-ChatGPT_2NbT-rZKqvU.mp4",
+     "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
+     "youtube_id": "2NbT-rZKqvU",
+     "minutes": 5,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M03-S02_Website-with-ChatGPT_2NbT-rZKqvU.mp4",
+     "kind": "supplement",
+     "order": "S02",
+     "bunny": {
+      "guid": "937853cb-5ba9-46d3-839e-265df7e88b51",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:38:11.706Z",
+      "length_sec": 279,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M03-S03_How-Codex-Works_u5yAtqVX3Nw.mp4",
+     "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
+     "youtube_id": "u5yAtqVX3Nw",
+     "minutes": 6,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M03-S03_How-Codex-Works_u5yAtqVX3Nw.mp4",
+     "kind": "supplement",
+     "order": "S03",
+     "bunny": {
+      "guid": "68423743-dc10-4dc0-b27a-64803b365751",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:38:28.773Z",
+      "length_sec": 344,
+      "aspect": 0.9651
+     }
+    }
+   ],
+   "build_project": "Your Toolkit — Claude Project + tool comparison + setup checklist",
+   "vault_files": [
+    "Setup-Checklist.md",
+    "Tool-Comparison-Matrix.md",
+    "Cost-and-Token-Table.md"
+   ],
+   "slides": [
+    {
+     "file": "M03-S01_Claude-Master-Class-Day2.pdf",
+     "title": "Claude Master Class Day2",
+     "type": "pdf",
+     "bytes": 946073,
+     "path": "_SLIDES/M03-Claude-ChatGPT-Gemini/M03-S01_Claude-Master-Class-Day2.pdf"
+    },
+    {
+     "file": "M03-S02_What-Is-Claude-and-How-It-Works-2026.pdf",
+     "title": "What Is Claude and How It Works 2026",
+     "type": "pdf",
+     "bytes": 3847665,
+     "path": "_SLIDES/M03-Claude-ChatGPT-Gemini/M03-S02_What-Is-Claude-and-How-It-Works-2026.pdf"
+    }
+   ],
+   "slides_zip": "_SLIDES/_ZIP/M03-slides.zip"
+  },
+  {
+   "id": "M04",
+   "title": "Vibe Coding",
+   "phase": "1",
+   "phase_name": "Builder",
+   "outcome": "Build working software by describing it with Claude Code: PLAN → BUILD ONE FEATURE → TEST → COMMIT → NEXT.",
+   "downloads": [
+    "AI Employee build-prompts PDF",
+    "Claude Code command card",
+    "/context /compact /clear guide",
+    "Setup troubleshooting"
+   ],
+   "badge_after": null,
+   "lessons": [
+    {
+     "file": "M04-L01_Vibe-Coding-Step-by-Step_bwhLEbC5vjU.mp4",
+     "folder": "Phase-1-Builder/M04-Vibe-Coding",
+     "youtube_id": "bwhLEbC5vjU",
+     "minutes": 46,
+     "source": "LOCAL",
+     "status": "Located",
+     "chapters": [],
+     "master": "M04-L01_Vibe-Coding-Step-by-Step_bwhLEbC5vjU_v1.mp4",
+     "kind": "core",
+     "order": "L01",
+     "bunny": {
+      "guid": "d701009b-0edf-417f-939f-6bb3f719c878",
+      "status": "ready",
+      "version": 1,
+      "uploaded_at": "2026-08-26T11:33:56.751Z",
+      "length_sec": 2742,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M04-L02_Claude-Code-Structuring-Real-Project_QHtJAUbe8fI.mp4",
+     "folder": "Phase-1-Builder/M04-Vibe-Coding",
+     "youtube_id": "QHtJAUbe8fI",
+     "minutes": 55,
+     "source": "LOCAL",
+     "status": "Located",
+     "chapters": [],
+     "master": "M04-L02_Claude-Code-Structuring-Real-Project_QHtJAUbe8fI_v1.mp4",
+     "kind": "core",
+     "order": "L02",
+     "bunny": {
+      "guid": "b559d596-4b4b-46f6-8635-1dfeb42b1c78",
+      "status": "ready",
+      "version": 1,
+      "uploaded_at": "2026-08-26T12:22:37.569Z",
+      "length_sec": 3288,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M04-L03_Claude-Masterclass-Pt2-Advanced-Coding_hfLCbgKZ498.mp4",
+     "folder": "Phase-1-Builder/M04-Vibe-Coding",
+     "youtube_id": "hfLCbgKZ498",
+     "minutes": 53,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "YTDown.com_YouTube_Claude-AI-Masterclass-Part-2-Advanced-Co_Media_hfLCbgKZ498_001_1080p.mp4",
+     "kind": "core",
+     "order": "L03",
+     "bunny": {
+      "guid": "9e6306d2-065b-4e9b-80e7-0981c9af70b9",
+      "status": "ready",
+      "version": 1,
+      "source": "drive-fetch",
+      "uploaded_at": "2026-08-26T13:36:45.649952Z",
+      "length_sec": 3163,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M04-S01_What-is-Vibe-Coding_l5AXZP24KrY.mp4",
+     "folder": "Phase-1-Builder/M04-Vibe-Coding",
+     "youtube_id": "l5AXZP24KrY",
+     "minutes": 6,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M04-S01_What-is-Vibe-Coding_l5AXZP24KrY.mp4",
+     "kind": "supplement",
+     "order": "S01",
+     "bunny": {
+      "guid": "b6da6aff-129a-49a4-91d9-be2bce96a230",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:38:52.201Z",
+      "length_sec": 349,
+      "aspect": 0.9651
+     }
+    }
+   ],
+   "build_project": "AI Employee Part 1: The Skeleton — app running locally on video",
+   "vault_files": [
+    "AI-Employee-Build-Prompts.md",
+    "Claude-Code-Command-Card.md"
+   ],
+   "slides": [
+    {
+     "file": "M04-S01_Claude-Code-Context-Management.pdf",
+     "title": "Claude Code Context Management",
+     "type": "pdf",
+     "bytes": 2202412,
+     "path": "_SLIDES/M04-Vibe-Coding/M04-S01_Claude-Code-Context-Management.pdf"
+    }
+   ],
+   "slides_zip": "_SLIDES/_ZIP/M04-slides.zip"
+  },
+  {
+   "id": "M05",
+   "title": "Websites",
+   "phase": "1",
+   "phase_name": "Builder",
+   "outcome": "Ship a responsive multi-page website with forms from a one-page spec, no hand-written code.",
+   "downloads": [
+    "Website spec template",
+    "10 landing-page prompts",
+    "Design-polish prompt pack",
+    "Website vs Web App vs Agent PDF"
+   ],
+   "badge_after": null,
+   "lessons": [
+    {
+     "file": "M05-L01_Build-and-Publish-Websites-Live_zDnnE55qJdI.mp4",
+     "folder": "Phase-1-Builder/M05-Websites",
+     "youtube_id": "zDnnE55qJdI",
+     "minutes": 46,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M05-L01_Build-and-Publish-Websites-Live_zDnnE55qJdI_v3.mp4",
+     "kind": "core",
+     "order": "L01",
+     "bunny": {
+      "guid": "0ef70693-31e1-4b26-bc03-33740a146d9c",
+      "status": "ready",
+      "version": 3,
+      "uploaded_at": "2026-08-28T08:00:27.013Z",
+      "length_sec": 2742,
+      "aspect": 1.7778
+     },
+     "source_note": "live class 24 Aug 2026 — complete step-by-step: vibe coding, website, chatbot, AI agents with Claude"
+    },
+    {
+     "file": "M05-L02_First-Frontend-with-Claude-Code-Day2_FMsPKSDfft4.mp4",
+     "folder": "Phase-1-Builder/M05-Websites",
+     "youtube_id": "FMsPKSDfft4",
+     "minutes": 31,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "YTDown.com_YouTube_Build-Your-First-Frontend-with-Claude-Co_Media_FMsPKSDfft4_001_1080p.mp4",
+     "kind": "core",
+     "order": "L02",
+     "bunny": {
+      "guid": "bdfb6e1b-76be-4376-8f11-29ecb240303b",
+      "status": "ready",
+      "version": 1,
+      "source": "drive-fetch",
+      "uploaded_at": "2026-08-26T13:36:24.415949Z",
+      "length_sec": 1829,
+      "aspect": 1.7778
+     }
+    }
+   ],
+   "build_project": "AI Employee Part 2: The Café Website — 4 pages, desktop + mobile",
+   "vault_files": [
+    "Website-Spec-Template.md",
+    "10-Landing-Page-Prompts.md",
+    "Design-Polish-Prompt-Pack.md",
+    "Website-vs-WebApp-vs-Agent.md"
+   ],
+   "slides": [
+    {
+     "file": "M05-S01_Build-a-Website-Frontend-with-Claude-Code.pdf",
+     "title": "Build a Website Frontend with Claude Code",
+     "type": "pdf",
+     "bytes": 2172613,
+     "path": "_SLIDES/M05-Websites/M05-S01_Build-a-Website-Frontend-with-Claude-Code.pdf"
+    },
+    {
+     "file": "M05-S02_Website-WebApp-and-AI-Agents.pdf",
+     "title": "Website WebApp and AI Agents",
+     "type": "pdf",
+     "bytes": 1732972,
+     "path": "_SLIDES/M05-Websites/M05-S02_Website-WebApp-and-AI-Agents.pdf"
+    }
+   ],
+   "slides_zip": "_SLIDES/_ZIP/M05-slides.zip"
+  },
+  {
+   "id": "M06",
+   "title": "Git & GitHub",
+   "phase": "1",
+   "phase_name": "Builder",
+   "outcome": "Version-control every project: commit, push, branch, recover a mistake, fix permission errors.",
+   "downloads": [
+    "Git command card",
+    "GitHub setup checklist",
+    "403 fix guide",
+    "Git & GitHub Basics PDF"
+   ],
+   "badge_after": "Builder",
+   "lessons": [
+    {
+     "file": "M06-L01_Frontend-Push-to-GitHub_uNKWoml_XS8.mp4",
+     "folder": "Phase-1-Builder/M06-Git-GitHub",
+     "youtube_id": "uNKWoml_XS8",
+     "minutes": 46,
+     "source": "LOCAL",
+     "status": "Located",
+     "chapters": [],
+     "master": "M06-L01_Frontend-Push-to-GitHub_uNKWoml_XS8_v1.mp4",
+     "kind": "core",
+     "order": "L01",
+     "bunny": {
+      "guid": "43c133c5-0a01-4283-9f82-c9059bcfd276",
+      "status": "ready",
+      "version": 1,
+      "uploaded_at": "2026-08-26T12:24:03.001Z",
+      "length_sec": 2785,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M06-L02_Git-and-GitHub-with-Claude-Code.mp4",
+     "folder": "Phase-1-Builder/M06-Git-GitHub",
+     "youtube_id": null,
+     "minutes": 19,
+     "source": "NEW",
+     "status": "NEW",
+     "chapters": [],
+     "master": "M06-L02_Git-and-GitHub-with-Claude-Code_v1.mp4",
+     "kind": "core",
+     "order": "L02",
+     "source_note": "cut from the 26 Aug 2026 live class from 19:05",
+     "bunny": {
+      "guid": "2d13fd6f-f243-4e3a-b110-c2934be58220",
+      "status": "ready",
+      "version": 1,
+      "uploaded_at": "2026-08-27T06:37:38.244Z",
+      "length_sec": 1160,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M06-S01_Git-GitHub-Basics-Vibe-Coders_wbeQ0EZ4ri4.mp4",
+     "folder": "Phase-1-Builder/M06-Git-GitHub",
+     "youtube_id": "wbeQ0EZ4ri4",
+     "minutes": 7,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M06-S01_Git-GitHub-Basics-Vibe-Coders_wbeQ0EZ4ri4.mp4",
+     "kind": "supplement",
+     "order": "S01",
+     "bunny": {
+      "guid": "db1781d3-834a-4647-8da5-9a33025c1790",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:39:07.452Z",
+      "length_sec": 440,
+      "aspect": 1.7778
+     }
+    }
+   ],
+   "build_project": "AI Employee on GitHub — public repo, 10+ commits, branch + restore",
+   "vault_files": [
+    "Git-Command-Card.md",
+    "GitHub-Setup-Checklist.md",
+    "403-Permissions-Fix-Guide.md"
+   ],
+   "slides": [
+    {
+     "file": "M06-S01_Git-and-GitHub-Basics-for-Vibe-Coders.pdf",
+     "title": "Git and GitHub Basics for Vibe Coders",
+     "type": "pdf",
+     "bytes": 2020230,
+     "path": "_SLIDES/M06-Git-GitHub/M06-S01_Git-and-GitHub-Basics-for-Vibe-Coders.pdf"
+    }
+   ],
+   "slides_zip": "_SLIDES/_ZIP/M06-slides.zip"
+  },
+  {
+   "id": "M07",
+   "title": "AI Agents",
+   "phase": "2",
+   "phase_name": "Agent Engineer",
+   "outcome": "Build a real agent with Job Description + Tools + Loop that completes a multi-step task; read a 7-layer multi-agent design.",
+   "downloads": [
+    "Agent architecture template",
+    "7-layer multi-agent PDF",
+    "Tool definition templates",
+    "Zara + Concierge reference JDs",
+    "CafeBot system prompt"
+   ],
+   "badge_after": null,
+   "lessons": [
+    {
+     "file": "M07-L01_Chatbot-to-AI-Agent-Evolution_TvGRUNA0b3A.mp4",
+     "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
+     "youtube_id": "TvGRUNA0b3A",
+     "minutes": 54,
+     "source": "LOCAL",
+     "status": "Located",
+     "chapters": [],
+     "master": "M07-L01_Chatbot-to-AI-Agent-Evolution_TvGRUNA0b3A_v1.mp4",
+     "kind": "core",
+     "order": "L01",
+     "bunny": {
+      "guid": "82684a06-eafa-4509-be84-6c5059f3fb4c",
+      "status": "ready",
+      "version": 1,
+      "uploaded_at": "2026-08-26T12:15:06.672Z",
+      "length_sec": 3234,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M07-L02_Build-First-AI-Agent-Class4_IcDbXP-ohQ4.mp4",
+     "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
+     "youtube_id": "IcDbXP-ohQ4",
+     "minutes": 66,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "YTDown.com_YouTube_Build-first-Ai-Agent-with-Claude-code-DS_Media_IcDbXP-ohQ4_001_1080p.mp4",
+     "kind": "core",
+     "order": "L02",
+     "bunny": {
+      "guid": "9bbc17c2-87e0-4164-89cc-0216780703b5",
+      "status": "ready",
+      "version": 1,
+      "source": "drive-fetch",
+      "uploaded_at": "2026-08-26T13:36:19.364998Z",
+      "length_sec": 3964,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M07-L03_Agents-Master-Pro-Day2__6L90ZqzHRs.mp4",
+     "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
+     "youtube_id": "_6L90ZqzHRs",
+     "minutes": 36,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": null,
+     "kind": "core",
+     "order": "L03",
+     "bunny": {
+      "guid": "58e53a51-a002-4dd5-91e3-ac99e6ccadb9",
+      "status": "ready",
+      "version": 1,
+      "source": "drive-fetch",
+      "uploaded_at": "2026-08-26T13:37:46.998560+00:00",
+      "length_sec": 2155,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M07-L04_Bootcamp-Day3_1LgZxGCnz_Y.mp4",
+     "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
+     "youtube_id": "1LgZxGCnz_Y",
+     "minutes": 61,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "YTDown.com_YouTube_dspbootcamp-3rd-day-class_Media_1LgZxGCnz_Y_001_1080p.mp4",
+     "kind": "core",
+     "order": "L04",
+     "bunny": {
+      "guid": "dd5e9852-ab5f-4a19-b537-892c69c01f1f",
+      "status": "ready",
+      "version": 1,
+      "source": "drive-fetch",
+      "uploaded_at": "2026-08-26T13:37:03.279590Z",
+      "length_sec": 3645,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M07-L05_CafeBot-Zero-to-Live_ZG3JXm-L8XU.mp4",
+     "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
+     "youtube_id": "ZG3JXm-L8XU",
+     "minutes": 49,
+     "source": "LOCAL",
+     "status": "Located",
+     "chapters": [],
+     "master": "M07-L05_CafeBot-Zero-to-Live_ZG3JXm-L8XU_v1.mp4",
+     "kind": "core",
+     "order": "L05",
+     "bunny": {
+      "guid": "601f2c8b-adf9-42e5-aa2c-066cf79470aa",
+      "status": "ready",
+      "version": 1,
+      "uploaded_at": "2026-08-26T12:25:32.657Z",
+      "length_sec": 2934,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M07-S01_Build-Agents-Master-Pro-Class1_NmpdMUxnLPQ.mp4",
+     "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
+     "youtube_id": "NmpdMUxnLPQ",
+     "minutes": 17,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "YTDown.com_YouTube_Build-Ai-Agents-with-Claude-Master-Pro-c_Media_NmpdMUxnLPQ_001_1080p.mp4",
+     "kind": "supplement",
+     "order": "S01",
+     "bunny": {
+      "guid": "cbec2b7a-e9f7-4c38-ab3c-4bf49a8be92c",
+      "status": "ready",
+      "version": 1,
+      "source": "drive-fetch",
+      "uploaded_at": "2026-08-26T13:36:16.822311Z",
+      "length_sec": 1041,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M07-S02_Idea-to-Live-Agent_YRzBUTFZiI0.mp4",
+     "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
+     "youtube_id": "YRzBUTFZiI0",
+     "minutes": 8,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M07-S02_Idea-to-Live-Agent_YRzBUTFZiI0.mp4",
+     "kind": "supplement",
+     "order": "S02",
+     "bunny": {
+      "guid": "e45d30db-df3b-4b6d-a267-af0f5b90f124",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:39:29.472Z",
+      "length_sec": 480,
+      "aspect": 0.9651
+     }
+    },
+    {
+     "file": "M07-S03_Knowledge-Memory-Ladder_hmPWKZ72y9w.mp4",
+     "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
+     "youtube_id": "hmPWKZ72y9w",
+     "minutes": 4,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M07-S03_Knowledge-Memory-Ladder_hmPWKZ72y9w.mp4",
+     "kind": "supplement",
+     "order": "S03",
+     "bunny": {
+      "guid": "8c1d31d0-5e3f-4795-ad03-d8ef08736fac",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:39:49.588Z",
+      "length_sec": 221,
+      "aspect": 1.7778
+     }
+    }
+   ],
+   "build_project": "AI Employee Part 3: The Ordering Agent — full order demo + architecture page",
+   "vault_files": [
+    "Agent-Architecture-Template.md",
+    "7-Layer-Multi-Agent-Design.md",
+    "Tool-Definition-Templates.md",
+    "Reference-JDs-Zara-Concierge.md",
+    "AI-Employee-System-Prompt.md"
+   ],
+   "slides": [
+    {
+     "file": "M07-S01_AI-Employee-Cafe-Assistant.pdf",
+     "title": "AI Employee Cafe Assistant",
+     "type": "pdf",
+     "bytes": 6933307,
+     "path": "_SLIDES/M07-AI-Agents/M07-S01_AI-Employee-Cafe-Assistant.pdf"
+    },
+    {
+     "file": "M07-S02_Building-Your-First-AI-Employee.pdf",
+     "title": "Building Your First AI Employee",
+     "type": "pdf",
+     "bytes": 14046285,
+     "path": "_SLIDES/M07-AI-Agents/M07-S02_Building-Your-First-AI-Employee.pdf"
+    },
+    {
+     "file": "M07-S03_AI-Employee-Masterclass.pdf",
+     "title": "AI Employee Masterclass",
+     "type": "pdf",
+     "bytes": 802734,
+     "path": "_SLIDES/M07-AI-Agents/M07-S03_AI-Employee-Masterclass.pdf"
+    },
+    {
+     "file": "M07-S04_AI-Employee-Claude-Code-Build-Deck.pptx",
+     "title": "AI Employee Claude Code Build Deck",
+     "type": "pptx",
+     "bytes": 336935,
+     "path": "_SLIDES/M07-AI-Agents/M07-S04_AI-Employee-Claude-Code-Build-Deck.pptx"
+    },
+    {
+     "file": "M07-S05_AI-Employee-Claude-Code-Prompts.pdf",
+     "title": "AI Employee Claude Code Prompts",
+     "type": "pdf",
+     "bytes": 10175,
+     "path": "_SLIDES/M07-AI-Agents/M07-S05_AI-Employee-Claude-Code-Prompts.pdf"
+    },
+    {
+     "file": "M07-S06_Claude-Agent-Blueprint.pdf",
+     "title": "Claude Agent Blueprint",
+     "type": "pdf",
+     "bytes": 16369254,
+     "path": "_SLIDES/M07-AI-Agents/M07-S06_Claude-Agent-Blueprint.pdf"
+    }
+   ],
+   "slides_zip": "_SLIDES/_ZIP/M07-slides.zip"
+  },
+  {
+   "id": "M08",
+   "title": "APIs",
+   "phase": "2",
+   "phase_name": "Agent Engineer",
+   "outcome": "Connect to the Claude API and one external service; keep keys in .env; handle errors and cost.",
+   "downloads": [
+    "API integration prompt pack",
+    "Keys & env checklist",
+    "Error-handling patterns",
+    "5 free-tier API ideas"
+   ],
+   "badge_after": null,
+   "lessons": [
+    {
+     "file": "M08-L01_API-Keys-and-env-Files_kTUdPQ5MnJc.mp4",
+     "folder": "Phase-2-Agent-Engineer/M08-APIs",
+     "youtube_id": "kTUdPQ5MnJc",
+     "minutes": 45,
+     "source": "LOCAL",
+     "status": "Located",
+     "chapters": [],
+     "master": "M08-L01_API-Keys-and-env-Files_kTUdPQ5MnJc_v1.mp4",
+     "kind": "core",
+     "order": "L01",
+     "bunny": {
+      "guid": "0e320cda-9b96-415a-8135-7de2f6429a6a",
+      "status": "ready",
+      "version": 1,
+      "uploaded_at": "2026-08-26T12:16:59.014Z",
+      "length_sec": 2716,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M08-L02_External-API-Integration_NEW.mp4",
+     "folder": "Phase-2-Agent-Engineer/M08-APIs",
+     "youtube_id": null,
+     "minutes": 30,
+     "source": "NEW",
+     "status": "NEW",
+     "chapters": [],
+     "master": null,
+     "kind": "core",
+     "order": "L02"
+    },
+    {
+     "file": "M08-S01_AI-Agents-API_uLrZhhmjxCQ.mp4",
+     "folder": "Phase-2-Agent-Engineer/M08-APIs",
+     "youtube_id": "uLrZhhmjxCQ",
+     "minutes": 6,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M08-S01_AI-Agents-API_uLrZhhmjxCQ.mp4",
+     "kind": "supplement",
+     "order": "S01",
+     "bunny": {
+      "guid": "fc009872-eb46-4827-acca-1eee62bed6b6",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:40:05.729Z",
+      "length_sec": 376,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M08-S02_What-is-API-and-MCP_wknhpVBlQ8o.mp4",
+     "folder": "Phase-2-Agent-Engineer/M08-APIs",
+     "youtube_id": "wknhpVBlQ8o",
+     "minutes": 13,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M08-S02_What-is-API-and-MCP_wknhpVBlQ8o.mp4",
+     "kind": "supplement",
+     "order": "S02",
+     "bunny": {
+      "guid": "b8e9f2e0-a839-46c6-b9c7-8dae92aff559",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:40:39.561Z",
+      "length_sec": 761,
+      "aspect": 1.7778
+     }
+    }
+   ],
+   "build_project": "AI Employee Part 4: Wired Up — backend + one external API",
+   "vault_files": [
+    "API-Integration-Prompt-Pack.md",
+    "Keys-and-env-Checklist.md",
+    "Error-Handling-Patterns.md",
+    "5-Free-Tier-API-Ideas.md"
+   ],
+   "slides": [
+    {
+     "file": "M08-S01_WhatsApp-Voice-AI-Agent-with-ElevenLabs.pdf",
+     "title": "WhatsApp Voice AI Agent with ElevenLabs",
+     "type": "pdf",
+     "bytes": 18287340,
+     "path": "_SLIDES/M08-APIs/M08-S01_WhatsApp-Voice-AI-Agent-with-ElevenLabs.pdf"
+    }
+   ],
+   "slides_zip": "_SLIDES/_ZIP/M08-slides.zip"
+  },
+  {
+   "id": "M09",
+   "title": "RAG & Memory",
+   "phase": "2",
+   "phase_name": "Agent Engineer",
+   "outcome": "Give an agent knowledge and memory using the Memory Ladder; pick the right rung.",
+   "downloads": [
+    "Memory Ladder diagram",
+    "Knowledge-base formatting guide",
+    "Chunking & retrieval prompts",
+    "The Smart Library PDF"
+   ],
+   "badge_after": null,
+   "lessons": [
+    {
+     "file": "M09-L01_RAG-Explained_CFQgyH1uJVU.mp4",
+     "folder": "Phase-2-Agent-Engineer/M09-RAG-Memory",
+     "youtube_id": "CFQgyH1uJVU",
+     "minutes": 37,
+     "source": "LOCAL",
+     "status": "Located",
+     "chapters": [],
+     "master": "M09-L01_RAG-Explained_CFQgyH1uJVU_v1.mp4",
+     "kind": "core",
+     "order": "L01",
+     "bunny": {
+      "guid": "fe4c3c68-62e0-4a24-bdda-a2d325985103",
+      "status": "ready",
+      "version": 1,
+      "uploaded_at": "2026-08-26T12:18:14.145Z",
+      "length_sec": 2194,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M09-L02_Claude-Projects-Memory_UFXYqyKQDzI.mp4",
+     "folder": "Phase-2-Agent-Engineer/M09-RAG-Memory",
+     "youtube_id": "UFXYqyKQDzI",
+     "minutes": 47,
+     "source": "LOCAL",
+     "status": "Located",
+     "chapters": [],
+     "master": "M09-L02_Claude-Projects-Memory_UFXYqyKQDzI_v1.mp4",
+     "kind": "core",
+     "order": "L02",
+     "bunny": {
+      "guid": "2ea5cdbb-f315-4f43-97e2-c8e5f53eb139",
+      "status": "ready",
+      "version": 1,
+      "uploaded_at": "2026-08-26T12:19:21.744Z",
+      "length_sec": 2838,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M09-S01_How-RAG-Works-short_SkT2s4N8wU0.mp4",
+     "folder": "Phase-2-Agent-Engineer/M09-RAG-Memory",
+     "youtube_id": "SkT2s4N8wU0",
+     "minutes": 17,
+     "source": "LOCAL",
+     "status": "Located",
+     "chapters": [],
+     "master": "M09-S01_How-RAG-Works-short_SkT2s4N8wU0_v1.mp4",
+     "kind": "supplement",
+     "order": "S01",
+     "bunny": {
+      "guid": "a3345174-ca16-4c8c-bbd5-6fa8658c732c",
+      "status": "ready",
+      "version": 1,
+      "uploaded_at": "2026-08-26T12:26:17.200Z",
+      "length_sec": 1028,
+      "aspect": 1.7778
+     }
+    }
+   ],
+   "build_project": "AI Employee Part 5: Knows the Menu, Remembers the Customer",
+   "vault_files": [
+    "Memory-Ladder-Diagram.md",
+    "Knowledge-Base-Formatting-Guide.md",
+    "Chunking-Retrieval-Prompt-Pack.md",
+    "The-Smart-Library-Overview.md"
+   ],
+   "slides": [
+    {
+     "file": "M09-S01_The-Smart-Library-RAG.pdf",
+     "title": "The Smart Library RAG",
+     "type": "pdf",
+     "bytes": 9968788,
+     "path": "_SLIDES/M09-RAG-Memory/M09-S01_The-Smart-Library-RAG.pdf"
+    }
+   ],
+   "slides_zip": "_SLIDES/_ZIP/M09-slides.zip"
+  },
+  {
+   "id": "M10",
+   "title": "MCP",
+   "phase": "2",
+   "phase_name": "Agent Engineer",
+   "outcome": "Connect an agent to real tools via the Model Context Protocol and explain what MCP standardises.",
+   "downloads": [
+    "MCP setup guide",
+    "Connector directory",
+    "MCP-builder prompt",
+    "Higgsfield MCP demo notes"
+   ],
+   "badge_after": "Agent Engineer",
+   "lessons": [
+    {
+     "file": "M10-L01_MCP-Full-Lecture_NEW.mp4",
+     "folder": "Phase-2-Agent-Engineer/M10-MCP",
+     "youtube_id": null,
+     "minutes": 45,
+     "source": "NEW",
+     "status": "NEW",
+     "chapters": [],
+     "master": null,
+     "kind": "core",
+     "order": "L01"
+    },
+    {
+     "file": "M10-S01_What-is-API-and-MCP_wknhpVBlQ8o.mp4",
+     "folder": "Phase-2-Agent-Engineer/M10-MCP",
+     "youtube_id": "wknhpVBlQ8o",
+     "minutes": 13,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M10-S01_What-is-API-and-MCP_wknhpVBlQ8o.mp4",
+     "kind": "supplement",
+     "order": "S01",
+     "bunny": {
+      "guid": "2c522603-5a33-4a0b-81f7-1fe916eba571",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:41:19.655Z",
+      "length_sec": 761,
+      "aspect": 1.7778
+     }
+    }
+   ],
+   "build_project": "AI Employee Part 6: Talks to the Outside World — one MCP tool live",
+   "vault_files": [
+    "MCP-Setup-Guide.md",
+    "Connector-Directory.md",
+    "MCP-Builder-Prompt-Template.md",
+    "Higgsfield-MCP-Demo-Notes.md"
+   ],
+   "slides": [],
+   "slides_zip": null
+  },
+  {
+   "id": "M11",
+   "title": "Testing & Observability",
+   "phase": "3",
+   "phase_name": "Production",
+   "outcome": "Test systematically with the DSP 10-Question Test Sheet and read logs to diagnose.",
+   "downloads": [
+    "10-Question Test Sheet",
+    "Test log template",
+    "Edge-case bank (50)",
+    "Testing PDF",
+    "Shipping Trusted Agents PDF"
+   ],
+   "badge_after": null,
+   "lessons": [
+    {
+     "file": "M11-L01_Test-Before-After-Launch_0XpTyz0-uUc.mp4",
+     "folder": "Phase-3-Production/M11-Testing-Observability",
+     "youtube_id": "0XpTyz0-uUc",
+     "minutes": 39,
+     "source": "LOCAL",
+     "status": "Located",
+     "chapters": [],
+     "master": "M11-L01_Test-Before-After-Launch_0XpTyz0-uUc_v1.mp4",
+     "kind": "core",
+     "order": "L01",
+     "bunny": {
+      "guid": "721b9d2f-64b6-4511-bd05-f55282d3e419",
+      "status": "ready",
+      "version": 1,
+      "uploaded_at": "2026-08-26T12:27:27.076Z",
+      "length_sec": 2328,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M11-L02_What-is-Observability_7Os-d68IMq4.mp4",
+     "folder": "Phase-3-Production/M11-Testing-Observability",
+     "youtube_id": "7Os-d68IMq4",
+     "minutes": 30,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "YTDown.com_YouTube_Ai-Agents-what-is-observability_Media_7Os-d68IMq4_001_1080p.mp4",
+     "kind": "core",
+     "order": "L02",
+     "bunny": {
+      "guid": "90ce0d5d-3854-4cb2-8d4b-d8231bc83630",
+      "status": "ready",
+      "version": 1,
+      "source": "drive-fetch",
+      "uploaded_at": "2026-08-26T13:35:54.140575Z",
+      "length_sec": 1791,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M11-L03_Test-Secure-Deploy__0REF_5Ws50.mp4",
+     "folder": "Phase-3-Production/M11-Testing-Observability",
+     "youtube_id": "_0REF_5Ws50",
+     "minutes": 35,
+     "source": "LOCAL",
+     "status": "Located",
+     "chapters": [],
+     "master": "M11-L03_Test-Secure-Deploy_0REF_5Ws50_v1.mp4",
+     "kind": "core",
+     "order": "L03",
+     "bunny": {
+      "guid": "1214d215-92aa-43b7-a2c8-a0579667ff7e",
+      "status": "ready",
+      "version": 1,
+      "uploaded_at": "2026-08-26T12:28:25.547Z",
+      "length_sec": 2124,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M11-S01_Five-Steps-Trusted-Agents_ahafeXcC0mw.mp4",
+     "folder": "Phase-3-Production/M11-Testing-Observability",
+     "youtube_id": "ahafeXcC0mw",
+     "minutes": 7,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M11-S01_Five-Steps-Trusted-Agents_ahafeXcC0mw.mp4",
+     "kind": "supplement",
+     "order": "S01",
+     "bunny": {
+      "guid": "a731b096-5e82-426a-bac8-436933d6e2f1",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:41:31.791Z",
+      "length_sec": 409,
+      "aspect": 1.7778
+     }
+    }
+   ],
+   "build_project": "Break AI Employee — test sheet, 3 fixes, logging",
+   "vault_files": [
+    "10-Question-Test-Sheet.md",
+    "Test-Log-Template.md",
+    "Edge-Case-Bank.md",
+    "Testing-Before-After-Launch-Notes.md",
+    "Shipping-Trusted-Agents-Notes.md"
+   ],
+   "slides": [
+    {
+     "file": "M11-S01_Testing-Before-and-After-Launch.pdf",
+     "title": "Testing Before and After Launch",
+     "type": "pdf",
+     "bytes": 3024480,
+     "path": "_SLIDES/M11-Testing-Observability/M11-S01_Testing-Before-and-After-Launch.pdf"
+    },
+    {
+     "file": "M11-S02_Top-10-AI-Agent-Testing-Tools.pdf",
+     "title": "Top 10 AI Agent Testing Tools",
+     "type": "pdf",
+     "bytes": 8104,
+     "path": "_SLIDES/M11-Testing-Observability/M11-S02_Top-10-AI-Agent-Testing-Tools.pdf"
+    },
+    {
+     "file": "M11-S03_Shipping-Trusted-AI-Agents.pdf",
+     "title": "Shipping Trusted AI Agents",
+     "type": "pdf",
+     "bytes": 11144718,
+     "path": "_SLIDES/M11-Testing-Observability/M11-S03_Shipping-Trusted-AI-Agents.pdf"
+    }
+   ],
+   "slides_zip": "_SLIDES/_ZIP/M11-slides.zip"
+  },
+  {
+   "id": "M12",
+   "title": "Security",
+   "phase": "3",
+   "phase_name": "Production",
+   "outcome": "Protect keys, block prompt injection, limit what the agent can do and spend, handle data responsibly.",
+   "downloads": [
+    "Security checklist (15)",
+    "Guardrail prompt block",
+    "Injection test set (10)",
+    "Data Compliance PDF"
+   ],
+   "badge_after": null,
+   "lessons": [
+    {
+     "file": "M12-L01_Security-Masterclass-Pt1_oZTxq7XBZbk.mp4",
+     "folder": "Phase-3-Production/M12-Security",
+     "youtube_id": "oZTxq7XBZbk",
+     "minutes": 41,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "YTDown.com_YouTube_AI-Agents-Security-Master-class-part-1_Media_oZTxq7XBZbk_001_1080p.mp4",
+     "kind": "core",
+     "order": "L01",
+     "bunny": {
+      "guid": "fdbbc578-764f-4d2d-bab3-84d0dfb86b28",
+      "status": "ready",
+      "version": 1,
+      "source": "drive-fetch",
+      "uploaded_at": "2026-08-26T13:35:51.576545Z",
+      "length_sec": 2486,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M12-S01_Memory-Security-Guardrails_5OR0BOa_Hb4.mp4",
+     "folder": "Phase-3-Production/M12-Security",
+     "youtube_id": "5OR0BOa_Hb4",
+     "minutes": 8,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M12-S01_Memory-Security-Guardrails_5OR0BOa_Hb4.mp4",
+     "kind": "supplement",
+     "order": "S01",
+     "bunny": {
+      "guid": "2d75817c-5fb5-437a-a3bb-c3d5b8bf46b8",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:41:44.943Z",
+      "length_sec": 500,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M12-S02_Securing-Agent-Memory_p3XZmeSOLrA.mp4",
+     "folder": "Phase-3-Production/M12-Security",
+     "youtube_id": "p3XZmeSOLrA",
+     "minutes": 6,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M12-S02_Securing-Agent-Memory_p3XZmeSOLrA.mp4",
+     "kind": "supplement",
+     "order": "S02",
+     "bunny": {
+      "guid": "2ef34af5-3b94-402f-b280-071e32c734ad",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:41:57.644Z",
+      "length_sec": 376,
+      "aspect": 1.7778
+     }
+    }
+   ],
+   "build_project": "Harden AI Employee — 15-item checklist + 10 injection tests",
+   "vault_files": [
+    "Security-Checklist.md",
+    "Guardrail-Prompt-Block.md",
+    "Injection-Test-Set.md",
+    "Data-Compliance-Standards.md"
+   ],
+   "slides": [
+    {
+     "file": "M12-S01_Data-Compliance-and-Security-Standards.pdf",
+     "title": "Data Compliance and Security Standards",
+     "type": "pdf",
+     "bytes": 9357,
+     "path": "_SLIDES/M12-Security/M12-S01_Data-Compliance-and-Security-Standards.pdf"
+    }
+   ],
+   "slides_zip": "_SLIDES/_ZIP/M12-slides.zip"
+  },
+  {
+   "id": "M13",
+   "title": "Deployment",
+   "phase": "3",
+   "phase_name": "Production",
+   "outcome": "Put CafeBot on a public HTTPS URL with hosted backend, env vars and go-live QA.",
+   "downloads": [
+    "Deploy checklist",
+    "Vercel + Railway guide",
+    "Domain & env setup",
+    "Go-live QA list",
+    "Test-Secure-Ship PDF"
+   ],
+   "badge_after": "Production-Ready",
+   "lessons": [
+    {
+     "file": "M13-L01_Complete-Deployment-Zero-to-Live.mp4",
+     "folder": "M13-Deployment",
+     "youtube_id": null,
+     "minutes": 20,
+     "kind": "core",
+     "source_note": "live class 29 Aug 2026 — full deployment, zero to live URL with Claude Code",
+     "bunny": {
+      "guid": "c62121ee-36f4-4220-b818-7af1e549894b",
+      "status": "ready",
+      "version": 1,
+      "uploaded_at": "2026-08-29T17:51:44.411Z",
+      "length_sec": 1185,
+      "aspect": 1.7778
+     },
+     "master": "M13-L01_Complete-Deployment-Zero-to-Live_v1.mp4"
+    },
+    {
+     "file": "M13-L02_GitHub-to-Vercel-Deployment_oSD-AdRr5AI.mp4",
+     "folder": "Phase-3-Production/M13-Deployment",
+     "youtube_id": "oSD-AdRr5AI",
+     "minutes": 38,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "YTDown.com_YouTube_Github-to-vercel-final-deployment_Media_oSD-AdRr5AI_001_1080p.mp4",
+     "kind": "core",
+     "order": "L01",
+     "bunny": {
+      "guid": "ed43a974-636f-4430-8376-6c1bbf01bdac",
+      "status": "ready",
+      "version": 1,
+      "source": "drive-fetch",
+      "uploaded_at": "2026-08-26T13:37:05.895197Z",
+      "length_sec": 2281,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M13-L03_CafeBot-Deploy-Portion_ZG3JXm-L8XU.mp4",
+     "folder": "Phase-3-Production/M13-Deployment",
+     "youtube_id": "ZG3JXm-L8XU",
+     "minutes": 0,
+     "source": "CUT-FROM-M07-L04",
+     "status": "CUT-FROM-M07-L04",
+     "chapters": [],
+     "master": "YTDown.com_YouTube_Build-a-Real-AI-Agent-with-Claude-Code-Z_Media_ZG3JXm-L8XU_001_1080p.mp4",
+     "kind": "core",
+     "order": "L02",
+     "bunny": {
+      "guid": "b2980465-233a-411d-b98e-dbb2bce9e909",
+      "status": "ready",
+      "version": 1,
+      "source": "drive-fetch",
+      "uploaded_at": "2026-08-26T13:36:10.031050Z",
+      "length_sec": 2915,
+      "aspect": 1.7778
+     }
+    }
+   ],
+   "build_project": "AI Employee LIVE — public URL verified by AI Coach",
+   "vault_files": [
+    "Deploy-Checklist.md",
+    "Vercel-Railway-Guide.md",
+    "Domain-Env-Setup.md",
+    "Go-Live-QA-List.md",
+    "Test-Secure-Deploy-Notes.md"
+   ],
+   "slides": [
+    {
+     "file": "M13-S01_Tools-to-Test-Secure-and-Ship-AI-Agents.pdf",
+     "title": "Tools to Test Secure and Ship AI Agents",
+     "type": "pdf",
+     "bytes": 315532,
+     "path": "_SLIDES/M13-Deployment/M13-S01_Tools-to-Test-Secure-and-Ship-AI-Agents.pdf"
+    },
+    {
+     "file": "M13-S02_Tools-to-Test-Secure-and-Ship-AI-Agents.pptx",
+     "title": "Tools to Test Secure and Ship AI Agents",
+     "type": "pptx",
+     "bytes": 471707,
+     "path": "_SLIDES/M13-Deployment/M13-S02_Tools-to-Test-Secure-and-Ship-AI-Agents.pptx"
+    }
+   ],
+   "slides_zip": "_SLIDES/_ZIP/M13-slides.zip"
+  },
+  {
+   "id": "M14",
+   "title": "Multi-Agent & Business Automation",
+   "phase": "4",
+   "phase_name": "Seller",
+   "outcome": "Turn one agent into a business system: One Agent Many Clients, notifications, and when multi-agent is justified.",
+   "downloads": [
+    "One Agent Many Clients PDF",
+    "Automation blueprints (5 industries)",
+    "Workflow map",
+    "Multi-agent decision checklist"
+   ],
+   "badge_after": null,
+   "lessons": [
+    {
+     "file": "M14-L01_Multi-Agent-Systems-Business-Automation.mp4",
+     "folder": "Phase-4-Seller/M14-Multi-Agent-Business-Automation",
+     "youtube_id": null,
+     "minutes": 42,
+     "source": "NEW",
+     "status": "NEW",
+     "chapters": [],
+     "master": "M14-L01_Multi-Agent-Systems-Business-Automation_v1.mp4",
+     "kind": "core",
+     "order": "L01",
+     "source_note": "live class 30 Aug 2026",
+     "bunny": {
+      "guid": "4f2e1b02-d851-488d-8c8c-f28c841a2dba",
+      "status": "processing",
+      "version": 1,
+      "uploaded_at": "2026-08-30T17:58:31.842Z"
+     }
+    },
+    {
+     "file": "M14-S01_First-Multi-Agent-System_fxfDEBHjpC4.mp4",
+     "folder": "Phase-4-Seller/M14-Multi-Agent-Business-Automation",
+     "youtube_id": "fxfDEBHjpC4",
+     "minutes": 16,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "YTDown.com_YouTube_Build-Your-First-Multi-Agent-AI-System-w_Media_fxfDEBHjpC4_001_1080p.mp4",
+     "kind": "supplement",
+     "order": "S01",
+     "bunny": {
+      "guid": "760b1b83-f3c8-41fa-b691-77f5b1cac874",
+      "status": "ready",
+      "version": 1,
+      "source": "drive-fetch",
+      "uploaded_at": "2026-08-26T13:36:28.462278Z",
+      "length_sec": 958,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M14-S02_Agents-Workflows-Tools_Nw6vPE3d3XU.mp4",
+     "folder": "Phase-4-Seller/M14-Multi-Agent-Business-Automation",
+     "youtube_id": "Nw6vPE3d3XU",
+     "minutes": 14,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M14-S02_Agents-Workflows-Tools_Nw6vPE3d3XU.mp4",
+     "kind": "supplement",
+     "order": "S02",
+     "bunny": {
+      "guid": "a8ccc883-e588-41a2-be77-88042b01ba16",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:42:24.928Z",
+      "length_sec": 821,
+      "aspect": 0.9651
+     }
+    }
+   ],
+   "build_project": "AI Employee for Two Cafés — multi-tenant + owner notification",
+   "vault_files": [
+    "One-Agent-Many-Clients.md",
+    "Automation-Blueprints-5-Industries.md",
+    "Workflow-Map-Template.md",
+    "Multi-Agent-Decision-Checklist.md"
+   ],
+   "slides": [
+    {
+     "file": "M14-S01_Multi-Agent-Systems-and-Business-Automation.pdf",
+     "title": "Multi Agent Systems and Business Automation",
+     "type": "pdf",
+     "bytes": 3999386,
+     "path": "_SLIDES/M14-Multi-Agent-Business-Automation/M14-S01_Multi-Agent-Systems-and-Business-Automation.pdf"
+    }
+   ],
+   "slides_zip": "_SLIDES/_ZIP/M14-slides.zip"
+  },
+  {
+   "id": "M15",
+   "title": "Selling AI Solutions",
+   "phase": "4",
+   "phase_name": "Seller",
+   "outcome": "Find a client, run discovery, price, propose, deliver and get paid.",
+   "downloads": [
+    "Client Discovery Sheet",
+    "Proposal template",
+    "Pricing calculator",
+    "SOW/contract",
+    "Outreach pack",
+    "Demo script",
+    "Getting-paid guide"
+   ],
+   "badge_after": "AI Solutions Seller",
+   "lessons": [
+    {
+     "file": "M15-L01_Why-97pct-Courses-Skip-This_oOKyMHilVH4.mp4",
+     "folder": "Phase-4-Seller/M15-Selling-AI-Solutions",
+     "youtube_id": "oOKyMHilVH4",
+     "minutes": 42,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "YTDown.com_YouTube_Why-97-of-AI-Agent-Courses-Skip-This-One_Media_oOKyMHilVH4_001_1080p.mp4",
+     "kind": "core",
+     "order": "L01",
+     "bunny": {
+      "guid": "d412ca2e-cd85-4151-9726-1823311dfbfd",
+      "status": "ready",
+      "version": 1,
+      "source": "drive-fetch",
+      "uploaded_at": "2026-08-26T13:37:25.919925Z",
+      "length_sec": 2510,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M15-L02_Finding-Clients-Worldwide.mp4",
+     "folder": "Phase-4-Seller/M15-Selling-AI-Solutions",
+     "youtube_id": null,
+     "minutes": 52,
+     "source": "NEW",
+     "status": "NEW",
+     "chapters": [],
+     "master": "M15-L02_Finding-Clients-Worldwide_v1.mp4",
+     "kind": "core",
+     "order": "L02",
+     "source_note": "live class, 27 Aug 2026",
+     "bunny": {
+      "guid": "bd24af1d-a235-4027-ae86-bc168d4f5089",
+      "status": "ready",
+      "version": 1,
+      "uploaded_at": "2026-08-27T17:56:59.957Z",
+      "length_sec": 3129,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M15-S01_Student-Earned-60K_01UefxMiNOc.mp4",
+     "folder": "Phase-4-Seller/M15-Selling-AI-Solutions",
+     "youtube_id": "01UefxMiNOc",
+     "minutes": 4,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M15-S01_Student-Earned-60K_01UefxMiNOc.mp4",
+     "kind": "supplement",
+     "order": "S01",
+     "bunny": {
+      "guid": "2c5ac1cf-9643-4265-9c0a-72af532a84a9",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:42:52.430Z",
+      "length_sec": 260,
+      "aspect": 1.7778
+     }
+    },
+    {
+     "file": "M15-S02_UK-Finance-Pro-First-Agent_0dwVIkn7pBg.mp4",
+     "folder": "Phase-4-Seller/M15-Selling-AI-Solutions",
+     "youtube_id": "0dwVIkn7pBg",
+     "minutes": 3,
+     "source": "DOWNLOAD",
+     "status": "To download",
+     "chapters": [],
+     "master": "M15-S02_UK-Finance-Pro-First-Agent_0dwVIkn7pBg.mp4",
+     "kind": "supplement",
+     "order": "S02",
+     "bunny": {
+      "guid": "7e642dff-ebb7-48a5-9da5-e94190716a56",
+      "status": "ready",
+      "version": 0,
+      "uploaded_at": "2026-08-27T00:43:21.717Z",
+      "length_sec": 169,
+      "aspect": 1.7778
+     }
+    }
+   ],
+   "build_project": "Your First Proposal — discovery sheet + proposal + 3 outreach messages",
+   "vault_files": [
+    "Client-Discovery-Sheet.md",
+    "Proposal-Template.md",
+    "Pricing-Calculator.md",
+    "SOW-Contract-Template.md",
+    "Outreach-Message-Pack.md",
+    "Demo-Script.md",
+    "Getting-Paid-Guide.md"
+   ],
+   "slides": [
+    {
+     "file": "M15-S01_Claude-Sales-Operating-System.pdf",
+     "title": "Claude Sales Operating System",
+     "type": "pdf",
+     "bytes": 575740,
+     "path": "_SLIDES/M15-Selling-AI-Solutions/M15-S01_Claude-Sales-Operating-System.pdf"
+    },
+    {
+     "file": "M15-S02_10-Ways-to-Find-Clients-Worldwide.pdf",
+     "title": "10 Ways to Find Clients Worldwide",
+     "type": "pdf",
+     "bytes": 2876426,
+     "path": "_SLIDES/M15-Selling-AI-Solutions/M15-S02_10-Ways-to-Find-Clients-Worldwide.pdf"
+    }
+   ],
+   "slides_zip": "_SLIDES/_ZIP/M15-slides.zip"
+  }
+ ],
+ "welcome": [
+  {
+   "file": "00-W01_Welcome-Orientation_NEW.mp4",
+   "folder": "00-Welcome",
+   "youtube_id": null,
+   "minutes": 5,
+   "source": "NEW",
+   "status": "NEW",
+   "chapters": [],
+   "master": "00-W01_Welcome-Orientation_v4.mp4",
+   "kind": "welcome",
+   "bunny": {
+    "guid": "882f6262-7c0f-4eef-9481-842974e82797",
+    "status": "ready",
+    "version": 4,
+    "uploaded_at": "2026-08-26T15:38:22.892Z",
+    "length_sec": 351,
+    "aspect": 1.7778
+   }
+  },
+  {
+   "file": "00-W02_Inside-DSP-Walkthrough_TICJXTiWpmc.mp4",
+   "folder": "00-Welcome",
+   "youtube_id": "TICJXTiWpmc",
+   "minutes": 18,
+   "source": "LOCAL",
+   "status": "Located",
+   "chapters": [],
+   "master": "00-W02_Inside-DSP-Walkthrough_TICJXTiWpmc_v1.mp4",
+   "kind": "welcome",
+   "bunny": {
+    "guid": "e3351c30-c8df-4933-b4da-f7b706975664",
+    "status": "ready",
+    "version": 1,
+    "uploaded_at": "2026-08-26T11:18:04.749Z",
+    "length_sec": 1052,
+    "aspect": 1.7778
+   }
+  }
+ ],
+ "vault": [
+  {
+   "file": "V_Before-Building-Agents_YWbxk0Ype54.mp4",
+   "folder": "_Vault-Bonus",
+   "youtube_id": "YWbxk0Ype54",
+   "minutes": 64,
+   "source": "DOWNLOAD",
+   "status": "To download",
+   "chapters": [],
+   "master": "YTDown.com_YouTube_What-is-most-important-before-building-A_Media_YWbxk0Ype54_001_1080p.mp4",
+   "kind": "vault",
+   "bunny": {
+    "guid": "8cf1400d-d92c-44c2-a09d-8f39eacd272b",
+    "status": "ready",
+    "version": 1,
+    "source": "drive-fetch",
+    "uploaded_at": "2026-08-26T13:37:23.543465Z",
+    "length_sec": 3854,
+    "aspect": 1.7778
+   }
+  },
+  {
+   "file": "V_AI-Myths-vs-Reality-2026_CGjgSI3knNY.mp4",
+   "folder": "_Vault-Bonus",
+   "youtube_id": "CGjgSI3knNY",
+   "minutes": 44,
+   "source": "DOWNLOAD",
+   "status": "To download",
+   "chapters": [],
+   "master": "YTDown.com_YouTube_AI-myths-Vs-reality-which-is-actually-th_Media_CGjgSI3knNY_001_1080p.mp4",
+   "kind": "vault",
+   "bunny": {
+    "guid": "39b7e72c-8a66-42d3-95ff-e36e13c008f3",
+    "status": "ready",
+    "version": 1,
+    "source": "drive-fetch",
+    "uploaded_at": "2026-08-26T13:36:04.949396Z",
+    "length_sec": 2646,
+    "aspect": 1.7778
+   }
+  },
+  {
+   "file": "V_Claude-Cowork-Code_hwGJ2ekg3kQ.mp4",
+   "folder": "_Vault-Bonus",
+   "youtube_id": "hwGJ2ekg3kQ",
+   "minutes": 47,
+   "source": "DOWNLOAD",
+   "status": "To download",
+   "chapters": [],
+   "master": "YTDown.com_YouTube_Claude-claude-cowork-claude-code_Media_hwGJ2ekg3kQ_001_1080p.mp4",
+   "kind": "vault",
+   "bunny": {
+    "guid": "d8b91c47-e226-4932-88e4-ee8161da55d3",
+    "status": "ready",
+    "version": 1,
+    "source": "drive-fetch",
+    "uploaded_at": "2026-08-26T13:36:53.655514Z",
+    "length_sec": 2799,
+    "aspect": 1.7778
+   }
+  },
+  {
+   "file": "V_Claude-Fundamentals-Beginner-to-Pro_GbDinGY4S00.mp4",
+   "folder": "_Vault-Bonus",
+   "youtube_id": "GbDinGY4S00",
+   "minutes": 28,
+   "source": "DOWNLOAD",
+   "status": "To download",
+   "chapters": [],
+   "master": "YTDown.com_YouTube_Claude-AI-Fundamentals-Complete-Beginner_Media_GbDinGY4S00_001_1080p.mp4",
+   "kind": "vault",
+   "bunny": {
+    "guid": "ffd86a64-38b3-4025-9658-f74f705d8fa0",
+    "status": "ready",
+    "version": 1,
+    "source": "drive-fetch",
+    "uploaded_at": "2026-08-26T13:36:40.529523Z",
+    "length_sec": 1676,
+    "aspect": 1.7778
+   }
+  },
+  {
+   "file": "V_Use-Claude-Better-Than-97pct_pIarK_L8d9I.mp4",
+   "folder": "_Vault-Bonus",
+   "youtube_id": "pIarK_L8d9I",
+   "minutes": 44,
+   "source": "DOWNLOAD",
+   "status": "To download",
+   "chapters": [],
+   "master": "YTDown.com_YouTube_How-to-use-Claude-better-then-97-of-peop_Media_pIarK_L8d9I_001_1080p.mp4",
+   "kind": "vault",
+   "bunny": {
+    "guid": "fbf9617a-f954-4058-b9a0-107e2fdbd055",
+    "status": "ready",
+    "version": 1,
+    "source": "drive-fetch",
+    "uploaded_at": "2026-08-26T13:37:10.962505Z",
+    "length_sec": 2621,
+    "aspect": 1.7778
+   }
+  },
+  {
+   "file": "V_Best-AI-Tools-Day4_UpEWUQw-3xI.mp4",
+   "folder": "_Vault-Bonus",
+   "youtube_id": "UpEWUQw-3xI",
+   "minutes": 46,
+   "source": "DOWNLOAD",
+   "status": "To download",
+   "chapters": [],
+   "master": "YTDown.com_YouTube_Claude-_-AI-Tools-Day-4-Best-AI-Tools-Yo_Media_UpEWUQw-3xI_001_1080p.mp4",
+   "kind": "vault",
+   "bunny": {
+    "guid": "5d2e3377-2827-4263-a819-f03929ba7f58",
+    "status": "ready",
+    "version": 1,
+    "source": "drive-fetch",
+    "uploaded_at": "2026-08-26T13:36:33.846083Z",
+    "length_sec": 2758,
+    "aspect": 1.7778
+   }
+  },
+  {
+   "file": "V_Claude-Cowork-Master-Pro_x_A9RkaLAj4.mp4",
+   "folder": "_Vault-Bonus",
+   "youtube_id": "x_A9RkaLAj4",
+   "minutes": 33,
+   "source": "DOWNLOAD",
+   "status": "To download",
+   "chapters": [],
+   "master": "YTDown.com_YouTube_Claude-cowork-Master-Pro-class-July-2026_Media_x_A9RkaLAj4_001_1080p.mp4",
+   "kind": "vault",
+   "bunny": {
+    "guid": "1814897e-d6f3-43e9-984c-0cdd7ffa0e89",
+    "status": "ready",
+    "version": 1,
+    "source": "drive-fetch",
+    "uploaded_at": "2026-08-26T13:36:56.436639Z",
+    "length_sec": 1978,
+    "aspect": 1.7778
+   }
+  },
+  {
+   "file": "V_Claude-Certification-Training_swuA7hzsrhQ.mp4",
+   "folder": "_Vault-Bonus",
+   "youtube_id": "swuA7hzsrhQ",
+   "minutes": 31,
+   "source": "DOWNLOAD",
+   "status": "To download",
+   "chapters": [],
+   "master": "YTDown.com_YouTube_Claude-Certification-Complete-Training-N_Media_swuA7hzsrhQ_001_1080p.mp4",
+   "kind": "vault",
+   "bunny": {
+    "guid": "5d960142-fd93-479a-842a-9da8007720e8",
+    "status": "ready",
+    "version": 1,
+    "source": "drive-fetch",
+    "uploaded_at": "2026-08-26T13:36:48.156694Z",
+    "length_sec": 1840,
+    "aspect": 1.7778
+   }
+  },
+  {
+   "file": "V_Real-AI-Apps-Day1_1oM2aneRSX8.mp4",
+   "folder": "_Vault-Bonus",
+   "youtube_id": "1oM2aneRSX8",
+   "minutes": 35,
+   "source": "DOWNLOAD",
+   "status": "To download",
+   "chapters": [],
+   "master": "YTDown.com_YouTube_Building-Real-AI-Applications-with-Claud_Media_1oM2aneRSX8_001_1080p.mp4",
+   "kind": "vault",
+   "bunny": {
+    "guid": "7e4abccd-758b-4ec4-8db3-9d53f980326d",
+    "status": "ready",
+    "version": 1,
+    "source": "drive-fetch",
+    "uploaded_at": "2026-08-26T13:36:31.125272Z",
+    "length_sec": 2082,
+    "aspect": 1.7778
+   }
+  },
+  {
+   "file": "V_Website-in-30-Minutes_1za_ZwBVXNM.mp4",
+   "folder": "_Vault-Bonus",
+   "youtube_id": "1za_ZwBVXNM",
+   "minutes": 29,
+   "source": "DOWNLOAD",
+   "status": "To download",
+   "chapters": [],
+   "master": "YTDown.com_YouTube_Build-a-Website-in-30-Minutes-FREE-_-Liv_Media_1za_ZwBVXNM_001_1080p.mp4",
+   "kind": "vault",
+   "bunny": {
+    "guid": "b645cb96-0462-4eb6-9903-33e9c46b9e29",
+    "status": "ready",
+    "version": 1,
+    "source": "drive-fetch",
+    "uploaded_at": "2026-08-26T13:36:12.488026Z",
+    "length_sec": 1714,
+    "aspect": 1.7778
+   }
+  },
+  {
+   "file": "V_Website-in-15-Minutes_Hu2qbIsiA50.mp4",
+   "folder": "_Vault-Bonus",
+   "youtube_id": "Hu2qbIsiA50",
+   "minutes": 44,
+   "source": "DOWNLOAD",
+   "status": "To download",
+   "chapters": [],
+   "master": "YTDown.com_YouTube_Build-website-with-Claude-in-15-minutes-_Media_Hu2qbIsiA50_001_1080p.mp4",
+   "kind": "vault",
+   "bunny": {
+    "guid": "4d7bb974-2131-47a1-a1ed-853dff930d9f",
+    "status": "ready",
+    "version": 1,
+    "source": "drive-fetch",
+    "uploaded_at": "2026-08-26T13:36:21.779312Z",
+    "length_sec": 2621,
+    "aspect": 1.7778
+   }
+  },
+  {
+   "file": "V_Agents-with-Claude_veMqkyjGS4s.mp4",
+   "folder": "_Vault-Bonus",
+   "youtube_id": "veMqkyjGS4s",
+   "minutes": 40,
+   "source": "DOWNLOAD",
+   "status": "To download",
+   "chapters": [],
+   "master": "YTDown.com_YouTube_Ai-Agents-with-Claude_Media_veMqkyjGS4s_001_1080p.mp4",
+   "kind": "vault",
+   "bunny": {
+    "guid": "274b372e-68ca-4b71-b719-5d16c6e299c7",
+    "status": "ready",
+    "version": 1,
+    "source": "drive-fetch",
+    "uploaded_at": "2026-08-26T13:35:56.627929Z",
+    "length_sec": 2381,
+    "aspect": 1.7778
+   }
+  },
+  {
+   "file": "V_Idea-to-Live-in-30-Minutes_yzImxj-NX-g.mp4",
+   "folder": "_Vault-Bonus",
+   "youtube_id": "yzImxj-NX-g",
+   "minutes": 52,
+   "source": "DOWNLOAD",
+   "status": "To download",
+   "chapters": [],
+   "master": "YTDown.com_YouTube_Al-agents-master-pro-class-idea-to-live-_Media_yzImxj-NX-g_001_1080p.mp4",
+   "kind": "vault",
+   "bunny": {
+    "guid": "48eaf521-2f3d-42a7-8803-7e6737203a2b",
+    "status": "ready",
+    "version": 1,
+    "source": "drive-fetch",
+    "uploaded_at": "2026-08-26T13:36:07.462682Z",
+    "length_sec": 3091,
+    "aspect": 1.7778
+   }
+  },
+  {
+   "file": "V_Practical-Project-Work_hS3wu_PvZSY.mp4",
+   "folder": "_Vault-Bonus",
+   "youtube_id": "hS3wu_PvZSY",
+   "minutes": 42,
+   "source": "DOWNLOAD",
+   "status": "To download",
+   "chapters": [],
+   "master": "YTDown.com_YouTube_Practical-work-on-a-project_Media_hS3wu_PvZSY_001_1080p.mp4",
+   "kind": "vault",
+   "bunny": {
+    "guid": "cd89aaa5-3d2b-47fa-9156-511ea0abf12f",
+    "status": "ready",
+    "version": 1,
+    "source": "drive-fetch",
+    "uploaded_at": "2026-08-26T13:37:13.494281Z",
+    "length_sec": 2492,
+    "aspect": 1.7778
+   }
+  },
+  {
+   "file": "V_Practical-Project-Discussion__Rz0CVJlQ-0.mp4",
+   "folder": "_Vault-Bonus",
+   "youtube_id": "_Rz0CVJlQ-0",
+   "minutes": 55,
+   "source": "DOWNLOAD",
+   "status": "To download",
+   "chapters": [],
+   "master": null,
+   "kind": "vault",
+   "bunny": {
+    "guid": "dcd41a38-00be-4f3a-a479-a9ff6a32c112",
+    "status": "ready",
+    "version": 1,
+    "source": "drive-fetch",
+    "uploaded_at": "2026-08-26T13:37:49.451411+00:00",
+    "length_sec": 3280,
+    "aspect": 1.7778
+   }
+  },
+  {
+   "file": "V_AI-Agents-Prompt-and-Claude_QBTw2gN2_AM.mp4",
+   "folder": "_Vault-Bonus",
+   "youtube_id": "QBTw2gN2_AM",
+   "minutes": 37,
+   "source": "DOWNLOAD",
+   "status": "To download",
+   "chapters": [],
+   "master": "YTDown.com_YouTube_Ai-Ai-Agents-Ai-Agentic-Prompt-and-Claud_Media_QBTw2gN2_AM_001_1080p.mp4",
+   "kind": "vault",
+   "bunny": {
+    "guid": "86848d78-5d65-4494-b6d2-8d0d60576add",
+    "status": "ready",
+    "version": 1,
+    "source": "drive-fetch",
+    "uploaded_at": "2026-08-26T13:35:59.288056Z",
+    "length_sec": 2245,
+    "aspect": 1.7778
+   }
+  }
+ ],
+ "capstone": {
+  "deliverables": [
+   "Live HTTPS URL",
+   "Public GitHub repo (20+ commits)",
+   "3-minute demo video",
+   "1-page proposal"
+  ],
+  "badge": "Master",
+  "review": "DSP team; resubmit anytime",
+  "brief_file": "Capstone-Brief-and-Rubric.md"
+ },
+ "progression": "modules open in order as the student marks them complete; no quizzes, no grading",
+ "vault_path": "_BUILD/02-Resource-Vault",
+ "slides_path": "_SLIDES"
 }

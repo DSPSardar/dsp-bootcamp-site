@@ -1,7 +1,7 @@
 import course from '@/content/mastery/course.json'
 
 export type Lesson = { file: string; kind: 'core' | 'supplement'; order: string; minutes: number; youtube_id?: string | null; bunny?: { guid: string; status: string } }
-export type Module = { id: string; title: string; phase: string; phase_name: string; outcome: string; build_project: string; downloads: string[]; vault_files?: string[]; badge_after?: string | null; lessons: Lesson[] }
+export type Module = { id: string; title: string; phase: string; phase_name: string; outcome: string; build_project: string; downloads: string[]; vault_files?: string[]; slides?: { file: string; title: string; type: string; bytes: number }[]; slides_zip?: string | null; badge_after?: string | null; lessons: Lesson[] }
 
 export const modules = course.modules as unknown as Module[]
 export const phases = course.phases as { id: string; name: string }[]
