@@ -20,9 +20,11 @@ const BUCKET = 'mastery-slides'
 
 const { data: buckets } = await sb.storage.listBuckets()
 if (!buckets?.some((b) => b.name === BUCKET)) {
-  const { error } = await sb.storage.createBucket(BUCKET, { public: false, fileSizeLimit: '250MB' })
-  if (error) { console.error('createBucket:', error.message); process.exit(1) }
-  console.log(`created private bucket ${BUCKET}`)
+  // Non-fatal: the bucket may already exist but not be visible to listBuckets.
+  // If it genuinely doesn't exist, the uploads below fail with a clear message.
+  const { error } = await sb.storage.createBucket(BUCKET, { public: false })
+  if (error) console.warn(`createBucket skipped (${error.message}) — assuming ${BUCKET} already exists`)
+  else console.log(`created private bucket ${BUCKET}`)
 }
 
 let ok = 0, fail = 0

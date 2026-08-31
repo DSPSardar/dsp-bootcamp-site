@@ -213,18 +213,18 @@
    ],
    "slides": [
     {
-     "file": "M01-S01_Evolution-to-Agentic-AI-Day1.pdf",
+     "file": "M01-D01_Evolution-to-Agentic-AI-Day1.pdf",
      "title": "Evolution to Agentic AI Day1",
      "type": "pdf",
      "bytes": 14363249,
-     "path": "_SLIDES/M01-AI-Foundations/M01-S01_Evolution-to-Agentic-AI-Day1.pdf"
+     "path": "_SLIDES/M01-AI-Foundations/M01-D01_Evolution-to-Agentic-AI-Day1.pdf"
     },
     {
-     "file": "M01-S02_Website-vs-AI-Agent.pdf",
+     "file": "M01-D02_Website-vs-AI-Agent.pdf",
      "title": "Website vs AI Agent",
      "type": "pdf",
      "bytes": 2654126,
-     "path": "_SLIDES/M01-AI-Foundations/M01-S02_Website-vs-AI-Agent.pdf"
+     "path": "_SLIDES/M01-AI-Foundations/M01-D02_Website-vs-AI-Agent.pdf"
     }
    ],
    "slides_zip": "_SLIDES/_ZIP/M01-slides.zip"
@@ -392,18 +392,18 @@
    ],
    "slides": [
     {
-     "file": "M02-S01_Context-Engineering-Day3.pdf",
+     "file": "M02-D01_Context-Engineering-Day3.pdf",
      "title": "Context Engineering Day3",
      "type": "pdf",
      "bytes": 9282369,
-     "path": "_SLIDES/M02-Prompting-Context-Engineering/M02-S01_Context-Engineering-Day3.pdf"
+     "path": "_SLIDES/M02-Prompting-Context-Engineering/M02-D01_Context-Engineering-Day3.pdf"
     },
     {
-     "file": "M02-S02_Prompt-Reference-and-Context-Cheatsheet.pdf",
+     "file": "M02-D02_Prompt-Reference-and-Context-Cheatsheet.pdf",
      "title": "Prompt Reference and Context Cheatsheet",
      "type": "pdf",
      "bytes": 248076,
-     "path": "_SLIDES/M02-Prompting-Context-Engineering/M02-S02_Prompt-Reference-and-Context-Cheatsheet.pdf"
+     "path": "_SLIDES/M02-Prompting-Context-Engineering/M02-D02_Prompt-Reference-and-Context-Cheatsheet.pdf"
     }
    ],
    "slides_zip": "_SLIDES/_ZIP/M02-slides.zip"
@@ -554,18 +554,18 @@
    ],
    "slides": [
     {
-     "file": "M03-S01_Claude-Master-Class-Day2.pdf",
+     "file": "M03-D01_Claude-Master-Class-Day2.pdf",
      "title": "Claude Master Class Day2",
      "type": "pdf",
      "bytes": 946073,
-     "path": "_SLIDES/M03-Claude-ChatGPT-Gemini/M03-S01_Claude-Master-Class-Day2.pdf"
+     "path": "_SLIDES/M03-Claude-ChatGPT-Gemini/M03-D01_Claude-Master-Class-Day2.pdf"
     },
     {
-     "file": "M03-S02_What-Is-Claude-and-How-It-Works-2026.pdf",
+     "file": "M03-D02_What-Is-Claude-and-How-It-Works-2026.pdf",
      "title": "What Is Claude and How It Works 2026",
      "type": "pdf",
      "bytes": 3847665,
-     "path": "_SLIDES/M03-Claude-ChatGPT-Gemini/M03-S02_What-Is-Claude-and-How-It-Works-2026.pdf"
+     "path": "_SLIDES/M03-Claude-ChatGPT-Gemini/M03-D02_What-Is-Claude-and-How-It-Works-2026.pdf"
     }
    ],
    "slides_zip": "_SLIDES/_ZIP/M03-slides.zip"
@@ -673,11 +673,11 @@
    ],
    "slides": [
     {
-     "file": "M04-S01_Claude-Code-Context-Management.pdf",
+     "file": "M04-D01_Claude-Code-Context-Management.pdf",
      "title": "Claude Code Context Management",
      "type": "pdf",
      "bytes": 2202412,
-     "path": "_SLIDES/M04-Vibe-Coding/M04-S01_Claude-Code-Context-Management.pdf"
+     "path": "_SLIDES/M04-Vibe-Coding/M04-D01_Claude-Code-Context-Management.pdf"
     }
    ],
    "slides_zip": "_SLIDES/_ZIP/M04-slides.zip"
@@ -748,18 +748,18 @@
    ],
    "slides": [
     {
-     "file": "M05-S01_Build-a-Website-Frontend-with-Claude-Code.pdf",
+     "file": "M05-D01_Build-a-Website-Frontend-with-Claude-Code.pdf",
      "title": "Build a Website Frontend with Claude Code",
      "type": "pdf",
      "bytes": 2172613,
-     "path": "_SLIDES/M05-Websites/M05-S01_Build-a-Website-Frontend-with-Claude-Code.pdf"
+     "path": "_SLIDES/M05-Websites/M05-D01_Build-a-Website-Frontend-with-Claude-Code.pdf"
     },
     {
-     "file": "M05-S02_Website-WebApp-and-AI-Agents.pdf",
+     "file": "M05-D02_Website-WebApp-and-AI-Agents.pdf",
      "title": "Website WebApp and AI Agents",
      "type": "pdf",
      "bytes": 1732972,
-     "path": "_SLIDES/M05-Websites/M05-S02_Website-WebApp-and-AI-Agents.pdf"
+     "path": "_SLIDES/M05-Websites/M05-D02_Website-WebApp-and-AI-Agents.pdf"
     }
    ],
    "slides_zip": "_SLIDES/_ZIP/M05-slides.zip"
@@ -848,11 +848,11 @@
    ],
    "slides": [
     {
-     "file": "M06-S01_Git-and-GitHub-Basics-for-Vibe-Coders.pdf",
+     "file": "M06-D01_Git-and-GitHub-Basics-for-Vibe-Coders.pdf",
      "title": "Git and GitHub Basics for Vibe Coders",
      "type": "pdf",
      "bytes": 2020230,
-     "path": "_SLIDES/M06-Git-GitHub/M06-S01_Git-and-GitHub-Basics-for-Vibe-Coders.pdf"
+     "path": "_SLIDES/M06-Git-GitHub/M06-D01_Git-and-GitHub-Basics-for-Vibe-Coders.pdf"
     }
    ],
    "slides_zip": "_SLIDES/_ZIP/M06-slides.zip"
@@ -1047,46 +1047,46 @@
    ],
    "slides": [
     {
-     "file": "M07-S01_AI-Employee-Cafe-Assistant.pdf",
+     "file": "M07-D01_AI-Employee-Cafe-Assistant.pdf",
      "title": "AI Employee Cafe Assistant",
      "type": "pdf",
      "bytes": 6933307,
-     "path": "_SLIDES/M07-AI-Agents/M07-S01_AI-Employee-Cafe-Assistant.pdf"
+     "path": "_SLIDES/M07-AI-Agents/M07-D01_AI-Employee-Cafe-Assistant.pdf"
     },
     {
-     "file": "M07-S02_Building-Your-First-AI-Employee.pdf",
+     "file": "M07-D02_Building-Your-First-AI-Employee.pdf",
      "title": "Building Your First AI Employee",
      "type": "pdf",
      "bytes": 14046285,
-     "path": "_SLIDES/M07-AI-Agents/M07-S02_Building-Your-First-AI-Employee.pdf"
+     "path": "_SLIDES/M07-AI-Agents/M07-D02_Building-Your-First-AI-Employee.pdf"
     },
     {
-     "file": "M07-S03_AI-Employee-Masterclass.pdf",
+     "file": "M07-D03_AI-Employee-Masterclass.pdf",
      "title": "AI Employee Masterclass",
      "type": "pdf",
      "bytes": 802734,
-     "path": "_SLIDES/M07-AI-Agents/M07-S03_AI-Employee-Masterclass.pdf"
+     "path": "_SLIDES/M07-AI-Agents/M07-D03_AI-Employee-Masterclass.pdf"
     },
     {
-     "file": "M07-S04_AI-Employee-Claude-Code-Build-Deck.pptx",
+     "file": "M07-D04_AI-Employee-Claude-Code-Build-Deck.pptx",
      "title": "AI Employee Claude Code Build Deck",
      "type": "pptx",
      "bytes": 336935,
-     "path": "_SLIDES/M07-AI-Agents/M07-S04_AI-Employee-Claude-Code-Build-Deck.pptx"
+     "path": "_SLIDES/M07-AI-Agents/M07-D04_AI-Employee-Claude-Code-Build-Deck.pptx"
     },
     {
-     "file": "M07-S05_AI-Employee-Claude-Code-Prompts.pdf",
+     "file": "M07-D05_AI-Employee-Claude-Code-Prompts.pdf",
      "title": "AI Employee Claude Code Prompts",
      "type": "pdf",
      "bytes": 10175,
-     "path": "_SLIDES/M07-AI-Agents/M07-S05_AI-Employee-Claude-Code-Prompts.pdf"
+     "path": "_SLIDES/M07-AI-Agents/M07-D05_AI-Employee-Claude-Code-Prompts.pdf"
     },
     {
-     "file": "M07-S06_Claude-Agent-Blueprint.pdf",
+     "file": "M07-D06_Claude-Agent-Blueprint.pdf",
      "title": "Claude Agent Blueprint",
      "type": "pdf",
      "bytes": 16369254,
-     "path": "_SLIDES/M07-AI-Agents/M07-S06_Claude-Agent-Blueprint.pdf"
+     "path": "_SLIDES/M07-AI-Agents/M07-D06_Claude-Agent-Blueprint.pdf"
     }
    ],
    "slides_zip": "_SLIDES/_ZIP/M07-slides.zip"
@@ -1187,11 +1187,11 @@
    ],
    "slides": [
     {
-     "file": "M08-S01_WhatsApp-Voice-AI-Agent-with-ElevenLabs.pdf",
+     "file": "M08-D01_WhatsApp-Voice-AI-Agent-with-ElevenLabs.pdf",
      "title": "WhatsApp Voice AI Agent with ElevenLabs",
      "type": "pdf",
      "bytes": 18287340,
-     "path": "_SLIDES/M08-APIs/M08-S01_WhatsApp-Voice-AI-Agent-with-ElevenLabs.pdf"
+     "path": "_SLIDES/M08-APIs/M08-D01_WhatsApp-Voice-AI-Agent-with-ElevenLabs.pdf"
     }
    ],
    "slides_zip": "_SLIDES/_ZIP/M08-slides.zip"
@@ -1280,11 +1280,11 @@
    ],
    "slides": [
     {
-     "file": "M09-S01_The-Smart-Library-RAG.pdf",
+     "file": "M09-D01_The-Smart-Library-RAG.pdf",
      "title": "The Smart Library RAG",
      "type": "pdf",
      "bytes": 9968788,
-     "path": "_SLIDES/M09-RAG-Memory/M09-S01_The-Smart-Library-RAG.pdf"
+     "path": "_SLIDES/M09-RAG-Memory/M09-D01_The-Smart-Library-RAG.pdf"
     }
    ],
    "slides_zip": "_SLIDES/_ZIP/M09-slides.zip"
@@ -1453,25 +1453,25 @@
    ],
    "slides": [
     {
-     "file": "M11-S01_Testing-Before-and-After-Launch.pdf",
+     "file": "M11-D01_Testing-Before-and-After-Launch.pdf",
      "title": "Testing Before and After Launch",
      "type": "pdf",
      "bytes": 3024480,
-     "path": "_SLIDES/M11-Testing-Observability/M11-S01_Testing-Before-and-After-Launch.pdf"
+     "path": "_SLIDES/M11-Testing-Observability/M11-D01_Testing-Before-and-After-Launch.pdf"
     },
     {
-     "file": "M11-S02_Top-10-AI-Agent-Testing-Tools.pdf",
+     "file": "M11-D02_Top-10-AI-Agent-Testing-Tools.pdf",
      "title": "Top 10 AI Agent Testing Tools",
      "type": "pdf",
      "bytes": 8104,
-     "path": "_SLIDES/M11-Testing-Observability/M11-S02_Top-10-AI-Agent-Testing-Tools.pdf"
+     "path": "_SLIDES/M11-Testing-Observability/M11-D02_Top-10-AI-Agent-Testing-Tools.pdf"
     },
     {
-     "file": "M11-S03_Shipping-Trusted-AI-Agents.pdf",
+     "file": "M11-D03_Shipping-Trusted-AI-Agents.pdf",
      "title": "Shipping Trusted AI Agents",
      "type": "pdf",
      "bytes": 11144718,
-     "path": "_SLIDES/M11-Testing-Observability/M11-S03_Shipping-Trusted-AI-Agents.pdf"
+     "path": "_SLIDES/M11-Testing-Observability/M11-D03_Shipping-Trusted-AI-Agents.pdf"
     }
    ],
    "slides_zip": "_SLIDES/_ZIP/M11-slides.zip"
@@ -1561,11 +1561,11 @@
    ],
    "slides": [
     {
-     "file": "M12-S01_Data-Compliance-and-Security-Standards.pdf",
+     "file": "M12-D01_Data-Compliance-and-Security-Standards.pdf",
      "title": "Data Compliance and Security Standards",
      "type": "pdf",
      "bytes": 9357,
-     "path": "_SLIDES/M12-Security/M12-S01_Data-Compliance-and-Security-Standards.pdf"
+     "path": "_SLIDES/M12-Security/M12-D01_Data-Compliance-and-Security-Standards.pdf"
     }
    ],
    "slides_zip": "_SLIDES/_ZIP/M12-slides.zip"
@@ -1655,18 +1655,18 @@
    ],
    "slides": [
     {
-     "file": "M13-S01_Tools-to-Test-Secure-and-Ship-AI-Agents.pdf",
+     "file": "M13-D01_Tools-to-Test-Secure-and-Ship-AI-Agents.pdf",
      "title": "Tools to Test Secure and Ship AI Agents",
      "type": "pdf",
      "bytes": 315532,
-     "path": "_SLIDES/M13-Deployment/M13-S01_Tools-to-Test-Secure-and-Ship-AI-Agents.pdf"
+     "path": "_SLIDES/M13-Deployment/M13-D01_Tools-to-Test-Secure-and-Ship-AI-Agents.pdf"
     },
     {
-     "file": "M13-S02_Tools-to-Test-Secure-and-Ship-AI-Agents.pptx",
+     "file": "M13-D02_Tools-to-Test-Secure-and-Ship-AI-Agents.pptx",
      "title": "Tools to Test Secure and Ship AI Agents",
      "type": "pptx",
      "bytes": 471707,
-     "path": "_SLIDES/M13-Deployment/M13-S02_Tools-to-Test-Secure-and-Ship-AI-Agents.pptx"
+     "path": "_SLIDES/M13-Deployment/M13-D02_Tools-to-Test-Secure-and-Ship-AI-Agents.pptx"
     }
    ],
    "slides_zip": "_SLIDES/_ZIP/M13-slides.zip"
@@ -1755,11 +1755,11 @@
    ],
    "slides": [
     {
-     "file": "M14-S01_Multi-Agent-Systems-and-Business-Automation.pdf",
+     "file": "M14-D01_Multi-Agent-Systems-and-Business-Automation.pdf",
      "title": "Multi Agent Systems and Business Automation",
      "type": "pdf",
      "bytes": 3999386,
-     "path": "_SLIDES/M14-Multi-Agent-Business-Automation/M14-S01_Multi-Agent-Systems-and-Business-Automation.pdf"
+     "path": "_SLIDES/M14-Multi-Agent-Business-Automation/M14-D01_Multi-Agent-Systems-and-Business-Automation.pdf"
     }
    ],
    "slides_zip": "_SLIDES/_ZIP/M14-slides.zip"
@@ -1876,18 +1876,18 @@
    ],
    "slides": [
     {
-     "file": "M15-S01_Claude-Sales-Operating-System.pdf",
+     "file": "M15-D01_Claude-Sales-Operating-System.pdf",
      "title": "Claude Sales Operating System",
      "type": "pdf",
      "bytes": 575740,
-     "path": "_SLIDES/M15-Selling-AI-Solutions/M15-S01_Claude-Sales-Operating-System.pdf"
+     "path": "_SLIDES/M15-Selling-AI-Solutions/M15-D01_Claude-Sales-Operating-System.pdf"
     },
     {
-     "file": "M15-S02_10-Ways-to-Find-Clients-Worldwide.pdf",
+     "file": "M15-D02_10-Ways-to-Find-Clients-Worldwide.pdf",
      "title": "10 Ways to Find Clients Worldwide",
      "type": "pdf",
      "bytes": 2876426,
-     "path": "_SLIDES/M15-Selling-AI-Solutions/M15-S02_10-Ways-to-Find-Clients-Worldwide.pdf"
+     "path": "_SLIDES/M15-Selling-AI-Solutions/M15-D02_10-Ways-to-Find-Clients-Worldwide.pdf"
     }
    ],
    "slides_zip": "_SLIDES/_ZIP/M15-slides.zip"
