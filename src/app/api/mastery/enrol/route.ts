@@ -40,15 +40,18 @@ export async function POST(req: Request) {
   const { error: pErr } = await admin.from('mastery_profiles').upsert({ id: userId, email, full_name: full_name ?? null, status: 'active', source, enrolled_at: now.toISOString(), support_until: until.toISOString() })
   if (pErr) return NextResponse.json({ error: pErr.message }, { status: 500 })
 
-  // 3) best-effort sign-in email (may be rate-limited — never fails the enrolment)
+  // 3) email the student a link to set their own password. SMTP is configured on the
+  //    Supabase project, so this is the normal way a new student gets in — no manual step.
   let emailSent = false
   try {
-    const { error } = await admin.auth.admin.generateLink({ type: 'magiclink', email, options: { redirectTo: `${site}/auth/confirm` } })
-    if (!error) {
-      const { error: sendErr } = await admin.auth.signInWithOtp({ email, options: { emailRedirectTo: `${site}/auth/confirm` } })
-      emailSent = !sendErr
-    }
-  } catch { /* ignore */ }
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/auth/v1/recover`, {
+      method: 'POST',
+      headers: { apikey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!, 'content-type': 'application/json' },
+      body: JSON.stringify({ email, redirect_to: `${site}/auth/confirm` }),
+    })
+    emailSent = res.ok
+    if (!res.ok) console.warn('[enrol] set-password email failed', res.status, await res.text())
+  } catch (err) { console.warn('[enrol] set-password email threw', err) }
 
   if (source !== 'asos') void postAsosEvent('enrolled', email, { full_name: full_name ?? null, phone: phone ?? null, source, fee: fee ?? (source === 'pkr' ? 28000 : null), currency: currency ?? 'PKR' })
 
