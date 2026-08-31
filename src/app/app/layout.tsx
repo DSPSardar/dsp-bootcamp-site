@@ -52,6 +52,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
           <a href="/app/certificate" className="mod"><span className="id">CERT</span><span className="t">Certificate</span><span className="c">→</span></a>
           <a href="/app/account" className="mod"><span className="id">ACC</span><span className="t">Password</span><span className="c">→</span></a>
           {isAdmin && <a href="/app/admin" className="mod"><span className="id">ADM</span><span className="t">Enrolments</span><span className="c">→</span></a>}
+          {isAdmin && <a href="/app/admin/students" className="mod"><span className="id">STU</span><span className="t">Students</span><span className="c">→</span></a>}
         </nav>
         <section>{children}</section>
       </div></main>

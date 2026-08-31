@@ -4,6 +4,7 @@ import { supabaseServer } from '@/lib/supabase/server'
 import { requireStudent, isAdminUser } from '@/lib/mastery/auth'
 import { moduleFor, unlockState, lessonTitle, lessonSlug } from '@/lib/mastery/course'
 import BunnyPlayer from '@/components/mastery/BunnyPlayer'
+import WatchTracker from '@/components/mastery/WatchTracker'
 import { postAsosEvent } from '@/lib/mastery/asos'
 import { badges } from '@/lib/mastery/course'
 
@@ -50,7 +51,7 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
         <h1 style={{ marginTop: 8 }}>{lessonTitle(l.file)}</h1>
         <p className="muted">{lessonSlug(l.file)} · {l.kind} · {l.minutes} min{(l as { instructor?: string }).instructor ? ` · with ${(l as { instructor?: string }).instructor}` : ''}</p>
         <div style={{ marginTop: 18 }}>
-          {l.bunny?.status === 'ready' ? <BunnyPlayer videoId={l.bunny.guid} title={lessonTitle(l.file)} aspect={(l.bunny as { aspect?: number }).aspect} /> : <p className="note">This lesson is being prepared and will appear here soon.</p>}
+          {l.bunny?.status === 'ready' ? <><WatchTracker lesson={l.file} /><BunnyPlayer videoId={l.bunny.guid} title={lessonTitle(l.file)} aspect={(l.bunny as { aspect?: number }).aspect} /></> : <p className="note">This lesson is being prepared and will appear here soon.</p>}
         </div>
         <div style={{ display: 'flex', gap: 12, marginTop: 18, flexWrap: 'wrap' }}>
           <form action={toggle} className="inline"><button className={`btn ${isDone ? 'btn-ghost' : 'btn-gold'}`} type="submit">{isDone ? '✓ Marked complete — undo' : 'Mark lesson complete'}</button></form>
