@@ -1343,8 +1343,16 @@
     "MCP-Builder-Prompt-Template.md",
     "Higgsfield-MCP-Demo-Notes.md"
    ],
-   "slides": [],
-   "slides_zip": null
+   "slides": [
+    {
+     "file": "M10-D01_MCP-Giving-Your-Agent-Hands.pdf",
+     "title": "MCP: Giving Your Agent Hands",
+     "type": "pdf",
+     "bytes": 130014,
+     "path": "_SLIDES/M10-MCP/M10-D01_MCP-Giving-Your-Agent-Hands.pdf"
+    }
+   ],
+   "slides_zip": "_SLIDES/_ZIP/M10-slides.zip"
   },
   {
    "id": "M11",
