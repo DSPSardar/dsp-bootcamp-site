@@ -21,14 +21,22 @@ export default function DecideButtons({ id, approved = false }: { id: string; ap
   if (res?.status === 'rejected') return <p className="note">Rejected.</p>
   if (res?.status === 'approved') {
     const msg = `Assalam o Alaikum ${res.full_name?.split(' ')[0] || ''}! Welcome to DSP AI Agent Mastery 🎓\n\nYour dashboard: ${res.login_url}\nEmail: ${res.email}${res.temp_password ? `\nPassword: ${res.temp_password}` : '\n(Sign in with the link we emailed you, or set a password from "Forgot / never set a password".)'}\n\nStart with Module 1, Lesson 1. Support is free for a year — ask here any time.`
-    const wa = res.phone ? `https://wa.me/${res.phone.replace(/[^\d]/g, '')}?text=${encodeURIComponent(msg)}` : null
+    // wa.me wants digits only, no leading 00 and no +
+    const digits = (res.phone || '').replace(/[^\d]/g, '').replace(/^00/, '')
+    const wa = digits.length >= 8 ? `https://wa.me/${digits}?text=${encodeURIComponent(msg)}` : null
     return (
       <div className="note" style={{ whiteSpace: 'pre-wrap' }}>
         <b>Access created.</b> {res.email_sent ? 'Sign-in email sent.' : 'Email could not be sent (mailer limit) — send the details below on WhatsApp.'}
         {res.temp_password && <><br /><br />Email: <code>{res.email}</code><br />Password: <code>{res.temp_password}</code></>}
         <br /><br />
-        {wa && <a className="btn btn-gold btn-sm" href={wa} target="_blank" rel="noreferrer">Send on WhatsApp</a>}
+        {wa
+          ? <a className="btn btn-gold btn-sm" href={wa} target="_blank" rel="noreferrer">Send on WhatsApp</a>
+          : <span className="muted" style={{ fontSize: 13 }}>No usable phone on file — copy the message and send it yourself.</span>}
         <button className="btn btn-ghost btn-sm" style={{ marginLeft: 8 }} onClick={() => navigator.clipboard.writeText(msg)}>Copy message</button>
+        <details style={{ marginTop: 10 }}>
+          <summary className="muted" style={{ fontSize: 13, cursor: 'pointer' }}>Show the message</summary>
+          <pre style={{ whiteSpace: 'pre-wrap', fontFamily: 'var(--mono)', fontSize: 12, marginTop: 8 }}>{msg}</pre>
+        </details>
       </div>
     )
   }
