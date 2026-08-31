@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { supabaseServer, supabaseAdmin } from '@/lib/supabase/server'
+import { postAsosEvent } from '@/lib/mastery/asos'
 
 /** Admin approves/rejects a PKR enrolment request. Returns credentials on approval so the admin can
  *  send them by WhatsApp — never dependent on email delivery. */
@@ -26,6 +27,24 @@ export async function POST(req: Request) {
     if (error) return NextResponse.json({ error: error.message }, { status: 500 })
     return NextResponse.json({ ok: true, status: 'approved', email: r.email, phone: r.phone, full_name: r.full_name,
       temp_password: pw, email_sent: false, login_url: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.digitalservicesprogram.com'}/app/login` })
+  }
+
+  // Re-push an already-approved enrolment into ASOS — for students approved while the
+  // CRM link was down or mismatching. Deliberately does NOT go through /api/mastery/enrol:
+  // the account already exists, and that route would email the student another
+  // set-password link. Idempotent on the ASOS side (an existing MASTERY lead is reused,
+  // and a lead already CLOSED_WON is left alone), so re-running it is safe.
+  if (action === 'resync') {
+    if (r.status !== 'approved') return NextResponse.json({ error: 'only approved requests can be re-synced' }, { status: 400 })
+    const delivered = await postAsosEvent('enrolled', r.email, {
+      full_name: r.full_name, phone: r.phone, source: 'pkr', fee: 28000, currency: 'PKR',
+      // The real enrolment date, so ASOS backdates the win instead of dating it today —
+      // keeps time-in-stage honest and keeps the welcome automations from re-firing.
+      enrolled_at: r.reviewed_at ?? r.created_at ?? null,
+    })
+    if (!delivered) return NextResponse.json({ error: 'ASOS did not accept the event — check ASOS_EVENTS_URL/SECRET and the API logs' }, { status: 502 })
+    await admin.from('mastery_enrol_requests').update({ admin_note: `re-synced to ASOS on ${new Date().toISOString().slice(0, 10)}` }).eq('id', id)
+    return NextResponse.json({ ok: true, status: 'approved', resynced: true, email: r.email, phone: r.phone, full_name: r.full_name })
   }
 
   if (action === 'reject') {

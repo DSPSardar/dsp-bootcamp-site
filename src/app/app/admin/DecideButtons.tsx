@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 
-type Result = { status: string; email?: string; phone?: string | null; full_name?: string; temp_password?: string | null; email_sent?: boolean; login_url?: string }
+type Result = { status: string; email?: string; phone?: string | null; full_name?: string; temp_password?: string | null; email_sent?: boolean; login_url?: string; resynced?: boolean }
 
 export default function DecideButtons({ id, approved = false }: { id: string; approved?: boolean }) {
   const [note, setNote] = useState('')
@@ -9,7 +9,7 @@ export default function DecideButtons({ id, approved = false }: { id: string; ap
   const [err, setErr] = useState<string | null>(null)
   const [res, setRes] = useState<Result | null>(null)
 
-  async function decide(action: 'approve' | 'reject' | 'resend') {
+  async function decide(action: 'approve' | 'reject' | 'resend' | 'resync') {
     setBusy(true); setErr(null)
     const r = await fetch('/api/mastery/admin/decide', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ id, action, note }) })
     const d = await r.json().catch(() => ({}))
@@ -19,6 +19,9 @@ export default function DecideButtons({ id, approved = false }: { id: string; ap
   }
 
   if (res?.status === 'rejected') return <p className="note">Rejected.</p>
+  // Checked before the approved branch below, which would otherwise show the
+  // "access created" screen for a student who already had access all along.
+  if (res?.resynced) return <p className="note"><b>Re-synced to ASOS.</b> The sale is recorded on the CRM lead — nothing was sent to the student.</p>
   if (res?.status === 'approved') {
     const msg = `Assalam o Alaikum ${res.full_name?.split(' ')[0] || ''}! Welcome to DSP AI Agent Mastery 🎓\n\nYour dashboard: ${res.login_url}\nEmail: ${res.email}${res.temp_password ? `\nPassword: ${res.temp_password}` : '\n(Sign in with the link we emailed you, or set a password from "Forgot / never set a password".)'}\n\nStart with Module 1, Lesson 1. Support is free for a year — ask here any time.`
     // wa.me wants digits only, no leading 00 and no +
@@ -45,9 +48,17 @@ export default function DecideButtons({ id, approved = false }: { id: string; ap
     return (
       <div style={{ marginTop: 10 }}>
         {err && <p className="note">{err}</p>}
-        <button className="btn btn-ghost btn-sm" disabled={busy} onClick={() => decide('resend')}>
-          {busy ? 'Working…' : 'Send access again (new password)'}
-        </button>
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          <button className="btn btn-ghost btn-sm" disabled={busy} onClick={() => decide('resend')}>
+            {busy ? 'Working…' : 'Send access again (new password)'}
+          </button>
+          <button className="btn btn-ghost btn-sm" disabled={busy} onClick={() => decide('resync')}>
+            {busy ? 'Working…' : 'Re-sync to ASOS'}
+          </button>
+        </div>
+        <p className="muted" style={{ fontSize: 12, marginTop: 6 }}>
+          Re-sync records the sale on the CRM lead. Safe to run twice; the student is not contacted.
+        </p>
       </div>
     )
 
