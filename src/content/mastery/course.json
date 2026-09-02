@@ -1231,6 +1231,28 @@
           }
         },
         {
+          "file": "M09-L02_The-Memory-Ladder_oOKyMHilVH4.mp4",
+          "folder": "Phase-2-Agent-Engineer/M09-RAG-Memory",
+          "youtube_id": "oOKyMHilVH4",
+          "minutes": 42,
+          "source": "DOWNLOAD",
+          "status": "Located",
+          "chapters": [],
+          "master": "YTDown.com_YouTube_Why-97-of-AI-Agent-Courses-Skip-This-One_Media_oOKyMHilVH4_001_1080p.mp4",
+          "kind": "core",
+          "order": "L02",
+          "source_note": "moved from M15-L01 on 2 Sep 2026 — content is the Memory Ladder, not selling",
+          "bunny": {
+            "guid": "d412ca2e-cd85-4151-9726-1823311dfbfd",
+            "status": "ready",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:37:25.919925Z",
+            "length_sec": 2510,
+            "aspect": 1.7778
+          }
+        },
+        {
           "file": "M09-S01_How-RAG-Works-short_SkT2s4N8wU0.mp4",
           "folder": "Phase-2-Agent-Engineer/M09-RAG-Memory",
           "youtube_id": "SkT2s4N8wU0",
