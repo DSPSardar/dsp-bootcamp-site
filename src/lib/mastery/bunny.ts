@@ -8,6 +8,13 @@ const TOKEN_KEY = process.env.BUNNY_STREAM_TOKEN_KEY
  *  (e.g. a build without secrets). Server-only. */
 export const bunnyConfigured = Boolean(LIB && TOKEN_KEY)
 
+/** Site-relative embed path of the public welcome video, or null when it is
+ *  not ready or Bunny is not configured. The landing page renders the player
+ *  from this, and the JSON-LD graph (src/app/mastery/schema.ts) emits its
+ *  VideoObject from the same value, so the two can never disagree. */
+export const welcomeEmbedPath =
+  welcomeVideoId?.status === 'ready' && bunnyConfigured ? `/api/video/${welcomeVideoId.guid}` : null
+
 /** Signed embed URL for Bunny Stream with "Embed view token authentication" enabled.
  *  token = SHA256(token_key + video_id + expires) — valid for `ttlSeconds`. Server-only:
  *  TOKEN_KEY must never reach the client, so only server components and route

@@ -18,6 +18,7 @@ There is no test framework. Tests are standalone Node scripts that statically ch
 npm run test:nav            # both navs (Nav.tsx + SiteHeader.tsx) must keep /ai-employees /mastery /pricing /blog /about + the /mastery/enrol CTA
 npm run test:mobile-layout
 npm run test:blog-cta
+npm run test:schema         # /mastery JSON-LD graph: FAQ + curriculum text mirrors the page, every @id resolves, required fields, locked-facts guards; prints the graph for Rich Results Test (needs Node 22.18+)
 ```
 
 Pushing to `main` triggers `.github/workflows/deploy.yml`: build + deploy to Vercel production (www.digitalservicesprogram.com).
@@ -47,7 +48,7 @@ The `agency` export holds all AI Employees facts (employee cards, proof-bar numb
 - **Company pages** (`/`, `/agents/*`, `/about`) use `src/components/site/SiteShell.tsx` (SiteHeader/SiteFooter) with `src/app/site.css`, scoped under `.dsp-site`.
 - **Bootcamp page** (`src/app/academy/bootcamp/` + `src/components/home/`) is the sunset Agentic Lab's evergreen explainer, rendered on the shared `.dsp-site` system. Page-specific styles (day rows, FAQ) live in `src/app/bootcamp.css`, scoped under `.page-bootcamp` — put new bootcamp-only CSS there, not in site.css.
 - **Blog and contact** (`src/app/blog/`, `src/app/contact/`) keep the old dark theme: `globals.css` variables plus `src/components/Nav.tsx`/`Footer.tsx`, rendered by their **own route layouts**, not the root layout. The root layout intentionally renders no nav/footer.
-- Root layout (`src/app/layout.tsx`) owns `metadataBase`, `alternates: { canonical: './' }`, the sitewide Organization JSON-LD, and GA4 (`src/components/site/Analytics.tsx`, active only when `NEXT_PUBLIC_GA4_ID` is set). Page-level JSON-LD: FAQPage on the bootcamp page (Course schema was removed at the sunset — do not re-add it), Service on `/agents`, Product on `/agents/restaurant-ai`, Person on `/about`.
+- Root layout (`src/app/layout.tsx`) owns `metadataBase`, `alternates: { canonical: './' }`, the sitewide Organization JSON-LD, and GA4 (`src/components/site/Analytics.tsx`, active only when `NEXT_PUBLIC_GA4_ID` is set). Page-level JSON-LD: FAQPage on the bootcamp page (Course schema was removed at the sunset — do not re-add it), Service on `/agents`, Product on `/agents/restaurant-ai`, Person on `/about`. `/mastery` renders one `@graph` from `src/app/mastery/schema.ts` (Organization · WebSite · WebPage · Person · Course with its single **self-paced** CourseInstance — never add dates, seats or a location to it · FAQPage), linked by `@id`; its FAQ and syllabus text is mirrored from the page via `faqs.ts` / `curriculum.ts` and guarded by `test:schema`. Every Organization mention carries `@id …/#organization` so parsers merge them.
 
 GA4 events: `whatsapp_cta_click`, `restaurant_demo_click`, `academy_cta_click`, `agents_cta_click`, `channelops_course_cta`, `channelops_service_cta`, `channelops_whatsapp_cta`, `begin_enrol` (nav CTAs + `/mastery` "Pay directly" links, `{cta, location}`), `whatsapp_click` (`/mastery` primary CTAs, `{location}` — WhatsApp-first by owner ruling 2026-08-30), `view_evolution_complete`, `hire_band_click` — fired via `src/lib/track.ts` and `src/components/site/TrackedLink.tsx`.
 

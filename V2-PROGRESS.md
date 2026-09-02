@@ -57,6 +57,13 @@ One commit per surface: **C** `/academy` retired, 301 → `/mastery` (FDE redire
 
 Untouched by owner exception: `/mastery` "Weekly live Q&A, recorded" (+ same promise in its FAQ), "recorded live with real students", all student testimonials referencing the bootcamp, and the `/academy/bootcamp` URL (live, indexed, no 301).
 
+## SEO pass — /mastery (target query "AI agent course for beginners", 2026-09-02)
+
+| Step | What | Notes |
+|---|---|---|
+| 2 metadata | `title` (absolute, 68 chars — the ≤60 variant would drop "Deploy"), query-led description, absolute canonical, explicit `robots index/follow`, OG/Twitter restated (Next merges `openGraph` shallowly, so `og-card.png` had to be restated) | H1 and page copy untouched. `og-card.png` is still the **old bootcamp banner** (PKR 10,000 · 7 days) — replace before sharing the URL |
+| 3 schema | One `@graph` from `src/app/mastery/schema.ts`: Organization (`#organization`, shared @id with the root layout's script) · WebSite · WebPage · Person (`#sardar-ghaffar`) · Course + one **self-paced** CourseInstance (owner ruling — no dates/seats/location, ever) + Offer + 15 Syllabus · FAQPage (verbatim from the page). Text mirrored via `faqs.ts` / `curriculum.ts`; `test:schema` diffs them against the page and prints the graph for Rich Results Test | **No VideoObject**: the repo has no thumbnail for any of the four Bunny embeds (rule: real title + thumbnail + uploadDate or skip). Logo points at `/logo.webp`, which is a 1×1 placeholder — drop the real mark there. `repeatFrequency: Self-paced` and `instructor` on Course are per spec; Google documents Daily/Weekly/Monthly + `repeatCount`, and the FAQ's "an hour a day for 30 days" is the valid fallback if RRT objects |
+
 ## Open items
 
 - Add `/mastery/enrol` to the robots.txt disallow list after confirming de-index in Google Search Console — earliest 4 weeks from 2026-08-30 (owner ruling: option B; see TODO in `src/app/robots.ts`).
