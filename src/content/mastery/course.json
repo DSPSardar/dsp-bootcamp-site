@@ -1,15 +1,15 @@
 {
-  "course": "DSP AI Agent Mastery — Zero to Master",
+  "course": "DSP AI Agent Mastery \u2014 Zero to Master",
   "version": "0.9.0",
   "price_usd": 100,
   "access": "lifetime",
   "support": "12 months group support",
   "formula": "Agent = Claude + Job Description + Tools + Loop",
-  "project": "AI Employee (café ordering agent)",
+  "project": "AI Employee (caf\u00e9 ordering agent)",
   "phases": [
     {
       "id": "0",
-      "name": "Zero — Foundations"
+      "name": "Zero \u2014 Foundations"
     },
     {
       "id": "1",
@@ -33,7 +33,7 @@
       "id": "M01",
       "title": "AI Foundations",
       "phase": "0",
-      "phase_name": "Zero — Foundations",
+      "phase_name": "Zero \u2014 Foundations",
       "outcome": "Explain what an LLM and an agent are, what each can't do, and pick one idea worth building using the Agent Idea Filter.",
       "downloads": [
         "Agent Idea Filter worksheet",
@@ -205,7 +205,7 @@
           }
         }
       ],
-      "build_project": "Pick Your Agent — 5 ideas through the Idea Filter, one chosen",
+      "build_project": "Pick Your Agent \u2014 5 ideas through the Idea Filter, one chosen",
       "vault_files": [
         "Agent-Idea-Filter.md",
         "DSP-AI-Glossary.md",
@@ -233,7 +233,7 @@
       "id": "M02",
       "title": "Prompting & Context Engineering",
       "phase": "0",
-      "phase_name": "Zero — Foundations",
+      "phase_name": "Zero \u2014 Foundations",
       "outcome": "Write a production-grade Job Description using the 7-Part JD and explain why context decides whether an agent works.",
       "downloads": [
         "7-Part JD template",
@@ -384,7 +384,7 @@
           "instructor": "Sundus Khan"
         }
       ],
-      "build_project": "Write the JD — 7-Part JD v2 with 3 test inputs",
+      "build_project": "Write the JD \u2014 7-Part JD v2 with 3 test inputs",
       "vault_files": [
         "7-Part-JD-Template.md",
         "25-Starter-Job-Descriptions.md",
@@ -412,7 +412,7 @@
       "id": "M03",
       "title": "Claude / ChatGPT / Gemini",
       "phase": "0",
-      "phase_name": "Zero — Foundations",
+      "phase_name": "Zero \u2014 Foundations",
       "outcome": "Set up Claude, Console, Claude Code, GitHub and Vercel; know when to reach for each tool; understand tokens and cost.",
       "downloads": [
         "Setup checklist (Mac+Windows)",
@@ -441,7 +441,7 @@
             "length_sec": 3234,
             "aspect": 1.7778
           },
-          "source_note": "live class 25 Aug 2026 — Claude masterclass (updated)"
+          "source_note": "live class 25 Aug 2026 \u2014 Claude masterclass (updated)"
         },
         {
           "file": "M03-L02_Claude-Chat-Cowork-Code_GUQmCNRqy1g.mp4",
@@ -546,7 +546,7 @@
           }
         }
       ],
-      "build_project": "Your Toolkit — Claude Project + tool comparison + setup checklist",
+      "build_project": "Your Toolkit \u2014 Claude Project + tool comparison + setup checklist",
       "vault_files": [
         "Setup-Checklist.md",
         "Tool-Comparison-Matrix.md",
@@ -575,7 +575,7 @@
       "title": "Vibe Coding",
       "phase": "1",
       "phase_name": "Builder",
-      "outcome": "Build working software by describing it with Claude Code: PLAN → BUILD ONE FEATURE → TEST → COMMIT → NEXT.",
+      "outcome": "Build working software by describing it with Claude Code: PLAN \u2192 BUILD ONE FEATURE \u2192 TEST \u2192 COMMIT \u2192 NEXT.",
       "downloads": [
         "AI Employee build-prompts PDF",
         "Claude Code command card",
@@ -666,7 +666,7 @@
           }
         }
       ],
-      "build_project": "AI Employee Part 1: The Skeleton — app running locally on video",
+      "build_project": "AI Employee Part 1: The Skeleton \u2014 app running locally on video",
       "vault_files": [
         "AI-Employee-Build-Prompts.md",
         "Claude-Code-Command-Card.md"
@@ -715,7 +715,7 @@
             "length_sec": 2742,
             "aspect": 1.7778
           },
-          "source_note": "live class 24 Aug 2026 — complete step-by-step: vibe coding, website, chatbot, AI agents with Claude"
+          "source_note": "live class 24 Aug 2026 \u2014 complete step-by-step: vibe coding, website, chatbot, AI agents with Claude"
         },
         {
           "file": "M05-L02_First-Frontend-with-Claude-Code-Day2_FMsPKSDfft4.mp4",
@@ -739,7 +739,7 @@
           }
         }
       ],
-      "build_project": "AI Employee Part 2: The Café Website — 4 pages, desktop + mobile",
+      "build_project": "AI Employee Part 2: The Caf\u00e9 Website \u2014 4 pages, desktop + mobile",
       "vault_files": [
         "Website-Spec-Template.md",
         "10-Landing-Page-Prompts.md",
@@ -840,7 +840,7 @@
           }
         }
       ],
-      "build_project": "AI Employee on GitHub — public repo, 10+ commits, branch + restore",
+      "build_project": "AI Employee on GitHub \u2014 public repo, 10+ commits, branch + restore",
       "vault_files": [
         "Git-Command-Card.md",
         "GitHub-Setup-Checklist.md",
@@ -1037,7 +1037,7 @@
           }
         }
       ],
-      "build_project": "AI Employee Part 3: The Ordering Agent — full order demo + architecture page",
+      "build_project": "AI Employee Part 3: The Ordering Agent \u2014 full order demo + architecture page",
       "vault_files": [
         "Agent-Architecture-Template.md",
         "7-Layer-Multi-Agent-Design.md",
@@ -1178,7 +1178,7 @@
           }
         }
       ],
-      "build_project": "AI Employee Part 4: Wired Up — backend + one external API",
+      "build_project": "AI Employee Part 4: Wired Up \u2014 backend + one external API",
       "vault_files": [
         "API-Integration-Prompt-Pack.md",
         "Keys-and-env-Checklist.md",
@@ -1241,7 +1241,7 @@
           "master": "YTDown.com_YouTube_Why-97-of-AI-Agent-Courses-Skip-This-One_Media_oOKyMHilVH4_001_1080p.mp4",
           "kind": "core",
           "order": "L02",
-          "source_note": "moved from M15-L01 on 2 Sep 2026 — content is the Memory Ladder, not selling",
+          "source_note": "moved from M15-L01 on 2 Sep 2026 \u2014 content is the Memory Ladder, not selling",
           "bunny": {
             "guid": "d412ca2e-cd85-4151-9726-1823311dfbfd",
             "status": "ready",
@@ -1338,7 +1338,7 @@
           }
         }
       ],
-      "build_project": "AI Employee Part 6: Talks to the Outside World — one MCP tool live",
+      "build_project": "AI Employee Part 6: Talks to the Outside World \u2014 one MCP tool live",
       "vault_files": [
         "MCP-Setup-Guide.md",
         "Connector-Directory.md",
@@ -1453,7 +1453,7 @@
           }
         }
       ],
-      "build_project": "Break AI Employee — test sheet, 3 fixes, logging",
+      "build_project": "Break AI Employee \u2014 test sheet, 3 fixes, logging",
       "vault_files": [
         "10-Question-Test-Sheet.md",
         "Test-Log-Template.md",
@@ -1562,7 +1562,7 @@
           }
         }
       ],
-      "build_project": "Harden AI Employee — 15-item checklist + 10 injection tests",
+      "build_project": "Harden AI Employee \u2014 15-item checklist + 10 injection tests",
       "vault_files": [
         "Security-Checklist.md",
         "Guardrail-Prompt-Block.md",
@@ -1601,7 +1601,7 @@
           "youtube_id": null,
           "minutes": 20,
           "kind": "core",
-          "source_note": "live class 29 Aug 2026 — full deployment, zero to live URL with Claude Code",
+          "source_note": "live class 29 Aug 2026 \u2014 full deployment, zero to live URL with Claude Code",
           "bunny": {
             "guid": "c62121ee-36f4-4220-b818-7af1e549894b",
             "status": "ready",
@@ -1655,7 +1655,7 @@
           }
         }
       ],
-      "build_project": "AI Employee LIVE — public URL verified by AI Coach",
+      "build_project": "AI Employee LIVE \u2014 public URL verified by AI Coach",
       "vault_files": [
         "Deploy-Checklist.md",
         "Vercel-Railway-Guide.md",
@@ -1759,7 +1759,7 @@
           }
         }
       ],
-      "build_project": "AI Employee for Two Cafés — multi-tenant + owner notification",
+      "build_project": "AI Employee for Two Caf\u00e9s \u2014 multi-tenant + owner notification",
       "vault_files": [
         "One-Agent-Many-Clients.md",
         "Automation-Blueprints-5-Industries.md",
@@ -1814,49 +1814,9 @@
             "length_sec": 3129,
             "aspect": 1.7778
           }
-        },
-        {
-          "file": "M15-S01_Student-Earned-60K_01UefxMiNOc.mp4",
-          "folder": "Phase-4-Seller/M15-Selling-AI-Solutions",
-          "youtube_id": "01UefxMiNOc",
-          "minutes": 4,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M15-S01_Student-Earned-60K_01UefxMiNOc.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "2c5ac1cf-9643-4265-9c0a-72af532a84a9",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:42:52.430Z",
-            "length_sec": 260,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M15-S02_UK-Finance-Pro-First-Agent_0dwVIkn7pBg.mp4",
-          "folder": "Phase-4-Seller/M15-Selling-AI-Solutions",
-          "youtube_id": "0dwVIkn7pBg",
-          "minutes": 3,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M15-S02_UK-Finance-Pro-First-Agent_0dwVIkn7pBg.mp4",
-          "kind": "supplement",
-          "order": "S02",
-          "bunny": {
-            "guid": "7e642dff-ebb7-48a5-9da5-e94190716a56",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:43:21.717Z",
-            "length_sec": 169,
-            "aspect": 1.7778
-          }
         }
       ],
-      "build_project": "Your First Proposal — discovery sheet + proposal + 3 outreach messages",
+      "build_project": "Your First Proposal \u2014 discovery sheet + proposal + 3 outreach messages",
       "vault_files": [
         "Client-Discovery-Sheet.md",
         "Proposal-Template.md",
