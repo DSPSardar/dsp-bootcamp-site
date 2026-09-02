@@ -1709,9 +1709,10 @@
           "source_note": "live class 30 Aug 2026",
           "bunny": {
             "guid": "4f2e1b02-d851-488d-8c8c-f28c841a2dba",
-            "status": "processing",
+            "status": "failed",
             "version": 1,
-            "uploaded_at": "2026-08-30T17:58:31.842Z"
+            "uploaded_at": "2026-08-30T17:58:31.842Z",
+            "length_sec": 0
           }
         },
         {
