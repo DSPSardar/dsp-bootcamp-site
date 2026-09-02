@@ -15,3 +15,12 @@ export const SEO_DESCRIPTION =
 
 /** Absolute canonical URL of the landing page. */
 export const CANONICAL = `${site.url}${mastery.url}`
+
+/** `lastModified` for /mastery in sitemap.xml.
+ *  Deliberately a fixed date, not `new Date()` (which re-stamps every deploy
+ *  and tells Google nothing) and not derived from git at build time (a
+ *  metadata-only commit would bump it too). It is the date of the last
+ *  commit on main that changed the page's *content*:
+ *    1b552c5 · 2026-08-28 · "M05-L01 replaced with the 17 Aug re-recording"
+ *  Bump it by hand when the visible page changes. */
+export const PAGE_LAST_MODIFIED = '2026-08-28T12:43:16+05:00'

@@ -50,6 +50,11 @@ const webpage: JsonLd = {
 }
 
 /* ── Person: the instructor ───────────────────────────────────────────── */
+// Name and title are the owner's spec for this page and match the visible
+// instructor section. NOTE: /about emits its own Person literal ("Sardar
+// Abdul Ghaffar Khan", "Co-Founder & Lead Instructor") without an @id, so
+// the two do not merge — align /about with PERSON_ID when that page is next
+// touched.
 const sardar: JsonLd = {
   '@type': 'Person',
   '@id': PERSON_ID,

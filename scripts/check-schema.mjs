@@ -6,9 +6,10 @@
 //   node scripts/check-schema.mjs > graph.json
 //
 // What it asserts (exit 1 on any failure):
-//   1. the FAQ and curriculum text in ./src/app/mastery/{faqs,curriculum}.ts
-//      mirrors the visible copy in page.tsx word for word (schema may only
-//      describe what a visitor can read);
+//   1. the FAQ and syllabus text in the EMITTED graph mirrors the visible
+//      copy in page.tsx word for word (schema may only describe what a
+//      visitor can read) — checked on the graph itself, not on the
+//      intermediate faqs.ts / curriculum.ts modules;
 //   2. every `{ "@id": … }` reference points at a node defined in the graph;
 //   3. required fields per type — Course: name, description, provider ·
 //      Offer: price, priceCurrency · FAQPage: mainEntity non-empty ·
@@ -44,8 +45,8 @@ if (!stripTypes) {
 
 register('./lib/ts-resolve-hooks.mjs', import.meta.url)
 const { masterySchema } = await import('../src/app/mastery/schema.ts')
-const { MASTERY_FAQS } = await import('../src/app/mastery/faqs.ts')
-const { MASTERY_CURRICULUM } = await import('../src/app/mastery/curriculum.ts')
+const graph = masterySchema['@graph']
+const nodeOfType = (t) => (Array.isArray(graph) ? graph.find((n) => n && n['@type'] === t) : undefined)
 
 const failures = []
 const check = (ok, message) => { if (!ok) failures.push(message) }
@@ -60,33 +61,35 @@ const decode = (s) => s
 const faqSection = page.slice(page.indexOf('<section id="faq">'))
 const visibleFaqs = [...faqSection.slice(0, faqSection.indexOf('</section>')).matchAll(/<details><summary>(.*?)<\/summary><p>(.*?)<\/p><\/details>/gs)]
   .map(([, q, a]) => ({ q: decode(q), a: decode(a) }))
+const emittedFaqs = (nodeOfType('FAQPage')?.mainEntity ?? []).map((q) => ({ q: q?.name, a: q?.acceptedAnswer?.text }))
 check(visibleFaqs.length > 0, 'FAQ section not found in page.tsx (expected <section id="faq"> with <details><summary>…</summary><p>…</p></details>)')
-check(visibleFaqs.length === MASTERY_FAQS.length, `faqs.ts has ${MASTERY_FAQS.length} pairs, the page shows ${visibleFaqs.length}`)
+check(visibleFaqs.length === emittedFaqs.length, `the graph's FAQPage has ${emittedFaqs.length} questions, the page shows ${visibleFaqs.length}`)
 visibleFaqs.forEach((v, i) => {
-  const f = MASTERY_FAQS[i]
+  const f = emittedFaqs[i]
   if (!f) return
-  check(f.q === v.q, `FAQ ${i + 1} question differs from the page:\n      page:  ${v.q}\n      faqs:  ${f.q}`)
-  check(f.a === v.a, `FAQ ${i + 1} answer differs from the page:\n      page:  ${v.a}\n      faqs:  ${f.a}`)
-  check(!/<[a-z][^>]*>/i.test(f.a), `FAQ ${i + 1} answer carries markup`)
+  check(f.q === v.q, `FAQ ${i + 1} question differs from the page:\n      page:  ${v.q}\n      graph: ${f.q}`)
+  check(f.a === v.a, `FAQ ${i + 1} answer differs from the page:\n      page:  ${v.a}\n      graph: ${f.a}`)
+  check(!/<[a-z][^>]*>/i.test(f.a ?? ''), `FAQ ${i + 1} answer carries markup`)
 })
-if (visibleFaqs.length && visibleFaqs.length === MASTERY_FAQS.length) pass(`FAQ: ${MASTERY_FAQS.length} Q/A pairs mirror the visible FAQ verbatim`)
+if (visibleFaqs.length && visibleFaqs.length === emittedFaqs.length) pass(`FAQ: ${emittedFaqs.length} Q/A pairs in the graph mirror the visible FAQ verbatim`)
 
 const visibleModules = [...page.matchAll(/<details><summary><span className="n">(\w+)<\/span>(.*?)<span className="plus">\+<\/span><\/summary><div className="body"><div><b>Outcome<\/b>(.*?)<\/div>/gs)]
   .filter(([, code]) => code !== 'CAP')
   .map(([, code, title, outcome]) => ({ code, title: decode(title), outcome: decode(outcome) }))
-check(visibleModules.length === MASTERY_CURRICULUM.length, `curriculum.ts has ${MASTERY_CURRICULUM.length} modules, the page shows ${visibleModules.length}`)
+const emittedSyllabus = nodeOfType('Course')?.syllabusSections ?? []
+check(visibleModules.length === emittedSyllabus.length, `the graph's Course has ${emittedSyllabus.length} syllabusSections, the page shows ${visibleModules.length} modules`)
 visibleModules.forEach((v, i) => {
-  const m = MASTERY_CURRICULUM[i]
+  const m = emittedSyllabus[i]
   if (!m) return
-  check(m.code === v.code && m.title === v.title, `Module ${i + 1} title differs from the page: "${v.code} ${v.title}" vs "${m.code} ${m.title}"`)
-  check(m.outcome === v.outcome, `Module ${v.code} outcome differs from the page:\n      page:       ${v.outcome}\n      curriculum: ${m.outcome}`)
+  check(m['@type'] === 'Syllabus', `syllabusSections[${i}] is not a Syllabus`)
+  check(m.name === `${v.code} ${v.title}`, `Syllabus ${i + 1} name differs from the page: "${v.code} ${v.title}" vs "${m.name}"`)
+  check(m.description === v.outcome, `Syllabus ${v.code} description differs from the page's Outcome line:\n      page:  ${v.outcome}\n      graph: ${m.description}`)
 })
-if (visibleModules.length && visibleModules.length === MASTERY_CURRICULUM.length) pass(`Curriculum: ${MASTERY_CURRICULUM.length} module titles + Outcome lines mirror the visible accordion`)
+if (visibleModules.length && visibleModules.length === emittedSyllabus.length) pass(`Syllabus: ${emittedSyllabus.length} sections in the graph mirror the visible curriculum titles + Outcome lines`)
 
 check(/JSON\.stringify\(masterySchema\)/.test(page), 'page.tsx does not render masterySchema')
 
 /* ── 2. Graph integrity: every @id reference resolves ─────────────────── */
-const graph = masterySchema['@graph']
 check(masterySchema['@context'] === 'https://schema.org', '@context must be https://schema.org')
 check(Array.isArray(graph) && graph.length > 0, '@graph must be a non-empty array')
 

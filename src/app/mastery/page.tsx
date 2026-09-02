@@ -90,7 +90,7 @@ export default function MasteryPage() {
   </div>
   <div className="nav-cta">
     <TrackedLink className="paylink" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'nav' }}>Pay directly</TrackedLink>
-    <TrackedLink className="btn btn-gold btn-sm" href={waLink(WA_MSG.nav)} event="whatsapp_click" params={{ location: 'nav' }}>Enrol — $100</TrackedLink>
+    <TrackedLink className="btn btn-gold btn-sm" target="_blank" rel="noopener" href={waLink(WA_MSG.nav)} event="whatsapp_click" params={{ location: 'nav' }}>Enrol — $100</TrackedLink>
   </div>
 </div></nav>
 
@@ -101,7 +101,7 @@ export default function MasteryPage() {
     <h1>Go from zero to <em>building, deploying and selling</em> AI agents.</h1>
     <p className="lead">15 modules. One real AI Employee you build from an empty folder to a live URL — then your own. No coding background needed. Taught in Urdu &amp; English, all materials in English.</p>
     <div className="cta-row">
-      <TrackedLink className="btn btn-gold" href={waLink(WA_MSG.hero)} event="whatsapp_click" params={{ location: 'hero' }}>Start building <span className="price-tag">$100 · one-time</span></TrackedLink>
+      <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.hero)} event="whatsapp_click" params={{ location: 'hero' }}>Start building <span className="price-tag">$100 · one-time</span></TrackedLink>
       <a className="btn btn-ghost" href="#welcome">Watch the 6-minute tour</a>
     </div>
     <p className="paynote"><TrackedLink className="paylink" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'hero' }}>Pay directly — bank transfer · JazzCash · Easypaisa</TrackedLink></p>
@@ -189,7 +189,7 @@ export default function MasteryPage() {
     </div>
   </div>
   <div className="cta-row" style={{justifyContent:'center',marginTop:'40px'}}>
-    <TrackedLink className="btn btn-gold" href={waLink(WA_MSG.build)} event="whatsapp_click" params={{ location: 'build' }}>Start building yours <span className="price-tag">$100 · one-time</span></TrackedLink>
+    <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.build)} event="whatsapp_click" params={{ location: 'build' }}>Start building yours <span className="price-tag">$100 · one-time</span></TrackedLink>
     <TrackedLink className="paylink" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'build' }}>Pay directly</TrackedLink>
   </div>
 </div></section>
@@ -277,7 +277,7 @@ export default function MasteryPage() {
     ].map((c) => (
       <div className="card" key={c.name} style={{padding:'14px',display:'flex',flexDirection:'column'}}>
         <div style={{position:'relative',paddingTop:'66%',borderRadius:'10px',overflow:'hidden',background:'var(--ink)',border:'1px solid var(--line)'}}>
-          <img src={c.img} alt={`${c.name} — certificate issued by ${c.by}`} loading="lazy" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover'}} />
+          <Image src={c.img} alt={`${c.name} — certificate issued by ${c.by}`} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" style={{objectFit:'cover'}} />
         </div>
         <div className="by" style={{marginTop:'12px'}}>{c.name}</div>
         <div className="muted" style={{fontSize:'13px'}}>{c.by}</div>
@@ -297,7 +297,7 @@ export default function MasteryPage() {
     </div>
   </div>
   <div className="cta-row" style={{justifyContent:'center',marginTop:'40px'}}>
-    <TrackedLink className="btn btn-gold" href={waLink(WA_MSG.certs)} event="whatsapp_click" params={{ location: 'certificates' }}>Enrol now — $100</TrackedLink>
+    <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.certs)} event="whatsapp_click" params={{ location: 'certificates' }}>Enrol now — $100</TrackedLink>
     <TrackedLink className="paylink" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'certificates' }}>Pay directly</TrackedLink>
   </div>
 </div></section>
@@ -305,7 +305,7 @@ export default function MasteryPage() {
 
 <section><div className="wrap">
   <div className="who">
-    <div className="portrait"><Image src="/mastery/sardar.jpg" alt="Sardar Ghaffar, founder of Digital Services Program" width={640} height={800} /></div>
+    <div className="portrait"><Image src="/mastery/sardar.jpg" alt="Sardar Ghaffar, founder and lead instructor, Digital Services Program" width={640} height={800} /></div>
     <div>
       <div className="eyebrow">Your instructor</div>
       <h2><Link href="/about">Sardar Ghaffar</Link></h2>
@@ -341,7 +341,7 @@ export default function MasteryPage() {
       <div className="strike">Later: $197</div>
       <div className="big">$100<small>one-time</small></div>
       <p>Founding price. Lifetime access. One year of group support included. No subscription, no upsell required to finish.</p>
-      <TrackedLink className="btn btn-gold" href={waLink(WA_MSG.offer)} event="whatsapp_click" params={{ location: 'offer' }}>Enrol now — $100</TrackedLink>
+      <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.offer)} event="whatsapp_click" params={{ location: 'offer' }}>Enrol now — $100</TrackedLink>
       <TrackedLink className="btn btn-ghost" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'offer' }} style={{marginTop:'10px'}}>Pay directly — bank transfer · JazzCash · Easypaisa</TrackedLink>
       <p className="paynote" style={{textAlign:'center'}}><a className="paylink" href="#welcome">Watch the 6-minute intro first</a></p>
       <div className="guarantee">7-day money-back guarantee. Start Module 1; if it isn&apos;t for you, email us within 7 days for a full refund.</div>
@@ -400,7 +400,7 @@ export default function MasteryPage() {
   {/* Primary IS WhatsApp here, so the old "Ask a question" WhatsApp ghost is
       gone — its job moved into the final prefill (question-friendly). */}
   <div className="cta-row" style={{justifyContent:'center'}}>
-    <TrackedLink className="btn btn-gold" href={waLink(WA_MSG.final)} event="whatsapp_click" params={{ location: 'final' }}>Enrol now — $100 one-time</TrackedLink>
+    <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.final)} event="whatsapp_click" params={{ location: 'final' }}>Enrol now — $100 one-time</TrackedLink>
     <TrackedLink className="btn btn-ghost" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'final' }}>Pay directly</TrackedLink>
   </div>
   <p style={{marginTop:'20px',fontFamily:'var(--mono)',fontSize:'12px',color:'var(--muted)'}}>digitalservicesprogram.com · {site.whatsappDisplay} · Islamabad, Pakistan</p>
@@ -417,7 +417,7 @@ export default function MasteryPage() {
   <div className="l"><b>DSP AI Agent Mastery</b> <span>· $100 one-time · 7-day refund</span></div>
   <div className="nav-cta">
     <TrackedLink className="paylink" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'sticky' }}>Pay directly</TrackedLink>
-    <TrackedLink className="btn btn-gold btn-sm" href={waLink(WA_MSG.sticky)} event="whatsapp_click" params={{ location: 'sticky' }}>Enrol now</TrackedLink>
+    <TrackedLink className="btn btn-gold btn-sm" target="_blank" rel="noopener" href={waLink(WA_MSG.sticky)} event="whatsapp_click" params={{ location: 'sticky' }}>Enrol now</TrackedLink>
   </div>
 </div></div>
 

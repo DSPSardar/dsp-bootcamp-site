@@ -9,6 +9,11 @@
 // Two flavours of builder: `*Node()` returns a bare node for use inside a
 // @graph (no @context), `*Ld()` wraps one for a standalone script.
 //
+// There is no VideoObject builder: the rule for the /mastery embeds is a real
+// title, thumbnail AND upload date per video or no node at all, and the repo
+// holds no thumbnail for any of them (see V2-PROGRESS, SEO pass Step 3). If
+// that changes, the builder removed in this pass is in git history.
+//
 // There are deliberately NO builders for live cohorts: no batches exist
 // (bootcamp sunset 2026-08-30, see CLAUDE.md locked facts). The one
 // CourseInstance on the site — the self-paced instance on /mastery, added on
@@ -106,53 +111,4 @@ export function faqPageNode(faqs: ReadonlyArray<Faq>, extra: JsonLd = {}): JsonL
 
 export function faqPageLd(faqs: ReadonlyArray<Faq>): JsonLd {
   return { '@context': SCHEMA_CONTEXT, ...faqPageNode(faqs) }
-}
-
-/** Seconds → ISO 8601 duration ("PT5M51S"), the format VideoObject wants. */
-export function isoDuration(totalSeconds: number): string {
-  const h = Math.floor(totalSeconds / 3600)
-  const m = Math.floor((totalSeconds % 3600) / 60)
-  const s = Math.round(totalSeconds % 60)
-  return `PT${h ? `${h}H` : ''}${m ? `${m}M` : ''}${s || (!h && !m) ? `${s}S` : ''}`
-}
-
-/** VideoObject node for a public marketing embed.
- *
- *  Only emitted for videos we hold real facts about: `uploadDate` and
- *  `duration` come from the Bunny metadata in course.json (written by
- *  scripts/bunny-upload.mjs), never from a guess — a VideoObject with an
- *  invented date is worse than none. Returns null when there is no upload
- *  date; callers skip the node.
- *
- *  `embedUrl` points at /api/video/[videoId], the same signed-redirect route
- *  the on-page iframe uses. Note that robots.ts disallows /api/, so this
- *  schema describes the video for parsers but does not by itself make the
- *  video crawlable — see V2-PROGRESS notes before changing that.
- *  `publisher` is a reference to the sitewide Organization node. */
-export function videoObjectNode(v: {
-  id?: string
-  name: string
-  description: string
-  guid: string
-  uploadDate?: string
-  durationSeconds?: number
-  thumbnailUrl: string
-  extra?: JsonLd
-}): JsonLd | null {
-  if (!v.uploadDate) return null
-  return {
-    '@type': 'VideoObject',
-    ...(v.id ? { '@id': v.id } : {}),
-    name: v.name,
-    description: v.description,
-    thumbnailUrl: v.thumbnailUrl,
-    uploadDate: v.uploadDate,
-    ...(v.durationSeconds ? { duration: isoDuration(v.durationSeconds) } : {}),
-    embedUrl: `${site.url}/api/video/${v.guid}`,
-    contentUrl: `${site.url}/api/video/${v.guid}`,
-    publisher: ref(ORGANIZATION_ID),
-    isFamilyFriendly: true,
-    inLanguage: 'en',
-    ...(v.extra ?? {}),
-  }
 }

@@ -31,8 +31,8 @@ export const badges = [
 ]
 
 /** Bunny metadata carried on a welcome lesson. `uploaded_at` / `length_sec`
- *  are written by scripts/bunny-upload.mjs and feed the VideoObject schema on
- *  the /mastery landing page — omitted from the schema when either is absent. */
+ *  are written by scripts/bunny-upload.mjs (they would feed a VideoObject
+ *  schema once a real thumbnail exists — see src/lib/schema.ts). */
 export type WelcomeBunny = { guid: string; status: string; uploaded_at?: string; length_sec?: number }
 
 /** Bunny GUID of the public welcome video (00-W01) — used on the landing page and the free page. */
