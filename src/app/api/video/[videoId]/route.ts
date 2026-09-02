@@ -15,7 +15,9 @@ export async function GET(
 ) {
   const { videoId } = await params
   if (!isPublicEmbed(videoId)) return new NextResponse('Not found', { status: 404 })
-  const url = signedEmbedUrl(videoId)
+  // Marketing embeds: no preload — the iframe is already lazy-loaded, and
+  // the player must not fetch media until the visitor presses play.
+  const url = signedEmbedUrl(videoId, undefined, { preload: false })
   if (!url) return new NextResponse('Video service not configured', { status: 503 })
   return NextResponse.redirect(url, {
     status: 307,

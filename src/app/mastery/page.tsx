@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
-import { breadcrumbLd, faqPageLd, masteryCourseLd } from '@/lib/schema'
 import Image from 'next/image'
+import Link from 'next/link'
 import { site, waLink, mastery } from '@/config/site'
-import { welcomeVideoId } from '@/lib/mastery/course'
-import { bunnyConfigured } from '@/lib/mastery/bunny'
+import { bunnyConfigured, welcomeEmbedPath } from '@/lib/mastery/bunny'
 import TrackedLink from '@/components/site/TrackedLink'
 import MasteryClient from './MasteryClient'
+import { breadcrumbLd } from '@/lib/schema'
+import { masterySchema } from './schema'
+import { CANONICAL, SEO_DESCRIPTION, SEO_TITLE } from './seo'
 import './mastery.css'
 
 // WhatsApp-first conversion (owner ruling 2026-08-30): every primary CTA on
@@ -25,44 +27,49 @@ const WA_MSG = {
 }
 
 
-// Structured data (blueprint §10): Course + Offer, FAQPage mirroring the
-// visible FAQ below (keep MASTERY_FAQS in sync with it), and breadcrumbs.
-const MASTERY_FAQS = [
-  { q: 'I have never coded. Can I really do this?',
-    a: 'Yes. That is the audience this was built for. You describe what you want and Claude Code writes the code. Your job is to plan, direct, test and ship — which is what the program teaches. If you can write a clear WhatsApp message, you can write a Job Description.' },
-  { q: 'How much time does it take?',
-    a: 'About an hour a day for 30 days, or four sessions a week for eight weeks. Each module is one to three lectures plus a build. Lifetime access means you can go slower — the only thing that doesn\u2019t work is stopping.' },
-  { q: 'Windows or Mac?',
-    a: 'Both. Setup guides for each are in Module 3, including the fixes for the common Windows issues we\u2019ve solved with hundreds of students.' },
-  { q: 'Is $100 really all I pay?',
-    a: '$100 covers the entire program, lifetime. You will need a Claude account to build with during the modules — Module 3 walks you through setup and the free-tier route, and paid Claude plans start at $20/month if you choose to upgrade. GitHub and Vercel are free for what this program uses. No other purchase is required to finish.' },
-  { q: 'What does \u201cone year of free support\u201d mean?',
-    a: 'You\u2019re in the DSP group from day one, and questions there are answered within one working day. On top of that there\u2019s a live session every weekend — bring your build, we debug your errors on the call, and every session is recorded. Support runs for a full year.' },
-  { q: 'Is it in Urdu or English?',
-    a: 'Lectures are taught in an Urdu–English mix, the way DSP teaches live. All templates, slides and downloads are in English. Subtitles are provided.' },
-  { q: 'Can I pay from Pakistan?',
-    a: 'Yes — bank transfer, JazzCash or Easypaisa. Go to the enrol page, send the payment, upload the screenshot with your email, and we send your sign-in link once it\u2019s verified — usually within a few hours.' },
-  { q: 'Do I get a recognised certificate?',
-    a: 'Two kinds. The DSP Master certificate has a public verification page showing the live agent you built — that is proof of work, not attendance. Separately, Module 3 walks you through Claude Academy, the free training run by Anthropic — the US company that builds Claude — so you finish holding three of their course completion badges with your name on them — Claude 101, Claude Code 101 and Introduction to Claude Cowork. Those are issued by Anthropic, not by DSP. Neither is a university accreditation; what employers and clients actually check is the working agent behind the link.' },
-  { q: 'Refunds?',
-    a: 'Seven days, no questions. Start Module 1; if it isn\u2019t for you, email us and we refund in full.' },
-]
+// Structured data: one JSON-LD @graph (Organization · WebSite · WebPage ·
+// Person · Course · FAQPage) built in ./schema.ts, plus the sitewide
+// BreadcrumbList. The FAQ and curriculum text the graph carries is mirrored
+// from the sections below via ./faqs.ts and ./curriculum.ts —
+// `npm run test:schema` keeps them in step, so edit copy in both places.
 
 // Fonts cascade from the root layout's next/font trio (Instrument Serif /
 // Inter / JetBrains Mono) via the :root variable mapping — no local loads.
 // Embed tokens are no longer baked into this page: iframes point at
 // /api/video/[videoId], which signs a short-lived token per request.
 
+// Title, description and canonical live in ./seo.ts, shared with the
+// JSON-LD graph so <title>, Open Graph, Twitter and schema never drift.
 export const metadata: Metadata = {
-  title: 'DSP AI Agent Mastery — Zero to Master | Build, deploy and sell AI agents',
-  description:
-    'A self-paced program from Digital Services Program: 15 modules, one real AI Employee you build from scratch, lifetime access and one year of free support. $100 one-time.',
-  alternates: { canonical: '/mastery' },
+  // `absolute` on purpose: the root layout applies a '%s | DSP' template to
+  // plain string titles, and SEO_TITLE already ends in '| DSP' — a string
+  // here would render the suffix twice.
+  title: { absolute: SEO_TITLE },
+  description: SEO_DESCRIPTION,
+  alternates: { canonical: CANONICAL },
+  robots: { index: true, follow: true },
+  // Next merges `openGraph` shallowly: once this page declares its own block,
+  // the root layout's siteName/type/images are NOT inherited. They are
+  // restated here so the existing /og-card.png stays the share image.
+  openGraph: {
+    title: SEO_TITLE,
+    description: SEO_DESCRIPTION,
+    url: CANONICAL,
+    siteName: site.name,
+    type: 'website',
+    images: [{ url: '/og-card.png', width: 1200, height: 630, alt: mastery.name }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SEO_TITLE,
+    description: SEO_DESCRIPTION,
+    images: ['/og-card.png'],
+  },
 }
 
 export default function MasteryPage() {
   const enrolHref = mastery.checkoutUrl ?? '/mastery/enrol'
-  const welcomeSrc = welcomeVideoId?.status === 'ready' && bunnyConfigured ? `/api/video/${welcomeVideoId.guid}` : null
+  const welcomeSrc = welcomeEmbedPath
   // Real student stories, recorded on camera — the same videos that sit in Module 15.
   const stories = [
     { guid: '7e642dff-ebb7-48a5-9da5-e94190716a56', name: 'Mohsin', where: 'United Kingdom',
@@ -74,8 +81,7 @@ export default function MasteryPage() {
   ].map((v) => ({ ...v, src: bunnyConfigured ? `/api/video/${v.guid}` : null })).filter((v) => v.src)
   return (
     <div className="page-mastery">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(masteryCourseLd()) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageLd(MASTERY_FAQS)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(masterySchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd([{ name: 'AI Agent Mastery', path: '/mastery' }])) }} />
 <nav className="nav"><div className="wrap">
   <a className="logo" href="#top">DSP <span>·</span> AI Agent Mastery</a>
@@ -84,7 +90,7 @@ export default function MasteryPage() {
   </div>
   <div className="nav-cta">
     <TrackedLink className="paylink" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'nav' }}>Pay directly</TrackedLink>
-    <TrackedLink className="btn btn-gold btn-sm" href={waLink(WA_MSG.nav)} event="whatsapp_click" params={{ location: 'nav' }}>Enrol — $100</TrackedLink>
+    <TrackedLink className="btn btn-gold btn-sm" target="_blank" rel="noopener" href={waLink(WA_MSG.nav)} event="whatsapp_click" params={{ location: 'nav' }}>Enrol — $100</TrackedLink>
   </div>
 </div></nav>
 
@@ -95,7 +101,7 @@ export default function MasteryPage() {
     <h1>Go from zero to <em>building, deploying and selling</em> AI agents.</h1>
     <p className="lead">15 modules. One real AI Employee you build from an empty folder to a live URL — then your own. No coding background needed. Taught in Urdu &amp; English, all materials in English.</p>
     <div className="cta-row">
-      <TrackedLink className="btn btn-gold" href={waLink(WA_MSG.hero)} event="whatsapp_click" params={{ location: 'hero' }}>Start building <span className="price-tag">$100 · one-time</span></TrackedLink>
+      <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.hero)} event="whatsapp_click" params={{ location: 'hero' }}>Start building <span className="price-tag">$100 · one-time</span></TrackedLink>
       <a className="btn btn-ghost" href="#welcome">Watch the 6-minute tour</a>
     </div>
     <p className="paynote"><TrackedLink className="paylink" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'hero' }}>Pay directly — bank transfer · JazzCash · Easypaisa</TrackedLink></p>
@@ -183,7 +189,7 @@ export default function MasteryPage() {
     </div>
   </div>
   <div className="cta-row" style={{justifyContent:'center',marginTop:'40px'}}>
-    <TrackedLink className="btn btn-gold" href={waLink(WA_MSG.build)} event="whatsapp_click" params={{ location: 'build' }}>Start building yours <span className="price-tag">$100 · one-time</span></TrackedLink>
+    <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.build)} event="whatsapp_click" params={{ location: 'build' }}>Start building yours <span className="price-tag">$100 · one-time</span></TrackedLink>
     <TrackedLink className="paylink" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'build' }}>Pay directly</TrackedLink>
   </div>
 </div></section>
@@ -271,7 +277,7 @@ export default function MasteryPage() {
     ].map((c) => (
       <div className="card" key={c.name} style={{padding:'14px',display:'flex',flexDirection:'column'}}>
         <div style={{position:'relative',paddingTop:'66%',borderRadius:'10px',overflow:'hidden',background:'var(--ink)',border:'1px solid var(--line)'}}>
-          <img src={c.img} alt={`${c.name} — certificate issued by ${c.by}`} loading="lazy" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover'}} />
+          <Image src={c.img} alt={`${c.name} — certificate issued by ${c.by}`} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" style={{objectFit:'cover'}} />
         </div>
         <div className="by" style={{marginTop:'12px'}}>{c.name}</div>
         <div className="muted" style={{fontSize:'13px'}}>{c.by}</div>
@@ -291,7 +297,7 @@ export default function MasteryPage() {
     </div>
   </div>
   <div className="cta-row" style={{justifyContent:'center',marginTop:'40px'}}>
-    <TrackedLink className="btn btn-gold" href={waLink(WA_MSG.certs)} event="whatsapp_click" params={{ location: 'certificates' }}>Enrol now — $100</TrackedLink>
+    <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.certs)} event="whatsapp_click" params={{ location: 'certificates' }}>Enrol now — $100</TrackedLink>
     <TrackedLink className="paylink" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'certificates' }}>Pay directly</TrackedLink>
   </div>
 </div></section>
@@ -299,10 +305,10 @@ export default function MasteryPage() {
 
 <section><div className="wrap">
   <div className="who">
-    <div className="portrait"><Image src="/mastery/sardar.jpg" alt="Sardar Ghaffar, founder of Digital Services Program" width={640} height={800} /></div>
+    <div className="portrait"><Image src="/mastery/sardar.jpg" alt="Sardar Ghaffar, founder and lead instructor, Digital Services Program" width={640} height={800} /></div>
     <div>
       <div className="eyebrow">Your instructor</div>
-      <h2>Sardar Ghaffar</h2>
+      <h2><Link href="/about">Sardar Ghaffar</Link></h2>
       <p className="lead">I was in IT before most of my students had email. Twenty-four years of teaching — in London, the UAE and Pakistan — and the last few spent on one thing: showing people who aren&apos;t programmers how to build AI agents that work and earn.</p>
       <p className="lead" style={{marginTop:'14px'}}>Everything in this program is what I use with real clients. The templates are the ones my team uses. The AI Employee you build is a simplified version of the multi-tenant agents DSP builds for businesses. I&apos;ve watched thousands of students go from &quot;what is an agent?&quot; to a live URL. This is the path they took, cleaned up.</p>
       <div className="creds">
@@ -335,7 +341,7 @@ export default function MasteryPage() {
       <div className="strike">Later: $197</div>
       <div className="big">$100<small>one-time</small></div>
       <p>Founding price. Lifetime access. One year of group support included. No subscription, no upsell required to finish.</p>
-      <TrackedLink className="btn btn-gold" href={waLink(WA_MSG.offer)} event="whatsapp_click" params={{ location: 'offer' }}>Enrol now — $100</TrackedLink>
+      <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.offer)} event="whatsapp_click" params={{ location: 'offer' }}>Enrol now — $100</TrackedLink>
       <TrackedLink className="btn btn-ghost" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'offer' }} style={{marginTop:'10px'}}>Pay directly — bank transfer · JazzCash · Easypaisa</TrackedLink>
       <p className="paynote" style={{textAlign:'center'}}><a className="paylink" href="#welcome">Watch the 6-minute intro first</a></p>
       <div className="guarantee">7-day money-back guarantee. Start Module 1; if it isn&apos;t for you, email us within 7 days for a full refund.</div>
@@ -394,7 +400,7 @@ export default function MasteryPage() {
   {/* Primary IS WhatsApp here, so the old "Ask a question" WhatsApp ghost is
       gone — its job moved into the final prefill (question-friendly). */}
   <div className="cta-row" style={{justifyContent:'center'}}>
-    <TrackedLink className="btn btn-gold" href={waLink(WA_MSG.final)} event="whatsapp_click" params={{ location: 'final' }}>Enrol now — $100 one-time</TrackedLink>
+    <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.final)} event="whatsapp_click" params={{ location: 'final' }}>Enrol now — $100 one-time</TrackedLink>
     <TrackedLink className="btn btn-ghost" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'final' }}>Pay directly</TrackedLink>
   </div>
   <p style={{marginTop:'20px',fontFamily:'var(--mono)',fontSize:'12px',color:'var(--muted)'}}>digitalservicesprogram.com · {site.whatsappDisplay} · Islamabad, Pakistan</p>
@@ -403,7 +409,7 @@ export default function MasteryPage() {
 
 
 <footer><div className="wrap">
-  <span>© 2026 Digital Services Program · Sardar Group of Companies</span>
+  <span>© 2026 <Link href="/">Digital Services Program</Link> · Sardar Group of Companies</span>
   <span>Privacy · Terms · Refund policy</span>
 </div></footer>
 
@@ -411,7 +417,7 @@ export default function MasteryPage() {
   <div className="l"><b>DSP AI Agent Mastery</b> <span>· $100 one-time · 7-day refund</span></div>
   <div className="nav-cta">
     <TrackedLink className="paylink" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'sticky' }}>Pay directly</TrackedLink>
-    <TrackedLink className="btn btn-gold btn-sm" href={waLink(WA_MSG.sticky)} event="whatsapp_click" params={{ location: 'sticky' }}>Enrol now</TrackedLink>
+    <TrackedLink className="btn btn-gold btn-sm" target="_blank" rel="noopener" href={waLink(WA_MSG.sticky)} event="whatsapp_click" params={{ location: 'sticky' }}>Enrol now</TrackedLink>
   </div>
 </div></div>
 

@@ -2,13 +2,17 @@
 import { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/posts'
 import { agency } from '@/config/site'
+import { PAGE_LAST_MODIFIED as MASTERY_LAST_MODIFIED } from '@/app/mastery/seo'
 
 const SITE = 'https://www.digitalservicesprogram.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: SITE, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
-    { url: `${SITE}/mastery`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+    // Real content-change date (see PAGE_LAST_MODIFIED). /mastery/enrol is
+    // deliberately NOT listed: it is noindex (checkout page) and a sitemap
+    // entry for a noindex URL only produces a Search Console error.
+    { url: `${SITE}/mastery`, lastModified: new Date(MASTERY_LAST_MODIFIED), changeFrequency: 'weekly', priority: 0.95 },
     // Evergreen explainer of the sunset Agentic Lab — stays indexed, but
     // it is a history page now, not a priority landing page.
     { url: `${SITE}/academy/bootcamp`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },

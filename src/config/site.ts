@@ -15,8 +15,12 @@ export const site = {
   /** Locked: +92 342 0580864 everywhere */
   whatsappNumber: '923420580864',
   whatsappDisplay: '+92 342 0580864',
+  /** Same locked number in the E.164-with-dashes form schema.org wants */
+  telephone: '+92-342-0580864',
   city: 'Islamabad',
   country: 'Pakistan',
+  /** Parent group named in the /mastery footer, /about and the Organization schema */
+  parentCompany: 'Sardar Group of Companies',
 } as const
 
 /** Social reach — distinct from enrolled/trained student counts.

@@ -5,7 +5,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { CheckIcon } from './icons'
-import { bootcamp } from '@/config/site'
+import { bootcamp, mastery } from '@/config/site'
 
 /* ============ HERO: what the Lab was ============ */
 export function Hero() {
@@ -21,8 +21,11 @@ export function Hero() {
           and Urdu, no coding required. This page explains what the Lab was and what it taught.
         </p>
         <p className="sub" style={{ marginTop: '.9rem' }}>
-          <strong>DSP now teaches this material as a self-paced program</strong> — DSP AI Agent Mastery:
-          15 modules, recorded lectures, lifetime access.
+          <strong>
+            DSP now teaches this material as{' '}
+            <Link href="/mastery">the {mastery.priceDisplay} self-paced version of this program</Link>
+          </strong>{' '}
+          — DSP AI Agent Mastery: 15 modules, recorded lectures, lifetime access.
         </p>
         <div className="hero-ctas">
           <Link className="btn btn-primary" href="/mastery">Explore DSP AI Agent Mastery →</Link>

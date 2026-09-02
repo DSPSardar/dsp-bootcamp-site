@@ -9,7 +9,8 @@
     "lint": "eslint",
     "test:mobile-layout": "node scripts/check-mobile-layout.mjs",
     "test:blog-cta": "node scripts/check-blog-cta.mjs",
-    "test:nav": "node scripts/check-nav-links.mjs"
+    "test:nav": "node scripts/check-nav-links.mjs",
+    "test:schema": "node scripts/check-schema.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.5",

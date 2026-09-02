@@ -156,3 +156,8 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 @media (max-width: 560px){
   .page-bootcamp .cert-grid{grid-template-columns:1fr}
 }
+
+/* Inline link in the dark hero (→ /mastery): the shell's teal link colour
+   does not read on navy, so use the paragraph's own tint with an underline. */
+.page-bootcamp .hero-dark .sub a{color:#fff;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.15em;text-decoration-color:rgba(255,255,255,.55)}
+.page-bootcamp .hero-dark .sub a:hover{text-decoration-color:currentColor}
