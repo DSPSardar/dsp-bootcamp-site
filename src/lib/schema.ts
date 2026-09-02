@@ -83,3 +83,53 @@ export function masteryCourseLd(): JsonLd {
     },
   }
 }
+
+/** Seconds → ISO 8601 duration ("PT5M51S"), the format VideoObject wants. */
+function isoDuration(totalSeconds: number): string {
+  const h = Math.floor(totalSeconds / 3600)
+  const m = Math.floor((totalSeconds % 3600) / 60)
+  const s = Math.round(totalSeconds % 60)
+  return `PT${h ? `${h}H` : ''}${m ? `${m}M` : ''}${s || (!h && !m) ? `${s}S` : ''}`
+}
+
+/** VideoObject for a public marketing embed.
+ *
+ *  Only emitted for videos we hold real facts about: `uploadDate` and
+ *  `duration` come from the Bunny metadata in course.json (written by
+ *  scripts/bunny-upload.mjs), never from a guess — a VideoObject with an
+ *  invented date is worse than none. Callers pass `null`-safe values and skip
+ *  rendering when this returns null.
+ *
+ *  `embedUrl` points at /api/video/[videoId], the same signed-redirect route
+ *  the on-page iframe uses. Note that robots.ts disallows /api/, so this
+ *  schema describes the video for parsers but does not by itself make the
+ *  video crawlable — see V2-PROGRESS notes before changing that. */
+export function videoObjectLd(v: {
+  name: string
+  description: string
+  guid: string
+  uploadDate?: string
+  durationSeconds?: number
+  thumbnailUrl: string
+}): JsonLd | null {
+  if (!v.uploadDate) return null
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: v.name,
+    description: v.description,
+    thumbnailUrl: v.thumbnailUrl,
+    uploadDate: v.uploadDate,
+    ...(v.durationSeconds ? { duration: isoDuration(v.durationSeconds) } : {}),
+    embedUrl: `${site.url}/api/video/${v.guid}`,
+    contentUrl: `${site.url}/api/video/${v.guid}`,
+    publisher: {
+      '@type': 'Organization',
+      name: site.name,
+      url: site.url,
+      logo: { '@type': 'ImageObject', url: `${site.url}/logo.webp` },
+    },
+    isFamilyFriendly: true,
+    inLanguage: 'en',
+  }
+}

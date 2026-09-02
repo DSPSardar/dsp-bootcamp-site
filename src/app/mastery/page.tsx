@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { breadcrumbLd, faqPageLd, masteryCourseLd } from '@/lib/schema'
+import { breadcrumbLd, faqPageLd, masteryCourseLd, videoObjectLd } from '@/lib/schema'
 import Image from 'next/image'
 import { site, waLink, mastery } from '@/config/site'
 import { welcomeVideoId } from '@/lib/mastery/course'
@@ -53,16 +53,59 @@ const MASTERY_FAQS = [
 // Embed tokens are no longer baked into this page: iframes point at
 // /api/video/[videoId], which signs a short-lived token per request.
 
+// Search title/description lead with the query people actually type
+// ("AI agent course for beginners") rather than the internal product name.
+// Shared by <title>, Open Graph and Twitter so the three never drift.
+const SEO_TITLE = 'AI Agent Course for Beginners — Build, Deploy & Sell AI Agents | DSP'
+const SEO_DESCRIPTION =
+  'A self-paced AI agent course for beginners: 15 modules, one real AI Employee you build from scratch to a live URL, lifetime access, one year of support. $100 one-time. Taught in Urdu and English.'
+const CANONICAL = `${site.url}${mastery.url}`
+
 export const metadata: Metadata = {
-  title: 'DSP AI Agent Mastery — Zero to Master | Build, deploy and sell AI agents',
-  description:
-    'A self-paced program from Digital Services Program: 15 modules, one real AI Employee you build from scratch, lifetime access and one year of free support. $100 one-time.',
-  alternates: { canonical: '/mastery' },
+  // `absolute` on purpose: the root layout applies a '%s | DSP' template to
+  // plain string titles, and SEO_TITLE already ends in '| DSP' — a string
+  // here would render the suffix twice.
+  title: { absolute: SEO_TITLE },
+  description: SEO_DESCRIPTION,
+  alternates: { canonical: CANONICAL },
+  robots: { index: true, follow: true },
+  // Next merges `openGraph` shallowly: once this page declares its own block,
+  // the root layout's siteName/type/images are NOT inherited. They are
+  // restated here so the existing /og-card.png stays the share image.
+  openGraph: {
+    title: SEO_TITLE,
+    description: SEO_DESCRIPTION,
+    url: CANONICAL,
+    siteName: site.name,
+    type: 'website',
+    images: [{ url: '/og-card.png', width: 1200, height: 630, alt: mastery.name }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SEO_TITLE,
+    description: SEO_DESCRIPTION,
+    images: ['/og-card.png'],
+  },
 }
 
 export default function MasteryPage() {
   const enrolHref = mastery.checkoutUrl ?? '/mastery/enrol'
   const welcomeSrc = welcomeVideoId?.status === 'ready' && bunnyConfigured ? `/api/video/${welcomeVideoId.guid}` : null
+  // VideoObject for the welcome embed only. The three student stories are
+  // hardcoded GUIDs with no entry in course.json, so we hold no real
+  // uploadDate/duration for them and do not invent one. Thumbnail is the
+  // sitewide share card — swap it for a real frame export when one exists.
+  const welcomeVideoLd = welcomeSrc && welcomeVideoId
+    ? videoObjectLd({
+        name: 'Welcome to DSP AI Agent Mastery',
+        description:
+          "The AI Employee that handles DSP's admissions, the content system behind 6 million views, and what the program looks like from the inside.",
+        guid: welcomeVideoId.guid,
+        uploadDate: welcomeVideoId.uploaded_at,
+        durationSeconds: welcomeVideoId.length_sec,
+        thumbnailUrl: `${site.url}/og-card.png`,
+      })
+    : null
   // Real student stories, recorded on camera — the same videos that sit in Module 15.
   const stories = [
     { guid: '7e642dff-ebb7-48a5-9da5-e94190716a56', name: 'Mohsin', where: 'United Kingdom',
@@ -77,6 +120,7 @@ export default function MasteryPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(masteryCourseLd()) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageLd(MASTERY_FAQS)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd([{ name: 'AI Agent Mastery', path: '/mastery' }])) }} />
+      {welcomeVideoLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(welcomeVideoLd) }} />}
 <nav className="nav"><div className="wrap">
   <a className="logo" href="#top">DSP <span>·</span> AI Agent Mastery</a>
   <div className="navlinks">

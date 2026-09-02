@@ -30,5 +30,10 @@ export const badges = [
   { after: 'M06', name: 'Builder' }, { after: 'M10', name: 'Agent Engineer' }, { after: 'M13', name: 'Production-Ready' }, { after: 'M15', name: 'AI Solutions Seller' },
 ]
 
+/** Bunny metadata carried on a welcome lesson. `uploaded_at` / `length_sec`
+ *  are written by scripts/bunny-upload.mjs and feed the VideoObject schema on
+ *  the /mastery landing page — omitted from the schema when either is absent. */
+export type WelcomeBunny = { guid: string; status: string; uploaded_at?: string; length_sec?: number }
+
 /** Bunny GUID of the public welcome video (00-W01) — used on the landing page and the free page. */
-export const welcomeVideoId = (course.welcome as { file: string; bunny?: { guid: string; status: string } }[]).find((l) => l.file.startsWith('00-W01'))?.bunny
+export const welcomeVideoId = (course.welcome as { file: string; bunny?: WelcomeBunny }[]).find((l) => l.file.startsWith('00-W01'))?.bunny
