@@ -1703,16 +1703,18 @@
           "source": "NEW",
           "status": "NEW",
           "chapters": [],
-          "master": "M14-L01_Multi-Agent-Systems-Business-Automation_v1.mp4",
+          "master": "M14-L01_Multi-Agent-Systems-Business-Automation_v2.mp4",
           "kind": "core",
           "order": "L01",
           "source_note": "live class 30 Aug 2026",
           "bunny": {
-            "guid": "4f2e1b02-d851-488d-8c8c-f28c841a2dba",
-            "status": "failed",
-            "version": 1,
-            "uploaded_at": "2026-08-30T17:58:31.842Z",
-            "length_sec": 0
+            "guid": "a4084558-d668-4fe2-8054-75ce4852fb78",
+            "status": "processing",
+            "version": 2,
+            "uploaded_at": "2026-09-02T17:17:55.230Z",
+            "length_sec": 2522,
+            "thumbnail": "thumbnail.jpg",
+            "aspect": 1.7778
           }
         },
         {

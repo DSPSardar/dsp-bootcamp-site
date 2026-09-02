@@ -2,7 +2,7 @@
 # Encode every course recording in the module folders to a 1080p master (_MASTER/*_v1.mp4) and upload to Bunny.
 # Skips files that already have a master. Safe to re-run. Logs to _MASTER/process.log
 set -u
-ROOT="/Users/abdulkhan/Desktop/DSP-Mastery"; M="$ROOT/_MASTER"; LOG="$M/process.log"; SITE="/Users/abdulkhan/Desktop/dsp-bootcamp-site"
+ROOT="/Users/abdulkhan/DSP-Mastery"; M="$ROOT/_MASTER"; LOG="$M/process.log"; SITE="/Users/abdulkhan/Desktop/dsp-bootcamp-site"
 cd "$ROOT"
 find Phase-* 00-Welcome -name "*.mp4" -not -name "*_DISCARDED*" | sort | while read SRC; do
   base=$(basename "$SRC" .mp4)

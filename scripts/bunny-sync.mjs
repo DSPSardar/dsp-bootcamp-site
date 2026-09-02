@@ -5,7 +5,7 @@ import fs from 'node:fs'; import path from 'node:path'; import os from 'node:os'
 const root = path.resolve(new URL('..', import.meta.url).pathname)
 for (const line of fs.readFileSync(path.join(root, '.env.local'), 'utf8').split('\n')) { const m = line.match(/^([A-Z_]+)=(.*)$/); if (m && !process.env[m[1]]) process.env[m[1]] = m[2].trim() }
 const API = `https://video.bunnycdn.com/library/${process.env.BUNNY_STREAM_LIBRARY_ID}`, H = { AccessKey: process.env.BUNNY_STREAM_API_KEY, accept: 'application/json' }
-const files = [path.join(root, 'src/content/mastery/course.json'), path.join(os.homedir(), 'Desktop/DSP-Mastery/course.json')].filter(fs.existsSync)
+const files = [path.join(root, 'src/content/mastery/course.json'), path.join(os.homedir(), 'DSP-Mastery/course.json')].filter(fs.existsSync)
 const course = JSON.parse(fs.readFileSync(files[0], 'utf8'))
 const all = [...course.welcome, ...course.vault, ...course.modules.flatMap((m) => m.lessons)]
 let changed = 0

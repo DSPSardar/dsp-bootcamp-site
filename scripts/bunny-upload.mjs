@@ -6,7 +6,7 @@
  *
  * Matches each file to a lesson by its "M07-L01_" style prefix (or 00-W01_ / V_ for welcome & vault).
  * Reads BUNNY_STREAM_* from .env.local. Updates src/content/mastery/course.json and, if present,
- * ~/Desktop/DSP-Mastery/course.json so both copies stay in sync.
+ * ~/DSP-Mastery/course.json so both copies stay in sync.
  */
 import fs from 'node:fs'
 import path from 'node:path'
@@ -26,7 +26,7 @@ const target = process.argv[2]
 const wait = process.argv.includes('--wait')
 if (!target) { console.error('usage: node scripts/bunny-upload.mjs <file-or-folder> [--wait]'); process.exit(1) }
 
-const courseFiles = [path.join(root, 'src/content/mastery/course.json'), path.join(os.homedir(), 'Desktop/DSP-Mastery/course.json')].filter(fs.existsSync)
+const courseFiles = [path.join(root, 'src/content/mastery/course.json'), path.join(os.homedir(), 'DSP-Mastery/course.json')].filter(fs.existsSync)
 const course = JSON.parse(fs.readFileSync(courseFiles[0], 'utf8'))
 const allLessons = [...course.welcome, ...course.vault, ...course.modules.flatMap((m) => m.lessons)]
 
