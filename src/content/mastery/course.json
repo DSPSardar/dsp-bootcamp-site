@@ -1770,27 +1770,6 @@
       "badge_after": "AI Solutions Seller",
       "lessons": [
         {
-          "file": "M15-L01_Why-97pct-Courses-Skip-This_oOKyMHilVH4.mp4",
-          "folder": "Phase-4-Seller/M15-Selling-AI-Solutions",
-          "youtube_id": "oOKyMHilVH4",
-          "minutes": 42,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_Why-97-of-AI-Agent-Courses-Skip-This-One_Media_oOKyMHilVH4_001_1080p.mp4",
-          "kind": "core",
-          "order": "L01",
-          "bunny": {
-            "guid": "d412ca2e-cd85-4151-9726-1823311dfbfd",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:37:25.919925Z",
-            "length_sec": 2510,
-            "aspect": 1.7778
-          }
-        },
-        {
           "file": "M15-L02_Finding-Clients-Worldwide.mp4",
           "folder": "Phase-4-Seller/M15-Selling-AI-Solutions",
           "youtube_id": null,
