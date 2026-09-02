@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import { site, waLink, mastery } from '@/config/site'
 import { bunnyConfigured, welcomeEmbedPath } from '@/lib/mastery/bunny'
 import TrackedLink from '@/components/site/TrackedLink'
@@ -307,7 +308,7 @@ export default function MasteryPage() {
     <div className="portrait"><Image src="/mastery/sardar.jpg" alt="Sardar Ghaffar, founder of Digital Services Program" width={640} height={800} /></div>
     <div>
       <div className="eyebrow">Your instructor</div>
-      <h2>Sardar Ghaffar</h2>
+      <h2><Link href="/about">Sardar Ghaffar</Link></h2>
       <p className="lead">I was in IT before most of my students had email. Twenty-four years of teaching — in London, the UAE and Pakistan — and the last few spent on one thing: showing people who aren&apos;t programmers how to build AI agents that work and earn.</p>
       <p className="lead" style={{marginTop:'14px'}}>Everything in this program is what I use with real clients. The templates are the ones my team uses. The AI Employee you build is a simplified version of the multi-tenant agents DSP builds for businesses. I&apos;ve watched thousands of students go from &quot;what is an agent?&quot; to a live URL. This is the path they took, cleaned up.</p>
       <div className="creds">
@@ -408,7 +409,7 @@ export default function MasteryPage() {
 
 
 <footer><div className="wrap">
-  <span>© 2026 Digital Services Program · Sardar Group of Companies</span>
+  <span>© 2026 <Link href="/">Digital Services Program</Link> · Sardar Group of Companies</span>
   <span>Privacy · Terms · Refund policy</span>
 </div></footer>
 

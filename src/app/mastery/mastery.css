@@ -190,6 +190,10 @@
 .page-mastery .final .lead{margin:16px auto 32px}
 .page-mastery footer{border-top:1px solid var(--line);padding:32px 0;font-size:13px;color:var(--muted)}
 .page-mastery footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+/* Inline internal links (instructor name → /about, footer brand → /):
+   links inherit colour on this shell, so give them a visible affordance. */
+.page-mastery .who h2 a{text-decoration:underline;text-decoration-thickness:1px;text-decoration-color:var(--line);text-underline-offset:.14em}
+.page-mastery .who h2 a:hover,.page-mastery footer a:hover{text-decoration:underline;text-decoration-color:currentColor}
 .page-mastery /* STICKY CTA */
 .sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(14,42,71,.96);border-top:1px solid rgba(217,123,82,.35);transform:translateY(100%);transition:transform .3s}
 .page-mastery .sticky.show{transform:none}

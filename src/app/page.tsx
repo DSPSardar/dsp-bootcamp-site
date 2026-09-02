@@ -237,7 +237,11 @@ export default function HomePage() {
             <h2>Students you can watch, certificates you can check.</h2>
             <p>
               DSP Academy trained {bootcamp.studentsTrained} students across{' '}
-              {bootcamp.batchesCompleted} live cohorts before this program was recorded.
+              {bootcamp.batchesCompleted} live cohorts before this{' '}
+              <TrackedLink href="/mastery" event="academy_cta_click" params={{ cta: 'home_proof_inline' }}>
+                self-paced AI agent course
+              </TrackedLink>{' '}
+              was recorded.
             </p>
           </div>
           {stories.length > 0 && (
