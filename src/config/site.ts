@@ -6,6 +6,18 @@
 // so they stay consistent across every page.
 // ─────────────────────────────────────────────────────────────────
 
+/** Registered office — the only address on the site. Used by the Organization
+ *  schema (PostalAddress) and, as `site.addressLine`, wherever it is printed. */
+const address = {
+  streetAddress: 'Office 151, Plot 7, 10th Avenue Service Road East, Sector F-10/4, F-10 Markaz',
+  addressLocality: 'Islamabad',
+  addressRegion: 'Islamabad Capital Territory',
+  postalCode: '44000',
+  addressCountry: 'PK',
+} as const
+
+const country = 'Pakistan'
+
 export const site = {
   name: 'Digital Services Program',
   shortName: 'DSP',
@@ -17,8 +29,12 @@ export const site = {
   whatsappDisplay: '+92 342 0580864',
   /** Same locked number in the E.164-with-dashes form schema.org wants */
   telephone: '+92-342-0580864',
-  city: 'Islamabad',
-  country: 'Pakistan',
+  city: address.addressLocality,
+  country,
+  address,
+  /** The office as one printable line (footers) — derived from `address`,
+   *  never typed a second time. */
+  addressLine: `${address.streetAddress}, ${address.addressLocality} ${address.postalCode}, ${country}`,
   /** Parent group named in the /mastery footer, /about and the Organization schema */
   parentCompany: 'Sardar Group of Companies',
 } as const

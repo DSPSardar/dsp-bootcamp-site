@@ -5,6 +5,7 @@ import { site, waLink, mastery } from '@/config/site'
 import { bunnyConfigured, welcomeEmbedPath } from '@/lib/mastery/bunny'
 import TrackedLink from '@/components/site/TrackedLink'
 import MasteryClient from './MasteryClient'
+import LazyEmbed from '@/components/site/LazyEmbed'
 import { breadcrumbLd } from '@/lib/schema'
 import { masterySchema } from './schema'
 import { CANONICAL, SEO_DESCRIPTION, SEO_TITLE } from './seo'
@@ -140,9 +141,12 @@ export default function MasteryPage() {
   <div className="eyebrow">Six minutes inside DSP</div>
   <h2>Watch what you&apos;ll be building — running my business today.</h2>
   <p className="lead" style={{marginBottom:'28px'}}>The AI Employee that handles DSP&apos;s admissions, the content system behind 6 million views, and what the program looks like from the inside. Recorded by Sardar, not a marketing team.</p>
-  <div style={{position:'relative',paddingTop:'56.25%',borderRadius:'20px',overflow:'hidden',background:'var(--ink)',border:'1px solid var(--line)'}}>
-    <iframe src={welcomeSrc} title="Welcome to DSP AI Agent Mastery" loading="lazy" style={{border:0,position:'absolute',top:0,left:0,width:'100%',height:'100%'}} allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowFullScreen />
-  </div>
+  <LazyEmbed
+    src={welcomeSrc}
+    title="Welcome to DSP AI Agent Mastery"
+    load="click"
+    style={{borderRadius:'20px',border:'1px solid var(--line)'}}
+  />
 </div></section>
 )}
 
@@ -202,9 +206,16 @@ export default function MasteryPage() {
   <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(320px,1fr))',gap:'28px'}}>
     {stories.map((v) => (
       <div className="card" key={v.guid} style={{padding:'18px'}}>
-        <div style={{position:'relative',paddingTop:(v as {portrait?:boolean}).portrait?'150%':'56.25%',maxWidth:(v as {portrait?:boolean}).portrait?'300px':undefined,margin:(v as {portrait?:boolean}).portrait?'0 auto':undefined,borderRadius:'12px',overflow:'hidden',background:'var(--ink)'}}>
-          <iframe src={v.src!} title={`${v.name} — DSP student story`} loading="lazy" style={{border:0,position:'absolute',top:0,left:0,width:'100%',height:'100%'}} allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowFullScreen />
-        </div>
+        <LazyEmbed
+          src={v.src!}
+          title={`${v.name} — DSP student story`}
+          portrait={Boolean((v as {portrait?:boolean}).portrait)}
+          style={{
+            maxWidth:(v as {portrait?:boolean}).portrait?'300px':undefined,
+            margin:(v as {portrait?:boolean}).portrait?'0 auto':undefined,
+            borderRadius:'12px',
+          }}
+        />
         <p className="md" style={{marginTop:'14px'}}>{v.line}</p>
         <div className="by">{v.name} · {v.where}</div>
       </div>
@@ -403,7 +414,7 @@ export default function MasteryPage() {
     <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.final)} event="whatsapp_click" params={{ location: 'final' }}>Enrol now — $100 one-time</TrackedLink>
     <TrackedLink className="btn btn-ghost" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'final' }}>Pay directly</TrackedLink>
   </div>
-  <p style={{marginTop:'20px',fontFamily:'var(--mono)',fontSize:'12px',color:'var(--muted)'}}>digitalservicesprogram.com · {site.whatsappDisplay} · Islamabad, Pakistan</p>
+  <address style={{marginTop:'20px',fontFamily:'var(--mono)',fontSize:'12px',color:'var(--muted)',fontStyle:'normal'}}>digitalservicesprogram.com · {site.whatsappDisplay} · {site.addressLine}</address>
 </div></section>
 
 

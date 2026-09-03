@@ -9,9 +9,9 @@ export default function SiteFooter() {
           <div>
             <p className="foot-brand"><span className="brand-mark" aria-hidden="true">D</span> Digital Services Program</p>
             <p>{site.tagline}</p>
-            <p style={{ marginTop: '.9rem' }}>{site.city}, {site.country}<br />
+            <address style={{ marginTop: '.9rem', fontStyle: 'normal' }}>{site.addressLine}<br />
               <a href={`mailto:${site.email}`}>{site.email}</a><br />
-              <a href={`tel:+${site.whatsappNumber}`}>{site.whatsappDisplay}</a> (call &amp; WhatsApp)</p>
+              <a href={`tel:+${site.whatsappNumber}`}>{site.whatsappDisplay}</a> (call &amp; WhatsApp)</address>
           </div>
           <div>
             <h3>DSP Agents</h3>
