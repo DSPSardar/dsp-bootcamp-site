@@ -20,6 +20,11 @@
 // owner instruction 2026-09-02 — carries no startDate, endDate, location or
 // seat count and must never gain them: a dated CourseInstance or Schedule
 // would advertise cohorts that cannot be bought.
+//
+// There is deliberately NO LocalBusiness builder either. DSP's pages carry no
+// local intent; a second business entity would only dilute the Organization
+// node. Google's "missing streetAddress / postalCode" warning (audit
+// 2026-09-03) is on the Organization's PostalAddress and is fixed there.
 import { site, socials } from '@/config/site'
 
 export type JsonLd = Record<string, unknown>
@@ -34,12 +39,29 @@ export const ORGANIZATION_ID = `${site.url}/#organization`
 /** The logo every Organization mention points at.
  *  ⚠ public/logo.webp is currently a 1×1 placeholder (42 bytes) and
  *  src/app/favicon.ico is the framework default — the repo holds no real
- *  logo raster. Replace the file at this path with the actual mark (≥112×112,
- *  PNG/WebP/SVG) and every schema on the site picks it up. */
+ *  logo raster. Google drops the logo silently until this file is replaced
+ *  with the actual mark (≥112×112, PNG/WebP/SVG); every schema on the site
+ *  then picks it up with no code change. */
 export const LOGO_URL = `${site.url}/logo.webp`
+
+/** Fallback representative image for the Organization while the logo is a
+ *  placeholder — the existing 1200×630 share card. */
+export const ORG_IMAGE_URL = `${site.url}/og-card.png`
 
 /** A JSON-LD reference to another node in the same document. */
 export const ref = (id: string): { '@id': string } => ({ '@id': id })
+
+/** Full PostalAddress from the single source of truth in site.ts. */
+export function postalAddressNode(): JsonLd {
+  return {
+    '@type': 'PostalAddress',
+    streetAddress: site.address.streetAddress,
+    addressLocality: site.address.addressLocality,
+    addressRegion: site.address.addressRegion,
+    postalCode: site.address.postalCode,
+    addressCountry: site.address.addressCountry,
+  }
+}
 
 /** Sitewide Organization node — exactly the identity fields; the root layout
  *  adds slogan/email on top via organizationLd(). */
@@ -51,8 +73,9 @@ export function organizationNode(): JsonLd {
     alternateName: site.shortName,
     url: site.url,
     logo: LOGO_URL,
+    image: ORG_IMAGE_URL,
     telephone: site.telephone,
-    address: { '@type': 'PostalAddress', addressLocality: site.city, addressCountry: 'PK' },
+    address: postalAddressNode(),
     parentOrganization: { '@type': 'Organization', name: site.parentCompany },
     sameAs: Object.values(socials),
   }

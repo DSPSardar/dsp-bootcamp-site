@@ -5,7 +5,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { CheckIcon } from './icons'
-import { bootcamp, mastery } from '@/config/site'
+import { bootcamp, mastery, site } from '@/config/site'
 
 /* ============ HERO: what the Lab was ============ */
 export function Hero() {
@@ -399,9 +399,9 @@ export function HomeFooter() {
           <div>
             <p className="foot-brand"><span className="brand-mark" aria-hidden="true">D</span> Digital Services Program</p>
             <p>AI agents training for Pakistan — taught in English and Urdu by a real instructor.</p>
-            <p style={{ marginTop: '.9rem' }}>Islamabad, Pakistan<br />
+            <address style={{ marginTop: '.9rem', fontStyle: 'normal' }}>{site.addressLine}<br />
               <a href="mailto:info@digitalservicesprogram.com">info@digitalservicesprogram.com</a><br />
-              <a href="tel:+923420580864">+92 342 0580864</a> (call &amp; WhatsApp)</p>
+              <a href="tel:+923420580864">+92 342 0580864</a> (call &amp; WhatsApp)</address>
           </div>
           <div>
             <h3>The Agentic Lab</h3>
