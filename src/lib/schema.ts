@@ -36,16 +36,12 @@ export const SCHEMA_CONTEXT = 'https://schema.org'
  *  merges them into one organisation instead of seeing two on the same page. */
 export const ORGANIZATION_ID = `${site.url}/#organization`
 
-/** The logo every Organization mention points at.
- *  ⚠ public/logo.webp is currently a 1×1 placeholder (42 bytes) and
- *  src/app/favicon.ico is the framework default — the repo holds no real
- *  logo raster. Google drops the logo silently until this file is replaced
- *  with the actual mark (≥112×112, PNG/WebP/SVG); every schema on the site
- *  then picks it up with no code change. */
+/** The logo every Organization mention points at: public/logo.webp, the
+ *  real 512×512 mark (replaced 2026-09-03; a PNG twin sits beside it). */
 export const LOGO_URL = `${site.url}/logo.webp`
 
-/** Fallback representative image for the Organization while the logo is a
- *  placeholder — the existing 1200×630 share card. */
+/** Representative image for the Organization — the evergreen 1200×630
+ *  share card at public/og-card.png (replaced 2026-09-03). */
 export const ORG_IMAGE_URL = `${site.url}/og-card.png`
 
 /** A JSON-LD reference to another node in the same document. */
