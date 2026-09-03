@@ -94,7 +94,10 @@ disclaimer.
 Typed builders in src/lib/schema.ts. Organization sitewide. Course + Offer +
 FAQPage on /mastery (currently has NONE). Person on /about. Service on
 agency pages. BreadcrumbList sitewide. No hand-written JSON-LD strings.
-No CourseInstance or Schedule anywhere — no batches exist.
+No dated CourseInstance or Schedule anywhere — no batches exist. The one
+exception (owner ruling 2026-09-02): /mastery carries a single self-paced
+CourseInstance with mode + workload only; it must never gain dates, seats or
+a location. `npm run test:schema` enforces this.
 
 ## 11. ANALYTICS
 GA4: view_evolution_complete, view_mastery, expand_curriculum,

@@ -2,7 +2,7 @@
 //
 // This array feeds the FAQPage node in ./schema.ts and MUST mirror the
 // visible <section id="faq"> in ./page.tsx word for word (schema may only
-// describe what a visitor can read). `npm run test:mastery-schema` diffs the
+// describe what a visitor can read). `npm run test:schema` diffs the
 // two, so edit both together.
 export type Faq = { q: string; a: string }
 

@@ -5,7 +5,7 @@
 // #curriculum accordion of ./page.tsx (schema may only describe what a
 // visitor can read) — the outcomes here are the page's, not course.json's,
 // which is worded differently. The capstone (CAP) is deliberately not a
-// syllabus section. `npm run test:mastery-schema` diffs this file against the
+// syllabus section. `npm run test:schema` diffs this file against the
 // page, so edit both together.
 export type CurriculumModule = { code: string; title: string; outcome: string }
 

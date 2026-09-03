@@ -16,9 +16,10 @@
 //      Person: name · Organization: name, url · WebSite/WebPage: name, url ·
 //      VideoObject (if ever emitted): name, description, thumbnailUrl,
 //      uploadDate;
-//   4. locked-facts guards — no CourseInstance/Schedule with dates, seats or
-//      a location (no cohorts exist), no aggregateRating/review (no rating
-//      data on the page), no `/api/` URL other than none, no private number.
+//   4. locked-facts guards — no CourseInstance/Schedule/Offer with dates,
+//      times, seats or a location (no cohorts exist), no aggregateRating /
+//      review (no rating data on the page), no retired or private phone
+//      number in any separator format, no HTML in any text field.
 //
 // Imports the real graph module (TypeScript) through Node's built-in type
 // stripping plus ./lib/ts-resolve-hooks.mjs for the `@/` alias — needs
@@ -69,6 +70,7 @@ visibleFaqs.forEach((v, i) => {
   if (!f) return
   check(f.q === v.q, `FAQ ${i + 1} question differs from the page:\n      page:  ${v.q}\n      graph: ${f.q}`)
   check(f.a === v.a, `FAQ ${i + 1} answer differs from the page:\n      page:  ${v.a}\n      graph: ${f.a}`)
+  check(!/<[a-z][^>]*>/i.test(f.q ?? ''), `FAQ ${i + 1} question carries markup`)
   check(!/<[a-z][^>]*>/i.test(f.a ?? ''), `FAQ ${i + 1} answer carries markup`)
 })
 if (visibleFaqs.length && visibleFaqs.length === emittedFaqs.length) pass(`FAQ: ${emittedFaqs.length} Q/A pairs in the graph mirror the visible FAQ verbatim`)
@@ -84,6 +86,7 @@ visibleModules.forEach((v, i) => {
   check(m['@type'] === 'Syllabus', `syllabusSections[${i}] is not a Syllabus`)
   check(m.name === `${v.code} ${v.title}`, `Syllabus ${i + 1} name differs from the page: "${v.code} ${v.title}" vs "${m.name}"`)
   check(m.description === v.outcome, `Syllabus ${v.code} description differs from the page's Outcome line:\n      page:  ${v.outcome}\n      graph: ${m.description}`)
+  check(!/<[a-z][^>]*>/i.test(`${m.name}${m.description}`), `Syllabus ${v.code} carries markup`)
 })
 if (visibleModules.length && visibleModules.length === emittedSyllabus.length) pass(`Syllabus: ${emittedSyllabus.length} sections in the graph mirror the visible curriculum titles + Outcome lines`)
 
@@ -151,14 +154,28 @@ pass(`Required fields present on: ${Object.entries(typeCounts).map(([t, n]) => (
 const json = JSON.stringify(masterySchema)
 for (const { node, path } of typed) {
   const types = [].concat(node['@type'])
-  if (types.includes('CourseInstance') || types.includes('Schedule'))
-    for (const key of ['startDate', 'endDate', 'location', 'maximumAttendeeCapacity', 'remainingAttendeeCapacity'])
+  // Anything that would describe a timetable, a venue or a seat count is a
+  // cohort claim; a self-paced instance has none of them.
+  if (types.includes('CourseInstance') || types.includes('Schedule') || types.includes('Offer'))
+    for (const key of ['startDate', 'endDate', 'startTime', 'endTime', 'byDay', 'byMonth', 'byMonthDay', 'repeatCount', 'validFrom', 'validThrough', 'location', 'eventAttendanceMode', 'maximumAttendeeCapacity', 'remainingAttendeeCapacity', 'inventoryLevel'])
       check(!(key in node), `${path} carries "${key}" — no cohorts exist; a self-paced instance must not advertise one`)
   if (types.includes('Course')) check(!('aggregateRating' in node) && !('review' in node), `${path} carries rating/review data that is not on the page`)
 }
-check(!/923253966799|3118122222|15-Day|5-day/i.test(json), 'graph mentions a retired number or format (see CLAUDE.md locked facts)')
+// Phone separators are stripped before matching so "+92-311-8122222",
+// "0311 8122222" and "(0311) 8122222" are all caught; the public number
+// (923420580864) is allowed.
+const compact = json.replace(/[\s()+.\-]/g, '')
+check(!/923253966799|3253966799|923118122222|3118122222/.test(compact), 'graph mentions a retired or private phone number (see CLAUDE.md locked facts)')
+check(!/15-Day|5-day/i.test(json), 'graph mentions a retired programme format (see CLAUDE.md locked facts)')
+// Every string in the graph must be plain text — JSON-LD is not HTML.
+const walkStrings = (node, path, fn) => {
+  if (Array.isArray(node)) return node.forEach((n, i) => walkStrings(n, `${path}[${i}]`, fn))
+  if (node && typeof node === 'object') return Object.entries(node).forEach(([k, v]) => walkStrings(v, `${path}.${k}`, fn))
+  if (typeof node === 'string') fn(node, path)
+}
+walkStrings(graph, '@graph', (s, path) => check(!/<[a-z][^>]*>/i.test(s), `${path} carries HTML markup`))
 check(!/CourseInstance/.test(json) || (json.match(/"CourseInstance"/g) ?? []).length === 1, 'more than one CourseInstance — there is exactly one self-paced instance')
-pass('Locked facts: no cohort dates/seats/location, no ratings, no retired numbers')
+pass('Locked facts: no cohort dates/times/seats/location, no ratings, no retired or private numbers, no HTML in any string')
 
 /* ── Result ───────────────────────────────────────────────────────────── */
 if (failures.length) {
