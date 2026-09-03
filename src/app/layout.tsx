@@ -28,6 +28,9 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   variable: '--font-jetbrains-mono',
   display: 'swap',
+  // Small labels only, never the LCP text: don't spend a High-priority
+  // preload on it during the critical path (perf pass 2026-09-03).
+  preload: false,
 })
 
 export const metadata: Metadata = {

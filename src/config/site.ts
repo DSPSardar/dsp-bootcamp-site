@@ -95,6 +95,10 @@ export const mastery = {
   checkoutUrl: null as string | null,
   /** Free Module 1 lead-magnet page — null until built */
   freeModuleUrl: null as string | null,
+  /** Still frame shown on the welcome video's play facade — null until a
+   *  frame export exists. Drop a 1280×720 JPG at public/mastery/
+   *  welcome-poster.jpg and set this to '/mastery/welcome-poster.jpg'. */
+  welcomePoster: null as string | null,
   url: '/mastery',
   /** Local payment rails for Pakistan-based students (card checkout pending). */
   pkr: {

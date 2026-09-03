@@ -144,6 +144,7 @@ export default function MasteryPage() {
   <LazyEmbed
     src={welcomeSrc}
     title="Welcome to DSP AI Agent Mastery"
+    poster={mastery.welcomePoster ?? undefined}
     load="click"
     style={{borderRadius:'20px',border:'1px solid var(--line)'}}
   />
