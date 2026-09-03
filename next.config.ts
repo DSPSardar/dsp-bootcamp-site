@@ -1,6 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  experimental: {
+    // Emit each route's CSS as an inline <style> instead of render-blocking
+    // <link> requests. PageSpeed measured the two /mastery stylesheets at
+    // 490 ms + 160 ms of blocking latency on a cold edge; the trade is
+    // ~11 KB of uncacheable CSS per HTML response (perf pass 2026-09-03).
+    inlineCss: true,
+  },
   async redirects() {
     // Friendly short URLs → canonical course pages.
     // /academy was retired at the bootcamp sunset (2026-08-30): education
