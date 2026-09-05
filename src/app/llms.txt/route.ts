@@ -19,7 +19,7 @@ export function GET() {
     `> Founder and lead instructor: ${founder.name}. Founded ${entity.foundingDate ?? '—'}, ${site.city}, ${site.country}.`,
     '',
     '## Start here',
-    `- [${mastery.name}](${u(mastery.url)}): the course — price ($${mastery.priceUsd} one-time, ${mastery.pkr.price}), ${mastery.modules} modules, certificates, FAQ, taught in Urdu and English`,
+    `- [${mastery.name}](${u(mastery.url)}): Self-paced AI agent training for beginners taught in Urdu and English ($${mastery.priceUsd} one-time, ${mastery.pkr.price}). Students build and deploy a production multi-tenant café ordering AI Employee using Claude Code, Model Context Protocol (MCP), APIs, GitHub, and Vercel without manual coding. Awards DSP Master Certificate with verifiable public URL plus 3 Anthropic Claude Academy badges.`,
     `- [About DSP](${u('/about')}): the company, its two divisions, the founders`,
     `- [${founder.name}](${u(founder.path)}): founder bio, verifiable credentials, everything he has written`,
     '',
