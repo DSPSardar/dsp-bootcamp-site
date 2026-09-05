@@ -3,12 +3,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { site, waLink, mastery } from '@/config/site'
 import { bunnyConfigured, welcomeEmbedPath } from '@/lib/mastery/bunny'
+import { getPostBySlug } from '@/lib/posts'
 import TrackedLink from '@/components/site/TrackedLink'
 import MasteryClient from './MasteryClient'
 import LazyEmbed from '@/components/site/LazyEmbed'
 import { breadcrumbLd } from '@/lib/schema'
 import { masterySchema } from './schema'
-import { CANONICAL, SEO_DESCRIPTION, SEO_TITLE } from './seo'
+import { CANONICAL, PAGE_UPDATED_DISPLAY, PAGE_UPDATED_MONTH, SEO_DESCRIPTION, SEO_TITLE } from './seo'
+import { STUDENT_BUILDS } from './students'
+import { RUNNING_COST_COMPONENTS, RUNNING_COST_ROWS } from './running-costs'
 import './mastery.css'
 
 // WhatsApp-first conversion (owner ruling 2026-08-30): every primary CTA on
@@ -27,12 +30,31 @@ const WA_MSG = {
   sticky: 'Hi DSP, I want to enrol in AI Agent Mastery.',
 }
 
+// "Free lessons before you enrol" — six existing blog posts that preview a
+// module each. Slugs are the blog's frozen URLs; titles come from
+// posts.json so they never drift from the post itself.
+const FREE_LESSONS = [
+  { slug: 'how-to-learn-ai-in-2026-a-roadmap-for-complete-beginners', module: 'Start here' },
+  { slug: 'what-is-an-ai-agent', module: 'Module 1 preview' },
+  { slug: 'how-to-write-effective-ai-prompts-the-skill-everyone-needs', module: 'Module 2 preview' },
+  { slug: 'vibe-coding-explained', module: 'Module 4 preview' },
+  { slug: 'the-agent-loop-explained-how-ai-plans-acts-and-learns', module: 'Module 7 preview' },
+  { slug: 'multi-agent-systems-when-ais-work-as-a-team', module: 'Module 14 preview' },
+]
+  .map((l) => ({ ...l, post: getPostBySlug(l.slug) }))
+  .filter((l) => l.post)
 
 // Structured data: one JSON-LD @graph (Organization · WebSite · WebPage ·
 // Person · Course · FAQPage) built in ./schema.ts, plus the sitewide
 // BreadcrumbList. The FAQ and curriculum text the graph carries is mirrored
 // from the sections below via ./faqs.ts and ./curriculum.ts —
 // `npm run test:schema` keeps them in step, so edit copy in both places.
+//
+// Section headings are questions (Tier A on-page spec, Sept 2026): each H2
+// is the query a beginner types, and the first paragraph under it (class
+// "answer") is a 40–60-word direct answer — the passage an answer engine
+// lifts. Everything that was on the page before the spec is still here;
+// the spec only added and rewrote.
 
 // Fonts cascade from the root layout's next/font trio (Instrument Serif /
 // Inter / JetBrains Mono) via the :root variable mapping — no local loads.
@@ -41,6 +63,7 @@ const WA_MSG = {
 
 // Title, description and canonical live in ./seo.ts, shared with the
 // JSON-LD graph so <title>, Open Graph, Twitter and schema never drift.
+// hreflang alternates are deliberately absent until /mastery/urdu exists.
 export const metadata: Metadata = {
   // `absolute` on purpose: the root layout applies a '%s | DSP' template to
   // plain string titles, and SEO_TITLE already ends in '| DSP' — a string
@@ -72,14 +95,9 @@ export default function MasteryPage() {
   const enrolHref = mastery.checkoutUrl ?? '/mastery/enrol'
   const welcomeSrc = welcomeEmbedPath
   // Real student stories, recorded on camera — the same videos that sit in Module 15.
-  const stories = [
-    { guid: '7e642dff-ebb7-48a5-9da5-e94190716a56', name: 'Mohsin', where: 'United Kingdom',
-      line: 'A finance professional with no software background. He built his first website and AI agent in the program and deployed it live.' },
-    { guid: '2c5ac1cf-9643-4265-9c0a-72af532a84a9', name: 'DSP student', where: 'Pakistan',
-      line: 'Earned PKR 60,000 from AI work before he had even finished the bootcamp.' },
-    { guid: 'e50847ea-7fa4-4e26-ae72-1273fec6ae33', name: 'DSP student', where: 'Agentic Master Class',
-      line: 'Came for practical skills — AI agents, automation and prompt engineering — and says the training changed how she works.', portrait: true },
-  ].map((v) => ({ ...v, src: bunnyConfigured ? `/api/video/${v.guid}` : null })).filter((v) => v.src)
+  const stories = STUDENT_BUILDS
+    .map((v) => ({ ...v, src: bunnyConfigured ? `/api/video/${v.guid}` : null }))
+    .filter((v) => v.src)
   return (
     <div className="page-mastery">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(masterySchema) }} />
@@ -87,7 +105,7 @@ export default function MasteryPage() {
 <nav className="nav"><div className="wrap">
   <a className="logo" href="#top">DSP <span>·</span> AI Agent Mastery</a>
   <div className="navlinks">
-    <a href="#journey">Journey</a><a href="#build">What you build</a><a href="#curriculum">Curriculum</a><a href="#included">What&apos;s included</a><a href="#faq">FAQ</a>
+    <a href="#journey">Journey</a><a href="#build">What you build</a><a href="#curriculum">Curriculum</a><a href="#compare">Compare</a><a href="#included">What&apos;s included</a><a href="#faq">FAQ</a>
   </div>
   <div className="nav-cta">
     <TrackedLink className="paylink" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'nav' }}>Pay directly</TrackedLink>
@@ -99,8 +117,9 @@ export default function MasteryPage() {
 <header className="hero" id="top"><div className="wrap">
   <div>
     <div className="eyebrow">Self-paced · Lifetime access · 1 year free support</div>
-    <h1>Go from zero to <em>building, deploying and selling</em> AI agents.</h1>
-    <p className="lead">15 modules. One real AI Employee you build from an empty folder to a live URL — then your own. No coding background needed. Taught in Urdu &amp; English, all materials in English.</p>
+    <h1>The AI agent course for beginners — go from zero to <em>building, deploying and selling</em> AI agents.</h1>
+    <p className="lead">15 modules, taught in Urdu and English. You build one real AI Employee from an empty folder to a live URL — then your own. No coding background needed. $100 one-time, lifetime access. Updated {PAGE_UPDATED_MONTH}.</p>
+    <p className="byline">Written by <Link href="/about">Sardar Ghaffar</Link> · Google-verified AI Agentic Trainer · Anthropic-verified educator · Last updated {PAGE_UPDATED_DISPLAY}</p>
     <div className="cta-row">
       <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.hero)} event="whatsapp_click" params={{ location: 'hero' }}>Start building <span className="price-tag">$100 · one-time</span></TrackedLink>
       <a className="btn btn-ghost" href="#welcome">Watch the 6-minute tour</a>
@@ -140,7 +159,7 @@ export default function MasteryPage() {
 <section id="welcome" style={{paddingTop:'0'}}><div className="wrap">
   <div className="eyebrow">Six minutes inside DSP</div>
   <h2>Watch what you&apos;ll be building — running my business today.</h2>
-  <p className="lead" style={{marginBottom:'28px'}}>The AI Employee that handles DSP&apos;s admissions, the content system behind 6 million views, and what the program looks like from the inside. Recorded by Sardar, not a marketing team.</p>
+  <p className="lead" style={{marginBottom:'28px'}}>The AI Employee that handles DSP&apos;s admissions — <Link className="il" href="/ai-employees/zara">Zara, our sales AI Employee</Link> — the content system behind 6 million views, and what the program looks like from the inside. Recorded by Sardar, not a marketing team.</p>
   <LazyEmbed
     src={welcomeSrc}
     title="Welcome to DSP AI Agent Mastery"
@@ -152,10 +171,32 @@ export default function MasteryPage() {
 )}
 
 
+{/* ONE-PARAGRAPH ANSWER + AT A GLANCE */}
+<section id="what"><div className="wrap">
+  <div className="eyebrow">In one paragraph</div>
+  <h2>What is this AI agent course, in one paragraph?</h2>
+  <p className="answer">DSP AI Agent Mastery is a self-paced AI agent course for complete beginners. Across 15 modules you build one working AI Employee — a café ordering agent — from an empty folder to a live URL using Claude Code, then learn to sell agents like it to real businesses. Lectures are in Urdu and English. $100, lifetime access.</p>
+  <div className="tscroll" style={{maxWidth:'780px'}}>
+    <table className="glance">
+      <caption style={{position:'absolute',left:'-9999px'}}>DSP AI Agent Mastery at a glance</caption>
+      <tbody>
+        <tr><th scope="row">Level</th><td>Complete beginner — no coding</td></tr>
+        <tr><th scope="row">Format</th><td>Self-paced video, 30+ hours, 15 modules</td></tr>
+        <tr><th scope="row">Language</th><td>Urdu–English lectures, English materials, subtitles</td></tr>
+        <tr><th scope="row">Project</th><td>One real AI Employee → live URL, plus your own capstone</td></tr>
+        <tr><th scope="row">Certificates</th><td>DSP Master certificate (verifiable URL) + 3 Claude Academy badges from Anthropic</td></tr>
+        <tr><th scope="row">Price</th><td>$100 one-time · bank transfer, JazzCash, Easypaisa · card on request</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div></section>
+
+
 <section><div className="wrap">
   <div className="eyebrow">Why this exists</div>
-  <h2>You already use AI every day. You still can&apos;t build with it.</h2>
-  <p className="lead" style={{marginBottom:'36px'}}>That is the whole gap this program closes — and it is a smaller gap than it looks from the outside.</p>
+  <h2>Can a beginner with no coding background really build an AI agent?</h2>
+  <p className="answer">Yes. You describe what you want in plain words and Claude Code writes the code; your job is to plan, direct, test and ship, which is exactly what the 15 modules teach. If you can write a clear WhatsApp message, you can write the Job Description that runs an agent. That is the whole gap this program closes — and it is a smaller gap than it looks from the outside.</p>
+  <p className="lead" style={{marginBottom:'36px'}}>You already use AI every day. You still can&apos;t build with it. Here is why, and what changes.</p>
   <div className="grid3">
     <div className="card"><div className="k">Where most people are</div><h3>Chatting, not building</h3><p>You ask Claude or ChatGPT a question, copy the answer, and start again tomorrow. Nothing you made on Monday is still working for you on Friday.</p></div>
     <div className="card"><div className="k">What stops them</div><h3>Every tutorial assumes you code</h3><p>Free material jumps from &quot;what is an agent&quot; straight to Python and API keys, so you stop at the first error nobody explains.</p></div>
@@ -168,8 +209,9 @@ export default function MasteryPage() {
   <div className="eyebrow">What you build</div>
   <div className="demo">
     <div>
-      <h2>Meet your AI Employee — the project you build from nothing.</h2>
-      <p className="lead">A café ordering agent. It starts as an empty folder in Module 4 and finishes in Module 14 serving two cafés from one codebase. Every module adds one real capability to it.</p>
+      <h2>What will I actually build in this AI agent course?</h2>
+      <p className="answer">A café ordering AI Employee. It starts as an empty folder in Module 4, becomes a four-page website, then an agent that takes orders, remembers customers, emails the kitchen and writes to Google Sheets through MCP — built with Claude Code, versioned on GitHub, deployed on Vercel to a public URL, and by Module 14 serving two cafés from one codebase.</p>
+      <p className="lead">Every module adds one real capability to it. It is a simplified version of <Link className="il" href="/agents/restaurant-ai">the multi-tenant restaurant agent DSP runs for clients</Link> — the same shape, built by you.</p>
       <ul className="milestones">
         <li><span className="mnum">M04–05</span><div><b>Website</b><span>Home, menu, about, order form. Responsive. No code written by hand.</span></div></li>
         <li><span className="mnum">M07</span><div><b>Ordering agent</b><span>Takes an order item by item, handles corrections, confirms the total.</span></div></li>
@@ -201,41 +243,16 @@ export default function MasteryPage() {
 
 
 <section><div className="wrap">
-  <div className="eyebrow">Students</div>
-  <h2>From the live cohorts this program was recorded in.</h2>
-  <p className="lead" style={{marginBottom:'36px'}}>Not written quotes — the students themselves, on camera. Both videos are lessons inside Module 15.</p>
-  <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(320px,1fr))',gap:'28px'}}>
-    {stories.map((v) => (
-      <div className="card" key={v.guid} style={{padding:'18px'}}>
-        <LazyEmbed
-          src={v.src!}
-          title={`${v.name} — DSP student story`}
-          portrait={Boolean((v as {portrait?:boolean}).portrait)}
-          style={{
-            maxWidth:(v as {portrait?:boolean}).portrait?'300px':undefined,
-            margin:(v as {portrait?:boolean}).portrait?'0 auto':undefined,
-            borderRadius:'12px',
-          }}
-        />
-        <p className="md" style={{marginTop:'14px'}}>{v.line}</p>
-        <div className="by">{v.name} · {v.where}</div>
-      </div>
-    ))}
-  </div>
-  <p className="muted" style={{marginTop:'22px'}}>Results depend on the work you put in. These are individual students, not a promise of income.</p>
-</div></section>
-
-
-<section><div className="wrap">
   <div className="eyebrow">Who this is for</div>
-  <h2>Built for people who use AI every day but have never built with it.</h2>
+  <h2>Who is this AI agent course for (and who is it not for)?</h2>
+  <p className="answer">It is for people who use Claude or ChatGPT every day and want something that keeps working after they close the laptop — students, teachers, freelancers, marketers and business owners, in Pakistan or abroad. It is not for you if you want LangGraph internals, framework theory or a computer-science course: this is a builder&apos;s course, and Claude Code writes the code.</p>
   <p className="lead" style={{marginBottom:'36px'}}>If you can describe what you want in plain words, you can build an agent. That is the entire skill this program teaches.</p>
   <div className="grid3">
     <div className="card"><div className="k">Students &amp; graduates</div><h3>Skills a job description asks for</h3><p>Leave with a live agent on GitHub and a certificate that verifies what you built — not what you watched.</p></div>
     <div className="card"><div className="k">Teachers &amp; trainers</div><h3>Automate the admin, keep the teaching</h3><p>Build an agent that answers parent queries, grades against a rubric, or drafts lesson plans from your notes.</p></div>
-    <div className="card"><div className="k">Freelancers</div><h3>Add a $500–$2,000 service line</h3><p>Deliver agents to clients using the same discovery, proposal and pricing templates DSP uses.</p></div>
+    <div className="card"><div className="k">Freelancers</div><h3>Add a $500–$2,000 service line</h3><p>Deliver agents to clients using the same discovery, proposal and pricing templates DSP uses. See <Link className="il" href="/agents/case-studies">real client results</Link> and DSP&apos;s own <Link className="il" href="/pricing">pricing for done-for-you agents</Link> to calibrate yours.</p></div>
     <div className="card"><div className="k">Marketers</div><h3>Agents that run your pipeline</h3><p>Lead qualification, follow-up sequences, content research — built by you, connected to your tools.</p></div>
-    <div className="card"><div className="k">Business owners</div><h3>Your first AI employee</h3><p>A booking, ordering or support agent for your own business, running on WhatsApp, web or email.</p></div>
+    <div className="card"><div className="k">Business owners</div><h3>Your first AI employee</h3><p>A booking, ordering or support agent for your own business, running on WhatsApp, web or email — the way <Link className="il" href="/ai-employees/zara">Zara, our sales AI Employee</Link>, runs DSP<p>A booking, ordering or support agent for your own business, running on WhatsApp, web or email.</p>apos;s admissions.</p></div>
     <div className="card"><div className="k">Working abroad</div><h3>Learn in Urdu and English, on your own time</h3><p>Lectures are taught in an Urdu–English mix, with English materials and subtitles. Study at 6 am in Dubai or midnight in Manchester. Nothing is live-only.</p></div>
   </div>
 </div></section>
@@ -243,7 +260,8 @@ export default function MasteryPage() {
 
 <section id="journey" className="journey"><div className="wrap">
   <div className="eyebrow">The journey</div>
-  <h2>Five phases. Fifteen modules. One project that grows with you.</h2>
+  <h2>What does the 15-module AI agent curriculum cover?</h2>
+  <p className="answer">Five phases. Phase 0 (Modules 1–3) gives you the foundations: what an agent is, how to write a Job Description, and how to set up Claude, ChatGPT and Gemini. Phase 1 (4–6) teaches vibe coding with Claude Code, websites and Git. Phase 2 (7–10) turns your website into an agent with APIs, RAG, memory and MCP. Phase 3 (11–13) tests, secures and deploys it. Phase 4 (14–15 plus the capstone) makes it multi-tenant and teaches you to sell it.</p>
   <p className="lead" style={{marginBottom:'48px'}}>Modules open in order, one build at a time — that&apos;s how everyone finishes. No tests, no grades. You watch, you build, you move on.</p>
   <div className="rail" id="rail">
     <div className="phase"><div className="dot">0</div><h3>Zero — Foundations</h3><div className="out">You can explain what an agent is and write a Job Description that works</div>
@@ -267,8 +285,9 @@ export default function MasteryPage() {
 
 <section><div className="wrap">
   <div className="eyebrow">How it works</div>
-  <h2>Watch. Build. Share. Move on.</h2>
-  <p className="lead" style={{marginBottom:'36px'}}>The same rhythm every module, so you never wonder what to do next. No tests. No grades.</p>
+  <h2>How does a self-paced AI agent course work day to day?</h2>
+  <p className="answer">You watch one chaptered lecture of 35–60 minutes, build that module&apos;s project with its template and copy-paste prompts, post your screenshot or URL in the DSP group, and mark the module complete so the next one opens. About an hour a day finishes in 30 days; four sessions a week finishes in eight. No tests, no grades — and if you get stuck, the weekend live session debugs your build on the call.</p>
+  <p className="lead" style={{marginBottom:'36px'}}>Watch. Build. Share. Move on. The same rhythm every module, so you never wonder what to do next.</p>
   <div className="steps">
     <div className="step"><div className="sn">1</div><b>Watch</b><p>Chaptered lectures, 35–60 minutes, taught in Urdu and English.</p></div>
     <div className="step"><div className="sn">2</div><b>Build</b><p>A specific project with a template and copy-paste prompts. Always a real artefact.</p></div>
@@ -282,14 +301,14 @@ export default function MasteryPage() {
 <section><div className="wrap">
   <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))',gap:'18px',marginBottom:'44px'}}>
     {[
-      { img: '/mastery/cert-claude-101.jpg', name: 'Claude 101', by: 'Anthropic, USA' },
-      { img: '/mastery/cert-claude-code-101.jpg', name: 'Claude Code 101', by: 'Anthropic, USA' },
-      { img: '/mastery/cert-claude-cowork.jpg', name: 'Introduction to Claude Cowork', by: 'Anthropic, USA' },
-      { img: '/mastery/cert-dsp-master.jpg', name: 'DSP AI Agent Mastery', by: 'Digital Services Program' },
+      { img: '/mastery/cert-claude-101.jpg', name: 'Claude 101', by: 'Anthropic, USA', alt: 'Claude 101 completion badge from Claude Academy, Anthropic' },
+      { img: '/mastery/cert-claude-code-101.jpg', name: 'Claude Code 101', by: 'Anthropic, USA', alt: 'Claude Code 101 completion badge from Claude Academy, Anthropic' },
+      { img: '/mastery/cert-claude-cowork.jpg', name: 'Introduction to Claude Cowork', by: 'Anthropic, USA', alt: 'Introduction to Claude Cowork completion badge from Claude Academy, Anthropic' },
+      { img: '/mastery/cert-dsp-master.jpg', name: 'DSP AI Agent Mastery', by: 'Digital Services Program', alt: 'DSP AI Agent Mastery certificate with verifiable URL' },
     ].map((c) => (
       <div className="card" key={c.name} style={{padding:'14px',display:'flex',flexDirection:'column'}}>
         <div style={{position:'relative',paddingTop:'66%',borderRadius:'10px',overflow:'hidden',background:'var(--ink)',border:'1px solid var(--line)'}}>
-          <Image src={c.img} alt={`${c.name} — certificate issued by ${c.by}`} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" style={{objectFit:'cover'}} />
+          <Image src={c.img} alt={c.alt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" style={{objectFit:'cover'}} />
         </div>
         <div className="by" style={{marginTop:'12px'}}>{c.name}</div>
         <div className="muted" style={{fontSize:'13px'}}>{c.by}</div>
@@ -299,8 +318,9 @@ export default function MasteryPage() {
   <div style={{maxWidth:'840px'}}>
     <div>
       <div className="eyebrow">Certificates</div>
-      <h2>Three certificates from Claude — Anthropic, USA. And one from DSP.</h2>
-      <p className="lead">Every certificate has a public verification page showing the capstone URL and repo behind it. An employer or client can open it and see the agent working. Featured capstones earn Master with Distinction.</p>
+      <h2>What certificates do I get, and are they recognised?</h2>
+      <p className="answer">Two kinds. The DSP Master certificate has a public verification page showing the live agent you built — proof of work, not attendance. Module 3 also takes you through Claude Academy, Anthropic&apos;s free training, so you finish holding three of their completion badges with your name on them. Neither is a university accreditation; what employers and clients check is the working agent behind the link.</p>
+      <p className="lead">Three certificates from Claude — Anthropic, USA. And one from DSP. Every certificate has a public verification page showing the capstone URL and repo behind it. An employer or client can open it and see the agent working. Featured capstones earn Master with Distinction.</p>
       <p className="md" style={{marginTop:'18px'}}><b>You finish with four, and three of them are not ours.</b> Module 3 takes you through Claude Academy, the training run by Anthropic — the American company in San Francisco that builds Claude — and you come out holding <b>Claude 101</b>, <b>Claude Code 101</b> and <b>Introduction to Claude Cowork</b>, each with your own name on it. Anthropic issues them, so they say nothing about DSP and everything about you. The fourth is the DSP Master certificate, and it is the one that points at a live agent you built.</p>
       <p className="md" style={{marginTop:'12px'}}>None of this is out of reach. Every DSP student who follows the module earns all three — no exam fee, no waiting list, no degree required. Ours have been earning them for months, and we publish every one on our channels the week it lands.</p>
       <div className="badges">
@@ -315,16 +335,79 @@ export default function MasteryPage() {
 </div></section>
 
 
+{/* STUDENT BUILDS — real students on camera; cards come from ./students.ts */}
+<section id="students"><div className="wrap">
+  <div className="eyebrow">Students</div>
+  <h2>What have students actually built with this course?</h2>
+  <p className="answer">Real builds, on camera. Mohsin, a finance professional in the UK with no software background, built his first website and an AI agent in the program and deployed it live. A student in Pakistan earned PKR 60,000 from AI work before he had finished. Every story below is a lesson inside Module 15, told by the student — not a written quote.</p>
+  <p className="lead" style={{marginBottom:'36px'}}>From the live cohorts this program was recorded in. More builds are added as students give permission to name them.</p>
+  <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(320px,1fr))',gap:'28px'}}>
+    {stories.map((v) => (
+      <div className="card" key={v.guid} style={{padding:'18px'}}>
+        <LazyEmbed
+          src={v.src!}
+          title={`${v.name} — DSP student story`}
+          portrait={Boolean(v.portrait)}
+          style={{
+            maxWidth:v.portrait?'300px':undefined,
+            margin:v.portrait?'0 auto':undefined,
+            borderRadius:'12px',
+          }}
+        />
+        <p className="built"><b>{v.built}</b>{v.line}</p>
+        <div className="by">{v.name} · {v.where}</div>
+      </div>
+    ))}
+  </div>
+  <p className="muted" style={{marginTop:'22px'}}>Results depend on the work you put in. These are individual students, not a promise of income.</p>
+</div></section>
+
+
+{/* RUNNING COSTS — components always; DSP's own numbers only once real (./running-costs.ts) */}
+<section id="cost"><div className="wrap">
+  <div className="eyebrow">After you build it</div>
+  <h2>What does it cost to run an AI Employee after you build it?</h2>
+  <p className="answer">Less than most people expect. A deployed AI Employee has three running bills: the Claude API, which is metered per token and is the only cost that grows with orders; hosting, which is free on Vercel&apos;s Hobby plan for what this course deploys; and a messaging channel such as WhatsApp, which is optional and billed per conversation by Meta. GitHub and Google Sheets are free.</p>
+  <p className="lead" style={{marginBottom:'8px'}}>Here is every bill the café agent can generate, who sends it, and where it is free. Module 15 shows how to price an agent against these costs so a client&apos;s monthly fee covers them with margin — the same calculator is in the Client Acquisition Kit.</p>
+  <div className="tscroll">
+    <table className="costs">
+      <thead><tr><th scope="col">What</th><th scope="col">Billed by</th><th scope="col">Free tier</th><th scope="col">Where the course covers it</th></tr></thead>
+      <tbody>
+        {RUNNING_COST_COMPONENTS.map((c) => (
+          <tr key={c.item}><th scope="row">{c.item}</th><td>{c.billedBy}</td><td>{c.free}</td><td>{c.note}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  {RUNNING_COST_ROWS && (
+    <div className="tscroll">
+      <table className="costnum">
+        <caption style={{textAlign:'left',padding:'13px 16px',fontFamily:'var(--mono)',fontSize:'12px',color:'var(--muted)'}}>DSP&apos;s own café agent, monthly, by order volume</caption>
+        <thead><tr><th scope="col">Monthly orders</th><th scope="col">Claude API</th><th scope="col">Hosting</th><th scope="col">WhatsApp / voice</th><th scope="col">Total / month</th></tr></thead>
+        <tbody>
+          {RUNNING_COST_ROWS.map((r) => (
+            <tr key={r.orders}><th scope="row">{r.orders}</th><td>{r.api}</td><td>{r.hosting}</td><td>{r.channel}</td><td>{r.total}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )}
+</div></section>
+
+
 <section><div className="wrap">
   <div className="who">
     <div className="portrait"><Image src="/mastery/sardar.jpg" alt="Sardar Ghaffar, founder and lead instructor, Digital Services Program" width={640} height={800} /></div>
     <div>
       <div className="eyebrow">Your instructor</div>
-      <h2><Link href="/about">Sardar Ghaffar</Link></h2>
+      <h2>Who teaches this AI agent course?</h2>
+      <p className="answer">Sardar Ghaffar, founder of Digital Services Program: 24 years teaching IT in London, the UAE and Pakistan, now running the agency that builds <Link className="il" href="/ai-employees">the AI Employees DSP builds</Link> for clients. He is a Google-verified AI Agentic Trainer and an Anthropic (Claude)-verified educator, and he recorded every lecture in this course himself.</p>
+      <h3><Link href="/about">Sardar Ghaffar</Link></h3>
       <p className="lead">I was in IT before most of my students had email. Twenty-four years of teaching — in London, the UAE and Pakistan — and the last few spent on one thing: showing people who aren&apos;t programmers how to build AI agents that work and earn.</p>
       <p className="lead" style={{marginTop:'14px'}}>Everything in this program is what I use with real clients. The templates are the ones my team uses. The AI Employee you build is a simplified version of the multi-tenant agents DSP builds for businesses. I&apos;ve watched thousands of students go from &quot;what is an agent?&quot; to a live URL. This is the path they took, cleaned up.</p>
+      <p className="md" style={{marginTop:'14px',color:'var(--muted)'}}>Read more <Link className="il" href="/about">about Sardar Ghaffar</Link>, including the public verification links for each credential. He also teaches the <Link className="il" href="/channelops#course">ChannelOps course</Link> for people who run a YouTube channel.</p>
       <div className="creds">
-        <span>Founder, Digital Services Program</span><span>Google-verified AI Agentic Trainer</span><span>Anthropic (Claude)-verified educator</span><span>24 years in IT</span>
+        <span>Founder, Digital Services Program</span><a href="/about">Google-verified AI Agentic Trainer</a><a href="/about">Anthropic (Claude)-verified educator</a><span>24 years in IT</span>
       </div>
     </div>
   </div>
@@ -333,7 +416,8 @@ export default function MasteryPage() {
 
 <section id="included"><div className="wrap">
   <div className="eyebrow">What&apos;s included</div>
-  <h2>Everything you need, nothing you&apos;ll never open.</h2>
+  <h2>What&apos;s included for $100?</h2>
+  <p className="lead" style={{marginBottom:'28px'}}>Everything you need, nothing you&apos;ll never open.</p>
   <div className="stack" id="pricing">
     <ul>
       <li><span>30+ hours of lectures, cut and chaptered, across 15 modules</span><span>~30 hrs</span></li>
@@ -388,9 +472,57 @@ export default function MasteryPage() {
 </div></section>
 
 
+{/* COMPARISON — honest placement against the alternatives a beginner also finds */}
+<section id="compare"><div className="wrap">
+  <div className="eyebrow">Compared</div>
+  <h2>How does this compare to other AI agent courses for beginners?</h2>
+  <p className="answer">There are excellent free and university options, and for some people they are the better choice. Here is where each fits: Mastery is the one built for non-coders, that ends in one deployed multi-tenant project, that teaches you to sell it, and that you can pay for from Pakistan in Urdu-taught lectures for $100 once.</p>
+  <div className="tscroll">
+    <table className="cmp">
+      <thead><tr><th scope="col"></th><th scope="col">DSP AI Agent Mastery</th><th scope="col">Udemy / Coursera courses</th><th scope="col">University certificate</th><th scope="col">Free open-source (Microsoft, Hugging Face)</th><th scope="col">YouTube</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Built for non-coders</th><td>Yes — Claude Code writes the code</td><td>Mixed</td><td>Usually assumes Python</td><td>Developer-first</td><td>Mixed</td></tr>
+        <tr><th scope="row">One complete project to a live URL</th><td>Yes — the café AI Employee, multi-tenant</td><td>Rarely</td><td>Sometimes</td><td>Notebooks, not deployed</td><td>No</td></tr>
+        <tr><th scope="row">Teaches selling agents to clients</th><td>Yes — Phase 4 plus the Client Acquisition Kit</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+        <tr><th scope="row">Language</th><td>Urdu + English lectures, English materials</td><td>English</td><td>English</td><td>English</td><td>Varies</td></tr>
+        <tr><th scope="row">Human support</th><td>1 year in the DSP group, weekend live debug sessions</td><td>Q&amp;A board</td><td>Cohort TA</td><td>Community forum</td><td>None</td></tr>
+        <tr><th scope="row">Certificates</th><td>DSP verifiable certificate + 3 Anthropic badges</td><td>Platform certificate</td><td>University credential</td><td>Varies — Hugging Face issues a certificate</td><td>None</td></tr>
+        <tr><th scope="row">Pay from Pakistan</th><td>Bank transfer, JazzCash, Easypaisa</td><td>Card</td><td>Card, USD</td><td>Free</td><td>Free</td></tr>
+        <tr><th scope="row">Price</th><td>$100 once</td><td>Typically $15–$200</td><td>Paid, USD</td><td>Free</td><td>Free</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p className="md" style={{marginTop:'22px',color:'var(--muted)',maxWidth:'780px'}}>One more option that no longer exists: <Link className="il" href="/academy/bootcamp">the DSP Agentic Lab bootcamp</Link>, the live seven-day cohort these lectures were recorded in, closed in August 2026 after six batches. Mastery is its self-paced successor — same curriculum, same café agent, start any day.</p>
+</div></section>
+
+
+{/* PAKISTAN / URDU — the moat */}
+<section id="urdu"><div className="wrap">
+  <div className="eyebrow">Pakistan · Urdu</div>
+  <h2>Can I learn to build AI agents from Pakistan, in Urdu?</h2>
+  <p className="answer">Yes. As far as we know this is the only AI agent course for beginners taught in an Urdu–English mix, priced at $100, and payable by bank transfer, JazzCash or Easypaisa. Lectures were recorded in DSP&apos;s live cohorts, taught from Islamabad; templates and slides are in English so your work is client-ready anywhere. DSP has taught students in the UK, UAE, USA, Canada and Pakistan this way.</p>
+  <p className="urdu" lang="ur" dir="rtl">یہ کورس ان لوگوں کے لیے ہے جو روز AI استعمال کرتے ہیں مگر خود AI ایجنٹ بنانا نہیں جانتے۔ پندرہ ماڈیولز، اردو اور انگریزی میں لیکچرز، ایک مکمل AI ایمپلائی جو آپ خالی فولڈر سے لائیو URL تک خود بناتے ہیں — اور پھر اپنا ایجنٹ۔ فیس صرف $100، لائف ٹائم رسائی، ایک سال سپورٹ۔</p>
+  <p className="md" style={{marginTop:'18px',color:'var(--muted)',maxWidth:'780px'}}>Pay in PKR at the bank details on the enrol page, upload the screenshot, and your sign-in link arrives once it is verified — usually within a few hours. Study at 6 am in Dubai or midnight in Manchester; nothing is live-only.</p>
+</div></section>
+
+
+{/* FREE LESSONS — six blog posts that preview a module each */}
+<section id="lessons" style={{paddingTop:'0'}}><div className="wrap">
+  <div className="eyebrow">Free lessons before you enrol</div>
+  <h2>Read six free lessons first.</h2>
+  <p className="lead">Each post below is the idea behind one module, written for a complete beginner. If they make sense, the course will too.</p>
+  <div className="lessons">
+    {FREE_LESSONS.map((l) => (
+      <Link key={l.slug} href={`/blog/${l.slug}`}><small>{l.module}</small>{l.post!.title}</Link>
+    ))}
+  </div>
+</div></section>
+
+
 <section id="faq"><div className="wrap">
   <div className="eyebrow">Questions</div>
-  <h2>Before you ask.</h2>
+  <h2>AI agent course FAQ</h2>
+  <p className="lead" style={{marginBottom:'28px'}}>Before you ask.</p>
   <div className="faq" style={{maxWidth:'820px'}}>
     <details><summary>I have never coded. Can I really do this?</summary><p>Yes. That is the audience this was built for. You describe what you want and Claude Code writes the code. Your job is to plan, direct, test and ship — which is what the program teaches. If you can write a clear WhatsApp message, you can write a Job Description.</p></details>
     <details><summary>How much time does it take?</summary><p>About an hour a day for 30 days, or four sessions a week for eight weeks. Each module is one to three lectures plus a build. Lifetime access means you can go slower — the only thing that doesn&apos;t work is stopping.</p></details>
@@ -401,6 +533,12 @@ export default function MasteryPage() {
     <details><summary>Can I pay from Pakistan?</summary><p>Yes — bank transfer, JazzCash or Easypaisa. Go to the enrol page, send the payment, upload the screenshot with your email, and we send your sign-in link once it&apos;s verified — usually within a few hours.</p></details>
     <details><summary>Do I get a recognised certificate?</summary><p>Two kinds. The DSP Master certificate has a public verification page showing the live agent you built — that is proof of work, not attendance. Separately, Module 3 walks you through Claude Academy, the free training run by Anthropic — the US company that builds Claude — so you finish holding three of their course completion badges with your name on them — Claude 101, Claude Code 101 and Introduction to Claude Cowork. Those are issued by Anthropic, not by DSP. Neither is a university accreditation; what employers and clients actually check is the working agent behind the link.</p></details>
     <details><summary>Refunds?</summary><p>Seven days, no questions. Start Module 1; if it isn&apos;t for you, email us and we refund in full.</p></details>
+    <details><summary>Is this the right AI agent course for beginners, or should I start with Python?</summary><p>You don&apos;t need Python. Module 4 (Vibe Coding) teaches you to direct Claude Code: you plan a feature, describe it, read and test the code it writes, commit, and move to the next one. You learn to read code long before you ever write it by hand — and most students never need to.</p></details>
+    <details><summary>Which tools does the course use?</summary><p>Claude, Claude Code, ChatGPT and Gemini (set up in Module 3), GitHub and Vercel (Modules 6 and 13), MCP servers (Module 10) and a vector store for RAG (Module 9). Everything runs on a free tier or costs under $20 a month; the only paid upgrade anyone chooses is a Claude plan.</p></details>
+    <details><summary>How is this different from the DSP live bootcamp?</summary><p>Same curriculum, same café AI Employee. The DSP Agentic Lab bootcamp was the live, cohort-based version and closed in August 2026 after six batches; these lectures were recorded in those cohorts. Mastery is the self-paced version: recorded lectures you start any day, plus a live weekend support session and the DSP group for a year.</p></details>
+    <details><summary>Can I build an agent for my own business instead of the café?</summary><p>Yes. The café agent is the guided build — every module adds one capability to it so you are never guessing what to do next. Your capstone is your own agent for your own use case, built with the same method, and it is reviewed by the DSP team before the certificate is issued.</p></details>
+    <details><summary>What jobs or income can this lead to?</summary><p>Three routes we see most: freelance agent builds for local businesses, monthly automation retainers, or an AI Employee running inside your own business. Phase 4 includes the discovery sheet, pricing calculator, proposal and contract templates DSP uses with its own clients. Results depend on the work you put in; nothing here is a promise of income.</p></details>
+    <details><summary>Do I need a powerful laptop?</summary><p>No. Any Windows or Mac machine from roughly the last six years with 8 GB of RAM is enough. Claude Code runs in a terminal, the model runs in Anthropic&apos;s cloud, and your agent is hosted on Vercel — the heavy work never happens on your machine.</p></details>
   </div>
 </div></section>
 

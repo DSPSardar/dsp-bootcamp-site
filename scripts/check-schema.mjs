@@ -119,7 +119,7 @@ if (referenced.every((r) => defined.has(r.id))) pass(`Links: ${referenced.length
 const REQUIRED = {
   Organization: ['name', 'url'],
   WebSite: ['name', 'url'],
-  WebPage: ['name', 'url'],
+  WebPage: ['name', 'url', 'dateModified', 'author'],
   Person: ['name'],
   Course: ['name', 'description', 'provider'],
   CourseInstance: ['courseMode'],
