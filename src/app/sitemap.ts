@@ -1,7 +1,7 @@
 // app/sitemap.ts — includes all company pages and ALL blog posts
 import { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/posts'
-import { agency } from '@/config/site'
+import { agency, liveGuides } from '@/config/site'
 import { PAGE_LAST_MODIFIED as MASTERY_LAST_MODIFIED } from '@/app/mastery/seo'
 import { PAGE_LAST_MODIFIED as FOUNDER_LAST_MODIFIED } from '@/app/sardar-ghaffar/seo'
 
@@ -33,6 +33,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // The founder's entity page (Entity Lock, 2026-09-06) — byline target sitewide.
     { url: `${SITE}/sardar-ghaffar`, lastModified: new Date(FOUNDER_LAST_MODIFIED), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE}/blog`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
+    // Query-shaped guides (Corroboration Engine) — live entries of site.ts `guides`.
+    ...liveGuides.map((g) => ({
+      url: `${SITE}${g.path}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.85,
+    })),
     { url: `${SITE}/contact`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
   ]
 

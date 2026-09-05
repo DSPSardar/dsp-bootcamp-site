@@ -459,3 +459,31 @@ export const cofounder = {
   description:
     'Co-founder and Course Director of Digital Services Program. Certified AI trainer and gold medallist in psychology; designs the DSP curriculum around how students actually learn.',
 } as const
+
+/** ─── DSP guides (Corroboration Engine, Day 2 — 2026-09-06) ───────────
+ *  The query-shaped answer pages, in the order they ship. ONE registry feeds
+ *  the footer "Guides" block, /llms.txt and the sitemap, so a guide is linked
+ *  everywhere the moment `live` flips to true — and nowhere before. Never
+ *  list a path here as live until its page.tsx exists on main. */
+export const guides = [
+  { path: '/best-ai-courses-in-pakistan', title: 'Best AI Courses in Pakistan (2026)', live: false },
+  { path: '/ai-agent-course-in-urdu', title: 'AI Agent Course in Urdu', live: false },
+  { path: '/ai-training-islamabad', title: 'AI Training in Islamabad', live: false },
+  { path: '/learn-ai-agents-pakistan', title: 'How to Learn AI Agents in Pakistan', live: false },
+  { path: '/mastery/curriculum', title: 'Mastery Curriculum: All 15 Modules', live: false },
+  { path: '/what-is-an-ai-employee', title: 'What Is an AI Employee?', live: false },
+  { path: '/research/pakistan-ai-skills-survey-2026', title: 'Pakistan AI Skills Survey 2026', live: false },
+  { path: '/frameworks/7-part-job-description', title: 'The 7-Part Job Description', live: false },
+] as const
+
+export const liveGuides = guides.filter((g) => g.live)
+
+/** IndexNow (Bing, Yandex, Naver, Seznam — and therefore the index ChatGPT
+ *  Search reads). The key is public by design: search engines verify it by
+ *  fetching /{key}.txt, which lives in public/. scripts/indexnow-ping.mjs
+ *  submits changed URLs after every production deploy. Rotate by generating
+ *  a new 32-hex key, replacing the file in public/, and updating this. */
+export const indexNow = {
+  key: 'ef9f1cb9f2f84334b3d952b0d3f8cb05',
+  endpoint: 'https://api.indexnow.org/indexnow',
+} as const
