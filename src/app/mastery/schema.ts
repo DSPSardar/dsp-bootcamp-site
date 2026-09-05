@@ -86,6 +86,8 @@ const course: JsonLd = {
   '@type': 'Course',
   '@id': COURSE_ID,
   name: mastery.name,
+  alternateName: ['AI Agent Course for Beginners', 'Agentic AI Mastery Course', 'Vibe Coding with Claude Code Training'],
+  courseCode: 'DSP-AIM-2026',
   description: SEO_DESCRIPTION,
   url: CANONICAL,
   image: ORG_IMAGE_URL,
@@ -103,21 +105,59 @@ const course: JsonLd = {
     'APIs',
     'RAG & memory',
     'MCP',
+    'Model Context Protocol (MCP)',
     'testing & observability',
     'security',
     'deployment',
     'multi-agent & business automation',
     'selling AI solutions',
+    'building autonomous AI employees',
+    'multi-tenant AI architecture',
   ],
   // Mirrors the FAQ ("Windows or Mac?", "Is $100 really all I pay?").
   coursePrerequisites: 'No coding background required. A Windows or Mac computer and a free Claude account.',
   // Total recorded-lecture time — mastery.lectureHours is '30+'.
   timeRequired: 'PT30H',
+  // Mirrors the FAQ ("Is there a certificate?"): the DSP Master certificate
+  // (verifiable URL) plus the three Claude Academy badges Module 3 walks
+  // through — issued by Anthropic, not by DSP.
   educationalCredentialAwarded: [
     {
       '@type': 'EducationalOccupationalCredential',
       name: 'DSP AI Agent Master certificate (verifiable URL)',
       credentialCategory: 'certificate',
+      recognizedBy: ref(ORGANIZATION_ID),
+      url: CANONICAL,
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'Claude 101 Badge',
+      credentialCategory: 'Digital Badge',
+      recognizedBy: {
+        '@type': 'Organization',
+        name: 'Anthropic',
+        url: 'https://www.anthropic.com',
+      },
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'Claude Code 101 Badge',
+      credentialCategory: 'Digital Badge',
+      recognizedBy: {
+        '@type': 'Organization',
+        name: 'Anthropic',
+        url: 'https://www.anthropic.com',
+      },
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'Introduction to Claude Cowork Badge',
+      credentialCategory: 'Digital Badge',
+      recognizedBy: {
+        '@type': 'Organization',
+        name: 'Anthropic',
+        url: 'https://www.anthropic.com',
+      },
     },
   ],
   // One Syllabus per module, titled and described exactly as the visible
