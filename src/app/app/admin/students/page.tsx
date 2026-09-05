@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation'
 import { supabaseServer, supabaseAdmin } from '@/lib/supabase/server'
 import { modules } from '@/lib/mastery/course'
+import { autoCompleteWatched } from '@/lib/mastery/progress'
 
 export const dynamic = 'force-dynamic'
 export const metadata = { title: 'Students — admin', robots: { index: false } }
@@ -18,6 +19,8 @@ export default async function StudentsPage() {
 
   const { data: profiles } = await admin.from('mastery_profiles')
     .select('id, email, full_name, status, enrolled_at').order('enrolled_at', { ascending: false })
+  // Backfill: tick off anything any student has watched past 80%, so opening this page unlocks them.
+  await Promise.all((profiles ?? []).map((p) => autoCompleteWatched(p.id, p.email)))
   const { data: views } = await admin.from('mastery_views').select('user_id, lesson_file, opens, seconds, duration, last_at')
   const { data: progress } = await admin.from('mastery_progress').select('user_id, lesson_file')
 
