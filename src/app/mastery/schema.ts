@@ -11,9 +11,12 @@
 //   Organization · WebSite · WebPage · Person · Course (+ CourseInstance,
 //   Offer, Syllabus×15, EducationalOccupationalCredential) · FAQPage.
 // VideoObject nodes were specified "only with a real title, thumbnail and
-// upload date" — the repo holds no thumbnail for any of the four embeds, so
-// none is emitted (see the report / V2-PROGRESS). The page's BreadcrumbList
-// stays in its own sitewide-convention script, outside this graph.
+// upload date". The welcome video's node is GATED on exactly that: it is
+// emitted only once `mastery.welcomePoster` (the thumbnail) is set — its
+// title is the player's, and its upload date and length come from the Bunny
+// metadata in course.json. The student-story embeds have no poster and no
+// node. The page's BreadcrumbList stays in its own sitewide-convention
+// script, outside this graph.
 //
 // Facts come from src/config/site.ts; FAQ and syllabus text come from the
 // page's own copy via ./faqs.ts and ./curriculum.ts (mirrored, and checked by
@@ -21,6 +24,7 @@
 // read on the page; no aggregateRating / review — there is no rating data
 // (Tier A spec §11: not until real reviews are visible on the page).
 import { site, mastery } from '@/config/site'
+import { welcomeVideoId } from '@/lib/mastery/course'
 import { ORGANIZATION_ID, ORG_IMAGE_URL, SCHEMA_CONTEXT, faqPageNode, organizationNode, ref, type JsonLd } from '@/lib/schema'
 import { MASTERY_CURRICULUM } from './curriculum'
 import { MASTERY_FAQS } from './faqs'
@@ -32,6 +36,7 @@ export const PERSON_ID = `${site.url}/#sardar-ghaffar`
 export const WEBPAGE_ID = `${CANONICAL}#webpage`
 export const COURSE_ID = `${CANONICAL}#course`
 export const FAQ_ID = `${CANONICAL}#faq`
+export const WELCOME_VIDEO_ID = `${CANONICAL}#welcome-video`
 
 /* ── WebSite and this WebPage ─────────────────────────────────────────── */
 const website: JsonLd = {
@@ -59,6 +64,7 @@ const webpage: JsonLd = {
   author: ref(PERSON_ID),
   publisher: ref(ORGANIZATION_ID),
   primaryImageOfPage: ORG_IMAGE_URL,
+  // Set below, once the video node's gate is known.
 }
 
 /* ── Person: the instructor ───────────────────────────────────────────── */
@@ -166,11 +172,39 @@ const course: JsonLd = {
   },
 }
 
+/* ── VideoObject: the welcome video — the same six-minute tour the hero
+ *    button, the pricebox link and the #welcome section all point at ──── */
+// Every field is a fact the page or the Bunny upload record already holds:
+// name = the player's title, description = the #welcome section's copy,
+// thumbnailUrl = the facade poster, uploadDate / duration = course.json's
+// bunny.uploaded_at / length_sec (written by scripts/bunny-upload.mjs),
+// embedUrl = the public signed-redirect route the page itself embeds.
+// `null` (no node) until the poster exists — never a placeholder image.
+const isoDuration = (sec: number) => `PT${Math.floor(sec / 60)}M${sec % 60}S`
+const welcomeVideo: JsonLd | null =
+  mastery.welcomePoster && welcomeVideoId?.status === 'ready' && welcomeVideoId.uploaded_at
+    ? {
+        '@type': 'VideoObject',
+        '@id': WELCOME_VIDEO_ID,
+        name: 'Welcome to DSP AI Agent Mastery',
+        description:
+          'A six-minute tour of the AI Employee that handles DSP\'s admissions, the content system behind 6 million views, and what the program looks like from the inside. Recorded by Sardar Ghaffar.',
+        thumbnailUrl: `${site.url}${mastery.welcomePoster}`,
+        uploadDate: welcomeVideoId.uploaded_at,
+        ...(welcomeVideoId.length_sec ? { duration: isoDuration(welcomeVideoId.length_sec) } : {}),
+        embedUrl: `${site.url}/api/video/${welcomeVideoId.guid}`,
+        inLanguage: ['ur', 'en'],
+        publisher: ref(ORGANIZATION_ID),
+        about: ref(COURSE_ID),
+      }
+    : null
+
 /* ── FAQPage: every visible Q/A, verbatim, markup-free ────────────────── */
 const faq = faqPageNode(MASTERY_FAQS, { '@id': FAQ_ID })
 
 /* ── The graph ────────────────────────────────────────────────────────── */
-export const masteryGraph: JsonLd[] = [organizationNode(), website, webpage, sardar, course, faq]
+if (welcomeVideo) webpage.video = ref(WELCOME_VIDEO_ID)
+export const masteryGraph: JsonLd[] = [organizationNode(), website, webpage, sardar, course, faq, ...(welcomeVideo ? [welcomeVideo] : [])]
 
 /** What the page serialises: `JSON.stringify(masterySchema)`. */
 export const masterySchema = { '@context': SCHEMA_CONTEXT, '@graph': masteryGraph }

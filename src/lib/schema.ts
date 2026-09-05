@@ -10,9 +10,11 @@
 // @graph (no @context), `*Ld()` wraps one for a standalone script.
 //
 // There is no VideoObject builder: the rule for the /mastery embeds is a real
-// title, thumbnail AND upload date per video or no node at all, and the repo
-// holds no thumbnail for any of them (see V2-PROGRESS, SEO pass Step 3). If
-// that changes, the builder removed in this pass is in git history.
+// title, thumbnail AND upload date per video or no node at all. The one
+// video that meets it once a poster exists — the welcome tour — is built as
+// a gated node in src/app/mastery/schema.ts (emitted only while
+// mastery.welcomePoster is set); the student-story embeds have no poster
+// and no node.
 //
 // There are deliberately NO builders for live cohorts: no batches exist
 // (bootcamp sunset 2026-08-30, see CLAUDE.md locked facts). The one
