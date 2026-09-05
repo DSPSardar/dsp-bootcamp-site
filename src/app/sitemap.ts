@@ -3,6 +3,7 @@ import { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/posts'
 import { agency } from '@/config/site'
 import { PAGE_LAST_MODIFIED as MASTERY_LAST_MODIFIED } from '@/app/mastery/seo'
+import { PAGE_LAST_MODIFIED as FOUNDER_LAST_MODIFIED } from '@/app/sardar-ghaffar/seo'
 
 const SITE = 'https://www.digitalservicesprogram.com'
 
@@ -29,6 +30,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/channelops`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE}/agents/case-studies`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+    // The founder's entity page (Entity Lock, 2026-09-06) — byline target sitewide.
+    { url: `${SITE}/sardar-ghaffar`, lastModified: new Date(FOUNDER_LAST_MODIFIED), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE}/blog`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
     { url: `${SITE}/contact`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
   ]

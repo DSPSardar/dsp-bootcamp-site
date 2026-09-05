@@ -119,7 +119,7 @@ export default function MasteryPage() {
     <div className="eyebrow">Self-paced · Lifetime access · 1 year free support</div>
     <h1>The AI agent course for beginners — go from zero to <em>building, deploying and selling</em> AI agents.</h1>
     <p className="lead">15 modules, taught in Urdu and English. You build one real AI Employee from an empty folder to a live URL — then your own. No coding background needed. $100 one-time, lifetime access. Updated {PAGE_UPDATED_MONTH}.</p>
-    <p className="byline">Written by <Link href="/about">Sardar Ghaffar</Link> · Google-verified AI Agentic Trainer · Anthropic-verified educator · Last updated {PAGE_UPDATED_DISPLAY}</p>
+    <p className="byline">Written by <Link href="/sardar-ghaffar">Sardar Ghaffar</Link> · Google-verified AI Agentic Trainer · Anthropic-verified educator · Last updated {PAGE_UPDATED_DISPLAY}</p>
     <div className="cta-row">
       <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.hero)} event="whatsapp_click" params={{ location: 'hero' }}>Start building <span className="price-tag">$100 · one-time</span></TrackedLink>
       <a className="btn btn-ghost" href="#welcome">Watch the 6-minute tour</a>
@@ -402,12 +402,12 @@ export default function MasteryPage() {
       <div className="eyebrow">Your instructor</div>
       <h2>Who teaches this AI agent course?</h2>
       <p className="answer">Sardar Ghaffar, founder of Digital Services Program: 24 years teaching IT in London, the UAE and Pakistan, now running the agency that builds <Link className="il" href="/ai-employees">the AI Employees DSP builds</Link> for clients. He is a Google-verified AI Agentic Trainer and an Anthropic (Claude)-verified educator, and he recorded every lecture in this course himself.</p>
-      <h3><Link href="/about">Sardar Ghaffar</Link></h3>
+      <h3><Link href="/sardar-ghaffar">Sardar Ghaffar</Link></h3>
       <p className="lead">I was in IT before most of my students had email. Twenty-four years of teaching — in London, the UAE and Pakistan — and the last few spent on one thing: showing people who aren&apos;t programmers how to build AI agents that work and earn.</p>
       <p className="lead" style={{marginTop:'14px'}}>Everything in this program is what I use with real clients. The templates are the ones my team uses. The AI Employee you build is a simplified version of the multi-tenant agents DSP builds for businesses. I&apos;ve watched thousands of students go from &quot;what is an agent?&quot; to a live URL. This is the path they took, cleaned up.</p>
-      <p className="md" style={{marginTop:'14px',color:'var(--muted)'}}>Read more <Link className="il" href="/about">about Sardar Ghaffar</Link>, including the public verification links for each credential. He also teaches the <Link className="il" href="/channelops#course">ChannelOps course</Link> for people who run a YouTube channel.</p>
+      <p className="md" style={{marginTop:'14px',color:'var(--muted)'}}>Read more <Link className="il" href="/sardar-ghaffar">about Sardar Ghaffar</Link>, including the public verification links for each credential. He also teaches the <Link className="il" href="/channelops#course">ChannelOps course</Link> for people who run a YouTube channel.</p>
       <div className="creds">
-        <span>Founder, Digital Services Program</span><a href="/about">Google-verified AI Agentic Trainer</a><a href="/about">Anthropic (Claude)-verified educator</a><span>24 years in IT</span>
+        <span>Founder, Digital Services Program</span><a href="/sardar-ghaffar">Google-verified AI Agentic Trainer</a><a href="/sardar-ghaffar">Anthropic (Claude)-verified educator</a><span>24 years in IT</span>
       </div>
     </div>
   </div>

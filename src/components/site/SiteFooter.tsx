@@ -36,7 +36,8 @@ export default function SiteFooter() {
           <div>
             <h3>Company</h3>
             <ul>
-              <li><Link href="/about">About Sardar</Link></li>
+              <li><Link href="/about">About DSP</Link></li>
+              <li><Link href="/sardar-ghaffar">Sardar Ghaffar</Link></li>
               <li><Link href="/blog">Blog</Link></li>
               <li><Link href="/contact">Contact</Link></li>
               <li><a href={socials.youtube}>YouTube</a></li>

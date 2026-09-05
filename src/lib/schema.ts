@@ -2,9 +2,11 @@
 // Shared/structural schema goes through these builders; pages render the
 // result in a <script type="application/ld+json"> tag. Page-unique schemas
 // with no second consumer (Service on the agency pages, Product on
-// /agents/restaurant-ai, Person on /about, BlogPosting on posts) stay as
-// typed object literals in their pages. /mastery composes its nodes into one
-// @graph in src/app/mastery/schema.ts.
+// /agents/restaurant-ai, BlogPosting on posts) stay as typed object literals
+// in their pages. /mastery composes its nodes into one @graph in
+// src/app/mastery/schema.ts. The founder and co-founder are NOT page-unique:
+// personNode() / cofounderNode() below are the only Person nodes on the site
+// (Entity Lock, 2026-09-06) and every page references them by @id.
 //
 // Two flavours of builder: `*Node()` returns a bare node for use inside a
 // @graph (no @context), `*Ld()` wraps one for a standalone script.
@@ -27,7 +29,7 @@
 // local intent; a second business entity would only dilute the Organization
 // node. Google's "missing streetAddress / postalCode" warning (audit
 // 2026-09-03) is on the Organization's PostalAddress and is fixed there.
-import { site, socials } from '@/config/site'
+import { cofounder, entity, founder, site, socials } from '@/config/site'
 
 export type JsonLd = Record<string, unknown>
 
@@ -37,6 +39,16 @@ export const SCHEMA_CONTEXT = 'https://schema.org'
  *  (the root layout's, the /mastery graph's) carries this id, so a parser
  *  merges them into one organisation instead of seeing two on the same page. */
 export const ORGANIZATION_ID = `${site.url}/#organization`
+
+/** Stable @id of the founder. Every Person mention of him — the root layout,
+ *  /about, /sardar-ghaffar, the /mastery graph, every BlogPosting author —
+ *  carries this id, so parsers see ONE person, not a different one per page
+ *  (Entity Lock, 2026-09-06; before it /about and /mastery emitted two
+ *  unlinked Person literals under two different names). */
+export const PERSON_ID = `${site.url}/#sardar-ghaffar`
+
+/** Stable @id of the co-founder. */
+export const COFOUNDER_ID = `${site.url}/#sundus-khan`
 
 /** The logo every Organization mention points at: public/logo.webp, the
  *  real 512×512 mark (replaced 2026-09-03; a PNG twin sits beside it). */
@@ -61,31 +73,96 @@ export function postalAddressNode(): JsonLd {
   }
 }
 
-/** Sitewide Organization node — exactly the identity fields; the root layout
- *  adds slogan/email on top via organizationLd(). */
+/** Sitewide Organization node — the identity fields plus the entity facts
+ *  from site.ts (`entity`): legal name, the disambiguating description,
+ *  founder, languages, areas served. `foundingDate` is emitted only when the
+ *  owner has set it. The root layout adds slogan/email via entityGraphLd(). */
 export function organizationNode(): JsonLd {
   return {
     '@type': 'Organization',
     '@id': ORGANIZATION_ID,
     name: site.name,
-    alternateName: site.shortName,
+    alternateName: [site.shortName, entity.legalName],
+    legalName: entity.legalName,
+    description: entity.description,
     url: site.url,
     logo: LOGO_URL,
     image: ORG_IMAGE_URL,
     telephone: site.telephone,
+    email: site.email,
     address: postalAddressNode(),
+    ...(entity.foundingDate ? { foundingDate: entity.foundingDate } : {}),
+    founder: [ref(PERSON_ID), ref(COFOUNDER_ID)],
+    knowsLanguage: [...entity.knowsLanguage],
+    areaServed: [...entity.areaServed],
     parentOrganization: { '@type': 'Organization', name: site.parentCompany },
     sameAs: Object.values(socials),
   }
 }
 
-/** Sitewide Organization — rendered once, in the root layout. */
+/** The founder as ONE Person node. `extra` lets a page add page-specific
+ *  fields (the /mastery graph adds nothing it cannot show; /sardar-ghaffar
+ *  adds mainEntityOfPage). Name, title, description, image, credentials and
+ *  sameAs all come from site.ts so every mention is identical. */
+export function personNode(extra: JsonLd = {}): JsonLd {
+  return {
+    '@type': 'Person',
+    '@id': PERSON_ID,
+    name: founder.name,
+    alternateName: founder.alternateName,
+    jobTitle: founder.jobTitle,
+    description: founder.description,
+    url: `${site.url}${founder.path}`,
+    image: `${site.url}${founder.image}`,
+    worksFor: ref(ORGANIZATION_ID),
+    knowsAbout: [...founder.knowsAbout],
+    knowsLanguage: [...entity.knowsLanguage],
+    hasCredential: founder.credentials.map((c) => ({
+      '@type': 'EducationalOccupationalCredential',
+      name: c.name,
+      url: c.url,
+    })),
+    sameAs: [founder.linkedin, socials.youtube, socials.github, ...founder.credentials.map((c) => c.url)],
+    ...extra,
+  }
+}
+
+/** The co-founder as one Person node (first name + surname only, no photo —
+ *  owner ruling Aug 2026 on the leadership card). */
+export function cofounderNode(): JsonLd {
+  return {
+    '@type': 'Person',
+    '@id': COFOUNDER_ID,
+    name: cofounder.name,
+    jobTitle: cofounder.jobTitle,
+    description: cofounder.description,
+    url: `${site.url}/about`,
+    worksFor: ref(ORGANIZATION_ID),
+    knowsAbout: ['AI agents', 'AI training', 'Curriculum design', 'Psychology', 'Learner engagement'],
+    hasCredential: [
+      { '@type': 'EducationalOccupationalCredential', name: 'Certified AI Trainer' },
+      { '@type': 'EducationalOccupationalCredential', name: 'Gold Medallist, Psychology' },
+    ],
+  }
+}
+
+/** Sitewide Organization — kept for callers that want a single node. */
 export function organizationLd(): JsonLd {
   return {
     '@context': SCHEMA_CONTEXT,
     ...organizationNode(),
     slogan: site.tagline,
-    email: site.email,
+  }
+}
+
+/** The sitewide entity graph rendered once, in the root layout: the
+ *  Organization, its founder and co-founder, linked by @id. Pages that emit
+ *  their own graph (/mastery) reuse the same nodes via organizationNode() /
+ *  personNode(), so a parser merges everything into one entity set. */
+export function entityGraphLd(): JsonLd {
+  return {
+    '@context': SCHEMA_CONTEXT,
+    '@graph': [{ ...organizationNode(), slogan: site.tagline }, personNode(), cofounderNode()],
   }
 }
 

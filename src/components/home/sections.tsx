@@ -167,19 +167,19 @@ export function InstructorSection() {
             preload="metadata"
             playsInline
             poster="/instructor-poster.jpg"
-            aria-label="Sardar Abdul Ghaffar Khan explains the 7-day AI Agents Bootcamp — 3 minutes 54 seconds"
+            aria-label="Sardar Ghaffar explains the 7-day AI Agents Bootcamp — 3 minutes 54 seconds"
           >
             <source src="/instructor-intro.mp4" type="video/mp4" />
             {/* TODO: add captions for accessibility (WCAG 1.2.2):
                 <track kind="captions" src="/instructor-intro.en.vtt" srcLang="en" label="English" /> */}
             Your browser does not support video. <a href="/instructor-intro.mp4">Download the intro video</a>.
           </video>
-          <p className="inst-video-cap">Sardar Abdul Ghaffar Khan walks through the bootcamp — 3 min 54 sec</p>
+          <p className="inst-video-cap">Sardar Ghaffar walks through the bootcamp — 3 min 54 sec</p>
         </div>
         <div>
           <p className="eyebrow">The instructor</p>
           <h2>Not a course library. A teacher.</h2>
-          <p><strong>Sardar Abdul Ghaffar Khan</strong> has spent 24 years in the IT industry and has taught in London, the UAE, and Pakistan. A Google-certified AI trainer, he taught every session of the Lab himself — live, every night, answering questions in English and Urdu. Press play and let him explain the program directly.</p>
+          <p><strong>Sardar Ghaffar</strong> has spent 24 years in the IT industry and has taught in London, the UAE, and Pakistan. A Google-certified AI trainer, he taught every session of the Lab himself — live, every night, answering questions in English and Urdu. Press play and let him explain the program directly.</p>
           <p className="inst-stack">24 years in IT · Google-certified AI trainer · taught in 🇬🇧 🇦🇪 🇵🇰 · builder of <a href="https://getaisales.com">getaisales.com</a></p>
           <ul className="cred-list">
             <li><svg className="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17l-5.9 3 1.2-6.5L2.5 8.9 9.1 8z" /></svg> 24 years in the IT industry across three countries</li>

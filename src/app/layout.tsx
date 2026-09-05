@@ -5,7 +5,7 @@ import './tokens.css'
 import './globals.css'
 import Analytics from '@/components/site/Analytics'
 
-import { organizationLd } from '@/lib/schema'
+import { entityGraphLd } from '@/lib/schema'
 
 // Blueprint §6: display serif on hero + H2 only, Inter for body/UI,
 // JetBrains Mono for code — all self-hosted via next/font (no runtime
@@ -55,8 +55,10 @@ export const viewport: Viewport = {
   maximumScale: 5,
 }
 
-// Sitewide Organization schema via the typed builder (src/lib/schema.ts) —
-// page-level schemas (Course, Product, Service, Person) live on their own pages.
+// Sitewide entity graph via the typed builders (src/lib/schema.ts): the
+// Organization plus its founder and co-founder as Person nodes, linked by
+// @id, on every page. Page-level schemas (Course, Product, Service,
+// BlogPosting) live on their own pages and point at these ids.
 
 export default function RootLayout({
   children,
@@ -77,7 +79,7 @@ export default function RootLayout({
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd()) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(entityGraphLd()) }}
         />
         {children}
         <Analytics />

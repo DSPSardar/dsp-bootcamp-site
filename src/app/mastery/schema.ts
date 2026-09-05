@@ -25,14 +25,14 @@
 // (Tier A spec §11: not until real reviews are visible on the page).
 import { site, mastery } from '@/config/site'
 import { welcomeVideoId } from '@/lib/mastery/course'
-import { ORGANIZATION_ID, ORG_IMAGE_URL, SCHEMA_CONTEXT, faqPageNode, organizationNode, ref, type JsonLd } from '@/lib/schema'
+import { ORGANIZATION_ID, ORG_IMAGE_URL, PERSON_ID, SCHEMA_CONTEXT, cofounderNode, faqPageNode, organizationNode, personNode, ref, type JsonLd } from '@/lib/schema'
 import { MASTERY_CURRICULUM } from './curriculum'
 import { MASTERY_FAQS } from './faqs'
 import { CANONICAL, PAGE_LAST_MODIFIED, SEO_DESCRIPTION, SEO_TITLE } from './seo'
 
 /* ── Node ids ──────────────────────────────────────────────────────────── */
 export const WEBSITE_ID = `${site.url}/#website`
-export const PERSON_ID = `${site.url}/#sardar-ghaffar`
+export { PERSON_ID }
 export const WEBPAGE_ID = `${CANONICAL}#webpage`
 export const COURSE_ID = `${CANONICAL}#course`
 export const FAQ_ID = `${CANONICAL}#faq`
@@ -68,38 +68,13 @@ const webpage: JsonLd = {
 }
 
 /* ── Person: the instructor ───────────────────────────────────────────── */
-// Name and title are the owner's spec for this page and match the visible
-// instructor section; `url` is the byline link. The two credentials are the
-// ones /about publishes with public verification links — nothing is listed
-// here that a visitor cannot verify there. NOTE: /about emits its own Person
-// literal ("Sardar Abdul Ghaffar Khan", "Co-Founder & Lead Instructor")
-// without an @id, so the two do not merge — align /about with PERSON_ID
-// when that page is next touched.
-const sardar: JsonLd = {
-  '@type': 'Person',
-  '@id': PERSON_ID,
-  name: 'Sardar Ghaffar',
-  jobTitle: 'Founder & Lead Instructor',
-  url: `${site.url}/about`,
-  worksFor: ref(ORGANIZATION_ID),
-  // The portrait rendered in the instructor section of page.tsx.
-  image: `${site.url}/mastery/sardar.jpg`,
-  knowsAbout: ['AI agents', 'Claude', 'Claude Code', 'prompt engineering', 'context engineering', 'MCP', 'RAG', 'business automation'],
-  description:
-    '24 years of IT teaching in London, the UAE and Pakistan; Google-verified AI Agentic Trainer; Anthropic (Claude)-verified educator.',
-  hasCredential: [
-    {
-      '@type': 'EducationalOccupationalCredential',
-      name: 'Gemini Certified Educator (Google for Education, valid 2025–2028)',
-      url: 'https://www.credential.net/aae3459a-b0b9-463e-86cd-da7806e00e5d',
-    },
-    {
-      '@type': 'EducationalOccupationalCredential',
-      name: 'Google/Kaggle AI Agents Intensive — Vibe Coding Course certification (2026)',
-      url: 'https://www.kaggle.com/certification/badges/abdulghaffarkhan804/108',
-    },
-  ],
-}
+// The ONE Person node the whole site shares (src/lib/schema.ts personNode —
+// name, title, description, portrait, credentials and sameAs all come from
+// src/config/site.ts `founder`). The visible instructor section and byline
+// on this page link to the same /sardar-ghaffar URL the node carries. The
+// two credentials it lists are the ones /about and /sardar-ghaffar publish
+// with public verification links — nothing a visitor cannot verify.
+const sardar: JsonLd = personNode()
 
 /* ── Course: the product ──────────────────────────────────────────────── */
 // Self-paced, so the single CourseInstance has a mode and a workload but no
@@ -204,7 +179,9 @@ const faq = faqPageNode(MASTERY_FAQS, { '@id': FAQ_ID })
 
 /* ── The graph ────────────────────────────────────────────────────────── */
 if (welcomeVideo) webpage.video = ref(WELCOME_VIDEO_ID)
-export const masteryGraph: JsonLd[] = [organizationNode(), website, webpage, sardar, course, faq, ...(welcomeVideo ? [welcomeVideo] : [])]
+// cofounderNode() is in the graph because the Organization's `founder` list
+// references her @id and every reference must resolve (test:schema).
+export const masteryGraph: JsonLd[] = [organizationNode(), website, webpage, sardar, cofounderNode(), course, faq, ...(welcomeVideo ? [welcomeVideo] : [])]
 
 /** What the page serialises: `JSON.stringify(masterySchema)`. */
 export const masterySchema = { '@context': SCHEMA_CONTEXT, '@graph': masteryGraph }

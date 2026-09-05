@@ -390,4 +390,71 @@ export const socials = {
   facebook: 'https://www.facebook.com/DigitalServicesProgram',
   instagram: 'https://www.instagram.com/digitalservicesprogram',
   linkedin: 'https://www.linkedin.com/company/digitalservicesprogram',
+  /** The org that hosts this site's repo and the public Mastery prompt library. */
+  github: 'https://github.com/DSPSardar',
+} as const
+
+/** ─── Entity Lock (Corroboration Engine, Day 1 — 2026-09-06) ───────────
+ *  ONE public identity for the company and its founder, stated identically
+ *  in every schema node, page, and off-site profile. Owner decision 5 Sep
+ *  2026: the founder's public name is "Sardar Ghaffar" everywhere, with the
+ *  full name kept only as an alternateName; the co-founder's public spelling
+ *  is "Sundus Khan". Never reintroduce "Sardar Abdul Ghaffar Khan" as a
+ *  visible name or "Sundas". `foundingDate` stays null (no node field is
+ *  emitted) until the owner supplies the real month — never estimate it. */
+export const entity = {
+  legalName: 'Digital Services Program Pvt. Ltd.',
+  /** The disambiguating one-liner: "Digital Services Program" is also the name
+   *  of government programmes in India, the EU and the UK. Every Organization
+   *  node and profile carries this so machines can tell DSP apart. */
+  description:
+    'Digital Services Program (DSP) is an AI agents training company and AI agency in Islamabad, Pakistan. It teaches beginners to build, deploy and sell AI agents in Urdu and English through DSP AI Agent Mastery, and builds AI Employees for businesses worldwide. Not affiliated with any government digital-services programme.',
+  /** ISO month, e.g. '2025-03' — null until confirmed by the owner. */
+  foundingDate: null as string | null,
+  knowsLanguage: ['ur', 'en'],
+  /** Where students and clients come from (owner's list, Aug 2026). */
+  areaServed: ['PK', 'AE', 'SA', 'GB', 'US', 'CA', 'AU', 'MY'],
+} as const
+
+export const founder = {
+  name: 'Sardar Ghaffar',
+  alternateName: 'Sardar Abdul Ghaffar Khan',
+  jobTitle: 'Founder & Lead Instructor',
+  /** The entity page — the byline target sitewide. */
+  path: '/sardar-ghaffar',
+  /** One sentence, used verbatim on /sardar-ghaffar, /about, /mastery and off-site profiles. */
+  description:
+    'Founder and lead instructor of Digital Services Program (DSP), Islamabad. Google-certified AI Agentic Trainer, Gemini Certified Educator and Anthropic (Claude)-verified educator; teaching technology since 2002, with 24+ years in IT across London, the UAE and Pakistan.',
+  image: '/mastery/sardar.jpg',
+  linkedin: 'https://www.linkedin.com/in/sardar-abdul-ghaffar-khan-43a378a4',
+  /** Public, verifiable credentials — the only ones the schema may list. */
+  credentials: [
+    {
+      name: 'Gemini Certified Educator (Google for Education, valid 2025–2028)',
+      url: 'https://www.credential.net/aae3459a-b0b9-463e-86cd-da7806e00e5d',
+    },
+    {
+      name: 'Google/Kaggle AI Agents Intensive — Vibe Coding Course certification (2026)',
+      url: 'https://www.kaggle.com/certification/badges/abdulghaffarkhan804/108',
+    },
+  ],
+  knowsAbout: [
+    'AI agents',
+    'Claude',
+    'Claude Code',
+    'Vibe Coding',
+    'prompt engineering',
+    'context engineering',
+    'MCP',
+    'RAG',
+    'business automation',
+    'SEO',
+  ],
+} as const
+
+export const cofounder = {
+  name: 'Sundus Khan',
+  jobTitle: 'Co-Founder & Course Director',
+  description:
+    'Co-founder and Course Director of Digital Services Program. Certified AI trainer and gold medallist in psychology; designs the DSP curriculum around how students actually learn.',
 } as const

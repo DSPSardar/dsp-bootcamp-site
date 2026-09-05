@@ -1,59 +1,43 @@
-// src/app/about/page.tsx — Sardar Abdul Ghaffar Khan and the company.
+// src/app/about/page.tsx — Sardar Ghaffar, Sundus Khan and the company.
+// Names come from src/config/site.ts (`founder`, `cofounder`) — the Entity
+// Lock's single public identity. The Person nodes are the sitewide ones
+// (root layout); this page only adds a ProfilePage-free AboutPage node that
+// points at them, so parsers see one founder, not one per page.
 import type { Metadata } from 'next'
-import { breadcrumbLd } from '@/lib/schema'
+import { COFOUNDER_ID, ORGANIZATION_ID, PERSON_ID, SCHEMA_CONTEXT, breadcrumbLd, ref } from '@/lib/schema'
 import Image from 'next/image'
 import Link from 'next/link'
 import SiteShell from '@/components/site/SiteShell'
 import { CheckIcon, WhatsAppIcon } from '@/components/home/icons'
-import { bootcamp, site, waLink } from '@/config/site'
+import { bootcamp, cofounder, founder, site, waLink } from '@/config/site'
 
 export const metadata: Metadata = {
   title: { absolute: 'About DSP — Founder & Trainers, Digital Services Program' },
   description:
-    'Sardar Abdul Ghaffar Khan: 24+ years in IT across London, the UAE, and Pakistan, Google Certified AI Agentic Trainer, Gemini Certified Educator (2025–2028). Meet the trainers behind DSP Academy.',
+    'Sardar Ghaffar: 24+ years in IT across London, the UAE, and Pakistan, Google Certified AI Agentic Trainer, Gemini Certified Educator (2025–2028). Meet the founders behind Digital Services Program (DSP), Islamabad.',
   alternates: { canonical: '/about' },
   openGraph: {
     type: 'profile',
     url: '/about',
-    title: 'About Sardar Abdul Ghaffar Khan | DSP',
+    title: 'About Sardar Ghaffar | DSP',
     description:
       'The instructor and engineer behind DSP — 24+ years in IT, taught in London, UAE, and Pakistan.',
     images: [{ url: '/og-card.png', width: 1200, height: 630 }],
   },
 }
 
-const personLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: 'Sardar Abdul Ghaffar Khan',
-  jobTitle: 'Co-Founder & Lead Instructor',
-  worksFor: { '@type': 'Organization', name: site.name, url: site.url },
+// The page node: an AboutPage whose mainEntity is the Organization and whose
+// `about` lists the two founders — all three by @id, defined once in the
+// root layout's entity graph.
+const aboutPageLd = {
+  '@context': SCHEMA_CONTEXT,
+  '@type': 'AboutPage',
+  '@id': `${site.url}/about#webpage`,
   url: `${site.url}/about`,
-  knowsAbout: ['AI agents', 'Multi-agent systems', 'AI training', 'Software engineering'],
-  hasCredential: [
-    {
-      '@type': 'EducationalOccupationalCredential',
-      name: 'Google Certified AI Agentic Trainer',
-    },
-    {
-      '@type': 'EducationalOccupationalCredential',
-      name: 'Gemini Certified Educator (Google for Education, valid 2025–2028)',
-      url: 'https://www.credential.net/aae3459a-b0b9-463e-86cd-da7806e00e5d',
-    },
-  ],
-}
-
-const sundasLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: 'Sundas Khan',
-  jobTitle: 'Co-Founder & Course Director',
-  worksFor: { '@type': 'Organization', name: site.name, url: site.url },
-  knowsAbout: ['AI agents', 'AI training', 'Curriculum design', 'Psychology', 'Learner engagement'],
-  hasCredential: [
-    { '@type': 'EducationalOccupationalCredential', name: 'Certified AI Trainer' },
-    { '@type': 'EducationalOccupationalCredential', name: 'Gold Medallist, Psychology' },
-  ],
+  name: 'About DSP — Founder & Trainers, Digital Services Program',
+  mainEntity: ref(ORGANIZATION_ID),
+  about: [ref(PERSON_ID), ref(COFOUNDER_ID)],
+  publisher: ref(ORGANIZATION_ID),
 }
 
 export default function AboutPage() {
@@ -63,11 +47,7 @@ export default function AboutPage() {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(sundasLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageLd) }}
       />
 
       {/* ============ HERO ============ */}
@@ -76,8 +56,8 @@ export default function AboutPage() {
           <p className="eyebrow">About</p>
           <h1>Built by a small team. <em>Taught live, by all of them.</em></h1>
           <p className="sub">
-            Digital Services Program was founded by Sardar Abdul Ghaffar Khan and Sundas Khan,
-            DSP&apos;s Course Director.
+            Digital Services Program (DSP) is an AI agents training company and AI agency in
+            Islamabad, Pakistan, founded by {founder.name} and {cofounder.name}, DSP&apos;s Course Director.
           </p>
         </div>
       </section>
@@ -91,7 +71,7 @@ export default function AboutPage() {
             <p style={{ color: 'var(--navy-soft)', marginTop: '.9rem' }}>
               Sardar has spent more than 24 years in the IT industry, teaching and building in
               London, the UAE, and Pakistan. He founded the Sardar Group of Companies, and
-              launched DSP together with Sundas Khan, now DSP&apos;s Course Director, as its
+              launched DSP together with {cofounder.name}, now DSP&apos;s Course Director, as its
               answer to the AI moment: one division that builds AI agents for clients worldwide,
               and one that trains people to build them.
             </p>
@@ -106,6 +86,9 @@ export default function AboutPage() {
               <li><CheckIcon /> Founder, Sardar Group of Companies</li>
               <li><CheckIcon /> Every DSP class taught live by him — no pre-recorded stand-ins</li>
             </ul>
+            <p style={{ marginTop: '1.2rem' }}>
+              <Link href={founder.path} style={{ color: 'var(--teal-deep)', fontWeight: 600 }}>Full profile, credentials and everything he has written →</Link>
+            </p>
           </div>
           <div>
             <a
@@ -168,8 +151,8 @@ export default function AboutPage() {
                 SG
               </span>
               <div>
-                <h3>Sardar Abdul Ghaffar Khan</h3>
-                <p style={{ color: 'var(--gold)', fontSize: '.85rem', fontFamily: 'var(--mono)', margin: '.2rem 0 .6rem' }}>Co-Founder &amp; Lead Instructor</p>
+                <h3><Link href={founder.path} style={{ color: 'inherit', textDecoration: 'none' }}>{founder.name}</Link></h3>
+                <p style={{ color: 'var(--gold)', fontSize: '.85rem', fontFamily: 'var(--mono)', margin: '.2rem 0 .6rem' }}>{founder.jobTitle}</p>
                 <p>24+ years in IT across London, the UAE, and Pakistan. Google Certified AI Agentic Trainer and Gemini Certified Educator. Taught every Agentic Lab cohort live.</p>
               </div>
             </div>
@@ -181,8 +164,8 @@ export default function AboutPage() {
                 SK
               </span>
               <div>
-                <h3>Sundas Khan</h3>
-                <p style={{ color: 'var(--gold)', fontSize: '.85rem', fontFamily: 'var(--mono)', margin: '.2rem 0 .6rem' }}>Co-Founder &amp; Course Director</p>
+                <h3>{cofounder.name}</h3>
+                <p style={{ color: 'var(--gold)', fontSize: '.85rem', fontFamily: 'var(--mono)', margin: '.2rem 0 .6rem' }}>{cofounder.jobTitle}</p>
                 <p>
                   Certified AI trainer and gold medallist in psychology, one of the country&apos;s
                   leading AI trainers. Her background in psychology means she teaches to how

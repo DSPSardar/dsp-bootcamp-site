@@ -1,6 +1,7 @@
 // app/blog/[slug]/page.tsx — single blog post (Server Component)
 import type { Metadata } from 'next'
-import { breadcrumbLd } from '@/lib/schema'
+import { ORGANIZATION_ID, PERSON_ID, breadcrumbLd, ref } from '@/lib/schema'
+import Byline from '@/components/Byline'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -69,12 +70,12 @@ export default async function BlogPost(
     datePublished: post.date,
     dateModified: post.date,
     articleSection: post.category,
-    author: { '@type': 'Organization', name: post.author, url: SITE },
-    publisher: {
-      '@type': 'Organization',
-      name: 'Digital Services Program',
-      logo: { '@type': 'ImageObject', url: `${SITE}/logo.webp` },
-    },
+    // Entity Lock (2026-09-06): every post is authored by the founder's ONE
+    // Person node and published by the ONE Organization node — both defined
+    // in the root layout's entity graph and referenced here by @id, so
+    // authorship accrues to a single entity instead of a per-page literal.
+    author: ref(PERSON_ID),
+    publisher: ref(ORGANIZATION_ID),
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
   }
 
@@ -105,7 +106,7 @@ export default async function BlogPost(
         </p>
 
         <h1 className="dsp-post__title">{post.title}</h1>
-        <p className="dsp-post__byline">By {post.author}</p>
+        <Byline date={post.date} />
 
         <div className="dsp-post__hero">
           <Image
