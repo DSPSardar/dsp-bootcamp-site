@@ -466,8 +466,8 @@ export const cofounder = {
  *  everywhere the moment `live` flips to true — and nowhere before. Never
  *  list a path here as live until its page.tsx exists on main. */
 export const guides = [
-  { path: '/best-ai-courses-in-pakistan', title: 'Best AI Courses in Pakistan (2026)', live: false },
-  { path: '/ai-agent-course-in-urdu', title: 'AI Agent Course in Urdu', live: false },
+  { path: '/best-ai-courses-in-pakistan', title: 'Best AI Courses in Pakistan (2026)', live: true },
+  { path: '/ai-agent-course-in-urdu', title: 'AI Agent Course in Urdu', live: true },
   { path: '/ai-training-islamabad', title: 'AI Training in Islamabad', live: false },
   { path: '/learn-ai-agents-pakistan', title: 'How to Learn AI Agents in Pakistan', live: false },
   { path: '/mastery/curriculum', title: 'Mastery Curriculum: All 15 Modules', live: false },
