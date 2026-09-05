@@ -1,8 +1,10 @@
 import { requireStudent } from '@/lib/mastery/auth'
 import { modules, unlockState, badges, courseMeta } from '@/lib/mastery/course'
+import { autoCompleteWatched } from '@/lib/mastery/progress'
 
 export default async function Dashboard() {
   const { sb, user } = await requireStudent()
+  await autoCompleteWatched(user.id, user.email)
   const { data: rows } = await sb.from('mastery_progress').select('lesson_file').eq('user_id', user.id)
   const done = new Set((rows ?? []).map((r) => r.lesson_file))
   const state = unlockState(done)
@@ -23,7 +25,7 @@ export default async function Dashboard() {
       </div>
       <div className="panel">
         <h2>How this works</h2>
-        <p className="md">Watch the lessons. Build the project — every module has a template and copy-paste prompts in its downloads. Share a screenshot in the DSP group. Mark each lesson complete and the next module opens. No tests. No grades. One build at a time.</p>
+        <p className="md">Watch the lessons. Build the project — every module has a template and copy-paste prompts in its downloads. Share a screenshot in the DSP group. Lessons are marked complete automatically once you have watched them, and the next module opens. No tests. No grades. One build at a time.</p>
       </div>
     </>
   )

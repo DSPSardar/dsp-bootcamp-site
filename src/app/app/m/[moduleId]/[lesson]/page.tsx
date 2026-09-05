@@ -7,6 +7,7 @@ import BunnyPlayer from '@/components/mastery/BunnyPlayer'
 import WatchTracker from '@/components/mastery/WatchTracker'
 import { postAsosEvent } from '@/lib/mastery/asos'
 import { badges } from '@/lib/mastery/course'
+import { autoCompleteWatched } from '@/lib/mastery/progress'
 
 export default async function LessonPage({ params }: { params: Promise<{ moduleId: string; lesson: string }> }) {
   const { moduleId, lesson } = await params
@@ -17,6 +18,7 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
   const l = found
   const lessonFile = l.file
   const { sb, user } = await requireStudent()
+  await autoCompleteWatched(user.id, user.email)
   const { data: rows } = await sb.from('mastery_progress').select('lesson_file').eq('user_id', user.id)
   const done = new Set((rows ?? []).map((r) => r.lesson_file))
   if (!unlockState(done, await isAdminUser(user.email))[m.id].unlocked) redirect('/app')
@@ -72,7 +74,7 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
           <form action={toggle} className="inline">
             <button className={`btn ${isDone ? 'btn-ghost' : 'btn-gold'}`} type="submit" disabled={!canComplete}
               title={canComplete ? undefined : 'Watch the lesson through to mark it complete — this button unlocks by itself at 80%'}>
-              {isDone ? '✓ Marked complete — undo' : canComplete ? 'Mark lesson complete' : `Keep watching — ${Math.round(watchedFrac * 100)}% of 80% (unlocks automatically)`}
+              {isDone ? '✓ Complete — undo' : canComplete ? 'Mark lesson complete' : `Watched ${Math.round(watchedFrac * 100)}% — completes itself at 80%`}
             </button>
           </form>
           {!canComplete && <a className="btn btn-ghost" href={`/app/m/${m.id}/${lessonSlug(l.file)}`}>Already watched it? Refresh ↻</a>}

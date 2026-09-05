@@ -1,11 +1,13 @@
 import { notFound, redirect } from 'next/navigation'
 import { requireStudent, isAdminUser } from '@/lib/mastery/auth'
 import { moduleFor, unlockState, lessonTitle, lessonSlug } from '@/lib/mastery/course'
+import { autoCompleteWatched } from '@/lib/mastery/progress'
 
 export default async function ModulePage({ params }: { params: Promise<{ moduleId: string }> }) {
   const { moduleId } = await params
   const m = moduleFor(moduleId); if (!m) notFound()
   const { sb, user } = await requireStudent()
+  await autoCompleteWatched(user.id, user.email)
   const { data: rows } = await sb.from('mastery_progress').select('lesson_file').eq('user_id', user.id)
   const done = new Set((rows ?? []).map((r) => r.lesson_file))
   const s = unlockState(done, await isAdminUser(user.email))[m.id]
@@ -36,7 +38,7 @@ export default async function ModulePage({ params }: { params: Promise<{ moduleI
       <div className="panel">
         <h2>Build project</h2>
         <p className="md">{m.build_project}</p>
-        <p className="note">Share a screenshot or link in the DSP group when it works. Then mark the lessons complete — the next module opens automatically.</p>
+        <p className="note">Share a screenshot or link in the DSP group when it works. Lessons tick themselves off once watched — the next module opens automatically.</p>
       </div>
       <div className="panel">
         <h2>Downloads</h2>

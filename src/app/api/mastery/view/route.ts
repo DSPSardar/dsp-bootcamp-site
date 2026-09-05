@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { supabaseServer, supabaseAdmin } from '@/lib/supabase/server'
+import { autoCompleteWatched } from '@/lib/mastery/progress'
 
 /** Records what a student actually watched. Called when a lesson opens and every ~20s of playback.
  *  Server-side only: the student's browser can't write a higher number than it reports, and we keep
@@ -27,5 +28,7 @@ export async function POST(req: Request) {
   }
   const { error } = await admin.from('mastery_views').upsert(row, { onConflict: 'user_id,lesson_file' })
   if (error) return NextResponse.json({ error: error.message }, { status: 500 })
-  return NextResponse.json({ ok: true })
+  // Crossed the threshold? Mark it complete now so the next module unlocks without a click.
+  const completed = await autoCompleteWatched(user.id, user.email)
+  return NextResponse.json({ ok: true, completed })
 }
