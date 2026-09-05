@@ -36,7 +36,15 @@ export default async function StudentsPage() {
       perModule.set(mid, { opened: cur.opened + 1, watched: cur.watched + (x.seconds ?? 0) })
     })
     const lastAt = v.map((x) => x.last_at).sort().pop() ?? null
-    return { p, opened: v.length, watched, marked: marked.length, perModule, lastAt }
+    // Per-lesson detail for the first three modules — enough to see why a student is stuck.
+    const markedSet = new Set(marked.map((x) => x.lesson_file))
+    const detail = modules.slice(0, 3).flatMap((m) => m.lessons.filter((l) => l.kind === 'core').map((l) => {
+      const row = v.find((x) => x.lesson_file === l.file)
+      const dur = row?.duration || ((l.bunny as { length_sec?: number } | undefined)?.length_sec ?? 0) || l.minutes * 60
+      const pct = row && dur ? Math.round(((row.seconds ?? 0) / dur) * 100) : 0
+      return { id: `${m.id}-${l.file.slice(4, 7)}`, opens: row?.opens ?? 0, secs: row?.seconds ?? 0, dur, pct, done: markedSet.has(l.file) }
+    }))
+    return { p, opened: v.length, watched, marked: marked.length, perModule, lastAt, detail }
   })
 
   return (
@@ -49,7 +57,7 @@ export default async function StudentsPage() {
 
       {rows.length === 0 && <div className="panel"><p className="muted">No students yet.</p></div>}
 
-      {rows.map(({ p, opened, watched, marked, perModule, lastAt }) => (
+      {rows.map(({ p, opened, watched, marked, perModule, lastAt, detail }) => (
         <div className="panel" key={p.id}>
           <h2 style={{ marginBottom: 2 }}>{p.full_name || p.email}</h2>
           <p className="muted">{p.email} · {p.status} · enrolled {day(p.enrolled_at)} · last activity {day(lastAt)}</p>
@@ -72,6 +80,17 @@ export default async function StudentsPage() {
               )
             })}
           </div>
+          {detail.some((d) => d.opens > 0) && (
+            <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginTop: 10 }}>
+              {detail.map((d) => (
+                <span key={d.id} title={`${d.opens} open(s) · ${d.secs}s of ${d.dur}s`}
+                  style={{ fontFamily: 'var(--mono)', fontSize: 12, padding: '4px 8px', borderRadius: 6, border: '1px solid var(--line)',
+                    color: d.done ? 'var(--gold)' : d.pct >= 80 ? '#7fd3a0' : d.opens ? '#f0b46a' : 'var(--muted)' }}>
+                  {d.id} {d.pct}%{d.done ? ' ✓' : ''}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       ))}
     </>
