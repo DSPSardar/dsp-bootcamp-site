@@ -400,8 +400,8 @@ export const socials = {
  *  2026: the founder's public name is "Sardar Ghaffar" everywhere, with the
  *  full name kept only as an alternateName; the co-founder's public spelling
  *  is "Sundus Khan". Never reintroduce "Sardar Abdul Ghaffar Khan" as a
- *  visible name or "Sundas". `foundingDate` stays null (no node field is
- *  emitted) until the owner supplies the real month — never estimate it. */
+ *  visible name or "Sundas". `foundingDate` is emitted only while set —
+ *  never estimate it. */
 export const entity = {
   legalName: 'Digital Services Program Pvt. Ltd.',
   /** The disambiguating one-liner: "Digital Services Program" is also the name
@@ -409,8 +409,9 @@ export const entity = {
    *  node and profile carries this so machines can tell DSP apart. */
   description:
     'Digital Services Program (DSP) is an AI agents training company and AI agency in Islamabad, Pakistan. It teaches beginners to build, deploy and sell AI agents in Urdu and English through DSP AI Agent Mastery, and builds AI Employees for businesses worldwide. Not affiliated with any government digital-services programme.',
-  /** ISO month, e.g. '2025-03' — null until confirmed by the owner. */
-  foundingDate: null as string | null,
+  /** Year confirmed by the owner (5 Sep 2026). Refine to an ISO month if he
+   *  ever supplies one. */
+  foundingDate: '2022' as string | null,
   knowsLanguage: ['ur', 'en'],
   /** Where students and clients come from (owner's list, Aug 2026). */
   areaServed: ['PK', 'AE', 'SA', 'GB', 'US', 'CA', 'AU', 'MY'],
