@@ -3,11 +3,13 @@
 // One <script type="application/ld+json"> on the page carries every entity,
 // and the entities point at each other by @id (JSON-LD linking) instead of
 // repeating themselves: the Course's provider is *the* Organization node, its
-// instructor is *the* Person node, the WebPage is part of *the* WebSite.
+// instructor is *the* Person node, the WebPage is part of *the* WebSite and
+// authored by *the* Person.
 //
-// Node list (owner instruction, SEO pass Step 3, 2026-09-02):
+// Node list (owner instruction, SEO pass Step 3, 2026-09-02; extended by the
+// Tier A on-page spec, 2026-09-05):
 //   Organization · WebSite · WebPage · Person · Course (+ CourseInstance,
-//   Offer, Syllabus×15) · FAQPage.
+//   Offer, Syllabus×15, EducationalOccupationalCredential) · FAQPage.
 // VideoObject nodes were specified "only with a real title, thumbnail and
 // upload date" — the repo holds no thumbnail for any of the four embeds, so
 // none is emitted (see the report / V2-PROGRESS). The page's BreadcrumbList
@@ -16,12 +18,13 @@
 // Facts come from src/config/site.ts; FAQ and syllabus text come from the
 // page's own copy via ./faqs.ts and ./curriculum.ts (mirrored, and checked by
 // `npm run test:schema`). Nothing here may say something the visitor cannot
-// read on the page; no aggregateRating / review — there is no rating data.
+// read on the page; no aggregateRating / review — there is no rating data
+// (Tier A spec §11: not until real reviews are visible on the page).
 import { site, mastery } from '@/config/site'
-import { ORGANIZATION_ID, SCHEMA_CONTEXT, faqPageNode, organizationNode, ref, type JsonLd } from '@/lib/schema'
+import { ORGANIZATION_ID, ORG_IMAGE_URL, SCHEMA_CONTEXT, faqPageNode, organizationNode, ref, type JsonLd } from '@/lib/schema'
 import { MASTERY_CURRICULUM } from './curriculum'
 import { MASTERY_FAQS } from './faqs'
-import { CANONICAL, SEO_DESCRIPTION, SEO_TITLE } from './seo'
+import { CANONICAL, PAGE_LAST_MODIFIED, SEO_DESCRIPTION, SEO_TITLE } from './seo'
 
 /* ── Node ids ──────────────────────────────────────────────────────────── */
 export const WEBSITE_ID = `${site.url}/#website`
@@ -39,33 +42,57 @@ const website: JsonLd = {
   publisher: ref(ORGANIZATION_ID),
 }
 
+// inLanguage lists both because the page carries an Urdu paragraph and the
+// lectures it describes are Urdu–English; dateModified is the same constant
+// the sitemap and the visible "Last updated" byline use.
 const webpage: JsonLd = {
   '@type': 'WebPage',
   '@id': WEBPAGE_ID,
   url: CANONICAL,
   name: SEO_TITLE,
+  description: SEO_DESCRIPTION,
+  inLanguage: ['en', 'ur'],
+  dateModified: PAGE_LAST_MODIFIED,
   isPartOf: ref(WEBSITE_ID),
   about: ref(COURSE_ID),
   mainEntity: ref(COURSE_ID),
+  author: ref(PERSON_ID),
+  publisher: ref(ORGANIZATION_ID),
+  primaryImageOfPage: ORG_IMAGE_URL,
 }
 
 /* ── Person: the instructor ───────────────────────────────────────────── */
 // Name and title are the owner's spec for this page and match the visible
-// instructor section. NOTE: /about emits its own Person literal ("Sardar
-// Abdul Ghaffar Khan", "Co-Founder & Lead Instructor") without an @id, so
-// the two do not merge — align /about with PERSON_ID when that page is next
-// touched.
+// instructor section; `url` is the byline link. The two credentials are the
+// ones /about publishes with public verification links — nothing is listed
+// here that a visitor cannot verify there. NOTE: /about emits its own Person
+// literal ("Sardar Abdul Ghaffar Khan", "Co-Founder & Lead Instructor")
+// without an @id, so the two do not merge — align /about with PERSON_ID
+// when that page is next touched.
 const sardar: JsonLd = {
   '@type': 'Person',
   '@id': PERSON_ID,
   name: 'Sardar Ghaffar',
   jobTitle: 'Founder & Lead Instructor',
+  url: `${site.url}/about`,
   worksFor: ref(ORGANIZATION_ID),
   // The portrait rendered in the instructor section of page.tsx.
   image: `${site.url}/mastery/sardar.jpg`,
-  knowsAbout: ['AI agents', 'Claude', 'Claude Code', 'prompt engineering', 'MCP'],
+  knowsAbout: ['AI agents', 'Claude', 'Claude Code', 'prompt engineering', 'context engineering', 'MCP', 'RAG', 'business automation'],
   description:
     '24 years of IT teaching in London, the UAE and Pakistan; Google-verified AI Agentic Trainer; Anthropic (Claude)-verified educator.',
+  hasCredential: [
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'Gemini Certified Educator (Google for Education, valid 2025–2028)',
+      url: 'https://www.credential.net/aae3459a-b0b9-463e-86cd-da7806e00e5d',
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'Google/Kaggle AI Agents Intensive — Vibe Coding Course certification (2026)',
+      url: 'https://www.kaggle.com/certification/badges/abdulghaffarkhan804/108',
+    },
+  ],
 }
 
 /* ── Course: the product ──────────────────────────────────────────────── */
@@ -79,6 +106,8 @@ const course: JsonLd = {
   '@id': COURSE_ID,
   name: mastery.name,
   description: SEO_DESCRIPTION,
+  url: CANONICAL,
+  image: ORG_IMAGE_URL,
   provider: ref(ORGANIZATION_ID),
   instructor: ref(PERSON_ID),
   inLanguage: ['ur', 'en'],
@@ -99,7 +128,17 @@ const course: JsonLd = {
     'multi-agent & business automation',
     'selling AI solutions',
   ],
-  coursePrerequisites: 'None — no coding background needed',
+  // Mirrors the FAQ ("Windows or Mac?", "Is $100 really all I pay?").
+  coursePrerequisites: 'No coding background required. A Windows or Mac computer and a free Claude account.',
+  // Total recorded-lecture time — mastery.lectureHours is '30+'.
+  timeRequired: 'PT30H',
+  educationalCredentialAwarded: [
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'DSP AI Agent Master certificate (verifiable URL)',
+      credentialCategory: 'certificate',
+    },
+  ],
   // One Syllabus per module, titled and described exactly as the visible
   // curriculum accordion (M01 … M15; the capstone is not a module).
   syllabusSections: MASTERY_CURRICULUM.map((m) => ({
