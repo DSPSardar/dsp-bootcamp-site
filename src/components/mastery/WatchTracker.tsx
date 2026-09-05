@@ -1,10 +1,19 @@
 'use client'
 import { useEffect, useRef } from 'react'
+import { useRouter } from 'next/navigation'
 
 /** Reports real playback position from the Bunny player back to our API.
- *  Bunny's iframe speaks the player.js protocol, so we listen rather than guess. */
-export default function WatchTracker({ lesson }: { lesson: string }) {
+ *  Bunny's iframe speaks the player.js protocol, so we listen rather than guess.
+ *
+ *  `unlockAt` / `initialFrac`: the "Mark lesson complete" button is rendered on the
+ *  server from the watch record at page-load time. Once the student crosses the
+ *  threshold *during* playback we flush the position and re-render the page so the
+ *  button enables itself — otherwise it would stay "Keep watching — 0%" until a
+ *  manual reload, and the next module never unlocks. */
+export default function WatchTracker({ lesson, unlockAt = 0.8, initialFrac = 0 }: { lesson: string; unlockAt?: number; initialFrac?: number }) {
   const sent = useRef(0)
+  const refreshed = useRef(initialFrac >= unlockAt)
+  const router = useRouter()
   useEffect(() => {
     void fetch('/api/mastery/view', { method: 'POST', headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ lesson, opened: true, seconds: 0 }) })
@@ -13,11 +22,20 @@ export default function WatchTracker({ lesson }: { lesson: string }) {
     if (!iframe) return
     let duration = 0
 
+    const send = (seconds: number) => fetch('/api/mastery/view', { method: 'POST', headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ lesson, seconds, duration }) })
+
     const post = (seconds: number) => {
+      // Crossed the completion threshold: write immediately, then re-render so the button enables.
+      if (!refreshed.current && duration > 0 && seconds / duration >= unlockAt) {
+        refreshed.current = true
+        sent.current = seconds
+        void send(seconds).then(() => router.refresh())
+        return
+      }
       if (seconds - sent.current < 20) return          // at most one write per 20s of playback
       sent.current = seconds
-      void fetch('/api/mastery/view', { method: 'POST', headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ lesson, seconds, duration }) })
+      void send(seconds)
     }
 
     const onMessage = (e: MessageEvent) => {
@@ -40,6 +58,6 @@ export default function WatchTracker({ lesson }: { lesson: string }) {
     const flush = () => { if (sent.current > 0) navigator.sendBeacon?.('/api/mastery/view', new Blob([JSON.stringify({ lesson, seconds: sent.current, duration })], { type: 'application/json' })) }
     window.addEventListener('pagehide', flush)
     return () => { window.removeEventListener('message', onMessage); window.removeEventListener('pagehide', flush); clearTimeout(t); clearTimeout(t2) }
-  }, [lesson])
+  }, [lesson, unlockAt, router])
   return null
 }

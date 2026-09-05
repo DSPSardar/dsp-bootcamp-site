@@ -66,15 +66,16 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
         <h1 style={{ marginTop: 8 }}>{lessonTitle(l.file)}</h1>
         <p className="muted">{lessonSlug(l.file)} · {l.kind} · {l.minutes} min{(l as { instructor?: string }).instructor ? ` · with ${(l as { instructor?: string }).instructor}` : ''}</p>
         <div style={{ marginTop: 18 }}>
-          {l.bunny?.status === 'ready' ? <><WatchTracker lesson={l.file} /><BunnyPlayer videoId={l.bunny.guid} title={lessonTitle(l.file)} aspect={(l.bunny as { aspect?: number }).aspect} /></> : <p className="note">This lesson is being prepared and will appear here soon.</p>}
+          {l.bunny?.status === 'ready' ? <><WatchTracker lesson={l.file} unlockAt={WATCH_THRESHOLD} initialFrac={isDone ? 1 : watchedFrac} /><BunnyPlayer videoId={l.bunny.guid} title={lessonTitle(l.file)} aspect={(l.bunny as { aspect?: number }).aspect} /></> : <p className="note">This lesson is being prepared and will appear here soon.</p>}
         </div>
         <div style={{ display: 'flex', gap: 12, marginTop: 18, flexWrap: 'wrap' }}>
           <form action={toggle} className="inline">
             <button className={`btn ${isDone ? 'btn-ghost' : 'btn-gold'}`} type="submit" disabled={!canComplete}
-              title={canComplete ? undefined : 'Watch the lesson through to mark it complete'}>
-              {isDone ? '✓ Marked complete — undo' : canComplete ? 'Mark lesson complete' : `Keep watching — ${Math.round(watchedFrac * 100)}% of 80%`}
+              title={canComplete ? undefined : 'Watch the lesson through to mark it complete — this button unlocks by itself at 80%'}>
+              {isDone ? '✓ Marked complete — undo' : canComplete ? 'Mark lesson complete' : `Keep watching — ${Math.round(watchedFrac * 100)}% of 80% (unlocks automatically)`}
             </button>
           </form>
+          {!canComplete && <a className="btn btn-ghost" href={`/app/m/${m.id}/${lessonSlug(l.file)}`}>Already watched it? Refresh ↻</a>}
           {nextL && <a className="btn btn-ghost" href={`/app/m/${m.id}/${lessonSlug(nextL.file)}`}>Next: {lessonTitle(nextL.file)} →</a>}
         </div>
       </div>
