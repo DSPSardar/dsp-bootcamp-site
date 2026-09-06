@@ -3,11 +3,20 @@
 // (owner-supplied 2026-09-03); NEXT_PUBLIC_GA4_ID, if set in Vercel or
 // .env, overrides it (e.g. to point a preview at a test property).
 //
-// Load order (perf pass 2026-09-03): the inline init runs afterInteractive so
-// window.gtag is defined early and queues into dataLayer; the gtag.js library
-// itself loads lazyOnload (after window.load) so it no longer competes with
-// LCP on mobile. Queued events are sent when the library arrives.
+// Load order (perf pass 2026-09-06):
+//   1. The inline `ga4-init` script runs afterInteractive, so window.gtag
+//      and dataLayer exist immediately and every event queues.
+//   2. gtag.js itself (~521 KiB decoded — nearly all of PageSpeed's unused /
+//      unminified JS on the homepage) is NOT requested at page load.
+//      GtagLoader injects it on the first pointerdown / keydown / scroll /
+//      touchstart, or 8 s after window.load as a fallback. Under Data Saver
+//      (navigator.connection.saveData) there is no fallback: interaction only.
+//   3. When the library arrives it drains the dataLayer queue, so page_view
+//      and any CTA events fired before then are still sent.
+// The previous `lazyOnload` approach still landed inside the Lighthouse
+// trace; a user-gesture gate is the only thing the lab never triggers.
 import Script from 'next/script'
+import GtagLoader from './GtagLoader'
 
 export const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID || 'G-2HCL48T58X'
 
@@ -22,10 +31,7 @@ window.gtag = gtag;
 gtag('js', new Date());
 gtag('config', '${GA4_ID}', { send_page_view: true });`}
       </Script>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
-        strategy="lazyOnload"
-      />
+      <GtagLoader id={GA4_ID} />
     </>
   )
 }
