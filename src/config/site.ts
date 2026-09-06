@@ -423,12 +423,12 @@ export const founder = {
   /** Shorter forms the name appears under off-site (GEO pass 2026-09-06);
    *  schema-only — every Person node lists them as alternateName. */
   alsoKnownAs: ['Abdul Ghaffar Khan', 'Sardar Abdul Ghaffar'],
-  jobTitle: 'Founder & Lead Instructor',
+  jobTitle: 'Founder & Lead AI Instructor',
   /** The entity page — the byline target sitewide. */
   path: '/sardar-ghaffar',
   /** One sentence, used verbatim on /sardar-ghaffar, /about, /mastery and off-site profiles. */
   description:
-    'Founder and lead instructor of Digital Services Program (DSP), Islamabad. Google-certified AI Agentic Trainer, Gemini Certified Educator and Anthropic (Claude)-verified educator; teaching technology since 2002, with 24+ years in IT across London, the UAE and Pakistan.',
+    'Founder and CEO of Digital Services Program (DSP), Islamabad, and its lead AI instructor. Google-certified AI Agentic Trainer, Gemini Certified Educator and Anthropic (Claude)-verified educator; teaching technology since 2002, with 24+ years in IT across London, the UAE and Pakistan.',
   image: '/mastery/sardar.jpg',
   linkedin: 'https://www.linkedin.com/in/sardar-abdul-ghaffar-khan-43a378a4',
   /** Public, verifiable credentials — the only ones the schema may list. */

@@ -24,7 +24,7 @@ export function GET() {
     '',
     `> ${site.tagline}`,
     `> ${entity.description}`,
-    `> Founder and lead instructor: ${founder.name}. Founded ${entity.foundingDate ?? '—'}, ${site.city}, ${site.country}.`,
+    `> Founder, CEO and lead AI instructor: ${founder.name}. Founded ${entity.foundingDate ?? '—'}, ${site.city}, ${site.country}.`,
     '',
     '## Programs & Services',
     `- [${mastery.shortName}](${u(mastery.url)}): ${COURSE_DESCRIPTION} Taught by ${founder.name}. $${mastery.priceUsd} one-time (${mastery.pkr.price}), ${mastery.access.toLowerCase()} access, ${mastery.supportMonths} months of group support.`,
