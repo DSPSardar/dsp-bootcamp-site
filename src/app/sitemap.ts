@@ -1,4 +1,10 @@
-// app/sitemap.ts — includes all company pages and ALL blog posts
+// app/sitemap.ts — includes all company pages and ALL blog posts.
+//
+// Priorities (AI-crawler pass, 2026-09-06): the homepage is 1.0/daily, the
+// educational product (/mastery) and the agency hub next, then the
+// company pages. /academy is NOT listed: it is a 301 to /mastery
+// (next.config.ts) and a redirecting URL in a sitemap only produces a
+// Search Console error — /mastery is the entry that carries that intent.
 import { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/posts'
 import { agency, liveGuides } from '@/config/site'
@@ -9,7 +15,7 @@ const SITE = 'https://www.digitalservicesprogram.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
-    { url: SITE, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
+    { url: SITE, lastModified: new Date(), changeFrequency: 'daily', priority: 1 },
     // Real content-change date (see PAGE_LAST_MODIFIED). /mastery/enrol is
     // deliberately NOT listed: it is noindex (checkout page) and a sitemap
     // entry for a noindex URL only produces a Search Console error.
@@ -26,10 +32,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     { url: `${SITE}/pricing`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE}/agents/restaurant-ai`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${SITE}/agents`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.85 },
+    { url: `${SITE}/agents`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE}/channelops`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE}/agents/case-studies`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${SITE}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${SITE}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     // The founder's entity page (Entity Lock, 2026-09-06) — byline target sitewide.
     { url: `${SITE}/sardar-ghaffar`, lastModified: new Date(FOUNDER_LAST_MODIFIED), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE}/blog`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
