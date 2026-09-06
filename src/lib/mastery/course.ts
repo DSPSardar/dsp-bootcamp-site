@@ -13,6 +13,10 @@ export const moduleFor = (id: string) => modules.find((m) => m.id === id)
 export const coreLessons = (m: Module) => m.lessons.filter((l) => l.kind === 'core')
 
 /** Progression rule: module N opens when every core lesson of module N-1 is marked complete. No tests, no grades. */
+/** Modules open to every student from day one, regardless of progress — M15 (Selling AI
+ *  Solutions) is joined directly by alumni who already did the basics live. */
+const ALWAYS_OPEN = new Set(['M15'])
+
 export function unlockState(done: Set<string>, unlockAll = false) {
   const state: Record<string, { unlocked: boolean; complete: boolean; doneCount: number; total: number }> = {}
   let prevComplete = true
@@ -20,7 +24,7 @@ export function unlockState(done: Set<string>, unlockAll = false) {
     const core = coreLessons(m)
     const doneCount = core.filter((l) => done.has(l.file)).length
     const complete = core.length > 0 && doneCount === core.length
-    state[m.id] = { unlocked: unlockAll || prevComplete, complete, doneCount, total: core.length }
+    state[m.id] = { unlocked: unlockAll || prevComplete || ALWAYS_OPEN.has(m.id), complete, doneCount, total: core.length }
     prevComplete = complete
   }
   return state
