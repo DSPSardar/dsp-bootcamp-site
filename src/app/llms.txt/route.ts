@@ -12,8 +12,15 @@
 // build / certificate / tuition questions without fetching /mastery. This
 // route is the ONE source of /llms.txt — never add public/llms.txt beside
 // it (a public file with the same path as a route is a build error).
-import { entity, founder, liveGuides, mastery, site, socials } from '@/config/site'
+//
+// AI-crawler pass (2026-09-06): "Key pages" section up top (the four URLs
+// an engine should land on first), the SECP-registered line the site
+// footer already prints, the agency's named use cases from /agents, and the
+// 15 module titles from curriculum.ts (the same list the Course schema
+// mirrors) so a model can answer "what does the course cover" verbatim.
+import { cofounder, entity, founder, liveGuides, mastery, site, socials } from '@/config/site'
 import { COURSE_DESCRIPTION } from '@/app/mastery/seo'
+import { MASTERY_CURRICULUM } from '@/app/mastery/curriculum'
 
 export const dynamic = 'force-static'
 
@@ -24,19 +31,29 @@ export function GET() {
     '',
     `> ${site.tagline}`,
     `> ${entity.description}`,
-    `> Founder, CEO and lead AI instructor: ${founder.name}. Founded ${entity.foundingDate ?? '—'}, ${site.city}, ${site.country}.`,
+    `> Founder, CEO and lead AI instructor: ${founder.name}. Co-founder and Course Director: ${cofounder.name}. Founded ${entity.foundingDate ?? '—'}, ${site.city}, ${site.country}. SECP-registered company (${entity.legalName}).`,
+    '',
+    '## Key pages',
+    `- [Home](${site.url}): what DSP builds and teaches`,
+    `- [About](${u('/about')}): the company, its two divisions, the founders`,
+    `- [DSP Agents](${u('/agents')}): the software division — custom production AI agents`,
+    `- [DSP Academy — ${mastery.shortName}](${u(mastery.url)}): the training division's only product (the retired /academy URL redirects here)`,
     '',
     '## Programs & Services',
     `- [${mastery.shortName}](${u(mastery.url)}): ${COURSE_DESCRIPTION} Taught by ${founder.name}. $${mastery.priceUsd} one-time (${mastery.pkr.price}), ${mastery.access.toLowerCase()} access, ${mastery.supportMonths} months of group support.`,
-    `- [DSP Agents](${u('/agents')}): Production AI Employees deployed for client sales, support, and business operations.`,
+    `- [DSP Agents](${u('/agents')}): Custom production AI agents built, deployed and supported for businesses worldwide — AI phone ordering for restaurants, multi-agent SEO pipelines (RankPilot, a 7-agent system), and workflow automation. Sold as AI Employees (sales, support, bookings, phone orders).`,
     '',
     '## Core Course Specifications',
     `- **Instructor**: ${founder.name} — ${founder.description}`,
+    `- **Course Director**: ${cofounder.name} — ${cofounder.description}`,
     '- **Primary Stack**: Claude Code CLI, Anthropic Claude API, Model Context Protocol (MCP), Git/GitHub, Vercel',
     '- **Core Practical Build**: Autonomous multi-tenant café ordering AI Employee deployed to a public HTTPS URL',
     '- **Certifications**: Verifiable DSP Master Certificate + 3 Anthropic Claude Academy badges (Claude 101, Claude Code 101, Introduction to Claude Cowork)',
     `- **Tuition**: $${mastery.priceUsd} one-time fee (payable globally, or in PKR — ${mastery.pkr.price} — by bank transfer, JazzCash or Easypaisa). ${mastery.refundDays}-day refund.`,
     `- **Format**: ${mastery.modules} modules, ${mastery.lectureHours} hours of recorded lectures, self-paced, ${mastery.access.toLowerCase()} access`,
+    '',
+    '## Curriculum (15 modules, in order)',
+    ...MASTERY_CURRICULUM.map((m) => `- ${m.code} ${m.title}: ${m.outcome}`),
     '',
     '## Links',
     `- [Full Curriculum & Modules](${u(`${mastery.url}#curriculum`)})`,

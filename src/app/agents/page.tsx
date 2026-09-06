@@ -1,6 +1,6 @@
 // src/app/agents/page.tsx — DSP Agents: the software division.
 import type { Metadata } from 'next'
-import { breadcrumbLd } from '@/lib/schema'
+import { ORGANIZATION_ID, breadcrumbLd } from '@/lib/schema'
 import Link from 'next/link'
 import SiteShell from '@/components/site/SiteShell'
 import TrackedLink from '@/components/site/TrackedLink'
@@ -29,8 +29,11 @@ const serviceLd = {
   name: 'DSP Agents — AI agent development',
   description:
     'Design, development, and deployment of production AI agents: phone-ordering agents for restaurants, multi-agent SEO systems, and custom agent builds for businesses worldwide.',
+  // Carries the sitewide Organization @id so parsers merge this provider
+  // with the root layout's Organization node instead of seeing a second one.
   provider: {
     '@type': 'Organization',
+    '@id': ORGANIZATION_ID,
     name: site.name,
     url: site.url,
     email: site.email,
