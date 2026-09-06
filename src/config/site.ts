@@ -420,6 +420,9 @@ export const entity = {
 export const founder = {
   name: 'Sardar Ghaffar',
   alternateName: 'Sardar Abdul Ghaffar Khan',
+  /** Shorter forms the name appears under off-site (GEO pass 2026-09-06);
+   *  schema-only — every Person node lists them as alternateName. */
+  alsoKnownAs: ['Abdul Ghaffar Khan', 'Sardar Abdul Ghaffar'],
   jobTitle: 'Founder & Lead Instructor',
   /** The entity page — the byline target sitewide. */
   path: '/sardar-ghaffar',

@@ -109,7 +109,7 @@ export function personNode(extra: JsonLd = {}): JsonLd {
     '@type': 'Person',
     '@id': PERSON_ID,
     name: founder.name,
-    alternateName: founder.alternateName,
+    alternateName: [founder.alternateName, ...founder.alsoKnownAs],
     jobTitle: founder.jobTitle,
     description: founder.description,
     url: `${site.url}${founder.path}`,

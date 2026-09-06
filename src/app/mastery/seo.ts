@@ -14,6 +14,13 @@ export const SEO_TITLE = 'AI Agent Course for Beginners (Urdu + English) — Bui
 export const SEO_DESCRIPTION =
   'Self-paced AI agent course for beginners, taught in Urdu and English. 15 modules, one real AI Employee built from an empty folder to a live URL, Anthropic Claude Academy badges, lifetime access. $100 one-time. Pay by bank transfer, JazzCash or Easypaisa.'
 
+/** The Course node's description — longer than the meta description, for
+ *  the JSON-LD Course and /llms.txt (GEO pass 2026-09-06). Every clause is
+ *  visible on the page: the at-a-glance table, the #build section, the tools
+ *  row and the "Who is this for" answer. */
+export const COURSE_DESCRIPTION =
+  `A comprehensive, self-paced AI agent training program for beginners taught in an Urdu and English mix. Across ${mastery.modules} modules and ${mastery.lectureHours} hours of video instruction, students build, secure, and deploy a production-ready, multi-tenant café ordering AI Employee to a live URL using Claude Code, Model Context Protocol (MCP), APIs, GitHub, and Vercel without prior manual coding experience.`
+
 /** Absolute canonical URL of the landing page. */
 export const CANONICAL = `${site.url}${mastery.url}`
 
