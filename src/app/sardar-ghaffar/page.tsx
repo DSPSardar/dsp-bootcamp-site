@@ -24,7 +24,7 @@ import { ORGANIZATION_ID, PERSON_ID, SCHEMA_CONTEXT, breadcrumbLd, ref } from '@
 import { PAGE_LAST_MODIFIED } from './seo'
 
 const CANONICAL = `${site.url}${founder.path}`
-const TITLE = `${founder.name} — Founder & Lead Instructor, Digital Services Program (DSP)`
+const TITLE = `${founder.name} — ${founder.jobTitle}, Digital Services Program (DSP)`
 const DESCRIPTION = founder.description
 
 export const metadata: Metadata = {

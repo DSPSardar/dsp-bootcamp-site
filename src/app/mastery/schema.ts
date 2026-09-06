@@ -28,13 +28,15 @@ import { welcomeVideoId } from '@/lib/mastery/course'
 import { ORGANIZATION_ID, ORG_IMAGE_URL, PERSON_ID, SCHEMA_CONTEXT, cofounderNode, faqPageNode, organizationNode, personNode, ref, type JsonLd } from '@/lib/schema'
 import { MASTERY_CURRICULUM } from './curriculum'
 import { MASTERY_FAQS } from './faqs'
-import { CANONICAL, PAGE_LAST_MODIFIED, SEO_DESCRIPTION, SEO_TITLE } from './seo'
+import { CANONICAL, COURSE_DESCRIPTION, PAGE_LAST_MODIFIED, SEO_DESCRIPTION, SEO_TITLE } from './seo'
 
 /* ── Node ids ──────────────────────────────────────────────────────────── */
 export const WEBSITE_ID = `${site.url}/#website`
 export { PERSON_ID }
 export const WEBPAGE_ID = `${CANONICAL}#webpage`
 export const COURSE_ID = `${CANONICAL}#course`
+export const INSTANCE_ID = `${CANONICAL}#instance`
+export const OFFER_ID = `${CANONICAL}#offer`
 export const FAQ_ID = `${CANONICAL}#faq`
 export const WELCOME_VIDEO_ID = `${CANONICAL}#welcome-video`
 
@@ -88,34 +90,32 @@ const course: JsonLd = {
   name: mastery.name,
   alternateName: ['AI Agent Course for Beginners', 'Agentic AI Mastery Course', 'Vibe Coding with Claude Code Training'],
   courseCode: 'DSP-AIM-2026',
-  description: SEO_DESCRIPTION,
+  // Fuller than the WebPage's meta description (GEO pass 2026-09-06); every
+  // clause is on the page — the at-a-glance table (self-paced video, 30+
+  // hours, 15 modules), the #build section (café ordering AI Employee,
+  // multi-tenant, live URL) and the tools row.
+  description: COURSE_DESCRIPTION,
   url: CANONICAL,
   image: ORG_IMAGE_URL,
   provider: ref(ORGANIZATION_ID),
   instructor: ref(PERSON_ID),
   inLanguage: ['ur', 'en'],
   educationalLevel: 'Beginner',
+  // One entry per phase of the curriculum, in module order (GEO pass
+  // 2026-09-06 — replaces the earlier raw topic list).
   teaches: [
-    'what is an AI agent',
-    'prompting & context engineering',
-    'vibe coding with Claude Code',
-    'websites',
-    'Git & GitHub',
-    'AI agents',
-    'APIs',
-    'RAG & memory',
-    'MCP',
+    'AI Agents Architecture',
+    'Claude Code and Vibe Coding',
+    'Prompt Engineering and Context Engineering',
     'Model Context Protocol (MCP)',
-    'testing & observability',
-    'security',
-    'deployment',
-    'multi-agent & business automation',
-    'selling AI solutions',
-    'building autonomous AI employees',
-    'multi-tenant AI architecture',
+    'Retrieval-Augmented Generation (RAG) and Agent Memory',
+    'API Integration and Webhook Automation',
+    'Git and GitHub Version Control',
+    'Vercel Deployment and Environment Security',
+    'Client Acquisition and Commercial AI Solutions',
   ],
   // Mirrors the FAQ ("Windows or Mac?", "Is $100 really all I pay?").
-  coursePrerequisites: 'No coding background required. A Windows or Mac computer and a free Claude account.',
+  coursePrerequisites: 'No prior coding required. A Windows or Mac computer and a free Claude account.',
   // Total recorded-lecture time — mastery.lectureHours is '30+'.
   timeRequired: 'PT30H',
   // Mirrors the FAQ ("Is there a certificate?"): the DSP Master certificate
@@ -124,8 +124,11 @@ const course: JsonLd = {
   educationalCredentialAwarded: [
     {
       '@type': 'EducationalOccupationalCredential',
-      name: 'DSP AI Agent Master certificate (verifiable URL)',
-      credentialCategory: 'certificate',
+      name: 'DSP Master Certificate',
+      credentialCategory: 'Certificate',
+      // Mirrors the FAQ: "a public verification page showing the live agent
+      // you built — that is proof of work, not attendance."
+      description: 'Verifiable proof-of-work certificate: its public verification page shows the live AI agent the student built and deployed.',
       recognizedBy: ref(ORGANIZATION_ID),
       url: CANONICAL,
     },
@@ -170,6 +173,7 @@ const course: JsonLd = {
   hasCourseInstance: [
     {
       '@type': 'CourseInstance',
+      '@id': INSTANCE_ID,
       courseMode: 'Online',
       // Total recorded-lecture workload — mastery.lectureHours is '30+'.
       courseWorkload: 'PT30H',
@@ -177,13 +181,16 @@ const course: JsonLd = {
       instructor: ref(PERSON_ID),
     },
   ],
+  // The Offer's url is the landing page itself: /mastery/enrol is noindex,
+  // so a parser following the offer must land on an indexable page.
   offers: {
     '@type': 'Offer',
-    price: mastery.priceUsd,
+    '@id': OFFER_ID,
+    price: mastery.priceUsd.toFixed(2),
     priceCurrency: 'USD',
     category: 'Paid',
     availability: 'https://schema.org/InStock',
-    url: `${site.url}/mastery/enrol`,
+    url: CANONICAL,
   },
 }
 

@@ -6,7 +6,14 @@
 // Adoption by the big engines is unconfirmed — this costs nothing, is
 // harmless, and is what an auditor looks for. Every fact and link comes
 // from src/config/site.ts; guides appear only once they are `live`.
+//
+// GEO pass (2026-09-06): "Programs & Services", "Core Course Specifications"
+// and "Links" sections added so an engine can answer instructor / stack /
+// build / certificate / tuition questions without fetching /mastery. This
+// route is the ONE source of /llms.txt — never add public/llms.txt beside
+// it (a public file with the same path as a route is a build error).
 import { entity, founder, liveGuides, mastery, site, socials } from '@/config/site'
+import { COURSE_DESCRIPTION } from '@/app/mastery/seo'
 
 export const dynamic = 'force-static'
 
@@ -15,11 +22,26 @@ export function GET() {
   const lines = [
     `# ${site.name} (${site.shortName})`,
     '',
+    `> ${site.tagline}`,
     `> ${entity.description}`,
-    `> Founder and lead instructor: ${founder.name}. Founded ${entity.foundingDate ?? '—'}, ${site.city}, ${site.country}.`,
+    `> Founder, CEO and lead AI instructor: ${founder.name}. Founded ${entity.foundingDate ?? '—'}, ${site.city}, ${site.country}.`,
     '',
-    '## Start here',
-    `- [${mastery.name}](${u(mastery.url)}): Self-paced AI agent training for beginners taught in Urdu and English ($${mastery.priceUsd} one-time, ${mastery.pkr.price}). Students build and deploy a production multi-tenant café ordering AI Employee using Claude Code, Model Context Protocol (MCP), APIs, GitHub, and Vercel without manual coding. Awards DSP Master Certificate with verifiable public URL plus 3 Anthropic Claude Academy badges.`,
+    '## Programs & Services',
+    `- [${mastery.shortName}](${u(mastery.url)}): ${COURSE_DESCRIPTION} Taught by ${founder.name}. $${mastery.priceUsd} one-time (${mastery.pkr.price}), ${mastery.access.toLowerCase()} access, ${mastery.supportMonths} months of group support.`,
+    `- [DSP Agents](${u('/agents')}): Production AI Employees deployed for client sales, support, and business operations.`,
+    '',
+    '## Core Course Specifications',
+    `- **Instructor**: ${founder.name} — ${founder.description}`,
+    '- **Primary Stack**: Claude Code CLI, Anthropic Claude API, Model Context Protocol (MCP), Git/GitHub, Vercel',
+    '- **Core Practical Build**: Autonomous multi-tenant café ordering AI Employee deployed to a public HTTPS URL',
+    '- **Certifications**: Verifiable DSP Master Certificate + 3 Anthropic Claude Academy badges (Claude 101, Claude Code 101, Introduction to Claude Cowork)',
+    `- **Tuition**: $${mastery.priceUsd} one-time fee (payable globally, or in PKR — ${mastery.pkr.price} — by bank transfer, JazzCash or Easypaisa). ${mastery.refundDays}-day refund.`,
+    `- **Format**: ${mastery.modules} modules, ${mastery.lectureHours} hours of recorded lectures, self-paced, ${mastery.access.toLowerCase()} access`,
+    '',
+    '## Links',
+    `- [Full Curriculum & Modules](${u(`${mastery.url}#curriculum`)})`,
+    `- [Course FAQ](${u(`${mastery.url}#faq`)})`,
+    `- [Enrollment](${u(`${mastery.url}#pricing`)})`,
     `- [About DSP](${u('/about')}): the company, its two divisions, the founders`,
     `- [${founder.name}](${u(founder.path)}): founder bio, verifiable credentials, everything he has written`,
     '',
@@ -48,7 +70,7 @@ export function GET() {
     '',
     `## Machine-readable`,
     `- Sitemap: ${u('/sitemap.xml')}`,
-    `- Every page carries schema.org JSON-LD; the Organization is ${site.url}/#organization and the founder is ${site.url}/#sardar-ghaffar.`,
+    `- Every page carries schema.org JSON-LD; the Organization is ${site.url}/#organization, the founder is ${site.url}/#sardar-ghaffar and the course is ${u(mastery.url)}#course.`,
     '',
   ]
   return new Response(lines.join('\n'), {

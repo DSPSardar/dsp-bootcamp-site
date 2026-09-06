@@ -77,9 +77,13 @@ export function postalAddressNode(): JsonLd {
  *  from site.ts (`entity`): legal name, the disambiguating description,
  *  founder, languages, areas served. `foundingDate` is emitted only when the
  *  owner has set it. The root layout adds slogan/email via entityGraphLd(). */
+// Typed as both: DSP is an Organization (the agency) and an
+// EducationalOrganization (the Course provider) — one node, two types, so
+// Course rich results and GEO parsers both recognise it (GEO pass
+// 2026-09-06). Every page reuses this builder, so the pair is sitewide.
 export function organizationNode(): JsonLd {
   return {
-    '@type': 'Organization',
+    '@type': ['Organization', 'EducationalOrganization'],
     '@id': ORGANIZATION_ID,
     name: site.name,
     alternateName: [site.shortName, entity.legalName],
@@ -109,7 +113,7 @@ export function personNode(extra: JsonLd = {}): JsonLd {
     '@type': 'Person',
     '@id': PERSON_ID,
     name: founder.name,
-    alternateName: founder.alternateName,
+    alternateName: [founder.alternateName, ...founder.alsoKnownAs],
     jobTitle: founder.jobTitle,
     description: founder.description,
     url: `${site.url}${founder.path}`,
