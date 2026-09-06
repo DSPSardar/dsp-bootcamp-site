@@ -1804,6 +1804,27 @@
       "badge_after": "AI Solutions Seller",
       "lessons": [
         {
+          "file": "M15-L01_AI-Lead-Generation-Machine.mp4",
+          "folder": "Phase-4-Seller/M15-Selling-AI-Solutions",
+          "youtube_id": null,
+          "minutes": 16,
+          "source": "NEW",
+          "status": "NEW",
+          "chapters": [],
+          "master": "M15-L01_AI-Lead-Generation-Machine_v1.mp4",
+          "kind": "core",
+          "order": "L01",
+          "source_note": "recorded 7 Sep 2026",
+          "bunny": {
+            "guid": "7b102fb3-301b-4e34-8f00-e7780476a4f1",
+            "status": "ready",
+            "version": 1,
+            "uploaded_at": "2026-09-06T22:33:50.876Z",
+            "length_sec": 965,
+            "aspect": 1.7778
+          }
+        },
+        {
           "file": "M15-L02_Finding-Clients-Worldwide.mp4",
           "folder": "Phase-4-Seller/M15-Selling-AI-Solutions",
           "youtube_id": null,
@@ -1849,6 +1870,13 @@
           "type": "pdf",
           "bytes": 2876426,
           "path": "_SLIDES/M15-Selling-AI-Solutions/M15-D02_10-Ways-to-Find-Clients-Worldwide.pdf"
+        },
+        {
+          "file": "M15-D03_AI-Lead-Generation-Machine.pdf",
+          "title": "AI Lead Generation Machine",
+          "type": "pdf",
+          "bytes": 6756068,
+          "path": "_SLIDES/M15-Selling-AI-Solutions/M15-D03_AI-Lead-Generation-Machine.pdf"
         }
       ],
       "slides_zip": "_SLIDES/_ZIP/M15-slides.zip"
