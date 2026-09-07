@@ -21,4 +21,4 @@ The final project. Build, test, secure, deploy and pitch an original agent — n
 Submitted work is reviewed by the DSP team. If something needs fixing, you'll get specific feedback and can resubmit any time — there's no penalty for a first draft not being perfect. Strong capstones may be featured in the student showcase.
 
 ## Certificate
-Completing all 15 modules plus an approved capstone earns the DSP AI Agent Mastery — Master certificate, with a public verification page.
+Completing all 16 modules plus an approved capstone earns the DSP AI Agent Mastery — Master certificate, with a public verification page.

@@ -127,7 +127,7 @@ export default async function BlogPost(
 
         <div className="dsp-post__cta">
           <h2>Ready to build AI agents yourself?</h2>
-          <p>DSP AI Agent Mastery — self-paced, 15 modules, starts from zero.</p>
+          <p>DSP AI Agent Mastery — self-paced, 16 modules, starts from zero.</p>
           <a href="/mastery" className="dsp-post__cta-btn">
             Start AI Agent Mastery →
           </a>

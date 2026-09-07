@@ -88,7 +88,7 @@ export const mastery = {
   laterPriceDisplay: '$197',
   access: 'Lifetime',
   supportMonths: 12,
-  modules: 15,
+  modules: 16,
   lectureHours: '30+',
   refundDays: 7,
   /** Dodo Payments hosted checkout — null until the account is live; CTAs fall back to WhatsApp */
@@ -473,7 +473,7 @@ export const guides = [
   { path: '/ai-agent-course-in-urdu', title: 'AI Agent Course in Urdu', live: true },
   { path: '/ai-training-islamabad', title: 'AI Training in Islamabad', live: false },
   { path: '/learn-ai-agents-pakistan', title: 'How to Learn AI Agents in Pakistan', live: false },
-  { path: '/mastery/curriculum', title: 'Mastery Curriculum: All 15 Modules', live: false },
+  { path: '/mastery/curriculum', title: 'Mastery Curriculum: All 16 Modules', live: false },
   { path: '/what-is-an-ai-employee', title: 'What Is an AI Employee?', live: false },
   { path: '/research/pakistan-ai-skills-survey-2026', title: 'Pakistan AI Skills Survey 2026', live: false },
   { path: '/frameworks/7-part-job-description', title: 'The 7-Part Job Description', live: false },

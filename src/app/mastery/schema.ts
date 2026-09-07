@@ -92,7 +92,7 @@ const course: JsonLd = {
   courseCode: 'DSP-AIM-2026',
   // Fuller than the WebPage's meta description (GEO pass 2026-09-06); every
   // clause is on the page — the at-a-glance table (self-paced video, 30+
-  // hours, 15 modules), the #build section (café ordering AI Employee,
+  // hours, 16 modules), the #build section (café ordering AI Employee,
   // multi-tenant, live URL) and the tools row.
   description: COURSE_DESCRIPTION,
   url: CANONICAL,
@@ -164,7 +164,7 @@ const course: JsonLd = {
     },
   ],
   // One Syllabus per module, titled and described exactly as the visible
-  // curriculum accordion (M01 … M15; the capstone is not a module).
+  // curriculum accordion (M01 … M16; the capstone is not a module).
   syllabusSections: MASTERY_CURRICULUM.map((m) => ({
     '@type': 'Syllabus',
     name: `${m.code} ${m.title}`,

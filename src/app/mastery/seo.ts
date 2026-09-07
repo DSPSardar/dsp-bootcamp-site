@@ -12,7 +12,7 @@ import { site, mastery } from '@/config/site'
 // '%s | DSP' template does not double the suffix.
 export const SEO_TITLE = 'AI Agent Course for Beginners (Urdu + English) — Build, Deploy & Sell AI Agents | DSP'
 export const SEO_DESCRIPTION =
-  'Self-paced AI agent course for beginners, taught in Urdu and English. 15 modules, one real AI Employee built from an empty folder to a live URL, Anthropic Claude Academy badges, lifetime access. $100 one-time. Pay by bank transfer, JazzCash or Easypaisa.'
+  'Self-paced AI agent course for beginners, taught in Urdu and English. 16 modules, one real AI Employee built from an empty folder to a live URL, Anthropic Claude Academy badges, lifetime access. $100 one-time. Pay by bank transfer, JazzCash or Easypaisa.'
 
 /** The Course node's description — longer than the meta description, for
  *  the JSON-LD Course and /llms.txt (GEO pass 2026-09-06). Every clause is

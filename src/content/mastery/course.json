@@ -1924,7 +1924,9 @@
             "guid": "17dba285-6abe-4e80-b4c7-14fc675b66b6",
             "status": "processing",
             "version": 1,
-            "uploaded_at": "2026-09-07T22:07:35.991Z"
+            "uploaded_at": "2026-09-07T22:07:35.991Z",
+            "length_sec": 1607,
+            "aspect": 1.7778
           }
         }
       ]

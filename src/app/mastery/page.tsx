@@ -118,7 +118,7 @@ export default function MasteryPage() {
   <div>
     <div className="eyebrow">Self-paced · Lifetime access · 1 year free support</div>
     <h1>The AI agent course for beginners — go from zero to <em>building, deploying and selling</em> AI agents.</h1>
-    <p className="lead">15 modules, taught in Urdu and English. You build one real AI Employee from an empty folder to a live URL — then your own. No coding background needed. $100 one-time, lifetime access. Updated {PAGE_UPDATED_MONTH}.</p>
+    <p className="lead">16 modules, taught in Urdu and English. You build one real AI Employee from an empty folder to a live URL — then your own. No coding background needed. $100 one-time, lifetime access. Updated {PAGE_UPDATED_MONTH}.</p>
     <p className="byline">Written by <Link href="/sardar-ghaffar">Sardar Ghaffar</Link> · Google-verified AI Agentic Trainer · Anthropic-verified educator · Last updated {PAGE_UPDATED_DISPLAY}</p>
     <div className="cta-row">
       <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.hero)} event="whatsapp_click" params={{ location: 'hero' }}>Start building <span className="price-tag">$100 · one-time</span></TrackedLink>
@@ -175,13 +175,13 @@ export default function MasteryPage() {
 <section id="what"><div className="wrap">
   <div className="eyebrow">In one paragraph</div>
   <h2>What is this AI agent course, in one paragraph?</h2>
-  <p className="answer">DSP AI Agent Mastery is a self-paced AI agent course for complete beginners. Across 15 modules you build one working AI Employee — a café ordering agent — from an empty folder to a live URL using Claude Code, then learn to sell agents like it to real businesses. Lectures are in Urdu and English. $100, lifetime access.</p>
+  <p className="answer">DSP AI Agent Mastery is a self-paced AI agent course for complete beginners. Across 16 modules you build one working AI Employee — a café ordering agent — from an empty folder to a live URL using Claude Code, then learn to sell agents like it to real businesses. Lectures are in Urdu and English. $100, lifetime access.</p>
   <div className="tscroll" style={{maxWidth:'780px'}}>
     <table className="glance">
       <caption style={{position:'absolute',left:'-9999px'}}>DSP AI Agent Mastery at a glance</caption>
       <tbody>
         <tr><th scope="row">Level</th><td>Complete beginner — no coding</td></tr>
-        <tr><th scope="row">Format</th><td>Self-paced video, 30+ hours, 15 modules</td></tr>
+        <tr><th scope="row">Format</th><td>Self-paced video, 30+ hours, 16 modules</td></tr>
         <tr><th scope="row">Language</th><td>Urdu–English lectures, English materials, subtitles</td></tr>
         <tr><th scope="row">Project</th><td>One real AI Employee → live URL, plus your own capstone</td></tr>
         <tr><th scope="row">Certificates</th><td>DSP Master certificate (verifiable URL) + 3 Claude Academy badges from Anthropic</td></tr>
@@ -195,7 +195,7 @@ export default function MasteryPage() {
 <section><div className="wrap">
   <div className="eyebrow">Why this exists</div>
   <h2>Can a beginner with no coding background really build an AI agent?</h2>
-  <p className="answer">Yes. You describe what you want in plain words and Claude Code writes the code; your job is to plan, direct, test and ship, which is exactly what the 15 modules teach. If you can write a clear WhatsApp message, you can write the Job Description that runs an agent. That is the whole gap this program closes — and it is a smaller gap than it looks from the outside.</p>
+  <p className="answer">Yes. You describe what you want in plain words and Claude Code writes the code; your job is to plan, direct, test and ship, which is exactly what the 16 modules teach. If you can write a clear WhatsApp message, you can write the Job Description that runs an agent. That is the whole gap this program closes — and it is a smaller gap than it looks from the outside.</p>
   <p className="lead" style={{marginBottom:'36px'}}>You already use AI every day. You still can&apos;t build with it. Here is why, and what changes.</p>
   <div className="grid3">
     <div className="card"><div className="k">Where most people are</div><h3>Chatting, not building</h3><p>You ask Claude or ChatGPT a question, copy the answer, and start again tomorrow. Nothing you made on Monday is still working for you on Friday.</p></div>
@@ -260,7 +260,7 @@ export default function MasteryPage() {
 
 <section id="journey" className="journey"><div className="wrap">
   <div className="eyebrow">The journey</div>
-  <h2>What does the 15-module AI agent curriculum cover?</h2>
+  <h2>What does the 16-module AI agent curriculum cover?</h2>
   <p className="answer">Five phases. Phase 0 (Modules 1–3) gives you the foundations: what an agent is, how to write a Job Description, and how to set up Claude, ChatGPT and Gemini. Phase 1 (4–6) teaches vibe coding with Claude Code, websites and Git. Phase 2 (7–10) turns your website into an agent with APIs, RAG, memory and MCP. Phase 3 (11–13) tests, secures and deploys it. Phase 4 (14–15 plus the capstone) makes it multi-tenant and teaches you to sell it.</p>
   <p className="lead" style={{marginBottom:'48px'}}>Modules open in order, one build at a time — that&apos;s how everyone finishes. No tests, no grades. You watch, you build, you move on.</p>
   <div className="rail" id="rail">
@@ -277,8 +277,8 @@ export default function MasteryPage() {
       <div className="mods"><span>M11 Testing &amp; Observability</span><span>M12 Security</span><span>M13 Deployment</span></div>
       <p className="build"><b>You produce:</b> AI Employee LIVE — a public URL you can send to anyone.</p></div>
     <div className="phase"><div className="dot">4</div><h3>Seller</h3><div className="out">You can turn one agent into a business and sell it</div>
-      <div className="mods"><span>M14 Multi-Agent &amp; Business Automation</span><span>M15 Selling AI Solutions</span><span>Capstone</span></div>
-      <p className="build"><b>You produce:</b> your AI Employee serving two cafés from one system, a real client proposal, and your own original agent — the capstone that earns the certificate.</p></div>
+      <div className="mods"><span>M14 Multi-Agent &amp; Business Automation</span><span>M15 Selling AI Solutions</span><span>M16 AI Search Dominance Engine</span><span>Capstone</span></div>
+      <p className="build"><b>You produce:</b> your AI Employee serving two cafés from one system, a real client proposal, one SEO page built by the AI Search Dominance Engine, and your own original agent — the capstone that earns the certificate.</p></div>
   </div>
 </div></section>
 
@@ -324,7 +324,7 @@ export default function MasteryPage() {
       <p className="md" style={{marginTop:'18px'}}><b>You finish with four, and three of them are not ours.</b> Module 3 takes you through Claude Academy, the training run by Anthropic — the American company in San Francisco that builds Claude — and you come out holding <b>Claude 101</b>, <b>Claude Code 101</b> and <b>Introduction to Claude Cowork</b>, each with your own name on it. Anthropic issues them, so they say nothing about DSP and everything about you. The fourth is the DSP Master certificate, and it is the one that points at a live agent you built.</p>
       <p className="md" style={{marginTop:'12px'}}>None of this is out of reach. Every DSP student who follows the module earns all three — no exam fee, no waiting list, no degree required. Ours have been earning them for months, and we publish every one on our channels the week it lands.</p>
       <div className="badges">
-        <span><b>M06</b>Builder</span><span><b>M10</b>Agent Engineer</span><span><b>M13</b>Production-Ready</span><span><b>M15</b>AI Solutions Seller</span><span><b>CAP</b>Master</span>
+        <span><b>M06</b>Builder</span><span><b>M10</b>Agent Engineer</span><span><b>M13</b>Production-Ready</span><span><b>M15</b>AI Solutions Seller</span><span><b>M16</b>AI Search Dominator</span><span><b>CAP</b>Master</span>
       </div>
     </div>
   </div>
@@ -420,7 +420,7 @@ export default function MasteryPage() {
   <p className="lead" style={{marginBottom:'28px'}}>Everything you need, nothing you&apos;ll never open.</p>
   <div className="stack" id="pricing">
     <ul>
-      <li><span>30+ hours of lectures, cut and chaptered, across 15 modules</span><span>~30 hrs</span></li>
+      <li><span>30+ hours of lectures, cut and chaptered, across 16 modules</span><span>~30 hrs</span></li>
       <li><span>AI Employee build thread — 8 parts, empty folder to two live cafés</span><span>1 project</span></li>
       <li><span>Original capstone, reviewed by the DSP team</span><span>1 project</span></li>
       <li><span>Resource Vault — 100+ prompts, 25 starter Job Descriptions, templates, checklists</span><span>100+ files</span></li>
@@ -467,6 +467,7 @@ export default function MasteryPage() {
     <details><summary><span className="n">M13</span>Deployment<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Put your AI Employee on a public HTTPS URL with the backend hosted and env vars set.</div><div><b>You build</b>The live URL — share it in the group.</div></div></details>
     <details><summary><span className="n">M14</span>Multi-Agent &amp; Business Automation<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Turn one agent into a business system: One Agent Many Clients, notifications, and when multi-agent is worth it.</div><div><b>You build</b>your AI Employee serving two cafés from one deployment.</div></div></details>
     <details><summary><span className="n">M15</span>Selling AI Solutions<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Run discovery, price the work, write the proposal, deliver, get paid — as a freelancer or a one-person agency.</div><div><b>You build</b>A discovery sheet and a proposal for a real business.</div></div></details>
+    <details><summary><span className="n">M16</span>AI Search Dominance Engine<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Take one target query from research to a deployed page that Google and AI assistants cite — query fan-out, SERP intelligence, competitor gap, content architecture, technical SEO, structured data, SEO Win Score — and sell it as a monthly SEO retainer.</div><div><b>You build</b>Your first Dominance page: one query → live URL → SEO Win Score. Open from day one, no prerequisites.</div></div></details>
     <details><summary><span className="n">CAP</span>Capstone — your own agent<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Build, test, secure, deploy and pitch an original agent for a real use case — not the café AI Employee.</div><div><b>You build</b>Live URL, repo, 3-minute demo, 1-page proposal — reviewed by the DSP team. This earns the certificate.</div></div></details>
   </div>
 </div></section>

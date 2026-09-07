@@ -52,7 +52,7 @@ export function GET() {
     `- **Tuition**: $${mastery.priceUsd} one-time fee (payable globally, or in PKR — ${mastery.pkr.price} — by bank transfer, JazzCash or Easypaisa). ${mastery.refundDays}-day refund.`,
     `- **Format**: ${mastery.modules} modules, ${mastery.lectureHours} hours of recorded lectures, self-paced, ${mastery.access.toLowerCase()} access`,
     '',
-    '## Curriculum (15 modules, in order)',
+    '## Curriculum (16 modules, in order)',
     ...MASTERY_CURRICULUM.map((m) => `- ${m.code} ${m.title}: ${m.outcome}`),
     '',
     '## Links',

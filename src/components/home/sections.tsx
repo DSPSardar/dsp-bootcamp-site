@@ -25,7 +25,7 @@ export function Hero() {
             DSP now teaches this material as{' '}
             <Link href="/mastery">the {mastery.priceDisplay} self-paced version of this program</Link>
           </strong>{' '}
-          — DSP AI Agent Mastery: 15 modules, recorded lectures, lifetime access.
+          — DSP AI Agent Mastery: 16 modules, recorded lectures, lifetime access.
         </p>
         <div className="hero-ctas">
           <Link className="btn btn-primary" href="/mastery">Explore DSP AI Agent Mastery →</Link>

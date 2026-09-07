@@ -15,7 +15,7 @@ export default async function VerifyPage({ params }: { params: Promise<{ code: s
       <p>Awarded to <b>{cert.full_name}</b> on {new Date(cert.issued_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}.</p>
       <p>Certificate ID: <code>{cert.code}</code></p>
       {cap && <p>Capstone: <a href={cap.live_url}>{cap.live_url}</a> · <a href={cap.repo_url}>source</a></p>}
-      <p style={{ color: '#666', fontSize: 14 }}>Issued on completion of 15 modules and a capstone project reviewed by the DSP team.</p>
+      <p style={{ color: '#666', fontSize: 14 }}>Issued on completion of 16 modules and a capstone project reviewed by the DSP team.</p>
     </main>
   )
 }

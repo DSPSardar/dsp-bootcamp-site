@@ -1,4 +1,4 @@
-// src/app/mastery/curriculum.ts — the 15 modules of the visible curriculum, as data.
+// src/app/mastery/curriculum.ts — the 16 modules of the visible curriculum, as data.
 //
 // Feeds `syllabusSections` on the Course node in ./schema.ts. Each entry MUST
 // mirror the module's <summary> title and its "Outcome" line in the
@@ -40,4 +40,6 @@ export const MASTERY_CURRICULUM: readonly CurriculumModule[] = [
     outcome: 'Turn one agent into a business system: One Agent Many Clients, notifications, and when multi-agent is worth it.' },
   { code: 'M15', title: 'Selling AI Solutions',
     outcome: 'Run discovery, price the work, write the proposal, deliver, get paid — as a freelancer or a one-person agency.' },
+  { code: 'M16', title: 'AI Search Dominance Engine',
+    outcome: 'Take one target query from research to a deployed page that Google and AI assistants cite — and sell it as a monthly SEO retainer.' },
 ]

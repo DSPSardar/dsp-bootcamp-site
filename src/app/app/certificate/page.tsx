@@ -18,7 +18,7 @@ export default async function CertificatePage() {
           <p className="md">Verification URL: <a href={`/verify/${cert.code}`}>digitalservicesprogram.com/verify/{cert.code}</a> — share this on LinkedIn.</p>
         </>
       ) : (
-        <p className="md">{allDone ? 'All 15 modules complete. Your certificate is issued once the DSP team approves your capstone.' : 'Complete all 15 modules and an approved capstone to earn the certificate.'}</p>
+        <p className="md">{allDone ? 'All 16 modules complete. Your certificate is issued once the DSP team approves your capstone.' : 'Complete all 16 modules and an approved capstone to earn the certificate.'}</p>
       )}
       <div style={{ marginTop: 16 }}>{earned.map((b) => <span className="badge" key={b.name}>{b.name}</span>)}{earned.length === 0 && <span className="muted">Badges appear here as you finish each phase.</span>}</div>
     </div>

@@ -44,7 +44,7 @@ export default function EnrolPage() {
 
         <div className="panel">
           <h2>What happens next</h2>
-          <p className="md">You get an email with a sign-in link. Click it and you&apos;re in the dashboard — 15 modules, the Resource Vault, and your progress saved as you go. The link works on any device; if it expires, request a new one from the sign-in page.</p>
+          <p className="md">You get an email with a sign-in link. Click it and you&apos;re in the dashboard — 16 modules, the Resource Vault, and your progress saved as you go. The link works on any device; if it expires, request a new one from the sign-in page.</p>
         </div>
       </div></section>
     </div>
