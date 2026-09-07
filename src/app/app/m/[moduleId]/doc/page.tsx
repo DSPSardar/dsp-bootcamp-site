@@ -6,7 +6,7 @@ import { moduleFor } from '@/lib/mastery/course'
 const folderFor: Record<string, string> = {
   M01: 'M01-AI-Foundations', M02: 'M02-Prompting-Context-Engineering', M03: 'M03-Claude-ChatGPT-Gemini', M04: 'M04-Vibe-Coding', M05: 'M05-Websites',
   M06: 'M06-Git-GitHub', M07: 'M07-AI-Agents', M08: 'M08-APIs', M09: 'M09-RAG-Memory', M10: 'M10-MCP', M11: 'M11-Testing-Observability',
-  M12: 'M12-Security', M13: 'M13-Deployment', M14: 'M14-Multi-Agent-Business-Automation', M15: 'M15-Selling-AI-Solutions',
+  M12: 'M12-Security', M13: 'M13-Deployment', M14: 'M14-Multi-Agent-Business-Automation', M15: 'M15-Selling-AI-Solutions', M16: 'M16-AI-Search-Dominance-Engine',
 }
 
 /** Minimal markdown → HTML for vault docs (headings, lists, code, tables, bold). Good enough for templates; PDFs come later. */

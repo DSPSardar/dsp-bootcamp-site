@@ -14,8 +14,9 @@ export const coreLessons = (m: Module) => m.lessons.filter((l) => l.kind === 'co
 
 /** Progression rule: module N opens when every core lesson of module N-1 is marked complete. No tests, no grades. */
 /** Modules open to every student from day one, regardless of progress — M15 (Selling AI
- *  Solutions) is joined directly by alumni who already did the basics live. */
-const ALWAYS_OPEN = new Set(['M15'])
+ *  Solutions) is joined directly by alumni who already did the basics live; M16 (AI Search
+ *  Dominance Engine) is a standalone course inside Mastery, open to everyone. */
+const ALWAYS_OPEN = new Set(['M15', 'M16'])
 
 export function unlockState(done: Set<string>, unlockAll = false) {
   const state: Record<string, { unlocked: boolean; complete: boolean; doneCount: number; total: number }> = {}
@@ -31,7 +32,7 @@ export function unlockState(done: Set<string>, unlockAll = false) {
 }
 
 export const badges = [
-  { after: 'M06', name: 'Builder' }, { after: 'M10', name: 'Agent Engineer' }, { after: 'M13', name: 'Production-Ready' }, { after: 'M15', name: 'AI Solutions Seller' },
+  { after: 'M06', name: 'Builder' }, { after: 'M10', name: 'Agent Engineer' }, { after: 'M13', name: 'Production-Ready' }, { after: 'M15', name: 'AI Solutions Seller' }, { after: 'M16', name: 'AI Search Dominator' },
 ]
 
 /** Bunny metadata carried on a welcome lesson. `uploaded_at` / `length_sec`

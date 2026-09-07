@@ -1880,6 +1880,54 @@
         }
       ],
       "slides_zip": "_SLIDES/_ZIP/M15-slides.zip"
+    },
+    {
+      "id": "M16",
+      "title": "AI Search Dominance Engine",
+      "phase": "4",
+      "phase_name": "Seller",
+      "outcome": "Take one target query from research to a deployed, AI-cited page — and sell it as a monthly SEO retainer.",
+      "downloads": [
+        "Engine pipeline checklist",
+        "SEO retainer proposal"
+      ],
+      "badge_after": "AI Search Dominator",
+      "build_project": "Your first Dominance page — one target query → research → build → deploy → SEO Win Score",
+      "vault_files": [
+        "Engine-Pipeline-Checklist.md",
+        "SEO-Retainer-Proposal.md"
+      ],
+      "slides": [
+        {
+          "file": "M16-D01_The-AI-Search-Dominance-Engine.pdf",
+          "title": "The AI Search Dominance Engine",
+          "type": "pdf",
+          "bytes": 9551637,
+          "path": "_SLIDES/M16-AI-Search-Dominance-Engine/M16-D01_The-AI-Search-Dominance-Engine.pdf"
+        }
+      ],
+      "slides_zip": "_SLIDES/_ZIP/M16-slides.zip",
+      "lessons": [
+        {
+          "file": "M16-L01_The-AI-Search-Dominance-Engine.mp4",
+          "folder": "Phase-4-Seller/M16-AI-Search-Dominance-Engine",
+          "youtube_id": null,
+          "minutes": 27,
+          "source": "NEW",
+          "status": "NEW",
+          "chapters": [],
+          "master": "M16-L01_The-AI-Search-Dominance-Engine_v1.mp4",
+          "kind": "core",
+          "order": "L01",
+          "source_note": "recorded 7 Sep 2026",
+          "bunny": {
+            "guid": "17dba285-6abe-4e80-b4c7-14fc675b66b6",
+            "status": "processing",
+            "version": 1,
+            "uploaded_at": "2026-09-07T22:07:35.991Z"
+          }
+        }
+      ]
     }
   ],
   "welcome": [
