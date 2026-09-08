@@ -2,7 +2,7 @@ import { notFound, redirect } from 'next/navigation'
 import { revalidatePath } from 'next/cache'
 import { supabaseServer } from '@/lib/supabase/server'
 import { requireStudent, isAdminUser } from '@/lib/mastery/auth'
-import { moduleFor, unlockState, lessonTitle, lessonSlug } from '@/lib/mastery/course'
+import { moduleFor, unlockState, titleOf, lessonSlug, lessonLabel } from '@/lib/mastery/course'
 import BunnyPlayer from '@/components/mastery/BunnyPlayer'
 import WatchTracker from '@/components/mastery/WatchTracker'
 import { postAsosEvent } from '@/lib/mastery/asos'
@@ -65,10 +65,10 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
     <>
       <div className="panel">
         <a className="muted" href={`/app/m/${m.id}`}>← {m.id} · {m.title}</a>
-        <h1 style={{ marginTop: 8 }}>{lessonTitle(l.file)}</h1>
-        <p className="muted">{lessonSlug(l.file)} · {l.kind} · {l.minutes} min{(l as { instructor?: string }).instructor ? ` · with ${(l as { instructor?: string }).instructor}` : ''}</p>
+        <h1 style={{ marginTop: 8 }}>{titleOf(l)}</h1>
+        <p className="muted">{lessonLabel(m, l)} · {l.kind} · {l.minutes} min{(l as { instructor?: string }).instructor ? ` · with ${(l as { instructor?: string }).instructor}` : ''}</p>
         <div style={{ marginTop: 18 }}>
-          {l.bunny?.status === 'ready' ? <><WatchTracker lesson={l.file} unlockAt={WATCH_THRESHOLD} initialFrac={isDone ? 1 : watchedFrac} /><BunnyPlayer videoId={l.bunny.guid} title={lessonTitle(l.file)} aspect={(l.bunny as { aspect?: number }).aspect} /></> : <p className="note">This lesson is being prepared and will appear here soon.</p>}
+          {l.bunny?.status === 'ready' ? <><WatchTracker lesson={l.file} unlockAt={WATCH_THRESHOLD} initialFrac={isDone ? 1 : watchedFrac} /><BunnyPlayer videoId={l.bunny.guid} title={titleOf(l)} aspect={(l.bunny as { aspect?: number }).aspect} /></> : <p className="note">This lesson is being prepared and will appear here soon.</p>}
         </div>
         <div style={{ display: 'flex', gap: 12, marginTop: 18, flexWrap: 'wrap' }}>
           <form action={toggle} className="inline">
@@ -78,7 +78,7 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
             </button>
           </form>
           {!canComplete && <a className="btn btn-ghost" href={`/app/m/${m.id}/${lessonSlug(l.file)}`}>Already watched it? Refresh ↻</a>}
-          {nextL && <a className="btn btn-ghost" href={`/app/m/${m.id}/${lessonSlug(nextL.file)}`}>Next: {lessonTitle(nextL.file)} →</a>}
+          {nextL && <a className="btn btn-ghost" href={`/app/m/${m.id}/${lessonSlug(nextL.file)}`}>Next: {titleOf(nextL)} →</a>}
         </div>
       </div>
     </>

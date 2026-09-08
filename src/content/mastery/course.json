@@ -43,6 +43,132 @@
       "badge_after": null,
       "lessons": [
         {
+          "file": "M01-S01_What-is-AI_QSVpTTR8znM.mp4",
+          "folder": "Phase-0-Zero/M01-AI-Foundations",
+          "youtube_id": "QSVpTTR8znM",
+          "minutes": 2,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M01-S01_What-is-AI_QSVpTTR8znM.mp4",
+          "kind": "supplement",
+          "order": "S01",
+          "bunny": {
+            "guid": "8431a5a1-078c-46cb-97f4-ab8ccc882402",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:33:51.602Z",
+            "length_sec": 130,
+            "aspect": 1.7778
+          },
+          "title": "Short — What is Artificial Intelligence?"
+        },
+        {
+          "file": "M01-S02_What-is-Generative-AI_x16B6uejHiU.mp4",
+          "folder": "Phase-0-Zero/M01-AI-Foundations",
+          "youtube_id": "x16B6uejHiU",
+          "minutes": 2,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M01-S02_What-is-Generative-AI_x16B6uejHiU.mp4",
+          "kind": "supplement",
+          "order": "S02",
+          "bunny": {
+            "guid": "39bf552d-5411-4581-9a54-8a247ea6e1d2",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:34:06.196Z",
+            "length_sec": 130,
+            "aspect": 1.7778
+          },
+          "title": "Short — What is Generative AI?"
+        },
+        {
+          "file": "M01-S03_What-are-AI-Agents_c4qkhlbs0-w.mp4",
+          "folder": "Phase-0-Zero/M01-AI-Foundations",
+          "youtube_id": "c4qkhlbs0-w",
+          "minutes": 5,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M01-S03_What-are-AI-Agents_c4qkhlbs0-w.mp4",
+          "kind": "supplement",
+          "order": "S03",
+          "bunny": {
+            "guid": "5ef7dbd4-c372-41ce-a756-e65ae21ebbc1",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:34:26.797Z",
+            "length_sec": 326,
+            "aspect": 1.7778
+          },
+          "title": "Short — What are AI Agents and how do they work?"
+        },
+        {
+          "file": "M01-S04_Generative-to-Agentic_Op7L1HDSMTQ.mp4",
+          "folder": "Phase-0-Zero/M01-AI-Foundations",
+          "youtube_id": "Op7L1HDSMTQ",
+          "minutes": 6,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M01-S04_Generative-to-Agentic_Op7L1HDSMTQ.mp4",
+          "kind": "supplement",
+          "order": "S04",
+          "bunny": {
+            "guid": "32b6db6b-428f-413d-9376-8f418c57bb1b",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:34:43.562Z",
+            "length_sec": 361,
+            "aspect": 1.7778
+          },
+          "title": "Short — From Generative AI to Agentic AI"
+        },
+        {
+          "file": "M01-S05_The-Future-Is-Agentic_7haIkVLGrL8.mp4",
+          "folder": "Phase-0-Zero/M01-AI-Foundations",
+          "youtube_id": "7haIkVLGrL8",
+          "minutes": 7,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M01-S05_The-Future-Is-Agentic_7haIkVLGrL8.mp4",
+          "kind": "supplement",
+          "order": "S05",
+          "bunny": {
+            "guid": "764e314a-269a-4dc5-b9c4-b83a2c561507",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:35:21.639Z",
+            "length_sec": 441,
+            "aspect": 0.9651
+          },
+          "title": "Short — The Future is Agentic"
+        },
+        {
+          "file": "M01-S06_Evolution-of-Agentic-Web_277rk9Oe2U0.mp4",
+          "folder": "Phase-0-Zero/M01-AI-Foundations",
+          "youtube_id": "277rk9Oe2U0",
+          "minutes": 7,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M01-S06_Evolution-of-Agentic-Web_277rk9Oe2U0.mp4",
+          "kind": "supplement",
+          "order": "S06",
+          "bunny": {
+            "guid": "8584c244-65c8-40a4-a164-9872b960d791",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:35:37.880Z",
+            "length_sec": 428,
+            "aspect": 1.7778
+          },
+          "title": "Short — The Evolution of the Agentic Web"
+        },
+        {
           "file": "M01-L01_AI-and-AI-Agents-Day1_MlNJeyjKHxQ.mp4",
           "folder": "Phase-0-Zero/M01-AI-Foundations",
           "youtube_id": "MlNJeyjKHxQ",
@@ -61,7 +187,8 @@
             "uploaded_at": "2026-08-26T13:36:02.462358Z",
             "length_sec": 2363,
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 1 — AI and AI Agents: The Big Picture"
         },
         {
           "file": "M01-L02_Next-Level-of-AI-Fundamentals-Agents-Autonomy_SvFSmcKbx3M.mp4",
@@ -82,127 +209,8 @@
             "uploaded_at": "2026-08-26T13:37:18.513841Z",
             "length_sec": 2843,
             "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M01-S01_What-is-AI_QSVpTTR8znM.mp4",
-          "folder": "Phase-0-Zero/M01-AI-Foundations",
-          "youtube_id": "QSVpTTR8znM",
-          "minutes": 2,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M01-S01_What-is-AI_QSVpTTR8znM.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "8431a5a1-078c-46cb-97f4-ab8ccc882402",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:33:51.602Z",
-            "length_sec": 130,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M01-S02_What-is-Generative-AI_x16B6uejHiU.mp4",
-          "folder": "Phase-0-Zero/M01-AI-Foundations",
-          "youtube_id": "x16B6uejHiU",
-          "minutes": 2,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M01-S02_What-is-Generative-AI_x16B6uejHiU.mp4",
-          "kind": "supplement",
-          "order": "S02",
-          "bunny": {
-            "guid": "39bf552d-5411-4581-9a54-8a247ea6e1d2",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:34:06.196Z",
-            "length_sec": 130,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M01-S03_What-are-AI-Agents_c4qkhlbs0-w.mp4",
-          "folder": "Phase-0-Zero/M01-AI-Foundations",
-          "youtube_id": "c4qkhlbs0-w",
-          "minutes": 5,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M01-S03_What-are-AI-Agents_c4qkhlbs0-w.mp4",
-          "kind": "supplement",
-          "order": "S03",
-          "bunny": {
-            "guid": "5ef7dbd4-c372-41ce-a756-e65ae21ebbc1",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:34:26.797Z",
-            "length_sec": 326,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M01-S04_Generative-to-Agentic_Op7L1HDSMTQ.mp4",
-          "folder": "Phase-0-Zero/M01-AI-Foundations",
-          "youtube_id": "Op7L1HDSMTQ",
-          "minutes": 6,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M01-S04_Generative-to-Agentic_Op7L1HDSMTQ.mp4",
-          "kind": "supplement",
-          "order": "S04",
-          "bunny": {
-            "guid": "32b6db6b-428f-413d-9376-8f418c57bb1b",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:34:43.562Z",
-            "length_sec": 361,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M01-S05_The-Future-Is-Agentic_7haIkVLGrL8.mp4",
-          "folder": "Phase-0-Zero/M01-AI-Foundations",
-          "youtube_id": "7haIkVLGrL8",
-          "minutes": 7,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M01-S05_The-Future-Is-Agentic_7haIkVLGrL8.mp4",
-          "kind": "supplement",
-          "order": "S05",
-          "bunny": {
-            "guid": "764e314a-269a-4dc5-b9c4-b83a2c561507",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:35:21.639Z",
-            "length_sec": 441,
-            "aspect": 0.9651
-          }
-        },
-        {
-          "file": "M01-S06_Evolution-of-Agentic-Web_277rk9Oe2U0.mp4",
-          "folder": "Phase-0-Zero/M01-AI-Foundations",
-          "youtube_id": "277rk9Oe2U0",
-          "minutes": 7,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M01-S06_Evolution-of-Agentic-Web_277rk9Oe2U0.mp4",
-          "kind": "supplement",
-          "order": "S06",
-          "bunny": {
-            "guid": "8584c244-65c8-40a4-a164-9872b960d791",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:35:37.880Z",
-            "length_sec": 428,
-            "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 2 — The Next Level of AI: Fundamentals, Agents, Autonomy"
         }
       ],
       "build_project": "Pick Your Agent — 5 ideas through the Idea Filter, one chosen",
@@ -244,6 +252,88 @@
       "badge_after": null,
       "lessons": [
         {
+          "file": "M02-S01_How-to-Talk-to-AI_ur0fyow0cPg.mp4",
+          "folder": "Phase-0-Zero/M02-Prompting-Context-Engineering",
+          "youtube_id": "ur0fyow0cPg",
+          "minutes": 12,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M02-S01_How-to-Talk-to-AI_ur0fyow0cPg.mp4",
+          "kind": "supplement",
+          "order": "S01",
+          "bunny": {
+            "guid": "1e47998e-9a93-4ab4-9693-6fde8350622a",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:36:09.133Z",
+            "length_sec": 744,
+            "aspect": 0.9651
+          },
+          "title": "Short — How to Talk to AI"
+        },
+        {
+          "file": "M02-S02_Tokens-and-Context-Windows_PBFNKMQoWW8.mp4",
+          "folder": "Phase-0-Zero/M02-Prompting-Context-Engineering",
+          "youtube_id": "PBFNKMQoWW8",
+          "minutes": 11,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M02-S02_Tokens-and-Context-Windows_PBFNKMQoWW8.mp4",
+          "kind": "supplement",
+          "order": "S02",
+          "bunny": {
+            "guid": "697911a0-40f0-46c3-b7c0-a998a76e7763",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:36:32.013Z",
+            "length_sec": 651,
+            "aspect": 1.7778
+          },
+          "title": "Short — Tokens and Context Windows: Memory and Cost"
+        },
+        {
+          "file": "M02-S03_Token-Mechanics_0fniIyBoNYU.mp4",
+          "folder": "Phase-0-Zero/M02-Prompting-Context-Engineering",
+          "youtube_id": "0fniIyBoNYU",
+          "minutes": 8,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M02-S03_Token-Mechanics_0fniIyBoNYU.mp4",
+          "kind": "supplement",
+          "order": "S03",
+          "bunny": {
+            "guid": "ec0d1185-b6ff-47a7-9141-be2ee59773d2",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:36:58.750Z",
+            "length_sec": 475,
+            "aspect": 1.7778
+          },
+          "title": "Short — Token and Context Window Mechanics"
+        },
+        {
+          "file": "M02-S04_What-is-Prompt-and-Prompt-Engineering.mp4",
+          "folder": "M02-Prompting-Context-Engineering",
+          "youtube_id": null,
+          "minutes": 19,
+          "kind": "supplement",
+          "source_note": "recorded 27 Aug 2026 by Sundus Khan, co-founder, DSP",
+          "bunny": {
+            "guid": "50fe5df8-c5e6-468e-bcbe-f09c49321868",
+            "status": "ready",
+            "version": 1,
+            "uploaded_at": "2026-08-27T11:30:54.744Z",
+            "length_sec": 1145,
+            "aspect": 1.7778
+          },
+          "master": "M02-S04_What-is-Prompt-and-Prompt-Engineering_v1.mp4",
+          "instructor": "Sundus Khan",
+          "title": "Short — What is a Prompt and Prompt Engineering?"
+        },
+        {
           "file": "M02-L01_Prompt-Eng-Not-Enough-Context-Eng_GEpRArti8Uc.mp4",
           "folder": "Phase-0-Zero/M02-Prompting-Context-Engineering",
           "youtube_id": "GEpRArti8Uc",
@@ -262,7 +352,8 @@
             "uploaded_at": "2026-08-26T13:37:16.030505Z",
             "length_sec": 3283,
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 1 — Prompt Engineering is not Enough: Context Engineering"
         },
         {
           "file": "M02-L02_Context-Engineering-Day3_enQqyln_uoE.mp4",
@@ -283,7 +374,8 @@
             "uploaded_at": "2026-08-26T13:36:58.851437Z",
             "length_sec": 2418,
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 2 — Context Engineering in Practice"
         },
         {
           "file": "M02-L03_4-Ways-AI-Agents-Fail_OWdmU2gYMz8.mp4",
@@ -303,85 +395,8 @@
             "uploaded_at": "2026-08-26T11:21:17.814Z",
             "length_sec": 2181,
             "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M02-S01_How-to-Talk-to-AI_ur0fyow0cPg.mp4",
-          "folder": "Phase-0-Zero/M02-Prompting-Context-Engineering",
-          "youtube_id": "ur0fyow0cPg",
-          "minutes": 12,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M02-S01_How-to-Talk-to-AI_ur0fyow0cPg.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "1e47998e-9a93-4ab4-9693-6fde8350622a",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:36:09.133Z",
-            "length_sec": 744,
-            "aspect": 0.9651
-          }
-        },
-        {
-          "file": "M02-S02_Tokens-and-Context-Windows_PBFNKMQoWW8.mp4",
-          "folder": "Phase-0-Zero/M02-Prompting-Context-Engineering",
-          "youtube_id": "PBFNKMQoWW8",
-          "minutes": 11,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M02-S02_Tokens-and-Context-Windows_PBFNKMQoWW8.mp4",
-          "kind": "supplement",
-          "order": "S02",
-          "bunny": {
-            "guid": "697911a0-40f0-46c3-b7c0-a998a76e7763",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:36:32.013Z",
-            "length_sec": 651,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M02-S03_Token-Mechanics_0fniIyBoNYU.mp4",
-          "folder": "Phase-0-Zero/M02-Prompting-Context-Engineering",
-          "youtube_id": "0fniIyBoNYU",
-          "minutes": 8,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M02-S03_Token-Mechanics_0fniIyBoNYU.mp4",
-          "kind": "supplement",
-          "order": "S03",
-          "bunny": {
-            "guid": "ec0d1185-b6ff-47a7-9141-be2ee59773d2",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:36:58.750Z",
-            "length_sec": 475,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M02-S04_What-is-Prompt-and-Prompt-Engineering.mp4",
-          "folder": "M02-Prompting-Context-Engineering",
-          "youtube_id": null,
-          "minutes": 19,
-          "kind": "supplement",
-          "source_note": "recorded 27 Aug 2026 by Sundus Khan, co-founder, DSP",
-          "bunny": {
-            "guid": "50fe5df8-c5e6-468e-bcbe-f09c49321868",
-            "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-27T11:30:54.744Z",
-            "length_sec": 1145,
-            "aspect": 1.7778
           },
-          "master": "M02-S04_What-is-Prompt-and-Prompt-Engineering_v1.mp4",
-          "instructor": "Sundus Khan"
+          "title": "Lecture 3 — 4 Ways AI Agents Fail and How to Fix Them"
         }
       ],
       "build_project": "Write the JD — 7-Part JD v2 with 3 test inputs",
@@ -423,6 +438,69 @@
       "badge_after": null,
       "lessons": [
         {
+          "file": "M03-S01_Claude-Step-by-Step-Beginner_tU13d4SN0c4.mp4",
+          "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
+          "youtube_id": "tU13d4SN0c4",
+          "minutes": 13,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M03-S01_Claude-Step-by-Step-Beginner_tU13d4SN0c4.mp4",
+          "kind": "supplement",
+          "order": "S01",
+          "bunny": {
+            "guid": "cf948aa1-10ca-417d-8ff4-ea9d116e4251",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:37:57.991Z",
+            "length_sec": 796,
+            "aspect": 1.7778
+          },
+          "title": "Short — Claude Step by Step: Beginner's Guide"
+        },
+        {
+          "file": "M03-S02_Website-with-ChatGPT_2NbT-rZKqvU.mp4",
+          "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
+          "youtube_id": "2NbT-rZKqvU",
+          "minutes": 5,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M03-S02_Website-with-ChatGPT_2NbT-rZKqvU.mp4",
+          "kind": "supplement",
+          "order": "S02",
+          "bunny": {
+            "guid": "937853cb-5ba9-46d3-839e-265df7e88b51",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:38:11.706Z",
+            "length_sec": 279,
+            "aspect": 1.7778
+          },
+          "title": "Short — Build a Website with ChatGPT"
+        },
+        {
+          "file": "M03-S03_How-Codex-Works_u5yAtqVX3Nw.mp4",
+          "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
+          "youtube_id": "u5yAtqVX3Nw",
+          "minutes": 6,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M03-S03_How-Codex-Works_u5yAtqVX3Nw.mp4",
+          "kind": "supplement",
+          "order": "S03",
+          "bunny": {
+            "guid": "68423743-dc10-4dc0-b27a-64803b365751",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:38:28.773Z",
+            "length_sec": 344,
+            "aspect": 0.9651
+          },
+          "title": "Short — How Codex Works"
+        },
+        {
           "file": "M03-L01_Claude-Masterclass-Pt1-Setup-Workflows_piOULSKw5pc.mp4",
           "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
           "youtube_id": "piOULSKw5pc",
@@ -441,7 +519,8 @@
             "length_sec": 3234,
             "aspect": 1.7778
           },
-          "source_note": "live class 25 Aug 2026 — Claude masterclass (updated)"
+          "source_note": "live class 25 Aug 2026 — Claude masterclass (updated)",
+          "title": "Lecture 1 — Claude Masterclass: Setup, New Features and Workflows"
         },
         {
           "file": "M03-L02_Claude-Chat-Cowork-Code_GUQmCNRqy1g.mp4",
@@ -462,7 +541,8 @@
             "uploaded_at": "2026-08-26T13:36:50.750217Z",
             "length_sec": 1851,
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 2 — Claude Chat, Cowork and Claude Code"
         },
         {
           "file": "M03-L03_Google-AI-Studio-Gemini_63bNPgeoxmA.mp4",
@@ -483,67 +563,8 @@
             "uploaded_at": "2026-08-26T13:37:21.018425Z",
             "length_sec": 1685,
             "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M03-S01_Claude-Step-by-Step-Beginner_tU13d4SN0c4.mp4",
-          "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
-          "youtube_id": "tU13d4SN0c4",
-          "minutes": 13,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M03-S01_Claude-Step-by-Step-Beginner_tU13d4SN0c4.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "cf948aa1-10ca-417d-8ff4-ea9d116e4251",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:37:57.991Z",
-            "length_sec": 796,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M03-S02_Website-with-ChatGPT_2NbT-rZKqvU.mp4",
-          "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
-          "youtube_id": "2NbT-rZKqvU",
-          "minutes": 5,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M03-S02_Website-with-ChatGPT_2NbT-rZKqvU.mp4",
-          "kind": "supplement",
-          "order": "S02",
-          "bunny": {
-            "guid": "937853cb-5ba9-46d3-839e-265df7e88b51",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:38:11.706Z",
-            "length_sec": 279,
-            "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M03-S03_How-Codex-Works_u5yAtqVX3Nw.mp4",
-          "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
-          "youtube_id": "u5yAtqVX3Nw",
-          "minutes": 6,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M03-S03_How-Codex-Works_u5yAtqVX3Nw.mp4",
-          "kind": "supplement",
-          "order": "S03",
-          "bunny": {
-            "guid": "68423743-dc10-4dc0-b27a-64803b365751",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:38:28.773Z",
-            "length_sec": 344,
-            "aspect": 0.9651
-          }
+          },
+          "title": "Lecture 3 — Google AI Studio and Gemini"
         }
       ],
       "build_project": "Your Toolkit — Claude Project + tool comparison + setup checklist",
@@ -602,7 +623,8 @@
             "uploaded_at": "2026-08-26T11:33:56.751Z",
             "length_sec": 2742,
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 1 — Vibe Coding Step by Step: Website, Chatbot and AI Agents"
         },
         {
           "file": "M04-L02_Claude-Code-Structuring-Real-Project_QHtJAUbe8fI.mp4",
@@ -622,7 +644,8 @@
             "uploaded_at": "2026-08-26T12:22:37.569Z",
             "length_sec": 3288,
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 2 — Claude Code Live: Structuring a Real AI Agent Project"
         },
         {
           "file": "M04-L03_Claude-Masterclass-Pt2-Advanced-Coding_hfLCbgKZ498.mp4",
@@ -643,7 +666,8 @@
             "uploaded_at": "2026-08-26T13:36:45.649952Z",
             "length_sec": 3163,
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 3 — Claude Masterclass: Advanced Coding and Agent Workflows"
         },
         {
           "file": "M04-S01_What-is-Vibe-Coding_l5AXZP24KrY.mp4",
@@ -663,7 +687,8 @@
             "uploaded_at": "2026-08-27T00:38:52.201Z",
             "length_sec": 349,
             "aspect": 0.9651
-          }
+          },
+          "title": "Short — What is Vibe Coding?"
         }
       ],
       "build_project": "AI Employee Part 1: The Skeleton — app running locally on video",
@@ -724,7 +749,8 @@
             "length_sec": 2742,
             "aspect": 1.7778
           },
-          "previous_note": "live class 24 Aug 2026 — complete step-by-step: vibe coding, website, chatbot, AI agents with Claude"
+          "previous_note": "live class 24 Aug 2026 — complete step-by-step: vibe coding, website, chatbot, AI agents with Claude",
+          "title": "Lecture 1 — Build and Publish a Website Live with Claude Code"
         },
         {
           "file": "M05-L02_First-Frontend-with-Claude-Code-Day2_FMsPKSDfft4.mp4",
@@ -745,7 +771,8 @@
             "uploaded_at": "2026-08-26T13:36:24.415949Z",
             "length_sec": 1829,
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 2 — Build Your First Frontend with Claude Code"
         }
       ],
       "build_project": "AI Employee Part 2: The Café Website — 4 pages, desktop + mobile",
@@ -805,7 +832,8 @@
             "uploaded_at": "2026-08-26T12:24:03.001Z",
             "length_sec": 2785,
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 1 — Push Your Frontend to GitHub with Claude Code"
         },
         {
           "file": "M06-L02_Git-and-GitHub-with-Claude-Code.mp4",
@@ -826,7 +854,8 @@
             "uploaded_at": "2026-08-27T06:37:38.244Z",
             "length_sec": 1160,
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 2 — Git and GitHub with Claude Code"
         },
         {
           "file": "M06-S01_Git-GitHub-Basics-Vibe-Coders_wbeQ0EZ4ri4.mp4",
@@ -846,7 +875,8 @@
             "uploaded_at": "2026-08-27T00:39:07.452Z",
             "length_sec": 440,
             "aspect": 1.7778
-          }
+          },
+          "title": "Short — Git and GitHub Basics for Vibe Coders"
         }
       ],
       "build_project": "AI Employee on GitHub — public repo, 10+ commits, branch + restore",
@@ -899,28 +929,30 @@
             "uploaded_at": "2026-08-26T12:15:06.672Z",
             "length_sec": 3234,
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 1 — From Chatbot to AI Agent: The Complete Evolution"
         },
         {
-          "file": "M07-L02_Build-First-AI-Agent-Class4_IcDbXP-ohQ4.mp4",
+          "file": "M07-S01_Build-Agents-Master-Pro-Class1_NmpdMUxnLPQ.mp4",
           "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
-          "youtube_id": "IcDbXP-ohQ4",
-          "minutes": 66,
+          "youtube_id": "NmpdMUxnLPQ",
+          "minutes": 17,
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": "YTDown.com_YouTube_Build-first-Ai-Agent-with-Claude-code-DS_Media_IcDbXP-ohQ4_001_1080p.mp4",
+          "master": "YTDown.com_YouTube_Build-Ai-Agents-with-Claude-Master-Pro-c_Media_NmpdMUxnLPQ_001_1080p.mp4",
           "kind": "core",
-          "order": "L02",
+          "order": "S01",
           "bunny": {
-            "guid": "9bbc17c2-87e0-4164-89cc-0216780703b5",
+            "guid": "cbec2b7a-e9f7-4c38-ab3c-4bf49a8be92c",
             "status": "ready",
             "version": 1,
             "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:19.364998Z",
-            "length_sec": 3964,
+            "uploaded_at": "2026-08-26T13:36:16.822311Z",
+            "length_sec": 1041,
             "aspect": 1.7778
-          }
+          },
+          "title": "Bootcamp Day 1 — Build AI Agents with Claude (Master Pro Class 1)"
         },
         {
           "file": "M07-L03_Agents-Master-Pro-Day2__6L90ZqzHRs.mp4",
@@ -941,7 +973,8 @@
             "uploaded_at": "2026-08-26T13:37:46.998560+00:00",
             "length_sec": 2155,
             "aspect": 1.7778
-          }
+          },
+          "title": "Bootcamp Day 2 — AI Agents Master Pro Class"
         },
         {
           "file": "M07-L04_Bootcamp-Day3_1LgZxGCnz_Y.mp4",
@@ -962,7 +995,30 @@
             "uploaded_at": "2026-08-26T13:37:03.279590Z",
             "length_sec": 3645,
             "aspect": 1.7778
-          }
+          },
+          "title": "Bootcamp Day 3 — Building the Agent Step by Step"
+        },
+        {
+          "file": "M07-L02_Build-First-AI-Agent-Class4_IcDbXP-ohQ4.mp4",
+          "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
+          "youtube_id": "IcDbXP-ohQ4",
+          "minutes": 66,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "YTDown.com_YouTube_Build-first-Ai-Agent-with-Claude-code-DS_Media_IcDbXP-ohQ4_001_1080p.mp4",
+          "kind": "core",
+          "order": "L02",
+          "bunny": {
+            "guid": "9bbc17c2-87e0-4164-89cc-0216780703b5",
+            "status": "ready",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:36:19.364998Z",
+            "length_sec": 3964,
+            "aspect": 1.7778
+          },
+          "title": "Bootcamp Day 4 — Build Your First AI Agent with Claude Code"
         },
         {
           "file": "M07-L05_CafeBot-Zero-to-Live_ZG3JXm-L8XU.mp4",
@@ -982,28 +1038,8 @@
             "uploaded_at": "2026-08-26T12:25:32.657Z",
             "length_sec": 2934,
             "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M07-S01_Build-Agents-Master-Pro-Class1_NmpdMUxnLPQ.mp4",
-          "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
-          "youtube_id": "NmpdMUxnLPQ",
-          "minutes": 17,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_Build-Ai-Agents-with-Claude-Master-Pro-c_Media_NmpdMUxnLPQ_001_1080p.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "cbec2b7a-e9f7-4c38-ab3c-4bf49a8be92c",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:16.822311Z",
-            "length_sec": 1041,
-            "aspect": 1.7778
-          }
+          },
+          "title": "Final Build — Build a Real AI Agent: CafeBot Zero to Live"
         },
         {
           "file": "M07-S02_Idea-to-Live-Agent_YRzBUTFZiI0.mp4",
@@ -1023,7 +1059,8 @@
             "uploaded_at": "2026-08-27T00:39:29.472Z",
             "length_sec": 480,
             "aspect": 0.9651
-          }
+          },
+          "title": "Short — From Idea to Live AI Agent"
         },
         {
           "file": "M07-S03_Knowledge-Memory-Ladder_hmPWKZ72y9w.mp4",
@@ -1043,7 +1080,8 @@
             "uploaded_at": "2026-08-27T00:39:49.588Z",
             "length_sec": 221,
             "aspect": 1.7778
-          }
+          },
+          "title": "Short — The Knowledge and Memory Ladder"
         }
       ],
       "build_project": "AI Employee Part 3: The Ordering Agent — full order demo + architecture page",
@@ -1132,7 +1170,8 @@
             "uploaded_at": "2026-08-26T12:16:59.014Z",
             "length_sec": 2716,
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 1 — API Keys and .env Files: Handling Secrets the Right Way"
         },
         {
           "file": "M08-L02_External-API-Integration_NEW.mp4",
@@ -1144,7 +1183,8 @@
           "chapters": [],
           "master": null,
           "kind": "core",
-          "order": "L02"
+          "order": "L02",
+          "title": "Lecture 2 — External API Integration (coming soon)"
         },
         {
           "file": "M08-S01_AI-Agents-API_uLrZhhmjxCQ.mp4",
@@ -1164,7 +1204,8 @@
             "uploaded_at": "2026-08-27T00:40:05.729Z",
             "length_sec": 376,
             "aspect": 1.7778
-          }
+          },
+          "title": "Short — AI Agents and APIs"
         },
         {
           "file": "M08-S02_What-is-API-and-MCP_wknhpVBlQ8o.mp4",
@@ -1184,7 +1225,8 @@
             "uploaded_at": "2026-08-27T00:40:39.561Z",
             "length_sec": 761,
             "aspect": 1.7778
-          }
+          },
+          "title": "Short — What is an API? What is MCP?"
         }
       ],
       "build_project": "AI Employee Part 4: Wired Up — backend + one external API",
@@ -1237,7 +1279,8 @@
             "uploaded_at": "2026-08-26T12:18:14.145Z",
             "length_sec": 2194,
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 1 — Give Your AI Agent Perfect Memory: RAG Explained"
         },
         {
           "file": "M09-L02_The-Memory-Ladder_oOKyMHilVH4.mp4",
@@ -1259,7 +1302,8 @@
             "uploaded_at": "2026-08-26T13:37:25.919925Z",
             "length_sec": 2510,
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 2 — The Memory Ladder"
         },
         {
           "file": "M09-S01_How-RAG-Works-short_SkT2s4N8wU0.mp4",
@@ -1279,7 +1323,8 @@
             "uploaded_at": "2026-08-26T12:26:17.200Z",
             "length_sec": 1028,
             "aspect": 1.7778
-          }
+          },
+          "title": "Short — How RAG Actually Works"
         }
       ],
       "build_project": "AI Employee Part 5: Knows the Menu, Remembers the Customer",
@@ -1324,7 +1369,8 @@
           "chapters": [],
           "master": null,
           "kind": "core",
-          "order": "L01"
+          "order": "L01",
+          "title": "Lecture 1 — MCP Full Lecture (coming soon)"
         },
         {
           "file": "M10-S01_What-is-API-and-MCP_wknhpVBlQ8o.mp4",
@@ -1335,7 +1381,7 @@
           "status": "To download",
           "chapters": [],
           "master": "M10-S01_What-is-API-and-MCP_wknhpVBlQ8o.mp4",
-          "kind": "supplement",
+          "kind": "core",
           "order": "S01",
           "bunny": {
             "guid": "2c522603-5a33-4a0b-81f7-1fe916eba571",
@@ -1344,7 +1390,8 @@
             "uploaded_at": "2026-08-27T00:41:19.655Z",
             "length_sec": 761,
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture — What is an API? What is MCP?"
         }
       ],
       "build_project": "AI Employee Part 6: Talks to the Outside World — one MCP tool live",
@@ -1398,7 +1445,8 @@
             "uploaded_at": "2026-08-26T12:27:27.076Z",
             "length_sec": 2328,
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 1 — How to Test AI Agents Before and After Launch"
         },
         {
           "file": "M11-L02_What-is-Observability_7Os-d68IMq4.mp4",
@@ -1419,7 +1467,8 @@
             "uploaded_at": "2026-08-26T13:35:54.140575Z",
             "length_sec": 1791,
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 2 — What is Observability?"
         },
         {
           "file": "M11-L03_Test-Secure-Deploy__0REF_5Ws50.mp4",
@@ -1439,7 +1488,8 @@
             "uploaded_at": "2026-08-26T12:28:25.547Z",
             "length_sec": 2124,
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 3 — How to Test, Secure and Deploy AI Agents"
         },
         {
           "file": "M11-S01_Five-Steps-Trusted-Agents_ahafeXcC0mw.mp4",
@@ -1459,7 +1509,8 @@
             "uploaded_at": "2026-08-27T00:41:31.791Z",
             "length_sec": 409,
             "aspect": 1.7778
-          }
+          },
+          "title": "Short — Five Steps to Shipping Trusted AI Agents"
         }
       ],
       "build_project": "Break AI Employee — test sheet, 3 fixes, logging",
@@ -1528,7 +1579,8 @@
             "uploaded_at": "2026-08-26T13:35:51.576545Z",
             "length_sec": 2486,
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 1 — AI Agent Security Masterclass"
         },
         {
           "file": "M12-S01_Memory-Security-Guardrails_5OR0BOa_Hb4.mp4",
@@ -1548,7 +1600,8 @@
             "uploaded_at": "2026-08-27T00:41:44.943Z",
             "length_sec": 500,
             "aspect": 1.7778
-          }
+          },
+          "title": "Short — Memory and Security Guardrails"
         },
         {
           "file": "M12-S02_Securing-Agent-Memory_p3XZmeSOLrA.mp4",
@@ -1568,7 +1621,8 @@
             "uploaded_at": "2026-08-27T00:41:57.644Z",
             "length_sec": 376,
             "aspect": 1.7778
-          }
+          },
+          "title": "Short — Securing AI Agent Memory"
         }
       ],
       "build_project": "Harden AI Employee — 15-item checklist + 10 injection tests",
@@ -1619,7 +1673,8 @@
             "length_sec": 1185,
             "aspect": 1.7778
           },
-          "master": "M13-L01_Complete-Deployment-Zero-to-Live_v1.mp4"
+          "master": "M13-L01_Complete-Deployment-Zero-to-Live_v1.mp4",
+          "title": "Lecture 1 — Complete Deployment: Zero to Live"
         },
         {
           "file": "M13-L02_GitHub-to-Vercel-Deployment_oSD-AdRr5AI.mp4",
@@ -1640,28 +1695,8 @@
             "uploaded_at": "2026-08-26T13:37:05.895197Z",
             "length_sec": 2281,
             "aspect": 1.7778
-          }
-        },
-        {
-          "file": "M13-L03_CafeBot-Deploy-Portion_ZG3JXm-L8XU.mp4",
-          "folder": "Phase-3-Production/M13-Deployment",
-          "youtube_id": "ZG3JXm-L8XU",
-          "minutes": 0,
-          "source": "CUT-FROM-M07-L04",
-          "status": "CUT-FROM-M07-L04",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_Build-a-Real-AI-Agent-with-Claude-Code-Z_Media_ZG3JXm-L8XU_001_1080p.mp4",
-          "kind": "core",
-          "order": "L02",
-          "bunny": {
-            "guid": "b2980465-233a-411d-b98e-dbb2bce9e909",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:10.031050Z",
-            "length_sec": 2915,
-            "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 2 — GitHub to Vercel: Final Deployment"
         }
       ],
       "build_project": "AI Employee LIVE — public URL verified by AI Coach",
@@ -1724,7 +1759,8 @@
             "length_sec": 2522,
             "thumbnail": "thumbnail.jpg",
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 1 — Multi-Agent Systems and Business Automation"
         },
         {
           "file": "M14-S01_First-Multi-Agent-System_fxfDEBHjpC4.mp4",
@@ -1745,7 +1781,8 @@
             "uploaded_at": "2026-08-26T13:36:28.462278Z",
             "length_sec": 958,
             "aspect": 1.7778
-          }
+          },
+          "title": "Short — Build Your First Multi-Agent System"
         },
         {
           "file": "M14-S02_Agents-Workflows-Tools_Nw6vPE3d3XU.mp4",
@@ -1765,7 +1802,8 @@
             "uploaded_at": "2026-08-27T00:42:24.928Z",
             "length_sec": 821,
             "aspect": 0.9651
-          }
+          },
+          "title": "Short — Agents, Workflows and Tools"
         }
       ],
       "build_project": "AI Employee for Two Cafés — multi-tenant + owner notification",
@@ -1822,7 +1860,8 @@
             "uploaded_at": "2026-09-06T22:33:50.876Z",
             "length_sec": 965,
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 1 — The AI Lead Generation Machine"
         },
         {
           "file": "M15-L02_Finding-Clients-Worldwide.mp4",
@@ -1843,7 +1882,8 @@
             "uploaded_at": "2026-08-27T17:56:59.957Z",
             "length_sec": 3129,
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 2 — 10 Ways to Find Clients Worldwide"
         }
       ],
       "build_project": "Your First Proposal — discovery sheet + proposal + 3 outreach messages",
@@ -1927,7 +1967,8 @@
             "uploaded_at": "2026-09-07T22:07:35.991Z",
             "length_sec": 1607,
             "aspect": 1.7778
-          }
+          },
+          "title": "Lecture 1 — The AI Search Dominance Engine"
         }
       ]
     }

@@ -1,6 +1,6 @@
 import course from '@/content/mastery/course.json'
 
-export type Lesson = { file: string; kind: 'core' | 'supplement'; order: string; minutes: number; youtube_id?: string | null; bunny?: { guid: string; status: string } }
+export type Lesson = { file: string; title?: string; kind: 'core' | 'supplement'; order: string; minutes: number; youtube_id?: string | null; bunny?: { guid: string; status: string } }
 export type Module = { id: string; title: string; phase: string; phase_name: string; outcome: string; build_project: string; downloads: string[]; vault_files?: string[]; slides?: { file: string; title: string; type: string; bytes: number }[]; slides_zip?: string | null; badge_after?: string | null; lessons: Lesson[] }
 
 export const modules = course.modules as unknown as Module[]
@@ -9,6 +9,10 @@ export const courseMeta = { name: course.course, project: course.project, formul
 
 export const lessonTitle = (file: string) => file.replace(/\.(mp4|mov|m4v)$/i, '').replace(/^(M\d\d-[LS]\d\d|00-W\d\d|V)_/, '').replace(/_[A-Za-z0-9_-]{11}(_v\d+)?(_[A-Z-]+)?$/, '').replace(/-/g, ' ')
 export const lessonSlug = (file: string) => file.slice(0, 7)  // "M07-L01"
+/** Display title: the curated `title` from course.json, falling back to the filename. */
+export const titleOf = (l: Lesson) => l.title ?? lessonTitle(l.file)
+/** Human position label — lessons are listed in teaching order, which is not always the file code order. */
+export const lessonLabel = (m: Module, l: Lesson) => `${l.kind === 'core' ? 'Lesson' : 'Short'} ${m.lessons.indexOf(l) + 1} of ${m.lessons.length}`
 export const moduleFor = (id: string) => modules.find((m) => m.id === id)
 export const coreLessons = (m: Module) => m.lessons.filter((l) => l.kind === 'core')
 
