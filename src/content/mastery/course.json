@@ -565,6 +565,25 @@
             "aspect": 1.7778
           },
           "title": "Lecture 3 — Google AI Studio and Gemini"
+        },
+        {
+          "file": "M03-S04_Claude-Fundamentals-Beginner-to-Pro_GbDinGY4S00.mp4",
+          "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
+          "youtube_id": "GbDinGY4S00",
+          "minutes": 28,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "kind": "supplement",
+          "order": "S04",
+          "title": "Short — Claude AI Fundamentals: Beginner to Pro Guide",
+          "bunny": {
+            "guid": "075a81b8-e6b7-47eb-9d55-687fb85440ae",
+            "status": "processing",
+            "version": 0,
+            "uploaded_at": "2026-09-08T15:56:57.286Z"
+          },
+          "master": "M03-S04_Claude-Fundamentals-Beginner-to-Pro_GbDinGY4S00.mp4"
         }
       ],
       "build_project": "Your Toolkit — Claude Project + tool comparison + setup checklist",
@@ -722,6 +741,47 @@
       "badge_after": null,
       "lessons": [
         {
+          "file": "M05-L03_Building-Real-AI-Applications-Day1_1oM2aneRSX8.mp4",
+          "folder": "Phase-1-Builder/M05-Websites",
+          "youtube_id": "1oM2aneRSX8",
+          "minutes": 35,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "kind": "core",
+          "order": "L03",
+          "title": "Lecture 1 — Building Real AI Applications with Claude (Day 1)",
+          "bunny": {
+            "guid": "5a51a524-bf40-435f-ab1f-b2e734211e31",
+            "status": "processing",
+            "version": 0,
+            "uploaded_at": "2026-09-08T15:58:02.925Z"
+          },
+          "master": "M05-L03_Building-Real-AI-Applications-Day1_1oM2aneRSX8.mp4"
+        },
+        {
+          "file": "M05-L02_First-Frontend-with-Claude-Code-Day2_FMsPKSDfft4.mp4",
+          "folder": "Phase-1-Builder/M05-Websites",
+          "youtube_id": "FMsPKSDfft4",
+          "minutes": 31,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "YTDown.com_YouTube_Build-Your-First-Frontend-with-Claude-Co_Media_FMsPKSDfft4_001_1080p.mp4",
+          "kind": "core",
+          "order": "L02",
+          "bunny": {
+            "guid": "bdfb6e1b-76be-4376-8f11-29ecb240303b",
+            "status": "ready",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:36:24.415949Z",
+            "length_sec": 1829,
+            "aspect": 1.7778
+          },
+          "title": "Lecture 2 — Build Your First Frontend with Claude Code (Day 2)"
+        },
+        {
           "file": "M05-L01-build-and-publish-websites-live.mp4",
           "folder": "Phase-1-Builder/M05-Websites",
           "youtube_id": null,
@@ -750,29 +810,26 @@
             "aspect": 1.7778
           },
           "previous_note": "live class 24 Aug 2026 — complete step-by-step: vibe coding, website, chatbot, AI agents with Claude",
-          "title": "Lecture 1 — Build and Publish a Website Live with Claude Code"
+          "title": "Lecture 3 — Build and Publish a Website Live with Claude Code"
         },
         {
-          "file": "M05-L02_First-Frontend-with-Claude-Code-Day2_FMsPKSDfft4.mp4",
+          "file": "M05-L04_Golden-Rule-of-Building-Websites_mD-gzOE94Yg.mp4",
           "folder": "Phase-1-Builder/M05-Websites",
-          "youtube_id": "FMsPKSDfft4",
-          "minutes": 31,
+          "youtube_id": "mD-gzOE94Yg",
+          "minutes": 38,
           "source": "DOWNLOAD",
           "status": "To download",
           "chapters": [],
-          "master": "YTDown.com_YouTube_Build-Your-First-Frontend-with-Claude-Co_Media_FMsPKSDfft4_001_1080p.mp4",
           "kind": "core",
-          "order": "L02",
+          "order": "L04",
+          "title": "Lecture 4 — The Golden Rule of Building Websites with Claude Code",
           "bunny": {
-            "guid": "bdfb6e1b-76be-4376-8f11-29ecb240303b",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:24.415949Z",
-            "length_sec": 1829,
-            "aspect": 1.7778
+            "guid": "d0b61dee-39a5-493f-9d78-54a8128ca637",
+            "status": "processing",
+            "version": 0,
+            "uploaded_at": "2026-09-08T15:58:39.685Z"
           },
-          "title": "Lecture 2 — Build Your First Frontend with Claude Code"
+          "master": "M05-L04_Golden-Rule-of-Building-Websites_mD-gzOE94Yg.mp4"
         }
       ],
       "build_project": "AI Employee Part 2: The Café Website — 4 pages, desktop + mobile",
@@ -1174,17 +1231,23 @@
           "title": "Lecture 1 — API Keys and .env Files: Handling Secrets the Right Way"
         },
         {
-          "file": "M08-L02_External-API-Integration_NEW.mp4",
+          "file": "M08-L02_WhatsApp-AI-Agent-with-Claude-Code_jVJwoOBkGms.mp4",
           "folder": "Phase-2-Agent-Engineer/M08-APIs",
-          "youtube_id": null,
-          "minutes": 30,
-          "source": "NEW",
-          "status": "NEW",
+          "youtube_id": "jVJwoOBkGms",
+          "minutes": 65,
+          "source": "DOWNLOAD",
+          "status": "To download",
           "chapters": [],
-          "master": null,
           "kind": "core",
           "order": "L02",
-          "title": "Lecture 2 — External API Integration (coming soon)"
+          "title": "Lecture 2 — External API Integration: WhatsApp AI Agent with Claude Code",
+          "bunny": {
+            "guid": "469d34a2-727b-4752-8e97-bd5a5631940f",
+            "status": "processing",
+            "version": 0,
+            "uploaded_at": "2026-09-08T16:01:16.023Z"
+          },
+          "master": "M08-L02_WhatsApp-AI-Agent-with-Claude-Code_jVJwoOBkGms.mp4"
         },
         {
           "file": "M08-S01_AI-Agents-API_uLrZhhmjxCQ.mp4",
@@ -1227,6 +1290,44 @@
             "aspect": 1.7778
           },
           "title": "Short — What is an API? What is MCP?"
+        },
+        {
+          "file": "M08-S03_WhatsApp-Agent-for-Your-Business_XfKnYZG_VJk.mp4",
+          "folder": "Phase-2-Agent-Engineer/M08-APIs",
+          "youtube_id": "XfKnYZG_VJk",
+          "minutes": 16,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "kind": "supplement",
+          "order": "S03",
+          "title": "Short — Build a WhatsApp AI Agent for Your Business",
+          "bunny": {
+            "guid": "4c05c287-9c26-4bcb-9cca-1c3954974a92",
+            "status": "processing",
+            "version": 0,
+            "uploaded_at": "2026-09-08T16:01:45.949Z"
+          },
+          "master": "M08-S03_WhatsApp-Agent-for-Your-Business_XfKnYZG_VJk.mp4"
+        },
+        {
+          "file": "M08-S04_Voice-Agent-in-15-Minutes_vQoxD-t90rg.mp4",
+          "folder": "Phase-2-Agent-Engineer/M08-APIs",
+          "youtube_id": "vQoxD-t90rg",
+          "minutes": 9,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "kind": "supplement",
+          "order": "S04",
+          "title": "Short — Make a Voice Agent in 15 Minutes (ElevenLabs)",
+          "bunny": {
+            "guid": "f1db2e44-14d9-4822-83f5-608434a59f26",
+            "status": "processing",
+            "version": 0,
+            "uploaded_at": "2026-09-08T16:01:59.469Z"
+          },
+          "master": "M08-S04_Voice-Agent-in-15-Minutes_vQoxD-t90rg.mp4"
         }
       ],
       "build_project": "AI Employee Part 4: Wired Up — backend + one external API",
@@ -1360,17 +1461,23 @@
       "badge_after": "Agent Engineer",
       "lessons": [
         {
-          "file": "M10-L01_MCP-Full-Lecture_NEW.mp4",
+          "file": "M10-L01_MCP-Explained_CjVBozQx3jc.mp4",
           "folder": "Phase-2-Agent-Engineer/M10-MCP",
-          "youtube_id": null,
-          "minutes": 45,
-          "source": "NEW",
-          "status": "NEW",
+          "youtube_id": "CjVBozQx3jc",
+          "minutes": 7,
+          "source": "DOWNLOAD",
+          "status": "To download",
           "chapters": [],
-          "master": null,
           "kind": "core",
           "order": "L01",
-          "title": "Lecture 1 — MCP Full Lecture (coming soon)"
+          "title": "Lecture 1 — MCP Explained: What It Is and Why It Matters",
+          "bunny": {
+            "guid": "55e651f6-0c67-4efa-8f22-cd05803b85b5",
+            "status": "processing",
+            "version": 0,
+            "uploaded_at": "2026-09-08T16:02:16.027Z"
+          },
+          "master": "M10-L01_MCP-Explained_CjVBozQx3jc.mp4"
         },
         {
           "file": "M10-S01_What-is-API-and-MCP_wknhpVBlQ8o.mp4",
@@ -1697,6 +1804,25 @@
             "aspect": 1.7778
           },
           "title": "Lecture 2 — GitHub to Vercel: Final Deployment"
+        },
+        {
+          "file": "M13-L03_Build-and-Deploy-Agents-with-Vercel_83G2n_gxvT4.mp4",
+          "folder": "M13-Deployment",
+          "youtube_id": "83G2n_gxvT4",
+          "minutes": 60,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "kind": "core",
+          "order": "L03",
+          "title": "Lecture 3 — Build AI Agents with Claude and Deploy Step by Step with Vercel",
+          "bunny": {
+            "guid": "0868b32d-696c-4e02-80aa-74ccc2e757ae",
+            "status": "processing",
+            "version": 0,
+            "uploaded_at": "2026-09-08T16:04:06.542Z"
+          },
+          "master": "M13-L03_Build-and-Deploy-Agents-with-Vercel_83G2n_gxvT4.mp4"
         }
       ],
       "build_project": "AI Employee LIVE — public URL verified by AI Coach",
