@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getPostBySlug, getAllSlugs, getAllPosts } from '@/lib/posts'
+import { getPostRefit } from '@/content/post-refits'
 
 const SITE = 'https://www.digitalservicesprogram.com'
 
@@ -24,6 +25,7 @@ export async function generateMetadata(
 
   const url = `${SITE}/blog/${post.slug}`
   const img = `${SITE}${post.image}`
+  const refit = getPostRefit(post.slug)
   return {
     title: `${post.title} — DSP Blog`,
     description: post.excerpt,
@@ -35,6 +37,7 @@ export async function generateMetadata(
       url,
       images: [{ url: img, width: 1200, height: 630, alt: post.title }],
       publishedTime: post.date,
+      ...(refit ? { modifiedTime: refit.updated } : {}),
       authors: [post.author],
     },
     twitter: {
@@ -54,6 +57,9 @@ export default async function BlogPost(
   if (!post) notFound()
 
   const url = `${SITE}/blog/${post.slug}`
+  // Answer-first refit (Day 3, 2026-09-08) — only the money-intent posts
+  // listed in src/content/post-refits.ts; every other post renders as before.
+  const refit = getPostRefit(post.slug)
   const related = getAllPosts()
     .filter((p) => p.category === post.category && p.slug !== post.slug)
     .slice(0, 3)
@@ -68,7 +74,7 @@ export default async function BlogPost(
     url,
     image: `${SITE}${post.image}`,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: refit?.updated ?? post.date,
     articleSection: post.category,
     // Entity Lock (2026-09-06): every post is authored by the founder's ONE
     // Person node and published by the ONE Organization node — both defined
@@ -106,7 +112,14 @@ export default async function BlogPost(
         </p>
 
         <h1 className="dsp-post__title">{post.title}</h1>
-        <Byline date={post.date} />
+        <Byline date={post.date} updated={refit?.updated} />
+
+        {refit && (
+          <div className="dsp-post__answer" id="answer">
+            <p className="dsp-post__answer-kicker">Short answer</p>
+            <p>{refit.answer}</p>
+          </div>
+        )}
 
         <div className="dsp-post__hero">
           <Image
@@ -124,6 +137,17 @@ export default async function BlogPost(
           className="dsp-post__body"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
+
+        {refit && (
+          <aside className="dsp-post__deeper" aria-labelledby="deeper-h">
+            <h2 id="deeper-h">Go deeper</h2>
+            <ul>
+              {refit.goDeeper.map((l) => (
+                <li key={l.href}><Link href={l.href}>{l.label}</Link></li>
+              ))}
+            </ul>
+          </aside>
+        )}
 
         <div className="dsp-post__cta">
           <h2>Ready to build AI agents yourself?</h2>

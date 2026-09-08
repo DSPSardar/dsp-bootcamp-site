@@ -16,7 +16,7 @@
 // AI-crawler pass (2026-09-06): "Key pages" section up top (the four URLs
 // an engine should land on first), the SECP-registered line the site
 // footer already prints, the agency's named use cases from /agents, and the
-// 15 module titles from curriculum.ts (the same list the Course schema
+// 16 module titles from curriculum.ts (the same list the Course schema
 // mirrors) so a model can answer "what does the course cover" verbatim.
 import { cofounder, entity, founder, liveGuides, mastery, site, socials } from '@/config/site'
 import { COURSE_DESCRIPTION } from '@/app/mastery/seo'
@@ -56,7 +56,7 @@ export function GET() {
     ...MASTERY_CURRICULUM.map((m) => `- ${m.code} ${m.title}: ${m.outcome}`),
     '',
     '## Links',
-    `- [Full Curriculum & Modules](${u(`${mastery.url}#curriculum`)})`,
+    `- [Full Curriculum & Modules](${u('/mastery/curriculum')}): every module's outcome and build, on one page`,
     `- [Course FAQ](${u(`${mastery.url}#faq`)})`,
     `- [Enrollment](${u(`${mastery.url}#pricing`)})`,
     `- [About DSP](${u('/about')}): the company, its two divisions, the founders`,

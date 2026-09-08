@@ -172,6 +172,46 @@
   margin: 0 0 1.5rem;
 }
 
+/* Answer-first refit (Day 3, 2026-09-08): the direct answer under the title
+   on the money-intent posts, and the "Go deeper" box before the CTA. */
+.dsp-post__answer {
+  margin: 0 0 1.75rem;
+  padding: 1.1rem 1.35rem;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--mint);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.dsp-post__answer-kicker {
+  margin: 0 0 0.4rem;
+  color: var(--mint);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dsp-post__answer p:last-child {
+  margin: 0;
+  color: #fff;
+  font-size: 1.06rem;
+  line-height: 1.7;
+}
+
+.dsp-post__deeper {
+  margin: 2.5rem 0 0;
+  padding: 1.3rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.dsp-post__deeper h2 { font-size: 1.1rem; margin: 0 0 0.75rem; }
+.dsp-post__deeper ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.6rem; }
+.dsp-post__deeper a { color: var(--gold); text-decoration: none; font-size: 0.98rem; }
+.dsp-post__deeper a:hover { text-decoration: underline; }
+
 .dsp-post__hero img {
   width: 100%;
   height: auto;

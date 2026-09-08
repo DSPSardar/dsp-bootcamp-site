@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { liveGuides, site, socials } from '@/config/site'
+import { footerGuides, site, socials } from '@/config/site'
 
 export default function SiteFooter() {
   return (
@@ -32,12 +32,12 @@ export default function SiteFooter() {
               {/* History entry, not an offer — owner ruling 2026-08-30 */}
               <li><Link href="/academy/bootcamp">The Agentic Lab (2025–2026)</Link></li>
             </ul>
-            {liveGuides.length > 0 && (
+            {footerGuides.length > 0 && (
               <>
-                {/* Query-shaped guides (Corroboration Engine) — registry in site.ts `guides`, live ones only */}
+                {/* Query-shaped guides (Corroboration Engine) — registry in site.ts `guides`: live ones with footer:true (the framework sub-pages are linked from their parent guides instead) */}
                 <h3 style={{ marginTop: '1.4rem' }}>Guides</h3>
                 <ul>
-                  {liveGuides.map((g) => (
+                  {footerGuides.map((g) => (
                     <li key={g.path}><Link href={g.path}>{g.title}</Link></li>
                   ))}
                 </ul>

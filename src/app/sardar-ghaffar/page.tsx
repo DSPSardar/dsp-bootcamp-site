@@ -58,11 +58,11 @@ const profilePageLd = {
 
 const frameworks = [
   { name: 'Agent = Claude + Job Description + Tools + Loop', what: 'The four-part formula every DSP build starts from.' },
-  { name: 'The 7-Part Job Description', what: 'Role, Goal, Audience, Tone, Steps, Rules, Examples — how a system prompt is written at DSP.' },
-  { name: 'The Memory Ladder', what: 'From a single prompt to RAG: which kind of memory an agent needs, and when.' },
-  { name: 'The Agent Idea Filter', what: 'The test an idea passes before anyone builds it.' },
+  { name: 'The 7-Part Job Description', what: 'Role, Goal, Audience, Tone, Steps, Rules, Examples — how a system prompt is written at DSP.', href: '/frameworks/7-part-job-description' },
+  { name: 'The Memory Ladder', what: 'From a single prompt to RAG: which kind of memory an agent needs, and when.', href: '/frameworks/memory-ladder' },
+  { name: 'The Agent Idea Filter', what: 'The test an idea passes before anyone builds it.', href: '/frameworks/agent-idea-filter' },
   { name: 'One Agent, Many Clients', what: 'The multi-tenant model behind DSP’s own AI Employees.' },
-  { name: 'The AI Employee', what: 'An agent with a job, tools and a loop, deployed to a live URL — the project every Mastery student ships.' },
+  { name: 'The AI Employee', what: 'An agent with a job, tools and a loop, deployed to a live URL — the project every Mastery student ships.', href: '/what-is-an-ai-employee' },
 ] as const
 
 export default function SardarGhaffarPage() {
@@ -180,7 +180,7 @@ export default function SardarGhaffarPage() {
       </section>
 
       {/* ============ FRAMEWORKS ============ */}
-      <section>
+      <section id="frameworks">
         <div className="wrap">
           <div className="sec-head">
             <p className="eyebrow">What he teaches</p>
@@ -190,7 +190,7 @@ export default function SardarGhaffarPage() {
           <div className="grid-2">
             {frameworks.map((f) => (
               <div className="card" key={f.name}>
-                <h3>{f.name}</h3>
+                <h3>{'href' in f ? <Link href={f.href}>{f.name}</Link> : f.name}</h3>
                 <p>{f.what}</p>
               </div>
             ))}

@@ -467,19 +467,29 @@ export const cofounder = {
  *  The query-shaped answer pages, in the order they ship. ONE registry feeds
  *  the footer "Guides" block, /llms.txt and the sitemap, so a guide is linked
  *  everywhere the moment `live` flips to true — and nowhere before. Never
- *  list a path here as live until its page.tsx exists on main. */
+ *  list a path here as live until its page.tsx exists on main.
+ *
+ *  Day 3 (2026-09-08): `footer: false` keeps a live guide out of the footer
+ *  block (it still ships in /llms.txt and the sitemap). The three framework
+ *  sub-pages are reached from the pages that teach them — /mastery/curriculum,
+ *  /what-is-an-ai-employee and each other — not from every footer. */
 export const guides = [
-  { path: '/best-ai-courses-in-pakistan', title: 'Best AI Courses in Pakistan (2026)', live: true },
-  { path: '/ai-agent-course-in-urdu', title: 'AI Agent Course in Urdu', live: true },
-  { path: '/ai-training-islamabad', title: 'AI Training in Islamabad', live: false },
-  { path: '/learn-ai-agents-pakistan', title: 'How to Learn AI Agents in Pakistan', live: false },
-  { path: '/mastery/curriculum', title: 'Mastery Curriculum: All 16 Modules', live: false },
-  { path: '/what-is-an-ai-employee', title: 'What Is an AI Employee?', live: false },
-  { path: '/research/pakistan-ai-skills-survey-2026', title: 'Pakistan AI Skills Survey 2026', live: false },
-  { path: '/frameworks/7-part-job-description', title: 'The 7-Part Job Description', live: false },
+  { path: '/best-ai-courses-in-pakistan', title: 'Best AI Courses in Pakistan (2026)', live: true, footer: true },
+  { path: '/ai-agent-course-in-urdu', title: 'AI Agent Course in Urdu', live: true, footer: true },
+  { path: '/ai-training-islamabad', title: 'AI Training in Islamabad', live: true, footer: true },
+  { path: '/learn-ai-agents-pakistan', title: 'How to Learn AI Agents in Pakistan', live: true, footer: true },
+  { path: '/mastery/curriculum', title: 'Mastery Curriculum: All 16 Modules', live: true, footer: true },
+  { path: '/what-is-an-ai-employee', title: 'What Is an AI Employee?', live: true, footer: true },
+  { path: '/research/pakistan-ai-skills-survey-2026', title: 'Pakistan AI Skills Survey 2026', live: false, footer: true },
+  { path: '/frameworks/7-part-job-description', title: 'The 7-Part Job Description', live: true, footer: false },
+  { path: '/frameworks/memory-ladder', title: 'The Memory Ladder', live: true, footer: false },
+  { path: '/frameworks/agent-idea-filter', title: 'The Agent Idea Filter', live: true, footer: false },
 ] as const
 
 export const liveGuides = guides.filter((g) => g.live)
+
+/** The footer "Guides" block — live guides minus the framework sub-pages. */
+export const footerGuides = liveGuides.filter((g) => g.footer)
 
 /** IndexNow (Bing, Yandex, Naver, Seznam — and therefore the index ChatGPT
  *  Search reads). The key is public by design: search engines verify it by

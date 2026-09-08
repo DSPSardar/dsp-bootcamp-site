@@ -31,10 +31,12 @@ export const CANONICAL = `${site.url}${mastery.url}`
  *  and tells Google nothing) and not derived from git at build time (a
  *  metadata-only commit would bump it too). Bump it by hand, to the day the
  *  content change ships:
+ *    2026-09-08 · Corroboration Day 3: sixteen modules stated, links to
+ *                 /mastery/curriculum and /ai-agent-course-in-urdu
  *    2026-09-05 · Tier A on-page upgrade (question H2s, at-a-glance,
  *                 comparison, Urdu section, running costs, 6 new FAQs)
  *    2026-08-28 · 1b552c5 · M05-L01 replaced with the 17 Aug re-recording */
-export const PAGE_LAST_MODIFIED = '2026-09-05T12:00:00+05:00'
+export const PAGE_LAST_MODIFIED = '2026-09-08T12:00:00+05:00'
 
 // Fixed month names so the byline renders identically on every Node/ICU
 // build (toLocaleDateString gives "Sep" on some, "Sept" on others).

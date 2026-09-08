@@ -200,7 +200,7 @@ export default function MasteryPage() {
   <div className="grid3">
     <div className="card"><div className="k">Where most people are</div><h3>Chatting, not building</h3><p>You ask Claude or ChatGPT a question, copy the answer, and start again tomorrow. Nothing you made on Monday is still working for you on Friday.</p></div>
     <div className="card"><div className="k">What stops them</div><h3>Every tutorial assumes you code</h3><p>Free material jumps from &quot;what is an agent&quot; straight to Python and API keys, so you stop at the first error nobody explains.</p></div>
-    <div className="card"><div className="k">What changes here</div><h3>You describe it — then you ship it</h3><p>Fifteen modules, one build at a time, ending in a live URL that keeps running after you close the laptop, and a system you can sell to someone else.</p></div>
+    <div className="card"><div className="k">What changes here</div><h3>You describe it — then you ship it</h3><p>Sixteen modules, one build at a time, ending in a live URL that keeps running after you close the laptop, and a system you can sell to someone else.</p></div>
   </div>
 </div></section>
 
@@ -261,7 +261,7 @@ export default function MasteryPage() {
 <section id="journey" className="journey"><div className="wrap">
   <div className="eyebrow">The journey</div>
   <h2>What does the 16-module AI agent curriculum cover?</h2>
-  <p className="answer">Five phases. Phase 0 (Modules 1–3) gives you the foundations: what an agent is, how to write a Job Description, and how to set up Claude, ChatGPT and Gemini. Phase 1 (4–6) teaches vibe coding with Claude Code, websites and Git. Phase 2 (7–10) turns your website into an agent with APIs, RAG, memory and MCP. Phase 3 (11–13) tests, secures and deploys it. Phase 4 (14–15 plus the capstone) makes it multi-tenant and teaches you to sell it.</p>
+  <p className="answer">Five phases. Phase 0 (Modules 1–3) gives you the foundations: what an agent is, how to write a Job Description, and how to set up Claude, ChatGPT and Gemini. Phase 1 (4–6) teaches vibe coding with Claude Code, websites and Git. Phase 2 (7–10) turns your website into an agent with APIs, RAG, memory and MCP. Phase 3 (11–13) tests, secures and deploys it. Phase 4 (14–16 plus the capstone) makes it multi-tenant, teaches you to sell it, and adds the AI Search Dominance Engine.</p>
   <p className="lead" style={{marginBottom:'48px'}}>Modules open in order, one build at a time — that&apos;s how everyone finishes. No tests, no grades. You watch, you build, you move on.</p>
   <div className="rail" id="rail">
     <div className="phase"><div className="dot">0</div><h3>Zero — Foundations</h3><div className="out">You can explain what an agent is and write a Job Description that works</div>
@@ -449,8 +449,8 @@ export default function MasteryPage() {
 
 <section id="curriculum"><div className="wrap">
   <div className="eyebrow">Curriculum</div>
-  <h2>Fifteen modules. Every one ends with something you built.</h2>
-  <p className="lead" style={{marginBottom:'36px'}}>Around 30 hours of lectures, recorded live with real students asking real questions — cut, chaptered and put in the order a beginner needs.</p>
+  <h2>Sixteen modules. Every one ends with something you built.</h2>
+  <p className="lead" style={{marginBottom:'36px'}}>Around 30 hours of lectures, recorded live with real students asking real questions — cut, chaptered and put in the order a beginner needs. Every module, its outcome and what you build, on one page: <Link className="il" href="/mastery/curriculum">the full curriculum</Link>.</p>
   <div className="acc">
     <details><summary><span className="n">M01</span>AI Foundations<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Explain what an LLM and an agent are, what each can&apos;t do, and pick one idea worth building.</div><div><b>You build</b>5 ideas through the Agent Idea Filter, one chosen with a clear user and success condition.</div></div></details>
     <details><summary><span className="n">M02</span>Prompting &amp; Context Engineering<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Write a production-grade Job Description using the 7-Part JD: Role, Goal, Audience, Tone, Steps, Rules, Examples.</div><div><b>You build</b>Your JD v2 with three real test inputs and a note on what you changed.</div></div></details>
@@ -502,8 +502,8 @@ export default function MasteryPage() {
   <div className="eyebrow">Pakistan · Urdu</div>
   <h2>Can I learn to build AI agents from Pakistan, in Urdu?</h2>
   <p className="answer">Yes. As far as we know this is the only AI agent course for beginners taught in an Urdu–English mix, priced at $100, and payable by bank transfer, JazzCash or Easypaisa. Lectures were recorded in DSP&apos;s live cohorts, taught from Islamabad; templates and slides are in English so your work is client-ready anywhere. DSP has taught students in the UK, UAE, USA, Canada and Pakistan this way.</p>
-  <p className="urdu" lang="ur" dir="rtl">یہ کورس ان لوگوں کے لیے ہے جو روز AI استعمال کرتے ہیں مگر خود AI ایجنٹ بنانا نہیں جانتے۔ پندرہ ماڈیولز، اردو اور انگریزی میں لیکچرز، ایک مکمل AI ایمپلائی جو آپ خالی فولڈر سے لائیو URL تک خود بناتے ہیں — اور پھر اپنا ایجنٹ۔ فیس صرف $100، لائف ٹائم رسائی، ایک سال سپورٹ۔</p>
-  <p className="md" style={{marginTop:'18px',color:'var(--muted)',maxWidth:'780px'}}>Pay in PKR at the bank details on the enrol page, upload the screenshot, and your sign-in link arrives once it is verified — usually within a few hours. Study at 6 am in Dubai or midnight in Manchester; nothing is live-only.</p>
+  <p className="urdu" lang="ur" dir="rtl">یہ کورس ان لوگوں کے لیے ہے جو روز AI استعمال کرتے ہیں مگر خود AI ایجنٹ بنانا نہیں جانتے۔ سولہ ماڈیولز، اردو اور انگریزی میں لیکچرز، ایک مکمل AI ایمپلائی جو آپ خالی فولڈر سے لائیو URL تک خود بناتے ہیں — اور پھر اپنا ایجنٹ۔ فیس صرف $100، لائف ٹائم رسائی، ایک سال سپورٹ۔</p>
+  <p className="md" style={{marginTop:'18px',color:'var(--muted)',maxWidth:'780px'}}>Pay in PKR at the bank details on the enrol page, upload the screenshot, and your sign-in link arrives once it is verified — usually within a few hours. Study at 6 am in Dubai or midnight in Manchester; nothing is live-only. How the Urdu–English teaching works, module by module: <Link className="il" href="/ai-agent-course-in-urdu">AI Agent Course in Urdu</Link>.</p>
 </div></section>
 
 

@@ -15,7 +15,7 @@ import Link from 'next/link'
 import SiteShell from '@/components/site/SiteShell'
 import { WhatsAppIcon } from '@/components/home/icons'
 import { founder, mastery, site, waLink } from '@/config/site'
-import { ORGANIZATION_ID, PERSON_ID, SCHEMA_CONTEXT, breadcrumbLd, faqPageNode, ref, type Faq } from '@/lib/schema'
+import { ORGANIZATION_ID, PERSON_ID, SCHEMA_CONTEXT, breadcrumbLd, faqPageNode, ref, type Crumb, type Faq, type JsonLd } from '@/lib/schema'
 import '@/app/guides.css'
 
 export type GuideProps = {
@@ -42,11 +42,24 @@ export type GuideProps = {
   urdu: ReadonlyArray<string>
   /** Optional: related guides to link at the end. */
   related?: ReadonlyArray<{ path: string; title: string }>
+  /** Optional: breadcrumb ancestors between Home and this page, e.g.
+   *  [{ name: 'AI Agent Mastery', path: '/mastery' }] for /mastery/curriculum
+   *  (Day 3, 2026-09-08). Home is always prepended by breadcrumbLd(). */
+  parents?: ReadonlyArray<Crumb>
+  /** Optional: extra standalone JSON-LD nodes the page emits beside the
+   *  Article / FAQPage / BreadcrumbList — a HowTo for a roadmap, a
+   *  DefinedTerm for a framework, an ItemList for the curriculum. Each is
+   *  rendered in its own script tag; pass nodes WITHOUT @context (added here). */
+  extraLd?: ReadonlyArray<JsonLd>
+  /** Optional: what the Article is about. Defaults to the Mastery Course node;
+   *  a page whose subject is something else (a framework, a definition) passes
+   *  its own references — typically the @id of a node in `extraLd`. */
+  about?: ReadonlyArray<JsonLd>
 }
 
 const fmt = (iso: string) => new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
 
-export default function Guide({ path, title, crumb, eyebrow, answer, published, updated, description, children, faqs, urdu, related = [] }: GuideProps) {
+export default function Guide({ path, title, crumb, eyebrow, answer, published, updated, description, children, faqs, urdu, related = [], parents = [], extraLd = [], about }: GuideProps) {
   const url = `${site.url}${path}`
   const articleLd = {
     '@context': SCHEMA_CONTEXT,
@@ -62,15 +75,19 @@ export default function Guide({ path, title, crumb, eyebrow, answer, published, 
     author: ref(PERSON_ID),
     publisher: ref(ORGANIZATION_ID),
     image: `${site.url}/og-card.png`,
-    about: [{ '@type': 'Course', '@id': `${site.url}${mastery.url}#course` }],
+    about: about ?? [{ '@type': 'Course', '@id': `${site.url}${mastery.url}#course` }],
   }
   const faqLd = { '@context': SCHEMA_CONTEXT, ...faqPageNode(faqs, { '@id': `${url}#faq` }) }
+  const extras = extraLd.map((node) => ({ '@context': SCHEMA_CONTEXT, ...node }))
 
   return (
     <SiteShell>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd([{ name: crumb, path }])) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd([...parents, { name: crumb, path }])) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      {extras.map((node, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(node) }} />
+      ))}
 
       <article className="page-guide">
         <header className="hero-dark guide-hero">

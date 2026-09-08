@@ -41,3 +41,29 @@
 .dsp-site .page-guide .guide-cta .hero-ctas{margin-top:1rem}
 .dsp-site .page-guide .guide-related ul{list-style:none;padding:0}
 .dsp-site .page-guide .guide-related li{padding:.4rem 0;border-top:1px solid var(--line)}
+
+/* ── Day 3 (2026-09-08): definition pages, framework templates, roadmaps ── */
+/* The quotable definition block (What is an AI Employee, the frameworks):
+   the 40-word sentence an answer engine lifts, marked as such. */
+.dsp-site .page-guide .definition{background:var(--navy);color:#fff;border-radius:var(--radius);padding:1.3rem 1.6rem;margin:1.2rem 0 1.6rem}
+.dsp-site .page-guide .definition .kicker{color:var(--gold)}
+.dsp-site .page-guide .definition p{color:#fff;font-size:1.12rem;line-height:1.6;margin:0}
+.dsp-site .page-guide .definition p strong{color:var(--gold)}
+
+/* Fill-in templates (the 7-Part JD) and ladders drawn in text. */
+.dsp-site .page-guide pre{background:#0F1B33;color:#E6EDF7;font-family:var(--mono);font-size:.84rem;line-height:1.6;border-radius:var(--radius);padding:1.1rem 1.3rem;margin:1rem 0 1.4rem;overflow-x:auto;white-space:pre;tab-size:2}
+.dsp-site .page-guide pre b{color:var(--gold);font-weight:700}
+.dsp-site .page-guide code{font-family:var(--mono);font-size:.9em;background:#EEF2F8;padding:.1em .35em;border-radius:4px;color:var(--navy)}
+
+/* Term / definition lists (the 4 parts, the 5 rungs, the 5 questions). */
+.dsp-site .page-guide dl{margin:.8rem 0 1.4rem;display:grid;gap:.75rem}
+.dsp-site .page-guide dl > div{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:.9rem 1.2rem}
+.dsp-site .page-guide dt{font-weight:700;color:var(--navy);margin:0 0 .3rem}
+.dsp-site .page-guide dt .n{font-family:var(--mono);font-size:.74rem;color:var(--teal-deep);letter-spacing:.08em;margin-right:.6rem}
+.dsp-site .page-guide dd{margin:0;color:var(--navy-soft);line-height:1.6}
+
+/* Wide comparison tables break out of the 820px reading column on desktop
+   so an 11-row × 6-column table is readable without a horizontal scroll. */
+@media (min-width:900px){
+  .dsp-site .page-guide .table-scroll.wide{width:min(1120px - 48px,calc(100vw - 48px));margin-left:calc(50% - min(1120px - 48px,calc(100vw - 48px)) / 2)}
+}

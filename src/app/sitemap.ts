@@ -7,6 +7,7 @@
 // Search Console error — /mastery is the entry that carries that intent.
 import { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/posts'
+import { getPostRefit } from '@/content/post-refits'
 import { agency, liveGuides } from '@/config/site'
 import { PAGE_LAST_MODIFIED as MASTERY_LAST_MODIFIED } from '@/app/mastery/seo'
 import { PAGE_LAST_MODIFIED as FOUNDER_LAST_MODIFIED } from '@/app/sardar-ghaffar/seo'
@@ -49,9 +50,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/contact`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
   ]
 
+  // Refit posts (src/content/post-refits.ts) carry their refit date — the
+  // same one their BlogPosting.dateModified and visible byline show.
   const postPages: MetadataRoute.Sitemap = getAllPosts().map((p) => ({
     url: `${SITE}/blog/${p.slug}`,
-    lastModified: new Date(p.date),
+    lastModified: new Date(getPostRefit(p.slug)?.updated ?? p.date),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }))
