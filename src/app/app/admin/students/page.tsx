@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation'
 import { supabaseServer, supabaseAdmin } from '@/lib/supabase/server'
 import { modules } from '@/lib/mastery/course'
 import { autoCompleteWatched } from '@/lib/mastery/progress'
+import AccessButtons from './AccessButtons'
 
 export const dynamic = 'force-dynamic'
 export const metadata = { title: 'Students — admin', robots: { index: false } }
@@ -62,7 +63,10 @@ export default async function StudentsPage() {
 
       {rows.map(({ p, opened, watched, marked, perModule, lastAt, detail }) => (
         <div className="panel" key={p.id}>
-          <h2 style={{ marginBottom: 2 }}>{p.full_name || p.email}</h2>
+          <h2 style={{ marginBottom: 2 }}>
+            {p.full_name || p.email}
+            {p.status !== 'active' && <span className="muted" style={{ fontSize: 14, fontWeight: 400 }}> · {p.status}</span>}
+          </h2>
           <p className="muted">{p.email} · {p.status} · enrolled {day(p.enrolled_at)} · last activity {day(lastAt)}</p>
           <div style={{ display: 'flex', gap: 26, flexWrap: 'wrap', margin: '14px 0' }}>
             <div><div className="by" style={{ fontSize: 22 }}>{opened}/{totalLessons}</div><div className="muted" style={{ fontSize: 13 }}>lessons opened</div></div>
@@ -94,6 +98,7 @@ export default async function StudentsPage() {
               ))}
             </div>
           )}
+          <AccessButtons userId={p.id} email={p.email} status={p.status} />
         </div>
       ))}
     </>
