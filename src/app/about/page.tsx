@@ -9,7 +9,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import SiteShell from '@/components/site/SiteShell'
 import { CheckIcon, WhatsAppIcon } from '@/components/home/icons'
-import { bootcamp, cofounder, founder, site, waLink } from '@/config/site'
+import { bootcamp, cofounder, entity, founder, site, waLink } from '@/config/site'
 
 export const metadata: Metadata = {
   title: { absolute: 'About DSP — Founder & Trainers, Digital Services Program' },
@@ -125,9 +125,9 @@ export default function AboutPage() {
               <h3>{site.tagline}</h3>
               <p>
                 DSP Agents ships production agent systems — including an AI phone-ordering
-                platform for US restaurants. DSP Academy trained {bootcamp.studentsTrained}{' '}
-                students across {bootcamp.batchesCompleted} live cohorts in the Agentic Lab,
-                and now teaches this material through DSP AI Agent Mastery, a self-paced program.
+                platform for US restaurants. DSP Academy has taught{' '}
+                {entity.studentsEnrolled} students — {bootcamp.batchesCompleted} live cohorts in
+                the Agentic Lab, and now DSP AI Agent Mastery, a self-paced program.
               </p>
             </div>
           </div>

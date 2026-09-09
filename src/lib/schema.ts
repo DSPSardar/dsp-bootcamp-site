@@ -96,6 +96,7 @@ export function organizationNode(): JsonLd {
     email: site.email,
     address: postalAddressNode(),
     ...(entity.foundingDate ? { foundingDate: entity.foundingDate } : {}),
+    numberOfStudents: entity.studentsEnrolled,
     founder: [ref(PERSON_ID), ref(COFOUNDER_ID)],
     knowsLanguage: [...entity.knowsLanguage],
     areaServed: [...entity.areaServed],

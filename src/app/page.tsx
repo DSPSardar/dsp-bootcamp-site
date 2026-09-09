@@ -16,7 +16,7 @@ import ProofCounters from '@/components/site/ProofCounters'
 import Evolution from '@/components/home/Evolution'
 import { WhatsAppIcon } from '@/components/home/icons'
 import { faqPageLd } from '@/lib/schema'
-import { agency, bootcamp, mastery, site, waLink } from '@/config/site'
+import { agency, bootcamp, entity, mastery, site, waLink } from '@/config/site'
 import { bunnyConfigured } from '@/lib/mastery/bunny'
 
 export const metadata: Metadata = {
@@ -236,8 +236,8 @@ export default function HomePage() {
             <p className="eyebrow">Proof</p>
             <h2>Students you can watch, certificates you can check.</h2>
             <p>
-              DSP Academy trained {bootcamp.studentsTrained} students across{' '}
-              {bootcamp.batchesCompleted} live cohorts before this{' '}
+              DSP has taught {entity.studentsEnrolled} students — {bootcamp.batchesCompleted} live
+              Agentic Lab cohorts, and now this{' '}
               <TrackedLink href="/mastery" event="academy_cta_click" params={{ cta: 'home_proof_inline' }}>
                 self-paced AI agent course
               </TrackedLink>{' '}

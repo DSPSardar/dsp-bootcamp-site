@@ -13,7 +13,7 @@ export const MASTERY_FAQS: readonly Faq[] = [
   { q: 'How much time does it take?',
     a: 'About an hour a day for 30 days, or four sessions a week for eight weeks. Each module is one to three lectures plus a build. Lifetime access means you can go slower — the only thing that doesn\'t work is stopping.' },
   { q: 'Windows or Mac?',
-    a: 'Both. Setup guides for each are in Module 3, including the fixes for the common Windows issues we\'ve solved with hundreds of students.' },
+    a: 'Both. Setup guides for each are in Module 3, including the fixes for the common Windows issues we\'ve solved across 338 students.' },
   { q: 'Is $100 really all I pay?',
     a: '$100 covers the entire program, lifetime. You will need a Claude account to build with during the modules — Module 3 walks you through setup and the free-tier route, and paid Claude plans start at $20/month if you choose to upgrade. GitHub and Vercel are free for what this program uses. No other purchase is required to finish.' },
   { q: 'What does "one year of free support" mean?',

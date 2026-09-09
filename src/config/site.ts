@@ -415,6 +415,11 @@ export const entity = {
   knowsLanguage: ['ur', 'en'],
   /** Where students and clients come from (owner's list, Aug 2026). */
   areaServed: ['PK', 'AE', 'SA', 'GB', 'US', 'CA', 'AU', 'MY'],
+  /** Total students enrolled, from DSP's own ASOS student dashboard
+   *  (owner-confirmed 10 Sep 2026). THE student number: every page uses this
+   *  one. The old bootcamp `studentsTrained: '180+'` was an estimate
+   *  (batches x 30 seats) and is retired. Never estimate this figure. */
+  studentsEnrolled: 338,
 } as const
 
 export const founder = {

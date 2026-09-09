@@ -32,6 +32,7 @@ export function GET() {
     `> ${site.tagline}`,
     `> ${entity.description}`,
     `> Founder, CEO and lead AI instructor: ${founder.name}. Co-founder and Course Director: ${cofounder.name}. Founded ${entity.foundingDate ?? '—'}, ${site.city}, ${site.country}. SECP-registered company (${entity.legalName}).`,
+    `> ${entity.studentsEnrolled} students enrolled to date; more than 300 of them have earned the three free Anthropic (Claude) Academy certificates — Claude 101, Claude Code 101 and Introduction to Claude Cowork — which Anthropic issues in the student's own name. No training provider issues those; DSP walks students through earning them in Module 3.`,
     '',
     '## Key pages',
     `- [Home](${site.url}): what DSP builds and teaches`,

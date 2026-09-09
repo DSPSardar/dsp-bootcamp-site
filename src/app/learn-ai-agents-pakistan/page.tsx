@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 }
 
 const ANSWER =
-  'You learn AI agents in Pakistan the same way DSP has taught hundreds of students to: understand what an AI employee is, learn prompting and Claude, build a first agent with Claude Code, give it memory and tools, deploy it to a live URL, then sell or deliver it to one client. Six stages, no Python required, on a laptop and a Claude account.'
+  'You learn AI agents in Pakistan the same way DSP has taught its 338 students to: understand what an AI employee is, learn prompting and Claude, build a first agent with Claude Code, give it memory and tools, deploy it to a live URL, then sell or deliver it to one client. Six stages, no Python required, on a laptop and a Claude account.'
 
 type Stage = {
   n: number
