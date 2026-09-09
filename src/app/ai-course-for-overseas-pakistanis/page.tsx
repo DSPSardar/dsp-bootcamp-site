@@ -19,8 +19,8 @@ const PATH = '/ai-course-for-overseas-pakistanis'
 const TITLE = 'AI Course for Overseas Pakistanis: Build AI Agents in Urdu from the UAE, Saudi Arabia, the UK or the US'
 const DESCRIPTION =
   'A guide for Pakistanis abroad who want to learn AI agents in Urdu: what exists, how the time zones work, how to actually pay a Pakistani course from the Gulf, and which certificates are worth having. Facts verified September 2026.'
-const PUBLISHED = '2026-09-11'
-const UPDATED = '2026-09-11'
+const PUBLISHED = '2026-09-10'
+const UPDATED = '2026-09-10'
 const FACTS_VERIFIED = '10 September 2026'
 
 export const metadata: Metadata = {

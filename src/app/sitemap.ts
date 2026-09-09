@@ -1,5 +1,14 @@
 // app/sitemap.ts — includes all company pages and ALL blog posts.
 //
+// lastmod honesty (2026-09-10): every entry used to be `new Date()`, so each
+// build told Google that all 72 URLs had changed this second. A sitemap whose
+// lastmod is always "now" carries no signal, and crawlers discount the field
+// entirely — which is the opposite of what a new page needs. Dates below are
+// the real content-change dates: guides carry their own `updated` from the
+// registry, blog posts their refit date, and the static pages the day their
+// source last changed. Bump a date only when the page's content actually
+// changes.
+//
 // Priorities (AI-crawler pass, 2026-09-06): the homepage is 1.0/daily, the
 // educational product (/mastery) and the agency hub next, then the
 // company pages. /academy is NOT listed: it is a 301 to /mastery
@@ -14,42 +23,47 @@ import { PAGE_LAST_MODIFIED as FOUNDER_LAST_MODIFIED } from '@/app/sardar-ghaffa
 
 const SITE = 'https://www.digitalservicesprogram.com'
 
+/** Real content-change dates for the two pages whose content moves with the
+ *  rest of the site rather than with their own file. */
+const HOME_UPDATED = '2026-09-10'
+const BLOG_UPDATED = '2026-09-08'
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
-    { url: SITE, lastModified: new Date(), changeFrequency: 'daily', priority: 1 },
+    { url: SITE, lastModified: new Date(HOME_UPDATED), changeFrequency: 'daily', priority: 1 },
     // Real content-change date (see PAGE_LAST_MODIFIED). /mastery/enrol is
     // deliberately NOT listed: it is noindex (checkout page) and a sitemap
     // entry for a noindex URL only produces a Search Console error.
     { url: `${SITE}/mastery`, lastModified: new Date(MASTERY_LAST_MODIFIED), changeFrequency: 'weekly', priority: 0.95 },
     // Evergreen explainer of the sunset Agentic Lab — stays indexed, but
     // it is a history page now, not a priority landing page.
-    { url: `${SITE}/academy/bootcamp`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
-    { url: `${SITE}/ai-employees`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+    { url: `${SITE}/academy/bootcamp`, lastModified: new Date('2026-08-30'), changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${SITE}/ai-employees`, lastModified: new Date('2026-09-10'), changeFrequency: 'weekly', priority: 0.95 },
     ...agency.employees.map((e) => ({
       url: `${SITE}/ai-employees/${e.id}`,
-      lastModified: new Date(),
+      lastModified: new Date('2026-09-09'),
       changeFrequency: 'weekly' as const,
       priority: 0.85,
     })),
-    { url: `${SITE}/pricing`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${SITE}/agents/restaurant-ai`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${SITE}/agents`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${SITE}/channelops`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${SITE}/agents/case-studies`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${SITE}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${SITE}/pricing`, lastModified: new Date('2026-08-30'), changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${SITE}/agents/restaurant-ai`, lastModified: new Date('2026-08-30'), changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${SITE}/agents`, lastModified: new Date('2026-09-06'), changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${SITE}/channelops`, lastModified: new Date('2026-08-30'), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${SITE}/agents/case-studies`, lastModified: new Date('2026-08-30'), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${SITE}/about`, lastModified: new Date('2026-09-10'), changeFrequency: 'monthly', priority: 0.8 },
     // The founder's entity page (Entity Lock, 2026-09-06) — byline target sitewide.
     { url: `${SITE}/sardar-ghaffar`, lastModified: new Date(FOUNDER_LAST_MODIFIED), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${SITE}/blog`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
+    { url: `${SITE}/blog`, lastModified: new Date(BLOG_UPDATED), changeFrequency: 'daily', priority: 0.9 },
     // Original research, collection end (Corroboration Engine, Day 6).
-    { url: `${SITE}/survey`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${SITE}/survey`, lastModified: new Date('2026-09-10'), changeFrequency: 'weekly', priority: 0.8 },
     // Query-shaped guides (Corroboration Engine) — live entries of site.ts `guides`.
     ...liveGuides.map((g) => ({
       url: `${SITE}${g.path}`,
-      lastModified: new Date(),
+      lastModified: new Date(g.updated),
       changeFrequency: 'weekly' as const,
       priority: 0.85,
     })),
-    { url: `${SITE}/contact`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${SITE}/contact`, lastModified: new Date('2026-07-20'), changeFrequency: 'monthly', priority: 0.5 },
   ]
 
   // Refit posts (src/content/post-refits.ts) carry their refit date — the
