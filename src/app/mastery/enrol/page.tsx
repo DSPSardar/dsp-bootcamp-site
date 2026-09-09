@@ -31,8 +31,13 @@ export default function EnrolPage() {
               <span className="muted">Account number</span> <span style={{ fontFamily: 'var(--mono)' }}>{p.bank.account}</span><br />
               <span className="muted">IBAN</span> <span style={{ fontFamily: 'var(--mono)' }}>{p.bank.iban}</span>
             </div>
+            <div style={{ padding: '16px 18px', border: '1px solid var(--line)', borderRadius: 10, lineHeight: 1.9, marginTop: 12 }}>
+              <b>JazzCash</b><br />
+              <span className="muted">Account title</span> <span style={{ fontFamily: 'var(--mono)' }}>{p.jazzCash.title}</span><br />
+              <span className="muted">JazzCash number</span> <span style={{ fontFamily: 'var(--mono)' }}>{p.jazzCash.number}</span>
+            </div>
           </div>
-          <p className="muted" style={{ marginTop: 10 }}>JazzCash / Easypaisa work with the IBAN above via &quot;bank transfer&quot; in the app.</p>
+          <p className="muted" style={{ marginTop: 10 }}>Paying from JazzCash? Send to the JazzCash account above. Easypaisa works with the IBAN via &quot;bank transfer&quot; in the app.</p>
           <p className="muted" style={{ marginTop: 14 }}>Outside Pakistan and want to pay by card? Email info@digitalservicesprogram.com — card checkout is coming shortly.</p>
         </div>
 

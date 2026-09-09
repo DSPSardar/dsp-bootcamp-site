@@ -42,7 +42,7 @@ The `agency` export holds all AI Employees facts (employee cards, proof-bar numb
 - **`/mastery` is DSP's only educational product**: the self-paced **DSP AI Agent Mastery — Zero to Master** (approved by owner 25 Aug 2026): recorded lectures, 16 modules, $100 one-time, lifetime access, 12 months group support. Facts live in `src/config/site.ts` (`mastery`). Page shell is its own (`src/app/mastery/mastery.css`, scoped `.page-mastery`, dark navy) and does not use SiteShell.
 - The live 30-day program was removed in Aug 2026 — do not reintroduce it or link to its old pages.
 - WhatsApp: +92 342 0580864 everywhere on the site (Meta-approved WhatsApp Business number) · email info@digitalservicesprogram.com. +92 311 8122222 is used privately to reply to clients — never publish it on the site.
-- Never reintroduce "15-Day", "5-day", or the old number 923253966799
+- Never reintroduce "15-Day" or "5-day". The number 0325 3966799 (923253966799) was previously banned outright; by owner instruction 10 Sep 2026 it is published in ONE place only — the JazzCash account on `/mastery/enrol` (a noindex page), from `mastery.pkr.jazzCash`. It is a payment field, never a contact number: keep it out of WhatsApp links, the footer, schema `telephone` and all marketing copy. The only published contact number remains +92 342 0580864
 
 ## Architecture: three visual shells, deliberately isolated
 

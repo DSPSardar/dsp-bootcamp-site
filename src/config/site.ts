@@ -110,6 +110,17 @@ export const mastery = {
       account: '0112565644',
       iban: 'PK17MEZN0003040112565644',
     },
+    /** JazzCash wallet, published by owner instruction 10 Sep 2026. This is a
+     *  PAYMENT FIELD ONLY and appears solely on /mastery/enrol, which is
+     *  noindex. It is NOT a contact number: never put it in a WhatsApp link,
+     *  the footer, schema `telephone`, or any public marketing copy — the
+     *  site's only published contact number stays +92 342 0580864. The wallet
+     *  title is the account holder's bank-registered name and does not change
+     *  the co-founder's public name, which is "Sundus Khan" everywhere else. */
+    jazzCash: {
+      title: 'Sundus Shafique',
+      number: '0325 3966799',
+    },
   },
 } as const
 
