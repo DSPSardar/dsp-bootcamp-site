@@ -40,6 +40,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // The founder's entity page (Entity Lock, 2026-09-06) — byline target sitewide.
     { url: `${SITE}/sardar-ghaffar`, lastModified: new Date(FOUNDER_LAST_MODIFIED), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE}/blog`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
+    // Original research, collection end (Corroboration Engine, Day 6).
+    { url: `${SITE}/survey`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     // Query-shaped guides (Corroboration Engine) — live entries of site.ts `guides`.
     ...liveGuides.map((g) => ({
       url: `${SITE}${g.path}`,
