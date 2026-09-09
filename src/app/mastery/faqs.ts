@@ -37,6 +37,8 @@ export const MASTERY_FAQS: readonly Faq[] = [
     a: 'Yes. The café agent is the guided build — every module adds one capability to it so you are never guessing what to do next. Your capstone is your own agent for your own use case, built with the same method, and it is reviewed by the DSP team before the certificate is issued.' },
   { q: 'What jobs or income can this lead to?',
     a: 'Three routes we see most: freelance agent builds for local businesses, monthly automation retainers, or an AI Employee running inside your own business. Phase 4 includes the discovery sheet, pricing calculator, proposal and contract templates DSP uses with its own clients. Results depend on the work you put in; nothing here is a promise of income.' },
+  { q: 'Can I learn to build AI agents without knowing English well?',
+    a: 'Yes. The lectures explain everything in Urdu; only the tool names, prompts and code are in English, and the course gives you those as copy-paste templates. If you can read a WhatsApp message in English, you can follow this course. Subtitles are provided on every lecture.' },
   { q: 'Do I need a powerful laptop?',
     a: 'No. Any Windows or Mac machine from roughly the last six years with 8 GB of RAM is enough. Claude Code runs in a terminal, the model runs in Anthropic\'s cloud, and your agent is hosted on Vercel — the heavy work never happens on your machine.' },
 ]

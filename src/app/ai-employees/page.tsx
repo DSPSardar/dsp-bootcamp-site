@@ -103,6 +103,10 @@ const faqs = [
     a: 'Tell us — or update it yourself in your dashboard. Your Employee knows the new information immediately.',
   },
   {
+    q: 'Do you train teams to build AI Employees, not only build them for us?',
+    a: 'Yes. DSP is both an AI agency and an AI agents training company. If you want your own staff to maintain and extend an Employee in-house, they can take DSP AI Agent Mastery — the same 16-module course, in Urdu and English, that our own builds follow. Ask on WhatsApp about seats for a team.',
+  },
+  {
     q: 'Is my business data safe?',
     a: 'Your data lives in your own isolated tenant on DSPAgentHub with enterprise-grade access controls. It is never shared between clients.',
   },

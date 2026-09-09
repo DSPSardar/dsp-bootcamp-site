@@ -435,7 +435,7 @@ export const founder = {
   description:
     'Founder and CEO of Digital Services Program (DSP), Islamabad, and its lead AI instructor. Google-certified AI Agentic Trainer, Gemini Certified Educator and Anthropic (Claude)-verified educator; teaching technology since 2002, with 24+ years in IT across London, the UAE and Pakistan.',
   image: '/mastery/sardar.jpg',
-  linkedin: 'https://www.linkedin.com/in/sardar-abdul-ghaffar-khan-43a378a4',
+  linkedin: 'https://www.linkedin.com/in/sardar-abdul-ghaffar-khan',
   /** Public, verifiable credentials — the only ones the schema may list. */
   credentials: [
     {
@@ -485,6 +485,7 @@ export const guides = [
   { path: '/learn-ai-agents-pakistan', title: 'How to Learn AI Agents in Pakistan', live: true, footer: true },
   { path: '/mastery/curriculum', title: 'Mastery Curriculum: All 16 Modules', live: true, footer: true },
   { path: '/what-is-an-ai-employee', title: 'What Is an AI Employee?', live: true, footer: true },
+  { path: '/claude-code-course-pakistan', title: 'Claude Code Course in Pakistan (+ Anthropic certificates)', live: true, footer: true },
   { path: '/research/pakistan-ai-skills-survey-2026', title: 'Pakistan AI Skills Survey 2026', live: false, footer: true },
   { path: '/frameworks/7-part-job-description', title: 'The 7-Part Job Description', live: true, footer: false },
   { path: '/frameworks/memory-ladder', title: 'The Memory Ladder', live: true, footer: false },
