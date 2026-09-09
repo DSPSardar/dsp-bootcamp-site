@@ -60,9 +60,32 @@ export default async function BlogPost(
   // Answer-first refit (Day 3, 2026-09-08) — only the money-intent posts
   // listed in src/content/post-refits.ts; every other post renders as before.
   const refit = getPostRefit(post.slug)
-  const related = getAllPosts()
-    .filter((p) => p.category === post.category && p.slug !== post.slug)
-    .slice(0, 3)
+  // Related posts are picked as a ring, not as the first three of the
+  // category. .slice(0, 3) handed every post in a category the SAME three
+  // siblings, so 13 of 43 posts received no inbound internal link at all.
+  const allPosts = getAllPosts()
+  const sameCategory = allPosts.filter((p) => p.category === post.category)
+  const related: typeof allPosts = []
+  const startInCategory = Math.max(
+    0,
+    sameCategory.findIndex((p) => p.slug === post.slug),
+  )
+  for (let i = 1; i < sameCategory.length && related.length < 3; i++) {
+    related.push(sameCategory[(startInCategory + i) % sameCategory.length])
+  }
+  const startInAll = Math.max(
+    0,
+    allPosts.findIndex((p) => p.slug === post.slug),
+  )
+  for (let i = 1; i < allPosts.length && related.length < 3; i++) {
+    const candidate = allPosts[(startInAll + i) % allPosts.length]
+    if (
+      candidate.slug !== post.slug &&
+      !related.some((r) => r.slug === candidate.slug)
+    ) {
+      related.push(candidate)
+    }
+  }
 
   // BlogPosting structured data
   const jsonLd = {
