@@ -79,6 +79,22 @@ export const POST_REFITS: Record<string, PostRefit> = {
       MASTERY_LINK,
     ],
   },
+  // The site's highest-impression blog URL: ~70 distinct "what is vibe
+  // coding" queries, 223 impressions in three months at an average position
+  // of 63. The body was a 113-word stub until 2026-09-10; it is now a full
+  // answer to the query cluster, so it earns the refit the money-intent
+  // posts get.
+  'vibe-coding-explained': {
+    answer:
+      'Vibe coding is building software by describing what you want in plain language and letting an AI model write the code. Andrej Karpathy named it in February 2025 and Collins Dictionary made it the Word of the Year for 2025. You still run, test and correct the result — what you stop doing is typing syntax, which makes judgement, not syntax, the skill that decides whether you ship anything.',
+    updated: '2026-09-10',
+    goDeeper: [
+      { href: '/mastery/curriculum', label: 'The 16 modules that teach vibe coding with Claude Code, end to end' },
+      { href: '/what-is-an-ai-employee', label: 'What an AI employee is, and what people build with vibe coding' },
+      { href: '/learn-ai-agents-pakistan', label: 'How to learn AI agents in Pakistan: the 6-stage roadmap' },
+      MASTERY_LINK,
+    ],
+  },
 }
 
 export const getPostRefit = (slug: string): PostRefit | undefined => POST_REFITS[slug]
