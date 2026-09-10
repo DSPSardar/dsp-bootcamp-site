@@ -180,6 +180,7 @@ export default function ClaudeCodeCoursePakistanPage() {
   return (
     <Guide
       path={PATH}
+      course
       title={TITLE}
       crumb="Claude Code Course in Pakistan"
       eyebrow="Guide · Updated September 2026"

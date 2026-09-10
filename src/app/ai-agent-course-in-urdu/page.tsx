@@ -77,6 +77,7 @@ export default function AiAgentCourseInUrduPage() {
   return (
     <Guide
       path={PATH}
+      course
       title={TITLE}
       crumb="AI Agent Course in Urdu"
       eyebrow="Guide · Urdu + English · Updated September 2026"

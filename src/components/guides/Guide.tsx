@@ -16,6 +16,7 @@ import SiteShell from '@/components/site/SiteShell'
 import { WhatsAppIcon } from '@/components/home/icons'
 import { founder, mastery, site, waLink } from '@/config/site'
 import { ORGANIZATION_ID, PERSON_ID, SCHEMA_CONTEXT, breadcrumbLd, faqPageNode, ref, type Crumb, type Faq, type JsonLd } from '@/lib/schema'
+import { courseNode } from '@/app/mastery/schema'
 import '@/app/guides.css'
 
 export type GuideProps = {
@@ -55,11 +56,16 @@ export type GuideProps = {
    *  a page whose subject is something else (a framework, a definition) passes
    *  its own references — typically the @id of a node in `extraLd`. */
   about?: ReadonlyArray<JsonLd>
+  /** Optional: set on a guide that answers a "which course / what course"
+   *  query. Emits the full Mastery Course node (provider, price, language,
+   *  workload, credentials, syllabus) as a standalone entity on THIS page
+   *  instead of only referencing it by @id on another URL. */
+  course?: boolean
 }
 
 const fmt = (iso: string) => new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
 
-export default function Guide({ path, title, crumb, eyebrow, answer, published, updated, description, children, faqs, urdu, related = [], parents = [], extraLd = [], about }: GuideProps) {
+export default function Guide({ path, title, crumb, eyebrow, answer, published, updated, description, children, faqs, urdu, related = [], parents = [], extraLd = [], about, course = false }: GuideProps) {
   const url = `${site.url}${path}`
   const articleLd = {
     '@context': SCHEMA_CONTEXT,
@@ -79,12 +85,14 @@ export default function Guide({ path, title, crumb, eyebrow, answer, published, 
   }
   const faqLd = { '@context': SCHEMA_CONTEXT, ...faqPageNode(faqs, { '@id': `${url}#faq` }) }
   const extras = extraLd.map((node) => ({ '@context': SCHEMA_CONTEXT, ...node }))
+  const courseLd = course ? { '@context': SCHEMA_CONTEXT, ...courseNode } : null
 
   return (
     <SiteShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd([...parents, { name: crumb, path }])) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      {courseLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseLd) }} />}
       {extras.map((node, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(node) }} />
       ))}

@@ -176,6 +176,7 @@ export default function LearnAiAgentsPakistanPage() {
   return (
     <Guide
       path={PATH}
+      course
       title={TITLE}
       crumb="How to Learn AI Agents in Pakistan"
       eyebrow="Guide · Roadmap · Updated September 2026"

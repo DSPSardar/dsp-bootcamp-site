@@ -228,6 +228,16 @@ const faq = faqPageNode(MASTERY_FAQS, { '@id': FAQ_ID })
 if (welcomeVideo) webpage.video = ref(WELCOME_VIDEO_ID)
 // cofounderNode() is in the graph because the Organization's `founder` list
 // references her @id and every reference must resolve (test:schema).
+/* The Course entity, exported so query-shaped guide pages can emit it inline.
+ * Google's AI Overviews assemble course answers from pages that DECLARE an
+ * enrollable course; a guide that only carries `about: {'@id': ...#course}`
+ * points at an entity defined on another URL and reads as commentary about a
+ * course rather than an offer of one (diagnosed 2026-09-10: DSP ranked #3 for
+ * "ai agents course in urdu" and was the only top result the AI Overview did
+ * not cite). Same @id everywhere on purpose - one entity, described on several
+ * pages, never a duplicate course. */
+export const courseNode: JsonLd = course
+
 export const masteryGraph: JsonLd[] = [organizationNode(), website, webpage, sardar, cofounderNode(), course, faq, ...(welcomeVideo ? [welcomeVideo] : [])]
 
 /** What the page serialises: `JSON.stringify(masterySchema)`. */

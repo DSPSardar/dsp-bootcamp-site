@@ -158,6 +158,7 @@ export default function AiCourseForOverseasPakistanisPage() {
   return (
     <Guide
       path={PATH}
+      course
       title={TITLE}
       crumb="AI Course for Overseas Pakistanis"
       eyebrow="Guide · Updated September 2026"
