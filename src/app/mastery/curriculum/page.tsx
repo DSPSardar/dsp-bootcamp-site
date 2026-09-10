@@ -111,7 +111,7 @@ export default function MasteryCurriculumPage() {
     >
       <h2>How the curriculum is built</h2>
       <p>
-        One project, sixteen modules. You build a single AI Employee — a café ordering agent — and it grows with every module: an idea in Module 1, a job description in Module 2, a website in Module 5, an agent in Module 7, memory in Module 9, tools in Module 10, a public URL in Module 13, two cafés from one deployment in Module 14. Modules 15 and 16 teach you to sell it. The capstone is your own agent, for a real use case, and it earns the certificate.
+        One project, sixteen modules. You build a single AI Employee — a café ordering agent — and it grows with every module: an idea in Module 1, a job description in Module 2, a website in Module 5, an agent in Module 7, memory in Module 9, tools in Module 10, a public URL in Module 13, two cafés from one deployment in Module 14. Modules 15 and 16 teach you to sell it. The capstone is your own agent, for a real use case, and it earns the certificate. Every module is taught in Urdu and English — this is the complete <Link href="/ai-agent-course-in-urdu">AI agent course in Urdu</Link> for learners worldwide.
       </p>
       <p>
         Modules open in order, one build at a time. There are no tests and no grades: you watch, you build, you move on. The table below is the same curriculum the <Link href={mastery.url}>course page</Link> shows and the same one its Course schema carries; this page exists so the whole syllabus can be read — and cited — in one place.

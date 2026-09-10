@@ -288,6 +288,13 @@ export default function HomePage() {
               access and {mastery.supportMonths} months of group support —{' '}
               {mastery.priceDisplay}, one time.
             </p>
+            <p>
+              Explanations in Urdu, tools and code in English — see how the{' '}
+              <Link href="/ai-agent-course-in-urdu" style={{ color: '#C9D6EC' }}>
+                AI Agent Course in Urdu
+              </Link>{' '}
+              works, module by module.
+            </p>
           </div>
           <div className="hero-ctas">
             <TrackedLink className="btn btn-gold" href="/mastery/enrol" event="begin_enrol" params={{ cta: 'home_pivot' }}>
