@@ -50,6 +50,7 @@ export default function SiteFooter() {
               <li><Link href="/about">About DSP</Link></li>
               <li><Link href="/sardar-ghaffar">Sardar Ghaffar</Link></li>
               <li><Link href="/blog">Blog</Link></li>
+              <li><Link href="/survey">Pakistan AI Skills Survey 2026</Link></li>
               <li><Link href="/contact">Contact</Link></li>
               <li><a href={socials.youtube}>YouTube</a></li>
               <li><a href={socials.tiktok}>TikTok</a></li>

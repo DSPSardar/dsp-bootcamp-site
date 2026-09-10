@@ -397,6 +397,21 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ============ 12b · RESEARCH ============ */}
+      {/* The survey needs responses, not just crawling, and this page carries
+          almost all of the site's traffic — a footer link alone would not do it. */}
+      <section>
+        <div className="wrap" style={{ textAlign: 'center' }}>
+          <p className="eyebrow">Research</p>
+          <p style={{ marginTop: '.6rem' }}>
+            We are asking what actually stops people in Pakistan and the Urdu-speaking
+            diaspora from learning AI. Ten questions, anonymous, no phone number — and the
+            results are published free.{' '}
+            <Link href="/survey">Take the survey &rarr;</Link>
+          </p>
+        </div>
+      </section>
+
       {/* ============ 13 · FINAL CTA ============ */}
       <section className="band-dark">
         <div className="wrap" style={{ textAlign: 'center' }}>
