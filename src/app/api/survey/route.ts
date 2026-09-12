@@ -10,6 +10,21 @@
 // than stored, and the sheet stays clean enough to count without tidying.
 import { NextRequest, NextResponse } from 'next/server'
 import { ALLOWED } from '@/app/survey/questions'
+import { supabaseAdmin } from '@/lib/supabase/server'
+
+/** The record of truth. Every response from 10-12 Sep 2026 went only to the
+ *  Apps Script webhook below and could not be found afterwards - the one
+ *  spreadsheet in the owner's Drive holds leads, not survey rows. Supabase
+ *  is a table this site owns and can read back, so a response is either
+ *  stored or it errors loudly; it never disappears quietly again. */
+async function saveResponse(row: Record<string, string>) {
+  const { error } = await supabaseAdmin().from('survey_responses').insert(row)
+  if (error) {
+    console.error('[DSP survey] supabase insert failed:', error.message)
+    return false
+  }
+  return true
+}
 
 async function appendToGoogleSheet(data: Record<string, string>) {
   const webhook = process.env.GOOGLE_SHEETS_WEBHOOK_URL
@@ -53,7 +68,14 @@ export async function POST(req: NextRequest) {
   const email = String(b.email ?? '').slice(0, 200)
   const comment = String(b.comment ?? '').slice(0, 500)
 
+  // Supabase first and awaited - if this fails the respondent is told, rather
+  // than thanked for an answer nobody kept. The sheet webhook stays as a
+  // secondary sink and is still fire-and-forget.
+  const stored = await saveResponse({ ...answers, email, comment })
   appendToGoogleSheet({ ...answers, email, comment, type: 'survey_response' }).catch(() => {})
 
+  if (!stored) {
+    return NextResponse.json({ ok: false, error: 'Could not save your answers' }, { status: 500 })
+  }
   return NextResponse.json({ ok: true })
 }
