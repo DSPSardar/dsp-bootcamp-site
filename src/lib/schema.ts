@@ -127,7 +127,7 @@ export function personNode(extra: JsonLd = {}): JsonLd {
       name: c.name,
       url: c.url,
     })),
-    sameAs: [founder.linkedin, socials.youtube, socials.github, ...founder.credentials.map((c) => c.url)],
+    sameAs: [founder.linkedin, founder.udemy, socials.youtube, socials.github, ...founder.credentials.map((c) => c.url)],
     ...extra,
   }
 }
