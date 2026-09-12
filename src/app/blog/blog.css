@@ -276,6 +276,10 @@
 .dsp-post__related a { color: var(--text); text-decoration: none; font-size: 0.98rem; }
 .dsp-post__related a:hover { color: var(--gold); }
 
+/* The guides rail sits directly under "More in {category}" — it is a second
+   .dsp-post__related, so it only needs a tighter top margin. */
+.dsp-post__guides { margin-top: 1.75rem; }
+
 @media (max-width: 760px) {
   .dsp-blog__featured { grid-template-columns: 1fr; }
   .dsp-blog { padding: 3rem 1rem 4.5rem; }
