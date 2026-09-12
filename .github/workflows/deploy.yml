@@ -36,6 +36,30 @@ jobs:
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-args: '--prod'
+      # Vercel deploys this repo through its own GitHub integration, so the
+      # steps above are skipped whenever the VERCEL_* secrets are absent —
+      # and until 2026-09-12 the IndexNow ping was skipped along with them,
+      # silently, since the day it shipped. It must not depend on them.
+      #
+      # scripts/indexnow-ping.mjs reads the LIVE sitemap to work out which
+      # URLs changed, so pinging the instant the push lands would read the
+      # previous build. Wait for the new one, then ping. Never fail the
+      # deploy over this: a timeout still pings, and the script exits 0 on
+      # any network error.
+      - name: Wait for the production deploy to go live
+        if: github.ref == 'refs/heads/main'
+        continue-on-error: true
+        run: |
+          TODAY="$(date -u +%Y-%m-%d)"
+          for i in $(seq 1 12); do
+            if curl -sf --max-time 20 https://www.digitalservicesprogram.com/sitemap.xml \
+                 | grep -q "<lastmod>$TODAY"; then
+              echo "live build is serving $TODAY (after $((i * 20))s)"
+              exit 0
+            fi
+            sleep 20
+          done
+          echo "timed out waiting for $TODAY in the sitemap — pinging anyway"
       - name: Notify IndexNow of changed URLs
-        if: steps.vercel-secrets.outputs.ready == 'true'
+        if: github.ref == 'refs/heads/main'
         run: node scripts/indexnow-ping.mjs
