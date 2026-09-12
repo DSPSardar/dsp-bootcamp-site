@@ -179,7 +179,15 @@
 /* forms */
 .dsp-site form{background:var(--white);color:var(--navy);border:1px solid var(--line);border-radius:18px;padding:1.8rem;display:grid;gap:1.1rem}
 .dsp-site label{font-weight:600;font-size:.92rem;display:block;margin-bottom:.35rem}
-.dsp-site input,.dsp-site select,.dsp-site textarea{width:100%;font-family:var(--body);font-size:1rem;padding:.8rem .95rem;border:1.5px solid var(--line);border-radius:10px;background:var(--paper);color:var(--navy)}
+/* Radios and checkboxes are controls, not text fields: size them explicitly
+   and never let a flex row stretch or shrink them. Before 2026-09-12 they
+   inherited width:100% + padding from the rule below and rendered ~152px
+   wide, which is what made /survey look broken. */
+.dsp-site input[type=radio],.dsp-site input[type=checkbox]{
+  width:1.05rem;height:1.05rem;flex:0 0 auto;margin:0;padding:0;
+  accent-color:var(--teal);cursor:pointer;border-radius:0
+}
+.dsp-site input:not([type=radio]):not([type=checkbox]),.dsp-site select,.dsp-site textarea{width:100%;font-family:var(--body);font-size:1rem;padding:.8rem .95rem;border:1.5px solid var(--line);border-radius:10px;background:var(--paper);color:var(--navy)}
 .dsp-site textarea{min-height:120px;resize:vertical}
 .dsp-site input:focus,.dsp-site select:focus,.dsp-site textarea:focus{border-color:var(--teal);outline:none;box-shadow:0 0 0 3px rgba(2,128,144,.18)}
 .dsp-site .hp{position:absolute;left:-9999px;height:0;overflow:hidden}

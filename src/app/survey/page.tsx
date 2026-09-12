@@ -99,7 +99,7 @@ export default function SurveyPage() {
             <p className="note">
               Anonymous: we do not ask for your name or phone number, and email is optional and used only to send you
               the results. Answers are counted together, never published individually. Results will appear at{' '}
-              <code>{site.url}/research/pakistan-ai-skills-survey-2026</code>.
+              <code style={{ overflowWrap: 'anywhere', wordBreak: 'break-word' }}>{site.url}/research/pakistan-ai-skills-survey-2026</code>.
             </p>
           </div>
         </section>

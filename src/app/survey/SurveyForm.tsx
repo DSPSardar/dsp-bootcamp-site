@@ -63,25 +63,28 @@ export default function SurveyForm() {
           key={q.id}
           style={{ border: '1px solid var(--line)', borderRadius: 'var(--radius)', padding: '1.1rem 1.3rem', margin: '0 0 1rem', background: 'var(--white)' }}
         >
-          <legend style={{ fontWeight: 600, padding: '0 .4rem' }}>
-            {i + 1}. {q.en}
-            <span lang="ur" dir="rtl" style={{ display: 'block', fontWeight: 400, opacity: 0.75, marginTop: '.15rem' }}>{q.ur}</span>
+          <legend style={{ fontWeight: 600, padding: '0 .4rem', background: 'var(--white)' }}>
+            {i + 1}. {q.en}{' — '}
+            <span lang="ur" dir="rtl" style={{ fontWeight: 400, opacity: 0.75, unicodeBidi: 'isolate' }}>{q.ur}</span>
           </legend>
           <div style={{ display: 'grid', gap: '.35rem', marginTop: '.6rem' }}>
             {q.options.map((o) => (
-              <label key={o.en} style={{ display: 'flex', gap: '.55rem', alignItems: 'flex-start', cursor: 'pointer', lineHeight: 1.45 }}>
+              <label key={o.en} style={{ display: 'flex', gap: '.6rem', alignItems: 'flex-start', cursor: 'pointer', lineHeight: 1.45, padding: '.3rem .2rem', borderRadius: 8 }}>
                 <input
                   type="radio"
                   name={q.id}
                   value={o.en}
                   checked={answers[q.id] === o.en}
                   onChange={() => setAnswers((a) => ({ ...a, [q.id]: o.en }))}
-                  style={{ marginTop: '.3rem' }}
+                  style={{ marginTop: '.28rem' }}
                 />
                 <span>
                   {o.en}
                   {o.ur !== o.en && (
-                    <span lang="ur" dir="rtl" style={{ opacity: 0.7 }}> — {o.ur}</span>
+                    <>
+                      {' — '}
+                      <span lang="ur" dir="rtl" style={{ opacity: 0.7, unicodeBidi: 'isolate' }}>{o.ur}</span>
+                    </>
                   )}
                 </span>
               </label>
