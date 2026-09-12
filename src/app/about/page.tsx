@@ -8,6 +8,7 @@ import { COFOUNDER_ID, ORGANIZATION_ID, PERSON_ID, SCHEMA_CONTEXT, breadcrumbLd,
 import Image from 'next/image'
 import Link from 'next/link'
 import SiteShell from '@/components/site/SiteShell'
+import Mentions from '@/components/site/Mentions'
 import { CheckIcon, WhatsAppIcon } from '@/components/home/icons'
 import { bootcamp, cofounder, entity, founder, site, waLink } from '@/config/site'
 
@@ -130,6 +131,7 @@ export default function AboutPage() {
                 the Agentic Lab, and now DSP AI Agent Mastery, a self-paced program.
               </p>
             </div>
+            <Mentions dark />
           </div>
         </div>
       </section>

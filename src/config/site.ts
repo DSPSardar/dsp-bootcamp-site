@@ -395,6 +395,42 @@ export const agency = {
   },
 } as const
 
+/** ─── Independent listings (Corroboration Engine, Day 8 — 2026-09-12) ───
+ *  Third-party pages that describe DSP without DSP controlling them. This is
+ *  the corroboration leg of the plan: an answer engine treats one source as a
+ *  claim and several as a fact, so these are worth stating on the entity
+ *  pages — and linking to them helps the engines find them.
+ *
+ *  RULES, and they are not negotiable:
+ *  1. Independent only. DSP's own profiles and courses (YouTube, GitHub, the
+ *     free Udemy course) are NOT listings — they belong in `socials` and on
+ *     the founder. Conflating the two is the soft claim that would sink the
+ *     20 Sep demonstration.
+ *  2. Never a paid placement, sponsored post or bought link. If money moved,
+ *     it does not go here.
+ *  3. Verify the page says what this entry claims before adding it. */
+export type Mention = {
+  /** The site doing the listing, as it calls itself. */
+  source: string
+  /** The listing page's own title. */
+  title: string
+  url: string
+  /** What it says about DSP, in one line. */
+  note: string
+  /** When it was verified. */
+  date: string
+}
+
+export const mentions: ReadonlyArray<Mention> = [
+  {
+    source: 'Taleemify',
+    title: 'Best Artificial Intelligence Courses in Pakistan — Top Academies & Tools (2026)',
+    url: 'https://taleemify.pk/artificial-intelligence-courses',
+    note: 'Lists DSP AI Agent Mastery among Pakistan\u2019s AI academies.',
+    date: '2026-09-12',
+  },
+]
+
 export const socials = {
   youtube: 'https://www.youtube.com/@DigitalServicesProgram',
   tiktok: 'https://www.tiktok.com/@digitalservicesprogram',
@@ -447,6 +483,11 @@ export const founder = {
     'Founder and CEO of Digital Services Program (DSP), Islamabad, and its lead AI instructor. Google-certified AI Agentic Trainer, Gemini Certified Educator and Anthropic (Claude)-verified educator; teaching technology since 2002, with 24+ years in IT across London, the UAE and Pakistan.',
   image: '/mastery/sardar.jpg',
   linkedin: 'https://www.linkedin.com/in/sardar-abdul-ghaffar-khan',
+  /** Udemy instructor profile (live 2026-09-12). The slug is a legacy one
+   *  from the account's old display name; the profile itself shows the
+   *  canonical "Sardar Ghaffar". Do NOT change the slug before 20 Sep — it
+   *  would break this sameAs and the course URL Class Central ingests. */
+  udemy: 'https://www.udemy.com/user/abdul-55/',
   /** Public, verifiable credentials — the only ones the schema may list. */
   credentials: [
     {

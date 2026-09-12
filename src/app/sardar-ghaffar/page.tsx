@@ -17,6 +17,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import SiteShell from '@/components/site/SiteShell'
+import Mentions from '@/components/site/Mentions'
 import { CheckIcon, WhatsAppIcon } from '@/components/home/icons'
 import { entity, founder, mastery, site, socials, waLink } from '@/config/site'
 import { getAllPosts } from '@/lib/posts'
@@ -160,9 +161,11 @@ export default function SardarGhaffarPage() {
                 <li><a href={founder.linkedin} target="_blank" rel="noopener noreferrer" style={{ color: '#fff' }}>LinkedIn — {founder.name}</a></li>
                 <li><a href={socials.youtube} target="_blank" rel="noopener noreferrer" style={{ color: '#fff' }}>YouTube — @DigitalServicesProgram</a></li>
                 <li><a href={socials.github} target="_blank" rel="noopener noreferrer" style={{ color: '#fff' }}>GitHub — DSPSardar</a></li>
+                <li><a href={founder.udemy} target="_blank" rel="noopener noreferrer" style={{ color: '#fff' }}>Udemy — free AI agents course in Urdu</a></li>
                 <li><a href={socials.facebook} target="_blank" rel="noopener noreferrer" style={{ color: '#fff' }}>Facebook — Digital Services Program</a></li>
               </ul>
             </div>
+            <Mentions dark />
           </div>
         </div>
       </section>
