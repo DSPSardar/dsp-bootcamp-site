@@ -164,8 +164,10 @@ h3, h4, h5, h6 {
     display: block;
   }
 
-  /* Better form input sizing */
-  input,
+  /* Better form input sizing. min-height is for text fields only - it used
+     to stretch radios and checkboxes into 44px-tall ovals. The tap target
+     comes from the label instead, which wraps the control. */
+  input:not([type=radio]):not([type=checkbox]),
   select,
   textarea {
     font-size: 16px;
