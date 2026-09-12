@@ -7,6 +7,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getPostBySlug, getAllSlugs, getAllPosts } from '@/lib/posts'
 import { getPostRefit } from '@/content/post-refits'
+import { footerGuides } from '@/config/site'
 
 const SITE = 'https://www.digitalservicesprogram.com'
 
@@ -86,6 +87,24 @@ export default async function BlogPost(
       related.push(candidate)
     }
   }
+
+  // Crawl paths to the guides (Day 7, 2026-09-12). The 43 legacy posts keep
+  // their old PHP slugs and are the part of this site Google has actually
+  // crawled for years; the guides are the part it has not crawled at all
+  // (31 URLs sat at "Discovered — currently not indexed" on 11 Sep). The
+  // footer "Guides" block lives in SiteFooter, which the blog shell never
+  // renders, so until now only the six refit posts pointed at a guide at all.
+  // Three per post, picked as a ring off the post's own position, so the 43
+  // posts spread their links across the whole set instead of every post
+  // naming the same three. Refit posts skip the guides their "Go deeper"
+  // block already links, so no post links the same URL twice.
+  const refitHrefs = new Set<string>(
+    refit ? refit.goDeeper.map((l) => l.href) : [],
+  )
+  const guidePool = footerGuides.filter((g) => !refitHrefs.has(g.path))
+  const guideLinks = guidePool.slice(0, 3).map(
+    (_, i) => guidePool[(startInAll + i) % guidePool.length],
+  )
 
   // BlogPosting structured data
   const jsonLd = {
@@ -187,6 +206,22 @@ export default async function BlogPost(
               {related.map((r) => (
                 <li key={r.slug}>
                   <Link href={`/blog/${r.slug}`}>{r.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {guideLinks.length > 0 && (
+          <section
+            className="dsp-post__related dsp-post__guides"
+            aria-labelledby="guides-h"
+          >
+            <h2 id="guides-h">DSP guides</h2>
+            <ul>
+              {guideLinks.map((g) => (
+                <li key={g.path}>
+                  <Link href={g.path}>{g.title}</Link>
                 </li>
               ))}
             </ul>

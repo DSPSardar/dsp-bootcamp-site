@@ -1,6 +1,7 @@
 // src/components/Footer.tsx
 import Link from 'next/link'
 import FooterLogo from './FooterLogo'
+import { footerGuides } from '@/config/site'
 
 export default function Footer() {
   return (
@@ -82,6 +83,50 @@ export default function Footer() {
             Back to top ↑
           </a>
         </nav>
+
+        {/* Guides — the same registry the company footer uses
+            (src/config/site.ts `guides`). The blog and /contact render this
+            footer, not SiteFooter, so without this row the 43 crawled blog
+            posts gave the guides no path at all. */}
+        {footerGuides.length > 0 && (
+          <nav
+            aria-label="DSP guides"
+            style={{
+              width: '100%',
+              borderTop: '1px solid var(--line)',
+              paddingTop: '1.25rem',
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '0.4rem 1.25rem',
+            }}
+          >
+            <span
+              style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.75rem',
+                color: 'var(--muted)',
+                textTransform: 'uppercase',
+                letterSpacing: '0.06em',
+              }}
+            >
+              Guides
+            </span>
+            {footerGuides.map((g) => (
+              <Link
+                key={g.path}
+                href={g.path}
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '0.8125rem',
+                  color: 'var(--muted)',
+                  textDecoration: 'none',
+                }}
+              >
+                {g.title}
+              </Link>
+            ))}
+          </nav>
+        )}
 
         {/* Legal */}
         <p
