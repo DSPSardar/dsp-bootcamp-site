@@ -1,6 +1,42 @@
 /* src/app/globals.css */
 @import "tailwindcss";
 
+/* Metric-matched fallback faces for next/font (CLS pass 2026-09-15).
+   next/font emits "<Font> Fallback" faces sourced from local(Arial) /
+   local(Times New Roman) with size-adjust + ascent/descent overrides. On
+   Linux (PageSpeed) and Android those locals are missing, the face fails,
+   and the pre-swap paint uses an unadjusted generic font — the hero panel
+   shifted by ~0.10 CLS when the web font arrived. These faces sit next in
+   each font stack (see layout.tsx `fallback`) with the SAME override values
+   next/font computed, sourced from the metric clones that do exist there:
+   Liberation Sans / Arimo (= Arial), Liberation Serif / Tinos (= Times),
+   Liberation Mono / Cousine (= Courier New, close enough for labels), plus
+   Roboto for Android sans. Values copied from the production CSS. */
+@font-face {
+  font-family: "DSP Sans Fallback";
+  src: local("Liberation Sans"), local("Arimo"), local("Helvetica Neue"), local("Helvetica"), local("Roboto");
+  size-adjust: 107.12%;
+  ascent-override: 90.44%;
+  descent-override: 22.52%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "DSP Serif Fallback";
+  src: local("Liberation Serif"), local("Tinos"), local("Times"), local("Nimbus Roman"), local("Noto Serif");
+  size-adjust: 83.94%;
+  ascent-override: 117.94%;
+  descent-override: 36.93%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "DSP Mono Fallback";
+  src: local("Liberation Sans"), local("Arimo"), local("Helvetica Neue"), local("Helvetica"), local("Roboto");
+  size-adjust: 134.59%;
+  ascent-override: 75.79%;
+  descent-override: 22.29%;
+  line-gap-override: 0%;
+}
+
 :root {
   /* --ink re-pointed at the shared token (tokens.css); the rest of this
      dark shell's palette is intentionally its own. */

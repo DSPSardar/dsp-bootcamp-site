@@ -10,24 +10,36 @@ import { entityGraphLd } from '@/lib/schema'
 // Blueprint §6: display serif on hero + H2 only, Inter for body/UI,
 // JetBrains Mono for code — all self-hosted via next/font (no runtime
 // Google Fonts @import anywhere).
+//
+// CLS pass 2026-09-15: next/font's size-adjusted fallback faces are
+// `local(Arial)` / `local(Times New Roman)`, which do not exist on Linux
+// (PageSpeed's runners) or Android — there the face errors, the page
+// first paints in an unadjusted generic font, and the swap to the real
+// font moved the hero panel (lab CLS 0.10). The `fallback` lists below
+// chain to metric-matched faces declared in globals.css (Liberation /
+// Arimo / Tinos / Roboto via local()) so the pre-swap layout already has
+// the web font's metrics on every OS.
 const instrumentSerif = Instrument_Serif({
   subsets: ['latin'],
   weight: '400', // the face's only weight — serif headings are 400 by design
   style: ['normal', 'italic'],
   variable: '--font-instrument-serif',
   display: 'swap',
+  fallback: ['DSP Serif Fallback', 'Georgia', 'serif'],
 })
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
+  fallback: ['DSP Sans Fallback', 'system-ui', 'Segoe UI', 'sans-serif'],
 })
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   variable: '--font-jetbrains-mono',
   display: 'swap',
+  fallback: ['DSP Mono Fallback', 'ui-monospace', 'monospace'],
   // Small labels only, never the LCP text: don't spend a High-priority
   // preload on it during the critical path (perf pass 2026-09-03).
   preload: false,
