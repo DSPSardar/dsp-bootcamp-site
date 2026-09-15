@@ -97,8 +97,8 @@
 .dsp-site .nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:1rem}
 .dsp-site .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--navy);font-family:var(--disp);font-weight:700;font-size:1rem;white-space:nowrap;letter-spacing:-.01em}
 .dsp-site .brand-mark{width:32px;height:32px;border-radius:8px;background:var(--navy);color:var(--accent-tint);display:grid;place-items:center;font-size:1rem;font-weight:800;flex:none}
-.dsp-site .nav-links{display:flex;gap:1.35rem;align-items:center;list-style:none}
-.dsp-site .nav-links a{text-decoration:none;color:var(--navy-soft);font-weight:500;font-size:.93rem;white-space:nowrap;padding:.35rem 0;border-bottom:1.5px solid transparent;transition:color var(--dur),border-color var(--dur)}
+.dsp-site .nav-links{display:flex;gap:1.15rem;align-items:center;list-style:none}
+.dsp-site .nav-links a{text-decoration:none;color:var(--navy-soft);font-weight:500;font-size:.9rem;white-space:nowrap;padding:.35rem 0;border-bottom:1.5px solid transparent;transition:color var(--dur),border-color var(--dur)}
 .dsp-site .nav-links a:hover,.dsp-site .nav-links a[aria-current="true"]{color:var(--navy);border-color:var(--accent)}
 .dsp-site .nav-links .nav-cta-item{display:none}
 .dsp-site .menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:.5rem .65rem;color:var(--navy);cursor:pointer;min-height:40px}
@@ -325,15 +325,8 @@
 }
 
 /* ---------- responsive ---------- */
-@media (max-width: 960px){
-  .dsp-site .proof ul{grid-template-columns:repeat(2,1fr)}
-  .dsp-site section{padding:64px 0}
-  .dsp-site .split,.dsp-site .grid-2,.dsp-site .grid-3{grid-template-columns:1fr;gap:1.6rem}
-  .dsp-site .split{gap:2.2rem}
-  .dsp-site .grid-4{grid-template-columns:repeat(2,1fr)}
-  .dsp-site .stats ul{grid-template-columns:repeat(2,1fr)}
-  .dsp-site .stats li{border-left:none;border-top:1px solid rgba(255,255,255,.12)}
-  .dsp-site .stats li:nth-child(-n+2){border-top:none}
+/* Seven nav items + CTA need ~1060px; collapse to the menu below that. */
+@media (max-width: 1080px){
   .dsp-site .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);flex-direction:column;padding:1rem 24px 1.2rem;gap:.2rem;align-items:stretch;box-shadow:0 20px 40px -20px rgba(14,17,22,.25)}
   .dsp-site .nav-links.open{display:flex}
   .dsp-site .nav-links a{display:block;padding:.7rem 0;font-size:1.05rem;border-bottom:1px solid var(--line)}
@@ -343,6 +336,16 @@
   .dsp-site .nav-links .nav-cta-item .btn:hover{border-color:transparent}
   .dsp-site .menu-btn{display:inline-flex;align-items:center}
   .dsp-site .nav > .btn{display:none}
+}
+@media (max-width: 960px){
+  .dsp-site .proof ul{grid-template-columns:repeat(2,1fr)}
+  .dsp-site section{padding:64px 0}
+  .dsp-site .split,.dsp-site .grid-2,.dsp-site .grid-3{grid-template-columns:1fr;gap:1.6rem}
+  .dsp-site .split{gap:2.2rem}
+  .dsp-site .grid-4{grid-template-columns:repeat(2,1fr)}
+  .dsp-site .stats ul{grid-template-columns:repeat(2,1fr)}
+  .dsp-site .stats li{border-left:none;border-top:1px solid rgba(255,255,255,.12)}
+  .dsp-site .stats li:nth-child(-n+2){border-top:none}
   .dsp-site .curric-row{grid-template-columns:1fr;gap:.3rem}
   .dsp-site .site-footer .foot-grid{grid-template-columns:1fr 1fr;gap:1.8rem}
   .dsp-site .cert-grid{grid-template-columns:1fr}

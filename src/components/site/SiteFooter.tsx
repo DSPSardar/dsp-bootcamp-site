@@ -19,7 +19,7 @@ export default function SiteFooter() {
               <li><Link href="/ai-employees">AI Employees</Link></li>
               <li><a href={agency.hubUrl} rel="noopener">{agency.hubName} ↗</a></li>
               <li><Link href="/pricing">Pricing</Link></li>
-              <li><Link href="/agents">Why hire us</Link></li>
+              <li><Link href="/agents">Custom agent builds</Link></li>
               <li><Link href="/agents/restaurant-ai">Restaurant AI</Link></li>
               <li><Link href="/channelops">ChannelOps</Link></li>
               <li><Link href="/agents/case-studies">Case studies</Link></li>
@@ -29,9 +29,7 @@ export default function SiteFooter() {
             <h3>Learn</h3>
             <ul>
               <li><Link href="/mastery">AI Agent Mastery</Link></li>
-              <li><Link href="/channelops#course">ChannelOps course</Link></li>
-              {/* History entry, not an offer — owner ruling 2026-08-30 */}
-              <li><Link href="/academy/bootcamp">The Agentic Lab (2025–2026)</Link></li>
+              <li><Link href="/channelops#course">ChannelOps training</Link></li>
             </ul>
             {footerGuides.length > 0 && (
               <>
@@ -51,6 +49,8 @@ export default function SiteFooter() {
               <li><Link href="/about">About DSP</Link></li>
               <li><Link href="/sardar-ghaffar">Sardar Ghaffar</Link></li>
               <li><Link href="/blog">Blog</Link></li>
+              {/* History entry, not an offer — owner ruling 2026-08-30 */}
+              <li><Link href="/academy/bootcamp">The Agentic Lab (2025–2026)</Link></li>
               <li><Link href="/survey">Pakistan AI Skills Survey 2026</Link></li>
               <li><Link href="/contact">Contact</Link></li>
               <li><a href={socials.youtube}>YouTube</a></li>

@@ -2,26 +2,28 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { waLink } from '@/config/site'
+import { agency, site } from '@/config/site'
 import TrackedLink from '@/components/site/TrackedLink'
 
-// V3 nav (Sept 2026): AI Employees · Agent Hub · AI Mastery · How It Works ·
-// Results · About + one CTA [Build with DSP] → WhatsApp, the site's primary
-// conversion channel. Agent Hub, How It Works and Results are homepage
-// sections, not pages — anchors keep the nav honest without thin new URLs.
-// /pricing, /blog, /agents, /channelops, /academy/bootcamp and /contact are
-// out of nav but stay live and linked from both footers. scripts/
-// check-nav-links.mjs guards this list on both shells.
+// V3 nav (owner ruling 15 Sep 2026), identical on both shells:
+// AI Employees · Agent Hub · Pricing · Mastery · Case Studies · About · Blog
+// + one CTA [Talk to Zara] → WhatsApp (Zara answers the site line; see
+// agency.zaraDemoWaNumber). Agent Hub is a homepage section, so it is an
+// anchor. /agents, /channelops, /academy/bootcamp and /contact are out of
+// nav but stay live and linked from both footers. scripts/check-nav-links.mjs
+// guards this list on both shells.
 const links = [
   { label: 'AI Employees', href: '/ai-employees' },
   { label: 'Agent Hub', href: '/#agent-hub' },
-  { label: 'AI Mastery', href: '/mastery' },
-  { label: 'How It Works', href: '/#how-it-works' },
-  { label: 'Results', href: '/#results' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'Mastery', href: '/mastery' },
+  { label: 'Case Studies', href: '/agents/case-studies' },
   { label: 'About', href: '/about' },
+  { label: 'Blog', href: '/blog' },
 ]
 
-const CTA_HREF = waLink('Hi DSP, I want to build with DSP.')
+const CTA_LABEL = 'Talk to Zara'
+const CTA_HREF = `https://wa.me/${agency.zaraDemoWaNumber ?? site.whatsappNumber}?text=${encodeURIComponent('Hi Zara!')}`
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false)
@@ -64,10 +66,10 @@ export default function SiteHeader() {
               target="_blank"
               rel="noopener"
               event="whatsapp_cta_click"
-              params={{ cta: 'site_menu' }}
+              params={{ cta: 'site_menu_zara' }}
               onClick={() => setOpen(false)}
             >
-              Build with DSP
+              {CTA_LABEL}
             </TrackedLink>
           </li>
         </ul>
@@ -77,9 +79,9 @@ export default function SiteHeader() {
           target="_blank"
           rel="noopener"
           event="whatsapp_cta_click"
-          params={{ cta: 'site_header' }}
+          params={{ cta: 'site_header_zara' }}
         >
-          Build with DSP
+          {CTA_LABEL}
         </TrackedLink>
       </div>
     </header>

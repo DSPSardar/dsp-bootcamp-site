@@ -2,23 +2,24 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { waLink } from '@/config/site'
+import { agency, site } from '@/config/site'
 import { track } from '@/lib/track'
 
-// V3 nav (Sept 2026), mirrored on the blog/contact shell: AI Employees ·
-// Agent Hub · AI Mastery · How It Works · Results · About + one CTA
-// [Build with DSP] → WhatsApp. /pricing, /blog, /agents, /channelops and
-// /contact are out of nav but live (see Footer). Guarded by test:nav.
+// V3 nav (owner ruling 15 Sep 2026), identical to SiteHeader on the company
+// shell: AI Employees · Agent Hub · Pricing · Mastery · Case Studies · About ·
+// Blog + one CTA [Talk to Zara] → WhatsApp. Guarded by test:nav.
 const links = [
   { label: 'AI Employees', href: '/ai-employees' },
   { label: 'Agent Hub', href: '/#agent-hub' },
-  { label: 'AI Mastery', href: '/mastery' },
-  { label: 'How It Works', href: '/#how-it-works' },
-  { label: 'Results', href: '/#results' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'Mastery', href: '/mastery' },
+  { label: 'Case Studies', href: '/agents/case-studies' },
   { label: 'About', href: '/about' },
+  { label: 'Blog', href: '/blog' },
 ]
 
-const CTA_HREF = waLink('Hi DSP, I want to build with DSP.')
+const CTA_LABEL = 'Talk to Zara'
+const CTA_HREF = `https://wa.me/${agency.zaraDemoWaNumber ?? site.whatsappNumber}?text=${encodeURIComponent('Hi Zara!')}`
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
@@ -115,9 +116,9 @@ export default function Nav() {
             rel="noopener"
             className="btn-primary"
             style={{ fontSize: '0.8125rem', padding: '0.5rem 1rem', whiteSpace: 'nowrap' }}
-            onClick={() => track('whatsapp_cta_click', { cta: 'blog_header' })}
+            onClick={() => track('whatsapp_cta_click', { cta: 'blog_header_zara' })}
           >
-            Build with DSP
+            {CTA_LABEL}
           </a>
           <button
             aria-label={open ? 'Close menu' : 'Open menu'}

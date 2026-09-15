@@ -1,4 +1,4 @@
-import { distribution } from '@/config/site'
+import { agency, distribution } from '@/config/site'
 
 // Homepage §06 — Attention → Engagement → Leads → Customers → Revenue.
 // Every stage is a figure read off a named dashboard (src/config/site.ts
@@ -35,7 +35,7 @@ export default function DistributionEngine() {
       <p className="dist-note">
         Each figure is read from the platform named under it, using that platform&apos;s own metric.
         Views are views, not people; periods differ by stage and are stated. Nothing is combined
-        across platforms, and revenue is reported by DSP, not independently audited.
+        across platforms. Revenue: {agency.revenue.footnote}
       </p>
     </>
   )

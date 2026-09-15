@@ -32,7 +32,7 @@ import './home.css'
 export const metadata: Metadata = {
   title: { absolute: 'DSP — AI Employees for Business | Digital Services Program' },
   description:
-    'DSP builds AI Employees for business — AI sales, support, booking and order-taking staff on WhatsApp and phone, run on DSP Agent Hub — and teaches you to build your own in DSP AI Agent Mastery, self-paced for $100.',
+    'DSP builds AI Employees for business — AI sales, support, booking and order-taking staff on WhatsApp and phone, run on DSP Agent Hub — and teaches you to build your own in DSP AI Agent Mastery, a self-paced program.',
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'DSP — Don’t just use AI. Build the employee.',
-    description: 'AI Employees for business, DSP Agent Hub, and DSP AI Agent Mastery ($100, self-paced).',
+    description: 'AI Employees for business, DSP Agent Hub, and DSP AI Agent Mastery, the self-paced program to build your own.',
     images: ['/og-card.png'],
   },
 }
@@ -61,14 +61,10 @@ const faqs = [
     a: 'Both doors are open. DSP builds and runs AI Employees for businesses — live within 7 days of a discovery call, with published USD pricing. Or you learn to build your own in DSP AI Agent Mastery, the same method our team uses.' },
   { q: 'I have never coded. Can I really build one?',
     a: 'Yes. That is the audience Mastery was built for. You describe what you want and Claude Code writes the code. Your job is to plan, direct, test and ship — which is what the program teaches. If you can write a clear WhatsApp message, you can write a Job Description.' },
-  { q: 'Is $100 really all I pay for Mastery?',
-    a: '$100 covers the entire program, lifetime. You will need a Claude account to build with during the modules — Module 3 walks you through setup and the free-tier route, and paid Claude plans start at $20/month if you choose to upgrade. GitHub and Vercel are free for what this program uses.' },
   { q: 'Do I get a recognised certificate?',
-    a: 'Two kinds. The DSP Master certificate has a public verification page showing the live agent you built — proof of work, not attendance. Separately, Module 3 walks you through Claude Academy, Anthropic’s free training, so you finish holding three of their course completion badges with your name on them. Neither is a university accreditation; what employers and clients actually check is the working agent behind the link.' },
+    a: 'Two kinds. The DSP Master certificate has a public verification page showing the live agent you built — proof of work, not attendance. Separately, Module 3 walks you through Anthropic’s free Claude training, so you finish holding three of their completion badges with your name on them. Neither is a university accreditation; what employers and clients actually check is the working agent behind the link.' },
   { q: 'Is it in Urdu or English?',
     a: 'Lectures are taught in an Urdu–English mix, the way DSP teaches live. All templates, slides and downloads are in English. Subtitles are provided. AI Employees answer customers in either language.' },
-  { q: 'Refunds?',
-    a: 'Seven days, no questions, on Mastery. Start Module 1; if it isn’t for you, email us and we refund in full. For AI Employee builds: live within 7 days, tested and approved by you, or the setup fee is refunded.' },
 ]
 
 const fmtDate = (iso: string) =>
@@ -111,7 +107,7 @@ export default function HomePage() {
                 Explore AI Employees
               </TrackedLink>
               <TrackedLink className="btn btn-ghost-light" href="/mastery" event="academy_cta_click" params={{ cta: 'home_hero_mastery' }}>
-                Start AI Mastery — {mastery.priceDisplay}
+                Start AI Mastery
               </TrackedLink>
             </div>
             <p className="hero-proofline" aria-label="Learn, build, deploy">
@@ -165,11 +161,12 @@ export default function HomePage() {
           <div className="proof-hero" data-reveal="">
             <p className="eyebrow">Real business proof</p>
             <p className="big">{agency.revenue.display}</p>
-            <p className="lbl">{agency.revenue.label} — DSP&apos;s own sales, closed by Zara.</p>
+            <p className="lbl">{agency.revenue.label}</p>
             <p className="src">
               Source: {agency.hubName} (ASOS) dashboard, Rs. {agency.revenue.pkr.toLocaleString('en-US')}
-              <br />as of {fmtDate(agency.revenue.asOf)} · reported by DSP, not independently audited
+              <br />as of {fmtDate(agency.revenue.asOf)}
             </p>
+            <p className="footnote">{agency.revenue.footnote}</p>
           </div>
           <div>
             <div className="sec-head" style={{ marginBottom: '1.4rem' }}>
@@ -179,14 +176,14 @@ export default function HomePage() {
               <ProofCounters />
               <div>
                 <strong>{entity.studentsEnrolled}</strong>
-                <span>students enrolled in {mastery.shortName}</span>
+                <span>students in {mastery.shortName}</span>
               </div>
               <div>
                 <strong>24/7</strong>
                 <span>every lead answered, in English or Urdu</span>
               </div>
               <p className="proof-note">
-                Leads, sales, takeover rate and time-to-live: {agency.hubName}, as of {fmtDate(agency.proof.asOf)}.
+                Leads, sales, takeover rate and time-to-live: {agency.hubName}, DSP tenant, as of {fmtDate(agency.proof.asOf)}.
                 Students: ASOS dashboard, as of {fmtDate(entity.studentsEnrolledAsOf)}. Our own numbers, updated from the dashboard, never estimated.
               </p>
             </div>
@@ -247,7 +244,7 @@ export default function HomePage() {
               <li><CheckIcon /> {mastery.supportMonths} months of group support and weekend live sessions</li>
               <li><CheckIcon /> Taught in Urdu and English · materials in English</li>
               <li><CheckIcon /> No coding background needed — Claude Code writes the code</li>
-              <li><CheckIcon /> {mastery.refundDays}-day refund, no questions</li>
+              <li><CheckIcon /> Four certificates — three issued by Anthropic, one by DSP</li>
             </ul>
             <div className="hero-ctas">
               <TrackedLink className="btn btn-gold" href="/mastery" event="academy_cta_click" params={{ cta: 'home_mastery' }}>
@@ -264,14 +261,13 @@ export default function HomePage() {
             </div>
           </div>
           <div className="offer" data-reveal="">
-            <p className="k">One-time · no subscription</p>
-            <p className="price">{mastery.priceDisplay}<small>≈ {mastery.pkr.price}</small></p>
-            <p className="per">Lifetime access · {mastery.supportMonths} months of support</p>
+            <p className="k">What you leave with</p>
+            <p className="offer-title">One AI Employee, live on a public URL — then your own.</p>
             <ul>
-              <li><CheckIcon /> A café ordering AI Employee, built by you, live on a public URL</li>
+              <li><CheckIcon /> A café ordering AI Employee, built by you from an empty folder to a live URL</li>
               <li><CheckIcon /> Job Description, memory, tools, APIs, MCP, testing, security, deployment</li>
               <li><CheckIcon /> Selling agents to clients: discovery, proposal and pricing templates</li>
-              <li><CheckIcon /> Four certificates — three issued by Anthropic, one by DSP with a verification page</li>
+              <li><CheckIcon /> A DSP Master certificate with a public verification page showing your agent</li>
             </ul>
             <div className="certs">
               {certs.map((c) => (
@@ -281,8 +277,8 @@ export default function HomePage() {
                 </figure>
               ))}
             </div>
-            <TrackedLink className="paylink" href="/mastery/enrol" event="begin_enrol" params={{ cta: 'home_offer_pay', location: 'home' }}>
-              Pay directly — bank transfer · JazzCash · Easypaisa →
+            <TrackedLink className="paylink" href="/mastery" event="academy_cta_click" params={{ cta: 'home_offer_program' }}>
+              See the full program, format and curriculum →
             </TrackedLink>
           </div>
         </div>

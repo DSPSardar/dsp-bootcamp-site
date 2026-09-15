@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs'
+import path from 'node:path'
 import Image from 'next/image'
 import Link from 'next/link'
 import TrackedLink from '@/components/site/TrackedLink'
@@ -20,6 +22,13 @@ const FLOW = [
 ]
 
 export default function AgentHubSection() {
+  // The real screenshot renders only when the file is actually in public/ at
+  // build time; otherwise the labelled workflow rail stays, so a missing
+  // upload never ships a broken image.
+  const shot =
+    agency.hubScreenshot && existsSync(path.join(process.cwd(), 'public', agency.hubScreenshot.src))
+      ? agency.hubScreenshot
+      : null
   return (
     <section className="band-ink hub" id="agent-hub">
       <div className="wrap">
@@ -57,16 +66,18 @@ export default function AgentHubSection() {
           </p>
         </div>
 
-        {agency.hubScreenshot ? (
+        {shot ? (
           <figure className="hub-shot" data-reveal="">
+            {/* 2000px capture shown at half size: `sizes` keeps the 2x candidate in the srcset. */}
             <Image
-              src={agency.hubScreenshot.src}
-              alt={agency.hubScreenshot.alt}
-              width={agency.hubScreenshot.width}
-              height={agency.hubScreenshot.height}
-              sizes="(max-width: 960px) 100vw, 50vw"
+              src={shot.src}
+              alt={shot.alt}
+              width={shot.width}
+              height={shot.height}
+              sizes="(max-width: 960px) 100vw, 560px"
+              quality={85}
             />
-            <figcaption>{agency.hubName} — real product screen</figcaption>
+            <figcaption>{agency.hubName} — the DSP tenant&apos;s pipeline view (real product screen)</figcaption>
           </figure>
         ) : (
           <div className="hub-flow" data-reveal="" role="figure" aria-label="How a lead moves through DSP Agent Hub — illustrative workflow">

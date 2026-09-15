@@ -167,38 +167,50 @@ export const agency = {
    *  runs its own admissions on. Public site: dspagenthub.com. Its product
    *  line is ASOS (AI Sales OS). `hubModules` is the sidebar of the live app
    *  exactly as screenshotted — never add a module that is not in the product.
-   *  `hubScreenshot` stays null until a real UI capture is dropped in
-   *  public/agent-hub/; the homepage renders the (labelled) illustrative
-   *  workflow panel instead. Never ship a mock that looks like real data. */
+   *  `hubScreenshot` names the real UI capture in public/agent-hub/; the
+   *  homepage renders it at half its pixel size (2x) inside a navy frame,
+   *  and falls back to the (labelled) illustrative workflow rail whenever
+   *  the file is absent at build time. Never ship a mock that looks like
+   *  real data. */
   hubName: 'DSP Agent Hub',
   hubUrl: 'https://dspagenthub.com/',
   hubProduct: 'ASOS — AI Sales OS',
   hubTagline: 'Close deals while you sleep.',
   hubModules: ['Today', 'Dashboard', 'Leads', 'Conversations', 'AI Insights', 'Ads', 'Analytics', 'Students', 'Reports', 'Automations'],
-  hubScreenshot: null as { src: string; alt: string; width: number; height: number } | null,
+  hubScreenshot: {
+    src: '/agent-hub/pipeline.png',
+    alt: 'DSP Agent Hub — the live pipeline view of the DSP tenant',
+    width: 2000,
+    height: 1300,
+  } as { src: string; alt: string; width: number; height: number } | null,
 
   /** Revenue tracked in DSP Agent Hub — the ASOS dashboard header,
-   *  "Revenue: Rs. 4,232,000" (owner screenshot, 15 Sep 2026). This is DSP's
-   *  own revenue closed through the platform, reported by the owner, not
-   *  independently audited — the site always says "reported". Update `pkr`
-   *  and `asOf` together, from the dashboard, never by estimate. */
+   *  "Revenue: Rs. 4,232,000" (owner figures, DSP tenant, 15 Sep 2026).
+   *  DSP's own sales recorded in the platform; `footnote` is printed under
+   *  every stat block that shows it. Update `pkr` and `asOf` together, from
+   *  the dashboard, never by estimate. */
   revenue: {
     pkr: 4_232_000,
     display: 'PKR 4.2M+',
-    label: 'reported revenue closed through DSP Agent Hub',
+    label: 'closed through DSP Agent Hub',
+    footnote: 'DSP\u2019s own sales, recorded in the platform. Direct payments outside the system are not included.',
     asOf: '2026-09-15',
   },
 
-  /** Product proof bar — our own DSPAgentHub numbers. Update from the
-      dashboard, and move `asOf` forward with every update. These are
-      server-rendered into the HTML — the static markup must never show a
-      zero (see ProofCounters). */
+  /** Product proof bar — our own DSP Agent Hub numbers (DSP tenant). Update
+      from the dashboard, and move `asOf` forward with every update. These
+      are server-rendered into the HTML — the static markup must never show
+      a zero (see ProofCounters).
+      15 Sep 2026: `sales` and `asOf` updated from the owner's dashboard
+      figures. PENDING OWNER PASTE BEFORE MERGE: `leads` and
+      `zeroTakeoverPct` still hold the 23 Aug 2026 readings — replace both
+      with the all-time KPI values from the Dashboard overview. */
   proof: {
-    leads: 868,
-    sales: 280,
-    zeroTakeoverPct: 50.7,
+    leads: 868, // PENDING: all-time "leads processed" KPI from the Dashboard overview
+    sales: 350,
+    zeroTakeoverPct: 50.7, // PENDING: all-time AI-handled % from the Dashboard overview
     daysToLive: 7,
-    asOf: '2026-08-23',
+    asOf: '2026-09-15',
   },
 
   /** Zara's public WhatsApp demo line — confirmed Aug 2026: Zara works as
@@ -535,6 +547,7 @@ export const distribution: ReadonlyArray<DistributionStage> = [
     stage: 'Leads',
     display: '868',
     exact: 868,
+    // PENDING OWNER PASTE: all-time KPI from the Dashboard overview (still the 23 Aug reading)
     metric: 'leads processed by Zara on DSP Agent Hub',
     source: 'DSP Agent Hub',
     period: 'as of 23 Aug 2026',
@@ -544,7 +557,7 @@ export const distribution: ReadonlyArray<DistributionStage> = [
     stage: 'Customers',
     display: '350',
     exact: 350,
-    metric: 'students enrolled in DSP AI Agent Mastery',
+    metric: 'students in DSP AI Agent Mastery',
     source: 'DSP Agent Hub · ASOS student dashboard',
     period: 'as of 15 Sep 2026',
   },
@@ -553,7 +566,7 @@ export const distribution: ReadonlyArray<DistributionStage> = [
     stage: 'Revenue',
     display: 'PKR 4.2M+',
     exact: 'Rs. 4,232,000',
-    metric: 'reported revenue closed through DSP Agent Hub',
+    metric: 'revenue closed through DSP Agent Hub',
     source: 'DSP Agent Hub · ASOS',
     period: 'as of 15 Sep 2026',
   },
