@@ -183,7 +183,8 @@ export default function HomePage() {
                 <span>every lead answered, in English or Urdu</span>
               </div>
               <p className="proof-note">
-                Leads, sales, takeover rate and time-to-live: {agency.hubName}, DSP tenant, as of {fmtDate(agency.proof.asOf)}.
+                Sales and time-to-live: {agency.hubName}, DSP tenant, as of {fmtDate(agency.proof.asOf)}.
+                Leads and zero-takeover rate: {agency.proof.kpiSource}, as of {fmtDate(agency.proof.kpiAsOf)}.
                 Students: ASOS dashboard, as of {fmtDate(entity.studentsEnrolledAsOf)}. Our own numbers, updated from the dashboard, never estimated.
               </p>
             </div>

@@ -57,7 +57,7 @@ export default function ProofCounters() {
       {stats.map((s) => (
         <li key={s.label}>
           <strong>
-            {(s.value * progress).toFixed(s.decimals)}
+            {(s.value * progress).toLocaleString('en-US', { minimumFractionDigits: s.decimals, maximumFractionDigits: s.decimals })}
             {s.suffix}
           </strong>
           <span>{s.label}</span>

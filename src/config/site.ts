@@ -198,19 +198,20 @@ export const agency = {
   },
 
   /** Product proof bar — our own DSP Agent Hub numbers (DSP tenant). Update
-      from the dashboard, and move `asOf` forward with every update. These
+      from the dashboard, and move the dates forward with every update. These
       are server-rendered into the HTML — the static markup must never show
       a zero (see ProofCounters).
-      15 Sep 2026: `sales` and `asOf` updated from the owner's dashboard
-      figures. PENDING OWNER PASTE BEFORE MERGE: `leads` and
-      `zeroTakeoverPct` still hold the 23 Aug 2026 readings — replace both
-      with the all-time KPI values from the Dashboard overview. */
+      `sales` and `daysToLive`: ASOS dashboard, `asOf`. `leads` and
+      `zeroTakeoverPct`: Agent Hub Reports, 90-day view, `kpiAsOf`
+      (owner figures, 11 Sept 2026). */
   proof: {
-    leads: 868, // PENDING: all-time "leads processed" KPI from the Dashboard overview
+    leads: 1_290,
     sales: 350,
-    zeroTakeoverPct: 50.7, // PENDING: all-time AI-handled % from the Dashboard overview
+    zeroTakeoverPct: 48.5,
     daysToLive: 7,
     asOf: '2026-09-15',
+    kpiSource: 'Agent Hub Reports, 90-day view',
+    kpiAsOf: '2026-09-11',
   },
 
   /** Zara's public WhatsApp demo line — confirmed Aug 2026: Zara works as
@@ -545,12 +546,11 @@ export const distribution: ReadonlyArray<DistributionStage> = [
   {
     id: 'leads',
     stage: 'Leads',
-    display: '868',
-    exact: 868,
-    // PENDING OWNER PASTE: all-time KPI from the Dashboard overview (still the 23 Aug reading)
+    display: '1,290',
+    exact: 1_290,
     metric: 'leads processed by Zara on DSP Agent Hub',
-    source: 'DSP Agent Hub',
-    period: 'as of 23 Aug 2026',
+    source: 'DSP Agent Hub Reports',
+    period: 'as of 11 Sept 2026 (90-day view)',
   },
   {
     id: 'customers',
