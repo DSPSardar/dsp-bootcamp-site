@@ -196,7 +196,7 @@ export default function AiCourseForOverseasPakistanisPage() {
         A recorded course has no time zone. That is the single reason self-paced beats a live cohort when you are abroad: the lectures wait for you, whether you finish a shift at 10 pm in Sharjah or study before work in Toronto. The only scheduled thing in {mastery.name} is the weekend live debugging session, which runs in the Pakistan evening and is recorded either way.
       </p>
       <p>Here is what a Pakistan-evening session looks like from each place, taking 8:00 pm in Islamabad as the example:</p>
-      <div className="table-scroll">
+      <div className="table-scroll" tabIndex={0} role="region" aria-label="Scrollable table">
         <table>
           <thead>
             <tr>
@@ -241,7 +241,7 @@ export default function AiCourseForOverseasPakistanisPage() {
       </p>
 
       <h2>What you can enrol in from abroad</h2>
-      <div className="table-scroll">
+      <div className="table-scroll" tabIndex={0} role="region" aria-label="Scrollable table">
         <table>
           <thead>
             <tr>

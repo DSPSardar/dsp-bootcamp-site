@@ -111,7 +111,7 @@ export default function AiAgentCourseInUrduPage() {
 
       <h2>The curriculum: {MASTERY_CURRICULUM.length} modules, one project</h2>
       <p>You build one AI Employee and it grows with every module — from an idea, to a job description, to a website, to an agent with tools and memory, to a deployed product you can sell.</p>
-      <div className="table-scroll">
+      <div className="table-scroll" tabIndex={0} role="region" aria-label="Scrollable table">
         <table>
           <thead>
             <tr>
@@ -143,7 +143,7 @@ export default function AiAgentCourseInUrduPage() {
 
       <h2>Other Urdu and Hindi options, compared fairly</h2>
       <p>These are the other courses an Urdu speaker will find. Facts are from each provider&apos;s own site, 5 September 2026.</p>
-      <div className="table-scroll">
+      <div className="table-scroll" tabIndex={0} role="region" aria-label="Scrollable table">
         <table>
           <thead>
             <tr>

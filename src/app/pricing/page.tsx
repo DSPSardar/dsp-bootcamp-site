@@ -133,7 +133,7 @@ export default function PricingPage() {
           </div>
           <div className="grid-3" style={{ alignItems: 'stretch', marginTop: '.8rem' }}>
             {agency.pricing.tiers.map((tier) => (
-              <div className={`card tier${'featured' in tier && tier.featured ? ' gold' : ''}`} key={tier.id}>
+              <div className={`card tier${'featured' in tier && tier.featured ? ' gold' : ''}`} key={tier.id} id={tier.id}>
                 {'featured' in tier && tier.featured ? <span className="flag">⭐ Most Popular</span> : null}
                 <h3>{tier.name}</h3>
                 <p className="price">${tier.monthlyUsd}<small>/month</small></p>
@@ -224,7 +224,7 @@ export default function PricingPage() {
             <p className="eyebrow">Compare</p>
             <h2>What&apos;s included, tier by tier.</h2>
           </div>
-          <div className="table-scroll">
+          <div className="table-scroll" tabIndex={0} role="region" aria-label="Scrollable table">
             <table>
               <thead>
                 <tr>

@@ -7,13 +7,20 @@ export default function TrackedLink({
   event,
   params,
   children,
+  onClick,
   ...rest
 }: React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   event: string
   params?: Record<string, string | number | boolean>
 }) {
   return (
-    <a {...rest} onClick={() => track(event, params)}>
+    <a
+      {...rest}
+      onClick={(e) => {
+        track(event, params)
+        onClick?.(e)
+      }}
+    >
       {children}
     </a>
   )

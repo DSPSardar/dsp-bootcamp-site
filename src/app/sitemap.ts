@@ -25,7 +25,7 @@ const SITE = 'https://www.digitalservicesprogram.com'
 
 /** Real content-change dates for the two pages whose content moves with the
  *  rest of the site rather than with their own file. */
-const HOME_UPDATED = '2026-09-10'
+const HOME_UPDATED = '2026-09-15'
 const BLOG_UPDATED = '2026-09-08'
 
 export default function sitemap(): MetadataRoute.Sitemap {

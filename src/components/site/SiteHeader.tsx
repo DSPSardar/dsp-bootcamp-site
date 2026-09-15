@@ -2,20 +2,28 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { mastery } from '@/config/site'
+import { agency, site } from '@/config/site'
 import TrackedLink from '@/components/site/TrackedLink'
 
-// Blueprint §2: AI Employees · Mastery · Student Work · Hire · Blog · About
-// + one CTA [Enrol — $100]. /agents, /channelops, /academy/bootcamp and
-// /contact are out of nav but stay live (linked from SiteFooter).
-// Student Work joins when /student-work ships (Phase 5) — never link a 404.
+// V3 nav (owner ruling 15 Sep 2026), identical on both shells:
+// AI Employees · Agent Hub · Pricing · Mastery · Case Studies · About · Blog
+// + one CTA [Talk to Zara] → WhatsApp (Zara answers the site line; see
+// agency.zaraDemoWaNumber). Agent Hub is a homepage section, so it is an
+// anchor. /agents, /channelops, /academy/bootcamp and /contact are out of
+// nav but stay live and linked from both footers. scripts/check-nav-links.mjs
+// guards this list on both shells.
 const links = [
   { label: 'AI Employees', href: '/ai-employees' },
+  { label: 'Agent Hub', href: '/#agent-hub' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'Mastery', href: '/mastery' },
-  { label: 'Hire', href: '/pricing' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Case Studies', href: '/agents/case-studies' },
   { label: 'About', href: '/about' },
+  { label: 'Blog', href: '/blog' },
 ]
+
+const CTA_LABEL = 'Talk to Zara'
+const CTA_HREF = `https://wa.me/${agency.zaraDemoWaNumber ?? site.whatsappNumber}?text=${encodeURIComponent('Hi Zara!')}`
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false)
@@ -50,14 +58,30 @@ export default function SiteHeader() {
               </Link>
             </li>
           ))}
+          {/* The CTA repeats inside the mobile menu, where the header button is hidden. */}
+          <li className="nav-cta-item">
+            <TrackedLink
+              className="btn btn-gold"
+              href={CTA_HREF}
+              target="_blank"
+              rel="noopener"
+              event="whatsapp_cta_click"
+              params={{ cta: 'site_menu_zara' }}
+              onClick={() => setOpen(false)}
+            >
+              {CTA_LABEL}
+            </TrackedLink>
+          </li>
         </ul>
         <TrackedLink
-          className="btn btn-primary btn-sm"
-          href="/mastery/enrol"
-          event="begin_enrol"
-          params={{ cta: 'site_header' }}
+          className="btn btn-gold btn-sm"
+          href={CTA_HREF}
+          target="_blank"
+          rel="noopener"
+          event="whatsapp_cta_click"
+          params={{ cta: 'site_header_zara' }}
         >
-          Enrol — ${mastery.priceUsd}
+          {CTA_LABEL}
         </TrackedLink>
       </div>
     </header>

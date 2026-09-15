@@ -194,7 +194,7 @@ export default function ChannelOpsPage() {
             <p className="eyebrow">The receipts</p>
             <h2>What a cleanup delivers.</h2>
           </div>
-          <div className="table-scroll">
+          <div className="table-scroll" tabIndex={0} role="region" aria-label="Scrollable table">
             <table>
               <thead>
                 <tr>

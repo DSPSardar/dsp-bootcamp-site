@@ -2,20 +2,24 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { mastery } from '@/config/site'
+import { agency, site } from '@/config/site'
 import { track } from '@/lib/track'
 
-// Blueprint §2 nav, mirrored on the blog/contact shell: AI Employees ·
-// Mastery · Student Work · Hire · Blog · About + one CTA [Enrol — $100].
-// /agents, /channelops and /contact are out of nav but live (see Footer).
-// Student Work joins when /student-work ships (Phase 5) — never link a 404.
+// V3 nav (owner ruling 15 Sep 2026), identical to SiteHeader on the company
+// shell: AI Employees · Agent Hub · Pricing · Mastery · Case Studies · About ·
+// Blog + one CTA [Talk to Zara] → WhatsApp. Guarded by test:nav.
 const links = [
   { label: 'AI Employees', href: '/ai-employees' },
+  { label: 'Agent Hub', href: '/#agent-hub' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'Mastery', href: '/mastery' },
-  { label: 'Hire', href: '/pricing' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Case Studies', href: '/agents/case-studies' },
   { label: 'About', href: '/about' },
+  { label: 'Blog', href: '/blog' },
 ]
+
+const CTA_LABEL = 'Talk to Zara'
+const CTA_HREF = `https://wa.me/${agency.zaraDemoWaNumber ?? site.whatsappNumber}?text=${encodeURIComponent('Hi Zara!')}`
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
@@ -107,12 +111,14 @@ export default function Nav() {
         {/* CTA + hamburger */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <a
-            href="/mastery/enrol"
+            href={CTA_HREF}
+            target="_blank"
+            rel="noopener"
             className="btn-primary"
             style={{ fontSize: '0.8125rem', padding: '0.5rem 1rem', whiteSpace: 'nowrap' }}
-            onClick={() => track('begin_enrol', { cta: 'blog_header' })}
+            onClick={() => track('whatsapp_cta_click', { cta: 'blog_header_zara' })}
           >
-            Enrol — ${mastery.priceUsd}
+            {CTA_LABEL}
           </a>
           <button
             aria-label={open ? 'Close menu' : 'Open menu'}

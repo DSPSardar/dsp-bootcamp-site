@@ -214,7 +214,7 @@ export default function LearnAiAgentsPakistanPage() {
       <p>
         <strong>All figures are approximate USD, as of September 2026,</strong> rounded to the order of magnitude and taken from each vendor&apos;s public pricing. They change; treat this as a budget, not a quote. The honest summary: the tools cost about the price of one restaurant meal a month, and nothing until stage 3.
       </p>
-      <div className="table-scroll">
+      <div className="table-scroll" tabIndex={0} role="region" aria-label="Scrollable table">
         <table>
           <thead>
             <tr>

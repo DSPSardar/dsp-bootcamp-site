@@ -18,7 +18,7 @@
 // footer already prints, the agency's named use cases from /agents, and the
 // 16 module titles from curriculum.ts (the same list the Course schema
 // mirrors) so a model can answer "what does the course cover" verbatim.
-import { cofounder, entity, founder, liveGuides, mastery, site, socials } from '@/config/site'
+import { agency, cofounder, distribution, entity, founder, liveGuides, mastery, site, socials } from '@/config/site'
 import { COURSE_DESCRIPTION } from '@/app/mastery/seo'
 import { MASTERY_CURRICULUM } from '@/app/mastery/curriculum'
 
@@ -66,10 +66,15 @@ export function GET() {
     ...(liveGuides.length
       ? ['## Guides', ...liveGuides.map((g) => `- [${g.title}](${u(g.path)})`), '']
       : []),
-    '## Agency',
+    '## Agency & product',
     `- [AI Employees we build](${u('/ai-employees')}): sales, support, bookings and phone-ordering agents for businesses`,
+    `- [${agency.hubName}](${agency.hubUrl}): ${agency.hubProduct} — the AI sales platform every DSP AI Employee runs on, and the system DSP runs its own admissions on. Modules: ${agency.hubModules.join(', ')}.`,
     `- [Pricing](${u('/pricing')})`,
     `- [Case studies](${u('/agents/case-studies')})`,
+    '',
+    '## Results (owner dashboards, DSP tenant)',
+    ...distribution.map((s) => `- ${s.stage}: ${s.display} ${s.metric} — ${s.source}, ${s.period}`),
+    `- ${agency.revenue.display} ${agency.revenue.label} — as of ${agency.revenue.asOf}. ${agency.revenue.footnote}`,
     '',
     '## Blog',
     `- [All articles](${u('/blog')}): 43 articles on AI agents, agentic AI and learning AI, by ${founder.name}`,

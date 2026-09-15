@@ -115,3 +115,28 @@ AVIF/WebP under 100KB with explicit dimensions.
 A category nobody else owns. One idea held for the whole page. Proof a
 stranger can independently verify. Restraint that costs money. Honesty as a
 conversion tool.
+
+## 14. SUPERSEDING DECISION (15 Sep 2026) — V3: AI EMPLOYEE COMPANY
+Owner instruction (implementation brief + dashboard screenshots, 15 Sep 2026)
+reverses §0.1/§1 hierarchy on the homepage and §2/§4/§7 as follows:
+- Positioning: DSP builds AI Employees for business — and teaches people how
+  to build them. Three entities kept distinct: DSP (parent), DSP Agent Hub
+  (product, ASOS — AI Sales OS, dspagenthub.com), DSP AI Agent Mastery
+  (education). Spine: Learn → Build → Deploy.
+- Homepage: 12 sections, AI-Employee-primary (hero · evolution · employees ·
+  Agent Hub · proof · distribution engine · AI Employee engine · Mastery ·
+  what you build · Learn/Build/Deploy/Scale · global · final CTA) + FAQ.
+  Hero CTAs: Explore AI Employees (primary), Start AI Mastery — $100.
+- Nav: AI Employees · Agent Hub · AI Mastery · How It Works · Results · About
+  + [Build with DSP] → WhatsApp. Agent Hub / How It Works / Results are
+  homepage anchors. /pricing and /blog leave the header, stay in both
+  footers and the sitemap. Every §3 frozen URL is untouched.
+- Design: black / white / deep navy / neutral gray + terracotta only. Teal
+  and gold retired from the palette (variable names kept, re-pointed).
+- Motion: CSS-only reveals + two looping CSS highlights (Agent Hub rail,
+  Employee engine); no parallax, no library; reduced-motion respected.
+  §7's "one interaction" budget is widened to this by owner instruction.
+- Proof: PKR 4.2M+ reported revenue (ASOS header), 350 students, Facebook
+  Views 8,544,189 / 556 messaging conversations (Page Insights, 90 days).
+  §9 still governs: every figure names its dashboard and period; nothing
+  estimated; "reported", never "verified".

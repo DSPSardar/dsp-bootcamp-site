@@ -39,18 +39,6 @@ export const site = {
   parentCompany: 'Sardar Group of Companies',
 } as const
 
-/** Social reach — distinct from enrolled/trained student counts.
-    weeklyReach: verified from ONE platform (Facebook Professional Dashboard →
-    Insights → Views, last 7 days) — update from that number specifically.
-    combinedReachNote: honest framing for reach across all platforms combined;
-    keep it qualitative ("millions") unless you have a real summed total. */
-export const socialProof = {
-  weeklyReach: '1M+',
-  weeklyReachLabel: 'Weekly reach on Facebook alone',
-  combinedReachNote:
-    'well over a million people a week on Facebook alone — and millions more combined across YouTube, TikTok, and Instagram',
-} as const
-
 /** wa.me link with a pre-filled message */
 export function waLink(message: string): string {
   return `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(message)}`
@@ -174,25 +162,56 @@ export const restaurantAgent = {
 export const agency = {
   platformName: 'DSPAgentHub',
 
-  /** Founder authority bar on the homepage (4 items, gold-dot separated).
-      Viewer figure: update from platform dashboards when it changes. */
-  founderBar: [
-    'Teaching technology since 2002',
-    'London → UAE → Pakistan',
-    'Google & Anthropic Verified AI Trainer',
-    '2.3M viewers reached in the last 90 days',
-  ],
+  /** ─── DSP Agent Hub — the product (owner screenshots, 15 Sep 2026) ───
+   *  The AI sales platform every DSP AI Employee runs on, and the system DSP
+   *  runs its own admissions on. Public site: dspagenthub.com. Its product
+   *  line is ASOS (AI Sales OS). `hubModules` is the sidebar of the live app
+   *  exactly as screenshotted — never add a module that is not in the product.
+   *  `hubScreenshot` names the real UI capture in public/agent-hub/; the
+   *  homepage renders it at half its pixel size (2x) inside a navy frame,
+   *  and falls back to the (labelled) illustrative workflow rail whenever
+   *  the file is absent at build time. Never ship a mock that looks like
+   *  real data. */
+  hubName: 'DSP Agent Hub',
+  hubUrl: 'https://dspagenthub.com/',
+  hubProduct: 'ASOS — AI Sales OS',
+  hubTagline: 'Close deals while you sleep.',
+  hubModules: ['Today', 'Dashboard', 'Leads', 'Conversations', 'AI Insights', 'Ads', 'Analytics', 'Students', 'Reports', 'Automations'],
+  hubScreenshot: {
+    src: '/agent-hub/pipeline.png',
+    alt: 'DSP Agent Hub — the live pipeline view of the DSP tenant',
+    width: 2000,
+    height: 1300,
+  } as { src: string; alt: string; width: number; height: number } | null,
 
-  /** Product proof bar — our own DSPAgentHub numbers. Update from the
-      dashboard, and move `asOf` forward with every update. These are
-      server-rendered into the HTML — the static markup must never show a
-      zero (see ProofCounters). */
+  /** Revenue tracked in DSP Agent Hub — the ASOS dashboard header,
+   *  "Revenue: Rs. 4,232,000" (owner figures, DSP tenant, 15 Sep 2026).
+   *  DSP's own sales recorded in the platform; `footnote` is printed under
+   *  every stat block that shows it. Update `pkr` and `asOf` together, from
+   *  the dashboard, never by estimate. */
+  revenue: {
+    pkr: 4_232_000,
+    display: 'PKR 4.2M+',
+    label: 'closed through DSP Agent Hub',
+    footnote: 'DSP\u2019s own sales, recorded in the platform. Direct payments outside the system are not included.',
+    asOf: '2026-09-15',
+  },
+
+  /** Product proof bar — our own DSP Agent Hub numbers (DSP tenant). Update
+      from the dashboard, and move the dates forward with every update. These
+      are server-rendered into the HTML — the static markup must never show
+      a zero (see ProofCounters).
+      `sales` and `daysToLive`: ASOS dashboard, `asOf`. `leads` and
+      `zeroTakeoverPct`: Agent Hub Reports, 90-day view, `kpiAsOf`
+      (owner figures, 11 Sept 2026). */
   proof: {
-    leads: 868,
-    sales: 280,
-    zeroTakeoverPct: 50.7,
+    leads: 1_290,
+    sales: 350,
+    zeroTakeoverPct: 48.5,
     daysToLive: 7,
-    asOf: '2026-08-23',
+    asOf: '2026-09-15',
+    kpiSource: 'Agent Hub Reports, 90-day view',
+    kpiAsOf: '2026-09-11',
   },
 
   /** Zara's public WhatsApp demo line — confirmed Aug 2026: Zara works as
@@ -249,6 +268,9 @@ export const agency = {
         build: 'My job description and your price list are loaded into DSPAgentHub, then I’m tested against our 10-point acceptance sheet',
         live: 'You test me yourself on your own WhatsApp number. When you approve, I start answering your leads',
       },
+      channel: 'WhatsApp',
+      tools: ['WhatsApp Business API', 'Your price list & FAQs', 'DSPAgentHub CRM & follow-up sequences', 'Payment confirmation'],
+      outcome: 'Every lead answered in seconds, 24/7 — and a sale is only marked won once the money is confirmed.',
       tierId: 'sales',
       waMessage: 'Hi DSP, I want to hire Zara for my business.',
     },
@@ -277,6 +299,9 @@ export const agency = {
         build: 'My job description and your knowledge base are loaded into DSPAgentHub, then I’m tested against our 10-point acceptance sheet',
         live: 'You test me yourself on your own WhatsApp number. When you approve, I start answering your customers',
       },
+      channel: 'WhatsApp',
+      tools: ['WhatsApp, in English or Urdu', 'Your knowledge base & policies', 'Escalation with the full conversation attached', 'DSPAgentHub dashboard'],
+      outcome: 'The same fifty questions answered instantly, all day — your team gets only what needs a human.',
       // No solo tier: support/FAQ handling ships in the AI Sales Team package.
       tierId: 'team',
       waMessage: 'Hi DSP, I want to hire Adam for my business.',
@@ -306,6 +331,9 @@ export const agency = {
         build: 'My job description and your availability rules are loaded into DSPAgentHub, then I’m tested against our 10-point acceptance sheet',
         live: 'You test me yourself on your own WhatsApp number. When you approve, I start taking your bookings',
       },
+      channel: 'WhatsApp',
+      tools: ['WhatsApp', 'Your availability rules & opening hours', 'Confirmations & reminders', 'DSPAgentHub dashboard & weekly digest'],
+      outcome: 'A calendar that stays full around the clock — and fewer no-shows.',
       tierId: 'receptionist',
       waMessage: 'Hi DSP, I want to hire Maya for my business.',
     },
@@ -334,6 +362,9 @@ export const agency = {
         build: 'My job description and your menu are loaded into DSPAgentHub, then I’m tested against our 10-point acceptance sheet',
         live: 'You test me yourself on your own phone line. When you approve, I start answering your calls',
       },
+      channel: 'Phone',
+      tools: ['Your restaurant phone line', 'Your full menu — sizes, modifiers, prices', 'Order confirmation by text', 'Escalation to your team'],
+      outcome: 'Every call answered on the first ring, the complete order taken and confirmed — even in the dinner rush.',
       // Phone-line AI is quoted by call volume; pricing gated by emmaPricingApproved.
       tierId: null as string | null,
       waMessage: 'Hi DSP, I run a restaurant and want to hire Emma.',
@@ -462,12 +493,84 @@ export const entity = {
   knowsLanguage: ['ur', 'en'],
   /** Where students and clients come from (owner's list, Aug 2026). */
   areaServed: ['PK', 'AE', 'SA', 'GB', 'US', 'CA', 'AU', 'MY'],
-  /** Total students enrolled, from DSP's own ASOS student dashboard
-   *  (owner-confirmed 10 Sep 2026). THE student number: every page uses this
-   *  one. The old bootcamp `studentsTrained: '180+'` was an estimate
-   *  (batches x 30 seats) and is retired. Never estimate this figure. */
-  studentsEnrolled: 338,
+  /** Total students enrolled, from DSP's own ASOS student dashboard on
+   *  DSP Agent Hub ("Total enrolled: 350", owner screenshot 15 Sep 2026;
+   *  was 338 on 10 Sep). THE student number: every page uses this one. The
+   *  old bootcamp `studentsTrained: '180+'` was an estimate (batches x 30
+   *  seats) and is retired. Never estimate this figure — read it off the
+   *  dashboard and move `studentsEnrolledAsOf` with it. */
+  studentsEnrolled: 350,
+  studentsEnrolledAsOf: '2026-09-15',
 } as const
+
+/** ─── Distribution engine (homepage §06) — owner dashboards, 15 Sep 2026 ───
+ *  RULES: every stage is a number read off a named dashboard, with the metric
+ *  called by the platform's own name and its period. Views are views — never
+ *  "reach", "people" or "visitors". Facebook figures come from the Page
+ *  Insights block only (Views, Messaging conversations started), never the
+ *  Content/monetisation block. Platforms are never summed. A stage with no
+ *  verified figure is omitted from this list and the section renders without
+ *  it — never a placeholder, never an estimate. */
+export type DistributionStage = {
+  id: string
+  stage: string
+  /** Display value, formatted by hand so the rounding is deliberate. */
+  display: string
+  /** Exact figure as read (for the visually-hidden precise value + comments). */
+  exact: number | string
+  /** What the number counts, in the platform's own words. */
+  metric: string
+  source: string
+  period: string
+}
+
+export const distribution: ReadonlyArray<DistributionStage> = [
+  {
+    id: 'attention',
+    stage: 'Attention',
+    display: '8.5M+',
+    exact: 8_544_189,
+    metric: 'views on the DSP Facebook Page',
+    source: 'Facebook Page Insights',
+    period: '17 Jun – 14 Sep 2026 (90 days)',
+  },
+  {
+    id: 'engagement',
+    stage: 'Engagement',
+    display: '556',
+    exact: 556,
+    metric: 'messaging conversations started on Facebook',
+    source: 'Facebook Page Insights',
+    period: '17 Jun – 14 Sep 2026 (90 days)',
+  },
+  {
+    id: 'leads',
+    stage: 'Leads',
+    display: '1,290',
+    exact: 1_290,
+    metric: 'leads processed by Zara on DSP Agent Hub',
+    source: 'DSP Agent Hub Reports',
+    period: 'as of 11 Sept 2026 (90-day view)',
+  },
+  {
+    id: 'customers',
+    stage: 'Customers',
+    display: '350',
+    exact: 350,
+    metric: 'students in DSP AI Agent Mastery',
+    source: 'DSP Agent Hub · ASOS student dashboard',
+    period: 'as of 15 Sep 2026',
+  },
+  {
+    id: 'revenue',
+    stage: 'Revenue',
+    display: 'PKR 4.2M+',
+    exact: 'Rs. 4,232,000',
+    metric: 'revenue closed through DSP Agent Hub',
+    source: 'DSP Agent Hub · ASOS',
+    period: 'as of 15 Sep 2026',
+  },
+]
 
 export const founder = {
   name: 'Sardar Ghaffar',
