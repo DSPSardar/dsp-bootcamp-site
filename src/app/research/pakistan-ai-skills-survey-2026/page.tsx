@@ -151,7 +151,7 @@ export default function SurveyResultsPage() {
                 {text.ur}
               </p>
             )}
-            <div className="table-scroll">
+            <div className="table-scroll" tabIndex={0} role="region" aria-label="Scrollable table">
               <table>
                 <thead>
                   <tr>

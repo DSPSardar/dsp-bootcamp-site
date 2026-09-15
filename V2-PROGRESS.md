@@ -1,5 +1,18 @@
 # DSP Website V2 — Progress
 
+## V3 — AI Employee company homepage (15 Sep 2026, branch `claude/upbeat-brown-usp2bf`)
+
+Owner brief + two dashboard screenshots (DSP Agent Hub ASOS: 350 enrolled, Rs. 4,232,000 revenue; Facebook Page Insights, 90 days: 8,544,189 views, 556 messaging conversations). Blueprint §14 records the superseding decisions.
+
+| Unit | What | Notes |
+|---|---|---|
+| config | `agency.hub*` (name, URL, ASOS product line, the live app's sidebar modules, gated `hubScreenshot`), `agency.revenue` (reported, with as-of), `distribution` (five dashboard-read stages with metric name + period), `employees[].channel/tools/outcome` (rephrased published copy), `entity.studentsEnrolled` 338 → 350 + `studentsEnrolledAsOf`. Removed the unused, stale `socialProof` and `agency.founderBar` | Facebook Content/monetisation block deliberately not used (owner instruction) |
+| design system | `tokens.css` V3 (ink/paper/navy/gray + terracotta; `--t-accent-tint` for text on dark, all pairs AA-checked), `site.css` re-skinned: teal/gold names re-pointed, squared buttons, refined header (CTA inside the mobile menu), `.band-ink`, `.band-paper`, `.arrow-link`, `.sr-only`, `[data-reveal]` progressive reveal. Dead classes (door, authority-bar, teaser-tiers, price-card, logo-strip, leader-card) removed | bootcamp.css / guides.css untouched and still resolve |
+| homepage | `/` rebuilt to the 12-section V3 order + FAQ (FAQPage LD kept) + survey band. New: `HeroEmployee` (illustrative Zara conversation, labelled), `EmployeeGrid` (Role/Tasks/Tools/Outcome), `AgentHubSection` (workflow rail, outbound CTA, screenshot slot), `DistributionEngine`, `EmployeeEngine` (model + 9 parts), `Journey`, `GlobalSection` (areaServed, no offices), `RevealObserver`. Page-only CSS in `home.css` | Old-way/new-way, who-it's-for, in-the-wild, instructor block and hire band left the homepage; all still live on /ai-employees and /mastery |
+| nav | Both headers: AI Employees · Agent Hub · AI Mastery · How It Works · Results · About + [Build with DSP] → WhatsApp (`whatsapp_cta_click`). Blog footer gains AI Employees / Pricing / Mastery / Agent Hub; company footer gains Agent Hub. `test:nav` rewritten in the same commit (nav list + footer reachability) | /pricing and /blog stay in sitemap + footers |
+| product | `PlatformSection` (employee profiles) links out to Agent Hub (`agent_hub_click`); `/llms.txt` gains the Agent Hub line and a "Reported results" block; `/pricing` tier cards get ids (`/pricing#team`) | |
+| SEO | Homepage title/description/OG rewritten; sitemap `HOME_UPDATED` 2026-09-15; no URL, redirect, robots or schema change elsewhere; `test:schema` green | |
+
 Working branch: `claude/dsp-website-v2-build-gkpkaw` · one PR per phase, title prefixed `[Phase N]` · owner merges, never Claude.
 Governing document: `docs/DSP-Website-V2-Master-Blueprint.md` (supersedes the original brief; §0.4 records the bootcamp sunset; `/learn` is cancelled).
 

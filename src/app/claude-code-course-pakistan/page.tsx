@@ -241,7 +241,7 @@ export default function ClaudeCodeCoursePakistanPage() {
       <p>
         Claude Code is Anthropic&apos;s coding agent: it runs in a terminal, reads your whole project, writes the files and runs the commands. It is not the Claude chat box, and a course that teaches &quot;Claude for writing and code assistance&quot; is teaching something else. Five programs teach the real thing as of {FACTS_VERIFIED}:
       </p>
-      <div className="table-scroll">
+      <div className="table-scroll" tabIndex={0} role="region" aria-label="Scrollable table">
         <table>
           <thead>
             <tr>

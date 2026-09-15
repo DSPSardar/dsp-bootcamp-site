@@ -46,10 +46,14 @@ export default function Footer() {
           {/* /agents and /channelops left the header at the Phase 2 nav
               rebuild (blueprint §2) — they stay reachable from here. */}
           {[
+            { label: 'AI Employees', href: '/ai-employees' },
+            { label: 'Pricing', href: '/pricing' },
+            { label: 'AI Mastery', href: '/mastery' },
             { label: 'AI Agents', href: '/agents' },
             { label: 'ChannelOps', href: '/channelops' },
             { label: 'Blog', href: '/blog' },
             { label: 'Contact', href: '/contact' },
+            { label: 'DSP Agent Hub', href: 'https://dspagenthub.com/', external: true },
             {
               label: 'WhatsApp',
               href: 'https://wa.me/923420580864',

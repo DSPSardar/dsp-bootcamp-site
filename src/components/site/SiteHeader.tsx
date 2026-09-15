@@ -2,20 +2,26 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { mastery } from '@/config/site'
+import { waLink } from '@/config/site'
 import TrackedLink from '@/components/site/TrackedLink'
 
-// Blueprint §2: AI Employees · Mastery · Student Work · Hire · Blog · About
-// + one CTA [Enrol — $100]. /agents, /channelops, /academy/bootcamp and
-// /contact are out of nav but stay live (linked from SiteFooter).
-// Student Work joins when /student-work ships (Phase 5) — never link a 404.
+// V3 nav (Sept 2026): AI Employees · Agent Hub · AI Mastery · How It Works ·
+// Results · About + one CTA [Build with DSP] → WhatsApp, the site's primary
+// conversion channel. Agent Hub, How It Works and Results are homepage
+// sections, not pages — anchors keep the nav honest without thin new URLs.
+// /pricing, /blog, /agents, /channelops, /academy/bootcamp and /contact are
+// out of nav but stay live and linked from both footers. scripts/
+// check-nav-links.mjs guards this list on both shells.
 const links = [
   { label: 'AI Employees', href: '/ai-employees' },
-  { label: 'Mastery', href: '/mastery' },
-  { label: 'Hire', href: '/pricing' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Agent Hub', href: '/#agent-hub' },
+  { label: 'AI Mastery', href: '/mastery' },
+  { label: 'How It Works', href: '/#how-it-works' },
+  { label: 'Results', href: '/#results' },
   { label: 'About', href: '/about' },
 ]
+
+const CTA_HREF = waLink('Hi DSP, I want to build with DSP.')
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false)
@@ -50,14 +56,30 @@ export default function SiteHeader() {
               </Link>
             </li>
           ))}
+          {/* The CTA repeats inside the mobile menu, where the header button is hidden. */}
+          <li className="nav-cta-item">
+            <TrackedLink
+              className="btn btn-gold"
+              href={CTA_HREF}
+              target="_blank"
+              rel="noopener"
+              event="whatsapp_cta_click"
+              params={{ cta: 'site_menu' }}
+              onClick={() => setOpen(false)}
+            >
+              Build with DSP
+            </TrackedLink>
+          </li>
         </ul>
         <TrackedLink
-          className="btn btn-primary btn-sm"
-          href="/mastery/enrol"
-          event="begin_enrol"
+          className="btn btn-gold btn-sm"
+          href={CTA_HREF}
+          target="_blank"
+          rel="noopener"
+          event="whatsapp_cta_click"
           params={{ cta: 'site_header' }}
         >
-          Enrol — ${mastery.priceUsd}
+          Build with DSP
         </TrackedLink>
       </div>
     </header>

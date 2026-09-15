@@ -123,7 +123,7 @@ export default function MasteryCurriculumPage() {
         return (
           <section key={ph.id} id={`phase-${ph.id}`} aria-labelledby={`phase-${ph.id}-h`}>
             <h2 id={`phase-${ph.id}-h`}>{ph.name} <span className="note">({ph.span})</span></h2>
-            <div className="table-scroll wide">
+            <div className="table-scroll wide" tabIndex={0} role="region" aria-label="Scrollable table">
               <table>
                 <thead>
                   <tr>

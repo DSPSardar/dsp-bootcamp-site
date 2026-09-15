@@ -189,7 +189,7 @@ export default function BestAiCoursesInPakistanPage() {
       </ol>
 
       <h2>The nine programs, side by side</h2>
-      <div className="table-scroll">
+      <div className="table-scroll" tabIndex={0} role="region" aria-label="Scrollable table">
         <table>
           <thead>
             <tr>

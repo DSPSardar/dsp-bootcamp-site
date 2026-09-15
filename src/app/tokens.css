@@ -1,29 +1,41 @@
 /* ================================================================
-   DSP V2 design tokens — blueprint §5–6 (docs/DSP-Website-V2-Master-Blueprint.md)
+   DSP design tokens — V3 (AI Employee company, Sept 2026)
    VALUES are unified here at :root; the three shells (.dsp-site,
    .page-mastery, globals.css dark theme) re-point their own scoped
    variables at these primitives. The SCOPES stay isolated — that
    isolation is load-bearing (CLAUDE.md). Never style elements here.
 
-   Accent note (WCAG): the blueprint's terracotta #C15F3C fails AA at
-   16px — 3.99:1 on paper (needs 4.5) and 4.23:1 under white button
-   text. --t-accent is the corrected step darker (#B0522F: 4.84 on
-   paper, 5.13 under white — both AA). #C15F3C survives only as
-   --t-accent-bright for large (≥24px bold) or decorative use, where
-   3:1 applies. Owner ruling 2026-08-30: propose darker, don't ship
-   a failing accent.
+   Palette: black / white / deep navy / neutral gray, with ONE warm
+   accent (terracotta). No teal, no gold, no blue gradients — the V3
+   brief bans bright cyan, generic blue AI gradients and neon.
+
+   Accent note (WCAG): the original terracotta #C15F3C fails AA at
+   16px on paper (3.99:1). --t-accent is the corrected step darker
+   (#B0522F: 4.84 on paper, 5.13 under white — both AA). #C15F3C
+   survives as --t-accent-bright for large (≥24px) or decorative use.
+   --t-accent-tint (#E5A488) is the accent for TEXT on dark surfaces:
+   6.9:1 on navy-deep, 9.0:1 on ink.
    ================================================================ */
 :root{
   /* palette */
   --t-ink:#0E1116;
+  --t-ink-2:#161B24;         /* raised dark surface */
   --t-paper:#FAF8F5;
+  --t-paper-2:#F3F0EA;       /* alternate light band */
+  --t-white:#FFFFFF;
   --t-navy:#17204A;
-  --t-accent:#B0522F;        /* AA-corrected terracotta — CTAs only, max 2/viewport */
+  --t-navy-deep:#0E2A47;
+  --t-navy-soft:#3A4370;     /* body text on light — 8.9:1 on paper */
+  --t-accent:#B0522F;        /* AA-corrected terracotta — CTAs, key numbers, focus */
   --t-accent-deep:#9E4526;   /* hover/active */
-  --t-accent-bright:#C15F3C; /* blueprint value — large text/decorative ONLY (fails AA at 16px) */
-  --t-muted:#6B7280;         /* light backgrounds only — 4.56:1 on paper */
+  --t-accent-bright:#C15F3C; /* large text/decorative ONLY (fails AA at 16px) */
+  --t-accent-tint:#E5A488;   /* accent-coloured TEXT on dark surfaces (AA) */
+  --t-muted:#5F6673;         /* light backgrounds only — 5.45:1 on paper, 5.08:1 on paper-2 */
+  --t-muted-dark:#9FB0CE;    /* secondary text on navy-deep — 6.7:1 */
   --t-line:#E5E1DA;
+  --t-line-dark:rgba(255,255,255,.12);
   --t-success:#2F7A5A;
+  --t-live:#3DBE8B;          /* status dots on dark only (decorative) */
 
   /* type scale (px reference: 64/48/32/24/18/16/14) */
   --t-fs-1:4rem;
@@ -34,4 +46,10 @@
   --t-fs-6:1rem;
   --t-fs-7:.875rem;
   --t-leading-body:1.65;
+
+  /* shape + motion */
+  --t-radius:12px;
+  --t-radius-sm:8px;
+  --t-ease:cubic-bezier(.2,.7,.2,1);
+  --t-dur:.22s;
 }

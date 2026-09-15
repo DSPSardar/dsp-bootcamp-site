@@ -219,7 +219,7 @@ export default function AiTrainingIslamabadPage() {
       </ol>
 
       <h2>Eleven AI training options in Islamabad — and ours — side by side</h2>
-      <div className="table-scroll wide">
+      <div className="table-scroll wide" tabIndex={0} role="region" aria-label="Scrollable table">
         <table>
           <thead>
             <tr>

@@ -154,7 +154,7 @@ export default function WhatIsAnAiEmployeePage() {
 
       <h2>Five real examples</h2>
       <p>Four are AI employees {site.shortName}&apos;s agency builds and runs for businesses; the fifth is the one every {mastery.shortName} student builds. Each has all four parts.</p>
-      <div className="table-scroll wide">
+      <div className="table-scroll wide" tabIndex={0} role="region" aria-label="Scrollable table">
         <table>
           <thead>
             <tr>
@@ -184,7 +184,7 @@ export default function WhatIsAnAiEmployeePage() {
       </div>
 
       <h2>Chatbot vs AI agent vs AI employee</h2>
-      <div className="table-scroll wide">
+      <div className="table-scroll wide" tabIndex={0} role="region" aria-label="Scrollable table">
         <table>
           <thead>
             <tr>

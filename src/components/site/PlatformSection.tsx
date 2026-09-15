@@ -1,3 +1,4 @@
+import TrackedLink from '@/components/site/TrackedLink'
 import { agency } from '@/config/site'
 
 // DSPAgentHub platform section — shared by the homepage (section 8) and every
@@ -29,6 +30,18 @@ export default function PlatformSection({
           </p>
           <p style={{ marginTop: '1rem', fontWeight: 600, color: '#fff' }}>
             Owned platform. Your data. No third-party subscriptions.
+          </p>
+          <p style={{ marginTop: '1.2rem' }}>
+            <TrackedLink
+              className="btn btn-ghost-light btn-sm"
+              href={agency.hubUrl}
+              target="_blank"
+              rel="noopener"
+              event="agent_hub_click"
+              params={{ cta: 'platform_section' }}
+            >
+              Explore {agency.hubName} ↗
+            </TrackedLink>
           </p>
         </div>
         <div className="shot-placeholder" role="img" aria-label={`${agency.platformName} dashboard — live pipeline view`}>

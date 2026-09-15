@@ -2,20 +2,23 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { mastery } from '@/config/site'
+import { waLink } from '@/config/site'
 import { track } from '@/lib/track'
 
-// Blueprint §2 nav, mirrored on the blog/contact shell: AI Employees ·
-// Mastery · Student Work · Hire · Blog · About + one CTA [Enrol — $100].
-// /agents, /channelops and /contact are out of nav but live (see Footer).
-// Student Work joins when /student-work ships (Phase 5) — never link a 404.
+// V3 nav (Sept 2026), mirrored on the blog/contact shell: AI Employees ·
+// Agent Hub · AI Mastery · How It Works · Results · About + one CTA
+// [Build with DSP] → WhatsApp. /pricing, /blog, /agents, /channelops and
+// /contact are out of nav but live (see Footer). Guarded by test:nav.
 const links = [
   { label: 'AI Employees', href: '/ai-employees' },
-  { label: 'Mastery', href: '/mastery' },
-  { label: 'Hire', href: '/pricing' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Agent Hub', href: '/#agent-hub' },
+  { label: 'AI Mastery', href: '/mastery' },
+  { label: 'How It Works', href: '/#how-it-works' },
+  { label: 'Results', href: '/#results' },
   { label: 'About', href: '/about' },
 ]
+
+const CTA_HREF = waLink('Hi DSP, I want to build with DSP.')
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
@@ -107,12 +110,14 @@ export default function Nav() {
         {/* CTA + hamburger */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <a
-            href="/mastery/enrol"
+            href={CTA_HREF}
+            target="_blank"
+            rel="noopener"
             className="btn-primary"
             style={{ fontSize: '0.8125rem', padding: '0.5rem 1rem', whiteSpace: 'nowrap' }}
-            onClick={() => track('begin_enrol', { cta: 'blog_header' })}
+            onClick={() => track('whatsapp_cta_click', { cta: 'blog_header' })}
           >
-            Enrol — ${mastery.priceUsd}
+            Build with DSP
           </a>
           <button
             aria-label={open ? 'Close menu' : 'Open menu'}

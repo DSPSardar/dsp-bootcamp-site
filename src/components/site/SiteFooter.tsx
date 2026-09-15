@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { footerGuides, site, socials } from '@/config/site'
+import { agency, footerGuides, site, socials } from '@/config/site'
 
 export default function SiteFooter() {
   return (
@@ -14,9 +14,10 @@ export default function SiteFooter() {
               <a href={`tel:+${site.whatsappNumber}`}>{site.whatsappDisplay}</a> (call &amp; WhatsApp)</address>
           </div>
           <div>
-            <h3>DSP Agents</h3>
+            <h3>AI Employees</h3>
             <ul>
               <li><Link href="/ai-employees">AI Employees</Link></li>
+              <li><a href={agency.hubUrl} rel="noopener">{agency.hubName} ↗</a></li>
               <li><Link href="/pricing">Pricing</Link></li>
               <li><Link href="/agents">Why hire us</Link></li>
               <li><Link href="/agents/restaurant-ai">Restaurant AI</Link></li>
@@ -25,7 +26,7 @@ export default function SiteFooter() {
             </ul>
           </div>
           <div>
-            <h3>DSP Academy</h3>
+            <h3>Learn</h3>
             <ul>
               <li><Link href="/mastery">AI Agent Mastery</Link></li>
               <li><Link href="/channelops#course">ChannelOps course</Link></li>
@@ -62,7 +63,7 @@ export default function SiteFooter() {
         </div>
         <div className="foot-legal">
           <span>© 2026 Digital Services Program · SECP-registered company</span>
-          <span>We build AI agents. We train you to build them.</span>
+          <span>DSP builds AI Employees for business — and teaches you how to build them.</span>
         </div>
       </div>
     </footer>
