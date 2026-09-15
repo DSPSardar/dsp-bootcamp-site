@@ -459,17 +459,17 @@
           "title": "Short — Claude Step by Step: Beginner's Guide"
         },
         {
-          "file": "M03-S02_Website-with-ChatGPT_2NbT-rZKqvU.mp4",
+          "file": "M03-S02_From-ChatGPT-to-GPT6-Astra.mp4",
           "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
-          "youtube_id": "2NbT-rZKqvU",
-          "minutes": 5,
-          "source": "DOWNLOAD",
-          "status": "To download",
+          "minutes": 20,
+          "source": "LOCAL",
+          "status": "Uploading",
           "chapters": [],
-          "master": "M03-S02_Website-with-ChatGPT_2NbT-rZKqvU.mp4",
+          "master": "M03-S02_From-ChatGPT-to-GPT6-Astra.mp4",
           "kind": "supplement",
           "order": "S02",
-          "bunny": {
+          "title": "From ChatGPT to GPT-6 Astra",
+          "previous_bunny": {
             "guid": "937853cb-5ba9-46d3-839e-265df7e88b51",
             "status": "ready",
             "version": 0,
@@ -477,7 +477,17 @@
             "length_sec": 279,
             "aspect": 1.7778
           },
-          "title": "Short — Build a Website with ChatGPT"
+          "previous_file": "M03-S02_Website-with-ChatGPT_2NbT-rZKqvU.mp4",
+          "source_note": "Zoom recording 15 Sep 2026 — replaces the old \"Build a Website with ChatGPT\" short",
+          "bunny": {
+            "guid": "8a544f63-0e34-44b2-90b4-bf5a3d0a33cd",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-09-15T16:14:37.871Z",
+            "length_sec": 1192,
+            "thumbnail": "thumbnail.jpg",
+            "aspect": 1.7778
+          }
         },
         {
           "file": "M03-S03_How-Codex-Works_u5yAtqVX3Nw.mp4",
