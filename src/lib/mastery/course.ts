@@ -44,5 +44,5 @@ export const badges = [
  *  schema once a real thumbnail exists — see src/lib/schema.ts). */
 export type WelcomeBunny = { guid: string; status: string; uploaded_at?: string; length_sec?: number }
 
-/** Bunny GUID of the public welcome video (00-W01) — used on the landing page and the free page. */
-export const welcomeVideoId = (course.welcome as { file: string; bunny?: WelcomeBunny }[]).find((l) => l.file.startsWith('00-W01'))?.bunny
+/** Bunny GUID of the public welcome video (00-W03 walkthrough; was 00-W01) — used on the landing page and the free page. */
+export const welcomeVideoId = (course.welcome as { file: string; bunny?: WelcomeBunny }[]).find((l) => l.file.startsWith('00-W03'))?.bunny

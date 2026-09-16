@@ -122,7 +122,7 @@ export default function MasteryPage() {
     <p className="byline">Written by <Link href="/sardar-ghaffar">Sardar Ghaffar</Link> · Google-verified AI Agentic Trainer · Anthropic-verified educator · Last updated {PAGE_UPDATED_DISPLAY}</p>
     <div className="cta-row">
       <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.hero)} event="whatsapp_click" params={{ location: 'hero' }}>Start building <span className="price-tag">$100 · one-time</span></TrackedLink>
-      <a className="btn btn-ghost" href="#welcome">Watch the 6-minute tour</a>
+      <a className="btn btn-ghost" href="#welcome">Watch the 7-minute tour</a>
     </div>
     <p className="paynote"><TrackedLink className="paylink" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'hero' }}>Pay directly — bank transfer · JazzCash · Easypaisa</TrackedLink></p>
     <div className="trust">
@@ -157,12 +157,12 @@ export default function MasteryPage() {
 {/* WELCOME VIDEO */}
 {welcomeSrc && (
 <section id="welcome" style={{paddingTop:'0'}}><div className="wrap">
-  <div className="eyebrow">Six minutes inside DSP</div>
-  <h2>Watch what you&apos;ll be building — running my business today.</h2>
-  <p className="lead" style={{marginBottom:'28px'}}>The AI Employee that handles DSP&apos;s admissions — <Link className="il" href="/ai-employees/zara">Zara, our sales AI Employee</Link> — the content system behind 6 million views, and what the program looks like from the inside. Recorded by Sardar, not a marketing team.</p>
+  <div className="eyebrow">Seven minutes inside the course</div>
+  <h2>See exactly how the course works — before you pay.</h2>
+  <p className="lead" style={{marginBottom:'28px'}}>A real walkthrough of the student dashboard: how the 16 modules unlock, where the templates, copy-paste prompts and slides live, and how you share your build for support. Recorded by Sardar, not a marketing team.</p>
   <LazyEmbed
     src={welcomeSrc}
-    title="Welcome to DSP AI Agent Mastery"
+    title="Inside DSP AI Agent Mastery — how the course works"
     poster={mastery.welcomePoster ?? undefined}
     load="click"
     style={{borderRadius:'20px',border:'1px solid var(--line)'}}
@@ -439,7 +439,7 @@ export default function MasteryPage() {
       <p>Founding price. Lifetime access. One year of group support included. No subscription, no upsell required to finish.</p>
       <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.offer)} event="whatsapp_click" params={{ location: 'offer' }}>Enrol now — $100</TrackedLink>
       <TrackedLink className="btn btn-ghost" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'offer' }} style={{marginTop:'10px'}}>Pay directly — bank transfer · JazzCash · Easypaisa</TrackedLink>
-      <p className="paynote" style={{textAlign:'center'}}><a className="paylink" href="#welcome">Watch the 6-minute intro first</a></p>
+      <p className="paynote" style={{textAlign:'center'}}><a className="paylink" href="#welcome">Watch the 7-minute intro first</a></p>
       <div className="guarantee">7-day money-back guarantee. Start Module 1; if it isn&apos;t for you, email us within 7 days for a full refund.</div>
       <div className="pay">Pakistan: bank transfer · JazzCash · Easypaisa<br />Card checkout coming shortly — email us to pay by card today</div>
     </aside>

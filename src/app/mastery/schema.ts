@@ -194,7 +194,7 @@ const course: JsonLd = {
   },
 }
 
-/* ── VideoObject: the welcome video — the same six-minute tour the hero
+/* ── VideoObject: the welcome video — the same seven-minute tour the hero
  *    button, the pricebox link and the #welcome section all point at ──── */
 // Every field is a fact the page or the Bunny upload record already holds:
 // name = the player's title, description = the #welcome section's copy,
@@ -210,7 +210,7 @@ const welcomeVideo: JsonLd | null =
         '@id': WELCOME_VIDEO_ID,
         name: 'Welcome to DSP AI Agent Mastery',
         description:
-          'A six-minute tour of the AI Employee that handles DSP\'s admissions, the content system behind 6 million views, and what the program looks like from the inside. Recorded by Sardar Ghaffar.',
+          'A seven-minute walkthrough of the DSP AI Agent Mastery student dashboard: how modules unlock, where templates, prompts and slides live, and how students share their builds. Recorded by Sardar Ghaffar.',
         thumbnailUrl: `${site.url}${mastery.welcomePoster}`,
         uploadDate: welcomeVideoId.uploaded_at,
         ...(welcomeVideoId.length_sec ? { duration: isoDuration(welcomeVideoId.length_sec) } : {}),
