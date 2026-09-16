@@ -12,6 +12,8 @@ import { masterySchema } from './schema'
 import { CANONICAL, PAGE_UPDATED_DISPLAY, PAGE_UPDATED_MONTH, SEO_DESCRIPTION, SEO_TITLE } from './seo'
 import { STUDENT_BUILDS } from './students'
 import { RUNNING_COST_COMPONENTS, RUNNING_COST_ROWS } from './running-costs'
+import '@/app/site.css'
+import SiteHeader from '@/components/site/SiteHeader'
 import './mastery.css'
 
 // WhatsApp-first conversion (owner ruling 2026-08-30): every primary CTA on
@@ -99,6 +101,9 @@ export default function MasteryPage() {
     .map((v) => ({ ...v, src: bunnyConfigured ? `/api/video/${v.guid}` : null }))
     .filter((v) => v.src)
   return (
+    <>
+    {/* Main site nav (AI Employees · Pricing · Blog …) so visitors can leave /mastery */}
+    <div className="dsp-site mastery-sitebar"><SiteHeader /></div>
     <div className="page-mastery">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(masterySchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd([{ name: 'AI Agent Mastery', path: '/mastery' }])) }} />
@@ -576,5 +581,6 @@ export default function MasteryPage() {
 <div id="free" hidden></div>
       <MasteryClient />
     </div>
+    </>
   )
 }
