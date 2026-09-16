@@ -2197,6 +2197,26 @@
         "length_sec": 1052,
         "aspect": 1.7778
       }
+    },
+    {
+      "file": "00-W03_How-to-Do-the-Course.mp4",
+      "folder": "00-Welcome",
+      "title": "How to do this course",
+      "youtube_id": null,
+      "minutes": 8,
+      "source": "LOCAL",
+      "status": "Located",
+      "chapters": [],
+      "kind": "welcome",
+      "bunny": {
+        "guid": "442ca718-8502-430d-b356-a2d15c66bfc4",
+        "status": "ready",
+        "version": 1,
+        "uploaded_at": "2026-09-16T20:49:52.127Z",
+        "length_sec": 455,
+        "aspect": 1.7778
+      },
+      "master": "00-W03_How-to-Do-the-Course_v1.mp4"
     }
   ],
   "vault": [

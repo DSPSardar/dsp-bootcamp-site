@@ -1,6 +1,7 @@
 import { requireStudent } from '@/lib/mastery/auth'
 import { modules, unlockState, badges, courseMeta } from '@/lib/mastery/course'
 import { autoCompleteWatched } from '@/lib/mastery/progress'
+import StartHere from './StartHere'
 
 export default async function Dashboard() {
   const { sb, user } = await requireStudent()
@@ -15,6 +16,7 @@ export default async function Dashboard() {
 
   return (
     <>
+      <StartHere started={doneN > 0} />
       <div className="panel">
         <div className="eyebrow">Your journey</div>
         <h1>{doneN === 0 ? 'Start with Module 1, Lesson 1.' : next ? `Next up: ${next.id} · ${next.title}` : 'All modules complete — go build your capstone.'}</h1>
@@ -25,7 +27,7 @@ export default async function Dashboard() {
       </div>
       <div className="panel">
         <h2>How this works</h2>
-        <p className="md">Watch the lessons. Build the project — every module has a template and copy-paste prompts in its downloads. Share a screenshot in the DSP group. Lessons are marked complete automatically once you have watched them, and the next module opens. No tests. No grades. One build at a time.</p>
+        <p className="md">Watch the lessons. Build the project — every module has a template and copy-paste prompts in its downloads. Share a screenshot in the DSP group. Lessons are marked complete automatically once you have watched them, and the next module opens. No tests. No grades. One build at a time. New here? <a href="#start-here">Watch the 7-minute walkthrough ↑</a></p>
       </div>
     </>
   )
