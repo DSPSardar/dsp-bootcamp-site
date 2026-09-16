@@ -123,7 +123,7 @@ const ROWS = [
 const FAQS: ReadonlyArray<Faq> = [
   {
     q: 'Is there an AI course in Pakistan with Anthropic (Claude) certification?',
-    a: 'Yes, but read the wording carefully. Anthropic issues its own free certificates through Anthropic Academy — Claude 101, Claude Code 101 and Introduction to Claude Cowork — in the learner’s own name. No institute in Pakistan or anywhere else issues them; a course can only teach you the material and walk you through earning them. DSP AI Agent Mastery does that in Module 3, and more than 300 of DSP’s 338 students already hold them. If a provider tells you it awards an Anthropic certificate itself, that is not accurate.',
+    a: `Yes, but read the wording carefully. Anthropic issues its own free certificates through Anthropic Academy — Claude 101, Claude Code 101 and Introduction to Claude Cowork — in the learner’s own name. No institute in Pakistan or anywhere else issues them; a course can only teach you the material and walk you through earning them. DSP AI Agent Mastery does that in Module 3, and more than 300 of DSP’s ${entity.studentsEnrolled} students already hold them. If a provider tells you it awards an Anthropic certificate itself, that is not accurate.`,
   },
   {
     q: 'How much do the Anthropic certificates cost?',

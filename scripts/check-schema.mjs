@@ -46,6 +46,7 @@ if (!stripTypes) {
 
 register('./lib/ts-resolve-hooks.mjs', import.meta.url)
 const { masterySchema } = await import('../src/app/mastery/schema.ts')
+const { entity } = await import('../src/config/site.ts')
 const graph = masterySchema['@graph']
 const nodeOfType = (t) => (Array.isArray(graph) ? graph.find((n) => n && n['@type'] === t) : undefined)
 
@@ -58,6 +59,7 @@ const page = readFileSync(join(root, 'src/app/mastery/page.tsx'), 'utf8')
 const decode = (s) => s
   .replace(/&apos;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
   .replace(/\{'([^']*)'\}/g, '$1').replace(/\{"([^"]*)"\}/g, '$1')
+  .replace(/\{entity\.studentsEnrolled\}/g, String(entity.studentsEnrolled))
 
 const faqSection = page.slice(page.indexOf('<section id="faq">'))
 const visibleFaqs = [...faqSection.slice(0, faqSection.indexOf('</section>')).matchAll(/<details><summary>(.*?)<\/summary><p>(.*?)<\/p><\/details>/gs)]
