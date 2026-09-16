@@ -177,7 +177,7 @@ export default function AiAgentCourseInUrduPage() {
 
       <h2>How to start this week</h2>
       <ol>
-        <li>Watch the six-minute tour on the <Link href={mastery.url}>course page</Link> — it is in the same Urdu–English mix as the lectures, so you will know in six minutes whether the language works for you.</li>
+        <li>Watch the seven-minute tour on the <Link href={mastery.url}>course page</Link> — it is in the same Urdu–English mix as the lectures, so you will know in seven minutes whether the language works for you.</li>
         <li>Enrol on the enrol page (bank transfer, JazzCash or Easypaisa), upload the screenshot, and your sign-in link arrives by email once it is verified — usually within a few hours.</li>
         <li>Do an hour a day. Module 1 is understanding; Module 4 is the first thing you build; Module 13 is the first thing you deploy.</li>
         <li>Bring whatever breaks to the weekend debugging call.</li>
