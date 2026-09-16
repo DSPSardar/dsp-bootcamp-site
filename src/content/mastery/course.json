@@ -331,7 +331,9 @@
           },
           "master": "M02-S04_What-is-Prompt-and-Prompt-Engineering_v1.mp4",
           "instructor": "Sundus Khan",
-          "title": "Short — What is a Prompt and Prompt Engineering?"
+          "title": "Short — What is a Prompt and Prompt Engineering?",
+          "order": "S04",
+          "status": "ready"
         },
         {
           "file": "M02-L01_Prompt-Eng-Not-Enough-Context-Eng_GEpRArti8Uc.mp4",
@@ -511,6 +513,27 @@
           "title": "Short — How Codex Works"
         },
         {
+          "file": "M03-S04_Claude-Fundamentals-Beginner-to-Pro_GbDinGY4S00.mp4",
+          "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
+          "youtube_id": "GbDinGY4S00",
+          "minutes": 28,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "kind": "supplement",
+          "order": "S04",
+          "title": "Short — Claude AI Fundamentals: Beginner to Pro Guide",
+          "bunny": {
+            "guid": "075a81b8-e6b7-47eb-9d55-687fb85440ae",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-09-08T15:56:57.286Z",
+            "length_sec": 1676,
+            "aspect": 1.7778
+          },
+          "master": "M03-S04_Claude-Fundamentals-Beginner-to-Pro_GbDinGY4S00.mp4"
+        },
+        {
           "file": "M03-L01_Claude-Masterclass-Pt1-Setup-Workflows_piOULSKw5pc.mp4",
           "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
           "youtube_id": "piOULSKw5pc",
@@ -575,27 +598,6 @@
             "aspect": 1.7778
           },
           "title": "Lecture 3 — Google AI Studio and Gemini"
-        },
-        {
-          "file": "M03-S04_Claude-Fundamentals-Beginner-to-Pro_GbDinGY4S00.mp4",
-          "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
-          "youtube_id": "GbDinGY4S00",
-          "minutes": 28,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "kind": "supplement",
-          "order": "S04",
-          "title": "Short — Claude AI Fundamentals: Beginner to Pro Guide",
-          "bunny": {
-            "guid": "075a81b8-e6b7-47eb-9d55-687fb85440ae",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-09-08T15:56:57.286Z",
-            "length_sec": 1676,
-            "aspect": 1.7778
-          },
-          "master": "M03-S04_Claude-Fundamentals-Beginner-to-Pro_GbDinGY4S00.mp4"
         }
       ],
       "build_project": "Your Toolkit — Claude Project + tool comparison + setup checklist",
@@ -636,6 +638,27 @@
       ],
       "badge_after": null,
       "lessons": [
+        {
+          "file": "M04-S01_What-is-Vibe-Coding_l5AXZP24KrY.mp4",
+          "folder": "Phase-1-Builder/M04-Vibe-Coding",
+          "youtube_id": "l5AXZP24KrY",
+          "minutes": 6,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M04-S01_What-is-Vibe-Coding_l5AXZP24KrY.mp4",
+          "kind": "supplement",
+          "order": "S01",
+          "bunny": {
+            "guid": "b6da6aff-129a-49a4-91d9-be2bce96a230",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:38:52.201Z",
+            "length_sec": 349,
+            "aspect": 0.9651
+          },
+          "title": "Short — What is Vibe Coding?"
+        },
         {
           "file": "M04-L01_Vibe-Coding-Step-by-Step_bwhLEbC5vjU.mp4",
           "folder": "Phase-1-Builder/M04-Vibe-Coding",
@@ -699,27 +722,6 @@
             "aspect": 1.7778
           },
           "title": "Lecture 3 — Claude Masterclass: Advanced Coding and Agent Workflows"
-        },
-        {
-          "file": "M04-S01_What-is-Vibe-Coding_l5AXZP24KrY.mp4",
-          "folder": "Phase-1-Builder/M04-Vibe-Coding",
-          "youtube_id": "l5AXZP24KrY",
-          "minutes": 6,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M04-S01_What-is-Vibe-Coding_l5AXZP24KrY.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "b6da6aff-129a-49a4-91d9-be2bce96a230",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:38:52.201Z",
-            "length_sec": 349,
-            "aspect": 0.9651
-          },
-          "title": "Short — What is Vibe Coding?"
         }
       ],
       "build_project": "AI Employee Part 1: The Skeleton — app running locally on video",
@@ -888,6 +890,27 @@
       "badge_after": "Builder",
       "lessons": [
         {
+          "file": "M06-S01_Git-GitHub-Basics-Vibe-Coders_wbeQ0EZ4ri4.mp4",
+          "folder": "Phase-1-Builder/M06-Git-GitHub",
+          "youtube_id": "wbeQ0EZ4ri4",
+          "minutes": 7,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M06-S01_Git-GitHub-Basics-Vibe-Coders_wbeQ0EZ4ri4.mp4",
+          "kind": "supplement",
+          "order": "S01",
+          "bunny": {
+            "guid": "db1781d3-834a-4647-8da5-9a33025c1790",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:39:07.452Z",
+            "length_sec": 440,
+            "aspect": 1.7778
+          },
+          "title": "Short — Git and GitHub Basics for Vibe Coders"
+        },
+        {
           "file": "M06-L01_Frontend-Push-to-GitHub_uNKWoml_XS8.mp4",
           "folder": "Phase-1-Builder/M06-Git-GitHub",
           "youtube_id": "uNKWoml_XS8",
@@ -929,27 +952,6 @@
             "aspect": 1.7778
           },
           "title": "Lecture 2 — Git and GitHub with Claude Code"
-        },
-        {
-          "file": "M06-S01_Git-GitHub-Basics-Vibe-Coders_wbeQ0EZ4ri4.mp4",
-          "folder": "Phase-1-Builder/M06-Git-GitHub",
-          "youtube_id": "wbeQ0EZ4ri4",
-          "minutes": 7,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M06-S01_Git-GitHub-Basics-Vibe-Coders_wbeQ0EZ4ri4.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "db1781d3-834a-4647-8da5-9a33025c1790",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:39:07.452Z",
-            "length_sec": 440,
-            "aspect": 1.7778
-          },
-          "title": "Short — Git and GitHub Basics for Vibe Coders"
         }
       ],
       "build_project": "AI Employee on GitHub — public repo, 10+ commits, branch + restore",
@@ -984,6 +986,48 @@
       ],
       "badge_after": null,
       "lessons": [
+        {
+          "file": "M07-S02_Idea-to-Live-Agent_YRzBUTFZiI0.mp4",
+          "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
+          "youtube_id": "YRzBUTFZiI0",
+          "minutes": 8,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M07-S02_Idea-to-Live-Agent_YRzBUTFZiI0.mp4",
+          "kind": "supplement",
+          "order": "S02",
+          "bunny": {
+            "guid": "e45d30db-df3b-4b6d-a267-af0f5b90f124",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:39:29.472Z",
+            "length_sec": 480,
+            "aspect": 0.9651
+          },
+          "title": "Short — From Idea to Live AI Agent"
+        },
+        {
+          "file": "M07-S03_Knowledge-Memory-Ladder_hmPWKZ72y9w.mp4",
+          "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
+          "youtube_id": "hmPWKZ72y9w",
+          "minutes": 4,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M07-S03_Knowledge-Memory-Ladder_hmPWKZ72y9w.mp4",
+          "kind": "supplement",
+          "order": "S03",
+          "bunny": {
+            "guid": "8c1d31d0-5e3f-4795-ad03-d8ef08736fac",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:39:49.588Z",
+            "length_sec": 221,
+            "aspect": 1.7778
+          },
+          "title": "Short — The Knowledge and Memory Ladder"
+        },
         {
           "file": "M07-L01_Chatbot-to-AI-Agent-Evolution_TvGRUNA0b3A.mp4",
           "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
@@ -1113,48 +1157,6 @@
             "aspect": 1.7778
           },
           "title": "Final Build — Build a Real AI Agent: CafeBot Zero to Live"
-        },
-        {
-          "file": "M07-S02_Idea-to-Live-Agent_YRzBUTFZiI0.mp4",
-          "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
-          "youtube_id": "YRzBUTFZiI0",
-          "minutes": 8,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M07-S02_Idea-to-Live-Agent_YRzBUTFZiI0.mp4",
-          "kind": "supplement",
-          "order": "S02",
-          "bunny": {
-            "guid": "e45d30db-df3b-4b6d-a267-af0f5b90f124",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:39:29.472Z",
-            "length_sec": 480,
-            "aspect": 0.9651
-          },
-          "title": "Short — From Idea to Live AI Agent"
-        },
-        {
-          "file": "M07-S03_Knowledge-Memory-Ladder_hmPWKZ72y9w.mp4",
-          "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
-          "youtube_id": "hmPWKZ72y9w",
-          "minutes": 4,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M07-S03_Knowledge-Memory-Ladder_hmPWKZ72y9w.mp4",
-          "kind": "supplement",
-          "order": "S03",
-          "bunny": {
-            "guid": "8c1d31d0-5e3f-4795-ad03-d8ef08736fac",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:39:49.588Z",
-            "length_sec": 221,
-            "aspect": 1.7778
-          },
-          "title": "Short — The Knowledge and Memory Ladder"
         }
       ],
       "build_project": "AI Employee Part 3: The Ordering Agent — full order demo + architecture page",
@@ -1225,48 +1227,6 @@
       ],
       "badge_after": null,
       "lessons": [
-        {
-          "file": "M08-L01_API-Keys-and-env-Files_kTUdPQ5MnJc.mp4",
-          "folder": "Phase-2-Agent-Engineer/M08-APIs",
-          "youtube_id": "kTUdPQ5MnJc",
-          "minutes": 45,
-          "source": "LOCAL",
-          "status": "Located",
-          "chapters": [],
-          "master": "M08-L01_API-Keys-and-env-Files_kTUdPQ5MnJc_v1.mp4",
-          "kind": "core",
-          "order": "L01",
-          "bunny": {
-            "guid": "0e320cda-9b96-415a-8135-7de2f6429a6a",
-            "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-26T12:16:59.014Z",
-            "length_sec": 2716,
-            "aspect": 1.7778
-          },
-          "title": "Lecture 1 — API Keys and .env Files: Handling Secrets the Right Way"
-        },
-        {
-          "file": "M08-L02_WhatsApp-AI-Agent-with-Claude-Code_jVJwoOBkGms.mp4",
-          "folder": "Phase-2-Agent-Engineer/M08-APIs",
-          "youtube_id": "jVJwoOBkGms",
-          "minutes": 65,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "kind": "core",
-          "order": "L02",
-          "title": "Lecture 2 — External API Integration: WhatsApp AI Agent with Claude Code",
-          "bunny": {
-            "guid": "469d34a2-727b-4752-8e97-bd5a5631940f",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-09-08T16:01:16.023Z",
-            "length_sec": 3887,
-            "aspect": 1.7778
-          },
-          "master": "M08-L02_WhatsApp-AI-Agent-with-Claude-Code_jVJwoOBkGms.mp4"
-        },
         {
           "file": "M08-S01_AI-Agents-API_uLrZhhmjxCQ.mp4",
           "folder": "Phase-2-Agent-Engineer/M08-APIs",
@@ -1350,6 +1310,48 @@
             "aspect": 1.7778
           },
           "master": "M08-S04_Voice-Agent-in-15-Minutes_vQoxD-t90rg.mp4"
+        },
+        {
+          "file": "M08-L01_API-Keys-and-env-Files_kTUdPQ5MnJc.mp4",
+          "folder": "Phase-2-Agent-Engineer/M08-APIs",
+          "youtube_id": "kTUdPQ5MnJc",
+          "minutes": 45,
+          "source": "LOCAL",
+          "status": "Located",
+          "chapters": [],
+          "master": "M08-L01_API-Keys-and-env-Files_kTUdPQ5MnJc_v1.mp4",
+          "kind": "core",
+          "order": "L01",
+          "bunny": {
+            "guid": "0e320cda-9b96-415a-8135-7de2f6429a6a",
+            "status": "ready",
+            "version": 1,
+            "uploaded_at": "2026-08-26T12:16:59.014Z",
+            "length_sec": 2716,
+            "aspect": 1.7778
+          },
+          "title": "Lecture 1 — API Keys and .env Files: Handling Secrets the Right Way"
+        },
+        {
+          "file": "M08-L02_WhatsApp-AI-Agent-with-Claude-Code_jVJwoOBkGms.mp4",
+          "folder": "Phase-2-Agent-Engineer/M08-APIs",
+          "youtube_id": "jVJwoOBkGms",
+          "minutes": 65,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "kind": "core",
+          "order": "L02",
+          "title": "Lecture 2 — External API Integration: WhatsApp AI Agent with Claude Code",
+          "bunny": {
+            "guid": "469d34a2-727b-4752-8e97-bd5a5631940f",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-09-08T16:01:16.023Z",
+            "length_sec": 3887,
+            "aspect": 1.7778
+          },
+          "master": "M08-L02_WhatsApp-AI-Agent-with-Claude-Code_jVJwoOBkGms.mp4"
         }
       ],
       "build_project": "AI Employee Part 4: Wired Up — backend + one external API",
@@ -1384,6 +1386,27 @@
       ],
       "badge_after": null,
       "lessons": [
+        {
+          "file": "M09-S01_How-RAG-Works-short_SkT2s4N8wU0.mp4",
+          "folder": "Phase-2-Agent-Engineer/M09-RAG-Memory",
+          "youtube_id": "SkT2s4N8wU0",
+          "minutes": 17,
+          "source": "LOCAL",
+          "status": "Located",
+          "chapters": [],
+          "master": "M09-S01_How-RAG-Works-short_SkT2s4N8wU0_v1.mp4",
+          "kind": "supplement",
+          "order": "S01",
+          "bunny": {
+            "guid": "a3345174-ca16-4c8c-bbd5-6fa8658c732c",
+            "status": "ready",
+            "version": 1,
+            "uploaded_at": "2026-08-26T12:26:17.200Z",
+            "length_sec": 1028,
+            "aspect": 1.7778
+          },
+          "title": "Short — How RAG Actually Works"
+        },
         {
           "file": "M09-L01_RAG-Explained_CFQgyH1uJVU.mp4",
           "folder": "Phase-2-Agent-Engineer/M09-RAG-Memory",
@@ -1427,27 +1450,6 @@
             "aspect": 1.7778
           },
           "title": "Lecture 2 — The Memory Ladder"
-        },
-        {
-          "file": "M09-S01_How-RAG-Works-short_SkT2s4N8wU0.mp4",
-          "folder": "Phase-2-Agent-Engineer/M09-RAG-Memory",
-          "youtube_id": "SkT2s4N8wU0",
-          "minutes": 17,
-          "source": "LOCAL",
-          "status": "Located",
-          "chapters": [],
-          "master": "M09-S01_How-RAG-Works-short_SkT2s4N8wU0_v1.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "a3345174-ca16-4c8c-bbd5-6fa8658c732c",
-            "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-26T12:26:17.200Z",
-            "length_sec": 1028,
-            "aspect": 1.7778
-          },
-          "title": "Short — How RAG Actually Works"
         }
       ],
       "build_project": "AI Employee Part 5: Knows the Menu, Remembers the Customer",
@@ -1483,6 +1485,27 @@
       "badge_after": "Agent Engineer",
       "lessons": [
         {
+          "file": "M10-S01_What-is-API-and-MCP_wknhpVBlQ8o.mp4",
+          "folder": "Phase-2-Agent-Engineer/M10-MCP",
+          "youtube_id": "wknhpVBlQ8o",
+          "minutes": 13,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M10-S01_What-is-API-and-MCP_wknhpVBlQ8o.mp4",
+          "kind": "core",
+          "order": "S01",
+          "bunny": {
+            "guid": "2c522603-5a33-4a0b-81f7-1fe916eba571",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:41:19.655Z",
+            "length_sec": 761,
+            "aspect": 1.7778
+          },
+          "title": "Short — What is an API? What is MCP?"
+        },
+        {
           "file": "M10-L01_MCP-Explained_CjVBozQx3jc.mp4",
           "folder": "Phase-2-Agent-Engineer/M10-MCP",
           "youtube_id": "CjVBozQx3jc",
@@ -1502,27 +1525,6 @@
             "aspect": 0.5625
           },
           "master": "M10-L01_MCP-Explained_CjVBozQx3jc.mp4"
-        },
-        {
-          "file": "M10-S01_What-is-API-and-MCP_wknhpVBlQ8o.mp4",
-          "folder": "Phase-2-Agent-Engineer/M10-MCP",
-          "youtube_id": "wknhpVBlQ8o",
-          "minutes": 13,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M10-S01_What-is-API-and-MCP_wknhpVBlQ8o.mp4",
-          "kind": "core",
-          "order": "S01",
-          "bunny": {
-            "guid": "2c522603-5a33-4a0b-81f7-1fe916eba571",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:41:19.655Z",
-            "length_sec": 761,
-            "aspect": 1.7778
-          },
-          "title": "Lecture — What is an API? What is MCP?"
         }
       ],
       "build_project": "AI Employee Part 6: Talks to the Outside World — one MCP tool live",
@@ -1558,6 +1560,27 @@
       ],
       "badge_after": null,
       "lessons": [
+        {
+          "file": "M11-S01_Five-Steps-Trusted-Agents_ahafeXcC0mw.mp4",
+          "folder": "Phase-3-Production/M11-Testing-Observability",
+          "youtube_id": "ahafeXcC0mw",
+          "minutes": 7,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M11-S01_Five-Steps-Trusted-Agents_ahafeXcC0mw.mp4",
+          "kind": "supplement",
+          "order": "S01",
+          "bunny": {
+            "guid": "a731b096-5e82-426a-bac8-436933d6e2f1",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:41:31.791Z",
+            "length_sec": 409,
+            "aspect": 1.7778
+          },
+          "title": "Short — Five Steps to Shipping Trusted AI Agents"
+        },
         {
           "file": "M11-L01_Test-Before-After-Launch_0XpTyz0-uUc.mp4",
           "folder": "Phase-3-Production/M11-Testing-Observability",
@@ -1621,27 +1644,6 @@
             "aspect": 1.7778
           },
           "title": "Lecture 3 — How to Test, Secure and Deploy AI Agents"
-        },
-        {
-          "file": "M11-S01_Five-Steps-Trusted-Agents_ahafeXcC0mw.mp4",
-          "folder": "Phase-3-Production/M11-Testing-Observability",
-          "youtube_id": "ahafeXcC0mw",
-          "minutes": 7,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M11-S01_Five-Steps-Trusted-Agents_ahafeXcC0mw.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "a731b096-5e82-426a-bac8-436933d6e2f1",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:41:31.791Z",
-            "length_sec": 409,
-            "aspect": 1.7778
-          },
-          "title": "Short — Five Steps to Shipping Trusted AI Agents"
         }
       ],
       "build_project": "Break AI Employee — test sheet, 3 fixes, logging",
@@ -1692,28 +1694,6 @@
       "badge_after": null,
       "lessons": [
         {
-          "file": "M12-L01_Security-Masterclass-Pt1_oZTxq7XBZbk.mp4",
-          "folder": "Phase-3-Production/M12-Security",
-          "youtube_id": "oZTxq7XBZbk",
-          "minutes": 41,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_AI-Agents-Security-Master-class-part-1_Media_oZTxq7XBZbk_001_1080p.mp4",
-          "kind": "core",
-          "order": "L01",
-          "bunny": {
-            "guid": "fdbbc578-764f-4d2d-bab3-84d0dfb86b28",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:35:51.576545Z",
-            "length_sec": 2486,
-            "aspect": 1.7778
-          },
-          "title": "Lecture 1 — AI Agent Security Masterclass"
-        },
-        {
           "file": "M12-S01_Memory-Security-Guardrails_5OR0BOa_Hb4.mp4",
           "folder": "Phase-3-Production/M12-Security",
           "youtube_id": "5OR0BOa_Hb4",
@@ -1754,6 +1734,28 @@
             "aspect": 1.7778
           },
           "title": "Short — Securing AI Agent Memory"
+        },
+        {
+          "file": "M12-L01_Security-Masterclass-Pt1_oZTxq7XBZbk.mp4",
+          "folder": "Phase-3-Production/M12-Security",
+          "youtube_id": "oZTxq7XBZbk",
+          "minutes": 41,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "YTDown.com_YouTube_AI-Agents-Security-Master-class-part-1_Media_oZTxq7XBZbk_001_1080p.mp4",
+          "kind": "core",
+          "order": "L01",
+          "bunny": {
+            "guid": "fdbbc578-764f-4d2d-bab3-84d0dfb86b28",
+            "status": "ready",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:35:51.576545Z",
+            "length_sec": 2486,
+            "aspect": 1.7778
+          },
+          "title": "Lecture 1 — AI Agent Security Masterclass"
         }
       ],
       "build_project": "Harden AI Employee — 15-item checklist + 10 injection tests",
@@ -1805,7 +1807,9 @@
             "aspect": 1.7778
           },
           "master": "M13-L01_Complete-Deployment-Zero-to-Live_v1.mp4",
-          "title": "Lecture 1 — Complete Deployment: Zero to Live"
+          "title": "Lecture 1 — Complete Deployment: Zero to Live",
+          "order": "L01",
+          "status": "ready"
         },
         {
           "file": "M13-L02_GitHub-to-Vercel-Deployment_oSD-AdRr5AI.mp4",
@@ -1817,7 +1821,7 @@
           "chapters": [],
           "master": "YTDown.com_YouTube_Github-to-vercel-final-deployment_Media_oSD-AdRr5AI_001_1080p.mp4",
           "kind": "core",
-          "order": "L01",
+          "order": "L02",
           "bunny": {
             "guid": "ed43a974-636f-4430-8376-6c1bbf01bdac",
             "status": "ready",
@@ -1892,29 +1896,6 @@
       "badge_after": null,
       "lessons": [
         {
-          "file": "M14-L01_Multi-Agent-Systems-Business-Automation.mp4",
-          "folder": "Phase-4-Seller/M14-Multi-Agent-Business-Automation",
-          "youtube_id": null,
-          "minutes": 42,
-          "source": "NEW",
-          "status": "NEW",
-          "chapters": [],
-          "master": "M14-L01_Multi-Agent-Systems-Business-Automation_v2.mp4",
-          "kind": "core",
-          "order": "L01",
-          "source_note": "live class 30 Aug 2026",
-          "bunny": {
-            "guid": "a4084558-d668-4fe2-8054-75ce4852fb78",
-            "status": "ready",
-            "version": 2,
-            "uploaded_at": "2026-09-02T17:17:55.230Z",
-            "length_sec": 2522,
-            "thumbnail": "thumbnail.jpg",
-            "aspect": 1.7778
-          },
-          "title": "Lecture 1 — Multi-Agent Systems and Business Automation"
-        },
-        {
           "file": "M14-S01_First-Multi-Agent-System_fxfDEBHjpC4.mp4",
           "folder": "Phase-4-Seller/M14-Multi-Agent-Business-Automation",
           "youtube_id": "fxfDEBHjpC4",
@@ -1956,6 +1937,29 @@
             "aspect": 0.9651
           },
           "title": "Short — Agents, Workflows and Tools"
+        },
+        {
+          "file": "M14-L01_Multi-Agent-Systems-Business-Automation.mp4",
+          "folder": "Phase-4-Seller/M14-Multi-Agent-Business-Automation",
+          "youtube_id": null,
+          "minutes": 42,
+          "source": "NEW",
+          "status": "NEW",
+          "chapters": [],
+          "master": "M14-L01_Multi-Agent-Systems-Business-Automation_v2.mp4",
+          "kind": "core",
+          "order": "L01",
+          "source_note": "live class 30 Aug 2026",
+          "bunny": {
+            "guid": "a4084558-d668-4fe2-8054-75ce4852fb78",
+            "status": "ready",
+            "version": 2,
+            "uploaded_at": "2026-09-02T17:17:55.230Z",
+            "length_sec": 2522,
+            "thumbnail": "thumbnail.jpg",
+            "aspect": 1.7778
+          },
+          "title": "Lecture 1 — Multi-Agent Systems and Business Automation"
         }
       ],
       "build_project": "AI Employee for Two Cafés — multi-tenant + owner notification",
