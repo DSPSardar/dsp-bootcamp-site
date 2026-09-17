@@ -32,8 +32,11 @@ export const CANONICAL = `${site.url}${mastery.url}`
  *  metadata-only commit would bump it too). Bump it by hand, to the day the
  *  content change ships:
  *    2026-09-21 · blog consolidation: the Module 7 free-lesson card named
- *                 a post that was merged away, so it now names the
- *                 frameworks post instead
+ *                 a post that was merged away. M07 is "JD + Tools + Loop"
+ *                 and the agent loop now lives in what-is-an-ai-agent, so
+ *                 that is Module 7's preview; Module 1 ("what an LLM and an
+ *                 agent are") moves to the ML/DL/AI post, which absorbed
+ *                 the LLM explainer
  *    2026-09-18 · the Pakistan student's card no longer says "the
  *                 bootcamp": the live program was sunset on
  *                 2026-08-30, and the same line renders on `/`,
