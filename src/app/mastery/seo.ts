@@ -34,6 +34,10 @@ export const CANONICAL = `${site.url}${mastery.url}`
  *    2026-09-21 · blog consolidation: the Module 7 free-lesson card named
  *                 a post that was merged away, so it now names the
  *                 frameworks post instead
+ *    2026-09-18 · the Pakistan student's card no longer says "the
+ *                 bootcamp": the live program was sunset on
+ *                 2026-08-30, and the same line renders on `/`,
+ *                 where the wording is banned outright
  *    2026-09-16 · Corroboration Day 11: student count corrected to the
  *                 350 figure in entity.studentsEnrolled (was 338)
  *    2026-09-08 · Corroboration Day 3: sixteen modules stated, links to

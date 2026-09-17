@@ -56,11 +56,12 @@ export default function Nav() {
             alignItems: 'center',
             gap: '0.625rem',
             textDecoration: 'none',
-            flexShrink: 0,
+            minWidth: 0,
           }}
         >
           <LogoMark />
           <span
+            className="nav-wordmark"
             style={{
               fontFamily: 'var(--font-display)',
               fontWeight: 700,
@@ -114,7 +115,7 @@ export default function Nav() {
             href={CTA_HREF}
             target="_blank"
             rel="noopener"
-            className="btn-primary"
+            className="btn-primary nav-cta"
             style={{ fontSize: '0.8125rem', padding: '0.5rem 1rem', whiteSpace: 'nowrap' }}
             onClick={() => track('whatsapp_cta_click', { cta: 'blog_header_zara' })}
           >
@@ -204,13 +205,59 @@ export default function Nav() {
               {l.label}
             </Link>
           ))}
+          {/* The CTA repeats here because the header one is hidden on mobile
+              (see .nav-cta below) — same pattern as the company shell's
+              .nav-cta-item. test:nav reads the label and href off this file,
+              so both copies must keep using CTA_LABEL and CTA_HREF. */}
+          <a
+            href={CTA_HREF}
+            target="_blank"
+            rel="noopener"
+            className="btn-primary nav-menu-cta"
+            style={{
+              marginTop: '0.5rem',
+              justifyContent: 'center',
+              padding: '0.85rem 1rem',
+              fontSize: '1rem',
+            }}
+            onClick={() => {
+              track('whatsapp_cta_click', { cta: 'blog_menu_zara' })
+              setOpen(false)
+            }}
+          >
+            {CTA_LABEL}
+          </a>
         </nav>
       )}
 
+      {/* The header row used to demand a fixed 477px: an unshrinkable 266px
+          wordmark + a 175px cluster of [Talk to Zara] and the hamburger. Below
+          ~497px it ran off the right edge, and body{overflow-x:hidden} at
+          640px (globals.css) hid the evidence — so on a 390px phone the
+          hamburger sat at 433-477px, entirely outside the viewport, and the
+          mobile menu could not be opened at all. Fixed the way the company
+          shell does it: the CTA leaves the row and reappears in the menu.
+          The wordmark may now also shrink, so no future addition can push the
+          row past the viewport again.
+
+          The collapse breakpoint moves 768px -> 1080px to match site.css
+          ("seven nav items + CTA need ~1060px"). At 768px this shell showed
+          the full desktop nav in a row that wanted 947px, so a tablet
+          widened its own layout viewport to 947px to fit — the same bug as
+          on phones, two breakpoints up, and outside the reach of the 640px
+          overflow-x mask. */}
       <style>{`
-        @media (min-width: 768px) {
+        .nav-wordmark { overflow: hidden; text-overflow: ellipsis; }
+        @media (max-width: 1079px) {
+          .nav-cta { display: none !important; }
+        }
+        @media (max-width: 420px) {
+          .nav-wordmark { font-size: 0.9375rem; }
+        }
+        @media (min-width: 1080px) {
           .md-nav { display: flex !important; }
           .hamburger { display: none !important; }
+          .nav-menu-cta { display: none !important; }
         }
       `}</style>
     </header>
