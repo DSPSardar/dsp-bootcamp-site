@@ -4,7 +4,7 @@ import { dirname, join, relative } from 'node:path'
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
 
-// Guards the one invariant the blog consolidation (2026-09-21) created: a
+// Guards the one invariant the blog consolidation (2026-09-18) created: a
 // /blog/ slug is either a live post or a 301 source, never both, and nothing
 // in this repo may link to a 301 source.
 //

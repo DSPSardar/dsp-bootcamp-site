@@ -35,7 +35,7 @@ const nextConfig: NextConfig = {
       // repo links to it, so the reference is external or historic.
       { source: "/curriculum", destination: "/mastery/curriculum", permanent: true },
 
-      // ── Blog consolidation, 2026-09-21 ──────────────────────────────
+      // ── Blog consolidation, 2026-09-18 ──────────────────────────────
       // 43 posts became 12. Thirty-one of them were near-duplicates of six
       // stronger pages — Search Console had 9 of the 43 indexed and 30 at
       // "Discovered — currently not indexed", because the crawl budget was

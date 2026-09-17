@@ -28,10 +28,10 @@ const SITE = 'https://www.digitalservicesprogram.com'
 // `/` moved 2026-09-18: the fundamentals reading block (§13) added eight
 // blog links to a page that previously linked none.
 const HOME_UPDATED = '2026-09-18'
-// `/blog` moved 2026-09-21 with the consolidation: the index lists 12 posts
+// `/blog` moved 2026-09-18 with the consolidation: the index lists 12 posts
 // instead of 43, six of them with rewritten excerpts. `/` does not move —
 // its reading block links the eight pillars, and all eight survived.
-const BLOG_UPDATED = '2026-09-21'
+const BLOG_UPDATED = '2026-09-18'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [

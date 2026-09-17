@@ -37,7 +37,7 @@ const WA_MSG = {
 // so they never drift from the post itself.
 //
 // Every slug must be a post that still EXISTS, not one that redirects. The
-// consolidation (2026-09-21) merged 31 posts into six targets, and this list
+// consolidation (2026-09-18) merged 31 posts into six targets, and this list
 // named one of the merged ones — the agent-loop post — as its Module 7
 // preview. Two things had to change:
 //

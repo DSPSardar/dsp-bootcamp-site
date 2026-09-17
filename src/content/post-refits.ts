@@ -33,15 +33,15 @@ const DEFS_UPDATED = '2026-09-12'
  *  the other nine definition-cluster posts keep DEFS_UPDATED. */
 const DEPTH_UPDATED = '2026-09-18'
 
-/** The consolidation (2026-09-21): 43 posts became 12. The six targets below
+/** The consolidation (2026-09-18): 43 posts became 12. The six targets below
  *  absorbed 31 posts between them and were rewritten around that material, so
- *  all six move to the day the merge ships. Dated 21 Sep because that is the
- *  earliest this may merge (the indexed count dips while the redirects settle,
- *  so it waits until after the 20th) — if it slips, this moves with it, or the
- *  sitemap claims a change date before the change existed. The absorbed posts'
- *  own refits are gone: each answer was folded into its target as a section
- *  rather than discarded, per the consolidation spec. */
-const MERGED_UPDATED = '2026-09-21'
+ *  all six carry the day the merge shipped. This was built to be held until
+ *  21 Sep — the indexed count dips while the redirects settle — and the owner
+ *  released it early on the 18th, so the date moved with the merge rather than
+ *  advertising a change three days before it existed. The absorbed posts' own
+ *  refits are gone: each answer was folded into its target as a section rather
+ *  than discarded, per the consolidation spec. */
+const MERGED_UPDATED = '2026-09-18'
 
 const MASTERY_LINK = { href: mastery.url, label: `${mastery.name} — ${mastery.modules} modules, Urdu + English, ${mastery.priceDisplay} one-time` }
 
@@ -165,7 +165,7 @@ export const POST_REFITS: Record<string, PostRefit> = {
       MASTERY_LINK,
     ],
   },
-  /** The consolidation (2026-09-21) gave these three targets their first
+  /** The consolidation (2026-09-18) gave these three targets their first
    *  refit. They had none before because they were short listicles; each has
    *  now absorbed between five and twelve posts and answers a question people
    *  put to an answer engine, so each gets the answer block and a "Go deeper"
