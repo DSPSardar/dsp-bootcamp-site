@@ -63,7 +63,7 @@ export default async function BlogPost(
   const refit = getPostRefit(post.slug)
   // Related posts are picked as a ring, not as the first three of the
   // category. .slice(0, 3) handed every post in a category the SAME three
-  // siblings, so 13 of 43 posts received no inbound internal link at all.
+  // siblings, so 13 of the then-43 posts received no inbound internal link.
   const allPosts = getAllPosts()
   const sameCategory = allPosts.filter((p) => p.category === post.category)
   const related: typeof allPosts = []
@@ -88,13 +88,13 @@ export default async function BlogPost(
     }
   }
 
-  // Crawl paths to the guides (Day 7, 2026-09-12). The 43 legacy posts keep
+  // Crawl paths to the guides (Day 7, 2026-09-12). The legacy posts keep
   // their old PHP slugs and are the part of this site Google has actually
   // crawled for years; the guides are the part it has not crawled at all
   // (31 URLs sat at "Discovered — currently not indexed" on 11 Sep). The
   // footer "Guides" block lives in SiteFooter, which the blog shell never
   // renders, so until now only the six refit posts pointed at a guide at all.
-  // Three per post, picked as a ring off the post's own position, so the 43
+  // Three per post, picked as a ring off the post's own position, so the
   // posts spread their links across the whole set instead of every post
   // naming the same three. Refit posts skip the guides their "Go deeper"
   // block already links, so no post links the same URL twice.

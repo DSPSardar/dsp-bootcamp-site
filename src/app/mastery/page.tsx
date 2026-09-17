@@ -33,18 +33,45 @@ const WA_MSG = {
 }
 
 // "Free lessons before you enrol" — six existing blog posts that preview a
-// module each. Slugs are the blog's frozen URLs; titles come from
-// posts.json so they never drift from the post itself.
+// module each. Slugs are the blog's frozen URLs; titles come from posts.json
+// so they never drift from the post itself.
+//
+// Every slug must be a post that still EXISTS, not one that redirects. The
+// consolidation (2026-09-18) merged 31 posts into six targets, and this list
+// named one of the merged ones — the agent-loop post — as its Module 7
+// preview. Two things had to change:
+//
+//   M07 "AI Agents" is "Job Description + Tools + Loop", and the agent loop
+//   now lives inside what-is-an-ai-agent, so that post is Module 7's preview.
+//   M01 "AI Foundations" is "explain what an LLM and an agent are", and the
+//   LLM explainer was merged into the ML/DL/AI post, so that covers Module 1.
+//
+// Each module therefore previews the post that actually carries its outcome,
+// and no two entries share a slug (they render `key={l.slug}` and the post's
+// own title, so a repeat would duplicate both).
+//
+// scripts/check-internal-links.mjs enforces all of this: every slug here must
+// be a live post, and nothing in the repo may link a redirected slug.
 const FREE_LESSONS = [
   { slug: 'how-to-learn-ai-in-2026-a-roadmap-for-complete-beginners', module: 'Start here' },
-  { slug: 'what-is-an-ai-agent', module: 'Module 1 preview' },
+  { slug: 'machine-learning-vs-deep-learning-vs-ai-whats-the-difference', module: 'Module 1 preview' },
   { slug: 'how-to-write-effective-ai-prompts-the-skill-everyone-needs', module: 'Module 2 preview' },
   { slug: 'vibe-coding-explained', module: 'Module 4 preview' },
-  { slug: 'the-agent-loop-explained-how-ai-plans-acts-and-learns', module: 'Module 7 preview' },
+  { slug: 'what-is-an-ai-agent', module: 'Module 7 preview' },
   { slug: 'multi-agent-systems-when-ais-work-as-a-team', module: 'Module 14 preview' },
 ]
   .map((l) => ({ ...l, post: getPostBySlug(l.slug) }))
-  .filter((l) => l.post)
+  // Never drop a dead slug quietly. The old `.filter(l => l.post)` turned a
+  // broken reference into a silently shorter list — six free lessons becoming
+  // five with nothing failing anywhere. Now it says so, and outside a
+  // production build it stops the build outright.
+  .filter((l) => {
+    if (l.post) return true
+    const msg = `FREE_LESSONS: no published post for slug "${l.slug}" — it was renamed, unpublished, or merged away and now redirects. Point it at a live post.`
+    if (process.env.NODE_ENV !== 'production') throw new Error(msg)
+    console.warn(`[mastery] ${msg}`)
+    return false
+  })
 
 // Structured data: one JSON-LD @graph (Organization · WebSite · WebPage ·
 // Person · Course · FAQPage) built in ./schema.ts, plus the sitewide
