@@ -34,13 +34,17 @@ const WA_MSG = {
 
 // "Free lessons before you enrol" — six existing blog posts that preview a
 // module each. Slugs are the blog's frozen URLs; titles come from
-// posts.json so they never drift from the post itself.
+// posts.json so they never drift from the post itself. Every slug must be a
+// post that still exists: the blog consolidation (2026-09-21) merged 31 posts
+// into six targets, and the Module 7 entry used to name one of the merged
+// ones. A slug that 301s would make this list a crawl-budget leak, and the
+// .filter below would hide the mistake by silently dropping the card.
 const FREE_LESSONS = [
   { slug: 'how-to-learn-ai-in-2026-a-roadmap-for-complete-beginners', module: 'Start here' },
   { slug: 'what-is-an-ai-agent', module: 'Module 1 preview' },
   { slug: 'how-to-write-effective-ai-prompts-the-skill-everyone-needs', module: 'Module 2 preview' },
   { slug: 'vibe-coding-explained', module: 'Module 4 preview' },
-  { slug: 'the-agent-loop-explained-how-ai-plans-acts-and-learns', module: 'Module 7 preview' },
+  { slug: 'the-top-5-agentic-ai-frameworks-you-should-know-about', module: 'Module 7 preview' },
   { slug: 'multi-agent-systems-when-ais-work-as-a-team', module: 'Module 14 preview' },
 ]
   .map((l) => ({ ...l, post: getPostBySlug(l.slug) }))

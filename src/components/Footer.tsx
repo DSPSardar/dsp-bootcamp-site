@@ -91,7 +91,7 @@ export default function Footer() {
 
         {/* Guides — the same registry the company footer uses
             (src/config/site.ts `guides`). The blog and /contact render this
-            footer, not SiteFooter, so without this row the 43 crawled blog
+            footer, not SiteFooter, so without this row the crawled blog
             posts gave the guides no path at all. */}
         {footerGuides.length > 0 && (
           <nav
@@ -135,7 +135,7 @@ export default function Footer() {
 
         {/* Fundamentals — the eight blog pillars (src/config/site.ts
             `pillars`), the same row SiteFooter renders. This footer is the
-            one the 43 crawled blog posts and /contact render, so it is the
+            one every blog post and /contact render, so it is the
             surface Google already visits: the pillars need to be linked from
             here most of all. */}
         <nav

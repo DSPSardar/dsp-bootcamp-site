@@ -77,7 +77,7 @@ export function GET() {
     `- ${agency.revenue.display} ${agency.revenue.label} — as of ${agency.revenue.asOf}. ${agency.revenue.footnote}`,
     '',
     '## Blog',
-    `- [All articles](${u('/blog')}): 43 articles on AI agents, agentic AI and learning AI, by ${founder.name}`,
+    `- [All articles](${u('/blog')}): 12 in-depth articles on AI agents, agentic AI and learning AI, by ${founder.name}`,
     '',
     '## Profiles',
     `- LinkedIn (company): ${socials.linkedin}`,
