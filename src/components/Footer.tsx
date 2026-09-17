@@ -1,7 +1,7 @@
 // src/components/Footer.tsx
 import Link from 'next/link'
 import FooterLogo from './FooterLogo'
-import { footerGuides } from '@/config/site'
+import { footerGuides, pillars } from '@/config/site'
 
 export default function Footer() {
   return (
@@ -132,6 +132,49 @@ export default function Footer() {
             ))}
           </nav>
         )}
+
+        {/* Fundamentals — the eight blog pillars (src/config/site.ts
+            `pillars`), the same row SiteFooter renders. This footer is the
+            one the 43 crawled blog posts and /contact render, so it is the
+            surface Google already visits: the pillars need to be linked from
+            here most of all. */}
+        <nav
+          aria-label="DSP fundamentals"
+          style={{
+            width: '100%',
+            borderTop: '1px solid var(--line)',
+            paddingTop: '1.25rem',
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '0.4rem 1.25rem',
+          }}
+        >
+          <span
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.75rem',
+              color: 'var(--muted)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.06em',
+            }}
+          >
+            Fundamentals
+          </span>
+          {pillars.map((p) => (
+            <Link
+              key={p.path}
+              href={p.path}
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: '0.8125rem',
+                color: 'var(--muted)',
+                textDecoration: 'none',
+              }}
+            >
+              {p.label}
+            </Link>
+          ))}
+        </nav>
 
         {/* Legal */}
         <p

@@ -26,6 +26,11 @@ const UPDATED = '2026-09-08'
 /** Day 8 (2026-09-12): the definition-cluster refits below. */
 const DEFS_UPDATED = '2026-09-12'
 
+/** Day 11 (2026-09-17): the two pillars rewritten for depth — the Pakistan
+ *  post and the multi-agent explainer. Only those two move to this date;
+ *  the other nine definition-cluster posts keep DEFS_UPDATED. */
+const DEPTH_UPDATED = '2026-09-17'
+
 const MASTERY_LINK = { href: mastery.url, label: `${mastery.name} — ${mastery.modules} modules, Urdu + English, ${mastery.priceDisplay} one-time` }
 
 export const POST_REFITS: Record<string, PostRefit> = {
@@ -111,7 +116,7 @@ export const POST_REFITS: Record<string, PostRefit> = {
   'multi-agent-systems-when-ais-work-as-a-team': {
     answer:
       'A multi-agent system is a team of AI agents working on one goal: an orchestrator agent breaks the goal into sub-tasks, hands each to a specialist agent with its own tools and knowledge, then synthesises what comes back. It exists because one agent has a finite context window and cannot specialise deeply in every domain at once.',
-    updated: DEFS_UPDATED,
+    updated: DEPTH_UPDATED,
     goDeeper: [
       { href: '/what-is-an-ai-employee', label: 'What an AI employee is: one agent, one job, inside a business' },
       { href: '/frameworks/agent-idea-filter', label: 'The Agent Idea Filter: five questions before you build one' },
@@ -198,6 +203,27 @@ export const POST_REFITS: Record<string, PostRefit> = {
     goDeeper: [
       { href: '/learn-ai-agents-pakistan', label: 'From understanding models to building with them: the 6-stage roadmap' },
       { href: '/what-is-an-ai-employee', label: 'What you can build once a model has tools and memory' },
+      MASTERY_LINK,
+    ],
+  },
+  // ── Day 11 (2026-09-17): the rewritten pillars ──────────────────────────
+  // Search Console, 18 Sep 2026: 35 URLs indexed and 47 not — every non-blog
+  // URL is in, but only 9 of the 43 posts, with 30 at "Discovered — currently
+  // not indexed". This post was the thinnest page on the site (161 words of
+  // body) and the only one with geographic intent, which is the one place DSP
+  // can realistically outrank anyone. It was rewritten to ~2,000 words of
+  // Pakistan-specific substance — tool costs in rupees, local business
+  // arithmetic, the freelancing and dollar-earning angle, and the four
+  // constraints (payment rails, power, English-medium material, proof) — so it
+  // now earns the same answer-first treatment the money-intent posts get.
+  'why-pakistan-needs-ai-agents': {
+    answer:
+      'Pakistan’s entrepreneurs need AI agents now because the arithmetic is unusually favourable here: the tools cost about $20 a month, the labour they replace is priced in rupees, and the same agent can be sold to a client paying in dollars. The real constraints — payment rails, connectivity, English-medium material — are all workable.',
+    updated: DEPTH_UPDATED,
+    goDeeper: [
+      { href: '/learn-ai-agents-pakistan', label: 'How to learn AI agents in Pakistan: the 6-stage roadmap and what the tools cost' },
+      { href: '/ai-agent-course-in-urdu', label: 'An AI agent course taught in Urdu, and the other Urdu options compared' },
+      { href: '/ai-training-islamabad', label: 'AI training in Islamabad: 11 options compared on fee and format' },
       MASTERY_LINK,
     ],
   },
