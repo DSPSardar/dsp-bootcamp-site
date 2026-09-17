@@ -653,7 +653,7 @@ export const liveGuides = guides.filter((g) => g.live)
 /** The footer "Guides" block — live guides minus the framework sub-pages. */
 export const footerGuides = liveGuides.filter((g) => g.footer)
 
-/** ─── The eight blog pillars (2026-09-17) ───────────────────────────────
+/** ─── The eight blog pillars (2026-09-18) ───────────────────────────────
  *  Search Console, 18 Sep 2026: all 26 non-blog URLs are indexed, but only
  *  9 of the 43 blog posts are — 30 of them sit at "Discovered — currently
  *  not indexed". The cause is crawl starvation, not quality: the homepage

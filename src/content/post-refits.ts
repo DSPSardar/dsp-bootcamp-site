@@ -26,10 +26,10 @@ const UPDATED = '2026-09-08'
 /** Day 8 (2026-09-12): the definition-cluster refits below. */
 const DEFS_UPDATED = '2026-09-12'
 
-/** Day 11 (2026-09-17): the two pillars rewritten for depth — the Pakistan
+/** Day 11 (2026-09-18): the two pillars rewritten for depth — the Pakistan
  *  post and the multi-agent explainer. Only those two move to this date;
  *  the other nine definition-cluster posts keep DEFS_UPDATED. */
-const DEPTH_UPDATED = '2026-09-17'
+const DEPTH_UPDATED = '2026-09-18'
 
 const MASTERY_LINK = { href: mastery.url, label: `${mastery.name} — ${mastery.modules} modules, Urdu + English, ${mastery.priceDisplay} one-time` }
 
@@ -206,7 +206,7 @@ export const POST_REFITS: Record<string, PostRefit> = {
       MASTERY_LINK,
     ],
   },
-  // ── Day 11 (2026-09-17): the rewritten pillars ──────────────────────────
+  // ── Day 11 (2026-09-18): the rewritten pillars ──────────────────────────
   // Search Console, 18 Sep 2026: 35 URLs indexed and 47 not — every non-blog
   // URL is in, but only 9 of the 43 posts, with 30 at "Discovered — currently
   // not indexed". This post was the thinnest page on the site (161 words of
