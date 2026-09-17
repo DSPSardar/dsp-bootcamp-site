@@ -26,7 +26,7 @@ export const STUDENT_BUILDS: readonly StudentBuild[] = [
     line: 'A finance professional with no software background. He built his first website and AI agent in the program and deployed it live.' },
   { guid: '2c5ac1cf-9643-4265-9c0a-72af532a84a9', name: 'DSP student', where: 'Pakistan',
     built: 'PKR 60,000 of paid AI work',
-    line: 'Earned PKR 60,000 from AI work before he had even finished the bootcamp.' },
+    line: 'Earned PKR 60,000 from AI work before he had even finished the training.' },
   { guid: 'e50847ea-7fa4-4e26-ae72-1273fec6ae33', name: 'DSP student', where: 'Agentic Master Class',
     built: 'Agents, automation and prompt engineering, applied at work',
     line: 'Came for practical skills — AI agents, automation and prompt engineering — and says the training changed how she works.', portrait: true },
