@@ -230,6 +230,13 @@
 .dsp-site .site-footer a:hover{color:#fff;text-decoration:underline}
 .dsp-site .foot-brand{display:flex;align-items:center;gap:.6rem;color:#fff;font-family:var(--disp);font-weight:700;margin-bottom:.8rem}
 .dsp-site .foot-legal{border-top:1px solid var(--line-dark);margin-top:2.4rem;padding-top:1.4rem;font-size:.83rem;color:#8FA3C4;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+/* The "Fundamentals" row (SiteFooter) — the eight blog pillars, full width
+   under the four columns. Four across, then two, then one, matching the
+   steps .foot-grid takes. The labels are sentences, so they get their own
+   row rather than a fifth column. */
+.dsp-site .foot-reading{border-top:1px solid var(--line-dark);margin-top:2.4rem;padding-top:1.4rem}
+.dsp-site .site-footer .foot-reading ul{grid-template-columns:repeat(4,1fr);gap:.55rem 2rem}
+.dsp-site .site-footer .foot-reading li{font-size:.88rem}
 
 /* ================================================================
    Agency (AI Employees) — /ai-employees, /pricing, employee profiles
@@ -348,11 +355,13 @@
   .dsp-site .stats li:nth-child(-n+2){border-top:none}
   .dsp-site .curric-row{grid-template-columns:1fr;gap:.3rem}
   .dsp-site .site-footer .foot-grid{grid-template-columns:1fr 1fr;gap:1.8rem}
+  .dsp-site .site-footer .foot-reading ul{grid-template-columns:1fr 1fr}
   .dsp-site .cert-grid{grid-template-columns:1fr}
 }
 @media (max-width: 560px){
   .dsp-site .grid-4{grid-template-columns:1fr}
   .dsp-site .site-footer .foot-grid{grid-template-columns:1fr}
+  .dsp-site .site-footer .foot-reading ul{grid-template-columns:1fr}
 
   /* Mobile hero density — most traffic arrives from Facebook in-app browsers,
      whose chrome eats ~120px, so the first CTA must clear the fold. */

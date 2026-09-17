@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { agency, footerGuides, site, socials } from '@/config/site'
+import { agency, footerGuides, pillars, site, socials } from '@/config/site'
 
 export default function SiteFooter() {
   return (
@@ -61,6 +61,22 @@ export default function SiteFooter() {
             </ul>
           </div>
         </div>
+        {/* Fundamentals — the eight blog pillars (site.ts `pillars`).
+            Search Console, 18 Sep 2026: every non-blog URL is indexed, but
+            only 9 of 43 posts are and 30 sit at "Discovered — currently not
+            indexed". Neither footer linked a single post, so the crawled
+            surface had no path down into them. A site-wide row gives each
+            pillar ~40 inbound internal links. Full width rather than a fifth
+            column: the labels are sentences, and the four columns above are
+            already full. */}
+        <nav className="foot-reading" aria-label="Fundamentals">
+          <h3>Fundamentals</h3>
+          <ul>
+            {pillars.map((p) => (
+              <li key={p.path}><Link href={p.path}>{p.label}</Link></li>
+            ))}
+          </ul>
+        </nav>
         <div className="foot-legal">
           <span>© 2026 Digital Services Program · SECP-registered company</span>
           <span>DSP builds AI Employees for business — and teaches you how to build them.</span>

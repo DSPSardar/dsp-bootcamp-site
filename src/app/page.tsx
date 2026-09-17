@@ -1,7 +1,9 @@
 // src/app/page.tsx — company homepage, V3 (Sept 2026): DSP as an AI
 // Employee company. Twelve sections in the brief's order, AI-Employee
 // primary, with Agent Hub (the product) and Mastery (the education gateway)
-// each given one section. Learn → Build → Deploy is the spine.
+// each given one section. Learn → Build → Deploy is the spine. After the
+// twelve come the fundamentals reading block (§13, the eight blog pillars),
+// the FAQ and the survey strip.
 //
 // Every number on this page is read from src/config/site.ts, where each one
 // names its dashboard and period (agency.proof, agency.revenue,
@@ -24,7 +26,7 @@ import Journey from '@/components/home/Journey'
 import GlobalSection from '@/components/home/GlobalSection'
 import { CheckIcon, WhatsAppIcon } from '@/components/home/icons'
 import { faqPageLd } from '@/lib/schema'
-import { agency, entity, founder, mastery, site, waLink } from '@/config/site'
+import { agency, entity, founder, mastery, pillars, site, waLink } from '@/config/site'
 import { bunnyConfigured } from '@/lib/mastery/bunny'
 import { STUDENT_BUILDS } from '@/app/mastery/students'
 import './home.css'
@@ -370,6 +372,36 @@ export default function HomePage() {
             >
               <WhatsAppIcon /> WhatsApp {site.whatsappDisplay}
             </TrackedLink>
+          </p>
+        </div>
+      </section>
+
+      {/* ============ 13 · THE FUNDAMENTALS ============ */}
+      {/* Crawl depth (Search Console, 18 Sep 2026): every non-blog URL is
+          indexed, but only 9 of 43 blog posts are and 30 sit at "Discovered
+          — currently not indexed". This page takes ~95% of the site's clicks
+          and linked to no post at all, so nothing downstream inherited any
+          authority. The eight pillars come from site.ts `pillars`, the same
+          registry both footers read. Copy follows the homepage rule (owner
+          ruling 15 Sep 2026): no price, enrol, Academy, course or bootcamp
+          wording on `/`. */}
+      <section className="band-paper">
+        <div className="wrap">
+          <div className="sec-head">
+            <p className="eyebrow">Know what you&apos;re building</p>
+            <h2>The fundamentals, written plainly.</h2>
+            <p>No hype, no jargon.</p>
+          </div>
+          <div className="emp-grid" data-reveal="stagger">
+            {pillars.map((pillar) => (
+              <Link className="card hover" key={pillar.path} href={pillar.path}>
+                <h3>{pillar.title}</h3>
+                <p>{pillar.blurb}</p>
+              </Link>
+            ))}
+          </div>
+          <p style={{ marginTop: '1.6rem' }}>
+            <Link className="arrow-link" href="/blog">Everything we&apos;ve written &rarr;</Link>
           </p>
         </div>
       </section>

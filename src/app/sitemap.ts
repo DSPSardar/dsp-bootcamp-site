@@ -25,8 +25,11 @@ const SITE = 'https://www.digitalservicesprogram.com'
 
 /** Real content-change dates for the two pages whose content moves with the
  *  rest of the site rather than with their own file. */
-const HOME_UPDATED = '2026-09-15'
-const BLOG_UPDATED = '2026-09-08'
+// `/` moved 2026-09-18: the fundamentals reading block (§13) added eight
+// blog links to a page that previously linked none.
+const HOME_UPDATED = '2026-09-18'
+// `/blog` moved 2026-09-18 with the two rewritten pillars' excerpts.
+const BLOG_UPDATED = '2026-09-18'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [

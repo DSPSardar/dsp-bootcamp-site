@@ -653,6 +653,73 @@ export const liveGuides = guides.filter((g) => g.live)
 /** The footer "Guides" block — live guides minus the framework sub-pages. */
 export const footerGuides = liveGuides.filter((g) => g.footer)
 
+/** ─── The eight blog pillars (2026-09-18) ───────────────────────────────
+ *  Search Console, 18 Sep 2026: all 26 non-blog URLs are indexed, but only
+ *  9 of the 43 blog posts are — 30 of them sit at "Discovered — currently
+ *  not indexed". The cause is crawl starvation, not quality: the homepage
+ *  takes ~95% of site clicks and linked to no post at all, and neither
+ *  footer did either, so nothing downstream inherited any authority.
+ *
+ *  These eight posts are the fundamentals every other post and guide leans
+ *  on. They get a site-wide footer link (both footers) and a card in the
+ *  homepage reading block (§13), which is why one registry holds all three
+ *  strings: `label` for the footer row, `title` + `blurb` for the card.
+ *
+ *  Slugs are frozen (CLAUDE.md) — these paths are the live post URLs and
+ *  must match src/content/posts.json exactly. Nothing here may use price,
+ *  enrol, Academy, course or bootcamp wording: the cards render on `/`,
+ *  where that copy rule applies (owner ruling 15 Sep 2026). */
+export const pillars = [
+  {
+    path: '/blog/what-is-an-ai-agent',
+    label: 'What is an AI agent?',
+    title: 'What is an AI agent?',
+    blurb: 'The difference between a chatbot that answers and an agent that acts. Start here.',
+  },
+  {
+    path: '/blog/multi-agent-systems-when-ais-work-as-a-team',
+    label: 'AI agents working as a team',
+    title: 'When AI agents work as a team',
+    blurb: 'Why a single agent hits a ceiling, and what multi-agent systems solve.',
+  },
+  {
+    path: '/blog/10-ways-businesses-can-use-agentic-ai-in-2026',
+    label: 'Ten ways businesses use agentic AI',
+    title: 'Ten ways businesses use agentic AI',
+    blurb: 'The workflows that pay for themselves first.',
+  },
+  {
+    path: '/blog/why-sales-is-the-first-job-ai-is-replacing',
+    label: 'Why sales is being automated first',
+    title: 'Why sales is the first job AI is replacing',
+    blurb: 'The economics behind the AI Employee that answers your leads.',
+  },
+  {
+    path: '/blog/vibe-coding-explained',
+    label: 'What vibe coding actually is',
+    title: 'What vibe coding actually is',
+    blurb: 'The term, the method, and where it breaks down.',
+  },
+  {
+    path: '/blog/machine-learning-vs-deep-learning-vs-ai-whats-the-difference',
+    label: 'AI vs ML vs deep learning',
+    title: 'AI, machine learning, deep learning',
+    blurb: 'What the words mean, without the math.',
+  },
+  {
+    path: '/blog/why-pakistan-needs-ai-agents',
+    label: 'Why Pakistan’s entrepreneurs need AI agents',
+    title: 'Why Pakistan’s entrepreneurs need AI agents',
+    blurb: 'The local case: real costs, real constraints, what actually works here.',
+  },
+  {
+    path: '/blog/the-ethics-of-agentic-ai-who-is-responsible-when-an-agent-makes-a-mistake',
+    label: 'Who’s responsible when an agent gets it wrong',
+    title: 'Who is responsible when an agent gets it wrong',
+    blurb: 'Accountability, bias, and keeping a digital workforce safe.',
+  },
+] as const
+
 /** IndexNow (Bing, Yandex, Naver, Seznam — and therefore the index ChatGPT
  *  Search reads). The key is public by design: search engines verify it by
  *  fetching /{key}.txt, which lives in public/. scripts/indexnow-ping.mjs
