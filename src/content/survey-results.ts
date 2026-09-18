@@ -58,7 +58,7 @@ export const RESULTS: SurveyResults | null = {
     '62% of respondents live in Pakistan, 18% in the Gulf and 12% in the UK, US, Canada or Australia.',
   ],
   method: [
-    'Self-selected online questionnaire of ten closed questions, offered in Urdu and English side by side, open from 2026-09-12 to 2026-09-17. 60 responses were received and all are counted; none were removed or weighted.',
+    'Self-selected online questionnaire of ten closed questions, offered in Urdu and English side by side, open from 2026-09-12 to 2026-09-17. 60 responses were received and all are counted; none were removed or weighted. The first response, on 12 September 2026, was a test submission made by DSP while verifying that the collection pipeline worked; it is counted with the rest.',
     'Distributed through Digital Services Program\'s own audience - its Facebook page, WhatsApp groups, LinkedIn and YouTube community - and open to anyone with the link. People already interested in learning AI are therefore over-represented, and the sample is not representative of Pakistan as a whole.',
     'The survey collected no name and no phone number. Email was optional and used only to send respondents the results. Responses are reported only in aggregate; the CSV on this page holds the counts, not individual answers.',
     'Respondents could skip a question, so each table\'s percentages are of the people who answered that question. Every figure on this page, in the CSV and in the structured data is computed from the same counts.',
