@@ -41,7 +41,9 @@ jobs:
             // more character. A bare `seo` branch does not qualify.
             const ALLOWED = /^(seo|corroboration)\/.+/
 
-            const skip = (why) => { core.info(`no merge: ${why}`); core.summary.addRaw(`No merge — ${why}`) }
+            // Surfaced as a run annotation so the reason is readable without
+            // opening the log. Every gate below returns through here.
+            const skip = (why) => core.notice(`no merge: ${why}`)
 
             // 1. Which PR did this CI run belong to? The payload list is empty
             //    for fork PRs, so fall back to a lookup by head SHA.
@@ -118,7 +120,6 @@ jobs:
             }
 
             core.notice(`Squash-merged ${label}`)
-            core.summary.addRaw(`Squash-merged ${label}`)
 
             // 5. Delete the head branch. Already gone (repo-level auto-delete
             //    got there first) is not an error.
