@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  pull_request:
+    # `ready_for_review` is not in the default set. Without it a PR opened as a
+    # draft never re-runs CI when it is marked ready, so auto-merge.yml — which
+    # only ever wakes on a successful CI run — would never get a look at it.
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    name: build and checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Nav and footer links
+        run: npm run test:nav
+
+      - name: Blog CTA
+        run: npm run test:blog-cta
+
+      - name: Internal link integrity
+        run: npm run test:links
+
+      # scripts/check-schema.mjs imports the real TypeScript graph module through
+      # Node's built-in type stripping and hard-exits 2 on anything older than
+      # 22.18 — Node 20 cannot run this check at all. Everything above stays on 20
+      # as specified; only this last check gets the newer runtime, which is why it
+      # runs last rather than second. The version switch leaves node_modules in
+      # place, so nothing is reinstalled.
+      - name: Setup Node.js 22 for the schema check
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Mastery JSON-LD schema
+        run: npm run test:schema
