@@ -10,15 +10,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      # No npm ci and no build. This job deploys nothing itself (see below), so
+      # a build here only smoke-tested main — which ci.yml already does on every
+      # PR — while costing ~30s BEFORE the wait below could start polling. That
+      # delay was the whole problem: Vercel finishes in about 40s, the runner
+      # spent about 40s building, so the gate always found the deploy already
+      # live and never actually waited. Both runs since it shipped matched on
+      # attempt 1. A main that does not build now surfaces as that gate timing
+      # out red, which is a truer signal anyway: it reports the real deployment
+      # failing rather than predicting that one would.
+      #
+      # Node is only needed for the IndexNow ping, which imports nothing outside
+      # node: builtins — hence no dependency cache either.
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-      - name: Install dependencies
-        run: npm ci
-      - name: Build project
-        run: npm run build
       - name: Check Vercel secrets
         id: vercel-secrets
         run: |
@@ -37,8 +44,8 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-args: '--prod'
       # Vercel deploys this repo through its own GitHub integration, so the
-      # steps above are skipped whenever the VERCEL_* secrets are absent —
-      # and until 2026-09-12 the IndexNow ping was skipped along with them,
+      # deploy step above is skipped whenever the VERCEL_* secrets are absent —
+      # and until 2026-09-12 the IndexNow ping was skipped along with it,
       # silently, since the day it shipped. It must not depend on them.
       #
       # scripts/indexnow-ping.mjs reads the LIVE sitemap to work out which
