@@ -6,10 +6,15 @@
 //   node scripts/indexnow-ping.mjs --all            # every URL in the live sitemap
 //   node scripts/indexnow-ping.mjs /about /mastery  # explicit paths or absolute URLs
 //
-// Runs after every production deploy (.github/workflows/deploy.yml). The key
-// is public by design (engines verify it by fetching /{key}.txt); it lives in
-// src/config/site.ts `indexNow` and public/{key}.txt. Never fails the deploy:
-// a network error prints and exits 0.
+// Runs after every production deploy (.github/workflows/deploy.yml) — but only
+// once that workflow has confirmed the live site is serving the commit being
+// deployed. This script reads the LIVE sitemap to decide what changed, so
+// running it any earlier pings the previous build's URLs, which is what the
+// old date-based wait did on any day a second deploy landed. The key is public
+// by design (engines verify it by fetching /{key}.txt); it lives in
+// src/config/site.ts `indexNow` and public/{key}.txt. This script still never
+// fails the deploy: a network error prints and exits 0. The wait ahead of it
+// does fail, deliberately — no confirmed deploy, no ping.
 import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
