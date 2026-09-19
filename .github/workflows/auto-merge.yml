@@ -15,6 +15,8 @@ permissions:
   # these two the API calls 403 and nothing would ever merge.
   checks: read
   statuses: read
+  # `gh workflow run` below dispatches deploy.yml.
+  actions: write
 
 concurrency:
   group: auto-merge-${{ github.event.workflow_run.head_sha }}
@@ -29,6 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Gate and merge
+        id: gate
         uses: actions/github-script@v7
         with:
           script: |
@@ -81,30 +84,67 @@ jobs:
 
             // 3. Every check on the head SHA has to have passed. `skipped` and
             //    `neutral` count as passing, the same way branch protection
-            //    treats them; anything still queued or running does not.
+            //    treats them.
+            //
+            //    A check that has not finished is neither a pass nor a failure,
+            //    and this job only ever wakes on a CI run completing — so
+            //    returning here would leave the PR with everything green, no
+            //    merge, and nothing scheduled to look again. Vercel posts its
+            //    deploy as a commit status and takes longer than CI does, so
+            //    that is the ordinary case rather than a rare one. Wait it out:
+            //    30 tries, 10s apart, then give up LOUDLY. Merge or a red job,
+            //    never a stall nobody can see.
+            //
+            //    A genuinely failing check still exits clean: it is already red
+            //    on the PR, so the author can see it without this job shouting.
             const PASSING = ['success', 'skipped', 'neutral']
-            const checkRuns = await github.paginate(github.rest.checks.listForRef, {
-              owner, repo, ref: headSha, filter: 'latest', per_page: 100,
-            })
-            const others = checkRuns.filter((c) => !c.details_url?.includes(`/actions/runs/${context.runId}/`))
-            const unfinished = others.filter((c) => c.status !== 'completed')
-            const failed = others.filter((c) => c.status === 'completed' && !PASSING.includes(c.conclusion))
+            const TRIES = 30
+            const nap = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
-            if (failed.length) {
-              return skip(`${label} has failing checks: ${failed.map((c) => `${c.name} (${c.conclusion})`).join(', ')}`)
-            }
-            if (unfinished.length) {
-              return skip(`${label} still has checks running: ${unfinished.map((c) => c.name).join(', ')}`)
+            let waitingOn = null
+            let passed = 0
+
+            for (let attempt = 1; attempt <= TRIES; attempt++) {
+              const checkRuns = await github.paginate(github.rest.checks.listForRef, {
+                owner, repo, ref: headSha, filter: 'latest', per_page: 100,
+              })
+              const others = checkRuns.filter((c) => !c.details_url?.includes(`/actions/runs/${context.runId}/`))
+              const failed = others.filter((c) => c.status === 'completed' && !PASSING.includes(c.conclusion))
+              if (failed.length) {
+                return skip(`${label} has failing checks: ${failed.map((c) => `${c.name} (${c.conclusion})`).join(', ')}`)
+              }
+
+              const { data: combined } = await github.rest.repos.getCombinedStatusForRef({
+                owner, repo, ref: headSha,
+              })
+              const statuses = combined.total_count > 0 ? combined.statuses : []
+              const badStatuses = statuses.filter((st) => st.state === 'failure' || st.state === 'error')
+              if (badStatuses.length) {
+                return skip(`${label} has failing commit statuses: ${badStatuses.map((st) => `${st.context} (${st.state})`).join(', ')}`)
+              }
+
+              const unfinished = others.filter((c) => c.status !== 'completed')
+              const stillPending = statuses.filter((st) => st.state === 'pending')
+              if (!unfinished.length && !stillPending.length) {
+                waitingOn = null
+                passed = others.length + statuses.length
+                break
+              }
+
+              waitingOn = [
+                ...unfinished.map((c) => c.name),
+                ...stillPending.map((st) => `${st.context} (commit status)`),
+              ]
+              core.info(`  attempt ${attempt}/${TRIES}: waiting on ${waitingOn.join(', ')}`)
+              if (attempt < TRIES) await nap(10000)
             }
 
-            const { data: combined } = await github.rest.repos.getCombinedStatusForRef({
-              owner, repo, ref: headSha,
-            })
-            if (combined.total_count > 0 && combined.state !== 'success') {
-              return skip(`${label} has commit statuses in state "${combined.state}"`)
+            if (waitingOn) {
+              core.setFailed(`${label} not merged: checks never settled within 5 minutes — still waiting on ${waitingOn.join(', ')}`)
+              return
             }
 
-            core.info(`${label}: ${others.length} checks passed on ${headSha.slice(0, 7)} — squash-merging`)
+            core.info(`${label}: ${passed} checks passed on ${headSha.slice(0, 7)} — squash-merging`)
 
             // 4. Merge, pinned to the SHA we vetted so a push landing in this
             //    window loses the race instead of riding in unchecked.
@@ -121,6 +161,13 @@ jobs:
 
             core.notice(`Squash-merged ${label}`)
 
+            // Set before the branch delete, and read by a step that runs even
+            // if this one later fails: once the merge has landed the deploy
+            // has to follow it, whatever happens to the cleanup below.
+            core.setOutput('merged', 'true')
+            core.setOutput('pr', String(pr.number))
+            core.setOutput('sha', headSha)
+
             // 5. Delete the head branch. Already gone (repo-level auto-delete
             //    got there first) is not an error.
             try {
@@ -130,3 +177,45 @@ jobs:
               if (error.status !== 422 && error.status !== 404) throw error
               core.info(`${pr.head.ref} was already deleted`)
             }
+
+      # A squash-merge made with GITHUB_TOKEN raises a push event that deploy.yml
+      # will never see — GitHub suppresses workflow triggering for events its own
+      # token caused, to stop workflows looping. The IndexNow ping lives in that
+      # workflow, so without this step an auto-merged seo/ PR would go live and
+      # never tell Bing. workflow_dispatch is an explicit exception to the
+      # suppression rule, so dispatching it does start a real run.
+      #
+      # `always()` because the merge is the irreversible half: if the branch
+      # delete above threw, the commit is still on main and still needs a deploy.
+      # A dispatch that does not produce a run fails the job — the eleven days of
+      # unfired pings were a skip that exited 0.
+      - name: Deploy the merged commit
+        if: always() && steps.gate.outputs.merged == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          MERGED_PR: ${{ steps.gate.outputs.pr }}
+          MERGED_SHA: ${{ steps.gate.outputs.sha }}
+        run: |
+          set -euo pipefail
+          since="$(date -u -d '-1 minute' +%Y-%m-%dT%H:%M:%SZ)"
+          gh workflow run deploy.yml --ref main
+
+          # `gh workflow run` reports nothing about the run it created, so find
+          # it: the newest workflow_dispatch run on main raised since we started.
+          for i in $(seq 1 18); do
+            runs="$(gh run list --workflow=deploy.yml --event=workflow_dispatch \
+                      --branch=main --limit 20 --json url,createdAt)"
+            url="$(printf '%s' "$runs" \
+                     | jq -r --arg since "$since" \
+                         '[.[] | select(.createdAt >= $since)] | sort_by(.createdAt) | last | .url // empty')"
+            if [ -n "$url" ]; then
+              echo "::notice::PR #$MERGED_PR merged as $MERGED_SHA — deploy run: $url"
+              echo "Deploy for #$MERGED_PR ($MERGED_SHA): $url" >> "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+            echo "  attempt $i/18: no run raised yet"
+            sleep 5
+          done
+          echo "::error::deploy.yml was dispatched for $MERGED_SHA but no run appeared within 90s"
+          exit 1
