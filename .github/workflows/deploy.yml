@@ -42,33 +42,41 @@ jobs:
       # silently, since the day it shipped. It must not depend on them.
       #
       # scripts/indexnow-ping.mjs reads the LIVE sitemap to work out which
-      # URLs changed, so pinging the instant the push lands would read the
-      # previous build. Wait for the new one, then ping. Never fail the
-      # deploy over this: a timeout still pings, and the script exits 0 on
-      # any network error.
+      # URLs changed, so pinging before the new build is live just tells Bing
+      # to recrawl the old HTML. Wait for the new one, then ping.
       #
-      # Match EITHER date. Content dates are authored in Karachi terms
-      # (UTC+5), so from 19:00 UTC the runner's own date is still yesterday
-      # by the author's clock. Run #164 hit exactly that: the new build was
-      # live and serving 2026-09-18, the grep was looking for 2026-09-17,
-      # and the step burned all 12 attempts before printing a timeout it had
-      # no business printing. Accepting both dates closes the hole in both
-      # directions; switching to Karachi alone would just move it.
-      - name: Wait for the production deploy to go live
+      # The wait used to poll that sitemap for today's <lastmod>, which was
+      # wrong in the one direction nobody notices: with a merge landing most
+      # days, the sitemap ALREADY carried today's date from an earlier deploy,
+      # so the poll matched on the first attempt and the ping went out against
+      # the previous build. A date cannot tell two deploys on the same day
+      # apart. /api/build-info stamps the commit each build shipped with, so
+      # this waits for THIS commit and nothing else.
+      #
+      # Budget is 8 minutes (48 x 10s). A timeout now fails the job instead of
+      # pinging anyway: a wrong ping is worse than a loud one, and a silent
+      # skip here is what hid the unfired pings for eleven days.
+      - name: Wait for the production deploy to serve this commit
         if: github.ref == 'refs/heads/main'
-        continue-on-error: true
+        env:
+          EXPECTED_SHA: ${{ github.sha }}
+          BUILD_INFO_URL: https://www.digitalservicesprogram.com/api/build-info
         run: |
-          TODAY_UTC="$(date -u +%F)"
-          TODAY_PKT="$(TZ=Asia/Karachi date +%F)"
-          for i in $(seq 1 12); do
-            if curl -sf --max-time 20 https://www.digitalservicesprogram.com/sitemap.xml \
-                 | grep -qE "<lastmod>($TODAY_UTC|$TODAY_PKT)"; then
-              echo "live build is serving $TODAY_UTC/$TODAY_PKT (after $((i * 20))s)"
+          set -uo pipefail
+          echo "waiting for $BUILD_INFO_URL to serve $EXPECTED_SHA"
+          for i in $(seq 1 48); do
+            served="$(curl -sf --max-time 15 -H 'cache-control: no-cache' \
+                        "$BUILD_INFO_URL?t=$(date +%s)" 2>/dev/null \
+                        | jq -r '.sha // empty' 2>/dev/null || true)"
+            if [ "$served" = "$EXPECTED_SHA" ]; then
+              echo "live build is serving $EXPECTED_SHA (after $((i * 10))s)"
               exit 0
             fi
-            sleep 20
+            echo "  attempt $i/48: serving ${served:-<no response>}"
+            sleep 10
           done
-          echo "timed out waiting for $TODAY_UTC or $TODAY_PKT in the sitemap — pinging anyway"
+          echo "::error::production never served $EXPECTED_SHA within 8 minutes — IndexNow not pinged"
+          exit 1
       - name: Notify IndexNow of changed URLs
         if: github.ref == 'refs/heads/main'
         run: node scripts/indexnow-ping.mjs
