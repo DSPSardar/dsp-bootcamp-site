@@ -2,6 +2,7 @@ import { notFound, redirect } from 'next/navigation'
 import { requireStudent, isAdminUser } from '@/lib/mastery/auth'
 import { moduleFor, unlockState, titleOf, lessonSlug, lessonLabel } from '@/lib/mastery/course'
 import { autoCompleteWatched } from '@/lib/mastery/progress'
+import Ustad from '@/components/mastery/Ustad'
 
 export default async function ModulePage({ params }: { params: Promise<{ moduleId: string }> }) {
   const { moduleId } = await params
@@ -51,6 +52,7 @@ export default async function ModulePage({ params }: { params: Promise<{ moduleI
           {(m.vault_files ?? []).map((f) => <a key={f} href={`/app/m/${m.id}/doc?f=${encodeURIComponent(f)}`}>{f.replace(/\.md$/, '').replace(/-/g, ' ')}</a>)}
         </div>
       </div>
+      <Ustad moduleId={m.id} lessonTitle={m.title} />
     </>
   )
 }
