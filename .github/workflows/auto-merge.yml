@@ -84,30 +84,67 @@ jobs:
 
             // 3. Every check on the head SHA has to have passed. `skipped` and
             //    `neutral` count as passing, the same way branch protection
-            //    treats them; anything still queued or running does not.
+            //    treats them.
+            //
+            //    A check that has not finished is neither a pass nor a failure,
+            //    and this job only ever wakes on a CI run completing — so
+            //    returning here would leave the PR with everything green, no
+            //    merge, and nothing scheduled to look again. Vercel posts its
+            //    deploy as a commit status and takes longer than CI does, so
+            //    that is the ordinary case rather than a rare one. Wait it out:
+            //    30 tries, 10s apart, then give up LOUDLY. Merge or a red job,
+            //    never a stall nobody can see.
+            //
+            //    A genuinely failing check still exits clean: it is already red
+            //    on the PR, so the author can see it without this job shouting.
             const PASSING = ['success', 'skipped', 'neutral']
-            const checkRuns = await github.paginate(github.rest.checks.listForRef, {
-              owner, repo, ref: headSha, filter: 'latest', per_page: 100,
-            })
-            const others = checkRuns.filter((c) => !c.details_url?.includes(`/actions/runs/${context.runId}/`))
-            const unfinished = others.filter((c) => c.status !== 'completed')
-            const failed = others.filter((c) => c.status === 'completed' && !PASSING.includes(c.conclusion))
+            const TRIES = 30
+            const nap = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
-            if (failed.length) {
-              return skip(`${label} has failing checks: ${failed.map((c) => `${c.name} (${c.conclusion})`).join(', ')}`)
-            }
-            if (unfinished.length) {
-              return skip(`${label} still has checks running: ${unfinished.map((c) => c.name).join(', ')}`)
+            let waitingOn = null
+            let passed = 0
+
+            for (let attempt = 1; attempt <= TRIES; attempt++) {
+              const checkRuns = await github.paginate(github.rest.checks.listForRef, {
+                owner, repo, ref: headSha, filter: 'latest', per_page: 100,
+              })
+              const others = checkRuns.filter((c) => !c.details_url?.includes(`/actions/runs/${context.runId}/`))
+              const failed = others.filter((c) => c.status === 'completed' && !PASSING.includes(c.conclusion))
+              if (failed.length) {
+                return skip(`${label} has failing checks: ${failed.map((c) => `${c.name} (${c.conclusion})`).join(', ')}`)
+              }
+
+              const { data: combined } = await github.rest.repos.getCombinedStatusForRef({
+                owner, repo, ref: headSha,
+              })
+              const statuses = combined.total_count > 0 ? combined.statuses : []
+              const badStatuses = statuses.filter((st) => st.state === 'failure' || st.state === 'error')
+              if (badStatuses.length) {
+                return skip(`${label} has failing commit statuses: ${badStatuses.map((st) => `${st.context} (${st.state})`).join(', ')}`)
+              }
+
+              const unfinished = others.filter((c) => c.status !== 'completed')
+              const stillPending = statuses.filter((st) => st.state === 'pending')
+              if (!unfinished.length && !stillPending.length) {
+                waitingOn = null
+                passed = others.length + statuses.length
+                break
+              }
+
+              waitingOn = [
+                ...unfinished.map((c) => c.name),
+                ...stillPending.map((st) => `${st.context} (commit status)`),
+              ]
+              core.info(`  attempt ${attempt}/${TRIES}: waiting on ${waitingOn.join(', ')}`)
+              if (attempt < TRIES) await nap(10000)
             }
 
-            const { data: combined } = await github.rest.repos.getCombinedStatusForRef({
-              owner, repo, ref: headSha,
-            })
-            if (combined.total_count > 0 && combined.state !== 'success') {
-              return skip(`${label} has commit statuses in state "${combined.state}"`)
+            if (waitingOn) {
+              core.setFailed(`${label} not merged: checks never settled within 5 minutes — still waiting on ${waitingOn.join(', ')}`)
+              return
             }
 
-            core.info(`${label}: ${others.length} checks passed on ${headSha.slice(0, 7)} — squash-merging`)
+            core.info(`${label}: ${passed} checks passed on ${headSha.slice(0, 7)} — squash-merging`)
 
             // 4. Merge, pinned to the SHA we vetted so a push landing in this
             //    window loses the race instead of riding in unchecked.
