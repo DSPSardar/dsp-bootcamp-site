@@ -1,0 +1,132 @@
+name: Auto-merge
+
+# Fires only after CI has finished. `workflow_run` workflows are always read
+# from the default branch, so this file has no effect until it is on main.
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+  # Declaring a permissions block drops every scope not listed to `none`, and
+  # the gate below reads check runs and commit statuses on the head SHA. Without
+  # these two the API calls 403 and nothing would ever merge.
+  checks: read
+  statuses: read
+
+concurrency:
+  group: auto-merge-${{ github.event.workflow_run.head_sha }}
+  cancel-in-progress: false
+
+jobs:
+  auto-merge:
+    name: squash-merge a green seo/ or corroboration/ PR
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Gate and merge
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo
+            const slug = `${owner}/${repo}`
+            const run = context.payload.workflow_run
+            const headSha = run.head_sha
+
+            // `seo/**` and `corroboration/**`: the prefix plus at least one
+            // more character. A bare `seo` branch does not qualify.
+            const ALLOWED = /^(seo|corroboration)\/.+/
+
+            // Surfaced as a run annotation so the reason is readable without
+            // opening the log. Every gate below returns through here.
+            const skip = (why) => core.notice(`no merge: ${why}`)
+
+            // 1. Which PR did this CI run belong to? The payload list is empty
+            //    for fork PRs, so fall back to a lookup by head SHA.
+            let number = (run.pull_requests || [])[0]?.number
+            if (!number) {
+              const associated = await github.rest.repos.listPullRequestsAssociatedWithCommit({
+                owner, repo, commit_sha: headSha,
+              })
+              const open = associated.data.filter((p) => p.state === 'open')
+              if (open.length !== 1) {
+                return skip(`${open.length} open PRs are associated with ${headSha.slice(0, 7)} — need exactly one`)
+              }
+              number = open[0].number
+            }
+
+            const { data: pr } = await github.rest.pulls.get({ owner, repo, pull_number: number })
+            const label = `#${pr.number} (${pr.head.ref})`
+
+            // 2. Gates. Every one of these is a quiet no-op, never a failure.
+            if (pr.state !== 'open') return skip(`${label} is ${pr.state}`)
+            if (pr.draft) return skip(`${label} is a draft`)
+            if (!ALLOWED.test(pr.head.ref)) return skip(`${label} is not under seo/ or corroboration/`)
+
+            // A fork can name its branch anything it likes, including seo/…, so
+            // never hand it a squash-merge driven by a write-scoped token.
+            if (pr.head.repo?.full_name !== slug) {
+              return skip(`${label} comes from a fork (${pr.head.repo?.full_name ?? 'unknown'})`)
+            }
+
+            // The branch may have moved on since CI started; those checks say
+            // nothing about the current head.
+            if (pr.head.sha !== headSha) {
+              return skip(`${label} moved to ${pr.head.sha.slice(0, 7)} since CI ran on ${headSha.slice(0, 7)}`)
+            }
+
+            // 3. Every check on the head SHA has to have passed. `skipped` and
+            //    `neutral` count as passing, the same way branch protection
+            //    treats them; anything still queued or running does not.
+            const PASSING = ['success', 'skipped', 'neutral']
+            const checkRuns = await github.paginate(github.rest.checks.listForRef, {
+              owner, repo, ref: headSha, filter: 'latest', per_page: 100,
+            })
+            const others = checkRuns.filter((c) => !c.details_url?.includes(`/actions/runs/${context.runId}/`))
+            const unfinished = others.filter((c) => c.status !== 'completed')
+            const failed = others.filter((c) => c.status === 'completed' && !PASSING.includes(c.conclusion))
+
+            if (failed.length) {
+              return skip(`${label} has failing checks: ${failed.map((c) => `${c.name} (${c.conclusion})`).join(', ')}`)
+            }
+            if (unfinished.length) {
+              return skip(`${label} still has checks running: ${unfinished.map((c) => c.name).join(', ')}`)
+            }
+
+            const { data: combined } = await github.rest.repos.getCombinedStatusForRef({
+              owner, repo, ref: headSha,
+            })
+            if (combined.total_count > 0 && combined.state !== 'success') {
+              return skip(`${label} has commit statuses in state "${combined.state}"`)
+            }
+
+            core.info(`${label}: ${others.length} checks passed on ${headSha.slice(0, 7)} — squash-merging`)
+
+            // 4. Merge, pinned to the SHA we vetted so a push landing in this
+            //    window loses the race instead of riding in unchecked.
+            try {
+              await github.rest.pulls.merge({
+                owner, repo, pull_number: pr.number, merge_method: 'squash', sha: headSha,
+              })
+            } catch (error) {
+              if (error.status === 405 || error.status === 409) {
+                return skip(`${label} could not be merged (${error.status}): ${error.message}`)
+              }
+              throw error
+            }
+
+            core.notice(`Squash-merged ${label}`)
+
+            // 5. Delete the head branch. Already gone (repo-level auto-delete
+            //    got there first) is not an error.
+            try {
+              await github.rest.git.deleteRef({ owner, repo, ref: `heads/${pr.head.ref}` })
+              core.info(`Deleted ${pr.head.ref}`)
+            } catch (error) {
+              if (error.status !== 422 && error.status !== 404) throw error
+              core.info(`${pr.head.ref} was already deleted`)
+            }
