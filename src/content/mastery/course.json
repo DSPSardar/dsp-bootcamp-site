@@ -1444,9 +1444,11 @@
           "title": "Lecture 1 — What are Tokens, Vectors and Embeddings",
           "bunny": {
             "guid": "3dcbeb07-16c9-47e9-a1af-1aca3e80fbdc",
-            "status": "processing",
+            "status": "ready",
             "version": 1,
-            "uploaded_at": "2026-09-20T15:45:01.466Z"
+            "uploaded_at": "2026-09-20T15:45:01.466Z",
+            "length_sec": 1052,
+            "aspect": 1.7778
           }
         },
         {
