@@ -34,7 +34,7 @@ export default function SiteHeader() {
       <div className="wrap nav">
         {/* No aria-label: the visible wordmark is the accessible name, so they
             can't mismatch (the "D" mark is decorative and hidden). */}
-        <Link className="brand" href="/">
+        <Link prefetch={false} className="brand" href="/">
           <span className="brand-mark" aria-hidden="true">D</span> Digital Services Program
         </Link>
         <button
@@ -49,7 +49,7 @@ export default function SiteHeader() {
         <ul className={`nav-links${open ? ' open' : ''}`} id="site-nav-links">
           {links.map((l) => (
             <li key={l.href}>
-              <Link
+              <Link prefetch={false}
                 href={l.href}
                 aria-current={pathname === l.href ? 'true' : undefined}
                 onClick={() => setOpen(false)}

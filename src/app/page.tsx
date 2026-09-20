@@ -221,7 +221,7 @@ export default function HomePage() {
               behind every DSP Employee, and the syllabus of {mastery.shortName}.
             </p>
             <p style={{ marginTop: '1rem' }}>
-              <Link className="arrow-link" href="/what-is-an-ai-employee" style={{ color: '#fff', borderColor: 'rgba(255,255,255,.3)' }}>
+              <Link prefetch={false} className="arrow-link" href="/what-is-an-ai-employee" style={{ color: '#fff', borderColor: 'rgba(255,255,255,.3)' }}>
                 Read the definition: what is an AI Employee? →
               </Link>
             </p>
@@ -253,12 +253,12 @@ export default function HomePage() {
               <TrackedLink className="btn btn-gold" href="/mastery" event="academy_cta_click" params={{ cta: 'home_mastery' }}>
                 Start AI Mastery
               </TrackedLink>
-              <Link className="btn btn-ghost" href="/mastery/curriculum">See all 16 modules</Link>
+              <Link prefetch={false} className="btn btn-ghost" href="/mastery/curriculum">See all 16 modules</Link>
             </div>
             <div className="taught">
               <Image src={founder.image} alt="" width={104} height={130} />
               <span>
-                <b>Taught by <Link href={founder.path}>{founder.name}</Link>, the founder</b>
+                <b>Taught by <Link prefetch={false} href={founder.path}>{founder.name}</Link>, the founder</b>
                 Teaching technology since 2002 · Google-certified AI trainer · Anthropic-verified educator
               </span>
             </div>
@@ -394,14 +394,14 @@ export default function HomePage() {
           </div>
           <div className="emp-grid" data-reveal="stagger">
             {pillars.map((pillar) => (
-              <Link className="card hover" key={pillar.path} href={pillar.path}>
+              <Link prefetch={false} className="card hover" key={pillar.path} href={pillar.path}>
                 <h3>{pillar.title}</h3>
                 <p>{pillar.blurb}</p>
               </Link>
             ))}
           </div>
           <p style={{ marginTop: '1.6rem' }}>
-            <Link className="arrow-link" href="/blog">Everything we&apos;ve written &rarr;</Link>
+            <Link prefetch={false} className="arrow-link" href="/blog">Everything we&apos;ve written &rarr;</Link>
           </p>
         </div>
       </section>
@@ -433,7 +433,7 @@ export default function HomePage() {
           <p style={{ marginTop: '.4rem', color: 'var(--navy-soft)' }}>
             We are asking what actually stops people in Pakistan and the Urdu-speaking diaspora from
             learning AI. Ten questions, anonymous, no phone number — results published free.{' '}
-            <Link href="/survey">Take the survey &rarr;</Link>
+            <Link prefetch={false} href="/survey">Take the survey &rarr;</Link>
           </p>
         </div>
       </section>

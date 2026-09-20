@@ -16,20 +16,20 @@ export default function SiteFooter() {
           <div>
             <h3>AI Employees</h3>
             <ul>
-              <li><Link href="/ai-employees">AI Employees</Link></li>
+              <li><Link prefetch={false} href="/ai-employees">AI Employees</Link></li>
               <li><a href={agency.hubUrl} rel="noopener">{agency.hubName} ↗</a></li>
-              <li><Link href="/pricing">Pricing</Link></li>
-              <li><Link href="/agents">Custom agent builds</Link></li>
-              <li><Link href="/agents/restaurant-ai">Restaurant AI</Link></li>
-              <li><Link href="/channelops">ChannelOps</Link></li>
-              <li><Link href="/agents/case-studies">Case studies</Link></li>
+              <li><Link prefetch={false} href="/pricing">Pricing</Link></li>
+              <li><Link prefetch={false} href="/agents">Custom agent builds</Link></li>
+              <li><Link prefetch={false} href="/agents/restaurant-ai">Restaurant AI</Link></li>
+              <li><Link prefetch={false} href="/channelops">ChannelOps</Link></li>
+              <li><Link prefetch={false} href="/agents/case-studies">Case studies</Link></li>
             </ul>
           </div>
           <div>
             <h3>Learn</h3>
             <ul>
-              <li><Link href="/mastery">AI Agent Mastery</Link></li>
-              <li><Link href="/channelops#course">ChannelOps training</Link></li>
+              <li><Link prefetch={false} href="/mastery">AI Agent Mastery</Link></li>
+              <li><Link prefetch={false} href="/channelops#course">ChannelOps training</Link></li>
             </ul>
             {footerGuides.length > 0 && (
               <>
@@ -37,7 +37,7 @@ export default function SiteFooter() {
                 <h3 style={{ marginTop: '1.4rem' }}>Guides</h3>
                 <ul>
                   {footerGuides.map((g) => (
-                    <li key={g.path}><Link href={g.path}>{g.title}</Link></li>
+                    <li key={g.path}><Link prefetch={false} href={g.path}>{g.title}</Link></li>
                   ))}
                 </ul>
               </>
@@ -46,13 +46,13 @@ export default function SiteFooter() {
           <div>
             <h3>Company</h3>
             <ul>
-              <li><Link href="/about">About DSP</Link></li>
-              <li><Link href="/sardar-ghaffar">Sardar Ghaffar</Link></li>
-              <li><Link href="/blog">Blog</Link></li>
+              <li><Link prefetch={false} href="/about">About DSP</Link></li>
+              <li><Link prefetch={false} href="/sardar-ghaffar">Sardar Ghaffar</Link></li>
+              <li><Link prefetch={false} href="/blog">Blog</Link></li>
               {/* History entry, not an offer — owner ruling 2026-08-30 */}
-              <li><Link href="/academy/bootcamp">The Agentic Lab (2025–2026)</Link></li>
-              <li><Link href="/survey">Pakistan AI Skills Survey 2026</Link></li>
-              <li><Link href="/contact">Contact</Link></li>
+              <li><Link prefetch={false} href="/academy/bootcamp">The Agentic Lab (2025–2026)</Link></li>
+              <li><Link prefetch={false} href="/survey">Pakistan AI Skills Survey 2026</Link></li>
+              <li><Link prefetch={false} href="/contact">Contact</Link></li>
               <li><a href={socials.youtube}>YouTube</a></li>
               <li><a href={socials.tiktok}>TikTok</a></li>
               <li><a href={socials.facebook}>Facebook</a></li>
@@ -73,7 +73,7 @@ export default function SiteFooter() {
           <h3>Fundamentals</h3>
           <ul>
             {pillars.map((p) => (
-              <li key={p.path}><Link href={p.path}>{p.label}</Link></li>
+              <li key={p.path}><Link prefetch={false} href={p.path}>{p.label}</Link></li>
             ))}
           </ul>
         </nav>
