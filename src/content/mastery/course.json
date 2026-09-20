@@ -1430,6 +1430,26 @@
           "title": "Short — How RAG Actually Works"
         },
         {
+          "file": "M09-L03_Tokens-Vectors-Embeddings.mp4",
+          "folder": "Phase-2-Agent-Engineer/M09-RAG-Memory",
+          "youtube_id": null,
+          "minutes": 18,
+          "source": "LOCAL",
+          "status": "Located",
+          "chapters": [],
+          "master": "M09-L03_Tokens-Vectors-Embeddings_v1.mp4",
+          "kind": "core",
+          "order": "L03",
+          "source_note": "20 Sep 2026 Zoom recording; listed first in M09 because embeddings are the mechanism RAG runs on. File code is L03 so existing L01/L02 progress is kept.",
+          "title": "Lecture 1 — What are Tokens, Vectors and Embeddings",
+          "bunny": {
+            "guid": "3dcbeb07-16c9-47e9-a1af-1aca3e80fbdc",
+            "status": "processing",
+            "version": 1,
+            "uploaded_at": "2026-09-20T15:45:01.466Z"
+          }
+        },
+        {
           "file": "M09-L01_RAG-Explained_CFQgyH1uJVU.mp4",
           "folder": "Phase-2-Agent-Engineer/M09-RAG-Memory",
           "youtube_id": "CFQgyH1uJVU",
@@ -1448,7 +1468,7 @@
             "length_sec": 2194,
             "aspect": 1.7778
           },
-          "title": "Lecture 1 — Give Your AI Agent Perfect Memory: RAG Explained"
+          "title": "Lecture 2 — Give Your AI Agent Perfect Memory: RAG Explained"
         },
         {
           "file": "M09-L02_The-Memory-Ladder_oOKyMHilVH4.mp4",
@@ -1471,7 +1491,7 @@
             "length_sec": 2510,
             "aspect": 1.7778
           },
-          "title": "Lecture 2 — The Memory Ladder"
+          "title": "Lecture 3 — The Memory Ladder"
         }
       ],
       "build_project": "AI Employee Part 5: Knows the Menu, Remembers the Customer",
@@ -1488,6 +1508,13 @@
           "type": "pdf",
           "bytes": 9968788,
           "path": "_SLIDES/M09-RAG-Memory/M09-D01_The-Smart-Library-RAG.pdf"
+        },
+        {
+          "file": "M09-D02_Tokens-Vectors-and-Embeddings.pdf",
+          "title": "Tokens, Vectors and Embeddings",
+          "type": "pdf",
+          "bytes": 1300144,
+          "path": "_SLIDES/M09-RAG-Memory/M09-D02_Tokens-Vectors-and-Embeddings.pdf"
         }
       ],
       "slides_zip": "_SLIDES/_ZIP/M09-slides.zip"
