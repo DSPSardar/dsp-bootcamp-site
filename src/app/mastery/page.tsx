@@ -353,16 +353,14 @@ export default function MasteryPage() {
     <video
       src="/mastery/proof-21-certificates-square.mp4"
       poster="/mastery/proof-21-certificates-poster.jpg"
-      autoPlay
-      muted
-      loop
+      controls
       playsInline
       preload="metadata"
       aria-label="21 Anthropic certifications earned by 15 Digital Services Program students"
       style={{width:'100%',display:'block',borderRadius:'14px',border:'1px solid var(--line)',background:'var(--ink)'}}
     />
     <p className="muted" style={{fontSize:'13px',textAlign:'center',marginTop:'10px'}}>
-      21 Anthropic certifications earned by 15 DSP students. Every credential independently verifiable.
+      ▶ Press play (30s, with sound) — 21 Anthropic certifications earned by 15 DSP students. Every credential independently verifiable.
     </p>
   </div>
   <div style={{maxWidth:'900px',margin:'0 auto 44px'}}>
