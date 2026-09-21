@@ -347,6 +347,34 @@ export default function MasteryPage() {
       </div>
     ))}
   </div>
+
+  {/* PROOF WALL — 21 real Anthropic certifications earned by DSP students */}
+  <div style={{maxWidth:'660px',margin:'0 auto 44px'}}>
+    <video
+      src="/mastery/proof-21-certificates-square.mp4"
+      poster="/mastery/proof-21-certificates-poster.jpg"
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="metadata"
+      aria-label="21 Anthropic certifications earned by 15 Digital Services Program students"
+      style={{width:'100%',display:'block',borderRadius:'14px',border:'1px solid var(--line)',background:'var(--ink)'}}
+    />
+    <p className="muted" style={{fontSize:'13px',textAlign:'center',marginTop:'10px'}}>
+      21 Anthropic certifications earned by 15 DSP students. Every credential independently verifiable.
+    </p>
+  </div>
+  <div style={{maxWidth:'900px',margin:'0 auto 44px'}}>
+    <Image
+      src="/mastery/proof-21-certificates-wall.jpg"
+      alt="Wall of 21 Anthropic Claude Academy certificates earned by 15 Digital Services Program students, including Claude 101, Claude Code 101, Claude Platform 101, AI Fluency and Introduction to Claude Cowork"
+      width={1600}
+      height={880}
+      sizes="(max-width: 900px) 100vw, 900px"
+      style={{width:'100%',height:'auto',borderRadius:'14px',border:'1px solid var(--line)'}}
+    />
+  </div>
   <div style={{maxWidth:'840px'}}>
     <div>
       <div className="eyebrow">Certificates</div>
