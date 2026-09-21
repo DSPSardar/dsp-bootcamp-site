@@ -146,7 +146,93 @@ export default function MasteryPage() {
 </div></nav>
 
 
-<header className="hero" id="top"><div className="wrap">
+{/* 1–3. CERTIFICATES — the page opens on proof: the copy, the four cards + proof video, the 21-certificate wall */}
+<section id="top" className="certs-first"><div className="wrap">
+  <div style={{maxWidth:'900px'}}>
+    <div>
+      <div className="eyebrow">Certificates</div>
+      <h2>What certificates do I get, and are they recognised?</h2>
+      <p className="answer">Two kinds. The DSP Master certificate has a public verification page showing the live agent you built — proof of work, not attendance. Module 3 also takes you through Claude Academy, Anthropic&apos;s free training, so you finish holding three of their completion badges with your name on them. Neither is a university accreditation; what employers and clients check is the working agent behind the link.</p>
+      <p className="lead">Three certificates from Claude — Anthropic, USA. And one from DSP. Every certificate has a public verification page showing the capstone URL and repo behind it. An employer or client can open it and see the agent working. Featured capstones earn Master with Distinction.</p>
+      <p className="md" style={{marginTop:'18px'}}><b>You finish with four, and three of them are not ours.</b> Module 3 takes you through Claude Academy, the training run by Anthropic — the American company in San Francisco that builds Claude — and you come out holding <b>Claude 101</b>, <b>Claude Code 101</b> and <b>Introduction to Claude Cowork</b>, each with your own name on it. Anthropic issues them, so they say nothing about DSP and everything about you. The fourth is the DSP Master certificate, and it is the one that points at a live agent you built.</p>
+      <p className="md" style={{marginTop:'12px'}}>None of this is out of reach. Every DSP student who follows the module earns all three — no exam fee, no waiting list, no degree required. Ours have been earning them for months, and we publish every one on our channels the week it lands. How the Anthropic certificates actually work — who issues them, and why no institute can — is set out in <Link className="il" href="/claude-code-course-pakistan">the Claude Code course guide</Link>.</p>
+      <div className="badges">
+        <span><b>M06</b>Builder</span><span><b>M10</b>Agent Engineer</span><span><b>M13</b>Production-Ready</span><span><b>M15</b>AI Solutions Seller</span><span><b>M16</b>AI Search Dominator</span><span><b>CAP</b>Master</span>
+      </div>
+    </div>
+  </div>
+
+  <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))',gap:'18px',marginBottom:'44px'}}>
+    {[
+      { img: '/mastery/cert-claude-101.jpg', name: 'Claude 101', by: 'Anthropic, USA', alt: 'Claude 101 completion badge from Claude Academy, Anthropic' },
+      { img: '/mastery/cert-claude-code-101.jpg', name: 'Claude Code 101', by: 'Anthropic, USA', alt: 'Claude Code 101 completion badge from Claude Academy, Anthropic' },
+      { img: '/mastery/cert-claude-cowork.jpg', name: 'Introduction to Claude Cowork', by: 'Anthropic, USA', alt: 'Introduction to Claude Cowork completion badge from Claude Academy, Anthropic' },
+      { img: '/mastery/cert-dsp-master.jpg', name: 'DSP AI Agent Mastery', by: 'Digital Services Program', alt: 'DSP AI Agent Mastery certificate with verifiable URL' },
+    ].map((c) => (
+      <div className="card" key={c.name} style={{padding:'14px',display:'flex',flexDirection:'column'}}>
+        <div style={{position:'relative',paddingTop:'66%',borderRadius:'10px',overflow:'hidden',background:'var(--ink)',border:'1px solid var(--line)'}}>
+          <Image src={c.img} alt={c.alt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" style={{objectFit:'cover'}} />
+        </div>
+        <div className="by" style={{marginTop:'12px'}}>{c.name}</div>
+        <div className="muted" style={{fontSize:'13px'}}>{c.by}</div>
+      </div>
+    ))}
+  </div>
+
+  {/* PROOF WALL — 21 real Anthropic certifications earned by DSP students */}
+  <div style={{maxWidth:'660px',margin:'0 auto 44px'}}>
+    <video
+      src="/mastery/proof-21-certificates-square.mp4"
+      poster="/mastery/proof-21-certificates-poster.jpg"
+      controls
+      playsInline
+      preload="metadata"
+      aria-label="21 Anthropic certifications earned by 15 Digital Services Program students"
+      style={{width:'100%',display:'block',borderRadius:'14px',border:'1px solid var(--line)',background:'var(--ink)'}}
+    />
+    <p className="muted" style={{fontSize:'13px',textAlign:'center',marginTop:'10px'}}>
+      ▶ Press play (30s, with sound) — 21 Anthropic certifications earned by 15 DSP students. Every credential independently verifiable.
+    </p>
+  </div>
+  <div style={{maxWidth:'900px',margin:'0 auto 44px'}}>
+    <Image
+      src="/mastery/proof-21-certificates-wall.jpg"
+      alt="Wall of 21 Anthropic Claude Academy certificates earned by 15 Digital Services Program students, including Claude 101, Claude Code 101, Claude Platform 101, AI Fluency and Introduction to Claude Cowork"
+      width={1600}
+      height={880}
+      sizes="(max-width: 900px) 100vw, 900px"
+      style={{width:'100%',height:'auto',borderRadius:'14px',border:'1px solid var(--line)'}}
+    />
+  </div>
+  <div className="cta-row" style={{justifyContent:'center',marginTop:'40px'}}>
+    <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.certs)} event="whatsapp_click" params={{ location: 'certificates' }}>Enrol now — $100</TrackedLink>
+    <TrackedLink className="paylink" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'certificates' }}>Pay directly</TrackedLink>
+  </div>
+</div></section>
+
+
+{/* 4. HOW THE COURSE WORKS — the seven-minute tour */}
+{/* WELCOME VIDEO */}
+{welcomeSrc && (
+<section id="welcome" style={{paddingTop:'0'}}><div className="wrap">
+  <div className="eyebrow">Seven minutes inside the course</div>
+  <h2>See exactly how the course works — before you pay.</h2>
+  <p className="lead" style={{marginBottom:'28px'}}>A real walkthrough of the student dashboard: how the 16 modules unlock, where the templates, copy-paste prompts and slides live, and how you share your build for support. Recorded by Sardar, not a marketing team.</p>
+  <LazyEmbed
+    src={welcomeSrc}
+    title="Inside DSP AI Agent Mastery — how the course works"
+    poster={mastery.welcomePoster ?? undefined}
+    load="click"
+    style={{borderRadius:'20px',border:'1px solid var(--line)'}}
+  />
+</div></section>
+)}
+
+
+{/* 5. THE OFFER — headline, price, CTA, the agent formula */}
+
+
+<header className="hero"><div className="wrap">
   <div>
     <div className="eyebrow">Self-paced · Lifetime access · 1 year free support</div>
     <h1>The AI agent course for beginners — go from zero to <em>building, deploying and selling</em> AI agents.</h1>
@@ -186,21 +272,6 @@ export default function MasteryPage() {
 </div></header>
 
 
-{/* WELCOME VIDEO */}
-{welcomeSrc && (
-<section id="welcome" style={{paddingTop:'0'}}><div className="wrap">
-  <div className="eyebrow">Seven minutes inside the course</div>
-  <h2>See exactly how the course works — before you pay.</h2>
-  <p className="lead" style={{marginBottom:'28px'}}>A real walkthrough of the student dashboard: how the 16 modules unlock, where the templates, copy-paste prompts and slides live, and how you share your build for support. Recorded by Sardar, not a marketing team.</p>
-  <LazyEmbed
-    src={welcomeSrc}
-    title="Inside DSP AI Agent Mastery — how the course works"
-    poster={mastery.welcomePoster ?? undefined}
-    load="click"
-    style={{borderRadius:'20px',border:'1px solid var(--line)'}}
-  />
-</div></section>
-)}
 
 
 {/* ONE-PARAGRAPH ANSWER + AT A GLANCE */}
@@ -330,69 +401,7 @@ export default function MasteryPage() {
 </div></section>
 
 
-<section><div className="wrap">
-  <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))',gap:'18px',marginBottom:'44px'}}>
-    {[
-      { img: '/mastery/cert-claude-101.jpg', name: 'Claude 101', by: 'Anthropic, USA', alt: 'Claude 101 completion badge from Claude Academy, Anthropic' },
-      { img: '/mastery/cert-claude-code-101.jpg', name: 'Claude Code 101', by: 'Anthropic, USA', alt: 'Claude Code 101 completion badge from Claude Academy, Anthropic' },
-      { img: '/mastery/cert-claude-cowork.jpg', name: 'Introduction to Claude Cowork', by: 'Anthropic, USA', alt: 'Introduction to Claude Cowork completion badge from Claude Academy, Anthropic' },
-      { img: '/mastery/cert-dsp-master.jpg', name: 'DSP AI Agent Mastery', by: 'Digital Services Program', alt: 'DSP AI Agent Mastery certificate with verifiable URL' },
-    ].map((c) => (
-      <div className="card" key={c.name} style={{padding:'14px',display:'flex',flexDirection:'column'}}>
-        <div style={{position:'relative',paddingTop:'66%',borderRadius:'10px',overflow:'hidden',background:'var(--ink)',border:'1px solid var(--line)'}}>
-          <Image src={c.img} alt={c.alt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" style={{objectFit:'cover'}} />
-        </div>
-        <div className="by" style={{marginTop:'12px'}}>{c.name}</div>
-        <div className="muted" style={{fontSize:'13px'}}>{c.by}</div>
-      </div>
-    ))}
-  </div>
 
-  {/* PROOF WALL — 21 real Anthropic certifications earned by DSP students */}
-  <div style={{maxWidth:'660px',margin:'0 auto 44px'}}>
-    <video
-      src="/mastery/proof-21-certificates-square.mp4"
-      poster="/mastery/proof-21-certificates-poster.jpg"
-      autoPlay
-      muted
-      loop
-      playsInline
-      preload="metadata"
-      aria-label="21 Anthropic certifications earned by 15 Digital Services Program students"
-      style={{width:'100%',display:'block',borderRadius:'14px',border:'1px solid var(--line)',background:'var(--ink)'}}
-    />
-    <p className="muted" style={{fontSize:'13px',textAlign:'center',marginTop:'10px'}}>
-      21 Anthropic certifications earned by 15 DSP students. Every credential independently verifiable.
-    </p>
-  </div>
-  <div style={{maxWidth:'900px',margin:'0 auto 44px'}}>
-    <Image
-      src="/mastery/proof-21-certificates-wall.jpg"
-      alt="Wall of 21 Anthropic Claude Academy certificates earned by 15 Digital Services Program students, including Claude 101, Claude Code 101, Claude Platform 101, AI Fluency and Introduction to Claude Cowork"
-      width={1600}
-      height={880}
-      sizes="(max-width: 900px) 100vw, 900px"
-      style={{width:'100%',height:'auto',borderRadius:'14px',border:'1px solid var(--line)'}}
-    />
-  </div>
-  <div style={{maxWidth:'840px'}}>
-    <div>
-      <div className="eyebrow">Certificates</div>
-      <h2>What certificates do I get, and are they recognised?</h2>
-      <p className="answer">Two kinds. The DSP Master certificate has a public verification page showing the live agent you built — proof of work, not attendance. Module 3 also takes you through Claude Academy, Anthropic&apos;s free training, so you finish holding three of their completion badges with your name on them. Neither is a university accreditation; what employers and clients check is the working agent behind the link.</p>
-      <p className="lead">Three certificates from Claude — Anthropic, USA. And one from DSP. Every certificate has a public verification page showing the capstone URL and repo behind it. An employer or client can open it and see the agent working. Featured capstones earn Master with Distinction.</p>
-      <p className="md" style={{marginTop:'18px'}}><b>You finish with four, and three of them are not ours.</b> Module 3 takes you through Claude Academy, the training run by Anthropic — the American company in San Francisco that builds Claude — and you come out holding <b>Claude 101</b>, <b>Claude Code 101</b> and <b>Introduction to Claude Cowork</b>, each with your own name on it. Anthropic issues them, so they say nothing about DSP and everything about you. The fourth is the DSP Master certificate, and it is the one that points at a live agent you built.</p>
-      <p className="md" style={{marginTop:'12px'}}>None of this is out of reach. Every DSP student who follows the module earns all three — no exam fee, no waiting list, no degree required. Ours have been earning them for months, and we publish every one on our channels the week it lands. How the Anthropic certificates actually work — who issues them, and why no institute can — is set out in <Link className="il" href="/claude-code-course-pakistan">the Claude Code course guide</Link>.</p>
-      <div className="badges">
-        <span><b>M06</b>Builder</span><span><b>M10</b>Agent Engineer</span><span><b>M13</b>Production-Ready</span><span><b>M15</b>AI Solutions Seller</span><span><b>M16</b>AI Search Dominator</span><span><b>CAP</b>Master</span>
-      </div>
-    </div>
-  </div>
-  <div className="cta-row" style={{justifyContent:'center',marginTop:'40px'}}>
-    <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.certs)} event="whatsapp_click" params={{ location: 'certificates' }}>Enrol now — $100</TrackedLink>
-    <TrackedLink className="paylink" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'certificates' }}>Pay directly</TrackedLink>
-  </div>
-</div></section>
 
 
 {/* STUDENT BUILDS — real students on camera; cards come from ./students.ts */}

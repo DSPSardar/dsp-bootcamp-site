@@ -301,3 +301,6 @@
 /* Main site header on /mastery: scrolls away so the Mastery section nav stays the sticky bar; neutralise the unscoped .nav rule above */
 .mastery-sitebar .site-header{position:relative}
 .mastery-sitebar .site-header .nav{position:static;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:0}
+
+/* The page now opens on the certificates section; give it the hero's clearance under the sticky nav. */
+.page-mastery .certs-first{padding-top:88px}
