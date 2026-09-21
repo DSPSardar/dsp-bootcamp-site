@@ -229,7 +229,98 @@ export default function MasteryPage() {
 )}
 
 
-{/* 5. THE OFFER — headline, price, CTA, the agent formula */}
+{/* 5. CURRICULUM — the 16 modules, straight after the tour */}
+<section id="curriculum"><div className="wrap">
+  <div className="eyebrow">Curriculum</div>
+  <h2>Sixteen modules. Every one ends with something you built.</h2>
+  <p className="lead" style={{marginBottom:'36px'}}>Around 30 hours of lectures, recorded live with real students asking real questions — cut, chaptered and put in the order a beginner needs. Every module, its outcome and what you build, on one page: <Link className="il" href="/mastery/curriculum">the full curriculum</Link>.</p>
+  <div className="acc">
+    <details><summary><span className="n">M01</span>AI Foundations<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Explain what an LLM and an agent are, what each can&apos;t do, and pick one idea worth building.</div><div><b>You build</b>5 ideas through the Agent Idea Filter, one chosen with a clear user and success condition.</div></div></details>
+    <details><summary><span className="n">M02</span>Prompting &amp; Context Engineering<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Write a production-grade Job Description using the 7-Part JD: Role, Goal, Audience, Tone, Steps, Rules, Examples.</div><div><b>You build</b>Your JD v2 with three real test inputs and a note on what you changed.</div></div></details>
+    <details><summary><span className="n">M03</span>Claude · ChatGPT · Gemini<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Set up Claude, Console, Claude Code, GitHub and Vercel correctly; know when to reach for each tool.</div><div><b>You build</b>A working Claude Project and a completed setup checklist.</div></div></details>
+    <details><summary><span className="n">M04</span>Vibe Coding<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Build software by describing it: PLAN → BUILD ONE FEATURE → TEST → COMMIT → NEXT, with Claude Code.</div><div><b>You build</b>Your AI Employee, Part 1 running locally, on video.</div></div></details>
+    <details><summary><span className="n">M05</span>Websites<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Ship a responsive multi-page site with forms from a one-page spec.</div><div><b>You build</b>the AI Employee&apos;s four pages, desktop and mobile screenshots.</div></div></details>
+    <details><summary><span className="n">M06</span>Git &amp; GitHub<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Version-control every project; branch, merge, recover a mistake, fix the common permission errors.</div><div><b>You build</b>A public repo with ten meaningful commits.</div></div></details>
+    <details><summary><span className="n">M07</span>AI Agents<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Build a real agent — Job Description + Tools + Loop — that completes a multi-step task.</div><div><b>You build</b>A demo of your AI Employee taking a full order, plus its architecture on one page.</div></div></details>
+    <details><summary><span className="n">M08</span>APIs<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Connect to the Claude API and one external service; keep keys safe; handle errors and cost.</div><div><b>You build</b>An order sent by email/Sheets from the agent, with a clean repo history.</div></div></details>
+    <details><summary><span className="n">M09</span>RAG &amp; Memory<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Give an agent knowledge and memory using the Memory Ladder; pick the right rung for the job.</div><div><b>You build</b>Five grounded answers from a knowledge base and memory across two sessions.</div></div></details>
+    <details><summary><span className="n">M10</span>MCP<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Connect an agent to real tools — Sheets, Calendar, Gmail — through the Model Context Protocol.</div><div><b>You build</b>An MCP tool executing from the agent, result visible in the external app.</div></div></details>
+    <details><summary><span className="n">M11</span>Testing &amp; Observability<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Test systematically with the DSP 10-Question Test Sheet; read logs instead of guessing.</div><div><b>You build</b>The completed sheet, three fixes with before/after, and a log.</div></div></details>
+    <details><summary><span className="n">M12</span>Security<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Protect keys, block prompt injection, limit what the agent can do and spend.</div><div><b>You build</b>A 15-point checklist signed off and ten injection attempts logged.</div></div></details>
+    <details><summary><span className="n">M13</span>Deployment<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Put your AI Employee on a public HTTPS URL with the backend hosted and env vars set.</div><div><b>You build</b>The live URL — share it in the group.</div></div></details>
+    <details><summary><span className="n">M14</span>Multi-Agent &amp; Business Automation<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Turn one agent into a business system: One Agent Many Clients, notifications, and when multi-agent is worth it.</div><div><b>You build</b>your AI Employee serving two cafés from one deployment.</div></div></details>
+    <details><summary><span className="n">M15</span>Selling AI Solutions<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Run discovery, price the work, write the proposal, deliver, get paid — as a freelancer or a one-person agency.</div><div><b>You build</b>A discovery sheet and a proposal for a real business.</div></div></details>
+    <details><summary><span className="n">M16</span>AI Search Dominance Engine<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Take one target query from research to a deployed page that Google and AI assistants cite — query fan-out, SERP intelligence, competitor gap, content architecture, technical SEO, structured data, SEO Win Score — and sell it as a monthly SEO retainer.</div><div><b>You build</b>Your first Dominance page: one query → live URL → SEO Win Score. Open from day one, no prerequisites.</div></div></details>
+    <details><summary><span className="n">CAP</span>Capstone — your own agent<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Build, test, secure, deploy and pitch an original agent for a real use case — not the café AI Employee.</div><div><b>You build</b>Live URL, repo, 3-minute demo, 1-page proposal — reviewed by the DSP team. This earns the certificate.</div></div></details>
+  </div>
+</div></section>
+
+
+{/* 6. WHAT YOU BUILD */}
+<section id="build"><div className="wrap">
+  <div className="eyebrow">What you build</div>
+  <div className="demo">
+    <div>
+      <h2>What will I actually build in this AI agent course?</h2>
+      <p className="answer">A café ordering AI Employee. It starts as an empty folder in Module 4, becomes a four-page website, then an agent that takes orders, remembers customers, emails the kitchen and writes to Google Sheets through MCP — built with Claude Code, versioned on GitHub, deployed on Vercel to a public URL, and by Module 14 serving two cafés from one codebase.</p>
+      <p className="lead">Every module adds one real capability to it. It is a simplified version of <Link className="il" href="/agents/restaurant-ai">the multi-tenant restaurant agent DSP runs for clients</Link> — the same shape, built by you.</p>
+      <ul className="milestones">
+        <li><span className="mnum">M04–05</span><div><b>Website</b><span>Home, menu, about, order form. Responsive. No code written by hand.</span></div></li>
+        <li><span className="mnum">M07</span><div><b>Ordering agent</b><span>Takes an order item by item, handles corrections, confirms the total.</span></div></li>
+        <li><span className="mnum">M08–10</span><div><b>Connected</b><span>Claude API in the backend, orders emailed to the kitchen, written to Sheets via MCP.</span></div></li>
+        <li><span className="mnum">M09</span><div><b>Memory</b><span>Knows the menu and allergens. Remembers a returning customer&apos;s last order.</span></div></li>
+        <li><span className="mnum">M11–13</span><div><b>Live</b><span>Tested with the 10-Question sheet, hardened against prompt injection, deployed on Vercel.</span></div></li>
+        <li><span className="mnum">M14</span><div><b>Two cafés, one system</b><span>Multi-tenant. This is the shape of what you sell to clients.</span></div></li>
+      </ul>
+    </div>
+    <div className="chat" aria-label="Example AI Employee conversation">
+      <div className="bar"><i></i> AI Employee · live on ai-employee-yourname.vercel.app</div>
+      <div className="msgs">
+        <div className="m a">Welcome back, Ayesha. Same as last time — one cappuccino and a chicken tikka wrap?</div>
+        <div className="m u">Yes, but make the cappuccino oat milk. And is the wrap spicy?</div>
+        <div className="m a">Medium spice — the marinade has green chilli. Want it mild instead?</div>
+        <div className="m u">Mild please. That&apos;s it.</div>
+        <div className="m a">Order: 1 oat cappuccino, 1 chicken tikka wrap (mild). Total $12. Confirm?</div>
+        <div className="m u">Confirm</div>
+        <div className="m t">→ order #0417 sent to kitchen · row added to Sheets · owner notified on WhatsApp</div>
+        <div className="m a">Done. Ready in about 12 minutes.</div>
+      </div>
+    </div>
+  </div>
+  <div className="cta-row" style={{justifyContent:'center',marginTop:'40px'}}>
+    <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.build)} event="whatsapp_click" params={{ location: 'build' }}>Start building yours <span className="price-tag">$100 · one-time</span></TrackedLink>
+    <TrackedLink className="paylink" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'build' }}>Pay directly</TrackedLink>
+  </div>
+</div></section>
+
+
+{/* 7. THE JOURNEY */}
+<section id="journey" className="journey"><div className="wrap">
+  <div className="eyebrow">The journey</div>
+  <h2>What does the 16-module AI agent curriculum cover?</h2>
+  <p className="answer">Five phases. Phase 0 (Modules 1–3) gives you the foundations: what an agent is, how to write a Job Description, and how to set up Claude, ChatGPT and Gemini. Phase 1 (4–6) teaches vibe coding with Claude Code, websites and Git. Phase 2 (7–10) turns your website into an agent with APIs, RAG, memory and MCP. Phase 3 (11–13) tests, secures and deploys it. Phase 4 (14–16 plus the capstone) makes it multi-tenant, teaches you to sell it, and adds the AI Search Dominance Engine.</p>
+  <p className="lead" style={{marginBottom:'48px'}}>Modules open in order, one build at a time — that&apos;s how everyone finishes. No tests, no grades. You watch, you build, you move on.</p>
+  <div className="rail" id="rail">
+    <div className="phase"><div className="dot">0</div><h3>Zero — Foundations</h3><div className="out">You can explain what an agent is and write a Job Description that works</div>
+      <div className="mods"><span>M01 AI Foundations</span><span>M02 Prompting &amp; Context Engineering</span><span>M03 Claude · ChatGPT · Gemini</span></div>
+      <p className="build"><b>You produce:</b> one chosen agent idea, a tested 7-Part Job Description, and a working Claude Project.</p></div>
+    <div className="phase"><div className="dot">1</div><h3>Builder</h3><div className="out">You can build and version software by describing it</div>
+      <div className="mods"><span>M04 Vibe Coding</span><span>M05 Websites</span><span>M06 Git &amp; GitHub</span></div>
+      <p className="build"><b>You produce:</b> AI Employee Parts 1–2 — a responsive café website, on GitHub, from an empty folder.</p></div>
+    <div className="phase"><div className="dot">2</div><h3>Agent Engineer</h3><div className="out">Your website becomes an agent that acts, remembers and connects</div>
+      <div className="mods"><span>M07 AI Agents</span><span>M08 APIs</span><span>M09 RAG &amp; Memory</span><span>M10 MCP</span></div>
+      <p className="build"><b>You produce:</b> AI Employee Parts 3–6 — takes orders, remembers customers, emails the kitchen, writes to Google Sheets.</p></div>
+    <div className="phase"><div className="dot">3</div><h3>Production</h3><div className="out">Your agent is tested, hardened and live on the internet</div>
+      <div className="mods"><span>M11 Testing &amp; Observability</span><span>M12 Security</span><span>M13 Deployment</span></div>
+      <p className="build"><b>You produce:</b> AI Employee LIVE — a public URL you can send to anyone.</p></div>
+    <div className="phase"><div className="dot">4</div><h3>Seller</h3><div className="out">You can turn one agent into a business and sell it</div>
+      <div className="mods"><span>M14 Multi-Agent &amp; Business Automation</span><span>M15 Selling AI Solutions</span><span>M16 AI Search Dominance Engine</span><span>Capstone</span></div>
+      <p className="build"><b>You produce:</b> your AI Employee serving two cafés from one system, a real client proposal, one SEO page built by the AI Search Dominance Engine, and your own original agent — the capstone that earns the certificate.</p></div>
+  </div>
+</div></section>
+
+
+{/* 8. THE OFFER — headline, price, CTA, the agent formula */}
 
 
 <header className="hero"><div className="wrap">
@@ -308,41 +399,7 @@ export default function MasteryPage() {
 </div></section>
 
 
-<section id="build"><div className="wrap">
-  <div className="eyebrow">What you build</div>
-  <div className="demo">
-    <div>
-      <h2>What will I actually build in this AI agent course?</h2>
-      <p className="answer">A café ordering AI Employee. It starts as an empty folder in Module 4, becomes a four-page website, then an agent that takes orders, remembers customers, emails the kitchen and writes to Google Sheets through MCP — built with Claude Code, versioned on GitHub, deployed on Vercel to a public URL, and by Module 14 serving two cafés from one codebase.</p>
-      <p className="lead">Every module adds one real capability to it. It is a simplified version of <Link className="il" href="/agents/restaurant-ai">the multi-tenant restaurant agent DSP runs for clients</Link> — the same shape, built by you.</p>
-      <ul className="milestones">
-        <li><span className="mnum">M04–05</span><div><b>Website</b><span>Home, menu, about, order form. Responsive. No code written by hand.</span></div></li>
-        <li><span className="mnum">M07</span><div><b>Ordering agent</b><span>Takes an order item by item, handles corrections, confirms the total.</span></div></li>
-        <li><span className="mnum">M08–10</span><div><b>Connected</b><span>Claude API in the backend, orders emailed to the kitchen, written to Sheets via MCP.</span></div></li>
-        <li><span className="mnum">M09</span><div><b>Memory</b><span>Knows the menu and allergens. Remembers a returning customer&apos;s last order.</span></div></li>
-        <li><span className="mnum">M11–13</span><div><b>Live</b><span>Tested with the 10-Question sheet, hardened against prompt injection, deployed on Vercel.</span></div></li>
-        <li><span className="mnum">M14</span><div><b>Two cafés, one system</b><span>Multi-tenant. This is the shape of what you sell to clients.</span></div></li>
-      </ul>
-    </div>
-    <div className="chat" aria-label="Example AI Employee conversation">
-      <div className="bar"><i></i> AI Employee · live on ai-employee-yourname.vercel.app</div>
-      <div className="msgs">
-        <div className="m a">Welcome back, Ayesha. Same as last time — one cappuccino and a chicken tikka wrap?</div>
-        <div className="m u">Yes, but make the cappuccino oat milk. And is the wrap spicy?</div>
-        <div className="m a">Medium spice — the marinade has green chilli. Want it mild instead?</div>
-        <div className="m u">Mild please. That&apos;s it.</div>
-        <div className="m a">Order: 1 oat cappuccino, 1 chicken tikka wrap (mild). Total $12. Confirm?</div>
-        <div className="m u">Confirm</div>
-        <div className="m t">→ order #0417 sent to kitchen · row added to Sheets · owner notified on WhatsApp</div>
-        <div className="m a">Done. Ready in about 12 minutes.</div>
-      </div>
-    </div>
-  </div>
-  <div className="cta-row" style={{justifyContent:'center',marginTop:'40px'}}>
-    <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.build)} event="whatsapp_click" params={{ location: 'build' }}>Start building yours <span className="price-tag">$100 · one-time</span></TrackedLink>
-    <TrackedLink className="paylink" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'build' }}>Pay directly</TrackedLink>
-  </div>
-</div></section>
+
 
 
 <section><div className="wrap">
@@ -361,29 +418,7 @@ export default function MasteryPage() {
 </div></section>
 
 
-<section id="journey" className="journey"><div className="wrap">
-  <div className="eyebrow">The journey</div>
-  <h2>What does the 16-module AI agent curriculum cover?</h2>
-  <p className="answer">Five phases. Phase 0 (Modules 1–3) gives you the foundations: what an agent is, how to write a Job Description, and how to set up Claude, ChatGPT and Gemini. Phase 1 (4–6) teaches vibe coding with Claude Code, websites and Git. Phase 2 (7–10) turns your website into an agent with APIs, RAG, memory and MCP. Phase 3 (11–13) tests, secures and deploys it. Phase 4 (14–16 plus the capstone) makes it multi-tenant, teaches you to sell it, and adds the AI Search Dominance Engine.</p>
-  <p className="lead" style={{marginBottom:'48px'}}>Modules open in order, one build at a time — that&apos;s how everyone finishes. No tests, no grades. You watch, you build, you move on.</p>
-  <div className="rail" id="rail">
-    <div className="phase"><div className="dot">0</div><h3>Zero — Foundations</h3><div className="out">You can explain what an agent is and write a Job Description that works</div>
-      <div className="mods"><span>M01 AI Foundations</span><span>M02 Prompting &amp; Context Engineering</span><span>M03 Claude · ChatGPT · Gemini</span></div>
-      <p className="build"><b>You produce:</b> one chosen agent idea, a tested 7-Part Job Description, and a working Claude Project.</p></div>
-    <div className="phase"><div className="dot">1</div><h3>Builder</h3><div className="out">You can build and version software by describing it</div>
-      <div className="mods"><span>M04 Vibe Coding</span><span>M05 Websites</span><span>M06 Git &amp; GitHub</span></div>
-      <p className="build"><b>You produce:</b> AI Employee Parts 1–2 — a responsive café website, on GitHub, from an empty folder.</p></div>
-    <div className="phase"><div className="dot">2</div><h3>Agent Engineer</h3><div className="out">Your website becomes an agent that acts, remembers and connects</div>
-      <div className="mods"><span>M07 AI Agents</span><span>M08 APIs</span><span>M09 RAG &amp; Memory</span><span>M10 MCP</span></div>
-      <p className="build"><b>You produce:</b> AI Employee Parts 3–6 — takes orders, remembers customers, emails the kitchen, writes to Google Sheets.</p></div>
-    <div className="phase"><div className="dot">3</div><h3>Production</h3><div className="out">Your agent is tested, hardened and live on the internet</div>
-      <div className="mods"><span>M11 Testing &amp; Observability</span><span>M12 Security</span><span>M13 Deployment</span></div>
-      <p className="build"><b>You produce:</b> AI Employee LIVE — a public URL you can send to anyone.</p></div>
-    <div className="phase"><div className="dot">4</div><h3>Seller</h3><div className="out">You can turn one agent into a business and sell it</div>
-      <div className="mods"><span>M14 Multi-Agent &amp; Business Automation</span><span>M15 Selling AI Solutions</span><span>M16 AI Search Dominance Engine</span><span>Capstone</span></div>
-      <p className="build"><b>You produce:</b> your AI Employee serving two cafés from one system, a real client proposal, one SEO page built by the AI Search Dominance Engine, and your own original agent — the capstone that earns the certificate.</p></div>
-  </div>
-</div></section>
+
 
 
 <section><div className="wrap">
@@ -517,30 +552,7 @@ export default function MasteryPage() {
 </div></section>
 
 
-<section id="curriculum"><div className="wrap">
-  <div className="eyebrow">Curriculum</div>
-  <h2>Sixteen modules. Every one ends with something you built.</h2>
-  <p className="lead" style={{marginBottom:'36px'}}>Around 30 hours of lectures, recorded live with real students asking real questions — cut, chaptered and put in the order a beginner needs. Every module, its outcome and what you build, on one page: <Link className="il" href="/mastery/curriculum">the full curriculum</Link>.</p>
-  <div className="acc">
-    <details><summary><span className="n">M01</span>AI Foundations<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Explain what an LLM and an agent are, what each can&apos;t do, and pick one idea worth building.</div><div><b>You build</b>5 ideas through the Agent Idea Filter, one chosen with a clear user and success condition.</div></div></details>
-    <details><summary><span className="n">M02</span>Prompting &amp; Context Engineering<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Write a production-grade Job Description using the 7-Part JD: Role, Goal, Audience, Tone, Steps, Rules, Examples.</div><div><b>You build</b>Your JD v2 with three real test inputs and a note on what you changed.</div></div></details>
-    <details><summary><span className="n">M03</span>Claude · ChatGPT · Gemini<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Set up Claude, Console, Claude Code, GitHub and Vercel correctly; know when to reach for each tool.</div><div><b>You build</b>A working Claude Project and a completed setup checklist.</div></div></details>
-    <details><summary><span className="n">M04</span>Vibe Coding<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Build software by describing it: PLAN → BUILD ONE FEATURE → TEST → COMMIT → NEXT, with Claude Code.</div><div><b>You build</b>Your AI Employee, Part 1 running locally, on video.</div></div></details>
-    <details><summary><span className="n">M05</span>Websites<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Ship a responsive multi-page site with forms from a one-page spec.</div><div><b>You build</b>the AI Employee&apos;s four pages, desktop and mobile screenshots.</div></div></details>
-    <details><summary><span className="n">M06</span>Git &amp; GitHub<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Version-control every project; branch, merge, recover a mistake, fix the common permission errors.</div><div><b>You build</b>A public repo with ten meaningful commits.</div></div></details>
-    <details><summary><span className="n">M07</span>AI Agents<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Build a real agent — Job Description + Tools + Loop — that completes a multi-step task.</div><div><b>You build</b>A demo of your AI Employee taking a full order, plus its architecture on one page.</div></div></details>
-    <details><summary><span className="n">M08</span>APIs<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Connect to the Claude API and one external service; keep keys safe; handle errors and cost.</div><div><b>You build</b>An order sent by email/Sheets from the agent, with a clean repo history.</div></div></details>
-    <details><summary><span className="n">M09</span>RAG &amp; Memory<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Give an agent knowledge and memory using the Memory Ladder; pick the right rung for the job.</div><div><b>You build</b>Five grounded answers from a knowledge base and memory across two sessions.</div></div></details>
-    <details><summary><span className="n">M10</span>MCP<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Connect an agent to real tools — Sheets, Calendar, Gmail — through the Model Context Protocol.</div><div><b>You build</b>An MCP tool executing from the agent, result visible in the external app.</div></div></details>
-    <details><summary><span className="n">M11</span>Testing &amp; Observability<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Test systematically with the DSP 10-Question Test Sheet; read logs instead of guessing.</div><div><b>You build</b>The completed sheet, three fixes with before/after, and a log.</div></div></details>
-    <details><summary><span className="n">M12</span>Security<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Protect keys, block prompt injection, limit what the agent can do and spend.</div><div><b>You build</b>A 15-point checklist signed off and ten injection attempts logged.</div></div></details>
-    <details><summary><span className="n">M13</span>Deployment<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Put your AI Employee on a public HTTPS URL with the backend hosted and env vars set.</div><div><b>You build</b>The live URL — share it in the group.</div></div></details>
-    <details><summary><span className="n">M14</span>Multi-Agent &amp; Business Automation<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Turn one agent into a business system: One Agent Many Clients, notifications, and when multi-agent is worth it.</div><div><b>You build</b>your AI Employee serving two cafés from one deployment.</div></div></details>
-    <details><summary><span className="n">M15</span>Selling AI Solutions<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Run discovery, price the work, write the proposal, deliver, get paid — as a freelancer or a one-person agency.</div><div><b>You build</b>A discovery sheet and a proposal for a real business.</div></div></details>
-    <details><summary><span className="n">M16</span>AI Search Dominance Engine<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Take one target query from research to a deployed page that Google and AI assistants cite — query fan-out, SERP intelligence, competitor gap, content architecture, technical SEO, structured data, SEO Win Score — and sell it as a monthly SEO retainer.</div><div><b>You build</b>Your first Dominance page: one query → live URL → SEO Win Score. Open from day one, no prerequisites.</div></div></details>
-    <details><summary><span className="n">CAP</span>Capstone — your own agent<span className="plus">+</span></summary><div className="body"><div><b>Outcome</b>Build, test, secure, deploy and pitch an original agent for a real use case — not the café AI Employee.</div><div><b>You build</b>Live URL, repo, 3-minute demo, 1-page proposal — reviewed by the DSP team. This earns the certificate.</div></div></details>
-  </div>
-</div></section>
+
 
 
 {/* COMPARISON — honest placement against the alternatives a beginner also finds */}
