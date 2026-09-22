@@ -52,7 +52,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     { url: `${SITE}/pricing`, lastModified: new Date('2026-08-30'), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE}/agents/restaurant-ai`, lastModified: new Date('2026-08-30'), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${SITE}/agents`, lastModified: new Date('2026-09-06'), changeFrequency: 'weekly', priority: 0.9 },
+    // Moved 2026-09-20: /agents became the commercial entity + answer page —
+    // answer-first definition, dashboard-sourced proof, a six-question
+    // FAQPage, and a Service node stating areaServed and hasOfferCatalog.
+    { url: `${SITE}/agents`, lastModified: new Date('2026-09-20'), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE}/channelops`, lastModified: new Date('2026-08-30'), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE}/agents/case-studies`, lastModified: new Date('2026-08-30'), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE}/about`, lastModified: new Date('2026-09-10'), changeFrequency: 'monthly', priority: 0.8 },

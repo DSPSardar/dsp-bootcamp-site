@@ -381,3 +381,11 @@
   .dsp-site .table-scroll::after{content:"→ swipe to see all columns";display:block;font-family:var(--mono);font-size:.72rem;color:var(--navy-soft);padding:.5rem .2rem 0;position:sticky;left:0}
   .dsp-site .band-dark .table-scroll::after,.dsp-site .band-teal .table-scroll::after{color:var(--muted-dark)}
 }
+
+/* FAQ accordion on the company pages (/agents). The guide pages have their
+   own copy of this scoped under .page-guide in guides.css; this one is for
+   sections rendered inside SiteShell, where that selector does not apply. */
+.dsp-site .faq-list details{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:.7rem;padding:.9rem 1.2rem}
+.dsp-site .faq-list summary{font-weight:600;cursor:pointer;color:var(--navy);line-height:1.45}
+.dsp-site .faq-list details p{margin:.6rem 0 0;color:var(--navy-soft)}
+.dsp-site .faq-list details[open] summary{margin-bottom:.1rem}

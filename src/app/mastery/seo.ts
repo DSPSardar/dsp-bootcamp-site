@@ -31,6 +31,13 @@ export const CANONICAL = `${site.url}${mastery.url}`
  *  and tells Google nothing) and not derived from git at build time (a
  *  metadata-only commit would bump it too). Bump it by hand, to the day the
  *  content change ships:
+ *    2026-09-19 · e9beb66 "sell the 24/7 AI tutor": the hero and the
+ *                 what-you-get block now sell Ustad, the 24/7 AI tutor in
+ *                 the student dashboard. The copy shipped 19 Sept 16:15 PKT
+ *                 but this constant was not bumped with it, so the sitemap
+ *                 still advertised 17 Sept and IndexNow could not see the
+ *                 page as changed. Second time the same rule was missed —
+ *                 check this constant on every visible-copy PR
  *    2026-09-18 · blog consolidation: the Module 7 free-lesson card named
  *                 a post that was merged away. M07 is "JD + Tools + Loop"
  *                 and the agent loop now lives in what-is-an-ai-agent, so
@@ -48,7 +55,7 @@ export const CANONICAL = `${site.url}${mastery.url}`
  *    2026-09-05 · Tier A on-page upgrade (question H2s, at-a-glance,
  *                 comparison, Urdu section, running costs, 6 new FAQs)
  *    2026-08-28 · 1b552c5 · M05-L01 replaced with the 17 Aug re-recording */
-export const PAGE_LAST_MODIFIED = '2026-09-18T03:30:00+05:00'
+export const PAGE_LAST_MODIFIED = '2026-09-19T16:15:00+05:00'
 
 // Fixed month names so the byline renders identically on every Node/ICU
 // build (toLocaleDateString gives "Sep" on some, "Sept" on others).
