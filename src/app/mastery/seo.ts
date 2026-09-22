@@ -55,7 +55,7 @@ export const CANONICAL = `${site.url}${mastery.url}`
  *    2026-09-05 · Tier A on-page upgrade (question H2s, at-a-glance,
  *                 comparison, Urdu section, running costs, 6 new FAQs)
  *    2026-08-28 · 1b552c5 · M05-L01 replaced with the 17 Aug re-recording */
-export const PAGE_LAST_MODIFIED = '2026-09-19T16:15:00+05:00'
+export const PAGE_LAST_MODIFIED = '2026-09-21T17:21:00+05:00'
 
 // Fixed month names so the byline renders identically on every Node/ICU
 // build (toLocaleDateString gives "Sep" on some, "Sept" on others).
