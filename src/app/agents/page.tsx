@@ -23,6 +23,7 @@ import SiteShell from '@/components/site/SiteShell'
 import TrackedLink from '@/components/site/TrackedLink'
 import { CheckIcon, WhatsAppIcon } from '@/components/home/icons'
 import { site, entity, waLink } from '@/config/site'
+import { PAGE_LAST_MODIFIED } from './seo'
 
 // Title and description lead with the words a buyer types, not the words a
 // student types: "AI automation agency", "AI agent development company", the
@@ -152,12 +153,30 @@ const serviceLd = {
 
 const faqLd = faqPageLd(FAQS)
 
+// WebPage node: the only place the page states when it last changed. Its
+// dateModified is the same constant the sitemap reports (./seo.ts), so an
+// engine comparing the two never sees a page that claims to be unchanged.
+// `about` points at the Service node above by @id — one entity, not two.
+const webPageLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${site.url}/agents#webpage`,
+  url: `${site.url}/agents`,
+  name: 'AI Automation Agency in Islamabad, Pakistan — DSP Agents',
+  description: ANSWER,
+  inLanguage: 'en',
+  dateModified: PAGE_LAST_MODIFIED,
+  publisher: { '@id': ORGANIZATION_ID },
+  about: { '@id': `${site.url}/agents#service` },
+}
+
 export default function AgentsPage() {
   return (
     <SiteShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd([{ name: 'AI Agents', path: '/agents' }])) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageLd) }} />
 
       {/* ============ HERO ============ */}
       <section className="hero-dark">

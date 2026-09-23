@@ -293,7 +293,7 @@ export default function HomePage() {
           <div className="sec-head">
             <p className="eyebrow">What you build</p>
             <h2>One working AI Employee, end to end.</h2>
-            <p>The build every Mastery student ships — a simplified version of the multi-tenant agents DSP runs for clients.</p>
+            <p>The build every Mastery student ships — a simplified version of <Link prefetch={false} href="/agents">the multi-tenant agents DSP builds and runs for clients</Link>.</p>
           </div>
           <ol className="flow" data-reveal="stagger">
             <li><small>starts with</small>Customer</li>
