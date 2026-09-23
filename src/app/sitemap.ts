@@ -20,14 +20,17 @@ import { getPostRefit } from '@/content/post-refits'
 import { agency, liveGuides } from '@/config/site'
 import { PAGE_LAST_MODIFIED as MASTERY_LAST_MODIFIED } from '@/app/mastery/seo'
 import { PAGE_LAST_MODIFIED as FOUNDER_LAST_MODIFIED } from '@/app/sardar-ghaffar/seo'
+import { PAGE_LAST_MODIFIED as AGENTS_LAST_MODIFIED } from '@/app/agents/seo'
 
 const SITE = 'https://www.digitalservicesprogram.com'
 
 /** Real content-change dates for the two pages whose content moves with the
  *  rest of the site rather than with their own file. */
-// `/` moved 2026-09-18: the fundamentals reading block (§13) added eight
-// blog links to a page that previously linked none.
-const HOME_UPDATED = '2026-09-18'
+// `/` moved 2026-09-23: §09 "What you build" now links the agents DSP runs
+// for clients to /agents — the commercial page had no link from the
+// homepage body at all. Before that, 2026-09-18: the fundamentals reading
+// block (§13) added eight blog links to a page that previously linked none.
+const HOME_UPDATED = '2026-09-23'
 // `/blog` moved 2026-09-18 with the consolidation: the index lists 12 posts
 // instead of 43, six of them with rewritten excerpts. `/` does not move —
 // its reading block links the eight pillars, and all eight survived.
@@ -43,7 +46,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Evergreen explainer of the sunset Agentic Lab — stays indexed, but
     // it is a history page now, not a priority landing page.
     { url: `${SITE}/academy/bootcamp`, lastModified: new Date('2026-08-30'), changeFrequency: 'monthly', priority: 0.5 },
-    { url: `${SITE}/ai-employees`, lastModified: new Date('2026-09-10'), changeFrequency: 'weekly', priority: 0.95 },
+    // 2026-09-23: §9 "Or learn to build them" now links "hire one" to /agents.
+    { url: `${SITE}/ai-employees`, lastModified: new Date('2026-09-23'), changeFrequency: 'weekly', priority: 0.95 },
     ...agency.employees.map((e) => ({
       url: `${SITE}/ai-employees/${e.id}`,
       lastModified: new Date('2026-09-09'),
@@ -52,10 +56,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     { url: `${SITE}/pricing`, lastModified: new Date('2026-08-30'), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE}/agents/restaurant-ai`, lastModified: new Date('2026-08-30'), changeFrequency: 'weekly', priority: 0.9 },
-    // Moved 2026-09-20: /agents became the commercial entity + answer page —
-    // answer-first definition, dashboard-sourced proof, a six-question
-    // FAQPage, and a Service node stating areaServed and hasOfferCatalog.
-    { url: `${SITE}/agents`, lastModified: new Date('2026-09-20'), changeFrequency: 'weekly', priority: 0.9 },
+    // Real content-change date (see src/app/agents/seo.ts): the same constant
+    // the page's WebPage node reports as dateModified.
+    { url: `${SITE}/agents`, lastModified: new Date(AGENTS_LAST_MODIFIED), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE}/channelops`, lastModified: new Date('2026-08-30'), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE}/agents/case-studies`, lastModified: new Date('2026-08-30'), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE}/about`, lastModified: new Date('2026-09-10'), changeFrequency: 'monthly', priority: 0.8 },

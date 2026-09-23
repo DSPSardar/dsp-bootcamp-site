@@ -300,7 +300,7 @@ export default function AiEmployeesPage() {
             <p className="eyebrow">The other door</p>
             <h2>Or learn to build them.</h2>
             <p>
-              DSP is where AI Employees come from — you can hire one, or learn to build them.
+              DSP is where AI Employees come from — you can <Link href="/agents">hire one built for your business</Link>, or learn to build them.
               The working method behind every Employee on this page is what we teach in
               DSP AI Agent Mastery, self-paced, from zero.
             </p>
