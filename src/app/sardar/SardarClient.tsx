@@ -2,10 +2,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { track } from '@/lib/track'
 import TrackedLink from '@/components/site/TrackedLink'
-import Avatar2D from './Avatar2D'
+import Stage from './Stage'
 import Chart2D from './Chart2D'
 import { DEMO_BADGE, DEMO_CHIPS, type Chart, type Chip } from './demo'
 import { ASOS_DEMO_URL, MASTERY_URL } from './links'
+import { lipsync, look } from './store'
 
 type Msg = { role: 'you' | 'ai'; text: string; chart?: Chart | null; cta?: Chip['cta'] | null; done: boolean }
 
@@ -15,11 +16,12 @@ const GREETING =
 /** Words per second for the typewriter reveal; the voice layer (step 4) replaces this pacing with real audio. */
 const WPS = 3.4
 
-export default function SardarClient({ canGoLive = false }: { canGoLive?: boolean }) {
+export default function SardarClient({ canGoLive = false, avatarUrl = null }: { canGoLive?: boolean; avatarUrl?: string | null }) {
   const [mode, setMode] = useState<'demo' | 'live'>('demo')
   const [msgs, setMsgs] = useState<Msg[]>([{ role: 'ai', text: GREETING, done: true }])
   const [active, setActive] = useState<string | null>(null)
   const [speaking, setSpeaking] = useState(false)
+  const [chart, setChart] = useState<Chart | null>(null)
   const stageRef = useRef<HTMLDivElement>(null)
   const logRef = useRef<HTMLDivElement>(null)
   const timer = useRef<number | null>(null)
@@ -33,10 +35,11 @@ export default function SardarClient({ canGoLive = false }: { canGoLive?: boolea
       const r = el.getBoundingClientRect()
       const x = ((e.clientX - r.left) / r.width - 0.5) * 2
       const y = ((e.clientY - r.top) / r.height - 0.5) * 2
-      el.style.setProperty('--look-x', String(Math.max(-1, Math.min(1, x)).toFixed(3)))
-      el.style.setProperty('--look-y', String(Math.max(-1, Math.min(1, y)).toFixed(3)))
+      look.x = Math.max(-1, Math.min(1, x)); look.y = Math.max(-1, Math.min(1, y))
+      el.style.setProperty('--look-x', look.x.toFixed(3))
+      el.style.setProperty('--look-y', look.y.toFixed(3))
     }
-    const onLeave = () => { el.style.setProperty('--look-x', '0'); el.style.setProperty('--look-y', '0') }
+    const onLeave = () => { look.x = 0; look.y = 0; el.style.setProperty('--look-x', '0'); el.style.setProperty('--look-y', '0') }
     window.addEventListener('pointermove', onMove, { passive: true })
     el.addEventListener('pointerleave', onLeave)
     return () => { window.removeEventListener('pointermove', onMove); el.removeEventListener('pointerleave', onLeave) }
@@ -46,13 +49,18 @@ export default function SardarClient({ canGoLive = false }: { canGoLive?: boolea
     logRef.current?.scrollTo({ top: logRef.current.scrollHeight, behavior: 'smooth' })
   }, [msgs])
 
-  useEffect(() => () => { if (timer.current) window.clearInterval(timer.current) }, [])
+  useEffect(() => () => { if (timer.current) window.clearInterval(timer.current); lipsync.synthetic = false }, [])
+
+  // The mouth follows real audio once step 4 attaches a stream; until then a
+  // synthetic level runs while the canned answer types out.
+  useEffect(() => { lipsync.synthetic = speaking && !lipsync.attached }, [speaking])
 
   const play = useCallback((chip: Chip) => {
     if (timer.current) window.clearInterval(timer.current)
     track('sardar_chip', { chip: chip.id, mode })
     setActive(chip.id)
     setSpeaking(true)
+    setChart(null)
     const words = chip.answer.split(' ')
     let i = 0
     setMsgs((m) => [...m, { role: 'you', text: chip.label, done: true }, { role: 'ai', text: '', done: false }])
@@ -71,6 +79,7 @@ export default function SardarClient({ canGoLive = false }: { canGoLive?: boolea
         if (timer.current) window.clearInterval(timer.current)
         timer.current = null
         setSpeaking(false)
+        setChart(chip.chart)
       }
     }, 1000 / WPS)
   }, [mode])
@@ -81,7 +90,7 @@ export default function SardarClient({ canGoLive = false }: { canGoLive?: boolea
         <div className="holo">
           <span className={`badge${mode === 'live' ? ' live' : ''}`}>{mode === 'live' ? 'Live · DSP tenant' : DEMO_BADGE}</span>
           <span className={`status${speaking ? ' speaking' : ''}`} aria-live="polite"><i className="dot" />{speaking ? 'Speaking' : 'Listening'}</span>
-          <Avatar2D speaking={speaking} />
+          <Stage avatarUrl={avatarUrl} speaking={speaking} chart={chart} />
         </div>
 
         <div className="glass">

@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { existsSync } from 'node:fs'
+import { join } from 'node:path'
 import { site, mastery, agency } from '@/config/site'
 import SiteHeader from '@/components/site/SiteHeader'
 import { breadcrumbLd } from '@/lib/schema'
@@ -23,6 +25,11 @@ export const metadata: Metadata = {
   openGraph: { title: 'SARDAR — a 3D voice AI Employee you can talk to', url: CANONICAL, images: [{ url: '/sardar/og.png', width: 1200, height: 630 }] },
 }
 
+/** Ready Player Me bust, owner-supplied. Checked at build time (this page is
+ *  static) the same way agency.hubScreenshot is: present → the 3D stage loads
+ *  it; absent → the procedural low-poly bust ships instead. */
+const AVATAR_URL = existsSync(join(process.cwd(), 'public', 'sardar', 'avatar.glb')) ? '/sardar/avatar.glb' : null
+
 export default function SardarPage() {
   return (
     <>
@@ -38,7 +45,7 @@ export default function SardarPage() {
                 A voice AI Employee running on {agency.hubProduct}. Tap a question, watch it work, then build your own in {mastery.shortName} or get one for your business from {site.name}.
               </p>
             </div>
-            <SardarClient />
+            <SardarClient avatarUrl={AVATAR_URL} />
           </div>
         </section>
         <ModuleCards />
