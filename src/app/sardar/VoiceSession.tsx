@@ -42,8 +42,11 @@ export type VoiceApi = {
 
 /** The panel's imperative handle. Every method is safe to call at any time. */
 export type VoiceHandle = {
-  /** Start a live call. Call it synchronously from the tap. */
-  startCall: () => void
+  /** Start a live call. Call it synchronously from the tap. With `first`,
+   *  that line is sent as soon as the call is up so the reply is spoken; if
+   *  the call cannot start (mic denied), it falls back to a text session
+   *  carrying the same line. */
+  startCall: (first?: string) => void
   /** Start a text-only session and send `first` as soon as it is up. */
   startText: (first: string) => void
   /** Send a line into whichever session is live (no-op when none is). */
@@ -112,7 +115,8 @@ function Session(props: VoiceSessionProps) {
   const kind = useRef<SessionKind | null>(null)
   const ending = useRef(false)          // we asked for the end; a start failure now is not an error
   const pending = useRef(false)         // startSession called, no status from the SDK yet
-  const firstLine = useRef<string | null>(null) // text session: sent once connected
+  const firstLine = useRef<string | null>(null) // sent once connected (chip or typed opener)
+  const voiceFallback = useRef<string | null>(null) // a chip's line to retry as text if the call fails
   const lastActivity = useRef(0)
   const promptedAt = useRef<number | null>(null)
   const startedAt = useRef(0)
@@ -142,6 +146,15 @@ function Session(props: VoiceSessionProps) {
       // Surfaced so the next failure is diagnosable from the console.
       console.warn(TAG, 'error:', message, context ?? '')
       pending.current = false
+      if (!ending.current && kind.current === 'voice' && voiceFallback.current) {
+        // A chip asked for a spoken reply but the call could not start (most
+        // often the mic was refused): ask the same thing over text instead.
+        const line = voiceFallback.current
+        voiceFallback.current = null
+        console.warn(TAG, 'call failed to start, falling back to text:', message)
+        start('text', line)
+        return
+      }
       if (ending.current) {
         // We hung up while it was still connecting and the start failed:
         // there is no session to disconnect, so settle to idle here.
@@ -157,6 +170,7 @@ function Session(props: VoiceSessionProps) {
       stopWatchdog()
       clearPrompt()
       releaseAudio()
+      voiceFallback.current = null
       const ctx = 'context' in details && details.context ? details.context : undefined
       const message = details.reason === 'error' ? details.message : undefined
       console.warn(TAG, 'disconnected:', details.reason, message ?? '', ctx ?? '')
@@ -223,6 +237,7 @@ function Session(props: VoiceSessionProps) {
     pending.current = true
     kind.current = want
     firstLine.current = first
+    voiceFallback.current = want === 'voice' ? first : null
     onKind(want)
     onStatus('connecting')
     try {
@@ -239,6 +254,7 @@ function Session(props: VoiceSessionProps) {
     } catch (err) {
       console.warn(TAG, 'could not start session:', (err as Error)?.message)
       pending.current = false
+      if (want === 'voice' && first) { voiceFallback.current = null; start('text', first); return }
       kind.current = null
       onKind(null)
       onStatus('error', (err as Error)?.message)
@@ -248,7 +264,7 @@ function Session(props: VoiceSessionProps) {
   // Hand the panel its handle once, on mount; it never changes identity.
   useEffect(() => {
     const handle: VoiceHandle = {
-      startCall: () => start('voice', null),
+      startCall: (first) => start('voice', first ?? null),
       startText: (first) => start('text', first),
       send: (t) => { const c = convRef.current; if (c.status !== 'connected') return; touch(); c.sendUserMessage(t) },
       end,
@@ -266,6 +282,7 @@ function Session(props: VoiceSessionProps) {
     if (conv.status !== 'connected') return
     startWatchdog()
     onApi({ send: (t) => { touch(); convRef.current.sendUserMessage(t) } })
+    voiceFallback.current = null // connected: no fallback needed
     if (firstLine.current) { const t = firstLine.current; firstLine.current = null; convRef.current.sendUserMessage(t) }
     if (kind.current === 'voice') lipsync.attachVolume(() => convRef.current.getOutputVolume())
     return () => { lipsync.detachVolume(); onApi(null) }

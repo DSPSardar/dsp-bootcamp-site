@@ -12,13 +12,15 @@ export default function AskSardarCard() {
   return (
     <div className="ask-sardar" role="group" aria-label="Ask SARDAR">
       <p><b>Not sure yet?</b> Ask SARDAR — he knows all {mastery.modules} modules.</p>
-      <button
-        type="button"
+      {/* A real link to the 3D showcase until React attaches the handler;
+          once it has, the click opens the launcher panel instead. */}
+      <a
         className="btn btn-ghost"
-        onClick={() => window.dispatchEvent(new CustomEvent(OPEN_EVENT, { detail: { source: 'mastery_card' } }))}
+        href="/sardar"
+        onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent(OPEN_EVENT, { detail: { source: 'mastery_card' } })) }}
       >
         Ask SARDAR
-      </button>
+      </a>
     </div>
   )
 }

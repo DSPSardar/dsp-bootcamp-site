@@ -52,9 +52,12 @@ export default function LauncherPanel({ pathname, config, onClose }: LauncherPan
   const onSpeaking = useCallback((on: boolean) => setSpeaking(on), [])
   const onApi = useCallback(() => {}, [])
 
+  // Chips speak: the tap starts the live call (or uses the open one) and the
+  // chip text is sent once connected, so the reply comes back as voice and
+  // the visitor can keep talking. Mic refused → the same line goes over text.
   const askChip = (label: string) => {
     pendingSource.current = 'chip'
-    controls.current?.ask(label)
+    controls.current?.askAloud(label)
   }
 
   // Closing unmounts this panel; VoiceSession's unmount cleanup ends the
@@ -98,7 +101,7 @@ export default function LauncherPanel({ pathname, config, onClose }: LauncherPan
             <button key={c} type="button" className="chip" onClick={() => askChip(c)}>{c}</button>
           ))}
         </div>
-        <VoicePanel onTranscript={onTranscript} onSpeaking={onSpeaking} onApi={onApi} onAsk={onAsk} onControls={onControls} />
+        <VoicePanel onTranscript={onTranscript} onSpeaking={onSpeaking} onApi={onApi} onAsk={onAsk} onControls={onControls} eager />
       </div>
 
       <div className="sl-foot">
