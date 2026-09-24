@@ -28,6 +28,10 @@ const ASOS_PATHS = {
 } as const
 type AsosPath = keyof typeof ASOS_PATHS
 
+// The header readApiKey.js reads (`req.headers['x-api-key']`; Node lowercases
+// incoming header names, so the canonical spelling is fine).
+const ASOS_KEY_HEADER = 'X-API-Key'
+
 async function currentAdmin(): Promise<'anon' | 'user' | 'admin'> {
   try {
     const sb = await supabaseServer()
@@ -42,7 +46,9 @@ async function currentAdmin(): Promise<'anon' | 'user' | 'admin'> {
 export async function GET(req: Request) {
   const who = await currentAdmin()
   const base = (process.env.ASOS_API_URL ?? '').replace(/\/+$/, '')
-  const key = process.env.ASOS_API_KEY ?? ''
+  // ASOS compares the key byte-for-byte (constant-time SHA-256 digests), so a
+  // trailing newline pasted into the env var would read as a wrong key.
+  const key = (process.env.ASOS_API_KEY ?? '').trim()
   const configured = base.length > 0 && key.length > 0
   const path = new URL(req.url).searchParams.get('path')
 
@@ -56,13 +62,27 @@ export async function GET(req: Request) {
   try {
     const res = await fetch(upstream, {
       method: 'GET',
-      headers: { accept: 'application/json', authorization: `Bearer ${key}`, 'x-api-key': key },
+      // Exactly what ASOS's readApiKey middleware reads: the raw key in
+      // X-API-Key. No Authorization header (that is the JWT path the key
+      // bypasses) and no "Bearer " prefix.
+      headers: { accept: 'application/json', [ASOS_KEY_HEADER]: key },
       cache: 'no-store',
       signal: AbortSignal.timeout(8000),
     })
     const text = await res.text()
     if (!res.ok) {
-      console.warn('[sardar/asos] upstream', path, res.status)
+      if (res.status === 401) {
+        // The key itself is never logged. ASOS answers 401 from readApiKey when
+        // the presented key != ASOS_READ_API_KEY, when ASOS_READ_API_TENANT_ID
+        // is unset upstream, or when the method is not GET.
+        console.warn(
+          `[sardar/asos] upstream 401 on ${ASOS_PATHS[path as AsosPath]} — sent header "${ASOS_KEY_HEADER}" ` +
+          `(raw value from ASOS_API_KEY, ${key.length} chars, no Bearer prefix, no Authorization header); ` +
+          `upstream said: ${text.slice(0, 200)}`,
+        )
+      } else {
+        console.warn('[sardar/asos] upstream', path, res.status)
+      }
       return NextResponse.json({ error: `ASOS answered ${res.status}` }, { status: 502 })
     }
     let data: unknown
