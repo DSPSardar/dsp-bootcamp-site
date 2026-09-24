@@ -3,16 +3,18 @@
 // the ElevenLabs SDK loads (dynamic import) only when the visitor first
 // presses the mic or sends a line. Without NEXT_PUBLIC_ELEVENLABS_AGENT_ID
 // the controls render disabled with a note, so the page never half-works.
+// While a session is up an End button sits beside the mic, and Escape ends
+// it too; VoiceSession ends it by itself after 8s without input.
 import dynamic from 'next/dynamic'
-import { useCallback, useRef, useState, type FormEvent } from 'react'
+import { useCallback, useEffect, useRef, useState, type FormEvent } from 'react'
 import { track } from '@/lib/track'
-import type { VoiceApi, VoiceMode } from './VoiceSession'
+import type { VoiceApi, VoiceMode, VoiceStatus } from './VoiceSession'
 
 const VoiceSession = dynamic(() => import('./VoiceSession'), { ssr: false })
 
 const AGENT_ID = process.env.NEXT_PUBLIC_ELEVENLABS_AGENT_ID || ''
 
-type Status = 'idle' | 'connecting' | 'connected' | 'disconnected' | 'error'
+type Status = VoiceStatus
 
 export type VoicePanelProps = {
   onTranscript: (role: 'you' | 'ai', text: string) => void
@@ -35,7 +37,16 @@ export default function VoicePanel({ onTranscript, onSpeaking, onApi, disabled }
   const configured = AGENT_ID.length > 0
 
   const onReady = useCallback((a: VoiceApi | null) => { api.current = a; onApi(a) }, [onApi])
-  const onStatus = useCallback((s: Exclude<Status, 'idle'>, d?: string) => { setStatus(s); setDetail(d ?? null) }, [])
+  const reset = useCallback(() => {
+    setEngaged(false); setHolding(false); setPending(null); setStatus('idle'); setDetail(null)
+    api.current = null; onApi(null)
+  }, [onApi])
+  // `idle` from the session means it ended cleanly (idle timer, or our own
+  // End) — back to the resting state, ready for a fresh press.
+  const onStatus = useCallback((s: Status, d?: string) => {
+    if (s === 'idle') { reset(); return }
+    setStatus(s); setDetail(d ?? null)
+  }, [reset])
   const onInitialSent = useCallback(() => setPending(null), [])
   const onTextOnly = useCallback(() => setMode('text'), [])
 
@@ -50,6 +61,23 @@ export default function VoicePanel({ onTranscript, onSpeaking, onApi, disabled }
 
   const pressStart = () => { if (disabled || !configured) return; engage('voice'); setHolding(true) }
   const pressEnd = () => setHolding(false)
+
+  const active = engaged && (status === 'connecting' || status === 'connected')
+
+  // End: hang up now. The session's own endSession stops the SDK's tracks and
+  // releases the mic; unmounting it (engaged=false) is the backstop.
+  const endCall = useCallback((how: 'end' | 'escape') => {
+    api.current?.end()
+    track('sardar_voice', { action: how })
+    reset()
+  }, [reset])
+
+  useEffect(() => {
+    if (!active) return
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') { e.preventDefault(); endCall('escape') } }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [active, endCall])
 
   const submit = (e: FormEvent) => {
     e.preventDefault()
@@ -103,6 +131,18 @@ export default function VoicePanel({ onTranscript, onSpeaking, onApi, disabled }
         >
           <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 15a4 4 0 0 0 4-4V6a4 4 0 1 0-8 0v5a4 4 0 0 0 4 4Zm6-4a6 6 0 0 1-12 0H4a8 8 0 0 0 7 7.94V22h2v-3.06A8 8 0 0 0 20 11h-2Z" /></svg>
         </button>
+        {active && (
+          <button
+            type="button"
+            className="end"
+            aria-label="End the conversation"
+            title="End (Esc)"
+            onClick={() => endCall('end')}
+          >
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2" fill="currentColor" /></svg>
+            End
+          </button>
+        )}
         <input
           type="text"
           value={text}
