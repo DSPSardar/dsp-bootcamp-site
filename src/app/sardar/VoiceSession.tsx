@@ -1,15 +1,20 @@
 'use client'
 // The ElevenLabs Conversational AI session. This file is the only importer
-// of @elevenlabs/react (which carries LiveKit), and VoicePanel loads it
-// dynamically on the visitor's first tap, so the SDK never rides the initial
-// bundle. It owns one session for the life of the panel and reports
-// everything upward through callbacks; SardarClient keeps the transcript.
+// of @elevenlabs/react (which carries LiveKit); VoicePanel loads it as a
+// dynamic chunk after the visitor's first gesture or an idle window, so the
+// SDK never rides the initial bundle. Once loaded it stays mounted, idle,
+// for the life of the panel and exposes an imperative handle: that way the
+// mic tap calls startSession synchronously inside the gesture, which is
+// what iOS Safari needs before it will let audio play.
 //
-// Two kinds of session, chosen by the panel from what the visitor did first:
-//   voice — WebRTC (LiveKit). Push-to-talk mutes the mic unless held.
-//   text  — the SDK's text-only conversation over a plain WebSocket. Typed
-//           questions never ride a voice session (which would mean opening a
-//           LiveKit room, asking for the mic and streaming silence).
+// Two kinds of session:
+//   voice — a live WebRTC call (LiveKit). The mic stays open, full duplex:
+//           SARDAR listens and replies in real time and the visitor can
+//           interrupt by speaking. ElevenLabs' own turn-taking handles it;
+//           nothing here mutes either side.
+//   text  — the SDK's text-only conversation over a plain WebSocket, for a
+//           visitor who types without starting a call. Typing during a call
+//           goes into the call instead.
 //
 // Nothing is overridden at start: the agent's own prompt, first message,
 // voice and language settings apply as configured on elevenlabs.io. Its
@@ -18,52 +23,64 @@
 // room right after it opens. Language detection is configured on the agent,
 // so even that override is not sent.
 //
-// The session never outlives the visitor's attention:
-//   - releasing the mic silences whatever the agent is saying right now
-//     (the reply to what was just said still plays), and if nothing else
-//     is said or typed within IDLE_END_MS the session ends by itself;
-//   - a single reply is capped at MAX_REPLY_MS of audible speech;
-//   - ending (End button, Escape, idle, agent hang-up) stops every media
-//     track the SDK opened and releases the microphone.
-import { useCallback, useEffect, useRef, useState } from 'react'
+// A session never idles open: after SILENCE_MS with no sound or text from
+// either side the panel shows "Still there?", and PROMPT_MS later the
+// session ends; HARD_CAP_MS ends any session outright. Every end path stops
+// the media tracks the SDK attached and releases the microphone.
+import { useEffect, useRef } from 'react'
 import { ConversationProvider, useConversation } from '@elevenlabs/react'
 import { lipsync } from './store'
 
-export type VoiceMode = 'voice' | 'text'
-export type VoiceStatus = 'idle' | 'connecting' | 'connected' | 'disconnected' | 'error'
+export type SessionKind = 'voice' | 'text'
+export type VoiceStatus = 'idle' | 'connecting' | 'connected' | 'error'
 
+/** What SardarClient uses to route chip taps into a live conversation. */
 export type VoiceApi = {
   /** Send typed text into the live conversation. */
   send: (text: string) => void
-  /** Silence the agent's current reply (client-side; the transcript still lands). */
-  interrupt: () => void
-  end: () => void
+}
+
+/** The panel's imperative handle. Every method is safe to call at any time. */
+export type VoiceHandle = {
+  /** Start a live call. Call it synchronously from the tap. */
+  startCall: () => void
+  /** Start a text-only session and send `first` as soon as it is up. */
+  startText: (first: string) => void
+  /** Send a line into whichever session is live (no-op when none is). */
+  send: (text: string) => void
+  /** Hang up: endSession(), stop every track, release the mic. */
+  end: (why: string) => void
+  /** Something happened on the visitor's side (typing): resets the silence clock. */
+  touch: () => void
+  /** Visitor mic level, 0..1, for the panel's meter (0 outside a call). */
+  inputLevel: () => number
 }
 
 export type VoiceSessionProps = {
   agentId: string
-  /** What the visitor did first: held the mic (voice) or typed (text). */
-  mode: VoiceMode
-  /** True while the push-to-talk button is held. */
-  holding: boolean
-  /** Text to send as soon as the session is up (the panel's first message). */
-  initialText?: string | null
-  /** Fires once initialText has been sent, so the panel can drop it. */
-  onInitialSent?: () => void
-  /** A voice session fell back to text (mic denied or unavailable). */
-  onTextOnly?: () => void
+  onHandle: (handle: VoiceHandle | null) => void
   onTranscript: (role: 'you' | 'ai', text: string) => void
   onSpeaking: (speaking: boolean) => void
-  /** `idle` means the session ended cleanly (visitor, Escape, idle timer) — the panel resets. */
+  /** `idle` with a detail means the other side or a timer ended it. */
   onStatus: (status: VoiceStatus, detail?: string) => void
-  onReady: (api: VoiceApi | null) => void
+  /** Which kind of session is up, or null. */
+  onKind: (kind: SessionKind | null) => void
+  /** Send API for the parent while a session is connected, else null. */
+  onApi: (api: VoiceApi | null) => void
+  /** The "Still there?" prompt text while it shows, else null. */
+  onPrompt: (text: string | null) => void
 }
 
 const TAG = '[sardar/voice]'
-/** After the mic is released, end the session if nothing more is said or typed. */
-const IDLE_END_MS = 8_000
-/** Longest a single agent reply may stay audible. */
-const MAX_REPLY_MS = 25_000
+/** Silence from both sides before the "Still there?" prompt. */
+const SILENCE_MS = 90_000
+/** How long the prompt shows before the session ends. */
+const PROMPT_MS = 10_000
+/** No session outlives this. */
+const HARD_CAP_MS = 10 * 60_000
+/** Mic level (0..1) above which the visitor counts as making sound. */
+const SOUND_LEVEL = 0.04
+const STILL_THERE = 'Still there? The call ends in 10 seconds unless you say or type something.'
 
 /** Stop every media track the SDK attached to the page and release the mic.
  *  The SDK stops its own tracks on close; this is the belt to that brace, so a
@@ -88,44 +105,35 @@ export default function VoiceSession(props: VoiceSessionProps) {
 }
 
 function Session(props: VoiceSessionProps) {
-  const { agentId, mode, holding, initialText, onInitialSent, onTextOnly, onTranscript, onSpeaking, onStatus, onReady } = props
-  // A voice session may still end up text-only if the mic is refused.
-  const [textOnly, setTextOnly] = useState(mode === 'text')
+  const { agentId, onHandle, onTranscript, onSpeaking, onStatus, onKind, onApi, onPrompt } = props
 
   // Everything below reads through refs: useConversation returns a new object
   // every render, and callbacks registered with the SDK must not go stale.
-  const alive = useRef(true)      // false once the panel unmounts us — no more reports upward
-  const silenced = useRef(false)  // output muted by us until the agent's next reply
-  const released = useRef(false)  // mic let go and nothing said or typed since
-  const idleTimer = useRef<number | null>(null)
-  const replyTimer = useRef<number | null>(null)
-  const started = useRef(false)
-  const sentInitial = useRef(false)
+  const kind = useRef<SessionKind | null>(null)
+  const ending = useRef(false)          // we asked for the end; a start failure now is not an error
+  const pending = useRef(false)         // startSession called, no status from the SDK yet
+  const firstLine = useRef<string | null>(null) // text session: sent once connected
+  const lastActivity = useRef(0)
+  const promptedAt = useRef<number | null>(null)
+  const startedAt = useRef(0)
+  const watchdog = useRef<number | null>(null)
 
-  const clear = (t: typeof idleTimer) => { if (t.current !== null) { window.clearTimeout(t.current); t.current = null } }
+  const stopWatchdog = () => { if (watchdog.current !== null) { window.clearInterval(watchdog.current); watchdog.current = null } }
+  const clearPrompt = () => { if (promptedAt.current !== null) { promptedAt.current = null; onPrompt(null) } }
+  const touch = () => { lastActivity.current = Date.now(); clearPrompt() }
 
-  // Push-to-talk: the mic is muted unless the button is held. The SDK keeps
-  // its own VAD, so releasing simply stops audio reaching it. A text
-  // conversation has no mic and throws on setMicMuted, so it gets no
-  // micMuted at all.
   const conv = useConversation({
-    ...(textOnly ? {} : { micMuted: !holding }),
     onMessage: ({ message, role }) => {
-      if (!alive.current) return
-      if (role !== 'user') unsilence() // a new reply: let it be heard
+      touch()
       onTranscript(role === 'user' ? 'you' : 'ai', message)
     },
-    onModeChange: ({ mode: m }) => {
-      if (!alive.current) return
-      const speaking = m === 'speaking'
-      if (speaking) armReplyCap(); else clear(replyTimer)
-      onSpeaking(speaking && !silenced.current)
-      // The idle clock restarts when the agent starts or stops talking, so it
-      // measures silence after the reply, not time since the mic was let go.
-      if (released.current) armIdleEnd()
+    onModeChange: ({ mode }) => {
+      const speaking = mode === 'speaking'
+      if (speaking) touch()
+      onSpeaking(speaking)
     },
     onStatusChange: ({ status }) => {
-      if (!alive.current) return
+      if (status === 'connected') pending.current = false
       if (status === 'connecting' || status === 'connected') onStatus(status)
       // "disconnecting" / "disconnected" are reported from onDisconnect, which
       // fires last and carries the reason.
@@ -133,153 +141,140 @@ function Session(props: VoiceSessionProps) {
     onError: (message, context) => {
       // Surfaced so the next failure is diagnosable from the console.
       console.warn(TAG, 'error:', message, context ?? '')
-      if (alive.current) onStatus('error', message)
+      pending.current = false
+      if (ending.current) {
+        // We hung up while it was still connecting and the start failed:
+        // there is no session to disconnect, so settle to idle here.
+        ending.current = false
+        kind.current = null
+        onKind(null)
+        onStatus('idle')
+        return
+      }
+      onStatus('error', message)
     },
     onDisconnect: (details) => {
-      clear(idleTimer); clear(replyTimer)
+      stopWatchdog()
+      clearPrompt()
       releaseAudio()
       const ctx = 'context' in details && details.context ? details.context : undefined
       const message = details.reason === 'error' ? details.message : undefined
       console.warn(TAG, 'disconnected:', details.reason, message ?? '', ctx ?? '')
-      if (!alive.current) return
+      kind.current = null
+      ending.current = false
+      pending.current = false
       onSpeaking(false)
-      // "user" is us ending it (End, Escape, idle): the panel goes back to
-      // idle. "agent" is a hang-up, "error" the server dropping the room.
-      onStatus(details.reason === 'user' ? 'idle' : details.reason === 'error' ? 'error' : 'disconnected', message)
+      onApi(null)
+      onKind(null)
+      // "user" is us (tap, Escape, silence, cap); "agent" is SARDAR hanging
+      // up; "error" is the server dropping the room.
+      if (details.reason === 'error') onStatus('error', message)
+      else onStatus('idle', details.reason === 'agent' ? 'SARDAR ended the call.' : undefined)
     },
   })
   const convRef = useRef(conv)
   useEffect(() => { convRef.current = conv }) // first effect, so the ones below read the latest
 
-  const silence = (why: string) => {
+  const end = (why: string) => {
     const c = convRef.current
-    if (c.status !== 'connected' || silenced.current) return
-    silenced.current = true
-    try { c.setVolume({ volume: 0 }) } catch (err) { console.warn(TAG, 'could not mute output:', (err as Error)?.message) }
-    console.warn(TAG, 'reply silenced:', why)
-    onSpeaking(false)
-  }
-  const unsilence = () => {
-    if (!silenced.current) return
-    silenced.current = false
-    try { convRef.current.setVolume({ volume: 1 }) } catch { /* session already gone */ }
-  }
-  const end = useCallback((why: string) => {
-    clear(idleTimer); clear(replyTimer)
-    console.warn(TAG, 'ending session:', why)
-    convRef.current.endSession()
+    stopWatchdog()
+    clearPrompt()
+    if (c.status === 'connected' || c.status === 'connecting' || pending.current) {
+      ending.current = true
+      console.warn(TAG, 'ending session:', why)
+      c.endSession()
+    }
     releaseAudio()
-  }, [])
-  const armReplyCap = () => {
-    if (replyTimer.current !== null) return
-    replyTimer.current = window.setTimeout(() => {
-      replyTimer.current = null
-      silence(`reply ran past ${MAX_REPLY_MS / 1000}s`)
-    }, MAX_REPLY_MS)
   }
-  const armIdleEnd = () => {
-    clear(idleTimer)
-    idleTimer.current = window.setTimeout(() => {
-      idleTimer.current = null
+
+  // Silence and hard-cap watchdog, ticking once a second while connected.
+  const startWatchdog = () => {
+    stopWatchdog()
+    startedAt.current = Date.now()
+    touch()
+    watchdog.current = window.setInterval(() => {
       const c = convRef.current
-      // Never cut an audible reply short; wait for it to finish, then count again.
-      if (c.status === 'connected' && c.isSpeaking && !silenced.current) { armIdleEnd(); return }
-      end(`no input for ${IDLE_END_MS / 1000}s after the mic was released`)
-    }, IDLE_END_MS)
-  }
-  // The visitor is speaking or typing: the idle clock stops.
-  const noteInput = () => { released.current = false; clear(idleTimer) }
-  // Input is over (mic let go, line sent): the idle clock starts. Text-only
-  // sessions have no mic and no clock; End and Escape cover them.
-  const noteInputDone = () => { if (textOnly) return; released.current = true; armIdleEnd() }
-
-  useEffect(() => {
-    if (started.current) return
-    started.current = true
-    let cancelled = false
-    const startText = () => {
-      setTextOnly(true)
-      // textOnly at the top level picks the SDK's TextConversation; the
-      // websocket transport is the only one it supports.
-      convRef.current.startSession({ agentId, connectionType: 'websocket', textOnly: true })
-    }
-    ;(async () => {
-      onStatus('connecting')
-      try {
-        if (mode === 'text') { startText(); return }
-        // WebRTC needs a microphone. Ask up front so a refusal falls back to
-        // text instead of failing inside the room; the SDK opens its own
-        // stream, so this one is released straight away.
-        try {
-          const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
-          stream.getTracks().forEach((t) => t.stop())
-        } catch (err) {
-          console.warn(TAG, 'microphone unavailable, falling back to text:', (err as Error)?.message)
-          if (!cancelled) { onTextOnly?.(); startText() }
-          return
-        }
-        if (!cancelled) convRef.current.startSession({ agentId, connectionType: 'webrtc' })
-      } catch (err) {
-        console.warn(TAG, 'could not start session:', (err as Error)?.message)
-        onStatus('error', (err as Error)?.message)
+      if (c.status !== 'connected') return
+      const now = Date.now()
+      if (now - startedAt.current >= HARD_CAP_MS) { end(`hard cap of ${HARD_CAP_MS / 60000} minutes reached`); return }
+      // Sound from the visitor's mic counts as activity, as does the agent
+      // speaking (onModeChange) and any transcript line (onMessage).
+      if (kind.current === 'voice' && c.getInputVolume() > SOUND_LEVEL) { touch(); return }
+      const quiet = now - lastActivity.current
+      if (promptedAt.current === null) {
+        if (quiet >= SILENCE_MS) { promptedAt.current = now; onPrompt(STILL_THERE); console.warn(TAG, `silent for ${SILENCE_MS / 1000}s — prompting`) }
+      } else if (now - promptedAt.current >= PROMPT_MS) {
+        end(`no reply to "Still there?" within ${PROMPT_MS / 1000}s`)
       }
-    })()
-    return () => { cancelled = true }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    }, 1000)
+  }
 
-  // Push-to-talk edges. Holding is input; letting go silences the agent's
-  // current speech and starts the idle clock.
-  const wasHolding = useRef(holding)
-  useEffect(() => {
-    if (textOnly || holding === wasHolding.current) return
-    wasHolding.current = holding
-    if (holding) { noteInput(); return }
-    if (convRef.current.status !== 'connected') return // the connected effect below arms the clock
-    if (convRef.current.isSpeaking) silence('mic released')
-    noteInputDone()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [holding, textOnly])
-
-  // Connected with the mic already let go (a quick press while connecting):
-  // start the idle clock now, or the session would sit open with no input.
-  useEffect(() => {
-    if (conv.status !== 'connected' || textOnly || holding) return
-    noteInputDone()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [conv.status, textOnly])
-
-  // Lip-sync from the SDK's own output meter while a voice session is connected.
-  useEffect(() => {
-    if (conv.status !== 'connected' || textOnly) return
-    lipsync.attachVolume(() => (silenced.current ? 0 : convRef.current.getOutputVolume()))
-    return () => lipsync.detachVolume()
-  }, [conv.status, textOnly])
-
-  // Expose send/interrupt/end to the panel, and flush the message that started the session.
-  useEffect(() => {
-    if (conv.status !== 'connected') { onReady(null); return }
-    onReady({
-      send: (t) => { noteInput(); convRef.current.sendUserMessage(t); noteInputDone() },
-      interrupt: () => silence('interrupted by the visitor'),
-      end: () => end('ended by the visitor'),
-    })
-    if (initialText && !sentInitial.current) {
-      sentInitial.current = true
-      convRef.current.sendUserMessage(initialText)
-      onInitialSent?.()
-      noteInputDone()
+  const start = (want: SessionKind, first: string | null) => {
+    const c = convRef.current
+    // A text session gives way to a call, and vice versa: end it first. The
+    // provider drops the old session's callbacks once the new start begins.
+    if (c.status === 'connected' || c.status === 'connecting' || pending.current) {
+      if (kind.current === want) return
+      console.warn(TAG, `switching ${kind.current} → ${want}`)
+      c.endSession()
+      releaseAudio()
     }
-    return () => onReady(null)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [conv.status, textOnly, initialText, onInitialSent, onReady])
+    ending.current = false
+    pending.current = true
+    kind.current = want
+    firstLine.current = first
+    onKind(want)
+    onStatus('connecting')
+    try {
+      if (want === 'voice') {
+        // Full duplex: no micMuted, no overrides, no dynamic variables. The
+        // SDK asks for the mic itself; called synchronously from the tap so
+        // the gesture still covers the permission prompt and audio playback.
+        c.startSession({ agentId, connectionType: 'webrtc' })
+      } else {
+        // textOnly at the top level picks the SDK's TextConversation; the
+        // websocket transport is the only one it supports.
+        c.startSession({ agentId, connectionType: 'websocket', textOnly: true })
+      }
+    } catch (err) {
+      console.warn(TAG, 'could not start session:', (err as Error)?.message)
+      pending.current = false
+      kind.current = null
+      onKind(null)
+      onStatus('error', (err as Error)?.message)
+    }
+  }
 
-  // End the session only when the panel unmounts this component (End button,
-  // a reconnect or an upgrade remounts it under a new key). Nothing is
-  // reported upward after that: the panel already knows what it did.
+  // Hand the panel its handle once, on mount; it never changes identity.
+  useEffect(() => {
+    const handle: VoiceHandle = {
+      startCall: () => start('voice', null),
+      startText: (first) => start('text', first),
+      send: (t) => { const c = convRef.current; if (c.status !== 'connected') return; touch(); c.sendUserMessage(t) },
+      end,
+      touch,
+      inputLevel: () => { const c = convRef.current; if (kind.current !== 'voice' || c.status !== 'connected') return 0; try { return c.getInputVolume() } catch { return 0 } },
+    }
+    onHandle(handle)
+    return () => onHandle(null)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [onHandle])
+
+  // Connected: arm the watchdog, hand out the send API, flush a text
+  // session's first line, and feed the mouth from the SDK's output meter.
+  useEffect(() => {
+    if (conv.status !== 'connected') return
+    startWatchdog()
+    onApi({ send: (t) => { touch(); convRef.current.sendUserMessage(t) } })
+    if (firstLine.current) { const t = firstLine.current; firstLine.current = null; convRef.current.sendUserMessage(t) }
+    if (kind.current === 'voice') lipsync.attachVolume(() => convRef.current.getOutputVolume())
+    return () => { lipsync.detachVolume(); onApi(null) }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [conv.status])
+
+  // Unmount (the panel going away): hang up and release everything.
   useEffect(() => () => {
-    alive.current = false
-    clear(idleTimer); clear(replyTimer)
+    stopWatchdog()
     convRef.current.endSession()
     releaseAudio()
   }, [])
