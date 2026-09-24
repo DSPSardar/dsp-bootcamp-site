@@ -16,7 +16,13 @@ class LipSync {
   private buf: Uint8Array<ArrayBuffer> | null = null
   private srcNode: AudioNode | null = null
   private smooth = 0
+  private volume: (() => number) | null = null
   synthetic = false
+
+  /** Step 4: the ElevenLabs SDK exposes its own output analyser as a 0..1
+   *  volume getter; that beats tapping its WebRTC stream a second time. */
+  attachVolume(getter: () => number) { this.volume = getter }
+  detachVolume() { this.volume = null }
 
   private ensure() {
     if (this.ctx) return this.ctx
@@ -52,12 +58,14 @@ class LipSync {
     this.srcNode = null
   }
 
-  get attached() { return this.srcNode !== null }
+  get attached() { return this.srcNode !== null || this.volume !== null }
 
   /** Call once per frame. `t` is seconds, used only by the synthetic path. */
   level(t: number): number {
     let target = 0
-    if (this.srcNode && this.analyser && this.buf) {
+    if (this.volume) {
+      target = Math.min(1, this.volume() * 1.8)
+    } else if (this.srcNode && this.analyser && this.buf) {
       this.analyser.getByteTimeDomainData(this.buf)
       let sum = 0
       for (let i = 0; i < this.buf.length; i++) { const v = (this.buf[i] - 128) / 128; sum += v * v }

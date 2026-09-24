@@ -149,3 +149,15 @@
   .page-sardar .avatar2d .head{transform:none;transition:none}
   .page-sardar .avatar2d.speaking .mouth{transform:scaleY(.6)}
 }
+
+/* ── Voice panel (push-to-talk + text) ─────────────────────────── */
+.page-sardar .voice{border-top:1px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:8px}
+.page-sardar .voice .row{display:flex;gap:8px;align-items:center}
+.page-sardar .voice input{flex:1;min-width:0;height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:rgba(7,12,24,.6);color:var(--cream);font:inherit;font-size:15px}
+.page-sardar .voice input::placeholder{color:var(--muted)}
+.page-sardar .voice input:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.page-sardar .voice input:disabled,.page-sardar .voice button:disabled{opacity:.5;cursor:not-allowed}
+.page-sardar .voice .mic{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--cyan-dim);background:var(--panel-2);color:var(--cyan);display:grid;place-items:center;cursor:pointer;touch-action:none;-webkit-user-select:none;user-select:none;transition:background .15s,box-shadow .15s,transform .15s}
+.page-sardar .voice .mic:hover:not(:disabled){box-shadow:0 0 0 4px var(--cyan-dim)}
+.page-sardar .voice .mic.on{background:var(--cyan);color:#061018;box-shadow:0 0 0 6px var(--cyan-dim),0 0 24px rgba(63,224,245,.5);transform:scale(1.06)}
+.page-sardar .voice .hint{font-size:12px;color:var(--muted);margin:0}

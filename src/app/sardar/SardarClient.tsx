@@ -3,6 +3,8 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { track } from '@/lib/track'
 import TrackedLink from '@/components/site/TrackedLink'
 import Stage from './Stage'
+import VoicePanel from './VoicePanel'
+import type { VoiceApi } from './VoiceSession'
 import Chart2D from './Chart2D'
 import { DEMO_BADGE, DEMO_CHIPS, type Chart, type Chip } from './demo'
 import { ASOS_DEMO_URL, MASTERY_URL } from './links'
@@ -22,9 +24,11 @@ export default function SardarClient({ canGoLive = false, avatarUrl = null }: { 
   const [active, setActive] = useState<string | null>(null)
   const [speaking, setSpeaking] = useState(false)
   const [chart, setChart] = useState<Chart | null>(null)
+  const [canned, setCanned] = useState(false) // a scripted answer is typing out
   const stageRef = useRef<HTMLDivElement>(null)
   const logRef = useRef<HTMLDivElement>(null)
   const timer = useRef<number | null>(null)
+  const voice = useRef<VoiceApi | null>(null)
 
   // Head-tracks the cursor (and the last touch) by writing --look-x/-y on
   // the stage. Kept to a CSS variable so both the 2D and 3D avatars read it.
@@ -55,12 +59,32 @@ export default function SardarClient({ canGoLive = false, avatarUrl = null }: { 
   // synthetic level runs while the canned answer types out.
   useEffect(() => { lipsync.synthetic = speaking && !lipsync.attached }, [speaking])
 
+  // Live voice: the agent's words land in the same transcript, its speaking
+  // state drives the same mouth, and chips become spoken questions.
+  const onTranscript = useCallback((role: 'you' | 'ai', text: string) => {
+    setMsgs((m) => [...m, { role, text, done: true }])
+  }, [])
+  const onVoiceSpeaking = useCallback((on: boolean) => {
+    if (timer.current) return // a canned answer is mid-flight; leave its state alone
+    setSpeaking(on)
+  }, [])
+  const onVoiceApi = useCallback((api: VoiceApi | null) => { voice.current = api }, [])
+
   const play = useCallback((chip: Chip) => {
     if (timer.current) window.clearInterval(timer.current)
-    track('sardar_chip', { chip: chip.id, mode })
+    track('sardar_chip', { chip: chip.id, mode, voice: Boolean(voice.current) })
     setActive(chip.id)
-    setSpeaking(true)
     setChart(null)
+    if (voice.current) {
+      // Connected to the voice agent: ask it out loud and let it answer in
+      // its own words; the chart still comes from the chip.
+      voice.current.send(chip.label)
+      setMsgs((m) => [...m, { role: 'you', text: chip.label, done: true, chart: null }])
+      setChart(chip.chart)
+      return
+    }
+    setSpeaking(true)
+    setCanned(true)
     const words = chip.answer.split(' ')
     let i = 0
     setMsgs((m) => [...m, { role: 'you', text: chip.label, done: true }, { role: 'ai', text: '', done: false }])
@@ -79,6 +103,7 @@ export default function SardarClient({ canGoLive = false, avatarUrl = null }: { 
         if (timer.current) window.clearInterval(timer.current)
         timer.current = null
         setSpeaking(false)
+        setCanned(false)
         setChart(chip.chart)
       }
     }, 1000 / WPS)
@@ -113,6 +138,7 @@ export default function SardarClient({ canGoLive = false, avatarUrl = null }: { 
               </div>
             ))}
           </div>
+          <VoicePanel onTranscript={onTranscript} onSpeaking={onVoiceSpeaking} onApi={onVoiceApi} disabled={canned} />
           <div className="mode">
             <span>Mode</span>
             <span className="seg" role="group" aria-label="Data mode">
