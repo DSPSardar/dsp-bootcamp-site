@@ -4,8 +4,8 @@
 // Everything animated reads the shared stores in ./store.ts each frame, so
 // the React tree never re-renders for a mouth movement or a glance.
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { useGLTF } from '@react-three/drei'
+import { Canvas, useFrame, useLoader, useThree } from '@react-three/fiber'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import * as THREE from 'three'
 import type { Chart } from './demo'
 import { lipsync, look } from './store'
@@ -138,7 +138,9 @@ function inspectRpm(scene: THREE.Group): RpmParts {
 
 /** Ready Player Me bust: morph-target blink + jaw, Head bone follows the cursor. */
 function RpmBust({ url }: { url: string }) {
-  const { scene } = useGLTF(url)
+  // GLTFLoader straight from three: drei's useGLTF would pull three-stdlib
+  // (a second copy of much of three) into the chunk for one call.
+  const { scene } = useLoader(GLTFLoader, url)
   const blink = useRef({ next: 2.5, until: 0 })
   // Framing is plain data for JSX; the mutable meshes/bones live in a ref so
   // the frame loop can drive them without touching a render-scoped value.

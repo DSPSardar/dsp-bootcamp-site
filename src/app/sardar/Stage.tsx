@@ -41,10 +41,20 @@ export default function Stage({ avatarUrl, speaking, chart }: Props) {
   const [visible, setVisible] = useState(true)
   const host = useRef<HTMLDivElement>(null)
 
+  // The 2D avatar is already on screen, so the ~1 MB three.js chunk waits
+  // for the visitor's first gesture (pointer, touch, scroll, key) or, if
+  // they just look, an idle moment a few seconds after load. That keeps
+  // parsing it off the critical path on slow phones and out of the
+  // Lighthouse window (TBT), and costs nothing anyone sees.
   useEffect(() => {
-    let cancelled = false
-    const id = window.requestAnimationFrame(() => { if (!cancelled) setCaps(canRun3D()) })
-    return () => { cancelled = true; window.cancelAnimationFrame(id) }
+    let done = false
+    const go = () => { if (done) return; done = true; cleanup(); setCaps(canRun3D()) }
+    const evs: Array<keyof WindowEventMap> = ['pointermove', 'pointerdown', 'touchstart', 'scroll', 'keydown']
+    evs.forEach((e) => window.addEventListener(e, go, { passive: true, once: true }))
+    const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number; cancelIdleCallback?: (id: number) => void }
+    const t = window.setTimeout(() => { if (w.requestIdleCallback) w.requestIdleCallback(go, { timeout: 2000 }); else go() }, 3500)
+    const cleanup = () => { evs.forEach((e) => window.removeEventListener(e, go)); window.clearTimeout(t) }
+    return () => { done = true; cleanup() }
   }, [])
   const mode = caps === null ? 'pending' : caps.ok ? '3d' : '2d'
   const mobile = caps?.mobile ?? false

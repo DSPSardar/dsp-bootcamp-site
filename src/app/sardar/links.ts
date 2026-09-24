@@ -11,4 +11,3 @@ export const ASOS_DEMO_URL = `${agency.hubUrl}?ref=sardar`
 /** Lead capture: one WhatsApp deep link to the site's business number. */
 export const WHATSAPP_URL = waLink('Hi DSP, I just met SARDAR on your site. I want one for my business.')
 
-export const CANONICAL = `${site.url}/sardar`

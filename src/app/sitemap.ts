@@ -20,6 +20,7 @@ import { getPostRefit } from '@/content/post-refits'
 import { agency, liveGuides } from '@/config/site'
 import { PAGE_LAST_MODIFIED as MASTERY_LAST_MODIFIED } from '@/app/mastery/seo'
 import { PAGE_LAST_MODIFIED as FOUNDER_LAST_MODIFIED } from '@/app/sardar-ghaffar/seo'
+import { PAGE_LAST_MODIFIED as SARDAR_LAST_MODIFIED } from '@/app/sardar/seo'
 import { PAGE_LAST_MODIFIED as AGENTS_LAST_MODIFIED } from '@/app/agents/seo'
 
 const SITE = 'https://www.digitalservicesprogram.com'
@@ -65,7 +66,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // The founder's entity page (Entity Lock, 2026-09-06) — byline target sitewide.
     { url: `${SITE}/sardar-ghaffar`, lastModified: new Date(FOUNDER_LAST_MODIFIED), changeFrequency: 'monthly', priority: 0.7 },
     // /sardar — voice AI Employee showcase (lands on /mastery and dspagenthub.com).
-    { url: `${SITE}/sardar`, lastModified: new Date('2026-09-24'), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${SITE}/sardar`, lastModified: new Date(SARDAR_LAST_MODIFIED), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE}/blog`, lastModified: new Date(BLOG_UPDATED), changeFrequency: 'daily', priority: 0.9 },
     // Original research, collection end (Corroboration Engine, Day 6).
     { url: `${SITE}/survey`, lastModified: new Date('2026-09-10'), changeFrequency: 'weekly', priority: 0.8 },
