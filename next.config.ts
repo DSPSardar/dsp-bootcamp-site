@@ -122,6 +122,16 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        // /sardar is the one page that talks: its push-to-talk needs the
+        // microphone (ElevenLabs Conversational AI, same-origin only). A
+        // later rule with the same key overrides the sitewide one above;
+        // camera and geolocation stay off.
+        source: "/sardar",
+        headers: [
+          { key: "Permissions-Policy", value: "camera=(), microphone=(self), geolocation=()" },
+        ],
+      },
     ];
   },
 };

@@ -1,0 +1,103 @@
+{
+  "_note": "Demo Mode data for /sardar. Every number here is ILLUSTRATIVE and is labelled 'Demo data' wherever it renders. None of it is a DSP figure: DSP's real numbers live in src/config/site.ts (agency.*, entity.*) and are never printed on this page in Demo Mode.",
+  "chips": [
+    {
+      "id": "leads",
+      "label": "Show me today's leads",
+      "answer": "Good morning. Twelve new leads came in overnight, all through WhatsApp. Four are hot: they asked about price and a start date. I have already qualified them and queued replies. The rest are warm, so I will nudge them this afternoon. Nothing needs you yet.",
+      "chart": {
+        "type": "bars",
+        "title": "Leads today, by stage",
+        "unit": "leads",
+        "items": [
+          { "label": "New", "value": 12 },
+          { "label": "Qualified", "value": 7 },
+          { "label": "Hot", "value": 4 },
+          { "label": "Booked", "value": 2 }
+        ]
+      },
+      "cta": { "kind": "asos", "label": "Get this for your business" },
+      "modules": ["M14"]
+    },
+    {
+      "id": "linkedin",
+      "label": "Write today's LinkedIn post",
+      "answer": "Here is a draft in your voice. Hook: \"Your best salesperson never sleeps, never sulks, never asks for a raise. Because it is an AI Employee.\" Then three lines on what changed this week, and a soft ask to reply \"DEMO\". Say the word and I will schedule it for nine a.m.",
+      "chart": {
+        "type": "ring",
+        "title": "Draft readiness",
+        "unit": "%",
+        "items": [
+          { "label": "Hook", "value": 100 },
+          { "label": "Body", "value": 100 },
+          { "label": "CTA", "value": 100 },
+          { "label": "Scheduled", "value": 0 }
+        ]
+      },
+      "cta": { "kind": "mastery", "label": "Learn to build this" },
+      "modules": ["M09"]
+    },
+    {
+      "id": "followup",
+      "label": "Follow up with a lead",
+      "answer": "Ahmed asked about the café ordering agent two days ago and went quiet. I will send him a short Roman Urdu message: \"Ahmed bhai, aap ka demo slot kal 4 baje ka rakh doon?\" If he replies, I book it. If not, I try once more on Friday and then stop. No spam, ever.",
+      "chart": {
+        "type": "bars",
+        "title": "Follow-up sequence",
+        "unit": "hours",
+        "items": [
+          { "label": "Touch 1", "value": 2 },
+          { "label": "Touch 2", "value": 24 },
+          { "label": "Touch 3", "value": 72 },
+          { "label": "Stop", "value": 96 }
+        ]
+      },
+      "cta": { "kind": "asos", "label": "See it on your own leads" },
+      "modules": ["M14", "M15"]
+    },
+    {
+      "id": "earnings",
+      "label": "This month's Mastery earnings",
+      "answer": "In this demo tenant, enrolments are running ahead of last month, and most of them came from organic search and WhatsApp referrals. Paid ads brought the fewest. If you want, I can shift the ad budget toward the search content that is already converting.",
+      "chart": {
+        "type": "bars",
+        "title": "Enrolments this month, by source (demo)",
+        "unit": "enrolments",
+        "items": [
+          { "label": "Search", "value": 9 },
+          { "label": "WhatsApp", "value": 6 },
+          { "label": "Social", "value": 4 },
+          { "label": "Ads", "value": 2 }
+        ]
+      },
+      "cta": { "kind": "mastery", "label": "Build your own SARDAR" },
+      "modules": ["M16"]
+    },
+    {
+      "id": "build",
+      "label": "How do I build you?",
+      "answer": "I am an agent: a job description, a set of tools, and a loop. My tools are APIs, my memory is a small retrieval store, and my sales brain is a second agent I hand leads to. You learn every piece in DSP AI Agent Mastery, in Urdu and English, and ship your own version to a live URL. Start with Module 7.",
+      "chart": {
+        "type": "ring",
+        "title": "The build, module by module",
+        "unit": "modules",
+        "items": [
+          { "label": "M07 Agents", "value": 1 },
+          { "label": "M08 APIs", "value": 1 },
+          { "label": "M09 Memory", "value": 1 },
+          { "label": "M14 Multi-agent", "value": 1 }
+        ]
+      },
+      "cta": { "kind": "mastery", "label": "Start Module 7" },
+      "modules": ["M07", "M08"]
+    }
+  ],
+  "modules": [
+    { "code": "M07", "title": "AI Agents", "chip": "build", "saw": "The job description, tools and loop that make SARDAR an agent rather than a chatbot." },
+    { "code": "M08", "title": "APIs", "chip": "build", "saw": "Every answer you tapped was SARDAR calling an API and reading the result back to you." },
+    { "code": "M09", "title": "RAG & Memory", "chip": "linkedin", "saw": "The LinkedIn draft was written in your voice because SARDAR retrieves your past posts first." },
+    { "code": "M14", "title": "Multi-Agent & Business Automation", "chip": "leads", "saw": "Qualifying leads and queuing replies is a second agent SARDAR hands work to." },
+    { "code": "M15", "title": "Selling AI Solutions", "chip": "followup", "saw": "The three-touch follow-up is a sales playbook, not a prompt. This module teaches the playbook." },
+    { "code": "M16", "title": "AI Search Dominance Engine", "chip": "earnings", "saw": "The enrolments came from search because the content was built to be cited. This module shows how." }
+  ]
+}
