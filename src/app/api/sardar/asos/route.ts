@@ -15,11 +15,16 @@ import { isAdminUser } from '@/lib/mastery/auth'
  *  - ASOS_API_KEY is read here and sent upstream; it never reaches the client. */
 export const dynamic = 'force-dynamic'
 
+// ASOS mounts every route under /api/v1, and the read-only key is
+// allow-listed to exactly these GETs (ASOS README "Read-only API key",
+// src/middleware/readApiKey.js). Anything else answers 403, and a path
+// without the prefix answers 404 — which Live Mode surfaced as a 502.
+// scripts/check-asos-paths.mjs pins the four resulting upstream URLs.
 const ASOS_PATHS = {
-  pipeline: 'leads/pipeline',
-  hot: 'leads/hot',
-  insights: 'insights',
-  reports: 'dsp-reports/summary',
+  pipeline: 'api/v1/leads/pipeline',
+  hot: 'api/v1/leads/hot',
+  insights: 'api/v1/insights/sentiment',
+  reports: 'api/v1/analytics/overview', // the route behind the /dsp-reports KPI tiles
 } as const
 type AsosPath = keyof typeof ASOS_PATHS
 
