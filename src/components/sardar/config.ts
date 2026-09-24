@@ -20,7 +20,9 @@ const DEMO_WA = waLink('Hi DSP, I met SARDAR on your site. I want a demo of an A
 
 const HOME: LauncherConfig = {
   chips: ['What is Mastery?', 'Get an AI Employee for my business', 'Show me you working'],
-  cta: { id: 'enrol_mastery', label: `Enrol in Mastery – ${mastery.priceDisplay}`, href: mastery.url },
+  // No price or enrol wording on Home (owner ruling 15 Sep 2026): the price
+  // lands on /mastery, where the value is explained.
+  cta: { id: 'start_mastery', label: 'Start Mastery', href: mastery.url },
 }
 
 const MASTERY: LauncherConfig = {
