@@ -6,7 +6,7 @@
 import dynamic from 'next/dynamic'
 import { useCallback, useRef, useState, type FormEvent } from 'react'
 import { track } from '@/lib/track'
-import type { VoiceApi } from './VoiceSession'
+import type { VoiceApi, VoiceMode } from './VoiceSession'
 
 const VoiceSession = dynamic(() => import('./VoiceSession'), { ssr: false })
 
@@ -24,6 +24,7 @@ export type VoicePanelProps = {
 
 export default function VoicePanel({ onTranscript, onSpeaking, onApi, disabled }: VoicePanelProps) {
   const [engaged, setEngaged] = useState(false)
+  const [mode, setMode] = useState<VoiceMode>('voice') // what the visitor did first: mic or keyboard
   const [holding, setHolding] = useState(false)
   const [status, setStatus] = useState<Status>('idle')
   const [detail, setDetail] = useState<string | null>(null)
@@ -35,13 +36,19 @@ export default function VoicePanel({ onTranscript, onSpeaking, onApi, disabled }
 
   const onReady = useCallback((a: VoiceApi | null) => { api.current = a; onApi(a) }, [onApi])
   const onStatus = useCallback((s: Exclude<Status, 'idle'>, d?: string) => { setStatus(s); setDetail(d ?? null) }, [])
+  const onInitialSent = useCallback(() => setPending(null), [])
+  const onTextOnly = useCallback(() => setMode('text'), [])
 
-  const engage = () => {
-    if (!engaged) { setEngaged(true); track('sardar_voice', { action: 'start' }); return }
-    if (status === 'disconnected' || status === 'error') { setAttempt((n) => n + 1); track('sardar_voice', { action: 'reconnect' }) }
+  // Start (or restart) a session of the given kind. A typed question opens a
+  // text-only session; holding the mic opens a voice session — and upgrades
+  // a text session to voice by remounting under a new key.
+  const engage = (want: VoiceMode) => {
+    if (!engaged) { setMode(want); setEngaged(true); track('sardar_voice', { action: 'start' }); return }
+    if (status === 'disconnected' || status === 'error') { setMode(want); setAttempt((n) => n + 1); track('sardar_voice', { action: 'reconnect' }); return }
+    if (want === 'voice' && mode === 'text' && status !== 'connecting') { setMode('voice'); setAttempt((n) => n + 1); track('sardar_voice', { action: 'upgrade' }) }
   }
 
-  const pressStart = () => { if (disabled || !configured) return; engage(); setHolding(true) }
+  const pressStart = () => { if (disabled || !configured) return; engage('voice'); setHolding(true) }
   const pressEnd = () => setHolding(false)
 
   const submit = (e: FormEvent) => {
@@ -52,14 +59,14 @@ export default function VoicePanel({ onTranscript, onSpeaking, onApi, disabled }
     onTranscript('you', t)
     track('sardar_voice', { action: 'text' })
     if (api.current) api.current.send(t)
-    else { setPending(t); engage() }
+    else { setPending(t); engage('text') }
   }
 
   const label =
     !configured ? 'Voice is being set up. Tap a question above to see SARDAR work.'
     : status === 'idle' ? 'Hold to talk · English, Urdu or Roman Urdu'
     : status === 'connecting' ? 'Connecting…'
-    : status === 'connected' ? (holding ? 'Listening… release to send' : 'Connected · hold the mic or type')
+    : status === 'connected' ? (holding ? 'Listening… release to send' : mode === 'text' ? 'Connected · type, or hold the mic to talk' : 'Connected · hold the mic or type')
     : status === 'error' ? `Voice unavailable${detail ? `: ${detail}` : ''}. You can still type or tap a chip.`
     : 'Disconnected. Press the mic to reconnect.'
 
@@ -69,8 +76,11 @@ export default function VoicePanel({ onTranscript, onSpeaking, onApi, disabled }
         <VoiceSession
           key={attempt}
           agentId={AGENT_ID}
+          mode={mode}
           holding={holding}
           initialText={pending}
+          onInitialSent={onInitialSent}
+          onTextOnly={onTextOnly}
           onTranscript={onTranscript}
           onSpeaking={onSpeaking}
           onStatus={onStatus}
