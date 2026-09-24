@@ -2,8 +2,21 @@
 // Content per the agency copy doc; gated facts (Emma's phone line, Zara's
 // ASOS demo number) come from src/config/site.ts and render placeholders
 // until the publish checklist signs them off.
+//
+// Commercial entity + answer page (2026-09-24, Day 5 of the 30-day challenge,
+// same pattern as /agents PR #35): the first body text is a direct definition
+// of the category, the title names the country, the Service provider carries
+// the sitewide Organization @id (it used to be an id-less inline Organization
+// — a second company entity on the flagship page), areaServed names
+// Islamabad / Pakistan / Worldwide instead of the bare string 'Worldwide',
+// and a WebPage node states dateModified from ./seo.ts (the same constant the
+// sitemap reports). Intent split, so the three commercial pages never
+// cannibalise: /agents owns "AI automation agency Islamabad" (the build
+// service), /ai-employees owns "AI Employee company Pakistan" (the product),
+// /mastery owns the education intent.
 import type { Metadata } from 'next'
-import { breadcrumbLd as breadcrumbLd_build, faqPageLd } from '@/lib/schema'
+import { ORGANIZATION_ID, breadcrumbLd as breadcrumbLd_build, faqPageLd } from '@/lib/schema'
+import { PAGE_LAST_MODIFIED } from './seo'
 import Link from 'next/link'
 import SiteShell from '@/components/site/SiteShell'
 import TrackedLink from '@/components/site/TrackedLink'
@@ -12,40 +25,59 @@ import { CheckIcon, WhatsAppIcon } from '@/components/home/icons'
 import { agency, site, waLink } from '@/config/site'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Hire AI Employees for Your Business | Sales, Support, Bookings & Orders — DSP' },
+  // Buyer-led title: names the category AND the country. The old pair named
+  // no geography anywhere, on the page that has to answer "AI Employee
+  // company Pakistan".
+  title: { absolute: 'AI Employee Company in Pakistan — Hire WhatsApp & Phone AI Staff | DSP' },
   description:
-    'AI Employees that answer every lead, call, and booking 24/7 on WhatsApp and phone. Built on DSPAgentHub, live in 7 days. Talk to one right now.',
+    'DSP is an AI Employee company in Islamabad, Pakistan. AI staff that answer every lead, call and booking 24/7 on WhatsApp and phone, in English and Urdu. Built on DSPAgentHub, live in 7 days.',
   alternates: { canonical: '/ai-employees' },
   openGraph: {
     type: 'website',
     url: '/ai-employees',
-    title: 'Hire AI Employees for Your Business — DSP',
+    title: 'AI Employee Company in Pakistan — DSP',
     description:
-      'AI Employees that answer every lead, call, and booking 24/7 on WhatsApp and phone. Built on DSPAgentHub, live in 7 days.',
+      'AI staff that answer every lead, call and booking 24/7 on WhatsApp and phone. Built in Islamabad on DSPAgentHub, live in 7 days.',
     images: [{ url: '/og-card.png', width: 1200, height: 630 }],
   },
 }
 
 const breadcrumbLd = breadcrumbLd_build([{ name: 'AI Employees', path: '/ai-employees' }])
 
+// The direct answer. Defines the CATEGORY first and DSP second, so an engine
+// asked "what is an AI Employee?" or "is there an AI Employee company in
+// Pakistan?" can quote one sentence that carries the definition, the country
+// and the deliverable. Rendered verbatim as the first body text, and reused
+// verbatim as the Service and WebPage description — one string, never
+// reworded per surface (the same rule as the /agents ANSWER).
+const ANSWER =
+  'An AI Employee is an AI agent hired for one job in a business — answering, qualifying, booking and selling on the company’s own WhatsApp and phone lines, 24 hours a day, with a job description, a knowledge base, acceptance tests and a supervisor. DSP is an AI Employee company in Islamabad, Pakistan: we build each Employee on our own platform, DSPAgentHub, deploy it on the client’s number in English and Urdu, and supervise it every month. Setup from $500 one-time, then from $199 a month, live in 7 days.'
+
 // Service schema for the hub. Prices live on /pricing (which carries the
 // Offer catalog) — here each Employee is listed as the service it performs.
+// Carries the sitewide Organization @id so parsers merge this provider with
+// the root layout's Organization node instead of seeing a second one.
 const serviceLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
+  '@id': `${site.url}/ai-employees#service`,
   serviceType: 'AI Employee (managed AI agent) for sales, support, bookings, and phone orders',
   name: 'DSP AI Employees',
-  description:
-    'Trained AI staff answering, qualifying, booking, and selling on your WhatsApp and phone lines 24/7 in English and Urdu. Built, deployed, and supervised by DSP on DSPAgentHub, live in 7 days.',
+  description: ANSWER,
   url: `${site.url}/ai-employees`,
   provider: {
     '@type': 'Organization',
+    '@id': ORGANIZATION_ID,
     name: site.name,
     url: site.url,
     email: site.email,
     telephone: '+92-342-0580864',
   },
-  areaServed: 'Worldwide',
+  areaServed: [
+    { '@type': 'City', name: 'Islamabad' },
+    { '@type': 'Country', name: 'Pakistan' },
+    { '@type': 'Place', name: 'Worldwide' },
+  ],
   availableLanguage: ['en', 'ur'],
   offers: {
     '@type': 'Offer',
@@ -89,7 +121,44 @@ const comparison: Array<[string, string, string]> = [
   ['Builds personal relationships', '✔ Better', 'Supports your team doing it'],
 ]
 
+// WebPage node: the only place the page states when it last changed. Its
+// dateModified is the same constant the sitemap reports (./seo.ts), so an
+// engine comparing the two never sees a page that claims to be unchanged.
+// `about` points at the Service node above by @id — one entity, not two.
+const webPageLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${site.url}/ai-employees#webpage`,
+  url: `${site.url}/ai-employees`,
+  name: 'AI Employee Company in Pakistan — Hire WhatsApp & Phone AI Staff | DSP',
+  description: ANSWER,
+  inLanguage: 'en',
+  dateModified: PAGE_LAST_MODIFIED,
+  publisher: { '@id': ORGANIZATION_ID },
+  about: { '@id': `${site.url}/ai-employees#service` },
+}
+
+// One array feeds both the visible <details> list and the FAQPage node.
+// Buyer-intent questions first — what it is, is there one in Pakistan, what
+// it costs, how long to go live — because those are the queries the page has
+// to answer; the operational questions follow.
 const faqs = [
+  {
+    q: 'What is an AI Employee?',
+    a: 'An AI agent hired for one job in your business — answering, qualifying, booking and selling on your own WhatsApp and phone lines, 24 hours a day. Unlike a chatbot it has a job description, a knowledge base, acceptance tests and a supervisor, and it reports its work on a live dashboard.',
+  },
+  {
+    q: 'Is there an AI Employee company in Pakistan?',
+    a: 'Yes. DSP builds, deploys and supervises AI Employees from Islamabad, Pakistan, on its own platform, DSPAgentHub, for businesses in Pakistan and worldwide. Every Employee works in English and Urdu.',
+  },
+  {
+    q: 'How much does an AI Employee cost?',
+    a: 'Setup from $500 one-time, then from $199 a month, cancel anytime. Full packages are on the pricing page. A human hire costs salary plus training plus turnover, works eight hours a day and handles one conversation at a time.',
+  },
+  {
+    q: 'How long does it take to go live?',
+    a: 'Seven days from sign-off. We collect your price list, business rules and escalation contacts, build and test the Employee against acceptance tests, connect it to your WhatsApp Business API number or phone line, and hand you the dashboard.',
+  },
   {
     q: 'Can one AI Employee do sales AND bookings AND support?',
     a: 'Yes — the AI Sales Team package puts multiple Employees on one number, each handling what they’re best at.',
@@ -118,6 +187,10 @@ export default function AiEmployeesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageLd) }}
       />
       <script
         type="application/ld+json"
@@ -154,6 +227,28 @@ export default function AiEmployeesPage() {
               See Pricing
             </TrackedLink>
           </div>
+        </div>
+      </section>
+
+      {/* ============ ANSWER-FIRST DEFINITION ============ */}
+      {/* The first body text on the page is the direct answer, so an engine
+          summarising /ai-employees quotes a sentence that names the category,
+          the country and the deliverable rather than assembling one from
+          marketing. Same string as the Service and WebPage description. */}
+      <section id="what-is-an-ai-employee" style={{ paddingBottom: 0 }}>
+        <div className="wrap" style={{ maxWidth: '46rem' }}>
+          <div className="sec-head">
+            <p className="eyebrow">What an AI Employee is</p>
+            <h2>What is an AI Employee?</h2>
+          </div>
+          <p style={{ fontSize: '1.08rem', lineHeight: 1.65 }}>{ANSWER}</p>
+          <p style={{ marginTop: '1rem', color: 'var(--navy-soft)' }}>
+            The long-form definition is on{' '}
+            <Link href="/what-is-an-ai-employee">What is an AI Employee?</Link>; the agency that
+            builds them is <Link href="/agents">DSP Agents</Link>, and you can talk to one on our
+            own site right now — <Link href="/sardar">SARDAR</Link>, a voice AI Employee that
+            answers questions about DSP by phone-style call.
+          </p>
         </div>
       </section>
 

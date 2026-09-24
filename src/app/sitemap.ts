@@ -22,6 +22,7 @@ import { PAGE_LAST_MODIFIED as MASTERY_LAST_MODIFIED } from '@/app/mastery/seo'
 import { PAGE_LAST_MODIFIED as FOUNDER_LAST_MODIFIED } from '@/app/sardar-ghaffar/seo'
 import { PAGE_LAST_MODIFIED as SARDAR_LAST_MODIFIED } from '@/app/sardar/seo'
 import { PAGE_LAST_MODIFIED as AGENTS_LAST_MODIFIED } from '@/app/agents/seo'
+import { PAGE_LAST_MODIFIED as AI_EMPLOYEES_LAST_MODIFIED } from '@/app/ai-employees/seo'
 
 const SITE = 'https://www.digitalservicesprogram.com'
 
@@ -47,8 +48,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Evergreen explainer of the sunset Agentic Lab — stays indexed, but
     // it is a history page now, not a priority landing page.
     { url: `${SITE}/academy/bootcamp`, lastModified: new Date('2026-08-30'), changeFrequency: 'monthly', priority: 0.5 },
-    // 2026-09-23: §9 "Or learn to build them" now links "hire one" to /agents.
-    { url: `${SITE}/ai-employees`, lastModified: new Date('2026-09-23'), changeFrequency: 'weekly', priority: 0.95 },
+    // Real content-change date (see src/app/ai-employees/seo.ts): the same
+    // constant the page's WebPage node reports as dateModified.
+    { url: `${SITE}/ai-employees`, lastModified: new Date(AI_EMPLOYEES_LAST_MODIFIED), changeFrequency: 'weekly', priority: 0.95 },
     ...agency.employees.map((e) => ({
       url: `${SITE}/ai-employees/${e.id}`,
       lastModified: new Date('2026-09-09'),
