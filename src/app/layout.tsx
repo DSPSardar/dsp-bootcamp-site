@@ -4,6 +4,7 @@ import { Instrument_Serif, Inter, JetBrains_Mono } from 'next/font/google'
 import './tokens.css'
 import './globals.css'
 import Analytics from '@/components/site/Analytics'
+import LauncherMount from '@/components/sardar/LauncherMount'
 
 import { entityGraphLd } from '@/lib/schema'
 
@@ -95,6 +96,7 @@ export default function RootLayout({
         />
         {children}
         <Analytics />
+        <LauncherMount />
       </body>
     </html>
   )

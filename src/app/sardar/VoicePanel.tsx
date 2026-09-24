@@ -23,11 +23,23 @@ const AGENT_ID = process.env.NEXT_PUBLIC_ELEVENLABS_AGENT_ID || ''
 const IDLE_LOAD_MS = 3000
 const METER_BARS = 7
 
+/** What a host (SardarClient's chips, the site-wide launcher) can drive. */
+export type VoiceControls = {
+  /** Ask a line as if typed: into the live session, or as a new text session. */
+  ask: (text: string) => void
+  /** Hang up whatever is open. */
+  end: () => void
+}
+
 export type VoicePanelProps = {
   onTranscript: (role: 'you' | 'ai', text: string) => void
   onSpeaking: (speaking: boolean) => void
   /** Lets the parent route chip taps into the live conversation. */
   onApi: (api: VoiceApi | null) => void
+  /** Fires just before a typed or asked line is echoed to the transcript. */
+  onAsk?: (text: string) => void
+  /** Hands the host ask/end once mounted, null on unmount. */
+  onControls?: (controls: VoiceControls | null) => void
   disabled?: boolean
 }
 
@@ -47,7 +59,7 @@ function unlockAudio() {
   } catch { /* no WebAudio: nothing to unlock */ }
 }
 
-export default function VoicePanel({ onTranscript, onSpeaking, onApi, disabled }: VoicePanelProps) {
+export default function VoicePanel({ onTranscript, onSpeaking, onApi, onAsk, onControls, disabled }: VoicePanelProps) {
   const configured = AGENT_ID.length > 0
   const [loaded, setLoaded] = useState(false) // mount the SDK chunk
   const [status, setStatus] = useState<VoiceStatus>('idle')
@@ -105,11 +117,10 @@ export default function VoicePanel({ onTranscript, onSpeaking, onApi, disabled }
     else { wanted.current = { kind: 'voice', first: null }; setLoaded(true) }
   }
 
-  const submit = (e: FormEvent) => {
-    e.preventDefault()
-    const t = text.trim()
+  const ask = (line: string) => {
+    const t = line.trim()
     if (!t || disabled || !configured) return
-    setText('')
+    onAsk?.(t)
     onTranscript('you', t)
     track('sardar_voice', { action: 'text' })
     const h = handle.current
@@ -118,6 +129,23 @@ export default function VoicePanel({ onTranscript, onSpeaking, onApi, disabled }
     if (h) h.startText(t)
     else { wanted.current = { kind: 'text', first: t }; setLoaded(true) }
   }
+
+  const submit = (e: FormEvent) => {
+    e.preventDefault()
+    const t = text
+    setText('')
+    ask(t)
+  }
+
+  // Hand the host stable controls that always call the latest ask/endCall.
+  const askRef = useRef(ask)
+  const endRef = useRef(endCall)
+  useEffect(() => { askRef.current = ask; endRef.current = endCall })
+  useEffect(() => {
+    if (!onControls) return
+    onControls({ ask: (t) => askRef.current(t), end: () => endRef.current('end') })
+    return () => onControls(null)
+  }, [onControls])
 
   useEffect(() => {
     if (!active) return

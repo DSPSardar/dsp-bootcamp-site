@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import AskSardarCard from '@/components/sardar/AskSardarCard'
 import Image from 'next/image'
 import Link from 'next/link'
 import { site, waLink, mastery, entity } from '@/config/site'
@@ -381,6 +382,8 @@ export default function MasteryPage() {
     <p className="note">Every module adds one piece. By Module 13 you have all five, live, on a URL you can send to anyone.</p>
   </div>
 </div></header>
+
+<div className="wrap"><AskSardarCard /></div>
 
 
 

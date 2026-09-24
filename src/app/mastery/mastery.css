@@ -304,3 +304,9 @@
 
 /* The page now opens on the certificates section; give it the hero's clearance under the sticky nav. */
 .page-mastery .certs-first{padding-top:88px}
+
+/* Ask SARDAR card under the hero (src/components/sardar/AskSardarCard.tsx) */
+.page-mastery .ask-sardar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:-40px 0 8px;padding:16px 20px;border-radius:var(--r);border:1px solid var(--line);background:var(--panel)}
+.page-mastery .ask-sardar p{margin:0;color:var(--muted);font-size:15px}
+.page-mastery .ask-sardar p b{color:var(--cream)}
+.page-mastery .ask-sardar .btn{padding:10px 18px;font-size:14px}

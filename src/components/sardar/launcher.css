@@ -1,0 +1,63 @@
+/* SARDAR launcher — the pill, its nudge and the panel frame. The panel's
+   inner controls (avatar, transcript, chips, call button) reuse /sardar's
+   own rules from src/app/sardar/sardar.css, which also apply under
+   .sardar-launcher. */
+.sardar-launcher{--sl-ink:#070C18;--sl-panel:#0F1F3E;--sl-cyan:#3FE0F5;--sl-cyan-dim:rgba(63,224,245,.18);--sl-cream:#F5F1E6;--sl-muted:#A9B4C8;--sl-line:rgba(245,241,230,.12);
+  position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:80;font-family:var(--font-body),system-ui,sans-serif;color:var(--sl-cream)}
+div.sardar-launcher{background:transparent;padding:0;overflow:visible;line-height:1.5}
+
+/* ── Collapsed pill ─────────────────────────────────────────────── */
+.sardar-launcher .sl-pill{display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 18px 0 8px;border-radius:999px;border:1px solid var(--sl-cyan-dim);
+  background:var(--sl-panel);color:var(--sl-cream);font:inherit;font-size:15px;font-weight:600;cursor:pointer;box-shadow:0 10px 30px rgba(7,12,24,.45),0 0 0 1px rgba(63,224,245,.15);
+  -webkit-tap-highlight-color:transparent;transition:transform .15s,box-shadow .15s}
+.sardar-launcher .sl-pill:hover{transform:translateY(-1px);box-shadow:0 12px 34px rgba(7,12,24,.5),0 0 0 4px var(--sl-cyan-dim)}
+.sardar-launcher .sl-pill:focus-visible{outline:2px solid var(--sl-cyan);outline-offset:3px}
+.sardar-launcher .sl-face{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(60% 60% at 50% 40%,rgba(63,224,245,.3),transparent 70%),#0B1630;border:1px solid var(--sl-cyan-dim)}
+.sardar-launcher .sl-face svg{display:block}
+.sardar-launcher .sl-mic{color:var(--sl-cyan);flex:none}
+@media(max-width:420px){.sardar-launcher .sl-label{display:none}.sardar-launcher .sl-pill{padding-right:14px}}
+
+/* ── Nudge (Home, once) ─────────────────────────────────────────── */
+.sardar-launcher .sl-nudge{position:absolute;right:0;bottom:66px;white-space:nowrap;padding:10px 14px;border-radius:14px;border:1px solid var(--sl-cyan-dim);
+  background:var(--sl-panel);color:var(--sl-cream);font-size:14px;box-shadow:0 10px 30px rgba(7,12,24,.45);animation:sl-in .35s ease-out both}
+.sardar-launcher .sl-nudge::after{content:"";position:absolute;right:22px;bottom:-6px;width:10px;height:10px;background:var(--sl-panel);border-right:1px solid var(--sl-cyan-dim);border-bottom:1px solid var(--sl-cyan-dim);transform:rotate(45deg)}
+@keyframes sl-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ── Panel ──────────────────────────────────────────────────────── */
+.sardar-launcher .sl-panel{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));width:380px;max-width:calc(100vw - 32px);height:560px;max-height:calc(100dvh - 32px);
+  display:flex;flex-direction:column;border-radius:20px;border:1px solid var(--sl-cyan-dim);background:linear-gradient(180deg,#0B1630,#070C18);color:var(--sl-cream);
+  box-shadow:0 24px 60px rgba(7,12,24,.6);overflow:hidden;animation:sl-in .25s ease-out both}
+.sardar-launcher .sl-head{display:flex;align-items:center;gap:12px;padding:12px 12px 10px 14px;border-bottom:1px solid var(--sl-line)}
+.sardar-launcher .sl-avatar{position:relative;flex:none;width:56px;height:56px;border-radius:50%;overflow:hidden;isolation:isolate;border:1px solid var(--sl-cyan-dim);
+  background:radial-gradient(60% 55% at 50% 40%,rgba(63,224,245,.18),transparent 70%),#0B1630}
+.sardar-launcher .sl-avatar .avatar2d .head{width:82%}
+.sardar-launcher .sl-avatar .floor{bottom:2%;height:20%}
+.sardar-launcher .sl-title{flex:1;min-width:0}
+.sardar-launcher .sl-title b{display:block;font-size:15px}
+.sardar-launcher .sl-state{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono),ui-monospace,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--sl-muted)}
+.sardar-launcher .sl-state i{width:7px;height:7px;border-radius:50%;background:var(--sl-muted)}
+.sardar-launcher .sl-state.speaking i{background:var(--sl-cyan);box-shadow:0 0 10px var(--sl-cyan)}
+.sardar-launcher .sl-close{flex:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--sl-line);background:transparent;color:var(--sl-cream);cursor:pointer;display:grid;place-items:center}
+.sardar-launcher .sl-close:hover{border-color:var(--sl-cyan)}
+.sardar-launcher .sl-close:focus-visible{outline:2px solid var(--sl-cyan);outline-offset:2px}
+.sardar-launcher .sl-body{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;padding:12px 14px}
+.sardar-launcher .sl-body .transcript{max-height:none;flex:1;min-height:0}
+.sardar-launcher .sl-body .msg{font-size:14px}
+.sardar-launcher .sl-body .chips{margin-top:0;gap:6px}
+.sardar-launcher .sl-body .chip{padding:7px 12px;font-size:13px}
+.sardar-launcher .sl-body .voice{padding-top:10px;gap:6px}
+.sardar-launcher .sl-body .voice .call{min-height:52px}
+.sardar-launcher .sl-body .voice .hint{font-size:11px}
+.sardar-launcher .sl-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--sl-line);background:rgba(7,12,24,.6)}
+.sardar-launcher .sl-cta{white-space:nowrap}
+.sardar-launcher .sl-cta.pulse{animation:sl-cta-pulse 1.2s ease-out 1}
+@keyframes sl-cta-pulse{0%{box-shadow:0 0 0 0 rgba(63,224,245,.7)}100%{box-shadow:0 0 0 14px rgba(63,224,245,0)}}
+.sardar-launcher .sl-3d{font-size:13px;color:var(--sl-muted);white-space:nowrap}
+.sardar-launcher .sl-3d:hover{color:var(--sl-cyan)}
+@media(max-width:640px){
+  .sardar-launcher .sl-panel{inset:0;width:auto;max-width:none;height:auto;max-height:none;border-radius:0;border:0}
+}
+@media(prefers-reduced-motion:reduce){
+  .sardar-launcher .sl-nudge,.sardar-launcher .sl-panel,.sardar-launcher .sl-cta.pulse{animation:none}
+  .sardar-launcher .sl-pill,.sardar-launcher .sl-pill:hover{transition:none;transform:none}
+}
