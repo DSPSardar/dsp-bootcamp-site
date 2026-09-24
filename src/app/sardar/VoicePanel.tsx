@@ -27,6 +27,10 @@ const METER_BARS = 7
 export type VoiceControls = {
   /** Ask a line as if typed: into the live session, or as a new text session. */
   ask: (text: string) => void
+  /** Ask a line out loud: into the live call, or by starting one and sending
+   *  it once connected, so the reply is spoken and the visitor can keep
+   *  talking. Falls back to a text session if the call cannot start. */
+  askAloud: (text: string) => void
   /** Hang up whatever is open. */
   end: () => void
 }
@@ -40,6 +44,9 @@ export type VoicePanelProps = {
   onAsk?: (text: string) => void
   /** Hands the host ask/end once mounted, null on unmount. */
   onControls?: (controls: VoiceControls | null) => void
+  /** Load the SDK chunk on mount instead of waiting for a gesture or the idle
+   *  window — for hosts that only mount after a gesture (the launcher panel). */
+  eager?: boolean
   disabled?: boolean
 }
 
@@ -59,9 +66,9 @@ function unlockAudio() {
   } catch { /* no WebAudio: nothing to unlock */ }
 }
 
-export default function VoicePanel({ onTranscript, onSpeaking, onApi, onAsk, onControls, disabled }: VoicePanelProps) {
+export default function VoicePanel({ onTranscript, onSpeaking, onApi, onAsk, onControls, eager, disabled }: VoicePanelProps) {
   const configured = AGENT_ID.length > 0
-  const [loaded, setLoaded] = useState(false) // mount the SDK chunk
+  const [loaded, setLoaded] = useState(Boolean(eager)) // mount the SDK chunk
   const [status, setStatus] = useState<VoiceStatus>('idle')
   const [detail, setDetail] = useState<string | null>(null)
   const [kind, setKind] = useState<SessionKind | null>(null)
@@ -88,7 +95,7 @@ export default function VoicePanel({ onTranscript, onSpeaking, onApi, onAsk, onC
     if (!h) return
     const w = wanted.current
     wanted.current = null
-    if (w?.kind === 'voice') h.startCall()
+    if (w?.kind === 'voice') h.startCall(w.first ?? undefined)
     else if (w?.kind === 'text' && w.first) h.startText(w.first)
   }, [])
   const onStatus = useCallback((s: VoiceStatus, d?: string) => { setStatus(s); setDetail(d ?? null) }, [])
@@ -130,6 +137,23 @@ export default function VoicePanel({ onTranscript, onSpeaking, onApi, onAsk, onC
     else { wanted.current = { kind: 'text', first: t }; setLoaded(true) }
   }
 
+  // A chip: the visitor wants to hear the answer. Send it into the live call,
+  // or start one and send it once connected — synchronously inside the tap,
+  // so iOS still lets the mic prompt and playback through.
+  const askAloud = (line: string) => {
+    const t = line.trim()
+    if (!t || disabled || !configured) return
+    onAsk?.(t)
+    onTranscript('you', t)
+    const h = handle.current
+    if (h && live) { track('sardar_voice', { action: 'text' }); h.send(t); return }
+    unlockAudio()
+    setStatus('connecting'); setDetail(null); setKind('voice')
+    track('sardar_voice', { action: 'start' })
+    if (h) h.startCall(t)
+    else { wanted.current = { kind: 'voice', first: t }; setLoaded(true) }
+  }
+
   const submit = (e: FormEvent) => {
     e.preventDefault()
     const t = text
@@ -139,11 +163,12 @@ export default function VoicePanel({ onTranscript, onSpeaking, onApi, onAsk, onC
 
   // Hand the host stable controls that always call the latest ask/endCall.
   const askRef = useRef(ask)
+  const askAloudRef = useRef(askAloud)
   const endRef = useRef(endCall)
-  useEffect(() => { askRef.current = ask; endRef.current = endCall })
+  useEffect(() => { askRef.current = ask; askAloudRef.current = askAloud; endRef.current = endCall })
   useEffect(() => {
     if (!onControls) return
-    onControls({ ask: (t) => askRef.current(t), end: () => endRef.current('end') })
+    onControls({ ask: (t) => askRef.current(t), askAloud: (t) => askAloudRef.current(t), end: () => endRef.current('end') })
     return () => onControls(null)
   }, [onControls])
 
