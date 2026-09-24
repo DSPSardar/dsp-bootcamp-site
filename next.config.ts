@@ -117,19 +117,12 @@ const nextConfig: NextConfig = {
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           {
+            // The site-wide SARDAR launcher (src/components/sardar) and
+            // /sardar itself talk: the microphone is allowed same-origin only
+            // (ElevenLabs Conversational AI). Camera and geolocation stay off.
             key: "Permissions-Policy",
-            value: "camera=(), microphone=(), geolocation=()",
+            value: "camera=(), microphone=(self), geolocation=()",
           },
-        ],
-      },
-      {
-        // /sardar is the one page that talks: its push-to-talk needs the
-        // microphone (ElevenLabs Conversational AI, same-origin only). A
-        // later rule with the same key overrides the sitewide one above;
-        // camera and geolocation stay off.
-        source: "/sardar",
-        headers: [
-          { key: "Permissions-Policy", value: "camera=(), microphone=(self), geolocation=()" },
         ],
       },
     ];

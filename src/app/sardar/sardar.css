@@ -1,8 +1,11 @@
 /* /sardar — SARDAR voice AI showcase. Own shell, scoped under .page-sardar.
+   Every rule also applies under .sardar-launcher: the site-wide launcher panel
+   (src/components/sardar) imports this file with its own chunk and reuses the
+   avatar, transcript, chip and voice-panel rules.
    Palette: the /mastery dark navy plus a cyan hologram accent that exists
    only on this page (the brief asks for a cyan/teal rim). Terracotta stays
    the CTA colour so the page still reads as DSP. */
-.page-sardar{--ink:#070C18; --navy:#0B1630; --panel:#0F1F3E; --panel-2:#132B52;
+:is(.page-sardar,.sardar-launcher){--ink:#070C18; --navy:#0B1630; --panel:#0F1F3E; --panel-2:#132B52;
   --cyan:#3FE0F5; --cyan-2:#19B3C4; --cyan-dim:rgba(63,224,245,.18);
   --cream:#F5F1E6; --muted:#A9B4C8; --line:rgba(245,241,230,.12);
   --accent:var(--t-accent); --accent-deep:var(--t-accent-deep); --accent-tint:var(--t-accent-tint);
@@ -13,165 +16,165 @@
   --max:1160px; --r:14px;
   /* cursor-tracking, set from JS on the stage; 0 0 = centred */
   --look-x:0; --look-y:0;}
-.page-sardar *{box-sizing:border-box;margin:0;padding:0}
-.page-sardar{font-family:var(--body);background:var(--ink);color:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;padding-bottom:96px}
-.page-sardar a{color:inherit;text-decoration:none}
-.page-sardar .wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
-@media(min-width:720px){.page-sardar .wrap{padding:0 24px}}
-.page-sardar section{padding:64px 0}
-@media(min-width:720px){.page-sardar section{padding:96px 0}}
-.page-sardar h1,.page-sardar h2{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.01em}
-.page-sardar h3{font-family:var(--display);line-height:1.2;letter-spacing:-.01em;font-size:20px;font-weight:700}
-.page-sardar h1{font-size:clamp(36px,6vw,72px)}
-.page-sardar h2{font-size:clamp(28px,4vw,46px);margin-bottom:14px}
-.page-sardar .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:16px;display:flex;gap:10px;align-items:center}
-.page-sardar .eyebrow::before{content:"";width:22px;height:1px;background:var(--cyan)}
-.page-sardar .lead{font-size:18px;color:var(--muted);max-width:640px}
-.page-sardar .muted{color:var(--muted)}
-.page-sardar .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:600;font-size:15px;border:1px solid transparent;cursor:pointer;transition:transform .15s,background .2s,border-color .2s;font-family:var(--body)}
-.page-sardar .btn:focus-visible,.page-sardar a:focus-visible,.page-sardar button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
-.page-sardar .btn-accent{background:var(--accent);color:#fff}
-.page-sardar .btn-accent:hover{background:var(--accent-deep);transform:translateY(-1px)}
-.page-sardar .btn-ghost{border-color:var(--line);color:var(--cream);background:transparent}
-.page-sardar .btn-ghost:hover{border-color:var(--cyan)}
-.page-sardar .btn-sm{padding:10px 16px;font-size:14px}
+:is(.page-sardar,.sardar-launcher) *{box-sizing:border-box;margin:0;padding:0}
+:is(.page-sardar,.sardar-launcher){font-family:var(--body);background:var(--ink);color:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;padding-bottom:96px}
+:is(.page-sardar,.sardar-launcher) a{color:inherit;text-decoration:none}
+:is(.page-sardar,.sardar-launcher) .wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
+@media(min-width:720px){:is(.page-sardar,.sardar-launcher) .wrap{padding:0 24px}}
+:is(.page-sardar,.sardar-launcher) section{padding:64px 0}
+@media(min-width:720px){:is(.page-sardar,.sardar-launcher) section{padding:96px 0}}
+:is(.page-sardar,.sardar-launcher) h1,:is(.page-sardar,.sardar-launcher) h2{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.01em}
+:is(.page-sardar,.sardar-launcher) h3{font-family:var(--display);line-height:1.2;letter-spacing:-.01em;font-size:20px;font-weight:700}
+:is(.page-sardar,.sardar-launcher) h1{font-size:clamp(36px,6vw,72px)}
+:is(.page-sardar,.sardar-launcher) h2{font-size:clamp(28px,4vw,46px);margin-bottom:14px}
+:is(.page-sardar,.sardar-launcher) .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:16px;display:flex;gap:10px;align-items:center}
+:is(.page-sardar,.sardar-launcher) .eyebrow::before{content:"";width:22px;height:1px;background:var(--cyan)}
+:is(.page-sardar,.sardar-launcher) .lead{font-size:18px;color:var(--muted);max-width:640px}
+:is(.page-sardar,.sardar-launcher) .muted{color:var(--muted)}
+:is(.page-sardar,.sardar-launcher) .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:600;font-size:15px;border:1px solid transparent;cursor:pointer;transition:transform .15s,background .2s,border-color .2s;font-family:var(--body)}
+:is(.page-sardar,.sardar-launcher) .btn:focus-visible,:is(.page-sardar,.sardar-launcher) a:focus-visible,:is(.page-sardar,.sardar-launcher) button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+:is(.page-sardar,.sardar-launcher) .btn-accent{background:var(--accent);color:#fff}
+:is(.page-sardar,.sardar-launcher) .btn-accent:hover{background:var(--accent-deep);transform:translateY(-1px)}
+:is(.page-sardar,.sardar-launcher) .btn-ghost{border-color:var(--line);color:var(--cream);background:transparent}
+:is(.page-sardar,.sardar-launcher) .btn-ghost:hover{border-color:var(--cyan)}
+:is(.page-sardar,.sardar-launcher) .btn-sm{padding:10px 16px;font-size:14px}
 
 /* Site header sits on top of the dark shell, same trick as /mastery. */
 .sardar-sitebar .site-header{position:relative}
 .sardar-sitebar .site-header .nav{position:static;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:0}
 
 /* ── Hero / stage ─────────────────────────────────────────────────── */
-.page-sardar .hero{padding-top:32px;padding-bottom:40px}
-.page-sardar .hero .top{display:grid;gap:12px;margin-bottom:24px}
-.page-sardar .hero .top h1 em{font-style:italic;color:var(--cyan)}
-.page-sardar .stage{position:relative;display:grid;gap:16px;grid-template-columns:1fr}
-@media(min-width:900px){.page-sardar .stage{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px;align-items:stretch}}
-.page-sardar .holo{position:relative;min-height:380px;border-radius:20px;border:1px solid var(--cyan-dim);background:
+:is(.page-sardar,.sardar-launcher) .hero{padding-top:32px;padding-bottom:40px}
+:is(.page-sardar,.sardar-launcher) .hero .top{display:grid;gap:12px;margin-bottom:24px}
+:is(.page-sardar,.sardar-launcher) .hero .top h1 em{font-style:italic;color:var(--cyan)}
+:is(.page-sardar,.sardar-launcher) .stage{position:relative;display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:900px){:is(.page-sardar,.sardar-launcher) .stage{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px;align-items:stretch}}
+:is(.page-sardar,.sardar-launcher) .holo{position:relative;min-height:380px;border-radius:20px;border:1px solid var(--cyan-dim);background:
   radial-gradient(60% 55% at 50% 40%,rgba(63,224,245,.16),transparent 70%),
   linear-gradient(180deg,#0B1630,#070C18);overflow:hidden;isolation:isolate}
-@media(min-width:900px){.page-sardar .holo{min-height:520px}}
-.page-sardar .holo::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;
+@media(min-width:900px){:is(.page-sardar,.sardar-launcher) .holo{min-height:520px}}
+:is(.page-sardar,.sardar-launcher) .holo::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;
   background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 4px);mix-blend-mode:overlay}
-.page-sardar .holo .floor{position:absolute;left:50%;bottom:8%;width:60%;height:14%;transform:translateX(-50%);border-radius:50%;
+:is(.page-sardar,.sardar-launcher) .holo .floor{position:absolute;left:50%;bottom:8%;width:60%;height:14%;transform:translateX(-50%);border-radius:50%;
   background:radial-gradient(closest-side,rgba(63,224,245,.35),transparent);filter:blur(6px);z-index:0}
-.page-sardar .badge{position:absolute;top:14px;left:14px;z-index:4;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+:is(.page-sardar,.sardar-launcher) .badge{position:absolute;top:14px;left:14px;z-index:4;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
   padding:6px 10px;border-radius:999px;border:1px solid var(--cyan-dim);background:rgba(7,12,24,.7);color:var(--cyan)}
-.page-sardar .badge.live{color:var(--t-live);border-color:rgba(61,190,139,.4)}
-.page-sardar .status{position:absolute;top:14px;right:14px;z-index:4;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.page-sardar .status .dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}
-.page-sardar .status.speaking .dot{background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+:is(.page-sardar,.sardar-launcher) .badge.live{color:var(--t-live);border-color:rgba(61,190,139,.4)}
+:is(.page-sardar,.sardar-launcher) .status{position:absolute;top:14px;right:14px;z-index:4;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+:is(.page-sardar,.sardar-launcher) .status .dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+:is(.page-sardar,.sardar-launcher) .status.speaking .dot{background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
 
 /* particles — pure CSS, hidden under reduced motion */
-.page-sardar .particles{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
-.page-sardar .particles i{position:absolute;bottom:-10px;width:3px;height:3px;border-radius:50%;background:var(--cyan);opacity:0;
+:is(.page-sardar,.sardar-launcher) .particles{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+:is(.page-sardar,.sardar-launcher) .particles i{position:absolute;bottom:-10px;width:3px;height:3px;border-radius:50%;background:var(--cyan);opacity:0;
   animation:sardar-rise var(--d,9s) linear var(--delay,0s) infinite}
 @keyframes sardar-rise{0%{transform:translateY(0);opacity:0}10%{opacity:.7}90%{opacity:.3}100%{transform:translateY(-110vh) translateY(0);opacity:0}}
 
 /* ── 2D avatar (fallback + step-2 placeholder) ───────────────────── */
-.page-sardar .avatar2d{position:absolute;inset:0;z-index:2;display:grid;place-items:center}
-.page-sardar .avatar2d .head{position:relative;width:min(58%,260px);aspect-ratio:1;transform:translate(calc(var(--look-x) * 10px),calc(var(--look-y) * 8px));
+:is(.page-sardar,.sardar-launcher) .avatar2d{position:absolute;inset:0;z-index:2;display:grid;place-items:center}
+:is(.page-sardar,.sardar-launcher) .avatar2d .head{position:relative;width:min(58%,260px);aspect-ratio:1;transform:translate(calc(var(--look-x) * 10px),calc(var(--look-y) * 8px));
   transition:transform .25s ease-out;animation:sardar-breathe 4.2s ease-in-out infinite}
-.page-sardar .avatar2d .head svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 0 18px rgba(63,224,245,.35))}
-.page-sardar .avatar2d .eye{transform-origin:center;animation:sardar-blink 5.5s infinite}
-.page-sardar .avatar2d .eye.r{animation-delay:.02s}
-.page-sardar .avatar2d .pupil{transform:translate(calc(var(--look-x) * 4px),calc(var(--look-y) * 3px));transition:transform .2s}
-.page-sardar .avatar2d .mouth{transform-origin:center;transform:scaleY(var(--mouth,.12));transition:transform .08s linear}
-.page-sardar .avatar2d.speaking .mouth{animation:sardar-talk .32s ease-in-out infinite alternate}
-.page-sardar .avatar2d .ring{fill:none;stroke:var(--cyan);stroke-opacity:.45;stroke-width:1.2;stroke-dasharray:6 10;transform-origin:center;animation:sardar-spin 22s linear infinite}
-.page-sardar .avatar2d .ring.b{stroke-dasharray:2 14;animation-duration:36s;animation-direction:reverse}
+:is(.page-sardar,.sardar-launcher) .avatar2d .head svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 0 18px rgba(63,224,245,.35))}
+:is(.page-sardar,.sardar-launcher) .avatar2d .eye{transform-origin:center;animation:sardar-blink 5.5s infinite}
+:is(.page-sardar,.sardar-launcher) .avatar2d .eye.r{animation-delay:.02s}
+:is(.page-sardar,.sardar-launcher) .avatar2d .pupil{transform:translate(calc(var(--look-x) * 4px),calc(var(--look-y) * 3px));transition:transform .2s}
+:is(.page-sardar,.sardar-launcher) .avatar2d .mouth{transform-origin:center;transform:scaleY(var(--mouth,.12));transition:transform .08s linear}
+:is(.page-sardar,.sardar-launcher) .avatar2d.speaking .mouth{animation:sardar-talk .32s ease-in-out infinite alternate}
+:is(.page-sardar,.sardar-launcher) .avatar2d .ring{fill:none;stroke:var(--cyan);stroke-opacity:.45;stroke-width:1.2;stroke-dasharray:6 10;transform-origin:center;animation:sardar-spin 22s linear infinite}
+:is(.page-sardar,.sardar-launcher) .avatar2d .ring.b{stroke-dasharray:2 14;animation-duration:36s;animation-direction:reverse}
 @keyframes sardar-breathe{0%,100%{scale:1}50%{scale:1.025}}
 @keyframes sardar-blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.08)}}
 @keyframes sardar-talk{from{transform:scaleY(.15)}to{transform:scaleY(1)}}
 @keyframes sardar-spin{to{rotate:360deg}}
 
 /* ── Glass transcript panel ─────────────────────────────────────── */
-.page-sardar .glass{display:flex;flex-direction:column;gap:14px;border-radius:20px;padding:18px;border:1px solid var(--line);
+:is(.page-sardar,.sardar-launcher) .glass{display:flex;flex-direction:column;gap:14px;border-radius:20px;padding:18px;border:1px solid var(--line);
   background:rgba(15,31,62,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);min-height:380px}
-.page-sardar .glass .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan)}
-.page-sardar .transcript{flex:1;display:flex;flex-direction:column;gap:10px;overflow:auto;max-height:340px;padding-right:4px}
-.page-sardar .msg{padding:12px 14px;border-radius:14px;font-size:15px;line-height:1.55;max-width:92%}
-.page-sardar .msg.you{align-self:flex-end;background:rgba(245,241,230,.08);border:1px solid var(--line)}
-.page-sardar .msg.ai{align-self:flex-start;background:var(--cyan-dim);border:1px solid rgba(63,224,245,.28)}
-.page-sardar .msg .who{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
-.page-sardar .msg.ai .who{color:var(--cyan)}
-.page-sardar .msg .cursor{display:inline-block;width:.5em;height:1em;vertical-align:-.15em;background:var(--cyan);margin-left:2px;animation:sardar-caret 1s steps(2) infinite}
+:is(.page-sardar,.sardar-launcher) .glass .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan)}
+:is(.page-sardar,.sardar-launcher) .transcript{flex:1;display:flex;flex-direction:column;gap:10px;overflow:auto;max-height:340px;padding-right:4px}
+:is(.page-sardar,.sardar-launcher) .msg{padding:12px 14px;border-radius:14px;font-size:15px;line-height:1.55;max-width:92%}
+:is(.page-sardar,.sardar-launcher) .msg.you{align-self:flex-end;background:rgba(245,241,230,.08);border:1px solid var(--line)}
+:is(.page-sardar,.sardar-launcher) .msg.ai{align-self:flex-start;background:var(--cyan-dim);border:1px solid rgba(63,224,245,.28)}
+:is(.page-sardar,.sardar-launcher) .msg .who{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+:is(.page-sardar,.sardar-launcher) .msg.ai .who{color:var(--cyan)}
+:is(.page-sardar,.sardar-launcher) .msg .cursor{display:inline-block;width:.5em;height:1em;vertical-align:-.15em;background:var(--cyan);margin-left:2px;animation:sardar-caret 1s steps(2) infinite}
 @keyframes sardar-caret{to{opacity:0}}
-.page-sardar .chart{border-top:1px solid var(--line);padding-top:12px}
-.page-sardar .chart .t{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:13px;color:var(--muted);margin-bottom:8px}
-.page-sardar .chart .t b{color:var(--cream);font-weight:600}
-.page-sardar .chart .t small{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-tint)}
-.page-sardar .chart svg{width:100%;height:auto;display:block}
-.page-sardar .chart .bar{fill:var(--cyan);fill-opacity:.85;transform-origin:bottom;animation:sardar-grow .7s cubic-bezier(.2,.7,.2,1) both}
-.page-sardar .chart .bar:nth-child(2){animation-delay:.08s}.page-sardar .chart .bar:nth-child(3){animation-delay:.16s}.page-sardar .chart .bar:nth-child(4){animation-delay:.24s}
-.page-sardar .chart text{fill:var(--muted);font-family:var(--mono);font-size:9px}
-.page-sardar .chart text.v{fill:var(--cream);font-size:10px}
-.page-sardar .chart .arc{fill:none;stroke:var(--cyan);stroke-width:10;stroke-linecap:butt;animation:sardar-draw 1s cubic-bezier(.2,.7,.2,1) both}
-.page-sardar .chart .arc.off{stroke:rgba(245,241,230,.12)}
+:is(.page-sardar,.sardar-launcher) .chart{border-top:1px solid var(--line);padding-top:12px}
+:is(.page-sardar,.sardar-launcher) .chart .t{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:13px;color:var(--muted);margin-bottom:8px}
+:is(.page-sardar,.sardar-launcher) .chart .t b{color:var(--cream);font-weight:600}
+:is(.page-sardar,.sardar-launcher) .chart .t small{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-tint)}
+:is(.page-sardar,.sardar-launcher) .chart svg{width:100%;height:auto;display:block}
+:is(.page-sardar,.sardar-launcher) .chart .bar{fill:var(--cyan);fill-opacity:.85;transform-origin:bottom;animation:sardar-grow .7s cubic-bezier(.2,.7,.2,1) both}
+:is(.page-sardar,.sardar-launcher) .chart .bar:nth-child(2){animation-delay:.08s}:is(.page-sardar,.sardar-launcher) .chart .bar:nth-child(3){animation-delay:.16s}:is(.page-sardar,.sardar-launcher) .chart .bar:nth-child(4){animation-delay:.24s}
+:is(.page-sardar,.sardar-launcher) .chart text{fill:var(--muted);font-family:var(--mono);font-size:9px}
+:is(.page-sardar,.sardar-launcher) .chart text.v{fill:var(--cream);font-size:10px}
+:is(.page-sardar,.sardar-launcher) .chart .arc{fill:none;stroke:var(--cyan);stroke-width:10;stroke-linecap:butt;animation:sardar-draw 1s cubic-bezier(.2,.7,.2,1) both}
+:is(.page-sardar,.sardar-launcher) .chart .arc.off{stroke:rgba(245,241,230,.12)}
 @keyframes sardar-grow{from{transform:scaleY(0)}}
 @keyframes sardar-draw{from{stroke-dashoffset:var(--len)}}
 
 /* ── Chips ──────────────────────────────────────────────────────── */
-.page-sardar .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.page-sardar .chip{padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--cream);font-size:14px;font-weight:500;cursor:pointer;font-family:var(--body);transition:border-color .2s,background .2s,transform .15s}
-.page-sardar .chip:hover{border-color:var(--cyan);transform:translateY(-1px)}
-.page-sardar .chip[aria-pressed="true"]{border-color:var(--cyan);background:var(--cyan-dim);color:#fff}
-.page-sardar .chip:disabled{opacity:.6;cursor:progress;transform:none}
-.page-sardar .mode{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--muted)}
-.page-sardar .mode .seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px}
-.page-sardar .mode .seg button{border:0;background:transparent;color:var(--muted);padding:6px 12px;border-radius:999px;font-size:13px;cursor:pointer;font-family:var(--body)}
-.page-sardar .mode .seg button[aria-pressed="true"]{background:var(--panel-2);color:var(--cream)}
-.page-sardar .mode .seg button:disabled{cursor:not-allowed;opacity:.5}
+:is(.page-sardar,.sardar-launcher) .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+:is(.page-sardar,.sardar-launcher) .chip{padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--cream);font-size:14px;font-weight:500;cursor:pointer;font-family:var(--body);transition:border-color .2s,background .2s,transform .15s}
+:is(.page-sardar,.sardar-launcher) .chip:hover{border-color:var(--cyan);transform:translateY(-1px)}
+:is(.page-sardar,.sardar-launcher) .chip[aria-pressed="true"]{border-color:var(--cyan);background:var(--cyan-dim);color:#fff}
+:is(.page-sardar,.sardar-launcher) .chip:disabled{opacity:.6;cursor:progress;transform:none}
+:is(.page-sardar,.sardar-launcher) .mode{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+:is(.page-sardar,.sardar-launcher) .mode .seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px}
+:is(.page-sardar,.sardar-launcher) .mode .seg button{border:0;background:transparent;color:var(--muted);padding:6px 12px;border-radius:999px;font-size:13px;cursor:pointer;font-family:var(--body)}
+:is(.page-sardar,.sardar-launcher) .mode .seg button[aria-pressed="true"]{background:var(--panel-2);color:var(--cream)}
+:is(.page-sardar,.sardar-launcher) .mode .seg button:disabled{cursor:not-allowed;opacity:.5}
 
 /* ── Module cards ───────────────────────────────────────────────── */
-.page-sardar .cards{display:grid;gap:14px;grid-template-columns:1fr}
-@media(min-width:640px){.page-sardar .cards{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1000px){.page-sardar .cards{grid-template-columns:repeat(3,1fr)}}
-.page-sardar .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:10px}
-.page-sardar .card .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan)}
-.page-sardar .card p{color:var(--muted);font-size:15px;flex:1}
-.page-sardar .card .chipref{font-size:12px;color:var(--accent-tint);font-family:var(--mono)}
-.page-sardar .card a{color:var(--cream);font-weight:600;font-size:14px}
-.page-sardar .card a:hover{color:var(--cyan)}
+:is(.page-sardar,.sardar-launcher) .cards{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:640px){:is(.page-sardar,.sardar-launcher) .cards{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){:is(.page-sardar,.sardar-launcher) .cards{grid-template-columns:repeat(3,1fr)}}
+:is(.page-sardar,.sardar-launcher) .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:10px}
+:is(.page-sardar,.sardar-launcher) .card .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan)}
+:is(.page-sardar,.sardar-launcher) .card p{color:var(--muted);font-size:15px;flex:1}
+:is(.page-sardar,.sardar-launcher) .card .chipref{font-size:12px;color:var(--accent-tint);font-family:var(--mono)}
+:is(.page-sardar,.sardar-launcher) .card a{color:var(--cream);font-weight:600;font-size:14px}
+:is(.page-sardar,.sardar-launcher) .card a:hover{color:var(--cyan)}
 
 /* ── Fixed CTA bar ──────────────────────────────────────────────── */
-.page-sardar .ctabar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(7,12,24,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+:is(.page-sardar,.sardar-launcher) .ctabar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(7,12,24,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   border-top:1px solid rgba(63,224,245,.25);padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
-.page-sardar .ctabar .wrap{display:grid;gap:8px;grid-template-columns:1fr 1fr;align-items:center;padding:0}
-.page-sardar .ctabar .btn{width:100%;padding:10px 8px;font-size:13px;line-height:1.2;white-space:normal;text-align:center;min-height:44px}
-.page-sardar .ctabar .wa{display:none}
-@media(min-width:720px){.page-sardar .ctabar .wrap{grid-template-columns:auto auto auto;justify-content:center;gap:12px;padding:0 24px}
-  .page-sardar .ctabar .btn{width:auto;font-size:14px;padding:12px 20px;white-space:nowrap}.page-sardar .ctabar .wa{display:inline-flex}}
+:is(.page-sardar,.sardar-launcher) .ctabar .wrap{display:grid;gap:8px;grid-template-columns:1fr 1fr;align-items:center;padding:0}
+:is(.page-sardar,.sardar-launcher) .ctabar .btn{width:100%;padding:10px 8px;font-size:13px;line-height:1.2;white-space:normal;text-align:center;min-height:44px}
+:is(.page-sardar,.sardar-launcher) .ctabar .wa{display:none}
+@media(min-width:720px){:is(.page-sardar,.sardar-launcher) .ctabar .wrap{grid-template-columns:auto auto auto;justify-content:center;gap:12px;padding:0 24px}
+  :is(.page-sardar,.sardar-launcher) .ctabar .btn{width:auto;font-size:14px;padding:12px 20px;white-space:nowrap}:is(.page-sardar,.sardar-launcher) .ctabar .wa{display:inline-flex}}
 
 /* ── Motion & no-JS ─────────────────────────────────────────────── */
 @media(prefers-reduced-motion:reduce){
-  .page-sardar .particles,.page-sardar .avatar2d .ring{display:none}
-  .page-sardar .avatar2d .head,.page-sardar .avatar2d .eye,.page-sardar .avatar2d.speaking .mouth,.page-sardar .chart .bar,.page-sardar .chart .arc,.page-sardar .msg .cursor{animation:none}
-  .page-sardar .avatar2d .head{transform:none;transition:none}
-  .page-sardar .avatar2d.speaking .mouth{transform:scaleY(.6)}
+  :is(.page-sardar,.sardar-launcher) .particles,:is(.page-sardar,.sardar-launcher) .avatar2d .ring{display:none}
+  :is(.page-sardar,.sardar-launcher) .avatar2d .head,:is(.page-sardar,.sardar-launcher) .avatar2d .eye,:is(.page-sardar,.sardar-launcher) .avatar2d.speaking .mouth,:is(.page-sardar,.sardar-launcher) .chart .bar,:is(.page-sardar,.sardar-launcher) .chart .arc,:is(.page-sardar,.sardar-launcher) .msg .cursor{animation:none}
+  :is(.page-sardar,.sardar-launcher) .avatar2d .head{transform:none;transition:none}
+  :is(.page-sardar,.sardar-launcher) .avatar2d.speaking .mouth{transform:scaleY(.6)}
 }
 
-/* ── Voice panel (push-to-talk + text) ─────────────────────────── */
-.page-sardar .voice{border-top:1px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:8px}
-.page-sardar .voice .row{display:flex;gap:8px;align-items:center}
-.page-sardar .voice input{flex:1;min-width:0;height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:rgba(7,12,24,.6);color:var(--cream);font:inherit;font-size:15px}
-.page-sardar .voice input::placeholder{color:var(--muted)}
-.page-sardar .voice input:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
-.page-sardar .voice input:disabled,.page-sardar .voice button:disabled{opacity:.5;cursor:not-allowed}
-.page-sardar .voice .call{--call:var(--cyan);--call-dim:var(--cyan-dim);width:100%;min-height:60px;padding:8px 16px 8px 8px;border-radius:999px;border:1px solid var(--call-dim);background:var(--panel-2);color:var(--cream);display:flex;align-items:center;gap:12px;cursor:pointer;font:inherit;font-size:15px;font-weight:600;text-align:left;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;transition:background .15s,box-shadow .15s,border-color .15s}
-.page-sardar .voice .call:hover:not(:disabled){box-shadow:0 0 0 4px var(--call-dim)}
-.page-sardar .voice .call:focus-visible{outline:2px solid var(--call);outline-offset:2px}
-.page-sardar .voice .call .ring{flex:none;width:44px;height:44px;border-radius:50%;border:2px solid var(--call);color:var(--call);display:grid;place-items:center;position:relative}
-.page-sardar .voice .call .lbl{flex:1;min-width:0}
-.page-sardar .voice .call.busy{--call:var(--muted);--call-dim:rgba(169,180,200,.18)}
-.page-sardar .voice .call .spin{width:20px;height:20px;border-radius:50%;border:2px solid var(--call-dim);border-top-color:var(--call);animation:sardar-spin .8s linear infinite}
-.page-sardar .voice .call.live{--call:#FF5C5C;--call-dim:rgba(255,92,92,.22);border-color:rgba(255,92,92,.45);background:rgba(255,92,92,.08)}
-.page-sardar .voice .call.live .ring{background:var(--call);color:#fff;border-color:var(--call)}
-.page-sardar .voice .call.live .ring::before,.page-sardar .voice .call.live .ring::after{content:"";position:absolute;inset:-2px;border-radius:50%;border:2px solid var(--call);animation:sardar-pulse 1.6s ease-out infinite}
-.page-sardar .voice .call.live .ring::after{animation-delay:.8s}
-.page-sardar .voice .call.err{--call:#FFB4B4;--call-dim:rgba(255,120,120,.2);border-color:rgba(255,120,120,.45)}
-.page-sardar .voice .call .meter{flex:none;display:flex;align-items:center;gap:3px;height:28px;padding-right:6px}
-.page-sardar .voice .call .meter i{display:block;width:3px;height:100%;border-radius:2px;background:var(--cream);opacity:.85;transform:scaleY(.12);transform-origin:center;will-change:transform}
-.page-sardar .voice .hint.warn{color:#FFD9A8}
+/* ── Voice panel (live-call toggle + text) ────────────────────── */
+:is(.page-sardar,.sardar-launcher) .voice{border-top:1px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:8px}
+:is(.page-sardar,.sardar-launcher) .voice .row{display:flex;gap:8px;align-items:center}
+:is(.page-sardar,.sardar-launcher) .voice input{flex:1;min-width:0;height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:rgba(7,12,24,.6);color:var(--cream);font:inherit;font-size:15px}
+:is(.page-sardar,.sardar-launcher) .voice input::placeholder{color:var(--muted)}
+:is(.page-sardar,.sardar-launcher) .voice input:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+:is(.page-sardar,.sardar-launcher) .voice input:disabled,:is(.page-sardar,.sardar-launcher) .voice button:disabled{opacity:.5;cursor:not-allowed}
+:is(.page-sardar,.sardar-launcher) .voice .call{--call:var(--cyan);--call-dim:var(--cyan-dim);width:100%;min-height:60px;padding:8px 16px 8px 8px;border-radius:999px;border:1px solid var(--call-dim);background:var(--panel-2);color:var(--cream);display:flex;align-items:center;gap:12px;cursor:pointer;font:inherit;font-size:15px;font-weight:600;text-align:left;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;transition:background .15s,box-shadow .15s,border-color .15s}
+:is(.page-sardar,.sardar-launcher) .voice .call:hover:not(:disabled){box-shadow:0 0 0 4px var(--call-dim)}
+:is(.page-sardar,.sardar-launcher) .voice .call:focus-visible{outline:2px solid var(--call);outline-offset:2px}
+:is(.page-sardar,.sardar-launcher) .voice .call .ring{flex:none;width:44px;height:44px;border-radius:50%;border:2px solid var(--call);color:var(--call);display:grid;place-items:center;position:relative}
+:is(.page-sardar,.sardar-launcher) .voice .call .lbl{flex:1;min-width:0}
+:is(.page-sardar,.sardar-launcher) .voice .call.busy{--call:var(--muted);--call-dim:rgba(169,180,200,.18)}
+:is(.page-sardar,.sardar-launcher) .voice .call .spin{width:20px;height:20px;border-radius:50%;border:2px solid var(--call-dim);border-top-color:var(--call);animation:sardar-spin .8s linear infinite}
+:is(.page-sardar,.sardar-launcher) .voice .call.live{--call:#FF5C5C;--call-dim:rgba(255,92,92,.22);border-color:rgba(255,92,92,.45);background:rgba(255,92,92,.08)}
+:is(.page-sardar,.sardar-launcher) .voice .call.live .ring{background:var(--call);color:#fff;border-color:var(--call)}
+:is(.page-sardar,.sardar-launcher) .voice .call.live .ring::before,:is(.page-sardar,.sardar-launcher) .voice .call.live .ring::after{content:"";position:absolute;inset:-2px;border-radius:50%;border:2px solid var(--call);animation:sardar-pulse 1.6s ease-out infinite}
+:is(.page-sardar,.sardar-launcher) .voice .call.live .ring::after{animation-delay:.8s}
+:is(.page-sardar,.sardar-launcher) .voice .call.err{--call:#FFB4B4;--call-dim:rgba(255,120,120,.2);border-color:rgba(255,120,120,.45)}
+:is(.page-sardar,.sardar-launcher) .voice .call .meter{flex:none;display:flex;align-items:center;gap:3px;height:28px;padding-right:6px}
+:is(.page-sardar,.sardar-launcher) .voice .call .meter i{display:block;width:3px;height:100%;border-radius:2px;background:var(--cream);opacity:.85;transform:scaleY(.12);transform-origin:center;will-change:transform}
+:is(.page-sardar,.sardar-launcher) .voice .hint.warn{color:#FFD9A8}
 @keyframes sardar-pulse{0%{transform:scale(1);opacity:.9}100%{transform:scale(1.7);opacity:0}}
-@media (prefers-reduced-motion:reduce){.page-sardar .voice .call.live .ring::before,.page-sardar .voice .call.live .ring::after{animation:none;opacity:.5}}
-.page-sardar .voice .hint{font-size:12px;color:var(--muted);margin:0}
+@media (prefers-reduced-motion:reduce){:is(.page-sardar,.sardar-launcher) .voice .call.live .ring::before,:is(.page-sardar,.sardar-launcher) .voice .call.live .ring::after{animation:none;opacity:.5}}
+:is(.page-sardar,.sardar-launcher) .voice .hint{font-size:12px;color:var(--muted);margin:0}
