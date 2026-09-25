@@ -220,8 +220,10 @@ export default function AgentsPage() {
             <Link href="/what-is-an-ai-employee">AI Employees</Link> — software that holds one
             job description, uses its own tools, and is accountable for an outcome rather than a
             prompt. You can see{' '}
-            <Link href="/ai-employees">the roles we build them for</Link>, or read{' '}
-            <Link href="/agents/case-studies">two builds in full</Link>.
+            <Link href="/ai-employees">the roles we build them for</Link>, read{' '}
+            <Link href="/agents/case-studies">two builds in full</Link>, or talk to one:{' '}
+            <Link href="/sardar">SARDAR</Link> is a voice AI Employee running on this site that
+            you can call in your browser, free, in English or Urdu.
           </p>
         </div>
       </section>

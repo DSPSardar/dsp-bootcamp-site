@@ -67,8 +67,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/about`, lastModified: new Date('2026-09-10'), changeFrequency: 'monthly', priority: 0.8 },
     // The founder's entity page (Entity Lock, 2026-09-06) — byline target sitewide.
     { url: `${SITE}/sardar-ghaffar`, lastModified: new Date(FOUNDER_LAST_MODIFIED), changeFrequency: 'monthly', priority: 0.7 },
-    // /sardar — voice AI Employee showcase (lands on /mastery and dspagenthub.com).
-    { url: `${SITE}/sardar`, lastModified: new Date(SARDAR_LAST_MODIFIED), changeFrequency: 'monthly', priority: 0.7 },
+    // /sardar — the voice AI Employee demo and answer page (25 Sep: third
+    //   commercial surface, so weekly/0.9 like the other two).
+    { url: `${SITE}/sardar`, lastModified: new Date(SARDAR_LAST_MODIFIED), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE}/blog`, lastModified: new Date(BLOG_UPDATED), changeFrequency: 'daily', priority: 0.9 },
     // Original research, collection end (Corroboration Engine, Day 6).
     { url: `${SITE}/survey`, lastModified: new Date('2026-09-10'), changeFrequency: 'weekly', priority: 0.8 },

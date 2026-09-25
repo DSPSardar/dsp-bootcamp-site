@@ -8,4 +8,7 @@
 //                dashboard-sourced proof band, six-question FAQ, buyer-led
 //                title. sitemap.ts had hard-coded 2026-09-20 (the day the
 //                branch was cut), and the page emitted no dateModified at all
-export const PAGE_LAST_MODIFIED = '2026-09-22T14:21:00+05:00'
+//   2026-09-25 · one sentence added to the answer block: /agents now links
+//                to /sardar, the live voice AI Employee anyone can call in
+//                the browser. Visible copy changed, so the date moves with it
+export const PAGE_LAST_MODIFIED = '2026-09-25T14:30:00+05:00'

@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { site, mastery, agency } from '@/config/site'
 import SiteHeader from '@/components/site/SiteHeader'
+import { SARDAR_FAQS } from './faq'
 import { sardarSchema } from './schema'
-import { CANONICAL, OG_IMAGE, SEO_DESCRIPTION, SEO_TITLE } from './seo'
+import { ANSWER, CANONICAL, OG_IMAGE, SEO_DESCRIPTION, SEO_TITLE } from './seo'
 import SardarClient from './SardarClient'
 import CtaBar from './CtaBar'
 import ModuleCards from './ModuleCards'
@@ -57,7 +59,47 @@ export default function SardarPage() {
             <SardarClient avatarUrl={AVATAR_URL} />
           </div>
         </section>
+
+        {/* ====== ANSWER-FIRST DEFINITION ====== */}
+        {/* The first body text under the stage is the direct answer, so an
+            engine summarising /sardar quotes a passage that names the
+            category, the free live demo, the languages, the country and the
+            deliverable rather than assembling one from marketing. Same string
+            as the SoftwareApplication, Service and WebPage description. */}
+        <section id="what-is-a-voice-ai-employee">
+          <div className="wrap answer">
+            <div className="eyebrow">What you are talking to</div>
+            <h2>What is a voice AI Employee?</h2>
+            <p className="answer-body">{ANSWER}</p>
+            <p className="muted answer-links">
+              The demo above is free. The Employee that does this on your own number is built by{' '}
+              <Link href="/agents">DSP Agents</Link>, the AI automation agency in Islamabad;{' '}
+              <Link href="/ai-employees">AI Employees</Link> lists the roles it can take and{' '}
+              <Link href="/pricing">pricing</Link> the packages. To build one yourself, start at{' '}
+              <Link href={mastery.url}>{mastery.shortName}</Link>.
+            </p>
+          </div>
+        </section>
+
         <ModuleCards />
+
+        {/* ====== FAQ ====== */}
+        {/* One array (./faq.ts) feeds this list and the FAQPage node, so the
+            schema can never claim an answer the page does not show. */}
+        <section id="faq">
+          <div className="wrap answer">
+            <div className="eyebrow">Questions people ask before they call</div>
+            <h2>Voice AI Employees, answered.</h2>
+            <div className="faq-list">
+              {SARDAR_FAQS.map((f) => (
+                <details key={f.q}>
+                  <summary>{f.q}</summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
         </main>
         <CtaBar />
       </div>
