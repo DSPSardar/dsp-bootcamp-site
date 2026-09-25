@@ -178,3 +178,17 @@
 @keyframes sardar-pulse{0%{transform:scale(1);opacity:.9}100%{transform:scale(1.7);opacity:0}}
 @media (prefers-reduced-motion:reduce){:is(.page-sardar,.sardar-launcher) .voice .call.live .ring::before,:is(.page-sardar,.sardar-launcher) .voice .call.live .ring::after{animation:none;opacity:.5}}
 :is(.page-sardar,.sardar-launcher) .voice .hint{font-size:12px;color:var(--muted);margin:0}
+
+/* ── Answer block + FAQ (added 25 Sep: /sardar as an answer surface) ─── */
+:is(.page-sardar,.sardar-launcher) .answer{max-width:46rem}
+:is(.page-sardar,.sardar-launcher) .answer-body{font-size:17px;line-height:1.7;color:var(--cream)}
+:is(.page-sardar,.sardar-launcher) .answer-links{margin-top:14px;font-size:15px}
+:is(.page-sardar,.sardar-launcher) .answer a{color:var(--cyan);text-decoration:underline;text-underline-offset:3px}
+:is(.page-sardar,.sardar-launcher) .faq-list{display:grid;gap:10px;margin-top:8px}
+:is(.page-sardar,.sardar-launcher) .faq-list details{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:14px 16px}
+:is(.page-sardar,.sardar-launcher) .faq-list details[open]{border-color:var(--cyan-dim)}
+:is(.page-sardar,.sardar-launcher) .faq-list summary{cursor:pointer;font-family:var(--display);font-weight:700;font-size:16px;line-height:1.35;list-style:none}
+:is(.page-sardar,.sardar-launcher) .faq-list summary::-webkit-details-marker{display:none}
+:is(.page-sardar,.sardar-launcher) .faq-list summary::after{content:"+";float:right;color:var(--cyan);font-family:var(--mono);margin-left:12px}
+:is(.page-sardar,.sardar-launcher) .faq-list details[open] summary::after{content:"–"}
+:is(.page-sardar,.sardar-launcher) .faq-list details p{margin-top:10px;color:var(--muted);font-size:15px;line-height:1.65}
