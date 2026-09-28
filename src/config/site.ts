@@ -482,11 +482,22 @@ export const socials = {
  *  never estimate it. */
 export const entity = {
   legalName: 'Digital Services Program Pvt. Ltd.',
-  /** The disambiguating one-liner: "Digital Services Program" is also the name
-   *  of government programmes in India, the EU and the UK. Every Organization
-   *  node and profile carries this so machines can tell DSP apart. */
+  /** The canonical sentence. This ONE string is the Organization node's
+   *  `description` on every page of the site (root layout, and again inside
+   *  /mastery's own @graph) and the `>` summary block of /llms.txt — the two
+   *  most machine-read strings DSP owns. It therefore has to state the
+   *  15-Sep positioning, not a leftover of it: DSP is an AI EMPLOYEE COMPANY
+   *  that builds AI Employees and teaches people to build them. Until
+   *  2026-09-28 it still opened "an AI agents training company and AI
+   *  agency", so an engine reading /ai-employees saw the new positioning in
+   *  the copy and the old one in the Organization node on the same page.
+   *  It also disambiguates: "Digital Services Program" is the name of
+   *  government programmes in India, the EU and the UK, and the acronym DSP
+   *  collides with DSPy, demand-side platforms and digital signal
+   *  processing. Every Organization node and profile carries this so
+   *  machines can tell DSP apart. */
   description:
-    'Digital Services Program (DSP) is an AI agents training company and AI agency in Islamabad, Pakistan. It teaches beginners to build, deploy and sell AI agents in Urdu and English through DSP AI Agent Mastery, and builds AI Employees for businesses worldwide. Not affiliated with any government digital-services programme.',
+    'Digital Services Program (DSP) is an AI Employee company in Islamabad, Pakistan. It builds AI Employees — AI agents hired for one job in a business, answering, qualifying, booking and selling on the company’s own WhatsApp and phone lines — for clients worldwide on its own platform, DSPAgentHub, and it teaches people to build them through DSP AI Agent Mastery, in Urdu and English. Not affiliated with any government digital-services programme, and not DSPy, a demand-side platform, or digital signal processing.',
   /** Year confirmed by the owner (5 Sep 2026). Refine to an ISO month if he
    *  ever supplies one. */
   foundingDate: '2022' as string | null,
