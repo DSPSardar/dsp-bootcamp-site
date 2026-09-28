@@ -653,7 +653,11 @@ export const guides = [
   { path: '/what-is-an-ai-employee', title: 'What Is an AI Employee?', updated: '2026-09-08', live: true, footer: true },
   { path: '/claude-code-course-pakistan', title: 'Claude Code Course in Pakistan (+ Anthropic certificates)', updated: '2026-09-16', live: true, footer: true },
   { path: '/ai-course-for-overseas-pakistanis', title: 'AI Course for Overseas Pakistanis', updated: '2026-09-10', live: true, footer: true },
-  { path: '/research/pakistan-ai-skills-survey-2026', title: 'Pakistan AI Skills Survey 2026', updated: '2026-09-19', live: true, footer: true },
+  // updated 2026-09-28: the two self-descriptions on the page said "an AI
+  // agents training company" (pre-15-Sep positioning). Visible copy changed,
+  // so the date moves with it (the PR-#26 rule). The survey data itself is
+  // unchanged — N=60, fielded 12–17 Sep, published 2026-09-19.
+  { path: '/research/pakistan-ai-skills-survey-2026', title: 'Pakistan AI Skills Survey 2026', updated: '2026-09-28', live: true, footer: true },
   { path: '/frameworks/7-part-job-description', title: 'The 7-Part Job Description', updated: '2026-09-08', live: true, footer: false },
   { path: '/frameworks/memory-ladder', title: 'The Memory Ladder', updated: '2026-09-08', live: true, footer: false },
   { path: '/frameworks/agent-idea-filter', title: 'The Agent Idea Filter', updated: '2026-09-08', live: true, footer: false },

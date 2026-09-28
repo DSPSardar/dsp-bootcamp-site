@@ -12,4 +12,9 @@
 //                Worldwide, FAQ 5 → 9 with the buyer questions first.
 //                sitemap.ts had hard-coded 2026-09-23 and the page emitted no
 //                dateModified at all
-export const PAGE_LAST_MODIFIED = '2026-09-24T14:30:00+05:00'
+//   2026-09-28 · the FAQ answer "Do you train teams..." still called DSP
+//                "an AI agency and an AI agents training company" — the
+//                pre-15-Sep positioning, three screens below this page's own
+//                answer-first definition. Visible copy changed, so the date
+//                moves with it (the PR-#26 rule)
+export const PAGE_LAST_MODIFIED = '2026-09-28T14:30:00+05:00'

@@ -3,46 +3,72 @@
 // gated behind agency.emmaPricingApproved (Checkpoint 5 + paid Twilio number).
 // Deliberate wording: usage limits stay a "generous monthly AI-usage
 // allowance" — never publish raw token numbers.
+//
+// Cost-answer page (2026-09-28, Day 9 of the 30-day challenge, same pattern
+// as /agents #35, /ai-employees #50, /sardar #51). Two Radar prompts about
+// cost score zero and the buyer SERPs for them are owned by templated
+// compare-fees-in-<city> pages that publish no real number. This page has
+// real numbers and was invisible: no FAQPage (the <details> list existed only
+// for humans), no WebPage node, no dateModified, sitemap lastmod hard-coded
+// to 2026-08-30, and an id-less inline Organization in the Service provider —
+// a SECOND company entity, on the page that states DSP's prices. The same
+// defect was killed on /ai-employees in #50.
 import type { Metadata } from 'next'
-import { breadcrumbLd as breadcrumbLd_build } from '@/lib/schema'
+import { ORGANIZATION_ID, breadcrumbLd as breadcrumbLd_build, faqPageLd } from '@/lib/schema'
+import { PAGE_LAST_MODIFIED } from './seo'
 import Link from 'next/link'
 import SiteShell from '@/components/site/SiteShell'
 import TrackedLink from '@/components/site/TrackedLink'
 import { CheckIcon, WhatsAppIcon } from '@/components/home/icons'
 import { agency, site, waLink } from '@/config/site'
 
+// The two numbers the query actually asks for, read off agency.pricing.tiers
+// rather than typed — so a tier change moves the answer, the meta
+// description, the schema and the visible copy together.
+const ENTRY = agency.pricing.tiers[0]
+const SETUP_FROM = `$${ENTRY.setupUsd.toLocaleString('en-US')}`
+const MONTHLY_FROM = `$${ENTRY.monthlyUsd}`
+
+// The direct answer. Leads with the numbers, names the country, and says
+// what the money buys — rendered verbatim as the first body text and reused
+// verbatim as the meta description, the Service description and the WebPage
+// description. One string, never reworded per surface.
+const ANSWER =
+  `An AI Employee from DSP costs ${SETUP_FROM} one-time to build and from ${MONTHLY_FROM} a month to run, with no annual contract and no hidden retainer. The setup fee covers discovery, the job description, the knowledge base and acceptance testing; the monthly fee covers the WhatsApp or phone deployment, the DSPAgentHub dashboard, supervision and improvements. DSP publishes all three packages — ${agency.pricing.tiers.map((t) => `${t.name} $${t.setupUsd.toLocaleString('en-US')} setup / $${t.monthlyUsd} a month`).join(', ')} — from Islamabad, Pakistan, and bills Pakistani businesses in PKR at the same package prices.`
+
+const TITLE = 'How Much Does an AI Employee Cost? DSP Pricing, Published in Full'
+
 export const metadata: Metadata = {
-  title: { absolute: 'AI Employee Pricing — Setup + Monthly, No Hidden Retainers | DSP' },
-  description:
-    'Transparent AI Employee pricing: setup from $500, monthly from $199. Cancel anytime. Compare packages and see exactly what’s included.',
+  title: { absolute: TITLE },
+  description: ANSWER,
   alternates: { canonical: '/pricing' },
   openGraph: {
     type: 'website',
     url: '/pricing',
-    title: 'AI Employee Pricing — Setup + Monthly, No Hidden Retainers | DSP',
-    description:
-      'Transparent AI Employee pricing: setup from $500, monthly from $199. Cancel anytime.',
+    title: TITLE,
+    description: ANSWER,
     images: [{ url: '/og-card.png', width: 1200, height: 630 }],
   },
 }
 
 // Service + Offer JSON-LD with the three tiers (publish checklist item).
 // Offer price = monthly fee; the one-time setup fee is stated in the description.
+// `provider` carries the sitewide Organization @id — it used to be an id-less
+// inline Organization literal, i.e. a second company entity on the page that
+// states this company's prices.
 const pricingLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
+  '@id': `${site.url}/pricing#service`,
   serviceType: 'AI Employee (managed AI agent) subscription',
   name: 'DSP AI Employees',
-  description:
-    'Custom-built AI Employees for sales, support, bookings, and phone orders — built, deployed, and supervised by DSP on DSPAgentHub. One-time setup fee plus monthly subscription, cancel anytime.',
-  provider: {
-    '@type': 'Organization',
-    name: site.name,
-    url: site.url,
-    email: site.email,
-    telephone: '+92-342-0580864',
-  },
-  areaServed: 'Worldwide',
+  description: ANSWER,
+  provider: { '@id': ORGANIZATION_ID },
+  areaServed: [
+    { '@type': 'City', name: 'Islamabad' },
+    { '@type': 'Country', name: 'Pakistan' },
+    { '@type': 'Place', name: 'Worldwide' },
+  ],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'AI Employee packages',
@@ -62,6 +88,21 @@ const pricingLd = {
   },
 }
 
+// WebPage node: the only place the page states when it last changed. Its
+// dateModified is the same constant the sitemap reports (./seo.ts).
+const webPageLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${site.url}/pricing#webpage`,
+  url: `${site.url}/pricing`,
+  name: TITLE,
+  description: ANSWER,
+  inLanguage: 'en',
+  dateModified: PAGE_LAST_MODIFIED,
+  publisher: { '@id': ORGANIZATION_ID },
+  about: { '@id': `${site.url}/pricing#service` },
+}
+
 const breadcrumbLd = breadcrumbLd_build([{ name: 'Pricing', path: '/pricing' }])
 
 const featureMatrix: Array<[string, boolean, boolean, boolean]> = [
@@ -77,7 +118,27 @@ const featureMatrix: Array<[string, boolean, boolean, boolean]> = [
   ['Cancel anytime', true, true, true],
 ]
 
+// One array feeds both the visible <details> list and the FAQPage node. The
+// page had no FAQPage at all, so none of this was machine-readable. Buyer
+// questions first — what it costs, how it compares to a hire, what it costs
+// in Pakistan — then the operational ones that were already here.
 const faqs = [
+  {
+    q: 'How much does an AI Employee cost?',
+    a: ANSWER,
+  },
+  {
+    q: 'How much does an AI Employee cost in Pakistan?',
+    a: `The same packages, billed locally in PKR — ask on WhatsApp (${site.whatsappDisplay}) for the current PKR figure, which tracks the USD price. DSP builds from Islamabad, so there is no overseas agency markup and no offshore intermediary in the contract.`,
+  },
+  {
+    q: 'Is an AI Employee cheaper than hiring a person?',
+    a: `A ${MONTHLY_FROM}-a-month AI Employee works 24 hours a day, handles many conversations at once, and does not need training, leave or replacement. A human hire costs salary plus training plus turnover and works eight hours a day on one conversation at a time. The honest comparison is not like-for-like: an AI Employee is better at volume, speed and consistency, and worse at judgment on complex cases — which is why every DSP Employee escalates to your team.`,
+  },
+  {
+    q: 'What does the monthly fee actually buy?',
+    a: `Deployment on your own WhatsApp Business API number or phone line, the DSPAgentHub dashboard, a generous monthly AI-usage allowance, a weekly performance digest, and monthly supervision and tuning. For scale: DSP's own Agent Hub processed ${agency.proof.leads.toLocaleString('en-US')} leads with ${agency.proof.zeroTakeoverPct}% handled with zero human takeover (${agency.proof.kpiSource}, ${agency.proof.kpiAsOf}).`,
+  },
   {
     q: 'Why is there a setup fee?',
     a: 'Because your Employee is custom-built: discovery, job description, knowledge base, and testing by our team. The setup fee is why it works on day 7 instead of frustrating your customers for months.',
@@ -105,6 +166,14 @@ export default function PricingPage() {
       />
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageLd(faqs)) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
@@ -114,11 +183,35 @@ export default function PricingPage() {
           <nav className="breadcrumbs" aria-label="Breadcrumb">
             <Link href="/">Home</Link><span className="sep">→</span>Pricing
           </nav>
-          <h1>Simple pricing. <em>Published, not hidden.</em></h1>
+          <h1>How much does an AI Employee cost? <em>Here is the number.</em></h1>
           <p className="sub">
             Most agencies make you sit through a sales call to hear a number. Here are ours.
             One-time setup covers your build; the monthly fee keeps your Employee working,
             monitored, and improving.
+          </p>
+        </div>
+      </section>
+
+      {/* ============ 1b · ANSWER-FIRST ============ */}
+      {/* The first body text answers the query in one paragraph, with the
+          numbers read off agency.pricing.tiers. Identical string in the meta
+          description, the Service node and the WebPage node. */}
+      <section>
+        <div className="wrap">
+          <p style={{ fontSize: '1.08rem', lineHeight: 1.65 }}>{ANSWER}</p>
+          <p style={{ marginTop: '.9rem', color: 'var(--navy-soft)' }}>
+            What the monthly fee buys, at DSP&apos;s own scale: {agency.proof.leads.toLocaleString('en-US')} leads
+            processed with {agency.proof.zeroTakeoverPct}% handled with zero human takeover
+            ({agency.proof.kpiSource}, {agency.proof.kpiAsOf}). Those are DSP&apos;s own numbers, from
+            DSP&apos;s own platform, on the date stated — not a client average.
+          </p>
+          <p style={{ fontFamily: 'var(--mono)', fontSize: '.8rem', color: 'var(--navy-soft)', marginTop: '1rem' }}>
+            Last updated 28 Sept 2026
+          </p>
+          <p style={{ marginTop: '.9rem' }}>
+            <Link href="/ai-employees" style={{ color: 'var(--teal-deep)', fontWeight: 600 }}>What an AI Employee is →</Link>
+            {' · '}
+            <Link href="/about" style={{ color: 'var(--teal-deep)', fontWeight: 600 }}>Who builds them →</Link>
           </p>
         </div>
       </section>
@@ -268,7 +361,7 @@ export default function PricingPage() {
         <div className="wrap">
           <div className="sec-head center">
             <p className="eyebrow">FAQ</p>
-            <h2>Pricing questions, answered.</h2>
+            <h2>Cost questions, answered.</h2>
           </div>
           <div className="faq-list">
             {faqs.map((f) => (
