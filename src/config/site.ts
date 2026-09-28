@@ -482,11 +482,22 @@ export const socials = {
  *  never estimate it. */
 export const entity = {
   legalName: 'Digital Services Program Pvt. Ltd.',
-  /** The disambiguating one-liner: "Digital Services Program" is also the name
-   *  of government programmes in India, the EU and the UK. Every Organization
-   *  node and profile carries this so machines can tell DSP apart. */
+  /** The canonical sentence. This ONE string is the Organization node's
+   *  `description` on every page of the site (root layout, and again inside
+   *  /mastery's own @graph) and the `>` summary block of /llms.txt — the two
+   *  most machine-read strings DSP owns. It therefore has to state the
+   *  15-Sep positioning, not a leftover of it: DSP is an AI EMPLOYEE COMPANY
+   *  that builds AI Employees and teaches people to build them. Until
+   *  2026-09-28 it still opened "an AI agents training company and AI
+   *  agency", so an engine reading /ai-employees saw the new positioning in
+   *  the copy and the old one in the Organization node on the same page.
+   *  It also disambiguates: "Digital Services Program" is the name of
+   *  government programmes in India, the EU and the UK, and the acronym DSP
+   *  collides with DSPy, demand-side platforms and digital signal
+   *  processing. Every Organization node and profile carries this so
+   *  machines can tell DSP apart. */
   description:
-    'Digital Services Program (DSP) is an AI agents training company and AI agency in Islamabad, Pakistan. It teaches beginners to build, deploy and sell AI agents in Urdu and English through DSP AI Agent Mastery, and builds AI Employees for businesses worldwide. Not affiliated with any government digital-services programme.',
+    'Digital Services Program (DSP) is an AI Employee company in Islamabad, Pakistan. It builds AI Employees — AI agents hired for one job in a business, answering, qualifying, booking and selling on the company’s own WhatsApp and phone lines — for clients worldwide on its own platform, DSPAgentHub, and it teaches people to build them through DSP AI Agent Mastery, in Urdu and English. Not affiliated with any government digital-services programme, and not DSPy, a demand-side platform, or digital signal processing.',
   /** Year confirmed by the owner (5 Sep 2026). Refine to an ISO month if he
    *  ever supplies one. */
   foundingDate: '2022' as string | null,
@@ -642,7 +653,11 @@ export const guides = [
   { path: '/what-is-an-ai-employee', title: 'What Is an AI Employee?', updated: '2026-09-08', live: true, footer: true },
   { path: '/claude-code-course-pakistan', title: 'Claude Code Course in Pakistan (+ Anthropic certificates)', updated: '2026-09-16', live: true, footer: true },
   { path: '/ai-course-for-overseas-pakistanis', title: 'AI Course for Overseas Pakistanis', updated: '2026-09-10', live: true, footer: true },
-  { path: '/research/pakistan-ai-skills-survey-2026', title: 'Pakistan AI Skills Survey 2026', updated: '2026-09-19', live: true, footer: true },
+  // updated 2026-09-28: the two self-descriptions on the page said "an AI
+  // agents training company" (pre-15-Sep positioning). Visible copy changed,
+  // so the date moves with it (the PR-#26 rule). The survey data itself is
+  // unchanged — N=60, fielded 12–17 Sep, published 2026-09-19.
+  { path: '/research/pakistan-ai-skills-survey-2026', title: 'Pakistan AI Skills Survey 2026', updated: '2026-09-28', live: true, footer: true },
   { path: '/frameworks/7-part-job-description', title: 'The 7-Part Job Description', updated: '2026-09-08', live: true, footer: false },
   { path: '/frameworks/memory-ladder', title: 'The Memory Ladder', updated: '2026-09-08', live: true, footer: false },
   { path: '/frameworks/agent-idea-filter', title: 'The Agent Idea Filter', updated: '2026-09-08', live: true, footer: false },

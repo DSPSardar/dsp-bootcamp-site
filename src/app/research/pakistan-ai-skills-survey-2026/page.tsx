@@ -37,7 +37,7 @@ const FAQS: ReadonlyArray<Faq> = [
   },
   {
     q: 'Who ran the survey, and do they have an interest in the answer?',
-    a: 'Digital Services Program, an AI agents training company in Islamabad — so yes, plainly: we sell a course in Urdu and English, and a finding that language is a barrier suits us. That is exactly why the method, the question wording and every raw count are published here. Check them against the conclusions.',
+    a: 'Digital Services Program, an AI Employee company in Islamabad that also teaches people to build AI agents — so yes, plainly: we sell a course in Urdu and English, and a finding that language is a barrier suits us. That is exactly why the method, the question wording and every raw count are published here. Check them against the conclusions.',
   },
   {
     q: 'How was the sample gathered?',
@@ -197,7 +197,7 @@ export default function SurveyResultsPage() {
 
       <h2>Who ran it</h2>
       <p>
-        <Link href={founder.path}>{founder.name}</Link>, founder of {site.name}, an AI agents training company in
+        <Link href={founder.path}>{founder.name}</Link>, founder of {site.name}, an AI Employee company in
         Islamabad that teaches <Link href={mastery.url}>{mastery.name}</Link> in Urdu and English. We sell a course,
         and a finding that language is a barrier suits us — which is exactly why the wording, the method and every
         raw count are on this page. Check them.

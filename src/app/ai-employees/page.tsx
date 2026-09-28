@@ -173,7 +173,7 @@ const faqs = [
   },
   {
     q: 'Do you train teams to build AI Employees, not only build them for us?',
-    a: 'Yes. DSP is both an AI agency and an AI agents training company. If you want your own staff to maintain and extend an Employee in-house, they can take DSP AI Agent Mastery — the same 16-module course, in Urdu and English, that our own builds follow. Ask on WhatsApp about seats for a team.',
+    a: 'Yes. DSP is an AI Employee company that does both — it builds Employees for clients and teaches people to build them. If you want your own staff to maintain and extend an Employee in-house, they can take DSP AI Agent Mastery — the same 16-module course, in Urdu and English, that our own builds follow. Ask on WhatsApp about seats for a team.',
   },
   {
     q: 'Is my business data safe?',

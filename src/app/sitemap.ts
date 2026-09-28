@@ -23,6 +23,8 @@ import { PAGE_LAST_MODIFIED as FOUNDER_LAST_MODIFIED } from '@/app/sardar-ghaffa
 import { PAGE_LAST_MODIFIED as SARDAR_LAST_MODIFIED } from '@/app/sardar/seo'
 import { PAGE_LAST_MODIFIED as AGENTS_LAST_MODIFIED } from '@/app/agents/seo'
 import { PAGE_LAST_MODIFIED as AI_EMPLOYEES_LAST_MODIFIED } from '@/app/ai-employees/seo'
+import { PAGE_LAST_MODIFIED as ABOUT_LAST_MODIFIED } from '@/app/about/seo'
+import { PAGE_LAST_MODIFIED as PRICING_LAST_MODIFIED } from '@/app/pricing/seo'
 
 const SITE = 'https://www.digitalservicesprogram.com'
 
@@ -57,14 +59,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly' as const,
       priority: 0.85,
     })),
-    { url: `${SITE}/pricing`, lastModified: new Date('2026-08-30'), changeFrequency: 'weekly', priority: 0.9 },
+    // Real content-change date (see src/app/pricing/seo.ts): the same
+    // constant the page's WebPage node reports as dateModified. Was
+    // hard-coded 2026-08-30.
+    { url: `${SITE}/pricing`, lastModified: new Date(PRICING_LAST_MODIFIED), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE}/agents/restaurant-ai`, lastModified: new Date('2026-08-30'), changeFrequency: 'weekly', priority: 0.9 },
     // Real content-change date (see src/app/agents/seo.ts): the same constant
     // the page's WebPage node reports as dateModified.
     { url: `${SITE}/agents`, lastModified: new Date(AGENTS_LAST_MODIFIED), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE}/channelops`, lastModified: new Date('2026-08-30'), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE}/agents/case-studies`, lastModified: new Date('2026-08-30'), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${SITE}/about`, lastModified: new Date('2026-09-10'), changeFrequency: 'monthly', priority: 0.8 },
+    // Real content-change date (see src/app/about/seo.ts): the same constant
+    // the page's AboutPage node reports as dateModified. Was hard-coded
+    // 2026-09-10 while the page kept changing.
+    { url: `${SITE}/about`, lastModified: new Date(ABOUT_LAST_MODIFIED), changeFrequency: 'monthly', priority: 0.8 },
     // The founder's entity page (Entity Lock, 2026-09-06) — byline target sitewide.
     { url: `${SITE}/sardar-ghaffar`, lastModified: new Date(FOUNDER_LAST_MODIFIED), changeFrequency: 'monthly', priority: 0.7 },
     // /sardar — the voice AI Employee demo and answer page (25 Sep: third
