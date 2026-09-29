@@ -7,7 +7,7 @@ import BunnyPlayer from '@/components/mastery/BunnyPlayer'
 import WatchTracker from '@/components/mastery/WatchTracker'
 import { postAsosEvent } from '@/lib/mastery/asos'
 import { badges } from '@/lib/mastery/course'
-import { autoCompleteWatched } from '@/lib/mastery/progress'
+import { autoCompleteWatched, lessonLength } from '@/lib/mastery/progress'
 import Ustad from '@/components/mastery/Ustad'
 
 export default async function LessonPage({ params }: { params: Promise<{ moduleId: string; lesson: string }> }) {
@@ -30,7 +30,7 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
   const WATCH_THRESHOLD = 0.8
   const { data: view } = await sb.from('mastery_views').select('seconds, duration')
     .eq('user_id', user.id).eq('lesson_file', l.file).maybeSingle()
-  const lessonSecs = view?.duration || (l.minutes ?? 0) * 60
+  const lessonSecs = lessonLength(l.file, view?.duration)
   const watchedSecs = view?.seconds ?? 0
   const watchedFrac = lessonSecs > 0 ? watchedSecs / lessonSecs : 0
   const hasVideo = l.bunny?.status === 'ready'
@@ -47,7 +47,7 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
     else {
       // Re-check server-side: never trust the button being visible.
       const { data: v } = await sb.from('mastery_views').select('seconds, duration').eq('user_id', user.id).eq('lesson_file', lessonFile).maybeSingle()
-      const secs = v?.duration || (l.minutes ?? 0) * 60
+      const secs = lessonLength(lessonFile, v?.duration)
       if (l.bunny?.status === 'ready' && secs > 0 && (v?.seconds ?? 0) / secs < 0.8) return
       await sb.from('mastery_progress').insert({ user_id: user.id, lesson_file: lessonFile })
       // Did this complete the module / a phase? Tell ASOS so the WhatsApp nudge can fire.
@@ -69,7 +69,7 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
         <h1 style={{ marginTop: 8 }}>{titleOf(l)}</h1>
         <p className="muted">{lessonLabel(m, l)} · {l.kind} · {l.minutes} min{(l as { instructor?: string }).instructor ? ` · with ${(l as { instructor?: string }).instructor}` : ''}</p>
         <div style={{ marginTop: 18 }}>
-          {l.bunny?.status === 'ready' ? <><WatchTracker lesson={l.file} unlockAt={WATCH_THRESHOLD} initialFrac={isDone ? 1 : watchedFrac} /><BunnyPlayer videoId={l.bunny.guid} title={titleOf(l)} aspect={(l.bunny as { aspect?: number }).aspect} /></> : <p className="note">This lesson is being prepared and will appear here soon.</p>}
+          {l.bunny?.status === 'ready' ? <><WatchTracker lesson={l.file} unlockAt={WATCH_THRESHOLD} initialFrac={isDone ? 1 : watchedFrac} /><BunnyPlayer videoId={l.bunny.guid} title={titleOf(l)} aspect={(l.bunny as { aspect?: number }).aspect} eager /></> : <p className="note">This lesson is being prepared and will appear here soon.</p>}
         </div>
         <div style={{ display: 'flex', gap: 12, marginTop: 18, flexWrap: 'wrap' }}>
           <form action={toggle} className="inline">

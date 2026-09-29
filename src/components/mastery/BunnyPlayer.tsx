@@ -2,7 +2,7 @@ import { signedEmbedUrl } from '@/lib/mastery/bunny'
 
 /** Server component: renders the Bunny Stream player with a short-lived signed token.
  *  Only ever render this for an authenticated student — the URL is what grants playback. */
-export default function BunnyPlayer({ videoId, title, aspect }: { videoId: string; title: string; aspect?: number | null }) {
+export default function BunnyPlayer({ videoId, title, aspect, eager = false }: { videoId: string; title: string; aspect?: number | null; eager?: boolean }) {
   const src = signedEmbedUrl(videoId)
   if (!src) return null
   // Most lessons are 16:9, but a few clips from the channel are near-square. Match the source
@@ -15,7 +15,7 @@ export default function BunnyPlayer({ videoId, title, aspect }: { videoId: strin
       <iframe
         src={src}
         title={title}
-        loading="lazy"
+        loading={eager ? "eager" : "lazy"}
         style={{ border: 0, position: 'absolute', top: 0, left: 0, height: '100%', width: '100%' }}
         allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
         allowFullScreen
