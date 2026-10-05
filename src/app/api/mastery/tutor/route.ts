@@ -4,7 +4,9 @@ import { modules, unlockState } from '@/lib/mastery/course'
 import { DAILY_CAP, pickModel, retrieve, systemPrompt, contextBlock, sourceList } from '@/lib/mastery/tutor'
 
 export const runtime = 'nodejs'
-export const maxDuration = 60
+// 60s was not enough: 40 answers across 18 students hit Vercel's hard cutoff between 19 Sep and
+// 5 Oct 2026 (Sonnet on a long code question, or a slow upstream) and the chat just died mid-stream.
+export const maxDuration = 300
 
 /** The student's day, not the server's — the cap should reset at midnight where they live. */
 const karachiDay = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Karachi' }).format(new Date())

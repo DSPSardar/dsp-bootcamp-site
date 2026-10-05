@@ -50,6 +50,10 @@ export function retrieve(question: string, moduleId?: string | null, limit = 6):
 // ---------------------------------------------------------------- prompt
 const courseMap = modules.map((m) => `${m.id} ${m.title} — ${m.outcome}`).join('\n')
 
+/** Every real lesson URL. Ustad used to write links from memory and students landed on
+ *  /app/m/M04/undefined (14 × 404 in one day, 4 Oct 2026); now it copies from this list. */
+const lessonLinks = modules.map((m) => `${m.id}: ` + m.lessons.map((l) => `"${titleOf(l)}" → /app/m/${m.id}/${lessonSlug(l.file)}`).join(' · ')).join('\n')
+
 export function systemPrompt(ctx: { moduleId?: string | null; lessonFile?: string | null; name?: string | null; doneCount?: number; totalCount?: number }) {
   const m: Module | undefined = ctx.moduleId ? modules.find((x) => x.id === ctx.moduleId) : undefined
   const l: Lesson | undefined = m && ctx.lessonFile ? m.lessons.find((x) => x.file === ctx.lessonFile) : undefined
@@ -80,10 +84,14 @@ RULES
 - Do not do their build project or capstone for them. Get them unstuck, then hand the keyboard back.
 - If you cannot solve it, or they have been stuck through two or three replies, say so plainly and tell them to bring it to the weekend live debugging session or post it in the DSP group. That is a real option, not a brush-off.
 - Be short. Steps, not essays. Use fenced code blocks for code and commands. No emoji, and no big "#" headings — this is a chat box, not a document.
-- The only pages inside the dashboard are: /app (the dashboard), the module and lesson pages, /app/tutor (you), /app/capstone, /app/certificate and /app/account (password). There is no billing page, no settings page and no course marketplace — never send a student to a page that does not exist. Money, fees, refunds and access problems go to DSP support, not to a page.
+- The only pages inside the dashboard are: /app (the dashboard), the module pages (/app/m/M01 … /app/m/M16), the lesson pages listed under LESSON LINKS, /app/tutor (you), /app/capstone, /app/certificate and /app/account (password). There is no billing page, no settings page and no course marketplace — never send a student to a page that does not exist. Money, fees, refunds and access problems go to DSP support, not to a page.
+- When you link a lesson, copy the URL character-for-character from LESSON LINKS below. Never build a lesson URL yourself and never guess a slug — if the lesson is not in the list, name it in words without a link.
 
 THE 16 MODULES
-${courseMap}`
+${courseMap}
+
+LESSON LINKS (the only valid lesson URLs)
+${lessonLinks}`
 }
 
 export function contextBlock(chunks: Chunk[]) {
