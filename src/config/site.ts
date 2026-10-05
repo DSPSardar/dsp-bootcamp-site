@@ -658,6 +658,12 @@ export const guides = [
   // so the date moves with it (the PR-#26 rule). The survey data itself is
   // unchanged — N=60, fielded 12–17 Sep, published 2026-09-19.
   { path: '/research/pakistan-ai-skills-survey-2026', title: 'Pakistan AI Skills Survey 2026', updated: '2026-09-28', live: true, footer: true },
+  // added 2026-10-05: the second original-research page, and the one that
+  // publishes DSP's own numbers against DSP. Seven scored waves on a prompt
+  // set fixed 5 Sep; the headline finding is that the site has never ranked
+  // for a non-brand prompt. Data lives in src/content/radar-results.ts and
+  // feeds both the page and /data.csv, so they cannot drift.
+  { path: '/research/ai-search-dominance-engine', title: 'The AI Search Dominance Engine: 30 prompts, 7 waves', updated: '2026-10-05', live: true, footer: true },
   { path: '/frameworks/7-part-job-description', title: 'The 7-Part Job Description', updated: '2026-09-08', live: true, footer: false },
   { path: '/frameworks/memory-ladder', title: 'The Memory Ladder', updated: '2026-09-08', live: true, footer: false },
   { path: '/frameworks/agent-idea-filter', title: 'The Agent Idea Filter', updated: '2026-09-08', live: true, footer: false },
