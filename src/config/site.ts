@@ -647,7 +647,7 @@ export const cofounder = {
 export const guides = [
   { path: '/best-ai-courses-in-pakistan', title: 'Best AI Courses in Pakistan (2026)', updated: '2026-09-06', live: true, footer: true },
   { path: '/ai-agent-course-in-urdu', title: 'AI Agent Course in Urdu', updated: '2026-09-09', live: true, footer: true },
-  { path: '/ai-training-islamabad', title: 'AI Training in Islamabad', updated: '2026-09-08', live: true, footer: true },
+  { path: '/ai-training-islamabad', title: 'AI Training in Islamabad', updated: '2026-10-06', live: true, footer: true },
   { path: '/learn-ai-agents-pakistan', title: 'How to Learn AI Agents in Pakistan', updated: '2026-09-16', live: true, footer: true },
   { path: '/mastery/curriculum', title: 'Mastery Curriculum: All 16 Modules', updated: '2026-09-08', live: true, footer: true },
   { path: '/what-is-an-ai-employee', title: 'What Is an AI Employee?', updated: '2026-09-08', live: true, footer: true },
