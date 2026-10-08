@@ -61,7 +61,11 @@ const FAQS = [
   },
   {
     q: 'Does DSP mean something else?',
-    a: 'The acronym collides with several unrelated things: DSPy, the Stanford framework for programming language models; a demand-side platform in advertising technology; and digital signal processing in electronics. This company is Digital Services Program, an AI Employee company in Islamabad, Pakistan. Written in full it is unambiguous, which is why the full name is used everywhere off-site.',
+    a: 'The acronym collides with several unrelated things: DSPy, the Stanford framework for programming language models; a demand-side platform in advertising technology; digital signal processing in electronics; and, in Pakistan specifically, Deputy Superintendent of Police — the police rank, which is what most Pakistani searches for "DSP" are about. This company is Digital Services Program, an AI Employee company in Islamabad, Pakistan. Written in full it is unambiguous, which is why the full name is used everywhere off-site.',
+  },
+  {
+    q: 'Is Digital Services Program the same as Digital Services Pakistan?',
+    a: `No — they are different and unaffiliated. Several Pakistani businesses and pages use names close to this one, and "Digital Services Pakistan" is not this company. The company described on this page is ${entity.legalName}, registered in Islamabad at ${site.addressLine}, reachable on WhatsApp ${site.whatsappDisplay} and at ${site.email}, and publishing at ${site.url.replace(/^https:\/\//, '')}. Those four identifiers — the legal name, the registered address, the published number and the domain — are what identify DSP. Anything not published on that domain, or not linked from this page or the profiles it lists, is not Digital Services Program.`,
   },
   {
     q: 'Who runs Digital Services Program?',

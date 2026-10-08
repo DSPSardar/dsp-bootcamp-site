@@ -12,4 +12,7 @@
 //                company, its category and its city. sitemap.ts had
 //                hard-coded 2026-09-10 — the 4th page found with the PR-#26
 //                defect — and the page emitted no dateModified at all
-export const PAGE_LAST_MODIFIED = '2026-09-28T14:30:00+05:00'
+//   2026-10-04 · Answered the Digital Services Pakistan company-name and
+//                Deputy Superintendent of Police acronym collisions, both
+//                measured on the live brand SERP.
+export const PAGE_LAST_MODIFIED = '2026-10-04T14:30:00+05:00'
