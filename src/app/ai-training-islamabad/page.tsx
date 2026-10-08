@@ -20,6 +20,102 @@ const UPDATED = '2026-10-06'
 const FACTS_VERIFIED = '8 September 2026'
 const INSTRUCTORS_VERIFIED = '6 October 2026'
 
+/** Who each provider names, on its OWN site, as the person teaching its AI
+ *  course. Checked by hand on INSTRUCTORS_VERIFIED by fetching each
+ *  provider's own domain — LinkedIn, directories, Facebook and news coverage were not
+ *  accepted as evidence. Three states, and the distinction matters:
+ *  'named'     = a person is attached to the AI course itself,
+ *  'directory' = the site names faculty somewhere but attaches nobody to the course,
+ *  'none'      = no person is named at all ("our expert trainers").
+ *  Never upgrade a row without re-reading that provider's own page. */
+type Disclosure = 'named' | 'directory' | 'none'
+
+type Teacher = {
+  provider: string
+  state: Disclosure
+  who: string
+  note?: string
+}
+
+const TEACHERS: Teacher[] = [
+  {
+    provider: 'NUST SEECS',
+    state: 'named',
+    who: 'Prof Dr. Muhammad Moazam Fraz, Dr Seemab Latif, Dr Fahad Ahmad Satti',
+    note: 'Listed under a "Meet Your Trainers" heading on the short-course page, each with their department and title.',
+  },
+  {
+    provider: 'NUST \u00d7 atomcamp',
+    state: 'named',
+    who: 'Mahnoor Salman, Naima Iltaf, Usman Zia, Dr Hammad Afzaal, Muhammad Umair, Khawir Mahmood',
+    note: 'Six trainers on the bootcamp page itself, each against the topic they teach \u2014 Python, NLP, machine learning, computer vision.',
+  },
+  {
+    provider: 'PNY Trainings',
+    state: 'named',
+    who: 'Mahad Khan',
+    note: 'A name and photo do appear under an "Instructor" label on the Islamabad AI course page, but the bio printed beside it describes blockchain and Web3 work rather than AI. We report what is published, not what we infer from it.',
+  },
+  {
+    provider: 'AI Season',
+    state: 'named',
+    who: 'Abdul Rahman Azam',
+    note: 'Founder and lead instructor; the site says he leads every cohort live. The bootcamp is online and Karachi-founded \u2014 you join it from Islamabad rather than attend it here.',
+  },
+  {
+    provider: 'PIM',
+    state: 'directory',
+    who: '',
+    note: 'The Islamabad AI course pages carry an "About Instructors" heading with nothing under it. A separate site-wide faculty list names people, but none of them is attached to the AI course.',
+  },
+  {
+    provider: 'COMSATS',
+    state: 'directory',
+    who: '',
+    note: 'The AI bootcamp page credits "experienced AI professionals". The computer-science department publishes a full faculty directory, but no short course is assigned to anyone in it.',
+  },
+  {
+    provider: 'Islamabad.ai',
+    state: 'directory',
+    who: '',
+    note: 'The team page names PhD holders and their roles; none is identified as the trainer for the AI training or workshops.',
+  },
+  {
+    provider: 'Adan Institute',
+    state: 'none',
+    who: '',
+    note: '"Trainers from leading software houses and AI startups" \u2014 no person named on any of its five AI pages.',
+  },
+  {
+    provider: 'NAVTTC',
+    state: 'none',
+    who: '',
+    note: '"Certified instructors". NAVTTC publishes the lesson plan as a PDF but no trainer names; the only staff directory is of NAVTTC officials.',
+  },
+  {
+    provider: 'PIAIC',
+    state: 'none',
+    who: '',
+    note: 'The words instructor, trainer, faculty and taught do not appear on the Cloud Native & Agentic AI programme page at all. (A separate one-day Karachi crash course does name its teacher.)',
+  },
+  {
+    provider: 'Corvit Systems Islamabad',
+    state: 'none',
+    who: '',
+    note: 'Courses are credited to "admin". The Lahore Corvit site does name AI instructors \u2014 a different campus on a different domain, so it does not count for Islamabad.',
+  },
+]
+
+const NAMED_COUNT = TEACHERS.filter((t) => t.state === 'named').length
+const DIRECTORY_COUNT = TEACHERS.filter((t) => t.state === 'directory').length
+const NONE_COUNT = TEACHERS.filter((t) => t.state === 'none').length
+
+const DISCLOSURE_LABEL: Record<Disclosure, string> = {
+  named: 'Named on the course page',
+  directory: 'Faculty listed, but not for this course',
+  none: 'No one named',
+}
+
 export const metadata: Metadata = {
   title: { absolute: `${TITLE} | DSP` },
   description: DESCRIPTION,
@@ -155,42 +251,14 @@ const ROWS: Row[] = [
   },
 ]
 
-type Disclosure = 'named' | 'directory' | 'none'
-type Teacher = { provider: string; state: Disclosure; names: string; note: string }
-
-// Only the provider's own domain counted. LinkedIn, news coverage, directories
-// and Facebook were rejected as evidence. Never upgrade a row without
-// re-reading that provider's own page.
-const TEACHERS: Teacher[] = [
-  { provider: "NUST SEECS", state: "named", names: "Prof Dr. Muhammad Moazam Fraz, Dr Seemab Latif, Dr Fahad Ahmad Satti", note: "Listed under a \"Meet Your Trainers\" heading on the short-course page, each with their department and title." },
-  { provider: "NUST × atomcamp", state: "named", names: "Mahnoor Salman, Naima Iltaf, Usman Zia, Dr Hammad Afzaal, Muhammad Umair, Khawir Mahmood", note: "Six trainers on the bootcamp page itself, each against the topic they teach — Python, NLP, machine learning, computer vision." },
-  { provider: "PNY Trainings", state: "named", names: "Mahad Khan", note: "A name and photo do appear under an \"Instructor\" label on the Islamabad AI course page, but the bio printed beside it describes blockchain and Web3 work rather than AI. We report what is published, not what we infer from it." },
-  { provider: "AI Season", state: "named", names: "Abdul Rahman Azam", note: "Founder and lead instructor; the site says he leads every cohort live. The bootcamp is online and Karachi-founded — you join it from Islamabad rather than attend it here." },
-  { provider: "PIM", state: "directory", names: "", note: "The Islamabad AI course pages carry an \"About Instructors\" heading with nothing under it. A separate site-wide faculty list names people, but none of them is attached to the AI course." },
-  { provider: "COMSATS", state: "directory", names: "", note: "The AI bootcamp page credits \"experienced AI professionals\". The computer-science department publishes a full faculty directory, but no short course is assigned to anyone in it." },
-  { provider: "Islamabad.ai", state: "directory", names: "", note: "The team page names PhD holders and their roles; none is identified as the trainer for the AI training or workshops." },
-  { provider: "Adan Institute", state: "none", names: "", note: "\"Trainers from leading software houses and AI startups\" — no person named on any of its five AI pages." },
-  { provider: "NAVTTC", state: "none", names: "", note: "\"Certified instructors\". NAVTTC publishes the lesson plan as a PDF but no trainer names; the only staff directory is of NAVTTC officials." },
-  { provider: "PIAIC", state: "none", names: "", note: "The words instructor, trainer, faculty and taught do not appear on the Cloud Native & Agentic AI programme page at all. (A separate one-day Karachi crash course does name its teacher.)" },
-  { provider: "Corvit Systems Islamabad", state: "none", names: "", note: "Courses are credited to \"admin\". The Lahore Corvit site does name AI instructors — a different campus on a different domain, so it does not count for Islamabad." },
-]
-const NAMED_COUNT = TEACHERS.filter((teacher) => teacher.state === 'named').length
-const DIRECTORY_COUNT = TEACHERS.filter((teacher) => teacher.state === 'directory').length
-const NONE_COUNT = TEACHERS.filter((teacher) => teacher.state === 'none').length
-const DISCLOSURE_LABELS: Record<Disclosure, string> = {
-  named: 'Named on the course page',
-  directory: 'Faculty listed, but not for this course',
-  none: 'No one named',
-}
-
 const FAQS: Faq[] = [
   {
-    q: "Who teaches AI agents in Islamabad?",
-    a: `At ${site.name} in F-10 Markaz, AI agents are taught by ${founder.name}, the company's founder and lead AI instructor — a Google-certified AI Agentic Trainer, Gemini Certified Educator and Anthropic (Claude)-verified educator who has been teaching technology since 2002. Elsewhere in Islamabad the answer is mostly not published: of the ${TEACHERS.length} other providers in this guide, ${NAMED_COUNT} name the person who teaches their AI course on their own website (NUST SEECS, NUST × atomcamp, PNY Trainings and AI Season), ${DIRECTORY_COUNT} list faculty somewhere on the site but attach nobody to the course, and ${NONE_COUNT} name no one at all. Checked provider by provider on ${INSTRUCTORS_VERIFIED}.`,
+    q: 'Who teaches AI agents in Islamabad?',
+    a: `At ${site.name} in F-10 Markaz, AI agents are taught by ${founder.name}, the company's founder and lead AI instructor \u2014 a Google-certified AI Agentic Trainer, Gemini Certified Educator and Anthropic (Claude)-verified educator who has been teaching technology since 2002. Elsewhere in Islamabad the answer is mostly not published: of the ${TEACHERS.length} other providers in this guide, ${NAMED_COUNT} name the person who teaches their AI course on their own website (NUST SEECS, NUST \u00d7 atomcamp, PNY Trainings and AI Season), ${DIRECTORY_COUNT} list faculty somewhere on the site but attach nobody to the course, and ${NONE_COUNT} name no one at all. Checked provider by provider on ${INSTRUCTORS_VERIFIED}.`,
   },
   {
-    q: "How do I find out who will actually teach my AI course before I pay?",
-    a: `Ask for the trainer's name in writing before you pay, and search that name yourself. Most institutes in Islamabad advertise "industry-experienced trainers" without naming anyone — we checked all ${TEACHERS.length + 1} providers in this guide on ${INSTRUCTORS_VERIFIED} and only ${NAMED_COUNT + 1} attach a named person to the AI course on their own site. A provider that will not name the trainer before payment usually cannot promise you a particular one; batches get assigned. Also ask whether that named person teaches every session or only the opening one.`,
+    q: 'How do I find out who will actually teach my AI course before I pay?',
+    a: `Ask for the trainer's name in writing before you pay, and search that name yourself. Most institutes in Islamabad advertise "industry-experienced trainers" without naming anyone \u2014 we checked all ${TEACHERS.length + 1} providers in this guide on ${INSTRUCTORS_VERIFIED} and only ${NAMED_COUNT + 1} attach a named person to the AI course on their own site. A provider that will not name the trainer before payment usually cannot promise you a particular one; batches get assigned. Also ask whether that named person teaches every session or only the opening one.`,
   },
   {
     q: 'Is there free AI training in Islamabad?',
@@ -286,7 +354,7 @@ export default function AiTrainingIslamabadPage() {
 
       <h2>Who actually teaches these courses</h2>
       <p>
-        Every provider in the table above promises expert teaching. Far fewer will tell you who that expert is. On {INSTRUCTORS_VERIFIED} we opened each provider&apos;s own website and looked for one thing: a named human being attached to the AI course. We counted nothing else — not a LinkedIn profile, not a news article, not a directory listing, only what the provider itself publishes.
+        Every provider in the table above promises expert teaching. Far fewer will tell you who that expert is. On {INSTRUCTORS_VERIFIED} we opened each provider&apos;s own website and looked for one thing: a named human being attached to the AI course. We counted nothing else &#8212; not a LinkedIn profile, not a news article, not a directory listing, only what the provider itself publishes.
       </p>
       <p>
         Of the {TEACHERS.length} other providers, <strong>{NAMED_COUNT} name the person who teaches the course</strong>, {DIRECTORY_COUNT} publish a faculty or team page but attach nobody to the AI course in particular, and {NONE_COUNT} name no one at all.
@@ -303,21 +371,26 @@ export default function AiTrainingIslamabadPage() {
           <tbody>
             <tr className="is-dsp">
               <td><strong>{mastery.name}</strong><br /><span className="note">{site.name}, F-10 Markaz</span></td>
-              <td>{DISCLOSURE_LABELS.named}</td>
-              <td><Link href={founder.path}>{founder.name}</Link> — {founder.jobTitle}. {founder.description}</td>
+              <td>{DISCLOSURE_LABEL.named}</td>
+              <td>
+                <strong><Link href={founder.path}>{founder.name}</Link></strong> &#8212; {founder.jobTitle}. {founder.description}
+              </td>
             </tr>
-            {TEACHERS.map((teacher) => (
-              <tr key={teacher.provider}>
-                <td><strong>{teacher.provider}</strong></td>
-                <td>{DISCLOSURE_LABELS[teacher.state]}</td>
-                <td>{teacher.names && <><strong>{teacher.names}</strong><br /></>}{teacher.note}</td>
+            {TEACHERS.map((t) => (
+              <tr key={t.provider}>
+                <td><strong>{t.provider}</strong></td>
+                <td>{DISCLOSURE_LABEL[t.state]}</td>
+                <td>
+                  {t.who ? <><strong>{t.who}</strong>. </> : null}
+                  {t.note}
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
       <p className="note">
-        Instructor disclosure checked {INSTRUCTORS_VERIFIED} by reading each provider&apos;s own website. Two caveats we will not hide: PIAIC&apos;s site is partly JavaScript-rendered, so a page we could not read may name someone; and one PIM course page returned a 404 on the day we checked. A provider that names nobody today may name someone tomorrow — tell us and we will re-check.
+        Instructor disclosure checked {INSTRUCTORS_VERIFIED} by reading each provider&apos;s own website. Two caveats we will not hide: PIAIC&apos;s site is partly JavaScript-rendered, so a page we could not read may name someone; and one PIM course page returned a 404 on the day we checked. A provider that names nobody today may name someone tomorrow &#8212; tell us and we will re-check.
       </p>
       <p>
         This matters more than it looks. A named instructor is something you can verify before you pay: you can read what they have published, see whether they have taught before, and ask them a question. An unnamed &quot;industry-experienced trainer&quot; is a promise that costs the institute nothing to make, and it is the reason batches can be handed to whoever is free that month. It is also the first question to ask about <Link href="/ai-agent-course-in-urdu">any course taught in Urdu</Link>, where the teaching, not the slides, is the whole product.
