@@ -12,11 +12,11 @@ import { founder, mastery, site } from '@/config/site'
 import type { Faq } from '@/lib/schema'
 
 const PATH = '/ai-training-islamabad'
-const TITLE = 'AI Training in Islamabad (2026): 11 Options Compared'
+const TITLE = 'AI Courses in Islamabad: Compare Training Options (2026)'
 const DESCRIPTION =
-  'Eleven AI training options in Islamabad — Adan Institute, PIM, NUST SEECS, NUST × atomcamp, COMSATS, NAVTTC, PIAIC, Corvit, PNY Trainings, Islamabad.ai and AI Season — compared on fee, length, format and language beside DSP AI Agent Mastery, with who each is best for. Facts verified September 2026.'
+  'Compare AI courses in Islamabad by fees, prerequisites, teaching language and format. Find classroom, live online and self-paced options that fit your goal.'
 const PUBLISHED = '2026-09-08'
-const UPDATED = '2026-10-06'
+const UPDATED = '2026-10-10'
 const FACTS_VERIFIED = '8 September 2026'
 const INSTRUCTORS_VERIFIED = '6 October 2026'
 
@@ -124,7 +124,7 @@ export const metadata: Metadata = {
 }
 
 const ANSWER =
-  `Islamabad has more AI training than any city in Pakistan except Lahore: free government-funded batches (NAVTTC, PIAIC), university short courses (NUST, COMSATS), private institutes in I-9, F-8 and Blue Area (Adan, PIM, Corvit, PNY), and online courses you can take from home (AI Season, DSP AI Agent Mastery). The table below compares eleven of them, beside DSP's own course, on ${FACTS_VERIFIED} facts.`
+  `AI courses in Islamabad include classroom training, university short courses and online programs. Choose by your goal: using AI at work, learning Python and machine learning, or building an AI agent. This guide compares eleven alternatives alongside DSP AI Agent Mastery, an online, self-paced course taught in Urdu and English with no coding prerequisite.`
 
 type Row = {
   name: string
@@ -253,6 +253,10 @@ const ROWS: Row[] = [
 
 const FAQS: Faq[] = [
   {
+    q: 'Does DSP offer walk-in classroom AI training at its Islamabad office?',
+    a: `${mastery.name} is an online, self-paced program. DSP is based in Islamabad, but the registered office is not advertised as a walk-in training classroom. Lessons are recorded in Urdu and English, with group support and weekend live debugging sessions.`,
+  },
+  {
     q: 'Who teaches AI agents in Islamabad?',
     a: `At ${site.name} in F-10 Markaz, AI agents are taught by ${founder.name}, the company's founder and lead AI instructor \u2014 a Google-certified AI Agentic Trainer, Gemini Certified Educator and Anthropic (Claude)-verified educator who has been teaching technology since 2002. Elsewhere in Islamabad the answer is mostly not published: of the ${TEACHERS.length} other providers in this guide, ${NAMED_COUNT} name the person who teaches their AI course on their own website (NUST SEECS, NUST \u00d7 atomcamp, PNY Trainings and AI Season), ${DIRECTORY_COUNT} list faculty somewhere on the site but attach nobody to the course, and ${NONE_COUNT} name no one at all. Checked provider by provider on ${INSTRUCTORS_VERIFIED}.`,
   },
@@ -297,7 +301,7 @@ export default function AiTrainingIslamabadPage() {
       path={PATH}
       title={TITLE}
       crumb="AI Training in Islamabad"
-      eyebrow="Guide · Compared September 2026 · Instructors checked October 2026"
+      eyebrow="Guide · Updated October 2026 · Provider facts dated below"
       answer={ANSWER}
       published={PUBLISHED}
       updated={UPDATED}
@@ -311,6 +315,24 @@ export default function AiTrainingIslamabadPage() {
         { path: mastery.url, title: mastery.name },
       ]}
     >
+      <h2>Which AI learning path fits your goal?</h2>
+      <ul>
+        <li><strong>Use AI in your existing job:</strong> look for exercises using your own documents and workflows, with feedback on accuracy and privacy.</li>
+        <li><strong>Become a machine-learning developer:</strong> check how much Python, data preparation and model evaluation the course teaches, and whether programming is required before joining.</li>
+        <li><strong>Build an AI agent for a business:</strong> look for a project that uses tools, handles mistakes and runs outside the classroom. Ask to see how it is tested and deployed.</li>
+      </ul>
+      <p>
+        If your goal is the third path and you are starting without coding experience, read the <Link href="/mastery/curriculum">DSP AI Agent Mastery curriculum</Link>. It shows the build and outcome for every module, so you can check the fit before enrolling.
+      </p>
+
+      <h2>Is DSP a classroom course in Islamabad?</h2>
+      <p>
+        DSP is based in {site.city}, but {mastery.name} is an <strong>online, self-paced course</strong>. The registered office in F-10 Markaz is not an advertised walk-in training classroom. You watch recorded lessons in Urdu and English, build the project on your computer, and use the group support and weekend live debugging sessions when you need help.
+      </p>
+      <p>
+        Choose a classroom program if you need an in-person timetable. Choose a live online cohort if you want scheduled teaching without travelling. Choose self-paced study if you need to fit lessons around work or family, and check that the support arrangement suits you.
+      </p>
+
       <h2>How we compared them</h2>
       <p>
         <strong>Disclosure:</strong> this guide is written by {founder.name}, founder of {site.name}, which is based in {site.city} and whose course is in the table. Every fact about the other providers was read from that provider&apos;s own website or public notice on {FACTS_VERIFIED} and is quoted as published there. Where a provider does not publish a fee or length, the table says <em>not published</em> — we never guess a price on someone else&apos;s behalf. Fees and intakes change; confirm before paying.
@@ -411,10 +433,18 @@ export default function AiTrainingIslamabadPage() {
 
       <h2>On-site or online: what actually matters in Islamabad</h2>
       <p>
-        Traffic decides more than syllabus does. A weekend class in H-12 is a two-hour round trip from Bahria Town or Rawalpindi; a full-time NAVTTC batch means three months without other work. Before you choose a campus, add up the hours you will spend travelling and ask whether a live-online or self-paced course would give you that time back. The reverse is also true: if you know you will not study alone, a fixed classroom timetable is worth the commute.
+        Traffic decides more than syllabus does. The journey to a campus in H-12, I-9 or central Islamabad depends on where you live and when classes run. A full-time timetable also needs to fit around your existing work. Before you choose a campus, add up the hours you will spend travelling and ask whether a live-online or self-paced course would give you that time back. The reverse is also true: if you know you will not study alone, a fixed classroom timetable is worth the commute.
       </p>
       <p>
         Second, ask what you will have at the end. A machine-learning course ends with notebooks and a certificate; an agent-building course should end with something running on a public URL that a client can try. Ask every provider — including us — to show you a student project that is online right now.
+      </p>
+
+      <h2>What would you build in DSP’s online course?</h2>
+      <p>
+        The guided project is a café ordering AI Employee. You start with a website, add an agent that takes an order, connect it to tools and memory, then test and deploy it to a public URL. The <Link href="/mastery/curriculum">curriculum</Link> explains each stage; this is agent-building practice rather than a Python or machine-learning qualification.
+      </p>
+      <p>
+        Before paying, watch the <Link href={`${mastery.url}#welcome`}>course walkthrough</Link>, check the <Link href={`${mastery.url}#students`}>student stories</Link>, and read the course’s current fees, support and enrollment details on the <Link href={mastery.url}>Mastery page</Link>. A learner’s project or testimonial shows an individual experience, not a promise of employment or income.
       </p>
 
       <h2>Questions to ask before you pay</h2>
