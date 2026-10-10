@@ -17,16 +17,17 @@ import type { Faq } from '@/lib/schema'
 
 const PATH = '/ai-agent-course-in-urdu'
 const TITLE = 'AI Agent Course in Urdu: Learn to Build AI Agents in Your Own Language (2026)'
+const SEO_TITLE = 'AI Agent Course in Urdu: Curriculum & Fees | DSP'
 const DESCRIPTION =
-  `Yes, there is an AI agent course taught in Urdu: DSP AI Agent Mastery — ${mastery.modules} modules explained in Urdu and English, one real AI Employee built from zero to a live URL, no coding background, ${mastery.priceDisplay} one-time. Plus the other Urdu and Hindi options compared.`
+  'Learn to build AI agents with Urdu and English lessons. Compare the curriculum, fees, projects and support before choosing DSP AI Agent Mastery.'
 const PUBLISHED = '2026-09-06'
-const UPDATED = '2026-09-06'
+const UPDATED = '2026-10-10'
 
 export const metadata: Metadata = {
-  title: { absolute: `${TITLE} | DSP` },
+  title: { absolute: SEO_TITLE },
   description: DESCRIPTION,
   alternates: { canonical: PATH },
-  openGraph: { type: 'article', url: PATH, title: TITLE, description: DESCRIPTION, images: [{ url: '/og-card.png', width: 1200, height: 630 }] },
+  openGraph: { type: 'article', url: PATH, title: SEO_TITLE, description: DESCRIPTION, images: [{ url: '/og-card.png', width: 1200, height: 630 }] },
 }
 
 const ANSWER =
@@ -80,7 +81,7 @@ export default function AiAgentCourseInUrduPage() {
       course
       title={TITLE}
       crumb="AI Agent Course in Urdu"
-      eyebrow="Guide · Urdu + English · Updated September 2026"
+      eyebrow="Guide · Urdu + English · Updated October 2026"
       answer={ANSWER}
       published={PUBLISHED}
       updated={UPDATED}
@@ -93,6 +94,14 @@ export default function AiAgentCourseInUrduPage() {
         { path: founder.path, title: `About the instructor, ${founder.name}` },
       ]}
     >
+      <h2>Preview the course before choosing it</h2>
+      <p>
+        Watch the <Link href={`${mastery.url}#welcome`}>seven-minute course walkthrough</Link> to hear the Urdu–English teaching style and see how the lessons work. Then read the <Link href="/mastery/curriculum">full AI agent curriculum</Link> to check the projects, tools and outcomes against what you want to learn.
+      </p>
+      <p>
+        Starting from zero? Follow the <Link href="/learn-ai-agents-pakistan">beginner roadmap for learning AI agents in Pakistan</Link>. If you are comparing programs, use the <Link href="/best-ai-courses-in-pakistan">AI course comparison</Link> to weigh coding prerequisites, language and support.
+      </p>
+
       <h2>Why the language of instruction decides who gets to learn AI</h2>
       <p>
         Almost every serious AI-agent course is taught in English, and most of the people who would benefit most from building agents — shop owners, freelancers, teachers, overseas workers, students outside the big-city universities — think in Urdu. They can read a tool&apos;s menu in English; they cannot follow an hour of fast technical English about context windows and tool calls. The result is that the same people who are told AI will change their work are the ones locked out of learning it.

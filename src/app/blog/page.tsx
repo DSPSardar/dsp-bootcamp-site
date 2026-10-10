@@ -5,14 +5,14 @@ import Image from 'next/image'
 import { getAllPosts } from '@/lib/posts'
 
 export const metadata: Metadata = {
-  title: 'DSP Blog — AI Agents, Vibe Coding & Practical AI Skills',
+  title: 'AI Agent Tutorials & Beginner Learning Guides',
   description:
-    'Practical guides on AI agents, vibe coding, and building with AI — for beginners, entrepreneurs, and students.',
+    'Explore AI agent tutorials, beginner projects and Urdu learning guides. Compare courses and follow a practical path from your first idea to deployment.',
   alternates: { canonical: '/blog' },
   openGraph: {
-    title: 'DSP Blog — AI Agents, Vibe Coding & Practical AI Skills',
+    title: 'AI Agent Tutorials & Beginner Learning Guides',
     description:
-      'Practical guides on AI agents, vibe coding, and building with AI — for beginners.',
+      'Explore AI agent tutorials, beginner projects and Urdu learning guides. Compare courses and follow a practical path from your first idea to deployment.',
     url: 'https://www.digitalservicesprogram.com/blog',
     type: 'website',
   },
@@ -31,11 +31,22 @@ export default function BlogIndex() {
     <main className="dsp-blog">
       <header className="dsp-blog__head">
         <p className="dsp-blog__eyebrow">Blog</p>
-        <h1 className="dsp-blog__title">Articles.</h1>
+        <h1 className="dsp-blog__title">AI agent tutorials and learning guides.</h1>
         <p className="dsp-blog__sub">
           {posts.length} guides on AI agents, vibe coding, and practical AI.
         </p>
       </header>
+
+      <nav className="dsp-blog__learning" aria-labelledby="learning-path-title">
+        <h2 id="learning-path-title">New to building AI agents? Start here.</h2>
+        <ol>
+          <li><Link href="/learn-ai-agents-pakistan">Follow the beginner learning roadmap</Link></li>
+          <li><Link href="/ai-agent-course-in-urdu">Explore learning AI agents in Urdu</Link></li>
+          <li><Link href="/best-ai-courses-in-pakistan">Compare AI courses in Pakistan</Link></li>
+          <li><Link href="/mastery/curriculum">See what you build in the Mastery curriculum</Link></li>
+        </ol>
+        <p><Link href="/mastery">Explore AI Agent Mastery</Link> for a guided path from your first idea to a deployed agent.</p>
+      </nav>
 
       {featured && (
         <Link href={`/blog/${featured.slug}`} className="dsp-blog__featured">

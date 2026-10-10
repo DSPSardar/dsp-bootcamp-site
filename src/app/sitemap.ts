@@ -38,7 +38,7 @@ const HOME_UPDATED = '2026-09-23'
 // `/blog` moved 2026-09-18 with the consolidation: the index lists 12 posts
 // instead of 43, six of them with rewritten excerpts. `/` does not move —
 // its reading block links the eight pillars, and all eight survived.
-const BLOG_UPDATED = '2026-09-18'
+const BLOG_UPDATED = '2026-10-10'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [

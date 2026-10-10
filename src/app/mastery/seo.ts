@@ -6,13 +6,12 @@
 import { site, mastery } from '@/config/site'
 
 // Title and description lead with the query people actually type ("AI agent
-// course for beginners") and carry the one modifier no competitor can use
-// (Urdu + English) — Tier A on-page spec, Sept 2026. The title already ends
+// course for beginners") and state the language of instruction. The title ends
 // in "| DSP" — page.tsx sets it with `absolute` so the root layout's
 // '%s | DSP' template does not double the suffix.
-export const SEO_TITLE = 'AI Agent Course for Beginners (Urdu + English) — Build, Deploy & Sell AI Agents | DSP'
+export const SEO_TITLE = 'AI Agent Course for Beginners in Urdu & English | DSP'
 export const SEO_DESCRIPTION =
-  'Self-paced AI agent course for beginners, taught in Urdu and English. 16 modules, one real AI Employee built from an empty folder to a live URL, Anthropic Claude Academy badges, lifetime access. $100 one-time. Pay by bank transfer, JazzCash or Easypaisa.'
+  'Build and deploy an AI agent with 16 self-paced modules in Urdu and English. No coding background needed. Explore the curriculum, fees and support.'
 
 /** The Course node's description — longer than the meta description, for
  *  the JSON-LD Course and /llms.txt (GEO pass 2026-09-06). Every clause is
