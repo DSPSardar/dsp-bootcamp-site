@@ -176,6 +176,19 @@ export default function BestAiCoursesInPakistanPage() {
         { path: mastery.url, title: mastery.name },
       ]}
     >
+      <h2>Start with what you want to learn</h2>
+      <p>
+        An AI course can teach everyday use of AI tools, Python and machine learning, or building agents that perform tasks. Decide which outcome you need before comparing fees. A course that suits a developer may assume programming knowledge that a first-time learner does not have.
+      </p>
+      <ul>
+        <li><strong>For everyday work:</strong> ask for practical exercises using documents, research or routine business tasks, and examples of checking the AI’s answers.</li>
+        <li><strong>For a technical development path:</strong> check the Python prerequisites, depth of coding practice and feedback on your projects.</li>
+        <li><strong>For building agents without prior coding:</strong> check whether the course teaches you to plan, direct, test and deploy a complete agent, and how you get help when the build fails.</li>
+      </ul>
+      <p>
+        DSP’s path is the third: <Link href="/mastery/curriculum">see the project and outcomes across all {mastery.modules} modules</Link>. If you want an in-person course, use the <Link href="/ai-training-islamabad">Islamabad training comparison</Link> and confirm the current campus timetable with the provider.
+      </p>
+
       <h2>How we compared them</h2>
       <p>
         <strong>Disclosure:</strong> this guide is written by {founder.name}, founder of {site.name}, whose course is in the table. The original comparison used each provider&apos;s own website on {FACTS_VERIFIED}; AI Season’s updated details are dated and linked below. Where a provider does not publish a fee, the table says so rather than guessing. Prices change — confirm before paying.
@@ -230,6 +243,22 @@ export default function BestAiCoursesInPakistanPage() {
         <li><strong>You want to learn data science first, in Urdu, for free:</strong> Codanics&apos; Python ka Chilla.</li>
         <li><strong>You only want to sample the topic:</strong> a free YouTube or Udemy series — then come back to one of the above when you want something deployed.</li>
       </ul>
+
+      <h2>Check the project before choosing a course</h2>
+      <p>
+        Ask a provider to show the project from the learner’s point of view: what did the learner build, what tools does it use, and what happens when it receives an unexpected request? A screenshot alone cannot show whether an agent works. A demonstration, test examples and an explanation of its limitations make the outcome easier to assess.
+      </p>
+      <p>
+        In DSP AI Agent Mastery, the guided build is a café ordering AI Employee: a website grows into an agent with tools and memory, then is tested and deployed. The final capstone is your own agent for a use case you choose. Read the <Link href="/mastery/curriculum">full curriculum</Link> and <Link href={`${mastery.url}#students`}>student stories</Link> to see how the course describes those outcomes.
+      </p>
+
+      <h2>Check tuition, tools and support separately</h2>
+      <p>
+        Ask whether the quoted fee includes the teaching, support and assessment you need. Then ask about tools: a coding-assistant subscription, API usage, hosting or an optional messaging channel can have separate terms and costs. Request the provider’s current requirements rather than assuming that the tuition covers every service.
+      </p>
+      <p>
+        DSP’s current tuition and included support come from its <Link href={mastery.url}>Mastery offer</Link>: {mastery.priceDisplay} one-time, lifetime course access and {mastery.supportMonths} months of group support. Review the running-cost explanation on that page before planning a client deployment; course access and running an agent are different costs.
+      </p>
 
       <h2>What the price does not tell you</h2>
       <p>
