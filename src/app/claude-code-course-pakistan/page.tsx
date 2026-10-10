@@ -21,17 +21,18 @@ import type { Faq, JsonLd } from '@/lib/schema'
 
 const PATH = '/claude-code-course-pakistan'
 const TITLE = 'Claude Code Course in Pakistan: Who Teaches It, and How to Earn Anthropic’s Own Certificates'
+const SEO_TITLE = 'Claude Code Course in Pakistan for Beginners | DSP'
 const DESCRIPTION =
-  'Which AI courses in Pakistan actually teach Claude Code, and how the free Anthropic (Claude) certificates work — who issues them, what they are called, and how to earn them in your own name. Six programs compared, fees as published, September 2026.'
+  'Explore Claude Code training in Urdu and English, practical projects and course fees. Learn how DSP training and Anthropic completion badges differ.'
 const PUBLISHED = '2026-09-10'
 const UPDATED = '2026-09-10'
 const FACTS_VERIFIED = '9 September 2026'
 
 export const metadata: Metadata = {
-  title: { absolute: `${TITLE} | DSP` },
+  title: { absolute: SEO_TITLE },
   description: DESCRIPTION,
   alternates: { canonical: PATH },
-  openGraph: { type: 'article', url: PATH, title: TITLE, description: DESCRIPTION, images: [{ url: '/og-card.png', width: 1200, height: 630 }] },
+  openGraph: { type: 'article', url: PATH, title: SEO_TITLE, description: DESCRIPTION, images: [{ url: '/og-card.png', width: 1200, height: 630 }] },
 }
 
 const ANSWER =

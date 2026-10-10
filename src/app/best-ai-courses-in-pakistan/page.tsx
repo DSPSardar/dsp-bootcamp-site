@@ -13,17 +13,18 @@ import type { Faq } from '@/lib/schema'
 
 const PATH = '/best-ai-courses-in-pakistan'
 const TITLE = 'Best AI Courses in Pakistan (2026): An Honest Comparison of 9 Programs'
+const SEO_TITLE = 'Best AI Courses in Pakistan (2026): 9 Compared | DSP'
 const DESCRIPTION =
-  'Nine AI and AI-agent courses in Pakistan compared on price, format, language, what you build and support — DSP AI Agent Mastery, AI Season, Aaghaz AI, Panaversity, NexSkill, Codanics, PIAIC, Adan Institute and Udemy — with who each is best for. Updated September 2026.'
+  'Compare nine AI courses in Pakistan by fees, language, prerequisites, projects and support. Find the course that fits your learning goals.'
 const PUBLISHED = '2026-09-06'
-const UPDATED = '2026-09-06'
+const UPDATED = '2026-10-10'
 const FACTS_VERIFIED = '5 September 2026'
 
 export const metadata: Metadata = {
-  title: { absolute: `${TITLE} | DSP` },
+  title: { absolute: SEO_TITLE },
   description: DESCRIPTION,
   alternates: { canonical: PATH },
-  openGraph: { type: 'article', url: PATH, title: TITLE, description: DESCRIPTION, images: [{ url: '/og-card.png', width: 1200, height: 630 }] },
+  openGraph: { type: 'article', url: PATH, title: SEO_TITLE, description: DESCRIPTION, images: [{ url: '/og-card.png', width: 1200, height: 630 }] },
 }
 
 const ANSWER =
@@ -54,11 +55,11 @@ const ROWS: Row[] = [
   {
     name: 'AI Agents Bootcamp',
     by: 'AI Season (online)',
-    price: 'PKR 3,000 early-bird to 15 Sept 2026, then PKR 4,500',
-    format: '6 weeks, 18 live online sessions with recordings; cohort 02 starts 1 Oct 2026',
+    price: 'PKR 3,000 early-bird to 30 November 2026, then PKR 4,500',
+    format: '6 weeks, 12 live online sessions with recordings; cohort 02 starts 1 January 2027',
     language: 'Urdu explanations, English code',
-    build: 'Five Python agents: RAG Q&A, tool-using, LangGraph workflow, conversational, voice',
-    credential: 'Not stated on the site; top 3 exam scorers refunded',
+    build: 'Python agents with retrieval, tool calling, memory, evaluation and deployment',
+    credential: 'Verifiable certificate of completion; top 3 exam scorers refunded',
   },
   {
     name: 'AI in Hands',
@@ -163,7 +164,7 @@ export default function BestAiCoursesInPakistanPage() {
       path={PATH}
       title={TITLE}
       crumb="Best AI Courses in Pakistan"
-      eyebrow="Guide · Compared September 2026"
+      eyebrow="Guide · AI Season updated October 2026"
       answer={ANSWER}
       published={PUBLISHED}
       updated={UPDATED}
@@ -177,7 +178,7 @@ export default function BestAiCoursesInPakistanPage() {
     >
       <h2>How we compared them</h2>
       <p>
-        <strong>Disclosure:</strong> this guide is written by {founder.name}, founder of {site.name}, whose course is in the table. Every fact about the other eight programs was read from that provider&apos;s own website on {FACTS_VERIFIED} and is quoted as published there; where a provider does not publish a fee, the table says so rather than guessing. Prices change — confirm before paying.
+        <strong>Disclosure:</strong> this guide is written by {founder.name}, founder of {site.name}, whose course is in the table. The original comparison used each provider&apos;s own website on {FACTS_VERIFIED}; AI Season’s updated details are dated and linked below. Where a provider does not publish a fee, the table says so rather than guessing. Prices change — confirm before paying.
       </p>
       <p>We compared five things a student actually has to decide on:</p>
       <ol>
@@ -215,12 +216,13 @@ export default function BestAiCoursesInPakistanPage() {
           </tbody>
         </table>
       </div>
-      <p className="note">Facts verified on each provider&apos;s website, {FACTS_VERIFIED}. &quot;Not published&quot; means the provider does not show the figure online.</p>
+      <p className="note">AI Season’s fee, session count, cohort start and certificate details were rechecked on <a href="https://aiseason.tech/">AI Season’s official course page</a>, 10 October 2026. Other provider facts retain their {FACTS_VERIFIED} verification date. Confirm current fees and availability before paying.</p>
+      <p className="note">&quot;Not published&quot; means the provider does not show the figure online.</p>
 
       <h2>Which one is best for you</h2>
       <ul>
         <li><strong>You cannot code and want a deployed AI agent, in Urdu, for a one-time fee:</strong> <Link href={mastery.url}>DSP AI Agent Mastery</Link>. Self-paced, lifetime access, weekend live debugging.</li>
-        <li><strong>You want the cheapest live cohort and are happy to write Python:</strong> AI Season — PKR 3,000–4,500, six weeks, five agents built.</li>
+        <li><strong>You want the cheapest live cohort and are happy to write Python:</strong> AI Season — PKR 3,000–4,500, six weeks, practical Python agents.</li>
         <li><strong>You want an in-person classroom in Lahore with no coding:</strong> Aaghaz AI&apos;s AI in Hands.</li>
         <li><strong>You want the deepest engineering track (SDKs, MCP, Docker, Kubernetes):</strong> Panaversity, or PIAIC if you prefer a government-backed, multi-quarter path.</li>
         <li><strong>You want a long diploma-style course with a recognised institute name and internships:</strong> NexSkill&apos;s 8-month Agentic AI course.</li>
