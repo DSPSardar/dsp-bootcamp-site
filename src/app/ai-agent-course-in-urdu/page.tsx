@@ -12,16 +12,16 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Guide from '@/components/guides/Guide'
 import { MASTERY_CURRICULUM } from '@/app/mastery/curriculum'
-import { founder, mastery } from '@/config/site'
+import { founder, mastery, waLink } from '@/config/site'
 import type { Faq } from '@/lib/schema'
 
 const PATH = '/ai-agent-course-in-urdu'
-const TITLE = 'AI Agent Course in Urdu: Learn to Build AI Agents in Your Own Language (2026)'
-const SEO_TITLE = 'AI Agent Course in Urdu: Curriculum & Fees | DSP'
+const TITLE = 'AI Agents Course in Urdu: Learn Online from Anywhere'
+const SEO_TITLE = 'AI Agents Course in Urdu | Online AI Course | DSP'
 const DESCRIPTION =
-  'Learn to build AI agents with Urdu and English lessons. Compare the curriculum, fees, projects and support before choosing DSP AI Agent Mastery.'
+  'Online AI course in Urdu and English: build AI agents without prior coding. Self-paced lessons for learners worldwide. See curriculum, fees and support.'
 const PUBLISHED = '2026-09-06'
-const UPDATED = '2026-10-10'
+const UPDATED = '2026-10-12'
 
 export const metadata: Metadata = {
   title: { absolute: SEO_TITLE },
@@ -31,9 +31,17 @@ export const metadata: Metadata = {
 }
 
 const ANSWER =
-  `Yes. ${mastery.name} is an AI agent course taught in Urdu and English: ${mastery.modules} recorded modules where the explanations are in Urdu, the tools and code stay in English, and you build one real AI Employee from an empty folder to a live URL without a coding background. ${mastery.priceDisplay} one-time (${mastery.pkr.price}), lifetime access, ${mastery.supportMonths} months of support.`
+  `Yes. ${mastery.name} is an online AI agents course in Urdu and English for learners worldwide: ${mastery.modules} recorded modules where the explanations are in Urdu, the tools and code stay in English, and you build one real AI Employee from an empty folder to a live URL without a coding background. ${mastery.priceDisplay} one-time (${mastery.pkr.price}), lifetime access, ${mastery.supportMonths} months of support.`
 
 const FAQS: Faq[] = [
+  {
+    q: 'Is this an online AI course in Urdu that I can take from any country?',
+    a: `${mastery.name} is online and self-paced. You can study the recorded Urdu–English lessons from your own country, without travelling to Pakistan. Weekend live debugging sessions run on Pakistan time; confirm the current schedule and your payment option with DSP before enrolling.`,
+  },
+  {
+    q: 'Is this a general AI course or an AI agents course?',
+    a: 'The course starts with AI and agent foundations, then focuses on building an AI Employee with Claude Code, tools and memory, testing it and deploying it. It is for people who want to build agents; it is not a Python or machine-learning degree program.',
+  },
   {
     q: 'Is the whole course in Urdu, or only some lectures?',
     a: 'Every lecture is taught in an Urdu–English mix, the way DSP has always taught live: the explanation, the reasoning and the mistakes are in Urdu; the tool names, code and prompts stay in English because that is what the tools understand. Slides, templates and downloads are in English, and subtitles are provided.',
@@ -48,7 +56,7 @@ const FAQS: Faq[] = [
   },
   {
     q: 'I live outside Pakistan — in Saudi Arabia, the UAE, the UK or the US. Can I join?',
-    a: 'Yes. The course is self-paced and recorded, so time zones do not matter, and the weekend live debugging sessions are scheduled for Pakistan evening, which suits the Gulf and Europe. DSP\'s students come from Saudi Arabia, the UAE, the UK, the US, Canada, Australia and Malaysia as well as Pakistan. Payment is by bank transfer, JazzCash or Easypaisa from Pakistan; overseas students ask on WhatsApp for the current option.',
+    a: 'Yes. Recorded lessons are self-paced, so you choose when to study. Weekend live debugging sessions run on Pakistan time; confirm the current schedule and convert it to your local time before enrolling. DSP\'s students come from Saudi Arabia, the UAE, the UK, the US, Canada, Australia and Malaysia as well as Pakistan. Payment is by bank transfer, JazzCash or Easypaisa from Pakistan; overseas students ask on WhatsApp for the current option.',
   },
   {
     q: 'What will I actually be able to do at the end?',
@@ -71,6 +79,7 @@ const OTHERS = [
 const URDU = [
   `جی ہاں، AI ایجنٹ کا کورس اردو میں موجود ہے۔ ${mastery.name} میں ${mastery.modules} ماڈیول ہیں جن کی وضاحت اردو میں ہوتی ہے اور ٹولز، کوڈ اور پرامپٹ انگریزی میں رہتے ہیں کیونکہ ٹولز انگریزی ہی سمجھتے ہیں۔ آپ کو کوڈنگ آنے کی ضرورت نہیں: آپ سادہ انگریزی میں بتاتے ہیں کہ ایجنٹ کیا کرے، Claude Code کوڈ لکھتا ہے، اور آپ منصوبہ بنانا، ٹیسٹ کرنا اور غلطی ٹھیک کرنا سیکھتے ہیں۔ اسے DSP میں Vibe Coding کہتے ہیں۔`,
   `کورس ریکارڈڈ اور اپنی رفتار سے ہے، اس لیے سعودی عرب، امارات، برطانیہ، امریکہ، کینیڈا یا آسٹریلیا میں رہنے والے پاکستانی بھی اسی طرح سیکھتے ہیں جیسے لاہور یا اسلام آباد میں۔ ہر ہفتے کے آخر میں لائیو ڈیبگنگ سیشن ہوتا ہے جس میں آپ اپنا پروجیکٹ لاتے ہیں اور غلطیاں کال پر ٹھیک ہوتی ہیں، اور ${mastery.supportMonths} مہینے DSP گروپ میں سپورٹ ملتی ہے۔`,
+  `یہ آن لائن AI ایجنٹس کورس اردو سمجھنے والے سیکھنے والوں کے لیے ہے، چاہے آپ کسی بھی ملک میں رہتے ہوں۔ ریکارڈڈ اسباق اپنے مقامی وقت کے مطابق دیکھیں۔ پاکستان سے باہر سے داخلہ لینے سے پہلے DSP سے اپنے ملک کے لیے ادائیگی کا طریقہ اور لائیو سپورٹ کا موجودہ وقت معلوم کریں۔`,
   `فیس ${mastery.priceDisplay} یعنی ${mastery.pkr.price} یک مشت ہے، تاحیات رسائی کے ساتھ۔ آخر میں آپ کے پاس ایک حقیقی AI Employee لائیو ویب سائٹ پر چل رہا ہوتا ہے، DSP ماسٹر سرٹیفکیٹ جس کے ویریفکیشن پیج پر آپ کا ایجنٹ نظر آتا ہے، اور Anthropic (Claude Academy) کے تین بیجز آپ کے اپنے نام سے۔ استاد ${founder.name} ہیں، جو 2002 سے ٹیکنالوجی پڑھا رہے ہیں اور گوگل اور Anthropic سے تصدیق شدہ AI ٹرینر ہیں۔`,
 ]
 
@@ -80,8 +89,8 @@ export default function AiAgentCourseInUrduPage() {
       path={PATH}
       course
       title={TITLE}
-      crumb="AI Agent Course in Urdu"
-      eyebrow="Guide · Urdu + English · Updated October 2026"
+      crumb="AI Agents Course in Urdu"
+      eyebrow="Online · Self-paced · Urdu + English · Learners worldwide"
       answer={ANSWER}
       published={PUBLISHED}
       updated={UPDATED}
@@ -94,17 +103,25 @@ export default function AiAgentCourseInUrduPage() {
         { path: founder.path, title: `About the instructor, ${founder.name}` },
       ]}
     >
-      <h2>Preview the course before choosing it</h2>
+      <h2>An online AI course in Urdu for learners worldwide</h2>
+      <p>
+        Study from your own country, at your own pace. The recorded lessons teach you to build AI agents, with spoken explanations in Urdu and tools, prompts and learning materials in English. You do not need to travel to Islamabad or attend a classroom.
+      </p>
+      <p>
+        The course begins with AI foundations and moves into a guided café ordering AI Employee, followed by your own capstone agent. If you want to build a working agent without prior coding experience, check the <Link href="/mastery/curriculum">module-by-module curriculum</Link> and the <Link href={`${mastery.url}#students`}>student project stories</Link> before choosing it.
+      </p>
+
+      <h2>Preview the Urdu teaching style before choosing it</h2>
       <p>
         Watch the <Link href={`${mastery.url}#welcome`}>seven-minute course walkthrough</Link> to hear the Urdu–English teaching style and see how the lessons work. Then read the <Link href="/mastery/curriculum">full AI agent curriculum</Link> to check the projects, tools and outcomes against what you want to learn.
       </p>
       <p>
-        Starting from zero? Follow the <Link href="/learn-ai-agents-pakistan">beginner roadmap for learning AI agents in Pakistan</Link>. If you are comparing programs, use the <Link href="/best-ai-courses-in-pakistan">AI course comparison</Link> to weigh coding prerequisites, language and support.
+        Starting from zero? Follow the <Link href="/learn-ai-agents-pakistan">step-by-step beginner roadmap for learning AI agents</Link>. If you are comparing programs, use the <Link href="/best-ai-courses-in-pakistan">AI course comparison</Link> to weigh coding prerequisites, language and support.
       </p>
 
       <h2>Why the language of instruction decides who gets to learn AI</h2>
       <p>
-        Almost every serious AI-agent course is taught in English, and most of the people who would benefit most from building agents — shop owners, freelancers, teachers, overseas workers, students outside the big-city universities — think in Urdu. They can read a tool&apos;s menu in English; they cannot follow an hour of fast technical English about context windows and tool calls. The result is that the same people who are told AI will change their work are the ones locked out of learning it.
+        If you understand a technical explanation more easily in Urdu, an English-only lesson can add an extra hurdle. Shop owners, freelancers, teachers and students may be comfortable reading an English tool menu while preferring Urdu explanations of context windows, memory and tool calls. Preview a lesson to decide whether DSP’s Urdu–English teaching style works for you.
       </p>
       <p>
         {founder.name} has taught technology since 2002 in London, the UAE and Pakistan, and every DSP class has always been taught the same way: <strong>explain in Urdu, work in English</strong>. That is the method {mastery.name} is recorded in.
@@ -145,7 +162,7 @@ export default function AiAgentCourseInUrduPage() {
       <h2>Who this course is for</h2>
       <ul>
         <li><strong>In Pakistan:</strong> students, teachers, freelancers, marketers, shop and clinic owners who want to build rather than only use AI.</li>
-        <li><strong>Overseas Pakistanis:</strong> in Saudi Arabia, the UAE, Qatar, the UK, the US, Canada, Australia and Malaysia — recorded lectures mean the time zone is yours; weekend live sessions fall in the Gulf and European evening.</li>
+        <li><strong>Urdu-speaking learners worldwide:</strong> including learners in India, the Gulf, the UK, the US, Canada, Australia and elsewhere. Recorded lessons fit your local schedule; live support runs on Pakistan time. Confirm enrollment and payment arrangements from your country before paying.</li>
         <li><strong>Non-coders:</strong> nobody is asked to write Python. If you can describe what you want in a WhatsApp message, you can describe it to Claude Code.</li>
         <li><strong>Not for you if:</strong> you specifically want to become a Python developer — a live Python cohort (below) is the better route.</li>
       </ul>
@@ -184,10 +201,18 @@ export default function AiAgentCourseInUrduPage() {
         </table>
       </div>
 
-      <h2>How to start this week</h2>
+      <h2>Fees, support and joining from outside Pakistan</h2>
+      <p>
+        Tuition is {mastery.priceDisplay} one-time, with lifetime course access and {mastery.supportMonths} months of group support. The Pakistan payment price is {mastery.pkr.price}. Review the <Link href={mastery.url}>current course offer and running-cost explanation</Link>: subscriptions, API usage and hosting can be separate from tuition.
+      </p>
+      <p>
+        If you live outside Pakistan, <a href={waLink('I want to join the online AI agents course in Urdu from outside Pakistan. Please confirm the payment option and current weekend support schedule for my country.')}>ask DSP about international enrollment</a> before sending payment. Tell the team your country and time zone so you can confirm a workable payment route and the current live-support schedule.
+      </p>
+
+      <h2>How to start learning AI agents in Urdu</h2>
       <ol>
         <li>Watch the seven-minute tour on the <Link href={mastery.url}>course page</Link> — it is in the same Urdu–English mix as the lectures, so you will know in seven minutes whether the language works for you.</li>
-        <li>Enrol on the enrol page (bank transfer, JazzCash or Easypaisa), upload the screenshot, and your sign-in link arrives by email once it is verified — usually within a few hours.</li>
+        <li>In Pakistan, follow the <Link href="/mastery/enrol">enrollment instructions</Link>. Outside Pakistan, confirm your payment option with DSP first. Your sign-in link arrives by email after payment is verified.</li>
         <li>Do an hour a day. Module 1 is understanding; Module 4 is the first thing you build; Module 13 is the first thing you deploy.</li>
         <li>Bring whatever breaks to the weekend debugging call.</li>
       </ol>
