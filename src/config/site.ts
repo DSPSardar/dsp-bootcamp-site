@@ -663,7 +663,7 @@ export const guides = [
   // set fixed 5 Sep; the headline finding is that the site has never ranked
   // for a non-brand prompt. Data lives in src/content/radar-results.ts and
   // feeds both the page and /data.csv, so they cannot drift.
-  { path: '/research/ai-search-dominance-engine', title: 'The AI Search Dominance Engine: 30 prompts, 7 waves', updated: '2026-10-05', live: true, footer: true },
+  { path: '/research/ai-search-dominance-engine', title: 'The AI Search Dominance Engine: 30 prompts, 8 waves', updated: '2026-10-11', live: true, footer: true },
   { path: '/frameworks/7-part-job-description', title: 'The 7-Part Job Description', updated: '2026-09-08', live: true, footer: false },
   { path: '/frameworks/memory-ladder', title: 'The Memory Ladder', updated: '2026-09-08', live: true, footer: false },
   { path: '/frameworks/agent-idea-filter', title: 'The Agent Idea Filter', updated: '2026-09-08', live: true, footer: false },
