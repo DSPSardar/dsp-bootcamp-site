@@ -33,7 +33,14 @@ export const metadata: Metadata = {
 const ANSWER =
   `Yes. ${mastery.name} is an online AI agents course in Urdu and English for learners worldwide: ${mastery.modules} recorded modules where the explanations are in Urdu, the tools and code stay in English, and you build one real AI Employee from an empty folder to a live URL without a coding background. ${mastery.priceDisplay} one-time (${mastery.pkr.price}), lifetime access, ${mastery.supportMonths} months of support.`
 
+const CERTIFICATE_ANSWER =
+  `Yes — ${mastery.name} is taught in Urdu and English and guides students toward Anthropic Academy certificates issued by Anthropic, not by DSP, plus the DSP Master Certificate whose public verification page shows the live AI agent the student built and deployed.`
+
 const FAQS: Faq[] = [
+  {
+    q: 'Is there an AI course in Urdu with a certificate?',
+    a: CERTIFICATE_ANSWER,
+  },
   {
     q: 'Is this an online AI course in Urdu that I can take from any country?',
     a: `${mastery.name} is online and self-paced. You can study the recorded Urdu–English lessons from your own country, without travelling to Pakistan. Weekend live debugging sessions run on Pakistan time; confirm the current schedule and your payment option with DSP before enrolling.`,
@@ -158,6 +165,21 @@ export default function AiAgentCourseInUrduPage() {
         </table>
       </div>
       <p className="note">Full details, pricing and the enrolment steps are on the <Link href={mastery.url}>{mastery.shortName} page</Link>.</p>
+
+      <h2>Is there an AI course in Urdu with a certificate?</h2>
+      <p>{CERTIFICATE_ANSWER}</p>
+      <ul>
+        <li><strong>Claude 101:</strong> an Anthropic Academy course-completion certificate in the student’s own name.</li>
+        <li><strong>Claude Code 101:</strong> an Anthropic Academy course-completion certificate in the student’s own name.</li>
+        <li><strong>Introduction to Claude Cowork:</strong> an Anthropic Academy course-completion certificate in the student’s own name.</li>
+        <li><strong>DSP Master Certificate:</strong> proof of work, not attendance. Its public verification page shows the live AI agent the student built and deployed.</li>
+      </ul>
+      <p>
+        Anthropic’s Academy training and its certificates are free. They are <strong>issued by Anthropic, not by DSP</strong>. DSP’s Module 3 walks students through earning them; the <Link href="/mastery/curriculum">curriculum</Link> shows where that fits into the course. The DSP Master Certificate is earned through the capstone reviewed by the DSP team.
+      </p>
+      <p>
+        Check the <Link href={`${mastery.url}#top`}>certificate examples and student certificate evidence on the Mastery page</Link>. These are course-completion credentials and proof of a project, rather than university accreditation. Before relying on a certificate, check its issuer and verification page; for the DSP Master Certificate, inspect the agent behind the link.
+      </p>
 
       <h2>Who this course is for</h2>
       <ul>
