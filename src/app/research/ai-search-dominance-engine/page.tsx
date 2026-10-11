@@ -21,13 +21,13 @@ import type { Faq, JsonLd } from '@/lib/schema'
 import { FULL_WAVES, LATEST_WAVE, PEAK_WAVE, RADAR } from '@/content/radar-results'
 
 const PATH = '/research/ai-search-dominance-engine'
-const TITLE = 'The AI Search Dominance Engine: 30 Prompts, 7 Waves, Measured in Public'
+const TITLE = `The AI Search Dominance Engine: ${RADAR.prompts.length} Prompts, ${RADAR.waves.length} Waves, Measured in Public`
 const CSV = `${PATH}/data.csv`
 
 export const metadata: Metadata = {
   title: { absolute: `${TITLE} | DSP` },
   description:
-    'A month of longitudinal AI-search visibility data for one small company: 30 fixed prompts, seven dated waves of which six are scored runs, the rubric, the limits and every #1 result recorded so you can re-check it. Free to quote with attribution.',
+    `A month of longitudinal AI-search visibility data for one small company: ${RADAR.prompts.length} fixed prompts, ${RADAR.waves.length} dated waves of which ${FULL_WAVES.length} are scored runs, the rubric, the limits and every recorded #1 result so you can re-check it. Free to quote with attribution.`,
   alternates: { canonical: PATH },
   openGraph: { type: 'article', url: PATH, title: TITLE, images: [{ url: '/og-card.png', width: 1200, height: 630 }] },
 }
@@ -62,15 +62,16 @@ export default function RadarPage() {
   const datasetLd: JsonLd = {
     '@type': 'Dataset',
     '@id': `${url}#dataset`,
-    name: 'The AI Search Dominance Engine: AI-search visibility of one company, 30 prompts, 7 waves',
+    name: `The AI Search Dominance Engine: AI-search visibility of one company, ${RADAR.prompts.length} prompts, ${RADAR.waves.length} waves`,
     description:
-      'Longitudinal measurement of one company’s visibility in the retrieval layer that AI answer engines draw from: 30 prompts fixed before the first wave, scored 0–3, seven dated waves, with the #1 result recorded per observation.',
+      `Longitudinal measurement of one company’s visibility in the retrieval layer that AI answer engines draw from: ${RADAR.prompts.length} prompts fixed before the first wave, scored 0–3, ${RADAR.waves.length} dated waves, with the #1 result recorded per published observation.`,
     url,
     license: 'https://creativecommons.org/licenses/by/4.0/',
     isAccessibleForFree: true,
     creator: { '@id': PERSON_ID },
     publisher: { '@id': ORGANIZATION_ID },
-    datePublished: LATEST_WAVE.date,
+    datePublished: '2026-10-05',
+    dateModified: LATEST_WAVE.date,
     temporalCoverage: `${first.date}/${LATEST_WAVE.date}`,
     spatialCoverage: 'Pakistan, and the global Urdu-speaking diaspora',
     inLanguage: ['en', 'ur'],
@@ -94,8 +95,9 @@ export default function RadarPage() {
   const answer =
     `Across ${FULL_WAVES.length} scored waves on ${RADAR.prompts.length} prompts fixed on ${first.date}, ` +
     `DSP's visibility in the retrieval layer AI answer engines draw from ranged from ${PEAK_WAVE.total} to ` +
-    `${LATEST_WAVE.total} out of ${RADAR.maxScore}, and digitalservicesprogram.com has not once appeared for a ` +
-    `non-brand prompt. Every wave, rubric, limit and recorded result is published here.`
+    `${LATEST_WAVE.total} out of ${RADAR.maxScore}, and in ${FULL_WAVES.length} scored waves ` +
+    `digitalservicesprogram.com has not once appeared for a non-brand prompt. The latest wave is the lowest: zero. ` +
+    `Every wave, rubric, limit and recorded result is published here.`
 
   return (
     <Guide
@@ -105,8 +107,8 @@ export default function RadarPage() {
       eyebrow={`Original research · ${FULL_WAVES.length} scored waves · Latest ${LATEST_WAVE.date}`}
       answer={answer}
       published="2026-10-05"
-      updated="2026-10-05"
-      description="A month of longitudinal AI-search visibility data for one small company: 30 fixed prompts, seven dated waves of which six are scored runs, the rubric, the stated limits, and every #1 result recorded so a stranger can re-check it."
+      updated="2026-10-11"
+      description={`A month of longitudinal AI-search visibility data for one small company: ${RADAR.prompts.length} fixed prompts, ${RADAR.waves.length} dated waves of which ${FULL_WAVES.length} are scored runs, the rubric, the stated limits, and every recorded #1 result so a stranger can re-check it.`}
       faqs={FAQS}
       urdu={[
         `یہ صفحہ DSP کی اپنی پیمائش ہے — ${RADAR.prompts.length} مقررہ سوالات، ${FULL_WAVES.length} مرتبہ جانچ، اور نتیجہ یہ کہ AI سرچ انجنوں میں ہماری کمپنی کی موجودگی ${PEAK_WAVE.total} سے ${LATEST_WAVE.total} کے درمیان رہی، ${RADAR.maxScore} میں سے۔`,
@@ -123,9 +125,10 @@ export default function RadarPage() {
     >
       <h2>What the series shows</h2>
       <p>
-        Seven dated rows, {first.date} to {LATEST_WAVE.date} — {FULL_WAVES.length} of them scored runs and the
+        {RADAR.waves.length} dated rows, {first.date} to {LATEST_WAVE.date} — {FULL_WAVES.length} of them scored runs and the
         first a sampled baseline. Each scored wave is the sum of {RADAR.prompts.length} prompts
-        scored 0&ndash;3, so {RADAR.maxScore} is the ceiling. The band is flat and it is close to the floor.
+        scored 0&ndash;3, so {RADAR.maxScore} is the ceiling. The band was always flat and close to the floor; on{' '}
+        {LATEST_WAVE.date} it reached the floor. All {RADAR.prompts.length} prompts scored 0.
       </p>
       <div className="table-scroll" tabIndex={0} role="region" aria-label="Scrollable table">
         <table>
@@ -156,13 +159,27 @@ export default function RadarPage() {
         quote and reuse with attribution (CC BY 4.0). <Link href={CSV}>Download every wave and observation as CSV</Link>.
       </p>
 
-      <h2>Six things the data says</h2>
+      <h2>Seven things the data says</h2>
 
       <h3>1. A month of correct on-page work moved the retrieval layer by nothing</h3>
       <p>
         Across every wave, <strong>digitalservicesprogram.com has never once appeared for a non-brand prompt.</strong>{' '}
         Not at the peak of {PEAK_WAVE.total}, not at {LATEST_WAVE.total}. Every point the series has ever scored came
         from a third-party property DSP controls, or from its own brand name.
+      </p>
+      <p>
+        The clearest test of that arrived on {LATEST_WAVE.date}. In the week before it, two pages were rebuilt
+        specifically to answer the prompt that retrieves them &mdash; the question put as the page&apos;s own first
+        FAQ, verbatim, with the answer above it. Both prompts scored 0 in the wave that followed, and the wave
+        itself was the first {LATEST_WAVE.total} of the series.
+      </p>
+      <p>
+        One off-series sighting exists and belongs here rather than in a footnote: on 6 October{' '}
+        <code>/ai-training-islamabad</code> appeared at position four on{' '}
+        {RADAR.prompts.find((p) => p.id === 11)?.en} &mdash; the only time the domain has been seen on a non-brand
+        prompt. It was gone the next day. That was one sample in a five-prompt spot-check, which makes it a
+        sighting and not a position; its own #1 result was not retained, which is why it is stated here in prose
+        and not published as a row.
       </p>
       <p>
         Over the same weeks the site shipped and verified: one Organization and one Person entity with shared
@@ -185,6 +202,15 @@ export default function RadarPage() {
         The practical consequence: for this class of query the achievable goal is not outranking the directory. It
         is being the top-listed company inside it.
       </p>
+      <p>
+        Amended on {LATEST_WAVE.date}: the wall is not a wall, it is churn, and it moves between prompts. On
+        8, 9 and 10 October the same prompt 9 returned <strong>no directory at all</strong> &mdash; a training
+        company at #1 and one blog network holding four of the nine slots. On 10 October the directories had moved
+        to {RADAR.prompts.find((p) => p.id === 12)?.en}, which returned six of nine. So the set rotates faster than
+        any one page can be optimised against, and the conclusion stands for a different reason than it was first
+        written: being listed inside the directories is a defence precisely because you cannot predict which prompt
+        they will own next week.
+      </p>
 
       <h3>3. A third-party profile spikes, then decays if nobody maintains it</h3>
       <p>
@@ -203,7 +229,9 @@ export default function RadarPage() {
 
       <h3>4. The brand query is lost to name collisions, five distinct kinds of them</h3>
       <p>
-        {RADAR.prompts.find((p) => p.id === 28)?.en} is the prompt DSP should win most easily. It scores 1. On
+        {RADAR.prompts.find((p) => p.id === 28)?.en} is the prompt DSP should win most easily. It has never scored
+        above 1, and on {LATEST_WAVE.date} it scored 0: not one DSP-controlled property in the result set, on DSP&apos;s
+        own name. On
         5 October the set ran: a differently-owned company with a near-identical name at #1, a directory profile at
         #2, an unrelated encyclopedia article at #3, a generic industry-term explainer at #4, and
         digitalservicesprogram.com at #5 &mdash; its best position yet on that phrasing, and still a 1, because no
@@ -250,6 +278,24 @@ export default function RadarPage() {
       <p>
         The gate was the tag string, not reputation. The generalisable practice is to sample the marginal listings
         on a category page and compare their fields with yours before changing anything.
+      </p>
+
+      <h3>7. On some prompts the engine discards the country word, so a country page cannot win them</h3>
+      <p>
+        Measured on 11 October, inside the fixed set. {RADAR.prompts.find((p) => p.id === 7)?.en} returned nine
+        results and <strong>not one Pakistani provider</strong> &mdash; the set was international course platforms,
+        and the word &ldquo;Pakistan&rdquo; in the prompt had no visible effect on it.{' '}
+        {RADAR.prompts.find((p) => p.id === 19)?.en} behaved the same way: nine international course roundups.
+      </p>
+      <p>
+        This is a different failure from the directory wall and it has a different remedy. A directory query can be
+        entered by being listed. A query whose geographic qualifier the engine drops cannot be won with a
+        country-specific page at all, however well built, because no page of that shape is in the candidate set. The
+        prompt has to be treated as a global query and competed for on the global phrasing, or left alone and the
+        effort moved to a prompt where the qualifier survives. Other prompts in this set that name Pakistan or
+        Islamabad do return Pakistani providers, so the qualifier is honoured on some phrasings and dropped on
+        others &mdash; which is testable per prompt before any page is built for it, and was not tested before this
+        one was.
       </p>
 
       <h2>How a wave is scored</h2>

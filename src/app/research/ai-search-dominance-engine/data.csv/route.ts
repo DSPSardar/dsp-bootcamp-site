@@ -63,7 +63,7 @@ export function GET() {
     `# ${RADAR.prompts.length} prompts fixed ${RADAR.promptsFixedOn} and never edited; ${RADAR.waves.filter((w) => w.full).length} scored waves to ${RADAR.waves[RADAR.waves.length - 1].date}.`,
     `# Rubric: 3 = a DSP property is #1, 2 = position 2-3, 1 = present anywhere, 0 = absent. Wave total is out of ${RADAR.maxScore}.`,
     `# Measures the retrieval layer AI answer engines draw from, not any one engine's rendered answer.`,
-    `# Known limits, stated in full on the page: US-locale search tool; one sample per cell; per-prompt rows retained from 2026-10-03; the ${RADAR.waves[0].date} row is a sampled baseline, not a scored run; published by the company it measures.`,
+    `# Known limits, stated in full on the page: US-locale search tool; one sample per cell; per-prompt rows retained from 2026-10-03, with a gap for 6-10 October where only rows with a recorded #1 result are published; the ${RADAR.waves[0].date} row is a sampled baseline, not a scored run; published by the company it measures.`,
     `# Free to reuse with attribution (CC BY 4.0): https://www.digitalservicesprogram.com/research/ai-search-dominance-engine`,
   ].join('\n')
 

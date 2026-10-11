@@ -75,7 +75,7 @@ export const RADAR = {
     'The search tool used resolves to a US locale. A Pakistan-locale run would plausibly score differently on the Islamabad and Pakistan categories, and this is the largest known weakness in the series.',
     'One sample per cell. Result sets are volatile, so a single-wave move is noise and only a trend across waves is signal.',
     'This measures the retrieval layer — the live index that ChatGPT Search, Perplexity, Gemini with grounding, Google AI Overviews and Claude web search all draw from before they synthesise. It is a proxy for AI-search visibility, not a measurement of any one engine’s rendered answer, because those vary by account, session and model version and cannot be used as a time series by anyone who does not control those variables.',
-    'Per-prompt rows were retained from 2026-10-03 onward. Earlier waves are published as dated totals plus the individual observations recorded at the time.',
+    'Per-prompt rows were retained from 2026-10-03 onward, with one gap: for the wave of 2026-10-10 and the spot-checks of 6–9 October the per-prompt file was lost before publication, so only the rows whose #1 result is still on record appear below. A row is published here only if its #1 result is recorded, which is why those waves show fewer rows than prompts scored.',
     'The 5 September figure is an approximate baseline from sampling, not a scored run, and is marked as such.',
     'This dataset is published by the company it measures. The protections against that are the fixed prompt set, the unprimed scorers, the recorded #1 results — and findings that are mostly unflattering.',
   ],
@@ -87,6 +87,7 @@ export const RADAR = {
     { id: 'd', date: '2026-09-20', day: 1, total: 5, full: true },
     { id: 'w01', date: '2026-09-26', day: 7, total: 4, full: true },
     { id: 'w02', date: '2026-10-03', day: 14, total: 3, full: true, note: 'Lowest of the series — 29 of the 30 prompts scored 0' },
+    { id: 'w03', date: '2026-10-10', day: 21, total: 0, full: true, note: 'First zero of the series — all 30 prompts scored 0, including the two prompts the site had just been rebuilt to answer' },
   ] satisfies ReadonlyArray<RadarWave>,
   prompts: [
     { id: 1, category: 'Pakistan, general', en: 'What are the best AI training institutes in Pakistan?' },
@@ -137,6 +138,15 @@ export const RADAR = {
     { promptId: 9, date: '2026-10-05', score: 0, top: 'designrush.com', note: 'The entire top three is directories: DesignRush, GoodFirms, TechBehemoths. No company’s own site until #4' },
     { promptId: 24, date: '2026-10-05', score: 0, top: 'theknowledgeacademy.com', note: 'Then nobleprog ×2, aaghaz ×2, zensbot, nexskill ×2' },
     { promptId: 25, date: '2026-10-05', score: 0, top: 'medium.com', note: 'Then Slack, Lindy, Nextiva, Blue Prism, and four newer vendors' },
+    { promptId: 9, date: '2026-10-10', score: 0, top: 'pnytrainings.com', note: 'No directory anywhere in the result set, reversing 5 October — one blog network held four of the nine slots instead' },
+    { promptId: 11, date: '2026-10-10', score: 0, top: 'techjuice.pk', note: 'Sixth consecutive absence, four days after the page was rebuilt to answer this exact question' },
+    { promptId: 12, date: '2026-10-10', score: 0, top: 'designrush.com', note: 'Six of nine results were directories on the same day prompt 9 had none — the wall moved, it did not fall' },
+    { promptId: 28, date: '2026-10-10', score: 0, top: 'propakistani.pk', note: 'Not one DSP-controlled property on DSP’s own brand query: a 2018 microfinance programme, a World Bank project and a trade body instead' },
+    { promptId: 1, date: '2026-10-11', score: 0, top: 'pnytrainings.com', note: 'The paid “best AI academy” placement held positions two to four' },
+    { promptId: 7, date: '2026-10-11', score: 0, top: 'inflearn.com', note: 'Not one Pakistani provider in the set — the country word in the prompt was discarded and the answer is global course platforms' },
+    { promptId: 11, date: '2026-10-11', score: 0, top: 'techjuice.pk', note: 'Seventh consecutive absence' },
+    { promptId: 13, date: '2026-10-11', score: 0, top: 'udemy.com', note: 'A Hindi/Urdu n8n agents course at #1; codanics.com holds the Urdu AI-agents slot' },
+    { promptId: 19, date: '2026-10-11', score: 0, top: 'designlab.com', note: 'Nine of nine international course roundups; no Pakistani provider and no Pakistan-specific page' },
   ] satisfies ReadonlyArray<RadarObservation>,
 } as const
 
