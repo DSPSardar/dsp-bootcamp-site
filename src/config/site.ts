@@ -646,7 +646,7 @@ export const cofounder = {
  *  /what-is-an-ai-employee and each other — not from every footer. */
 export const guides = [
   { path: '/best-ai-courses-in-pakistan', title: 'Best AI Courses in Pakistan (2026)', updated: '2026-10-10', live: true, footer: true },
-  { path: '/ai-agent-course-in-urdu', title: 'AI Agent Course in Urdu', updated: '2026-10-10', live: true, footer: true },
+  { path: '/ai-agent-course-in-urdu', title: 'AI Agents Course in Urdu — Online Worldwide', updated: '2026-10-12', live: true, footer: true },
   { path: '/ai-training-islamabad', title: 'AI Training in Islamabad', updated: '2026-10-10', live: true, footer: true },
   { path: '/learn-ai-agents-pakistan', title: 'How to Learn AI Agents in Pakistan', updated: '2026-09-16', live: true, footer: true },
   { path: '/mastery/curriculum', title: 'Mastery Curriculum: All 16 Modules', updated: '2026-09-08', live: true, footer: true },
