@@ -51,7 +51,7 @@ const FAQS: Faq[] = [
   },
   {
     q: 'Is the whole course in Urdu, or only some lectures?',
-    a: 'Every lecture is taught in an Urdu–English mix, the way DSP has always taught live: the explanation, the reasoning and the mistakes are in Urdu; the tool names, code and prompts stay in English because that is what the tools understand. Slides, templates and downloads are in English, and subtitles are provided.',
+    a: 'Every lecture is taught in an Urdu–English mix, the way DSP has always taught live: the explanation, the reasoning and the mistakes are in Urdu; the tool names, code and prompts stay in English because that is what the tools understand. Slides, templates and downloads are in English.',
   },
   {
     q: 'I understand Urdu but read Roman Urdu more easily. Does that matter?',
@@ -138,7 +138,7 @@ export default function AiAgentCourseInUrduPage() {
       <ul>
         <li><strong>Spoken explanation in Urdu.</strong> Why an agent needs a job description, what memory is for, why a build broke — all in Urdu, in the plain speech of a live class, not a translated script.</li>
         <li><strong>Tools, code and prompts in English.</strong> Claude, Claude Code, GitHub and Vercel work in English, and your future clients&apos; briefs will be in English. You learn to write those, with the Urdu explanation beside them.</li>
-        <li><strong>English slides and downloads, with subtitles.</strong> Every module ships its slides, templates and checklists in English so what you keep is reusable in any job.</li>
+        <li><strong>English slides and downloads.</strong> Every module ships its slides, templates and checklists in English so what you keep is reusable in any job.</li>
         <li><strong>Support in whichever you prefer.</strong> The DSP group and the weekend debugging calls run in Urdu and English, as the room wants.</li>
       </ul>
 

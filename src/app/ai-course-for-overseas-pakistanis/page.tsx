@@ -292,7 +292,7 @@ export default function AiCourseForOverseasPakistanisPage() {
 
       <h2>A note on Urdu, Roman Urdu and English</h2>
       <p>
-        The lectures are spoken, so it makes no difference whether you read Urdu script or Roman Urdu — you listen either way. The explanations, the reasoning and the mistakes are in Urdu; the tool names, prompts and code stay in English because Claude, GitHub and Vercel expect English, and those arrive as copy-paste templates rather than something you compose. If you can read a WhatsApp message in English, the written side will not stop you. Subtitles are on every lecture.
+        The lectures are spoken, so it makes no difference whether you read Urdu script or Roman Urdu — you listen either way. The explanations, the reasoning and the mistakes are in Urdu; the tool names, prompts and code stay in English because Claude, GitHub and Vercel expect English, and those arrive as copy-paste templates rather than something you compose. If you can read a WhatsApp message in English, the written side will not stop you.
       </p>
       <p>
         The longer version of that answer, including what &quot;Urdu + English&quot; means module by module, is in the <Link href="/ai-agent-course-in-urdu">AI Agent Course in Urdu</Link> guide.

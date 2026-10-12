@@ -401,7 +401,7 @@ export default function MasteryPage() {
       <tbody>
         <tr><th scope="row">Level</th><td>Complete beginner — no coding</td></tr>
         <tr><th scope="row">Format</th><td>Self-paced video, 30+ hours, 16 modules</td></tr>
-        <tr><th scope="row">Language</th><td>Urdu–English lectures, English materials, subtitles</td></tr>
+        <tr><th scope="row">Language</th><td>Urdu–English lectures, English materials</td></tr>
         <tr><th scope="row">Project</th><td>One real AI Employee → live URL, plus your own capstone</td></tr>
         <tr><th scope="row">Certificates</th><td>DSP Master certificate (verifiable URL) + 3 Claude Academy badges from Anthropic</td></tr>
         <tr><th scope="row">Price</th><td>$100 one-time · bank transfer, JazzCash, Easypaisa · card on request</td></tr>
@@ -438,7 +438,7 @@ export default function MasteryPage() {
     <div className="card"><div className="k">Freelancers</div><h3>Add a $500–$2,000 service line</h3><p>Deliver agents to clients using the same discovery, proposal and pricing templates <Link className="il" href="/agents">DSP&apos;s own agency</Link> uses. See <Link className="il" href="/agents/case-studies">real client results</Link> and DSP&apos;s own <Link className="il" href="/pricing">pricing for done-for-you agents</Link> to calibrate yours.</p></div>
     <div className="card"><div className="k">Marketers</div><h3>Agents that run your pipeline</h3><p>Lead qualification, follow-up sequences, content research — built by you, connected to your tools.</p></div>
     <div className="card"><div className="k">Business owners</div><h3>Your first AI employee</h3><p>A booking, ordering or support agent for your own business, running on WhatsApp, web or email — the way <Link className="il" href="/ai-employees/zara">Zara, our sales AI Employee</Link>, runs DSP&apos;s admissions.</p></div>
-    <div className="card"><div className="k">Working abroad</div><h3>Learn in Urdu and English, on your own time</h3><p>Lectures are taught in an Urdu–English mix, with English materials and subtitles. Study at 6 am in Dubai or midnight in Manchester. Nothing is live-only.</p></div>
+    <div className="card"><div className="k">Working abroad</div><h3>Learn in Urdu and English, on your own time</h3><p>Lectures are taught in an Urdu–English mix, with English materials. Study at 6 am in Dubai or midnight in Manchester. Nothing is live-only.</p></div>
   </div>
 </div></section>
 
@@ -541,7 +541,7 @@ export default function MasteryPage() {
       <li className="hi"><span>Client Acquisition Kit — discovery sheet, proposal, pricing calculator, contract, outreach pack</span><span>bonus</span></li>
       <li className="hi"><span>One Agent Many Clients blueprint — the multi-tenant model DSP sells</span><span>bonus</span></li>
       <li className="hi"><span>Ustad, your AI tutor inside the dashboard — stuck at 1am, ask it. Knows every lesson, answers in English, Urdu or Roman Urdu</span><span>24/7</span></li>
-      <li className="hi"><span>One year of free support in the DSP group</span><span>12 months</span></li>
+      <li className="hi"><span>One month of supervised support — a personal supervisor plus the DSP group</span><span>30 days</span></li>
       <li className="hi"><span>Live weekend session — bring your build, we debug it on the call, recorded</span><span>every weekend</span></li>
       <li><span>DSP Master certificate with a verifiable URL + 4 milestone badges</span><span>on completion</span></li>
       <li><span>Claude Academy badges: Claude 101, Claude Code 101, Claude Cowork</span><span>issued by Anthropic, USA</span></li>
@@ -550,7 +550,7 @@ export default function MasteryPage() {
     <aside className="pricebox">
       <div className="strike">Later: $197</div>
       <div className="big">$100<small>one-time</small></div>
-      <p>Founding price. Lifetime access. One year of group support included. No subscription, no upsell required to finish.</p>
+      <p>Founding price. Lifetime access. One month of supervised support included. No subscription, no upsell required to finish.</p>
       <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.offer)} event="whatsapp_click" params={{ location: 'offer' }}>Enrol now — $100</TrackedLink>
       <TrackedLink className="btn btn-ghost" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'offer' }} style={{marginTop:'10px'}}>Pay directly — bank transfer · JazzCash · Easypaisa</TrackedLink>
       <p className="paynote" style={{textAlign:'center'}}><a className="paylink" href="#welcome">Watch the 9-minute intro first</a></p>
@@ -620,18 +620,18 @@ export default function MasteryPage() {
     <details><summary>How much time does it take?</summary><p>About an hour a day for 30 days, or four sessions a week for eight weeks. Each module is one to three lectures plus a build. Lifetime access means you can go slower — the only thing that doesn&apos;t work is stopping.</p></details>
     <details><summary>Windows or Mac?</summary><p>Both. Setup guides for each are in Module 3, including the fixes for the common Windows issues we&apos;ve solved across {entity.studentsEnrolled} students.</p></details>
     <details><summary>Is $100 really all I pay?</summary><p>$100 covers the entire program, lifetime. You will need a Claude account to build with during the modules — Module 3 walks you through setup and the free-tier route, and paid Claude plans start at $20/month if you choose to upgrade. GitHub and Vercel are free for what this program uses. No other purchase is required to finish.</p></details>
-    <details><summary>What does &quot;one year of free support&quot; mean?</summary><p>You&apos;re in the DSP group from day one, and questions there are answered within one working day. On top of that there&apos;s a live session every weekend — bring your build, we debug your errors on the call, and every session is recorded. Support runs for a full year.</p></details>
+    <details><summary>What does &quot;one month of supervised support&quot; mean?</summary><p>For your first 30 days you have a personal supervisor, and you&apos;re in the DSP group where questions are answered within one working day. On top of that there&apos;s a live session every weekend — bring your build, we debug your errors on the call, and every session is recorded. Ustad, the AI tutor, stays available 24/7.</p></details>
     <details><summary>What if I get stuck at midnight?</summary><p>You ask Ustad, the AI tutor built into your dashboard. It is on every lesson page, it knows which lesson you are watching and every module in the course, and it answers in whatever you type — English, Urdu or Roman Urdu. Paste the error you are getting and it explains what the error means before it fixes it, so you learn to read errors yourself. It is included, it never sleeps, and when something really needs a human it tells you to bring it to the weekend session instead of guessing.</p></details>
-    <details><summary>Is it in Urdu or English?</summary><p>Lectures are taught in an Urdu–English mix, the way DSP teaches live. All templates, slides and downloads are in English. Subtitles are provided. The AI tutor in your dashboard replies in whichever you write in, including Roman Urdu.</p></details>
+    <details><summary>Is it in Urdu or English?</summary><p>Lectures are taught in an Urdu–English mix, the way DSP teaches live. All templates, slides and downloads are in English. The AI tutor in your dashboard replies in whichever you write in, including Roman Urdu.</p></details>
     <details><summary>Can I pay from Pakistan?</summary><p>Yes — bank transfer, JazzCash or Easypaisa. Go to the enrol page, send the payment, upload the screenshot with your email, and we send your sign-in link once it&apos;s verified — usually within a few hours.</p></details>
     <details><summary>Do I get a recognised certificate?</summary><p>Two kinds. The DSP Master certificate has a public verification page showing the live agent you built — that is proof of work, not attendance. Separately, Module 3 walks you through Claude Academy, the free training run by Anthropic — the US company that builds Claude — so you finish holding three of their course completion badges with your name on them — Claude 101, Claude Code 101 and Introduction to Claude Cowork. Those are issued by Anthropic, not by DSP. Neither is a university accreditation; what employers and clients actually check is the working agent behind the link.</p></details>
     <details><summary>Refunds?</summary><p>Seven days, no questions. Start Module 1; if it isn&apos;t for you, email us and we refund in full.</p></details>
     <details><summary>Is this the right AI agent course for beginners, or should I start with Python?</summary><p>You don&apos;t need Python. Module 4 (Vibe Coding) teaches you to direct Claude Code: you plan a feature, describe it, read and test the code it writes, commit, and move to the next one. You learn to read code long before you ever write it by hand — and most students never need to.</p></details>
     <details><summary>Which tools does the course use?</summary><p>Claude, Claude Code, ChatGPT and Gemini (set up in Module 3), GitHub and Vercel (Modules 6 and 13), MCP servers (Module 10) and a vector store for RAG (Module 9). Everything runs on a free tier or costs under $20 a month; the only paid upgrade anyone chooses is a Claude plan.</p></details>
-    <details><summary>How is this different from the DSP live bootcamp?</summary><p>Same curriculum, same café AI Employee. The DSP Agentic Lab bootcamp was the live, cohort-based version and closed in August 2026 after six batches; these lectures were recorded in those cohorts. Mastery is the self-paced version: recorded lectures you start any day, plus a live weekend support session and the DSP group for a year.</p></details>
+    <details><summary>How is this different from the DSP live bootcamp?</summary><p>Same curriculum, same café AI Employee. The DSP Agentic Lab bootcamp was the live, cohort-based version and closed in August 2026 after six batches; these lectures were recorded in those cohorts. Mastery is the self-paced version: recorded lectures you start any day, plus one month of supervised support, the DSP group and a live weekend session.</p></details>
     <details><summary>Can I build an agent for my own business instead of the café?</summary><p>Yes. The café agent is the guided build — every module adds one capability to it so you are never guessing what to do next. Your capstone is your own agent for your own use case, built with the same method, and it is reviewed by the DSP team before the certificate is issued.</p></details>
     <details><summary>What jobs or income can this lead to?</summary><p>Three routes we see most: freelance agent builds for local businesses, monthly automation retainers, or an AI Employee running inside your own business. Phase 4 includes the discovery sheet, pricing calculator, proposal and contract templates DSP uses with its own clients. Results depend on the work you put in; nothing here is a promise of income.</p></details>
-    <details><summary>Can I learn to build AI agents without knowing English well?</summary><p>Yes. The lectures explain everything in Urdu; only the tool names, prompts and code are in English, and the course gives you those as copy-paste templates. If you can read a WhatsApp message in English, you can follow this course. Subtitles are provided on every lecture.</p></details>
+    <details><summary>Can I learn to build AI agents without knowing English well?</summary><p>Yes. The lectures explain everything in Urdu; only the tool names, prompts and code are in English, and the course gives you those as copy-paste templates. If you can read a WhatsApp message in English, you can follow this course.</p></details>
     <details><summary>Do I need a powerful laptop?</summary><p>No. Any Windows or Mac machine from roughly the last six years with 8 GB of RAM is enough. Claude Code runs in a terminal, the model runs in Anthropic&apos;s cloud, and your agent is hosted on Vercel — the heavy work never happens on your machine.</p></details>
   </div>
 </div></section>
@@ -640,7 +640,7 @@ export default function MasteryPage() {
 <section className="final" id="checkout"><div className="wrap">
   <div className="eyebrow" style={{justifyContent:'center'}}>Start today</div>
   <h2>Module 1, Lesson 1 is waiting.</h2>
-  <p className="lead">One hundred dollars, once. Lifetime access. A year of support. A live agent with your name on it at the end.</p>
+  <p className="lead">One hundred dollars, once. Lifetime access. A month of supervised support. A live agent with your name on it at the end.</p>
   {/* Primary IS WhatsApp here, so the old "Ask a question" WhatsApp ghost is
       gone — its job moved into the final prefill (question-friendly). */}
   <div className="cta-row" style={{justifyContent:'center'}}>

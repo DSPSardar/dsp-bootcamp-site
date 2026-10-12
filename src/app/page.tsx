@@ -66,7 +66,7 @@ const faqs = [
   { q: 'Do I get a recognised certificate?',
     a: 'Two kinds. The DSP Master certificate has a public verification page showing the live agent you built — proof of work, not attendance. Separately, Module 3 walks you through Anthropic’s free Claude training, so you finish holding three of their completion badges with your name on them. Neither is a university accreditation; what employers and clients actually check is the working agent behind the link.' },
   { q: 'Is it in Urdu or English?',
-    a: 'Lectures are taught in an Urdu–English mix, the way DSP teaches live. All templates, slides and downloads are in English. Subtitles are provided. AI Employees answer customers in either language.' },
+    a: 'Lectures are taught in an Urdu–English mix, the way DSP teaches live. All templates, slides and downloads are in English. AI Employees answer customers in either language.' },
 ]
 
 const fmtDate = (iso: string) =>

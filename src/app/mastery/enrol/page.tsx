@@ -20,7 +20,7 @@ export default function EnrolPage() {
         <a className="muted" href="/mastery">← Back to the program</a>
         <div className="eyebrow" style={{ marginTop: 18 }}>Enrol · pay in PKR</div>
         <h1 style={{ fontSize: 'clamp(30px,4vw,46px)' }}>Two steps and you&apos;re in.</h1>
-        <p className="lead">Lifetime access, one year of support in the DSP group, and a certificate at the end. {p.price} one-time.</p>
+        <p className="lead">Lifetime access, one month of supervised support, and a certificate at the end. {p.price} one-time.</p>
 
         <div className="panel" style={{ marginTop: 32 }}>
           <h2>Step 1 — Send {p.price}</h2>

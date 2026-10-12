@@ -28,7 +28,7 @@ export default async function AdminPage() {
       <div className="panel">
         <div className="eyebrow">Admin</div>
         <h1>Enrolment requests</h1>
-        <p className="muted">Approving sends the student a sign-in email and starts their 12 months of support.</p>
+        <p className="muted">Approving sends the student a sign-in email and starts their one month of supervised support.</p>
       </div>
       {rows.length === 0 && <div className="panel"><p className="muted">No requests yet.</p></div>}
       {rows.map((r, i) => (

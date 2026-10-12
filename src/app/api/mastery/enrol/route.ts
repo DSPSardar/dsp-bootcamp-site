@@ -7,7 +7,7 @@ import { postAsosEvent } from '@/lib/mastery/asos'
  *
  *  Design rule: creating the account must NEVER depend on an email being delivered.
  *  1. Ensure the auth user exists (create with a generated password if new).
- *  2. Activate the profile for 12 months of support.
+ *  2. Activate the profile with one month of supervised support.
  *  3. Try to send a sign-in email; if the mailer refuses (rate limit etc.) that's fine —
  *     the caller gets the temporary password to pass on via WhatsApp. */
 const genPassword = () => { const a = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789'; let s = ''; for (let i = 0; i < 12; i++) s += a[Math.floor(Math.random() * a.length)]; return s }

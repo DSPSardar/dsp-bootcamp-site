@@ -23,7 +23,7 @@ export default function DecideButtons({ id, approved = false }: { id: string; ap
   // "access created" screen for a student who already had access all along.
   if (res?.resynced) return <p className="note"><b>Re-synced to ASOS.</b> The sale is recorded on the CRM lead — nothing was sent to the student.</p>
   if (res?.status === 'approved') {
-    const msg = `Assalam o Alaikum ${res.full_name?.split(' ')[0] || ''}! Welcome to DSP AI Agent Mastery 🎓\n\nYour dashboard: ${res.login_url}\nEmail: ${res.email}${res.temp_password ? `\nPassword: ${res.temp_password}` : '\n(Sign in with the link we emailed you, or set a password from "Forgot / never set a password".)'}\n\nStart with Module 1, Lesson 1. Support is free for a year — ask here any time.`
+    const msg = `Assalam o Alaikum ${res.full_name?.split(' ')[0] || ''}! Welcome to DSP AI Agent Mastery 🎓\n\nYour dashboard: ${res.login_url}\nEmail: ${res.email}${res.temp_password ? `\nPassword: ${res.temp_password}` : '\n(Sign in with the link we emailed you, or set a password from "Forgot / never set a password".)'}\n\nStart with Module 1, Lesson 1. You have one month of supervised support — ask here any time.`
     // wa.me wants digits only, no leading 00 and no +
     const digits = (res.phone || '').replace(/[^\d]/g, '').replace(/^00/, '')
     const wa = digits.length >= 8 ? `https://wa.me/${digits}?text=${encodeURIComponent(msg)}` : null

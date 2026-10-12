@@ -66,7 +66,7 @@ export const bootcamp = {
 
 /** DSP AI Agent Mastery — the self-paced program (approved Aug 2026).
     Distinct from the retired live 30-day program: this is recorded,
-    lifetime-access, $100 one-time, with 12 months of group support. */
+    lifetime-access, $100 one-time, with one month of supervised support. */
 export const mastery = {
   name: 'DSP AI Agent Mastery — Zero to Master',
   shortName: 'AI Agent Mastery',
