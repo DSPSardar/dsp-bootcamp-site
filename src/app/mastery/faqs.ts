@@ -29,7 +29,7 @@ export const MASTERY_FAQS: readonly Faq[] = [
   { q: 'Do I get a recognised certificate?',
     a: 'Two kinds. The DSP Master certificate has a public verification page showing the live agent you built — that is proof of work, not attendance. Separately, Module 3 walks you through Claude Academy, the free training run by Anthropic — the US company that builds Claude — so you finish holding three of their course completion badges with your name on them — Claude 101, Claude Code 101 and Introduction to Claude Cowork. Those are issued by Anthropic, not by DSP. Neither is a university accreditation; what employers and clients actually check is the working agent behind the link.' },
   { q: 'Refunds?',
-    a: 'Seven days, no questions. Start Module 1; if it isn\'t for you, email us and we refund in full.' },
+    a: 'Watch Module 1. If the course isn\'t for you, ask for a refund before you start Module 2 and we refund in full. Once you go past Module 1 (including opening Modules 15–16), the fee is non-refundable.' },
   // ── Added Sept 2026 (Tier A spec §8): the fan-out sub-queries ──
   { q: 'Is this the right AI agent course for beginners, or should I start with Python?',
     a: 'You don\'t need Python. Module 4 (Vibe Coding) teaches you to direct Claude Code: you plan a feature, describe it, read and test the code it writes, commit, and move to the next one. You learn to read code long before you ever write it by hand — and most students never need to.' },

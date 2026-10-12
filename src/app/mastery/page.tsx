@@ -362,7 +362,7 @@ export default function MasteryPage() {
       <span><b>Thousands</b> of students</span>
       <span>Students in <b>UK, UAE, USA, Canada &amp; more</b></span>
       <span><b>Google &amp; Anthropic</b>-verified trainer</span>
-      <span><b>7-day</b> money-back guarantee</span>
+      <span><b>Module 1</b> money-back guarantee</span>
     </div>
   </div>
 
@@ -554,7 +554,7 @@ export default function MasteryPage() {
       <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.offer)} event="whatsapp_click" params={{ location: 'offer' }}>Enrol now — $100</TrackedLink>
       <TrackedLink className="btn btn-ghost" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'offer' }} style={{marginTop:'10px'}}>Pay directly — bank transfer · JazzCash · Easypaisa</TrackedLink>
       <p className="paynote" style={{textAlign:'center'}}><a className="paylink" href="#welcome">Watch the 9-minute intro first</a></p>
-      <div className="guarantee">7-day money-back guarantee. Start Module 1; if it isn&apos;t for you, email us within 7 days for a full refund.</div>
+      <div className="guarantee">Money-back guarantee on Module 1. If it isn&apos;t for you, ask before you start Module 2 and we refund in full.</div>
       <div className="pay">Pakistan: bank transfer · JazzCash · Easypaisa<br />Card checkout coming shortly — email us to pay by card today</div>
     </aside>
   </div>
@@ -625,7 +625,7 @@ export default function MasteryPage() {
     <details><summary>Is it in Urdu or English?</summary><p>Lectures are taught in an Urdu–English mix, the way DSP teaches live. All templates, slides and downloads are in English. The AI tutor in your dashboard replies in whichever you write in, including Roman Urdu.</p></details>
     <details><summary>Can I pay from Pakistan?</summary><p>Yes — bank transfer, JazzCash or Easypaisa. Go to the enrol page, send the payment, upload the screenshot with your email, and we send your sign-in link once it&apos;s verified — usually within a few hours.</p></details>
     <details><summary>Do I get a recognised certificate?</summary><p>Two kinds. The DSP Master certificate has a public verification page showing the live agent you built — that is proof of work, not attendance. Separately, Module 3 walks you through Claude Academy, the free training run by Anthropic — the US company that builds Claude — so you finish holding three of their course completion badges with your name on them — Claude 101, Claude Code 101 and Introduction to Claude Cowork. Those are issued by Anthropic, not by DSP. Neither is a university accreditation; what employers and clients actually check is the working agent behind the link.</p></details>
-    <details><summary>Refunds?</summary><p>Seven days, no questions. Start Module 1; if it isn&apos;t for you, email us and we refund in full.</p></details>
+    <details><summary>Refunds?</summary><p>Watch Module 1. If the course isn&apos;t for you, ask for a refund before you start Module 2 and we refund in full. Once you go past Module 1 (including opening Modules 15–16), the fee is non-refundable.</p></details>
     <details><summary>Is this the right AI agent course for beginners, or should I start with Python?</summary><p>You don&apos;t need Python. Module 4 (Vibe Coding) teaches you to direct Claude Code: you plan a feature, describe it, read and test the code it writes, commit, and move to the next one. You learn to read code long before you ever write it by hand — and most students never need to.</p></details>
     <details><summary>Which tools does the course use?</summary><p>Claude, Claude Code, ChatGPT and Gemini (set up in Module 3), GitHub and Vercel (Modules 6 and 13), MCP servers (Module 10) and a vector store for RAG (Module 9). Everything runs on a free tier or costs under $20 a month; the only paid upgrade anyone chooses is a Claude plan.</p></details>
     <details><summary>How is this different from the DSP live bootcamp?</summary><p>Same curriculum, same café AI Employee. The DSP Agentic Lab bootcamp was the live, cohort-based version and closed in August 2026 after six batches; these lectures were recorded in those cohorts. Mastery is the self-paced version: recorded lectures you start any day, plus one month of supervised support, the DSP group and a live weekend session.</p></details>
@@ -658,7 +658,7 @@ export default function MasteryPage() {
 </div></footer>
 
 <div className="sticky" id="sticky"><div className="wrap">
-  <div className="l"><b>DSP AI Agent Mastery</b> <span>· $100 one-time · 7-day refund</span></div>
+  <div className="l"><b>DSP AI Agent Mastery</b> <span>· $100 one-time · Module 1 money-back guarantee</span></div>
   <div className="nav-cta">
     <TrackedLink className="paylink" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'sticky' }}>Pay directly</TrackedLink>
     <TrackedLink className="btn btn-gold btn-sm" target="_blank" rel="noopener" href={waLink(WA_MSG.sticky)} event="whatsapp_click" params={{ location: 'sticky' }}>Enrol now</TrackedLink>
