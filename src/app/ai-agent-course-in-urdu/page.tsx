@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 }
 
 const ANSWER =
-  `Yes. ${mastery.name} is an online AI agents course in Urdu and English for learners worldwide: ${mastery.modules} recorded modules where the explanations are in Urdu, the tools and code stay in English, and you build one real AI Employee from an empty folder to a live URL without a coding background. ${mastery.priceDisplay} one-time (${mastery.pkr.price}), lifetime access, ${mastery.supportMonths} months of support.`
+  `Yes. ${mastery.name} is an online AI agents course in Urdu and English for learners worldwide: ${mastery.modules} recorded modules where the explanations are in Urdu, the tools and code stay in English, and you build one real AI Employee from an empty folder to a live URL without a coding background. ${mastery.priceDisplay} one-time (${mastery.pkr.price}), lifetime access, ${mastery.supportText}.`
 
 const CERTIFICATE_ANSWER =
   `Yes — ${mastery.name} is taught in Urdu and English and guides students toward Anthropic Academy certificates issued by Anthropic, not by DSP, plus the DSP Master Certificate whose public verification page shows the live AI agent the student built and deployed.`
@@ -225,7 +225,7 @@ export default function AiAgentCourseInUrduPage() {
 
       <h2>Fees, support and joining from outside Pakistan</h2>
       <p>
-        Tuition is {mastery.priceDisplay} one-time, with lifetime course access and {mastery.supportMonths} months of group support. The Pakistan payment price is {mastery.pkr.price}. Review the <Link href={mastery.url}>current course offer and running-cost explanation</Link>: subscriptions, API usage and hosting can be separate from tuition.
+        Tuition is {mastery.priceDisplay} one-time, with lifetime course access and {mastery.supportText}. The Pakistan payment price is {mastery.pkr.price}. Review the <Link href={mastery.url}>current course offer and running-cost explanation</Link>: subscriptions, API usage and hosting can be separate from tuition.
       </p>
       <p>
         If you live outside Pakistan, <a href={waLink('I want to join the online AI agents course in Urdu from outside Pakistan. Please confirm the payment option and current weekend support schedule for my country.')}>ask DSP about international enrollment</a> before sending payment. Tell the team your country and time zone so you can confirm a workable payment route and the current live-support schedule.

@@ -158,7 +158,7 @@ export default function MasteryCurriculumPage() {
       <h2>What comes with the modules</h2>
       <ul>
         <li><strong>Downloads per module</strong> — templates, checklists and worksheets (the 7-Part JD template, the Agent Idea Filter worksheet, the Memory Ladder diagram, the 10-Question Test Sheet, the security checklist, the Client Acquisition Kit).</li>
-        <li><strong>{mastery.supportMonths} months of group support</strong> and a live debugging call every weekend, where you bring what broke.</li>
+        <li><strong>{mastery.supportText}</strong> and a live debugging call every weekend, where you bring what broke.</li>
         <li><strong>Three Anthropic (Claude Academy) badges</strong> — Claude 101, Claude Code 101 and Introduction to Claude Cowork — earned in Module 3 under your own name.</li>
         <li><strong>The DSP Master certificate</strong> after the capstone, with a verification page that shows your live agent.</li>
         <li><strong>{mastery.access} access</strong> — redo a module when a tool changes; re-recordings are included.</li>

@@ -46,7 +46,7 @@ const ROWS: Row[] = [
     name: 'DSP AI Agent Mastery',
     by: 'Digital Services Program, Islamabad',
     price: `${mastery.priceDisplay} one-time (${mastery.pkr.price}), lifetime access`,
-    format: `Self-paced recorded lectures (${mastery.modules} modules, ${mastery.lectureHours} hours) + ${mastery.supportMonths} months of group support and a live debugging session every weekend`,
+    format: `Self-paced recorded lectures (${mastery.modules} modules, ${mastery.lectureHours} hours) + ${mastery.supportText} and a live debugging session every weekend`,
     language: 'Urdu and English',
     build: 'One AI Employee from an empty folder to a live URL, using Claude and Claude Code — no coding background required',
     credential: 'Three Anthropic (Claude Academy) course-completion badges + the DSP Master certificate, whose verification page shows the live agent you built',
@@ -155,7 +155,7 @@ const FAQS: Faq[] = [
 
 const URDU = [
   'پاکستان میں AI کورس چننے سے پہلے تین سوال طے کریں: کیا آپ Python سیکھنا چاہتے ہیں یا بغیر کوڈنگ کے AI ایجنٹ بنانا؟ لائیو کلاس چاہیے یا اپنی رفتار سے ریکارڈڈ لیکچر؟ اور بجٹ تین ہزار روپے ہے یا پینتالیس ہزار؟ اوپر دیے گئے نو پروگرام ان تینوں انتخابوں کو پورا کرتے ہیں۔',
-  `جو لوگ کوڈنگ نہیں جانتے اور اردو میں سیکھنا چاہتے ہیں، ان کے لیے DSP AI Agent Mastery بنایا گیا ہے: ${mastery.modules} ماڈیول، اردو اور انگریزی میں، ایک حقیقی AI Employee خالی فولڈر سے لائیو ویب سائٹ تک، ${mastery.pkr.price} یک مشت، تاحیات رسائی اور ${mastery.supportMonths} مہینے سپورٹ۔`,
+  `جو لوگ کوڈنگ نہیں جانتے اور اردو میں سیکھنا چاہتے ہیں، ان کے لیے DSP AI Agent Mastery بنایا گیا ہے: ${mastery.modules} ماڈیول، اردو اور انگریزی میں، ایک حقیقی AI Employee خالی فولڈر سے لائیو ویب سائٹ تک، ${mastery.pkr.price} یک مشت، تاحیات رسائی اور ایک مہینہ سپورٹ۔`,
 ]
 
 export default function BestAiCoursesInPakistanPage() {
@@ -257,7 +257,7 @@ export default function BestAiCoursesInPakistanPage() {
         Ask whether the quoted fee includes the teaching, support and assessment you need. Then ask about tools: a coding-assistant subscription, API usage, hosting or an optional messaging channel can have separate terms and costs. Request the provider’s current requirements rather than assuming that the tuition covers every service.
       </p>
       <p>
-        DSP’s current tuition and included support come from its <Link href={mastery.url}>Mastery offer</Link>: {mastery.priceDisplay} one-time, lifetime course access and {mastery.supportMonths} months of group support. Review the running-cost explanation on that page before planning a client deployment; course access and running an agent are different costs.
+        DSP’s current tuition and included support come from its <Link href={mastery.url}>Mastery offer</Link>: {mastery.priceDisplay} one-time, lifetime course access and {mastery.supportText}. Review the running-cost explanation on that page before planning a client deployment; course access and running an agent are different costs.
       </p>
 
       <h2>What the price does not tell you</h2>

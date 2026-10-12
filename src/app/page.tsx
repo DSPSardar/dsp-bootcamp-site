@@ -244,7 +244,7 @@ export default function HomePage() {
             <ul className="facts">
               <li><CheckIcon /> {mastery.modules} modules · {mastery.lectureHours} hours of recorded lectures</li>
               <li><CheckIcon /> Self-paced · {mastery.access.toLowerCase()} access</li>
-              <li><CheckIcon /> {mastery.supportMonths} months of group support and weekend live sessions</li>
+              <li><CheckIcon /> One month of supervised support and weekend live sessions</li>
               <li><CheckIcon /> Taught in Urdu and English · materials in English</li>
               <li><CheckIcon /> No coding background needed — Claude Code writes the code</li>
               <li><CheckIcon /> Four certificates — three issued by Anthropic, one by DSP</li>

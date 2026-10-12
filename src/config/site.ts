@@ -75,7 +75,9 @@ export const mastery = {
   /** Anchor price shown struck-through after launch */
   laterPriceDisplay: '$197',
   access: 'Lifetime',
-  supportMonths: 12,
+  supportMonths: 1,
+  /** How support is described everywhere (Sardar, 13 Oct 2026: one month, not a year). */
+  supportText: 'one month of supervised support',
   modules: 16,
   lectureHours: '30+',
   refundDays: 7,

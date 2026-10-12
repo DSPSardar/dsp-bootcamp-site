@@ -250,7 +250,7 @@ export default function LearnAiAgentsPakistanPage() {
       </ul>
       <h3>The paid path</h3>
       <ul>
-        <li><strong>A structured course</strong> puts the six stages in order with a project that grows through them, so every lecture is used the same week. <Link href={mastery.url}>{mastery.name}</Link> does this in Urdu and English for {mastery.priceDisplay} one-time ({mastery.pkr.price}) with {mastery.supportMonths} months of support; the other Pakistani options are compared in <Link href="/best-ai-courses-in-pakistan">Best AI Courses in Pakistan</Link>.</li>
+        <li><strong>A structured course</strong> puts the six stages in order with a project that grows through them, so every lecture is used the same week. <Link href={mastery.url}>{mastery.name}</Link> does this in Urdu and English for {mastery.priceDisplay} one-time ({mastery.pkr.price}) with {mastery.supportText}; the other Pakistani options are compared in <Link href="/best-ai-courses-in-pakistan">Best AI Courses in Pakistan</Link>.</li>
         <li><strong>Costs you:</strong> the course fee plus the same tool costs as the free path.</li>
         <li><strong>Best if:</strong> you want to be building in week one, learn better in Urdu, or need someone to unblock you on a live call.</li>
       </ul>

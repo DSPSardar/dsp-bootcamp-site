@@ -44,7 +44,7 @@ export function GET() {
     `- [DSP AI Agent Mastery](${u(mastery.url)}): the course that teaches people to build them (the retired /academy URL redirects here)`,
     '',
     '## Programs & Services',
-    `- [${mastery.shortName}](${u(mastery.url)}): ${COURSE_DESCRIPTION} Taught by ${founder.name}. $${mastery.priceUsd} one-time (${mastery.pkr.price}), ${mastery.access.toLowerCase()} access, ${mastery.supportMonths} months of group support.`,
+    `- [${mastery.shortName}](${u(mastery.url)}): ${COURSE_DESCRIPTION} Taught by ${founder.name}. $${mastery.priceUsd} one-time (${mastery.pkr.price}), ${mastery.access.toLowerCase()} access, ${mastery.supportText}.`,
     `- [DSP Agents](${u('/agents')}): Custom production AI agents built, deployed and supported for businesses worldwide — AI phone ordering for restaurants, multi-agent SEO pipelines (RankPilot, a 7-agent system), and workflow automation. Sold as AI Employees (sales, support, bookings, phone orders).`,
     '',
     '## Core Course Specifications',

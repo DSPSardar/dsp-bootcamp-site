@@ -145,7 +145,7 @@ const ROWS: Row[] = [
     where: `Digital Services Program, F-10 Markaz (online course)`,
     fee: `${mastery.priceDisplay} one-time (${mastery.pkr.price}), lifetime access`,
     length: `Self-paced — about an hour a day for 30 days, or eight weeks part-time`,
-    format: `Recorded lectures (${mastery.modules} modules) + ${mastery.supportMonths} months of group support and a weekend live debugging call`,
+    format: `Recorded lectures (${mastery.modules} modules) + ${mastery.supportText} and a weekend live debugging call`,
     language: 'Urdu and English',
     teaches: 'Building, deploying and selling AI agents with Claude and Claude Code — one AI Employee from an empty folder to a live URL, no coding background',
     dsp: true,
@@ -292,7 +292,7 @@ const FAQS: Faq[] = [
 
 const URDU = [
   `اسلام آباد میں AI سیکھنے کے گیارہ راستے ہیں: NAVTTC اور PIAIC کے مفت پروگرام، NUST اور COMSATS کے یونیورسٹی کورسز، I-9 اور بلیو ایریا کے پرائیویٹ انسٹیٹیوٹ (Adan، PIM، Corvit، PNY)، اور آن لائن کورس جو آپ گھر بیٹھے کر سکتے ہیں۔ فیس مفت سے لے کر پچھتر ہزار روپے تک ہے۔ جو ادارہ فیس شائع نہیں کرتا، جدول میں اس کے سامنے "Not published" لکھا ہے — ہم اندازہ نہیں لگاتے۔`,
-  `اگر آپ کوڈنگ نہیں جانتے اور اردو میں AI ایجنٹ بنانا، لائیو کرنا اور بیچنا سیکھنا چاہتے ہیں تو ${mastery.name} اسی کے لیے ہے: ${mastery.modules} ماڈیول، ${mastery.pkr.price} یک مشت، تاحیات رسائی، ${mastery.supportMonths} مہینے سپورٹ، اور ہر ہفتے کے آخر میں لائیو ڈیبگنگ سیشن۔ استاد ${founder.name} ہیں، جو ${site.city} ہی سے پڑھاتے ہیں۔`,
+  `اگر آپ کوڈنگ نہیں جانتے اور اردو میں AI ایجنٹ بنانا، لائیو کرنا اور بیچنا سیکھنا چاہتے ہیں تو ${mastery.name} اسی کے لیے ہے: ${mastery.modules} ماڈیول، ${mastery.pkr.price} یک مشت، تاحیات رسائی، ایک مہینہ سپورٹ، اور ہر ہفتے کے آخر میں لائیو ڈیبگنگ سیشن۔ استاد ${founder.name} ہیں، جو ${site.city} ہی سے پڑھاتے ہیں۔`,
 ]
 
 export default function AiTrainingIslamabadPage() {
