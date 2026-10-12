@@ -86,7 +86,7 @@ export const mastery = {
   /** Still frame shown on the welcome video's play facade — null until a
    *  frame export exists. Drop a 1280×720 JPG at public/mastery/
    *  welcome-poster.jpg and set this to '/mastery/welcome-poster.jpg'. */
-  welcomePoster: null as string | null,
+  welcomePoster: '/mastery/welcome-poster.jpg' as string | null,
   url: '/mastery',
   /** Local payment rails for Pakistan-based students (card checkout pending). */
   pkr: {
