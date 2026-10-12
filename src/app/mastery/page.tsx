@@ -212,16 +212,17 @@ export default function MasteryPage() {
 </div></section>
 
 
-{/* 4. HOW THE COURSE WORKS — the seven-minute tour */}
+{/* 4. HOW THE COURSE WORKS — the nine-minute tour */}
 {/* WELCOME VIDEO */}
 {welcomeSrc && (
 <section id="welcome" style={{paddingTop:'0'}}><div className="wrap">
-  <div className="eyebrow">Seven minutes inside the course</div>
+  <div className="eyebrow">Nine minutes inside the course</div>
   <h2>See exactly how the course works — before you pay.</h2>
   <p className="lead" style={{marginBottom:'28px'}}>A real walkthrough of the student dashboard: how the 16 modules unlock, where the templates, copy-paste prompts and slides live, and how you share your build for support. Recorded by Sardar, not a marketing team.</p>
   <LazyEmbed
     src={welcomeSrc}
     title="Inside DSP AI Agent Mastery — how the course works"
+    caption="Click here to watch the video to change your life today"
     poster={mastery.welcomePoster ?? undefined}
     load="click"
     style={{borderRadius:'20px',border:'1px solid var(--line)'}}

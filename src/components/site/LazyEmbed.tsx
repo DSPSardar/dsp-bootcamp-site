@@ -15,13 +15,15 @@ type Props = {
   load?: 'visible' | 'click'
   /** Portrait (9:16) or landscape (16:9). */
   portrait?: boolean
+  /** Optional call-to-action shown bold under the play button instead of the title. */
+  caption?: string
   style?: CSSProperties
   className?: string
 }
 
 const IFRAME_STYLE: CSSProperties = { border: 0, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }
 
-export default function LazyEmbed({ src, title, poster, load = 'visible', portrait = false, style, className }: Props) {
+export default function LazyEmbed({ src, title, caption, poster, load = 'visible', portrait = false, style, className }: Props) {
   const box = useRef<HTMLDivElement>(null)
   const [ready, setReady] = useState(false)
 
@@ -80,7 +82,7 @@ export default function LazyEmbed({ src, title, poster, load = 'visible', portra
             />
           )}
           <span aria-hidden style={{ position: 'relative', zIndex: 1, width: 64, height: 64, borderRadius: '50%', border: '2px solid currentColor', display: 'grid', placeItems: 'center', fontSize: 26, background: poster ? 'rgba(0,0,0,.45)' : undefined }}>▶</span>
-          <span style={{ position: 'relative', zIndex: 1, fontSize: 14, opacity: .8, textShadow: poster ? '0 1px 6px rgba(0,0,0,.7)' : undefined }}>{title}</span>
+          <span style={{ position: 'relative', zIndex: 1, fontSize: caption ? 20 : 14, fontWeight: caption ? 700 : undefined, opacity: caption ? 1 : .8, padding: '0 16px', textAlign: 'center', textShadow: poster ? '0 1px 6px rgba(0,0,0,.7)' : undefined }}>{caption ?? title}</span>
         </button>
       )}
     </div>
