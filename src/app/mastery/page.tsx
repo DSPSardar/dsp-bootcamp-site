@@ -104,20 +104,20 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   // Next merges `openGraph` shallowly: once this page declares its own block,
   // the root layout's siteName/type/images are NOT inherited. They are
-  // restated here so the existing /og-card.png stays the share image.
+  // restated here; /mastery uses its own share image (the welcome-video thumbnail).
   openGraph: {
     title: SEO_TITLE,
     description: SEO_DESCRIPTION,
     url: CANONICAL,
     siteName: site.name,
     type: 'website',
-    images: [{ url: '/og-card.png', width: 1200, height: 630, alt: mastery.name }],
+    images: [{ url: '/mastery/og-mastery.jpg', width: 1200, height: 675, alt: 'My AI Employees Make Money For Me — join DSP AI Agent Mastery' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: SEO_TITLE,
     description: SEO_DESCRIPTION,
-    images: ['/og-card.png'],
+    images: ['/mastery/og-mastery.jpg'],
   },
 }
 
