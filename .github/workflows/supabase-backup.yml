@@ -1,0 +1,88 @@
+# Nightly backup of the dsp-mastery Supabase database (ref xlbqhfuakvycrdcoilnm).
+#
+# What it does: dumps roles, schema and data (incl. auth users) with the
+# Supabase CLI, encrypts the bundle with AES-256 (gpg, symmetric) and keeps it
+# as a workflow artifact for 30 days. Nothing is ever stored unencrypted.
+#
+# Required repo secrets (Settings -> Secrets and variables -> Actions):
+#   SUPABASE_DB_URL    Session pooler connection string from the Supabase
+#                      dashboard (Connect -> Session pooler), password filled in.
+#   BACKUP_PASSPHRASE  Long random passphrase. Keep a copy OUTSIDE GitHub
+#                      (password manager) - without it the backups cannot be opened.
+#
+# Restore: see docs/supabase-backup.md
+name: Supabase nightly backup
+
+on:
+  schedule:
+    - cron: "17 21 * * *" # 02:17 Asia/Karachi every night
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: supabase-backup
+  cancel-in-progress: false
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check secrets are set
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+          BACKUP_PASSPHRASE: ${{ secrets.BACKUP_PASSPHRASE }}
+        run: |
+          if [ -z "$SUPABASE_DB_URL" ] || [ -z "$BACKUP_PASSPHRASE" ]; then
+            echo "::error::Add SUPABASE_DB_URL and BACKUP_PASSPHRASE as repository secrets."
+            exit 1
+          fi
+
+      - name: Install Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Dump roles, schema and data
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+        run: |
+          set -euo pipefail
+          mkdir -p backup
+          supabase db dump --db-url "$SUPABASE_DB_URL" -f backup/roles.sql --role-only
+          supabase db dump --db-url "$SUPABASE_DB_URL" -f backup/schema.sql
+          supabase db dump --db-url "$SUPABASE_DB_URL" -f backup/data.sql --use-copy --data-only \
+            -x "storage.buckets_vectors" -x "storage.vector_indexes"
+          # Fail loudly if a dump came back empty instead of silently "succeeding".
+          for f in roles schema data; do
+            if [ ! -s "backup/$f.sql" ]; then
+              echo "::error::backup/$f.sql is empty"; exit 1
+            fi
+          done
+          grep -q "mastery_profiles" backup/schema.sql || { echo "::error::mastery_profiles missing from schema dump"; exit 1; }
+          date -u +"%Y-%m-%dT%H:%M:%SZ" > backup/TAKEN_AT_UTC.txt
+          ls -lh backup
+
+      - name: Encrypt
+        env:
+          BACKUP_PASSPHRASE: ${{ secrets.BACKUP_PASSPHRASE }}
+        run: |
+          set -euo pipefail
+          STAMP=$(date -u +%Y-%m-%d)
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+          tar -czf - backup | gpg --batch --yes --pinentry-mode loopback \
+            --passphrase-fd 3 --symmetric --cipher-algo AES256 \
+            -o "dsp-mastery-$STAMP.tar.gz.gpg" 3<<<"$BACKUP_PASSPHRASE"
+          rm -rf backup
+          ls -lh "dsp-mastery-$STAMP.tar.gz.gpg"
+
+      - name: Keep encrypted backup (30 days)
+        uses: actions/upload-artifact@v4
+        with:
+          name: dsp-mastery-${{ env.STAMP }}
+          path: dsp-mastery-${{ env.STAMP }}.tar.gz.gpg
+          retention-days: 30
+          compression-level: 0
+          if-no-files-found: error
