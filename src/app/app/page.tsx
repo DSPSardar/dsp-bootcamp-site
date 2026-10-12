@@ -27,7 +27,7 @@ export default async function Dashboard() {
       </div>
       <div className="panel">
         <h2>How this works</h2>
-        <p className="md">Watch the lessons. Build the project — every module has a template and copy-paste prompts in its downloads. Share a screenshot in the DSP group. Lessons are marked complete automatically once you have watched them, and the next module opens. No tests. No grades. One build at a time. New here? <a href="#start-here">Watch the 7-minute walkthrough ↑</a></p>
+        <p className="md">Watch the lessons. Build the project — every module has a template and copy-paste prompts in its downloads. Share a screenshot in the DSP group. Lessons are marked complete automatically once you have watched them, and the next module opens. No tests. No grades. One build at a time. New here? <a href="#start-here">Watch the 9-minute walkthrough ↑</a></p>
       </div>
     </>
   )

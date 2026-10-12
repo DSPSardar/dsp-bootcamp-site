@@ -2232,20 +2232,21 @@
       "folder": "00-Welcome",
       "title": "How to do this course",
       "youtube_id": null,
-      "minutes": 8,
+      "minutes": 9,
       "source": "LOCAL",
       "status": "Located",
       "chapters": [],
       "kind": "welcome",
       "bunny": {
-        "guid": "442ca718-8502-430d-b356-a2d15c66bfc4",
+        "guid": "ad470d9d-b8c1-48d3-a72c-59402ed4bcbf",
         "status": "ready",
-        "version": 1,
-        "uploaded_at": "2026-09-16T20:49:52.127Z",
-        "length_sec": 455,
+        "version": 2,
+        "uploaded_at": "2026-10-12T10:33:42.896Z",
+        "length_sec": 554,
+        "thumbnail": "thumbnail.jpg",
         "aspect": 1.7778
       },
-      "master": "00-W03_How-to-Do-the-Course_v1.mp4"
+      "master": "00-W03_How-to-Do-the-Course_v2.mp4"
     }
   ],
   "vault": [

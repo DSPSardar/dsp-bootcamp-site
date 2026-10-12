@@ -14,7 +14,7 @@ export default function StartHere({ started }: { started: boolean }) {
     <section className="panel" id="start-here">
       <div>
         <div className="eyebrow">Start here</div>
-        <h2 style={{ margin: '6px 0 0' }}>{started ? 'How this course works' : 'Watch this first: how to do this course'} <span className="muted">· 7 min</span></h2>
+        <h2 style={{ margin: '6px 0 0' }}>{started ? 'How this course works' : 'Watch this first: how to do this course'} <span className="muted">· 9 min</span></h2>
       </div>
       <p className="muted" style={{ marginTop: 12 }}>
         How modules unlock, where your templates, prompts and slides are, and how to share your build. Watch it once before Module 1.

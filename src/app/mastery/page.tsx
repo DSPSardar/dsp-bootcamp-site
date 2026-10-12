@@ -352,7 +352,7 @@ export default function MasteryPage() {
     <p className="byline">Written by <Link href="/sardar-ghaffar">Sardar Ghaffar</Link> · Google-verified AI Agentic Trainer · Anthropic-verified educator · Last updated {PAGE_UPDATED_DISPLAY}</p>
     <div className="cta-row">
       <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.hero)} event="whatsapp_click" params={{ location: 'hero' }}>Start building <span className="price-tag">$100 · one-time</span></TrackedLink>
-      <a className="btn btn-ghost" href="#welcome">Watch the 7-minute tour</a>
+      <a className="btn btn-ghost" href="#welcome">Watch the 9-minute tour</a>
     </div>
     <p className="paynote"><TrackedLink className="paylink" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'hero' }}>Pay directly — bank transfer · JazzCash · Easypaisa</TrackedLink></p>
     <div className="trust">
@@ -551,7 +551,7 @@ export default function MasteryPage() {
       <p>Founding price. Lifetime access. One year of group support included. No subscription, no upsell required to finish.</p>
       <TrackedLink className="btn btn-gold" target="_blank" rel="noopener" href={waLink(WA_MSG.offer)} event="whatsapp_click" params={{ location: 'offer' }}>Enrol now — $100</TrackedLink>
       <TrackedLink className="btn btn-ghost" href={enrolHref} event="begin_enrol" params={{ cta: 'pay_direct', location: 'offer' }} style={{marginTop:'10px'}}>Pay directly — bank transfer · JazzCash · Easypaisa</TrackedLink>
-      <p className="paynote" style={{textAlign:'center'}}><a className="paylink" href="#welcome">Watch the 7-minute intro first</a></p>
+      <p className="paynote" style={{textAlign:'center'}}><a className="paylink" href="#welcome">Watch the 9-minute intro first</a></p>
       <div className="guarantee">7-day money-back guarantee. Start Module 1; if it isn&apos;t for you, email us within 7 days for a full refund.</div>
       <div className="pay">Pakistan: bank transfer · JazzCash · Easypaisa<br />Card checkout coming shortly — email us to pay by card today</div>
     </aside>
