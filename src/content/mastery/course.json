@@ -3,7 +3,7 @@
   "version": "0.9.0",
   "price_usd": 100,
   "access": "lifetime",
-  "support": "12 months group support",
+  "support": "One month of supervised support: a personal supervisor for 30 days, the DSP WhatsApp group and the live weekend debugging session",
   "formula": "Agent = Claude + Job Description + Tools + Loop",
   "project": "AI Employee (café ordering agent)",
   "phases": [

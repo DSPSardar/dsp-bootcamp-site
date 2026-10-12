@@ -82,7 +82,7 @@ docs.push({
     'Modules unlock in order: module N opens when every core lesson of module N-1 is complete. M15 (Selling AI Solutions) and M16 (AI Search Dominance Engine) are open to everyone from day one.',
     'There are no tests, no quizzes and no grades. Each module has a build project you do yourself; only the final capstone is reviewed by the DSP team, and you can resubmit any time.',
     'Slides: every module page has a "Download all slides for this module" button.',
-    'Live help: there is a debugging session every weekend where you bring your build and get your errors fixed, plus a year of support in the DSP group.',
+    'Live help: there is a debugging session every weekend where you bring your build and get your errors fixed, plus one month of supervised support (a personal supervisor and the DSP group) from the day you enrol.',
     'Sign-in trouble: use "Email me a sign-in link" or "Forgot password" on /app/login. Nobody will ever send you your password in a chat.',
   ].filter(Boolean).join('\n'),
 })
