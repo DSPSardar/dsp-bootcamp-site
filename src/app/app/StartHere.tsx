@@ -3,10 +3,11 @@ import { signedEmbedUrl } from '@/lib/mastery/bunny'
 
 type W = { file: string; title?: string; bunny?: { guid: string; status: string } }
 
-/** "Start here" orientation video (00-W03) at the top of the student dashboard.
+/** "Start here" orientation video (00-W04, students only — the public /mastery video is 00-W03) at the top of the student dashboard.
+ *  Sardar's rule (12 Oct 2026): never swap this video unless he asks.
  *  Always shown open with the player visible. Server-only: the embed URL is signed here. */
 export default function StartHere({ started }: { started: boolean }) {
-  const w = (course.welcome as W[]).find((l) => l.file.startsWith('00-W03'))
+  const w = (course.welcome as W[]).find((l) => l.file.startsWith('00-W04'))
   if (!w?.bunny || w.bunny.status !== 'ready') return null
   const src = signedEmbedUrl(w.bunny.guid)
   if (!src) return null

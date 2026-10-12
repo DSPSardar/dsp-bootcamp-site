@@ -2247,6 +2247,28 @@
         "aspect": 1.7778
       },
       "master": "00-W03_How-to-Do-the-Course_v2.mp4"
+    },
+    {
+      "file": "00-W04_Student-Course-Guide.mp4",
+      "folder": "00-Welcome",
+      "title": "How to do this course (student guide)",
+      "youtube_id": null,
+      "minutes": 9,
+      "source": "LOCAL",
+      "status": "Located",
+      "chapters": [],
+      "kind": "welcome",
+      "note": "Student dashboard Start-here video only. Public /mastery uses 00-W03. Do not change unless Sardar asks.",
+      "bunny": {
+        "guid": "9e8e4a5e-3924-4c08-adc9-fbbabaca108d",
+        "status": "ready",
+        "version": 1,
+        "uploaded_at": "2026-10-12T16:32:19.762Z",
+        "length_sec": 550,
+        "thumbnail": "thumbnail.jpg",
+        "aspect": 1.7778
+      },
+      "master": "00-W04_Student-Course-Guide_v1.mp4"
     }
   ],
   "vault": [
