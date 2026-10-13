@@ -1,5 +1,5 @@
 import { requireStudent } from '@/lib/mastery/auth'
-import { modules, unlockState, badges, courseMeta } from '@/lib/mastery/course'
+import { modules, unlockState, badges, courseMeta, hasFullAccess } from '@/lib/mastery/course'
 import { autoCompleteWatched } from '@/lib/mastery/progress'
 import StartHere from './StartHere'
 
@@ -8,7 +8,7 @@ export default async function Dashboard() {
   await autoCompleteWatched(user.id, user.email)
   const { data: rows } = await sb.from('mastery_progress').select('lesson_file').eq('user_id', user.id)
   const done = new Set((rows ?? []).map((r) => r.lesson_file))
-  const state = unlockState(done)
+  const state = unlockState(done, hasFullAccess(user.email))
   const total = modules.reduce((n, m) => n + state[m.id].total, 0)
   const doneN = modules.reduce((n, m) => n + state[m.id].doneCount, 0)
   const next = modules.find((m) => state[m.id].unlocked && !state[m.id].complete) ?? null

@@ -22,6 +22,15 @@ export const coreLessons = (m: Module) => m.lessons.filter((l) => l.kind === 'co
  *  Dominance Engine) is a standalone course inside Mastery, open to everyone. */
 const ALWAYS_OPEN = new Set(['M15', 'M16'])
 
+// Students Sardar has opened the whole course for (every module unlocked, no order gate).
+// Add a lowercase email here to give a student full access.
+export const FULL_ACCESS_EMAILS = new Set<string>([
+  'claudellc1122@gmail.com', // Fakhar Abbas — opened 13 Oct 2026
+])
+export function hasFullAccess(email?: string | null) {
+  return Boolean(email && FULL_ACCESS_EMAILS.has(email.toLowerCase()))
+}
+
 export function unlockState(done: Set<string>, unlockAll = false) {
   const state: Record<string, { unlocked: boolean; complete: boolean; doneCount: number; total: number }> = {}
   let prevComplete = true
