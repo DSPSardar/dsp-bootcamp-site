@@ -159,7 +159,7 @@ export default function RadarPage() {
         quote and reuse with attribution (CC BY 4.0). <Link href={CSV}>Download every wave and observation as CSV</Link>.
       </p>
 
-      <h2>Seven things the data says</h2>
+      <h2>Eight things the data says</h2>
 
       <h3>1. A month of correct on-page work moved the retrieval layer by nothing</h3>
       <p>
@@ -296,6 +296,34 @@ export default function RadarPage() {
         Islamabad do return Pakistani providers, so the qualifier is honoured on some phrasings and dropped on
         others &mdash; which is testable per prompt before any page is built for it, and was not tested before this
         one was.
+      </p>
+
+      <h3>8. On several prompts nothing is defending the result set, and DSP still is not in it</h3>
+      <p>
+        Finding 2 is about losing to directories and finding 7 about losing to a dropped country word. Both are
+        losing to something. A third group of prompts is stranger, and it was measured across three spot-checks on
+        12&ndash;14 October &mdash; every row below is in the observations table, with its #1 result, so each one can
+        be re-checked.
+      </p>
+      <p>
+        {RADAR.prompts.find((p) => p.id === 22)?.en} was led by a Salvadoran personal-finance site, which held the
+        first two slots &mdash; one of them a raw <code>?p=</code> permalink &mdash; while a university sandbox
+        subdomain held two more with other people&rsquo;s reposted articles.{' '}
+        {RADAR.prompts.find((p) => p.id === 20)?.en} returned a single storefront in seven of nine slots.{' '}
+        {RADAR.prompts.find((p) => p.id === 27)?.en} returned the same vendor help article on three different
+        hostnames and the same recruitment-blog article twice.{' '}
+        {RADAR.prompts.find((p) => p.id === 5)?.en} returned a <code>wp-json</code> API endpoint, and most of the
+        rest of that set answered for India. The Urdu prompts have, throughout, returned two freelance gigs their own
+        seller has marked &ldquo;on hold&rdquo;.
+      </p>
+      <p>
+        <strong>DSP has a page written for four of those five questions</strong> &mdash; a blog post on vibe coding,
+        the Mastery page carrying this prompt&rsquo;s exact words, the 7-part job description framework, and a
+        published pricing page &mdash; and scored 0 on all four. The reading that follows is not that these result
+        sets are competitive and DSP came second. Nothing is defending them. A better answer exists and is simply not
+        in the candidate set, which is finding 1 arrived at from the opposite direction: the gate on these prompts is
+        retrievability, not competition. It is also the reason the remaining work is corroboration rather than more
+        pages &mdash; a ninth page answers a question that was already answered on a page nothing links to.
       </p>
 
       <h2>How a wave is scored</h2>

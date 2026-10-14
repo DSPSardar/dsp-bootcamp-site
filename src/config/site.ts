@@ -75,12 +75,18 @@ export const mastery = {
   /** Anchor price shown struck-through after launch */
   laterPriceDisplay: '$197',
   access: 'Lifetime',
-  supportMonths: 1,
   /** How support is described everywhere (Sardar, 13 Oct 2026: one month, not a year). */
   supportText: 'one month of supervised support',
+  /** The same duration in Urdu, as a phrase and never as a number. A month
+   *  count interpolated into Urdu renders "1 مہینے" — the plural oblique, which
+   *  is right for 12 and wrong for 1. That is why no month number is kept here. */
+  supportDurationUrdu: 'ایک مہینہ',
   modules: 16,
   lectureHours: '30+',
-  refundDays: 7,
+  /** The refund rule, as Sardar set it on 13 Oct 2026. The seven-day window
+   *  it replaced is retired: do not reintroduce a day count. /llms.txt reads
+   *  this string; the /mastery FAQ gives the same rule at answer length. */
+  refundPolicy: 'Refund available during Module 1 only (request before starting Module 2).',
   /** Dodo Payments hosted checkout — null until the account is live; CTAs fall back to WhatsApp */
   checkoutUrl: null as string | null,
   /** Free Module 1 lead-magnet page — null until built */
@@ -647,14 +653,14 @@ export const cofounder = {
  *  sub-pages are reached from the pages that teach them — /mastery/curriculum,
  *  /what-is-an-ai-employee and each other — not from every footer. */
 export const guides = [
-  { path: '/best-ai-courses-in-pakistan', title: 'Best AI Courses in Pakistan (2026)', updated: '2026-10-10', live: true, footer: true },
-  { path: '/ai-agent-course-in-urdu', title: 'AI Agents Course in Urdu — Online Worldwide', updated: '2026-10-12', live: true, footer: true },
-  { path: '/ai-training-islamabad', title: 'AI Training in Islamabad', updated: '2026-10-10', live: true, footer: true },
-  { path: '/learn-ai-agents-pakistan', title: 'How to Learn AI Agents in Pakistan', updated: '2026-09-16', live: true, footer: true },
-  { path: '/mastery/curriculum', title: 'Mastery Curriculum: All 16 Modules', updated: '2026-09-08', live: true, footer: true },
+  { path: '/best-ai-courses-in-pakistan', title: 'Best AI Courses in Pakistan (2026)', updated: '2026-10-13', live: true, footer: true },
+  { path: '/ai-agent-course-in-urdu', title: 'AI Agents Course in Urdu — Online Worldwide', updated: '2026-10-13', live: true, footer: true },
+  { path: '/ai-training-islamabad', title: 'AI Training in Islamabad', updated: '2026-10-13', live: true, footer: true },
+  { path: '/learn-ai-agents-pakistan', title: 'How to Learn AI Agents in Pakistan', updated: '2026-10-13', live: true, footer: true },
+  { path: '/mastery/curriculum', title: 'Mastery Curriculum: All 16 Modules', updated: '2026-10-13', live: true, footer: true },
   { path: '/what-is-an-ai-employee', title: 'What Is an AI Employee?', updated: '2026-09-08', live: true, footer: true },
-  { path: '/claude-code-course-pakistan', title: 'Claude Code Course in Pakistan (+ Anthropic certificates)', updated: '2026-09-16', live: true, footer: true },
-  { path: '/ai-course-for-overseas-pakistanis', title: 'AI Course for Overseas Pakistanis', updated: '2026-09-10', live: true, footer: true },
+  { path: '/claude-code-course-pakistan', title: 'Claude Code Course in Pakistan (+ Anthropic certificates)', updated: '2026-10-10', live: true, footer: true },
+  { path: '/ai-course-for-overseas-pakistanis', title: 'AI Course for Overseas Pakistanis', updated: '2026-10-13', live: true, footer: true },
   // updated 2026-09-28: the two self-descriptions on the page said "an AI
   // agents training company" (pre-15-Sep positioning). Visible copy changed,
   // so the date moves with it (the PR-#26 rule). The survey data itself is
@@ -665,7 +671,7 @@ export const guides = [
   // set fixed 5 Sep; the headline finding is that the site has never ranked
   // for a non-brand prompt. Data lives in src/content/radar-results.ts and
   // feeds both the page and /data.csv, so they cannot drift.
-  { path: '/research/ai-search-dominance-engine', title: 'The AI Search Dominance Engine: 30 prompts, 8 waves', updated: '2026-10-11', live: true, footer: true },
+  { path: '/research/ai-search-dominance-engine', title: 'The AI Search Dominance Engine: 30 prompts, 8 waves', updated: '2026-10-14', live: true, footer: true },
   { path: '/frameworks/7-part-job-description', title: 'The 7-Part Job Description', updated: '2026-09-08', live: true, footer: false },
   { path: '/frameworks/memory-ladder', title: 'The Memory Ladder', updated: '2026-09-08', live: true, footer: false },
   { path: '/frameworks/agent-idea-filter', title: 'The Agent Idea Filter', updated: '2026-09-08', live: true, footer: false },

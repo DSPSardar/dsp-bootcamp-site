@@ -25,7 +25,7 @@ const SEO_TITLE = 'Claude Code Course in Pakistan for Beginners | DSP'
 const DESCRIPTION =
   'Explore Claude Code training in Urdu and English, practical projects and course fees. Learn how DSP training and Anthropic completion badges differ.'
 const PUBLISHED = '2026-09-10'
-const UPDATED = '2026-09-10'
+const UPDATED = '2026-10-10'
 const FACTS_VERIFIED = '9 September 2026'
 
 export const metadata: Metadata = {

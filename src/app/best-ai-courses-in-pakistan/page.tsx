@@ -17,7 +17,7 @@ const SEO_TITLE = 'Best AI Courses in Pakistan (2026): 9 Compared | DSP'
 const DESCRIPTION =
   'Compare nine AI courses in Pakistan by fees, language, prerequisites, projects and support. Find the course that fits your learning goals.'
 const PUBLISHED = '2026-09-06'
-const UPDATED = '2026-10-10'
+const UPDATED = '2026-10-13'
 const FACTS_VERIFIED = '5 September 2026'
 
 export const metadata: Metadata = {
@@ -155,7 +155,7 @@ const FAQS: Faq[] = [
 
 const URDU = [
   'پاکستان میں AI کورس چننے سے پہلے تین سوال طے کریں: کیا آپ Python سیکھنا چاہتے ہیں یا بغیر کوڈنگ کے AI ایجنٹ بنانا؟ لائیو کلاس چاہیے یا اپنی رفتار سے ریکارڈڈ لیکچر؟ اور بجٹ تین ہزار روپے ہے یا پینتالیس ہزار؟ اوپر دیے گئے نو پروگرام ان تینوں انتخابوں کو پورا کرتے ہیں۔',
-  `جو لوگ کوڈنگ نہیں جانتے اور اردو میں سیکھنا چاہتے ہیں، ان کے لیے DSP AI Agent Mastery بنایا گیا ہے: ${mastery.modules} ماڈیول، اردو اور انگریزی میں، ایک حقیقی AI Employee خالی فولڈر سے لائیو ویب سائٹ تک، ${mastery.pkr.price} یک مشت، تاحیات رسائی اور ایک مہینہ سپورٹ۔`,
+  `جو لوگ کوڈنگ نہیں جانتے اور اردو میں سیکھنا چاہتے ہیں، ان کے لیے DSP AI Agent Mastery بنایا گیا ہے: ${mastery.modules} ماڈیول، اردو اور انگریزی میں، ایک حقیقی AI Employee خالی فولڈر سے لائیو ویب سائٹ تک، ${mastery.pkr.price} یک مشت، تاحیات رسائی اور ${mastery.supportDurationUrdu} سپورٹ۔`,
 ]
 
 export default function BestAiCoursesInPakistanPage() {

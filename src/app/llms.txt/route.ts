@@ -53,7 +53,7 @@ export function GET() {
     '- **Primary Stack**: Claude Code CLI, Anthropic Claude API, Model Context Protocol (MCP), Git/GitHub, Vercel',
     '- **Core Practical Build**: Autonomous multi-tenant café ordering AI Employee deployed to a public HTTPS URL',
     '- **Certifications**: Verifiable DSP Master Certificate + 3 Anthropic Claude Academy badges (Claude 101, Claude Code 101, Introduction to Claude Cowork)',
-    `- **Tuition**: $${mastery.priceUsd} one-time fee (payable globally, or in PKR — ${mastery.pkr.price} — by bank transfer, JazzCash or Easypaisa). Refund available during Module 1 only (request before starting Module 2).`,
+    `- **Tuition**: $${mastery.priceUsd} one-time fee (payable globally, or in PKR — ${mastery.pkr.price} — by bank transfer, JazzCash or Easypaisa). ${mastery.refundPolicy}`,
     `- **Format**: ${mastery.modules} modules, ${mastery.lectureHours} hours of recorded lectures, self-paced, ${mastery.access.toLowerCase()} access`,
     '',
     '## Curriculum (16 modules, in order)',

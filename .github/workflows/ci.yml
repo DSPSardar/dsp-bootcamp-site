@@ -42,6 +42,14 @@ jobs:
       - name: Internal link integrity
         run: npm run test:links
 
+      # A guide publishes its change date twice — once from the page module
+      # (Article dateModified + the visible byline) and once from the `guides`
+      # registry in src/config/site.ts (sitemap lastmod + /llms.txt). Nothing
+      # connected them and two guides had drifted apart by eight days, so this
+      # gate requires the two to be identical.
+      - name: Guide change dates agree
+        run: npm run test:guide-dates
+
       # scripts/check-schema.mjs imports the real TypeScript graph module through
       # Node's built-in type stripping and hard-exits 2 on anything older than
       # 22.18 — Node 20 cannot run this check at all. Everything above stays on 20
