@@ -34,7 +34,7 @@ const SITE = 'https://www.digitalservicesprogram.com'
 // for clients to /agents — the commercial page had no link from the
 // homepage body at all. Before that, 2026-09-18: the fundamentals reading
 // block (§13) added eight blog links to a page that previously linked none.
-const HOME_UPDATED = '2026-10-13'
+const HOME_UPDATED = '2026-10-15'
 // `/blog` moved 2026-09-18 with the consolidation: the index lists 12 posts
 // instead of 43, six of them with rewritten excerpts. `/` does not move —
 // its reading block links the eight pillars, and all eight survived.
