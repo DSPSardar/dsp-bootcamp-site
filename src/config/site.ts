@@ -478,6 +478,10 @@ export const socials = {
   linkedin: 'https://www.linkedin.com/company/digitalservicesprogram',
   /** The org that hosts this site's repo and the public Mastery prompt library. */
   github: 'https://github.com/DSPSardar',
+  /** The public Urdu glossary/template repo, created 15 Oct 2026. Linked from
+   *  /ai-agent-course-in-urdu so it is reachable by crawlers, which is the one
+   *  thing that distinguished github.com/DSPSardar from the unlinked Udemy course. */
+  githubUrdu: 'https://github.com/DSPSardar/ai-agents-urdu',
 } as const
 
 /** ─── Entity Lock (Corroboration Engine, Day 1 — 2026-09-06) ───────────
@@ -654,7 +658,7 @@ export const cofounder = {
  *  /what-is-an-ai-employee and each other — not from every footer. */
 export const guides = [
   { path: '/best-ai-courses-in-pakistan', title: 'Best AI Courses in Pakistan (2026)', updated: '2026-10-13', live: true, footer: true },
-  { path: '/ai-agent-course-in-urdu', title: 'AI Agents Course in Urdu — Online Worldwide', updated: '2026-10-13', live: true, footer: true },
+  { path: '/ai-agent-course-in-urdu', title: 'AI Agents Course in Urdu — Online Worldwide', updated: '2026-10-15', live: true, footer: true },
   { path: '/ai-training-islamabad', title: 'AI Training in Islamabad', updated: '2026-10-13', live: true, footer: true },
   { path: '/learn-ai-agents-pakistan', title: 'How to Learn AI Agents in Pakistan', updated: '2026-10-13', live: true, footer: true },
   { path: '/mastery/curriculum', title: 'Mastery Curriculum: All 16 Modules', updated: '2026-10-13', live: true, footer: true },
