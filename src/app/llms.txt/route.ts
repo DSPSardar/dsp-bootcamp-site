@@ -87,6 +87,7 @@ export function GET() {
     `- LinkedIn (founder): ${founder.linkedin}`,
     `- YouTube: ${socials.youtube}`,
     `- GitHub: ${socials.github}`,
+    `- GitHub (Urdu glossary): ${socials.githubUrdu}`,
     `- Facebook: ${socials.facebook}`,
     '',
     '## Contact',
