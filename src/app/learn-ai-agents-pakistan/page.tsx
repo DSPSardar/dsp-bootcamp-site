@@ -18,7 +18,7 @@ const TITLE = 'How to Learn AI Agents in Pakistan (2026): A 6-Stage Roadmap'
 const DESCRIPTION =
   'A six-stage roadmap for learning to build AI agents from Pakistan without a coding background: understand what an AI employee is, learn prompting and Claude, build a first agent with Claude Code, add memory and tools, deploy to a live URL, and deliver to a paying client. With approximate tool costs and a free-vs-paid path.'
 const PUBLISHED = '2026-09-08'
-const UPDATED = '2026-09-08'
+const UPDATED = '2026-10-13'
 
 export const metadata: Metadata = {
   title: { absolute: `${TITLE} | DSP` },

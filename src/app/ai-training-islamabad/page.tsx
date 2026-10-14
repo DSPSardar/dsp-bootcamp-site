@@ -16,7 +16,7 @@ const TITLE = 'AI Courses in Islamabad: Compare Training Options (2026)'
 const DESCRIPTION =
   'Compare AI courses in Islamabad by fees, prerequisites, teaching language and format. Find classroom, live online and self-paced options that fit your goal.'
 const PUBLISHED = '2026-09-08'
-const UPDATED = '2026-10-10'
+const UPDATED = '2026-10-13'
 const FACTS_VERIFIED = '8 September 2026'
 const INSTRUCTORS_VERIFIED = '6 October 2026'
 
@@ -292,7 +292,7 @@ const FAQS: Faq[] = [
 
 const URDU = [
   `اسلام آباد میں AI سیکھنے کے گیارہ راستے ہیں: NAVTTC اور PIAIC کے مفت پروگرام، NUST اور COMSATS کے یونیورسٹی کورسز، I-9 اور بلیو ایریا کے پرائیویٹ انسٹیٹیوٹ (Adan، PIM، Corvit، PNY)، اور آن لائن کورس جو آپ گھر بیٹھے کر سکتے ہیں۔ فیس مفت سے لے کر پچھتر ہزار روپے تک ہے۔ جو ادارہ فیس شائع نہیں کرتا، جدول میں اس کے سامنے "Not published" لکھا ہے — ہم اندازہ نہیں لگاتے۔`,
-  `اگر آپ کوڈنگ نہیں جانتے اور اردو میں AI ایجنٹ بنانا، لائیو کرنا اور بیچنا سیکھنا چاہتے ہیں تو ${mastery.name} اسی کے لیے ہے: ${mastery.modules} ماڈیول، ${mastery.pkr.price} یک مشت، تاحیات رسائی، ایک مہینہ سپورٹ، اور ہر ہفتے کے آخر میں لائیو ڈیبگنگ سیشن۔ استاد ${founder.name} ہیں، جو ${site.city} ہی سے پڑھاتے ہیں۔`,
+  `اگر آپ کوڈنگ نہیں جانتے اور اردو میں AI ایجنٹ بنانا، لائیو کرنا اور بیچنا سیکھنا چاہتے ہیں تو ${mastery.name} اسی کے لیے ہے: ${mastery.modules} ماڈیول، ${mastery.pkr.price} یک مشت، تاحیات رسائی، ${mastery.supportDurationUrdu} سپورٹ، اور ہر ہفتے کے آخر میں لائیو ڈیبگنگ سیشن۔ استاد ${founder.name} ہیں، جو ${site.city} ہی سے پڑھاتے ہیں۔`,
 ]
 
 export default function AiTrainingIslamabadPage() {

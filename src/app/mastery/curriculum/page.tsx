@@ -19,7 +19,7 @@ const TITLE = `DSP AI Agent Mastery Curriculum: All ${mastery.modules} Modules, 
 const DESCRIPTION =
   `The complete ${mastery.modules}-module curriculum of DSP AI Agent Mastery in five phases — foundations, builder, agent engineer, production, seller — with each module's outcome and the thing you build, plus the capstone that earns the certificate. Taught in Urdu and English by ${founder.name}.`
 const PUBLISHED = '2026-09-08'
-const UPDATED = '2026-09-08'
+const UPDATED = '2026-10-13'
 
 export const metadata: Metadata = {
   title: { absolute: `${TITLE} | DSP` },
