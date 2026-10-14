@@ -12,7 +12,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Guide from '@/components/guides/Guide'
 import { MASTERY_CURRICULUM } from '@/app/mastery/curriculum'
-import { founder, mastery, waLink } from '@/config/site'
+import { founder, mastery, socials, waLink } from '@/config/site'
 import type { Faq } from '@/lib/schema'
 
 const PATH = '/ai-agent-course-in-urdu'
@@ -21,7 +21,7 @@ const SEO_TITLE = 'AI Agents Course in Urdu | Online AI Course | DSP'
 const DESCRIPTION =
   'Online AI course in Urdu and English: build AI agents without prior coding. Self-paced lessons for learners worldwide. See curriculum, fees and support.'
 const PUBLISHED = '2026-09-06'
-const UPDATED = '2026-10-13'
+const UPDATED = '2026-10-15'
 
 export const metadata: Metadata = {
   title: { absolute: SEO_TITLE },
@@ -238,6 +238,16 @@ export default function AiAgentCourseInUrduPage() {
         <li>Do an hour a day. Module 1 is understanding; Module 4 is the first thing you build; Module 13 is the first thing you deploy.</li>
         <li>Bring whatever breaks to the weekend debugging call.</li>
       </ol>
+      <h2>Free, open-source: the Urdu glossary and templates</h2>
+      <p>
+        The thirty terms this course uses — agent, tool, context, MCP, token — with their Urdu
+        and Roman Urdu equivalents, plus the 7-part job description template and three starter
+        prompts, are published openly on GitHub under MIT. Take them, change them, teach them.
+      </p>
+      <p lang="ur" dir="rtl">
+        اس کورس میں استعمال ہونے والی تیس اصطلاحات کے اردو اور رومن اردو معنی، AI Employee کی جاب ڈسکرپشن کا سات حصوں والا سانچہ اور شروع کرنے کے لیے تین تیار پرامپٹس GitHub پر MIT لائسنس کے تحت مفت دستیاب ہیں۔ انہیں استعمال کریں، بدلیں اور اپنے طلبہ کو پڑھائیں۔
+      </p>
+      <p><a href={socials.githubUrdu}>→ AI Agents in Urdu on GitHub</a></p>
     </Guide>
   )
 }
