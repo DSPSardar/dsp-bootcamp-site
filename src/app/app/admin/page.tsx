@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation'
 import { supabaseServer, supabaseAdmin } from '@/lib/supabase/server'
 import DecideButtons from './DecideButtons'
+import StudentSearch from './students/StudentSearch'
 
 export const dynamic = 'force-dynamic'
 export const metadata = { title: 'Enrolments — admin', robots: { index: false } }
@@ -31,8 +32,9 @@ export default async function AdminPage() {
         <p className="muted">Approving sends the student a sign-in email and starts their one month of supervised support.</p>
       </div>
       {rows.length === 0 && <div className="panel"><p className="muted">No requests yet.</p></div>}
+      {rows.length > 0 && <StudentSearch total={rows.length} />}
       {rows.map((r, i) => (
-        <div className="panel" key={r.id}>
+        <div className="panel" key={r.id} data-student={`${r.email} ${r.full_name ?? ''} ${r.phone ?? ''}`.toLowerCase()}>
           <h2 style={{ marginBottom: 4 }}>{r.full_name} <span className="muted" style={{ fontSize: 14 }}>· {r.status}</span></h2>
           <p className="muted">{r.email}{r.phone ? ` · ${r.phone}` : ''}{r.country ? ` · ${r.country}` : ''} · {new Date(r.created_at).toLocaleString('en-GB')}</p>
           {r.amount_note && <p className="md">Says: {r.amount_note}</p>}
