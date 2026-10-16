@@ -20,7 +20,7 @@ export async function POST(req: Request) {
   if (!email || !email.includes('@')) return NextResponse.json({ error: 'valid email required' }, { status: 400 })
 
   const admin = supabaseAdmin()
-  const site = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://digitalservicesprogram.com'
+  const site = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.digitalservicesprogram.com'
 
   // 1) find or create the auth user — no email involved
   let userId: string | undefined
@@ -47,7 +47,7 @@ export async function POST(req: Request) {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/auth/v1/recover`, {
       method: 'POST',
       headers: { apikey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!, 'content-type': 'application/json' },
-      body: JSON.stringify({ email, redirect_to: `${site}/auth/confirm` }),
+      body: JSON.stringify({ email, redirect_to: `${site}/auth/confirm?next=/app/account` }),
     })
     emailSent = res.ok
     if (!res.ok) console.warn('[enrol] set-password email failed', res.status, await res.text())

@@ -9,6 +9,14 @@ export default function AuthConfirm() {
   useEffect(() => {
     const run = async () => {
       const sb = supabaseBrowser()
+      const qs = new URLSearchParams(window.location.search)
+      const next = qs.get('next') || '/app'
+      // PKCE links arrive as ?code= (or ?token_hash=&type=) — only the server can exchange those.
+      if (qs.has('code') || qs.has('token_hash')) {
+        if (!qs.has('next')) qs.set('next', next)
+        window.location.replace(`/auth/callback?${qs.toString()}`)
+        return
+      }
       const hash = new URLSearchParams(window.location.hash.replace(/^#/, ''))
       const access_token = hash.get('access_token'), refresh_token = hash.get('refresh_token')
       const err = hash.get('error_description') || new URLSearchParams(window.location.search).get('error_description')
@@ -18,7 +26,7 @@ export default function AuthConfirm() {
         if (error) { setMsg(error.message); return }
       }
       const { data } = await sb.auth.getSession()
-      window.location.href = data.session ? '/app' : '/app/login'
+      window.location.href = data.session ? next : '/app/login'
     }
     void run()
   }, [])

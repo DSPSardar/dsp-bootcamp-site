@@ -52,7 +52,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true, status: 'rejected' })
   }
 
-  const site = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://digitalservicesprogram.com'
+  const site = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.digitalservicesprogram.com'
   const res = await fetch(`${site}/api/mastery/enrol`, {
     method: 'POST', headers: { 'content-type': 'application/json', 'x-mastery-secret': process.env.MASTERY_ENROL_SECRET! },
     body: JSON.stringify({ email: r.email, full_name: r.full_name, phone: r.phone, source: 'pkr', fee: 28000, currency: 'PKR' }),

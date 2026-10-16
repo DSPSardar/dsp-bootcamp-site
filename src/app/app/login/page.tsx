@@ -37,7 +37,7 @@ function LoginForm() {
 
   async function sendReset(e: React.FormEvent) {
     e.preventDefault(); setErr(null); setBusy(true)
-    const { error } = await supabaseBrowser().auth.resetPasswordForEmail(email, { redirectTo: `${location.origin}/auth/confirm` })
+    const { error } = await supabaseBrowser().auth.resetPasswordForEmail(email, { redirectTo: `${location.origin}/auth/confirm?next=/app/account` })
     setBusy(false)
     if (error) { setErr(error.message); return }
     setNote('Check your email — the link lets you set a new password.')
