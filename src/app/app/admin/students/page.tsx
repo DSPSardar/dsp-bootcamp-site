@@ -3,6 +3,7 @@ import { supabaseServer, supabaseAdmin } from '@/lib/supabase/server'
 import { modules } from '@/lib/mastery/course'
 import { autoCompleteWatched } from '@/lib/mastery/progress'
 import AccessButtons from './AccessButtons'
+import StudentSearch from './StudentSearch'
 
 export const dynamic = 'force-dynamic'
 export const metadata = { title: 'Students — admin', robots: { index: false } }
@@ -59,10 +60,11 @@ export default async function StudentsPage() {
         <p className="md">&quot;Marked&quot; is what the student ticked themselves. <b>Opened</b> and <b>watched</b> come from the video player and cannot be set by the student — use those when someone asks for a refund.</p>
       </div>
 
+      {rows.length > 0 && <StudentSearch total={rows.length} />}
       {rows.length === 0 && <div className="panel"><p className="muted">No students yet.</p></div>}
 
       {rows.map(({ p, opened, watched, marked, perModule, lastAt, detail }) => (
-        <div className="panel" key={p.id}>
+        <div className="panel" key={p.id} data-student={`${p.email} ${p.full_name ?? ''}`.toLowerCase()}>
           <h2 style={{ marginBottom: 2 }}>
             {p.full_name || p.email}
             {p.status !== 'active' && <span className="muted" style={{ fontSize: 14, fontWeight: 400 }}> · {p.status}</span>}
