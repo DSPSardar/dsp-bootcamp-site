@@ -20,6 +20,7 @@ import { ORGANIZATION_ID, PERSON_ID } from '@/lib/schema'
 import type { Faq, JsonLd } from '@/lib/schema'
 import { FULL_WAVES, LATEST_WAVE, PEAK_WAVE, RADAR } from '@/content/radar-results'
 
+const UPDATED = '2026-10-17'
 const PATH = '/research/ai-search-dominance-engine'
 const TITLE = `The AI Search Dominance Engine: ${RADAR.prompts.length} Prompts, ${RADAR.waves.length} Waves, Measured in Public`
 const CSV = `${PATH}/data.csv`
@@ -58,6 +59,12 @@ const FAQS: ReadonlyArray<Faq> = [
 export default function RadarPage() {
   const url = `${site.url}${PATH}`
   const first = RADAR.waves[0]
+  // Derived, never hardcoded: the first wave that scored zero, and how many
+  // consecutive zeros the series currently ends on. Naming a wave in prose
+  // through LATEST_WAVE would silently re-point at the next wave to land.
+  const firstZero = FULL_WAVES.find((w) => w.total === 0)
+  const trailingZeros = [...FULL_WAVES].reverse().findIndex((w) => w.total !== 0)
+  const zeroRun = trailingZeros === -1 ? FULL_WAVES.length : trailingZeros
 
   const datasetLd: JsonLd = {
     '@type': 'Dataset',
@@ -96,7 +103,8 @@ export default function RadarPage() {
     `Across ${FULL_WAVES.length} scored waves on ${RADAR.prompts.length} prompts fixed on ${first.date}, ` +
     `DSP's visibility in the retrieval layer AI answer engines draw from ranged from ${PEAK_WAVE.total} to ` +
     `${LATEST_WAVE.total} out of ${RADAR.maxScore}, and in ${FULL_WAVES.length} scored waves ` +
-    `digitalservicesprogram.com has not once appeared for a non-brand prompt. The latest wave is the lowest: zero. ` +
+    `digitalservicesprogram.com has not once appeared for a non-brand prompt. The series now ends on ` +
+    `${zeroRun} consecutive waves of zero, the last of them published whole: 30 prompts, 30 recorded #1 results, no DSP property in any of them. ` +
     `Every wave, rubric, limit and recorded result is published here.`
 
   return (
@@ -107,7 +115,7 @@ export default function RadarPage() {
       eyebrow={`Original research · ${FULL_WAVES.length} scored waves · Latest ${LATEST_WAVE.date}`}
       answer={answer}
       published="2026-10-05"
-      updated="2026-10-11"
+      updated={UPDATED}
       description={`A month of longitudinal AI-search visibility data for one small company: ${RADAR.prompts.length} fixed prompts, ${RADAR.waves.length} dated waves of which ${FULL_WAVES.length} are scored runs, the rubric, the stated limits, and every recorded #1 result so a stranger can re-check it.`}
       faqs={FAQS}
       urdu={[
@@ -128,7 +136,9 @@ export default function RadarPage() {
         {RADAR.waves.length} dated rows, {first.date} to {LATEST_WAVE.date} — {FULL_WAVES.length} of them scored runs and the
         first a sampled baseline. Each scored wave is the sum of {RADAR.prompts.length} prompts
         scored 0&ndash;3, so {RADAR.maxScore} is the ceiling. The band was always flat and close to the floor; on{' '}
-        {LATEST_WAVE.date} it reached the floor. All {RADAR.prompts.length} prompts scored 0.
+        {firstZero?.date} it reached the floor, and it has stayed there for {zeroRun} consecutive scored waves.
+        In the most recent one all {RADAR.prompts.length} prompts scored 0 and all {RADAR.prompts.length} #1
+        results were recorded, so the whole wave is in the table below rather than a fragment of it.
       </p>
       <div className="table-scroll" tabIndex={0} role="region" aria-label="Scrollable table">
         <table>
@@ -159,7 +169,7 @@ export default function RadarPage() {
         quote and reuse with attribution (CC BY 4.0). <Link href={CSV}>Download every wave and observation as CSV</Link>.
       </p>
 
-      <h2>Eight things the data says</h2>
+      <h2>Ten things the data says</h2>
 
       <h3>1. A month of correct on-page work moved the retrieval layer by nothing</h3>
       <p>
@@ -168,10 +178,11 @@ export default function RadarPage() {
         from a third-party property DSP controls, or from its own brand name.
       </p>
       <p>
-        The clearest test of that arrived on {LATEST_WAVE.date}. In the week before it, two pages were rebuilt
+        The clearest test of that arrived on {firstZero?.date}. In the week before it, two pages were rebuilt
         specifically to answer the prompt that retrieves them &mdash; the question put as the page&apos;s own first
-        FAQ, verbatim, with the answer above it. Both prompts scored 0 in the wave that followed, and the wave
-        itself was the first {LATEST_WAVE.total} of the series.
+        FAQ, verbatim, with the answer above it. Both prompts scored 0 in the wave that followed, and that wave
+        was the first zero of the series. Both were still 0 in the wave of {LATEST_WAVE.date}, six and a half
+        weeks into the campaign.
       </p>
       <p>
         One off-series sighting exists and belongs here rather than in a footnote: on 6 October{' '}
@@ -324,6 +335,46 @@ export default function RadarPage() {
         in the candidate set, which is finding 1 arrived at from the opposite direction: the gate on these prompts is
         retrievability, not competition. It is also the reason the remaining work is corroboration rather than more
         pages &mdash; a ninth page answers a question that was already answered on a page nothing links to.
+      </p>
+
+      <h3>9. On the clearest buyer query the winning set is third-party profiles, not websites</h3>
+      <p>
+        Finding 2 said the buyer results are directories. {RADAR.prompts.find((p) => p.id === 26)?.en}, measured on
+        15 and 16 October, is the sharpest instance of it and the one with the least ambiguity about what to do.{' '}
+        <strong>Seven of the ten results are third-party profiles of companies</strong> &mdash; a Clutch profile at
+        #1, a startup-directory entry, two LinkedIn company profiles, a jobs-board company page and two freelance
+        marketplace gigs. <strong>Exactly one company&rsquo;s own website appears in the set at all.</strong>
+      </p>
+      <p>
+        DSP has two pages written for that query and scored 0 on both readings. It is listed in none of those
+        directories. Of the ten findings on this page this is the only one whose remedy is not a judgement call: the
+        result set names the properties that win it, four of them accept a free listing, and the next wave either
+        shows the listing retrieved or it does not. That is also what makes it a usable test of finding 1 &mdash; it
+        is corroboration with no content work attached to it.
+      </p>
+
+      <h3>10. The retrieval layer is neither rewarding canonical hygiene nor punishing its absence</h3>
+      <p>
+        This one came out of publishing a whole wave rather than a fragment, and it is the most uncomfortable thing
+        in the dataset. Across the 30 result sets of the {LATEST_WAVE.date} wave,{' '}
+        <strong>22 carried two or more URLs resolving to the same page</strong>: a raw <code>?p=</code> permalink
+        beside its own slug, <code>/amp/</code> copies, translated locale paths of one article, a paginated listing
+        counted four times, capitalisation variants of one path. On four of the thirty &mdash; prompts 9, 15, 16 and
+        17 &mdash; the <em>identical</em> URL came back twice in one set. On{' '}
+        {RADAR.prompts.find((p) => p.id === 19)?.en} a single DataCamp article held six of the ten slots as locale
+        paths, four of them titled in a language other than the one asked for. The #1 result on{' '}
+        {RADAR.prompts.find((p) => p.id === 18)?.en} is a university faculty CV in PDF form whose URL contains
+        literal spaces.
+      </p>
+      <p>
+        Every one of those is a defect that a technical SEO audit of this site would flag and that this site does
+        not have: one canonical per page, no duplicate paths, no locale forks, no parameter twins. The site is the
+        opposite of all of it, and it is in none of the sets. <strong>So canonical hygiene is not what is being
+        selected for here.</strong> It is worth doing because it is cheap and because it prevents other problems,
+        but a series of waves says plainly that it is not the thing standing between this site and the candidate
+        set. The limit on this finding is stated above and matters: only the #1 result is published per row, so the
+        duplicate counts cannot be recomputed from the CSV. They were recorded from the ranked lists at scoring
+        time.
       </p>
 
       <h2>How a wave is scored</h2>

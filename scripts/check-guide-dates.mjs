@@ -39,7 +39,20 @@ for (const { path, updated } of entries) {
   if (!existsSync(file)) continue
   const src = readFileSync(file, 'utf8')
   const m = src.match(/^const UPDATED = '([0-9-]+)'/m)
-  if (!m) continue
+  if (!m) {
+    // The gate used to `continue` here, which silently skipped any page that
+    // passed its date straight into <Guide updated="…"> as a literal — and
+    // one page did, publishing a byline two days older than its own sitemap
+    // entry for a week. A page with an inline literal is now a failure, not a
+    // skip: the date must be a named constant so there is one place to change.
+    const inline = src.match(/updated="([0-9-]+)"/)
+    if (inline) {
+      problems.push(
+        `${path}: passes updated="${inline[1]}" as an inline literal — declare \`const UPDATED\` instead so this gate can see it`,
+      )
+    }
+    continue
+  }
   checked += 1
   if (m[1] !== updated) {
     problems.push(`${path}: page says ${m[1]}, registry says ${updated}`)
