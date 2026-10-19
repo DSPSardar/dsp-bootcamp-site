@@ -75,7 +75,8 @@ export const RADAR = {
     'The search tool used resolves to a US locale. A Pakistan-locale run would plausibly score differently on the Islamabad and Pakistan categories, and this is the largest known weakness in the series.',
     'One sample per cell. Result sets are volatile, so a single-wave move is noise and only a trend across waves is signal.',
     'This measures the retrieval layer — the live index that ChatGPT Search, Perplexity, Gemini with grounding, Google AI Overviews and Claude web search all draw from before they synthesise. It is a proxy for AI-search visibility, not a measurement of any one engine’s rendered answer, because those vary by account, session and model version and cannot be used as a time series by anyone who does not control those variables.',
-    'Per-prompt rows were retained from 2026-10-03 onward, with one gap: for the wave of 2026-10-10 and the spot-checks of 6–9 October the per-prompt file was lost before publication, so only the rows whose #1 result is still on record appear below. A row is published here only if its #1 result is recorded, which is why those waves show fewer rows than prompts scored. The wave of 2026-10-16 is the first published whole: all 30 scored prompts appear as rows with their #1 result.',
+    'Per-prompt rows were retained from 2026-09-13 onward, with one gap: for the wave of 2026-10-10 and the spot-checks of 6–9 October the per-prompt file was lost before publication, so only the rows whose #1 result is still on record appear below. A row is published here only if its #1 result is recorded, which is why those waves show fewer rows than prompts scored. The wave of 2026-10-16 is the first published whole: all 30 scored prompts appear as rows with their #1 result.',
+    'The search tool returns up to ten results for a prompt and on some days returns fewer — every set recorded on 19 October came back with nine. Counts of what a result set is made of are therefore stated against the number of results actually returned that day, not against a fixed ten, and a composition count from one date cannot be compared with one from another date without checking both set sizes.',
     'Two of the findings below count features of a whole result set — duplicate URLs resolving to one page, and how many of the top ten are third-party profiles. Only the #1 result is published per row, so those counts cannot be recomputed from the CSV. They were recorded from the ranked result lists at scoring time and are stated as observations, not as derivable figures.',
     'The 5 September figure is an approximate baseline from sampling, not a scored run, and is marked as such.',
     'This dataset is published by the company it measures. The protections against that are the fixed prompt set, the unprimed scorers, the recorded #1 results — and findings that are mostly unflattering.',
@@ -198,12 +199,32 @@ export const RADAR = {
     { promptId: 28, date: '2026-10-16', score: 0, top: 'propakistani.pk', note: 'Not one DSP-controlled property on DSP’s own brand query' },
     { promptId: 29, date: '2026-10-16', score: 0, top: 'en.wikipedia.org', note: 'Unrelated namesakes again; no DSP property in the set' },
     { promptId: 30, date: '2026-10-16', score: 0, top: 'aiagentsdirectory.com', note: '"DSP" and "AI Mastery" both resolve to other companies’ products; DSP has no third-party reviews anywhere' },
+    { promptId: 13, date: '2026-10-17', score: 0, top: 'fiverr.com/s/0oPpKL', note: 'Two freelance marketplace gigs held #1 and #2, up from a course marketplace the day before' },
+    { promptId: 26, date: '2026-10-17', score: 0, top: 'clutch.co', note: 'Third reading running with the same Clutch profile at #1. Seven of ten results still third-party profiles, but company-owned websites went from one to two' },
+    { promptId: 9, date: '2026-10-18', score: 0, top: 'pnytrainings.com' },
+    { promptId: 11, date: '2026-10-18', score: 0, top: 'techjuice.pk', note: 'Tenth consecutive reading with no DSP property in the set, on the one prompt a DSP property has ever won' },
+    { promptId: 13, date: '2026-10-18', score: 0, top: 'udemy.com' },
+    { promptId: 18, date: '2026-10-18', score: 0, top: 'numl.edu.pk', note: 'The faculty CV PDF whose URL contains literal spaces, back at #1' },
+    { promptId: 24, date: '2026-10-18', score: 0, top: 'verifywise.ai', note: 'One article on this set appeared as a raw ?p= permalink here and as its dated slug on prompt 9, and as both at once in this set' },
+    { promptId: 26, date: '2026-10-18', score: 0, top: 'clutch.co', note: 'Fourth reading running with the same Clutch profile at #1' },
+    { promptId: 11, date: '2026-10-19', score: 0, top: 'techjuice.pk', note: 'Eleventh consecutive reading with no DSP property in the set. Nine results returned, not ten' },
+    { promptId: 18, date: '2026-10-19', score: 0, top: 'codanics.com', note: 'Three of the nine results were on one host, two of them raw ?p= permalinks beside that host’s own slug URL. The Urdu glossary repo published on 15 October had still not entered at four days old' },
+    { promptId: 26, date: '2026-10-19', score: 0, top: 'clutch.co', note: 'Fifth reading running with the same Clutch profile at #1. Seven of the nine results returned were third-party profiles; one company-owned website appeared' },
+    { promptId: 28, date: '2026-10-19', score: 0, top: 'propakistani.pk', note: 'On DSP’s own brand question not one DSP-controlled property appeared. Every result was about an unrelated digital-services programme, mostly microfinance and World Bank coverage' },
+    { promptId: 30, date: '2026-10-19', score: 0, top: 'aiagentsdirectory.com', note: 'Three country hosts of the same Trustpilot review page for a differently-owned product appeared in one set of nine, one of them a second page of the same listing, plus the same two-product comparison at two reversed slugs. DSP still has no third-party reviews anywhere' },
   ] satisfies ReadonlyArray<RadarObservation>,
 } as const
 
 export const LATEST_WAVE = RADAR.waves[RADAR.waves.length - 1]
 export const PEAK_WAVE = RADAR.waves.reduce((a, b) => (b.total > a.total ? b : a))
 export const FULL_WAVES = RADAR.waves.filter((w) => w.full)
+
+/** Whole weeks from the first recorded wave to the latest, derived so no
+ *  sentence on the page can name a span the data has outgrown. */
+export const SERIES_WEEKS = Math.round(
+  (Date.parse(RADAR.waves[RADAR.waves.length - 1].date) - Date.parse(RADAR.waves[0].date)) /
+    (7 * 24 * 60 * 60 * 1000),
+)
 
 /** Observations for one prompt, oldest first. */
 export const observationsFor = (id: number) =>

@@ -18,9 +18,9 @@ import Guide from '@/components/guides/Guide'
 import { founder, site } from '@/config/site'
 import { ORGANIZATION_ID, PERSON_ID } from '@/lib/schema'
 import type { Faq, JsonLd } from '@/lib/schema'
-import { FULL_WAVES, LATEST_WAVE, PEAK_WAVE, RADAR } from '@/content/radar-results'
+import { FULL_WAVES, LATEST_WAVE, PEAK_WAVE, RADAR, SERIES_WEEKS } from '@/content/radar-results'
 
-const UPDATED = '2026-10-17'
+const UPDATED = '2026-10-19'
 const PATH = '/research/ai-search-dominance-engine'
 const TITLE = `The AI Search Dominance Engine: ${RADAR.prompts.length} Prompts, ${RADAR.waves.length} Waves, Measured in Public`
 const CSV = `${PATH}/data.csv`
@@ -28,7 +28,7 @@ const CSV = `${PATH}/data.csv`
 export const metadata: Metadata = {
   title: { absolute: `${TITLE} | DSP` },
   description:
-    `A month of longitudinal AI-search visibility data for one small company: ${RADAR.prompts.length} fixed prompts, ${RADAR.waves.length} dated waves of which ${FULL_WAVES.length} are scored runs, the rubric, the limits and every recorded #1 result so you can re-check it. Free to quote with attribution.`,
+    `${SERIES_WEEKS} weeks of longitudinal AI-search visibility data for one small company: ${RADAR.prompts.length} fixed prompts, ${RADAR.waves.length} dated waves of which ${FULL_WAVES.length} are scored runs, the rubric, the limits and every recorded #1 result so you can re-check it. Free to quote with attribution.`,
   alternates: { canonical: PATH },
   openGraph: { type: 'article', url: PATH, title: TITLE, images: [{ url: '/og-card.png', width: 1200, height: 630 }] },
 }
@@ -116,7 +116,7 @@ export default function RadarPage() {
       answer={answer}
       published="2026-10-05"
       updated={UPDATED}
-      description={`A month of longitudinal AI-search visibility data for one small company: ${RADAR.prompts.length} fixed prompts, ${RADAR.waves.length} dated waves of which ${FULL_WAVES.length} are scored runs, the rubric, the stated limits, and every recorded #1 result so a stranger can re-check it.`}
+      description={`${SERIES_WEEKS} weeks of longitudinal AI-search visibility data for one small company: ${RADAR.prompts.length} fixed prompts, ${RADAR.waves.length} dated waves of which ${FULL_WAVES.length} are scored runs, the rubric, the stated limits, and every recorded #1 result so a stranger can re-check it.`}
       faqs={FAQS}
       urdu={[
         `یہ صفحہ DSP کی اپنی پیمائش ہے — ${RADAR.prompts.length} مقررہ سوالات، ${FULL_WAVES.length} مرتبہ جانچ، اور نتیجہ یہ کہ AI سرچ انجنوں میں ہماری کمپنی کی موجودگی ${PEAK_WAVE.total} سے ${LATEST_WAVE.total} کے درمیان رہی، ${RADAR.maxScore} میں سے۔`,
@@ -339,14 +339,24 @@ export default function RadarPage() {
 
       <h3>9. On the clearest buyer query the winning set is third-party profiles, not websites</h3>
       <p>
-        Finding 2 said the buyer results are directories. {RADAR.prompts.find((p) => p.id === 26)?.en}, measured on
-        15 and 16 October, is the sharpest instance of it and the one with the least ambiguity about what to do.{' '}
-        <strong>Seven of the ten results are third-party profiles of companies</strong> &mdash; a Clutch profile at
-        #1, a startup-directory entry, two LinkedIn company profiles, a jobs-board company page and two freelance
-        marketplace gigs. <strong>Exactly one company&rsquo;s own website appears in the set at all.</strong>
+        Finding 2 said the buyer results are directories. {RADAR.prompts.find((p) => p.id === 26)?.en}, now measured
+        on five dates &mdash; 15, 16, 17, 18 and 19 October &mdash; is the sharpest instance of it and the one with
+        the least ambiguity about what to do. <strong>The same Clutch profile has been the #1 result on every one of
+        those five readings</strong>, and on each reading where the whole ranked list was recorded &mdash; 15, 16, 17
+        and 19 October &mdash; <strong>seven of the results returned were third-party profiles of companies</strong>:
+        a Clutch profile, a startup-directory entry, LinkedIn company and personal profiles, a jobs-board company
+        page and freelance marketplace gigs.
       </p>
       <p>
-        DSP has two pages written for that query and scored 0 on both readings. It is listed in none of those
+        An earlier version of this finding said that exactly one company&rsquo;s own website appeared in the set at
+        all. That was true of the 15 and 16 October readings and false on 17, 18 and 19 October, where two appear.
+        The claim that has held across all five readings is the Clutch result at #1 and the seven profiles, not the
+        website count, so the sentence is corrected here rather than quietly dropped. It is also the most useful
+        thing on this page about reading a result set: a count of what the set is made of is stable, and a count of
+        what is missing from it is not.
+      </p>
+      <p>
+        DSP has two pages written for that query and scored 0 on all five readings. It is listed in none of those
         directories. Of the ten findings on this page this is the only one whose remedy is not a judgement call: the
         result set names the properties that win it, four of them accept a free listing, and the next wave either
         shows the listing retrieved or it does not. That is also what makes it a usable test of finding 1 &mdash; it
