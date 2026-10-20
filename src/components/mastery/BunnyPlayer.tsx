@@ -1,4 +1,5 @@
 import { signedEmbedUrl } from '@/lib/mastery/bunny'
+import StableVideoFrame from './StableVideoFrame'
 
 /** Server component: renders the Bunny Stream player with a short-lived signed token.
  *  Only ever render this for an authenticated student — the URL is what grants playback. */
@@ -12,7 +13,8 @@ export default function BunnyPlayer({ videoId, title, aspect, eager = false }: {
   const maxW = ratio < 1.4 ? `${Math.round(ratio * 560)}px` : undefined
   return (
     <div style={{ position: 'relative', paddingTop: pad, maxWidth: maxW, margin: maxW ? '0 auto' : undefined, background: '#0A1730', borderRadius: 14, overflow: 'hidden' }}>
-      <iframe
+      <StableVideoFrame
+        key={videoId}
         src={src}
         title={title}
         loading={eager ? "eager" : "lazy"}
