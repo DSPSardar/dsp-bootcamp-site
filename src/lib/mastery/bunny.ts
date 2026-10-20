@@ -24,7 +24,12 @@ export function signedEmbedUrl(
   opts: { preload?: boolean } = {}
 ): string | null {
   if (!LIB || !TOKEN_KEY) return null // env not configured (e.g. build without secrets) — callers hide the player
-  const expires = Math.floor(Date.now() / 1000) + ttlSeconds
+  // Round `expires` to a fixed bucket so the URL is identical across re-renders of the
+  // same page. WatchTracker calls router.refresh() at 80% watched; a fresh timestamp on
+  // every render changed the iframe src and reloaded the player mid-lecture (students saw
+  // the video "get stuck" a few minutes in). Still valid for at least `ttlSeconds`.
+  const now = Math.floor(Date.now() / 1000)
+  const expires = Math.floor(now / ttlSeconds) * ttlSeconds + 2 * ttlSeconds
   const token = createHash('sha256').update(TOKEN_KEY + videoId + expires).digest('hex')
   // `preload` defaults to true for lesson players (students expect instant
   // start); the public marketing embeds pass false so a landing-page visit
