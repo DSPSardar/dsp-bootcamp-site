@@ -8,7 +8,6 @@ import WatchTracker from '@/components/mastery/WatchTracker'
 import { postAsosEvent } from '@/lib/mastery/asos'
 import { badges } from '@/lib/mastery/course'
 import { autoCompleteWatched, lessonLength } from '@/lib/mastery/progress'
-import Ustad from '@/components/mastery/Ustad'
 
 export default async function LessonPage({ params }: { params: Promise<{ moduleId: string; lesson: string }> }) {
   const { moduleId, lesson } = await params
@@ -83,7 +82,6 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
         </div>
       </div>
       {/* Stuck at 1am with nobody to ask — this is the answer to that. */}
-      <Ustad moduleId={m.id} lessonFile={l.file} lessonTitle={titleOf(l)} />
     </>
   )
 }
