@@ -48,7 +48,6 @@ export default async function AppLayout({ children }: { children: React.ReactNod
             </div>
           ))}
           <div className="ph">Help</div>
-          <a href="/app/tutor" className="mod"><span className="id">AI</span><span className="t">Ask Ustad</span><span className="c">24/7</span></a>
           <div className="ph">Finish</div>
           <a href="/app/capstone" className={`mod ${state['M15'].complete ? '' : 'locked'}`}><span className="id">CAP</span><span className="t">Capstone</span><span className="c">→</span></a>
           <a href="/app/certificate" className="mod"><span className="id">CERT</span><span className="t">Certificate</span><span className="c">→</span></a>
