@@ -32,6 +32,7 @@ export default function WatchTracker({ lesson, unlockAt = 0.8, initialFrac = 0 }
     const frame = () => document.querySelector<HTMLIFrameElement>('iframe[src*="mediadelivery.net"]')
     if (!frame()) return
     let duration = 0
+    let readyHandled = false
     let subscribed = false          // first timeupdate received — stop re-asking
     let lastSeconds = 0
 
@@ -55,16 +56,23 @@ export default function WatchTracker({ lesson, unlockAt = 0.8, initialFrac = 0 }
 
     const tell = (method: string, value?: string) =>
       frame()?.contentWindow?.postMessage(JSON.stringify({ context: 'player.js', version: '0.0.11', method, value, listener: 'dsp' }), '*')
-    const subscribe = () => { tell('addEventListener', 'timeupdate'); tell('addEventListener', 'ready') }
+    // `ready` is emitted automatically. Subscribing to it inside its own handler
+    // makes Player.js immediately emit it again, creating an unbounded message loop.
+    const subscribe = () => { tell('addEventListener', 'timeupdate') }
 
     const onMessage = (e: MessageEvent) => {
-      let host = ''
-      try { host = new URL(e.origin).hostname } catch { return }
-      if (!/mediadelivery\.net$/.test(host)) return
+      const iframe = frame()
+      if (!iframe || e.source !== iframe.contentWindow) return
+      if (e.origin !== new URL(iframe.src).origin) return
       let d: { event?: string; method?: string; value?: unknown }
       try { d = typeof e.data === 'string' ? JSON.parse(e.data) : e.data } catch { return }
-      if (!d || typeof d !== 'object') return
-      if (d.event === 'ready') { subscribe(); return }
+      if (!d || typeof d !== 'object' || (d as { context?: string }).context !== 'player.js') return
+      if (d.event === 'ready') {
+        if (readyHandled) return
+        readyHandled = true
+        subscribe()
+        return
+      }
       if (d.event === 'timeupdate' && d.value && typeof d.value === 'object') {
         subscribed = true
         const v = d.value as { seconds?: number; duration?: number }
@@ -73,8 +81,8 @@ export default function WatchTracker({ lesson, unlockAt = 0.8, initialFrac = 0 }
         return
       }
       // Replies to the polling fallback below.
-      if (d.method === 'getDuration' && typeof d.value === 'number' && d.value > 0) duration = Math.floor(d.value)
-      if (d.method === 'getCurrentTime' && typeof d.value === 'number') post(Math.floor(d.value))
+      if ((d.event === 'getDuration' || d.method === 'getDuration') && typeof d.value === 'number' && d.value > 0) duration = Math.floor(d.value)
+      if ((d.event === 'getCurrentTime' || d.method === 'getCurrentTime') && typeof d.value === 'number') post(Math.floor(d.value))
     }
     window.addEventListener('message', onMessage)
 
@@ -97,6 +105,7 @@ export default function WatchTracker({ lesson, unlockAt = 0.8, initialFrac = 0 }
       boundFrame = frame()
       boundFrame?.addEventListener('load', subscribe)
       subscribed = false
+      readyHandled = false
       subscribe()
       startRetry()
     }

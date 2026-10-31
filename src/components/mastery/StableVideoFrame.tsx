@@ -38,6 +38,7 @@ export default function StableVideoFrame(props: ComponentProps<'iframe'>) {
   const [instance, setInstance] = useState(0)
   const [notice, setNotice] = useState<string | null>(null)
   const ref = useRef<HTMLIFrameElement>(null)
+  const readyHandled = useRef(false)
   const st = useRef({ playing: false, time: 0, progressAt: 0, resumeAt: 0, autos: 0, recoveredAt: 0 })
 
   const tell = useCallback((method: string, value?: unknown) => {
@@ -48,7 +49,9 @@ export default function StableVideoFrame(props: ComponentProps<'iframe'>) {
   }, [])
 
   const subscribe = useCallback(() => {
-    for (const ev of ['ready', 'play', 'pause', 'ended', 'timeupdate', 'error']) tell('addEventListener', ev)
+    // Player.js answers an addEventListener('ready') command immediately when ready.
+    // Never re-request it from the ready handler: that creates a message feedback loop.
+    for (const ev of ['play', 'pause', 'ended', 'timeupdate', 'error']) tell('addEventListener', ev)
   }, [tell])
 
   /** Remount the iframe and resume from the last known position. */
@@ -79,6 +82,7 @@ export default function StableVideoFrame(props: ComponentProps<'iframe'>) {
 
   // After a remount: tell the progress tracker to re-bind to the new iframe, and re-subscribe.
   useEffect(() => {
+    readyHandled.current = false
     if (instance > 0) window.dispatchEvent(new Event('dsp:video-remount'))
     const t = setTimeout(subscribe, 1500)
     return () => clearTimeout(t)
@@ -86,13 +90,17 @@ export default function StableVideoFrame(props: ComponentProps<'iframe'>) {
 
   useEffect(() => {
     const onMessage = (e: MessageEvent) => {
-      if (e.source !== ref.current?.contentWindow) return
+      const iframe = ref.current
+      if (!iframe || e.source !== iframe.contentWindow) return
+      if (e.origin !== new URL(iframe.src).origin) return
       let d: { event?: string; method?: string; value?: unknown }
       try { d = typeof e.data === 'string' ? JSON.parse(e.data) : e.data } catch { return }
-      if (!d || typeof d !== 'object') return
+      if (!d || typeof d !== 'object' || (d as { context?: string }).context !== 'player.js') return
       const s = st.current
       const now = Date.now()
       if (d.event === 'ready') {
+        if (readyHandled.current) return
+        readyHandled.current = true
         subscribe()
         if (s.resumeAt > 1) {
           tell('setCurrentTime', s.resumeAt)
@@ -116,11 +124,13 @@ export default function StableVideoFrame(props: ComponentProps<'iframe'>) {
       }
       if (d.event === 'error') { softReload(true); return }
       // Reply to the watchdog's getPaused probe: not paused + no progress = genuinely stuck.
-      if (d.method === 'getPaused' && typeof d.value === 'boolean') {
+      if ((d.event === 'getPaused' || d.method === 'getPaused') && typeof d.value === 'boolean') {
         if (d.value) s.playing = false
         else if (s.playing && now - s.progressAt > STALL_MS) softReload(true)
       }
     }
+    const onRemount = () => { readyHandled.current = false }
+    window.addEventListener('dsp:video-remount', onRemount)
     window.addEventListener('message', onMessage)
 
     const watchdog = setInterval(() => {
@@ -137,6 +147,7 @@ export default function StableVideoFrame(props: ComponentProps<'iframe'>) {
     document.addEventListener('visibilitychange', onVisible)
 
     return () => {
+      window.removeEventListener('dsp:video-remount', onRemount)
       window.removeEventListener('message', onMessage)
       window.removeEventListener('pageshow', onPageShow)
       document.removeEventListener('visibilitychange', onVisible)
