@@ -27,8 +27,10 @@ export default function WatchTracker({ lesson, unlockAt = 0.8, initialFrac = 0 }
     void fetch('/api/mastery/view', { method: 'POST', headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ lesson, opened: true, seconds: 0 }) })
 
-    const iframe = document.querySelector<HTMLIFrameElement>('iframe[src*="mediadelivery.net"]')
-    if (!iframe) return
+    // Resolve the player lazily: StableVideoFrame can remount the iframe (stall recovery),
+    // so a reference captured at mount time would point at a dead window.
+    const frame = () => document.querySelector<HTMLIFrameElement>('iframe[src*="mediadelivery.net"]')
+    if (!frame()) return
     let duration = 0
     let subscribed = false          // first timeupdate received — stop re-asking
     let lastSeconds = 0
@@ -52,7 +54,7 @@ export default function WatchTracker({ lesson, unlockAt = 0.8, initialFrac = 0 }
     }
 
     const tell = (method: string, value?: string) =>
-      iframe.contentWindow?.postMessage(JSON.stringify({ context: 'player.js', version: '0.0.11', method, value, listener: 'dsp' }), '*')
+      frame()?.contentWindow?.postMessage(JSON.stringify({ context: 'player.js', version: '0.0.11', method, value, listener: 'dsp' }), '*')
     const subscribe = () => { tell('addEventListener', 'timeupdate'); tell('addEventListener', 'ready') }
 
     const onMessage = (e: MessageEvent) => {
@@ -78,10 +80,27 @@ export default function WatchTracker({ lesson, unlockAt = 0.8, initialFrac = 0 }
 
     // Ask for events now, again when the iframe finishes loading, and keep asking every 2s
     // (for up to 2 minutes) until the player answers — slow networks load the player late.
-    subscribe()
-    iframe.addEventListener('load', subscribe)
     let tries = 0
-    const retry = setInterval(() => { if (subscribed || ++tries > 60) { clearInterval(retry); return } subscribe() }, 2000)
+    let retry: ReturnType<typeof setInterval> | undefined
+    const startRetry = () => {
+      clearInterval(retry)
+      tries = 0
+      retry = setInterval(() => { if (subscribed || ++tries > 60) { clearInterval(retry); return } subscribe() }, 2000)
+    }
+    let boundFrame = frame()
+    boundFrame?.addEventListener('load', subscribe)
+    subscribe()
+    startRetry()
+    // The frame was remounted (stall recovery): bind to the new iframe and subscribe again.
+    const onRemount = () => {
+      boundFrame?.removeEventListener('load', subscribe)
+      boundFrame = frame()
+      boundFrame?.addEventListener('load', subscribe)
+      subscribed = false
+      subscribe()
+      startRetry()
+    }
+    window.addEventListener('dsp:video-remount', onRemount)
 
     // Fallback: poll position directly. Harmless when events already work (same numbers).
     const poll = setInterval(() => { tell('getDuration'); tell('getCurrentTime') }, 15000)
@@ -96,7 +115,7 @@ export default function WatchTracker({ lesson, unlockAt = 0.8, initialFrac = 0 }
     document.addEventListener('visibilitychange', onHide)
     return () => {
       window.removeEventListener('message', onMessage); window.removeEventListener('pagehide', flush); document.removeEventListener('visibilitychange', onHide)
-      iframe.removeEventListener('load', subscribe); clearInterval(retry); clearInterval(poll)
+      boundFrame?.removeEventListener('load', subscribe); window.removeEventListener('dsp:video-remount', onRemount); clearInterval(retry); clearInterval(poll)
     }
   }, [lesson, unlockAt, router])
   return null
