@@ -722,7 +722,24 @@
             "aspect": 1.7778
           },
           "title": "Lecture 2 — Claude Code Live: Structuring a Real AI Agent Project"
-        },
+        }
+      ],
+      "build_project": "AI Employee Part 1: The Skeleton — app running locally on video",
+      "vault_files": [
+        "AI-Employee-Build-Prompts.md",
+        "Claude-Code-Command-Card.md"
+      ],
+      "slides": [
+        {
+          "file": "M04-D01_Claude-Code-Context-Management.pdf",
+          "title": "Claude Code Context Management",
+          "type": "pdf",
+          "bytes": 2202412,
+          "path": "_SLIDES/M04-Vibe-Coding/M04-D01_Claude-Code-Context-Management.pdf"
+        }
+      ],
+      "slides_zip": "_SLIDES/_ZIP/M04-slides.zip",
+      "archived": [
         {
           "file": "M04-L03_Claude-Masterclass-Pt2-Advanced-Coding_hfLCbgKZ498.mp4",
           "folder": "Phase-1-Builder/M04-Vibe-Coding",
@@ -743,24 +760,11 @@
             "length_sec": 3163,
             "aspect": 1.7778
           },
-          "title": "Lecture 3 — Claude Masterclass: Advanced Coding and Agent Workflows"
+          "title": "Lecture 3 — Claude Masterclass: Advanced Coding and Agent Workflows",
+          "archived_reason": "off-outcome — this is \"Claude AI Masterclass Part 2\" (Claude.ai chat workflows: custom-GPT prompt, Scheduled tasks, one-page site artifact), the sequel to M03-L01, not the Claude Code build loop M04 teaches; L02 carries the module",
+          "archived_on": "2026-11-04"
         }
-      ],
-      "build_project": "AI Employee Part 1: The Skeleton — app running locally on video",
-      "vault_files": [
-        "AI-Employee-Build-Prompts.md",
-        "Claude-Code-Command-Card.md"
-      ],
-      "slides": [
-        {
-          "file": "M04-D01_Claude-Code-Context-Management.pdf",
-          "title": "Claude Code Context Management",
-          "type": "pdf",
-          "bytes": 2202412,
-          "path": "_SLIDES/M04-Vibe-Coding/M04-D01_Claude-Code-Context-Management.pdf"
-        }
-      ],
-      "slides_zip": "_SLIDES/_ZIP/M04-slides.zip"
+      ]
     },
     {
       "id": "M05",
