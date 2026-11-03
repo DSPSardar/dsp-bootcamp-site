@@ -706,25 +706,26 @@
           "title": "Short — What is Vibe Coding?"
         },
         {
-          "file": "M04-L01_Vibe-Coding-Step-by-Step_bwhLEbC5vjU.mp4",
+          "file": "M04-L04_Vibe-Coding-Basics-How-Websites-Work.mp4",
           "folder": "Phase-1-Builder/M04-Vibe-Coding",
-          "youtube_id": "bwhLEbC5vjU",
-          "minutes": 46,
-          "source": "LOCAL",
-          "status": "Located",
+          "youtube_id": null,
+          "minutes": 16,
+          "source": "CUT",
+          "status": "Cut from M04-L01_Vibe-Coding-Step-by-Step_bwhLEbC5vjU.mp4",
           "chapters": [],
-          "master": "M04-L01_Vibe-Coding-Step-by-Step_bwhLEbC5vjU_v1.mp4",
+          "master": "M04-L04_Vibe-Coding-Basics-How-Websites-Work.mp4",
           "kind": "core",
-          "order": "L01",
+          "order": "L04",
+          "title": "Lecture 1 — Vibe Coding Basics: How Websites Work",
+          "cut_from": "M04-L01_Vibe-Coding-Step-by-Step_bwhLEbC5vjU.mp4",
           "bunny": {
-            "guid": "d701009b-0edf-417f-939f-6bb3f719c878",
+            "guid": "91d41bed-89cc-449b-8284-31aad73683e0",
             "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-26T11:33:56.751Z",
-            "length_sec": 2742,
-            "aspect": 1.7778
-          },
-          "title": "Lecture 1 — Vibe Coding Step by Step: Website, Chatbot and AI Agents"
+            "version": 0,
+            "uploaded_at": "2026-11-03T22:06:00.125Z",
+            "length_sec": 929,
+            "thumbnail": "thumbnail.jpg"
+          }
         },
         {
           "file": "M04-L02_Claude-Code-Structuring-Real-Project_QHtJAUbe8fI.mp4",
@@ -786,6 +787,29 @@
           },
           "title": "Lecture 3 — Claude Masterclass: Advanced Coding and Agent Workflows",
           "archived_reason": "off-outcome — this is \"Claude AI Masterclass Part 2\" (Claude.ai chat workflows: custom-GPT prompt, Scheduled tasks, one-page site artifact), the sequel to M03-L01, not the Claude Code build loop M04 teaches; L02 carries the module",
+          "archived_on": "2026-11-04"
+        },
+        {
+          "file": "M04-L01_Vibe-Coding-Step-by-Step_bwhLEbC5vjU.mp4",
+          "folder": "Phase-1-Builder/M04-Vibe-Coding",
+          "youtube_id": "bwhLEbC5vjU",
+          "minutes": 46,
+          "source": "LOCAL",
+          "status": "Located",
+          "chapters": [],
+          "master": "M04-L01_Vibe-Coding-Step-by-Step_bwhLEbC5vjU_v1.mp4",
+          "kind": "core",
+          "order": "L01",
+          "bunny": {
+            "guid": "d701009b-0edf-417f-939f-6bb3f719c878",
+            "status": "ready",
+            "version": 1,
+            "uploaded_at": "2026-08-26T11:33:56.751Z",
+            "length_sec": 2742,
+            "aspect": 1.7778
+          },
+          "title": "Lecture 1 — Vibe Coding Step by Step: Website, Chatbot and AI Agents",
+          "archived_reason": "superseded by the 15-min cut M04-L04 (03:00–16:06 website anatomy + 36:25–38:48 vibe-coding workflow); the rest repeats M01's agent definition, M03's claude.ai tour and ASOS demos",
           "archived_on": "2026-11-04"
         }
       ]
