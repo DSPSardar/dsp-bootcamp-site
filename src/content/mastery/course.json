@@ -1055,28 +1055,6 @@
           "title": "Lecture 1 — From Chatbot to AI Agent: The Complete Evolution"
         },
         {
-          "file": "M07-S01_Build-Agents-Master-Pro-Class1_NmpdMUxnLPQ.mp4",
-          "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
-          "youtube_id": "NmpdMUxnLPQ",
-          "minutes": 17,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_Build-Ai-Agents-with-Claude-Master-Pro-c_Media_NmpdMUxnLPQ_001_1080p.mp4",
-          "kind": "core",
-          "order": "S01",
-          "bunny": {
-            "guid": "cbec2b7a-e9f7-4c38-ab3c-4bf49a8be92c",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:16.822311Z",
-            "length_sec": 1041,
-            "aspect": 1.7778
-          },
-          "title": "Bootcamp Day 1 — Build AI Agents with Claude (Master Pro Class 1)"
-        },
-        {
           "file": "M07-L03_Agents-Master-Pro-Day2__6L90ZqzHRs.mp4",
           "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
           "youtube_id": "_6L90ZqzHRs",
@@ -1240,6 +1218,30 @@
           "title": "Short — The Knowledge and Memory Ladder",
           "archived_reason": "Knowledge & Memory Ladder is M09 content; M09-L02 covers it fully",
           "archived_on": "2026-09-16"
+        },
+        {
+          "file": "M07-S01_Build-Agents-Master-Pro-Class1_NmpdMUxnLPQ.mp4",
+          "folder": "Phase-2-Agent-Engineer/M07-AI-Agents",
+          "youtube_id": "NmpdMUxnLPQ",
+          "minutes": 17,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "YTDown.com_YouTube_Build-Ai-Agents-with-Claude-Master-Pro-c_Media_NmpdMUxnLPQ_001_1080p.mp4",
+          "kind": "core",
+          "order": "S01",
+          "bunny": {
+            "guid": "cbec2b7a-e9f7-4c38-ab3c-4bf49a8be92c",
+            "status": "ready",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:36:16.822311Z",
+            "length_sec": 1041,
+            "aspect": 1.7778
+          },
+          "title": "Bootcamp Day 1 — Build AI Agents with Claude (Master Pro Class 1)",
+          "archived_reason": "duplicate — Bootcamp Day 1 uses the same \"A Chatbot Answers. An Agent Works.\" slide and the same 5-line starter JD that Day 2 (L03) re-teaches in full before adding the 7-Part JD",
+          "archived_on": "2026-11-04"
         }
       ]
     },
@@ -1321,27 +1323,6 @@
           "master": "M08-S04_Voice-Agent-in-15-Minutes_vQoxD-t90rg.mp4"
         },
         {
-          "file": "M08-L01_API-Keys-and-env-Files_kTUdPQ5MnJc.mp4",
-          "folder": "Phase-2-Agent-Engineer/M08-APIs",
-          "youtube_id": "kTUdPQ5MnJc",
-          "minutes": 45,
-          "source": "LOCAL",
-          "status": "Located",
-          "chapters": [],
-          "master": "M08-L01_API-Keys-and-env-Files_kTUdPQ5MnJc_v1.mp4",
-          "kind": "core",
-          "order": "L01",
-          "bunny": {
-            "guid": "0e320cda-9b96-415a-8135-7de2f6429a6a",
-            "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-26T12:16:59.014Z",
-            "length_sec": 2716,
-            "aspect": 1.7778
-          },
-          "title": "Lecture 1 — API Keys and .env Files: Handling Secrets the Right Way"
-        },
-        {
           "file": "M08-L02_WhatsApp-AI-Agent-with-Claude-Code_jVJwoOBkGms.mp4",
           "folder": "Phase-2-Agent-Engineer/M08-APIs",
           "youtube_id": "jVJwoOBkGms",
@@ -1403,6 +1384,29 @@
           "title": "Short — What is an API? What is MCP?",
           "archived_reason": "exact same video as M10-S01 — students see it twice",
           "archived_on": "2026-09-16"
+        },
+        {
+          "file": "M08-L01_API-Keys-and-env-Files_kTUdPQ5MnJc.mp4",
+          "folder": "Phase-2-Agent-Engineer/M08-APIs",
+          "youtube_id": "kTUdPQ5MnJc",
+          "minutes": 45,
+          "source": "LOCAL",
+          "status": "Located",
+          "chapters": [],
+          "master": "M08-L01_API-Keys-and-env-Files_kTUdPQ5MnJc_v1.mp4",
+          "kind": "core",
+          "order": "L01",
+          "bunny": {
+            "guid": "0e320cda-9b96-415a-8135-7de2f6429a6a",
+            "status": "ready",
+            "version": 1,
+            "uploaded_at": "2026-08-26T12:16:59.014Z",
+            "length_sec": 2716,
+            "aspect": 1.7778
+          },
+          "title": "Lecture 1 — API Keys and .env Files: Handling Secrets the Right Way",
+          "archived_reason": "mislabelled — opens on platform.claude.com then teaches a \"What is Generative AI → Future of AI\" deck (M01 content); no API-key or .env teaching found; secrets handling is covered in M07-L05 (Steps 38-39) and M08-L02",
+          "archived_on": "2026-11-04"
         }
       ]
     },
@@ -1989,27 +1993,6 @@
           "title": "Short — Build Your First Multi-Agent System"
         },
         {
-          "file": "M14-S02_Agents-Workflows-Tools_Nw6vPE3d3XU.mp4",
-          "folder": "Phase-4-Seller/M14-Multi-Agent-Business-Automation",
-          "youtube_id": "Nw6vPE3d3XU",
-          "minutes": 14,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M14-S02_Agents-Workflows-Tools_Nw6vPE3d3XU.mp4",
-          "kind": "supplement",
-          "order": "S02",
-          "bunny": {
-            "guid": "a8ccc883-e588-41a2-be77-88042b01ba16",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:42:24.928Z",
-            "length_sec": 821,
-            "aspect": 0.9651
-          },
-          "title": "Short — Agents, Workflows and Tools"
-        },
-        {
           "file": "M14-L01_Multi-Agent-Systems-Business-Automation.mp4",
           "folder": "Phase-4-Seller/M14-Multi-Agent-Business-Automation",
           "youtube_id": null,
@@ -2049,7 +2032,32 @@
           "path": "_SLIDES/M14-Multi-Agent-Business-Automation/M14-D01_Multi-Agent-Systems-and-Business-Automation.pdf"
         }
       ],
-      "slides_zip": "_SLIDES/_ZIP/M14-slides.zip"
+      "slides_zip": "_SLIDES/_ZIP/M14-slides.zip",
+      "archived": [
+        {
+          "file": "M14-S02_Agents-Workflows-Tools_Nw6vPE3d3XU.mp4",
+          "folder": "Phase-4-Seller/M14-Multi-Agent-Business-Automation",
+          "youtube_id": "Nw6vPE3d3XU",
+          "minutes": 14,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M14-S02_Agents-Workflows-Tools_Nw6vPE3d3XU.mp4",
+          "kind": "supplement",
+          "order": "S02",
+          "bunny": {
+            "guid": "a8ccc883-e588-41a2-be77-88042b01ba16",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:42:24.928Z",
+            "length_sec": 821,
+            "aspect": 0.9651
+          },
+          "title": "Short — Agents, Workflows and Tools",
+          "archived_reason": "mislabelled — the video is \"AI Agentic System Class 2 — second batch\", a Google AI Studio doodle-generator build; nothing on agents/workflows/tools or multi-agent; AI Studio is M03-L03",
+          "archived_on": "2026-11-04"
+        }
+      ]
     },
     {
       "id": "M15",
