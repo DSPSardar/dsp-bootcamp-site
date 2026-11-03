@@ -1450,7 +1450,7 @@
           "chapters": [],
           "kind": "core",
           "order": "L02",
-          "title": "Lecture 2 — External API Integration: WhatsApp AI Agent with Claude Code",
+          "title": "Lecture 1 — External API Integration: WhatsApp AI Agent with Claude Code",
           "bunny": {
             "guid": "469d34a2-727b-4752-8e97-bd5a5631940f",
             "status": "ready",
