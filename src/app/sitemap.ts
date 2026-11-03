@@ -21,6 +21,7 @@ import { agency, liveGuides } from '@/config/site'
 import { PAGE_LAST_MODIFIED as MASTERY_LAST_MODIFIED } from '@/app/mastery/seo'
 import { PAGE_LAST_MODIFIED as FOUNDER_LAST_MODIFIED } from '@/app/sardar-ghaffar/seo'
 import { PAGE_LAST_MODIFIED as SARDAR_LAST_MODIFIED } from '@/app/sardar/seo'
+import { SARDAR_ENABLED } from '@/components/sardar/config'
 import { PAGE_LAST_MODIFIED as AGENTS_LAST_MODIFIED } from '@/app/agents/seo'
 import { PAGE_LAST_MODIFIED as AI_EMPLOYEES_LAST_MODIFIED } from '@/app/ai-employees/seo'
 import { PAGE_LAST_MODIFIED as ABOUT_LAST_MODIFIED } from '@/app/about/seo'
@@ -77,7 +78,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/sardar-ghaffar`, lastModified: new Date(FOUNDER_LAST_MODIFIED), changeFrequency: 'monthly', priority: 0.7 },
     // /sardar — the voice AI Employee demo and answer page (25 Sep: third
     //   commercial surface, so weekly/0.9 like the other two).
-    { url: `${SITE}/sardar`, lastModified: new Date(SARDAR_LAST_MODIFIED), changeFrequency: 'weekly', priority: 0.9 },
+    ...(SARDAR_ENABLED ? [{ url: `${SITE}/sardar`, lastModified: new Date(SARDAR_LAST_MODIFIED), changeFrequency: 'weekly' as const, priority: 0.9 }] : []),
     { url: `${SITE}/blog`, lastModified: new Date(BLOG_UPDATED), changeFrequency: 'daily', priority: 0.9 },
     // Original research, collection end (Corroboration Engine, Day 6).
     { url: `${SITE}/survey`, lastModified: new Date('2026-09-10'), changeFrequency: 'weekly', priority: 0.8 },

@@ -40,7 +40,6 @@ export function GET() {
     `- [AI Employees](${u('/ai-employees')}): the product — what an AI Employee is and the ones DSP builds`,
     `- [DSP Agents](${u('/agents')}): the build service — custom production AI agents and automation`,
     `- [Pricing](${u('/pricing')}): what an AI Employee costs, published in full`,
-    `- [${founder.name}](${u('/sardar')}): a live voice AI Employee anyone can call in the browser`,
     `- [DSP AI Agent Mastery](${u(mastery.url)}): the course that teaches people to build them (the retired /academy URL redirects here)`,
     '',
     '## Programs & Services',

@@ -2,6 +2,12 @@
 // Every link and price comes from src/config/site.ts — nothing is typed here.
 import { mastery, waLink } from '@/config/site'
 
+/** Master switch for SARDAR on the public site (owner ruling 3 Nov 2026:
+ *  hide it while the ElevenLabs workspace has a billing hold). false = no
+ *  launcher, no /mastery card, /sardar redirects to /ai-employees, no sitemap
+ *  entry and no in-copy links. Flip to true to bring everything back. */
+export const SARDAR_ENABLED = false
+
 export type LauncherCta = {
   /** GA4 `cta` value for sardar_cta_click. */
   id: string
