@@ -164,13 +164,6 @@
           "type": "pdf",
           "bytes": 14363249,
           "path": "_SLIDES/M01-AI-Foundations/M01-D01_Evolution-to-Agentic-AI-Day1.pdf"
-        },
-        {
-          "file": "M01-D02_Website-vs-AI-Agent.pdf",
-          "title": "Website vs AI Agent",
-          "type": "pdf",
-          "bytes": 2654126,
-          "path": "_SLIDES/M01-AI-Foundations/M01-D02_Website-vs-AI-Agent.pdf"
         }
       ],
       "slides_zip": "_SLIDES/_ZIP/M01-slides.zip",
@@ -640,6 +633,13 @@
           "type": "pdf",
           "bytes": 3847665,
           "path": "_SLIDES/M03-Claude-ChatGPT-Gemini/M03-D02_What-Is-Claude-and-How-It-Works-2026.pdf"
+        },
+        {
+          "file": "M03-D03_From-ChatGPT-to-GPT-6-Astra.pdf",
+          "title": "From ChatGPT to GPT-6 Astra",
+          "type": "pdf",
+          "bytes": 3677696,
+          "path": "_SLIDES/M03-Claude-ChatGPT-Gemini/M03-D03_From-ChatGPT-to-GPT-6-Astra.pdf"
         }
       ],
       "slides_zip": "_SLIDES/_ZIP/M03-slides.zip",
@@ -831,6 +831,13 @@
           "type": "pdf",
           "bytes": 2202412,
           "path": "_SLIDES/M04-Vibe-Coding/M04-D01_Claude-Code-Context-Management.pdf"
+        },
+        {
+          "file": "M04-D02_Website-vs-AI-Agent.pdf",
+          "title": "Website vs AI Agent",
+          "type": "pdf",
+          "bytes": 2654126,
+          "path": "_SLIDES/M04-Vibe-Coding/M04-D02_Website-vs-AI-Agent.pdf"
         }
       ],
       "slides_zip": "_SLIDES/_ZIP/M04-slides.zip",
