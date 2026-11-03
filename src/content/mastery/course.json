@@ -508,27 +508,6 @@
           }
         },
         {
-          "file": "M03-S03_How-Codex-Works_u5yAtqVX3Nw.mp4",
-          "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
-          "youtube_id": "u5yAtqVX3Nw",
-          "minutes": 6,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M03-S03_How-Codex-Works_u5yAtqVX3Nw.mp4",
-          "kind": "supplement",
-          "order": "S03",
-          "bunny": {
-            "guid": "68423743-dc10-4dc0-b27a-64803b365751",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:38:28.773Z",
-            "length_sec": 344,
-            "aspect": 0.9651
-          },
-          "title": "Short — How Codex Works"
-        },
-        {
           "file": "M03-L01_Claude-Masterclass-Pt1-Setup-Workflows_piOULSKw5pc.mp4",
           "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
           "youtube_id": "piOULSKw5pc",
@@ -641,6 +620,29 @@
           "master": "M03-S04_Claude-Fundamentals-Beginner-to-Pro_GbDinGY4S00.mp4",
           "archived_reason": "Claude Fundamentals duplicates S01 (Claude Step by Step) + L01 (Masterclass Pt1)",
           "archived_on": "2026-09-16"
+        },
+        {
+          "file": "M03-S03_How-Codex-Works_u5yAtqVX3Nw.mp4",
+          "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
+          "youtube_id": "u5yAtqVX3Nw",
+          "minutes": 6,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M03-S03_How-Codex-Works_u5yAtqVX3Nw.mp4",
+          "kind": "supplement",
+          "order": "S03",
+          "bunny": {
+            "guid": "68423743-dc10-4dc0-b27a-64803b365751",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:38:28.773Z",
+            "length_sec": 344,
+            "aspect": 0.9651
+          },
+          "title": "Short — How Codex Works",
+          "archived_reason": "off-outcome — a 6-min \"How Codex Works\" slide plus a Gemini video-generation demo; Codex is not part of the M03 toolkit and Gemini is covered by L03",
+          "archived_on": "2026-11-04"
         }
       ]
     },
