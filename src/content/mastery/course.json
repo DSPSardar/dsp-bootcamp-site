@@ -107,26 +107,26 @@
           "title": "Lecture 1 — AI and AI Agents: The Big Picture"
         },
         {
-          "file": "M01-L02_Next-Level-of-AI-Fundamentals-Agents-Autonomy_SvFSmcKbx3M.mp4",
+          "file": "M01-L03_Evolution-of-AI.mp4",
           "folder": "Phase-0-Zero/M01-AI-Foundations",
-          "youtube_id": "SvFSmcKbx3M",
-          "minutes": 47,
-          "source": "DOWNLOAD",
-          "status": "To download",
+          "youtube_id": null,
+          "minutes": 10,
+          "source": "CUT",
+          "status": "Cut from M01-L02_Next-Level-of-AI-Fundamentals-Agents-Autonomy_SvFSmcKbx3M.mp4",
           "chapters": [],
-          "master": "YTDown.com_YouTube_The-Next-Level-of-AI-Fundamentals-Agents_Media_SvFSmcKbx3M_001_1080p.mp4",
+          "master": "M01-L03_Evolution-of-AI.mp4",
           "kind": "core",
-          "order": "L02",
+          "order": "L03",
+          "title": "Lecture 2 — The Evolution of AI: Traditional AI to Agentic AI",
+          "cut_from": "M01-L02_Next-Level-of-AI-Fundamentals-Agents-Autonomy_SvFSmcKbx3M.mp4",
           "bunny": {
-            "guid": "fec934a9-a740-462c-abd7-35c777eef14f",
+            "guid": "dd87f137-f561-4d8b-b436-1a38dedbc513",
             "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:37:18.513841Z",
-            "length_sec": 2843,
-            "aspect": 1.7778
-          },
-          "title": "Lecture 2 — The Next Level of AI: Fundamentals, Agents, Autonomy"
+            "version": 0,
+            "uploaded_at": "2026-11-03T22:03:04.888Z",
+            "length_sec": 588,
+            "thumbnail": "thumbnail.jpg"
+          }
         }
       ],
       "build_project": "Pick Your Agent — 5 ideas through the Idea Filter, one chosen",
@@ -243,6 +243,30 @@
           },
           "title": "Short — What are AI Agents and how do they work?",
           "archived_reason": "mislabelled — a clip of the 7 Jul bootcamp Day 1 opening (\"Tonight's Promise\" Mon–Fri schedule), a cohort pep talk not an explanation of agents; same recording lives in M07 as Bootcamp Day 1",
+          "archived_on": "2026-11-04"
+        },
+        {
+          "file": "M01-L02_Next-Level-of-AI-Fundamentals-Agents-Autonomy_SvFSmcKbx3M.mp4",
+          "folder": "Phase-0-Zero/M01-AI-Foundations",
+          "youtube_id": "SvFSmcKbx3M",
+          "minutes": 47,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "YTDown.com_YouTube_The-Next-Level-of-AI-Fundamentals-Agents_Media_SvFSmcKbx3M_001_1080p.mp4",
+          "kind": "core",
+          "order": "L02",
+          "bunny": {
+            "guid": "fec934a9-a740-462c-abd7-35c777eef14f",
+            "status": "ready",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:37:18.513841Z",
+            "length_sec": 2843,
+            "aspect": 1.7778
+          },
+          "title": "Lecture 2 — The Next Level of AI: Fundamentals, Agents, Autonomy",
+          "archived_reason": "superseded by the 10-min cut M01-L03 (Evolution of AI, 05:43–15:31); the rest of this 47-min recording re-teaches the same deck as L01",
           "archived_on": "2026-11-04"
         }
       ]
