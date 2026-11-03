@@ -262,27 +262,6 @@
       "badge_after": null,
       "lessons": [
         {
-          "file": "M02-S01_How-to-Talk-to-AI_ur0fyow0cPg.mp4",
-          "folder": "Phase-0-Zero/M02-Prompting-Context-Engineering",
-          "youtube_id": "ur0fyow0cPg",
-          "minutes": 12,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M02-S01_How-to-Talk-to-AI_ur0fyow0cPg.mp4",
-          "kind": "supplement",
-          "order": "S01",
-          "bunny": {
-            "guid": "1e47998e-9a93-4ab4-9693-6fde8350622a",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:36:09.133Z",
-            "length_sec": 744,
-            "aspect": 0.9651
-          },
-          "title": "Short — How to Talk to AI"
-        },
-        {
           "file": "M02-S02_Tokens-and-Context-Windows_PBFNKMQoWW8.mp4",
           "folder": "Phase-0-Zero/M02-Prompting-Context-Engineering",
           "youtube_id": "PBFNKMQoWW8",
@@ -436,6 +415,29 @@
           "title": "Short — Token and Context Window Mechanics",
           "archived_reason": "Token Mechanics duplicates S02 Tokens & Context Windows",
           "archived_on": "2026-09-16"
+        },
+        {
+          "file": "M02-S01_How-to-Talk-to-AI_ur0fyow0cPg.mp4",
+          "folder": "Phase-0-Zero/M02-Prompting-Context-Engineering",
+          "youtube_id": "ur0fyow0cPg",
+          "minutes": 12,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M02-S01_How-to-Talk-to-AI_ur0fyow0cPg.mp4",
+          "kind": "supplement",
+          "order": "S01",
+          "bunny": {
+            "guid": "1e47998e-9a93-4ab4-9693-6fde8350622a",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:36:09.133Z",
+            "length_sec": 744,
+            "aspect": 0.9651
+          },
+          "title": "Short — How to Talk to AI",
+          "archived_reason": "generic 12-min \"How to Talk to AI\" screen demo of ChatGPT/Codex chat windows, not DSP prompting or context-engineering teaching; S04 + L01-L03 cover the module outcome",
+          "archived_on": "2026-11-04"
         }
       ]
     },
