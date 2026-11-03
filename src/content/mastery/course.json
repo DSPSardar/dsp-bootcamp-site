@@ -64,48 +64,6 @@
           "title": "Short — What is Artificial Intelligence?"
         },
         {
-          "file": "M01-S02_What-is-Generative-AI_x16B6uejHiU.mp4",
-          "folder": "Phase-0-Zero/M01-AI-Foundations",
-          "youtube_id": "x16B6uejHiU",
-          "minutes": 2,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M01-S02_What-is-Generative-AI_x16B6uejHiU.mp4",
-          "kind": "supplement",
-          "order": "S02",
-          "bunny": {
-            "guid": "39bf552d-5411-4581-9a54-8a247ea6e1d2",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:34:06.196Z",
-            "length_sec": 130,
-            "aspect": 1.7778
-          },
-          "title": "Short — What is Generative AI?"
-        },
-        {
-          "file": "M01-S03_What-are-AI-Agents_c4qkhlbs0-w.mp4",
-          "folder": "Phase-0-Zero/M01-AI-Foundations",
-          "youtube_id": "c4qkhlbs0-w",
-          "minutes": 5,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "M01-S03_What-are-AI-Agents_c4qkhlbs0-w.mp4",
-          "kind": "supplement",
-          "order": "S03",
-          "bunny": {
-            "guid": "5ef7dbd4-c372-41ce-a756-e65ae21ebbc1",
-            "status": "ready",
-            "version": 0,
-            "uploaded_at": "2026-08-27T00:34:26.797Z",
-            "length_sec": 326,
-            "aspect": 1.7778
-          },
-          "title": "Short — What are AI Agents and how do they work?"
-        },
-        {
           "file": "M01-S04_Generative-to-Agentic_Op7L1HDSMTQ.mp4",
           "folder": "Phase-0-Zero/M01-AI-Foundations",
           "youtube_id": "Op7L1HDSMTQ",
@@ -240,6 +198,52 @@
           "title": "Short — The Evolution of the Agentic Web",
           "archived_reason": "overlaps S04/S05 — third \"future of agents\" short in one module",
           "archived_on": "2026-09-16"
+        },
+        {
+          "file": "M01-S02_What-is-Generative-AI_x16B6uejHiU.mp4",
+          "folder": "Phase-0-Zero/M01-AI-Foundations",
+          "youtube_id": "x16B6uejHiU",
+          "minutes": 2,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M01-S02_What-is-Generative-AI_x16B6uejHiU.mp4",
+          "kind": "supplement",
+          "order": "S02",
+          "bunny": {
+            "guid": "39bf552d-5411-4581-9a54-8a247ea6e1d2",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:34:06.196Z",
+            "length_sec": 130,
+            "aspect": 1.7778
+          },
+          "title": "Short — What is Generative AI?",
+          "archived_reason": "title does not match content — opens on the same \"What is AI?\" slide as S01, then ~1 min of Claude.ai open; Generative AI is covered properly by S04",
+          "archived_on": "2026-11-04"
+        },
+        {
+          "file": "M01-S03_What-are-AI-Agents_c4qkhlbs0-w.mp4",
+          "folder": "Phase-0-Zero/M01-AI-Foundations",
+          "youtube_id": "c4qkhlbs0-w",
+          "minutes": 5,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M01-S03_What-are-AI-Agents_c4qkhlbs0-w.mp4",
+          "kind": "supplement",
+          "order": "S03",
+          "bunny": {
+            "guid": "5ef7dbd4-c372-41ce-a756-e65ae21ebbc1",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-08-27T00:34:26.797Z",
+            "length_sec": 326,
+            "aspect": 1.7778
+          },
+          "title": "Short — What are AI Agents and how do they work?",
+          "archived_reason": "mislabelled — a clip of the 7 Jul bootcamp Day 1 opening (\"Tonight's Promise\" Mon–Fri schedule), a cohort pep talk not an explanation of agents; same recording lives in M07 as Bootcamp Day 1",
+          "archived_on": "2026-11-04"
         }
       ]
     },
