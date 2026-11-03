@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
+import { SARDAR_ENABLED } from '@/components/sardar/config'
 import { existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { site, mastery, agency } from '@/config/site'
@@ -23,7 +25,7 @@ export const metadata: Metadata = {
   title: { absolute: SEO_TITLE }, // already ends in "| DSP"; skip the root template
   description: SEO_DESCRIPTION,
   alternates: { canonical: CANONICAL },
-  robots: { index: true, follow: true },
+  robots: { index: SARDAR_ENABLED, follow: SARDAR_ENABLED },
   openGraph: {
     type: 'website',
     title: SEO_TITLE,
@@ -41,6 +43,7 @@ export const metadata: Metadata = {
 const AVATAR_URL = existsSync(join(process.cwd(), 'public', 'sardar', 'avatar.glb')) ? '/sardar/avatar.glb' : null
 
 export default function SardarPage() {
+  if (!SARDAR_ENABLED) redirect('/ai-employees')
   return (
     <>
       <div className="dsp-site sardar-sitebar"><SiteHeader /></div>

@@ -245,9 +245,8 @@ export default function AiEmployeesPage() {
           <p style={{ marginTop: '1rem', color: 'var(--navy-soft)' }}>
             The long-form definition is on{' '}
             <Link href="/what-is-an-ai-employee">What is an AI Employee?</Link>; the agency that
-            builds them is <Link href="/agents">DSP Agents</Link>, and you can talk to one on our
-            own site right now — <Link href="/sardar">SARDAR</Link>, a voice AI Employee that
-            answers questions about DSP by phone-style call.
+            builds them is <Link href="/agents">DSP Agents</Link>, and you can talk to one right
+            now — Zara, the AI Sales Employee, on WhatsApp.
           </p>
         </div>
       </section>

@@ -152,8 +152,6 @@ export default function AboutPage() {
             <Link href="/ai-employees" style={{ color: 'var(--teal-deep)', fontWeight: 600 }}>What an AI Employee is →</Link>
             {' · '}
             <Link href="/agents" style={{ color: 'var(--teal-deep)', fontWeight: 600 }}>The agents we build for clients →</Link>
-            {' · '}
-            <Link href="/sardar" style={{ color: 'var(--teal-deep)', fontWeight: 600 }}>Call one yourself →</Link>
           </p>
         </div>
       </section>
