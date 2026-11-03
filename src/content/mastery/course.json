@@ -127,6 +127,28 @@
             "length_sec": 588,
             "thumbnail": "thumbnail.jpg"
           }
+        },
+        {
+          "file": "M01-L04_Pick-Your-Agent-Idea-Filter-Live.mp4",
+          "folder": "Phase-0-Zero/M01-AI-Foundations",
+          "youtube_id": null,
+          "minutes": 8,
+          "source": "CUT",
+          "status": "Cut from ?",
+          "chapters": [],
+          "master": "M01-L04_Pick-Your-Agent-Idea-Filter-Live.mp4",
+          "kind": "core",
+          "order": "L04",
+          "title": "Lecture 3 — Pick Your Agent: the Idea Filter, live",
+          "cut_from": null,
+          "bunny": {
+            "guid": "cf3fb1c4-ce78-4349-81a8-9518245282ca",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-11-03T22:11:33.604Z",
+            "length_sec": 459,
+            "thumbnail": "thumbnail.jpg"
+          }
         }
       ],
       "build_project": "Pick Your Agent — 5 ideas through the Idea Filter, one chosen",
@@ -532,6 +554,28 @@
           }
         },
         {
+          "file": "M03-S05_What-is-Claude.mp4",
+          "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
+          "youtube_id": null,
+          "minutes": 7,
+          "source": "CUT",
+          "status": "Cut from M03-L02_Claude-Chat-Cowork-Code_GUQmCNRqy1g.mp4",
+          "chapters": [],
+          "master": "M03-S05_What-is-Claude.mp4",
+          "kind": "supplement",
+          "order": "S05",
+          "title": "Short — What is Claude?",
+          "cut_from": "M03-L02_Claude-Chat-Cowork-Code_GUQmCNRqy1g.mp4",
+          "bunny": {
+            "guid": "50a6e7da-3e22-47e6-9de8-2c92d24b713b",
+            "status": "ready",
+            "version": 0,
+            "uploaded_at": "2026-11-03T22:12:44.804Z",
+            "length_sec": 398,
+            "thumbnail": "thumbnail.jpg"
+          }
+        },
+        {
           "file": "M03-L01_Claude-Masterclass-Pt1-Setup-Workflows_piOULSKw5pc.mp4",
           "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
           "youtube_id": "piOULSKw5pc",
@@ -554,48 +598,26 @@
           "title": "Lecture 1 — Claude Masterclass: Setup, New Features and Workflows"
         },
         {
-          "file": "M03-L02_Claude-Chat-Cowork-Code_GUQmCNRqy1g.mp4",
+          "file": "M03-L04_Google-AI-Studio-and-Gemini.mp4",
           "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
-          "youtube_id": "GUQmCNRqy1g",
-          "minutes": 31,
-          "source": "DOWNLOAD",
-          "status": "To download",
+          "youtube_id": null,
+          "minutes": 20,
+          "source": "CUT",
+          "status": "Cut from M03-L03_Google-AI-Studio-Gemini_63bNPgeoxmA.mp4",
           "chapters": [],
-          "master": "YTDown.com_YouTube_Claude-Chat-Cowork-_-Code-New-Master-Cla_Media_GUQmCNRqy1g_001_1080p.mp4",
+          "master": "M03-L04_Google-AI-Studio-and-Gemini.mp4",
           "kind": "core",
-          "order": "L02",
+          "order": "L04",
+          "title": "Lecture 3 — Google AI Studio and Gemini",
+          "cut_from": "M03-L03_Google-AI-Studio-Gemini_63bNPgeoxmA.mp4",
           "bunny": {
-            "guid": "64763cb7-9d41-4d6c-b785-93f3faf9c311",
+            "guid": "1176473f-7dbc-40ba-b4fb-21a29880588b",
             "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:36:50.750217Z",
-            "length_sec": 1851,
-            "aspect": 1.7778
-          },
-          "title": "Lecture 2 — Claude Chat, Cowork and Claude Code"
-        },
-        {
-          "file": "M03-L03_Google-AI-Studio-Gemini_63bNPgeoxmA.mp4",
-          "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
-          "youtube_id": "63bNPgeoxmA",
-          "minutes": 28,
-          "source": "DOWNLOAD",
-          "status": "To download",
-          "chapters": [],
-          "master": "YTDown.com_YouTube_What-is-Google-AI-Studio_Media_63bNPgeoxmA_001_1080p.mp4",
-          "kind": "core",
-          "order": "L03",
-          "bunny": {
-            "guid": "646e8a0a-e2a9-4dbc-99a7-f04e6905a527",
-            "status": "ready",
-            "version": 1,
-            "source": "drive-fetch",
-            "uploaded_at": "2026-08-26T13:37:21.018425Z",
-            "length_sec": 1685,
-            "aspect": 1.7778
-          },
-          "title": "Lecture 3 — Google AI Studio and Gemini"
+            "version": 0,
+            "uploaded_at": "2026-11-03T22:12:06.590Z",
+            "length_sec": 1194,
+            "thumbnail": "thumbnail.jpg"
+          }
         }
       ],
       "build_project": "Your Toolkit — Claude Project + tool comparison + setup checklist",
@@ -666,6 +688,54 @@
           },
           "title": "Short — How Codex Works",
           "archived_reason": "off-outcome — a 6-min \"How Codex Works\" slide plus a Gemini video-generation demo; Codex is not part of the M03 toolkit and Gemini is covered by L03",
+          "archived_on": "2026-11-04"
+        },
+        {
+          "file": "M03-L02_Claude-Chat-Cowork-Code_GUQmCNRqy1g.mp4",
+          "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
+          "youtube_id": "GUQmCNRqy1g",
+          "minutes": 31,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "YTDown.com_YouTube_Claude-Chat-Cowork-_-Code-New-Master-Cla_Media_GUQmCNRqy1g_001_1080p.mp4",
+          "kind": "core",
+          "order": "L02",
+          "bunny": {
+            "guid": "64763cb7-9d41-4d6c-b785-93f3faf9c311",
+            "status": "ready",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:36:50.750217Z",
+            "length_sec": 1851,
+            "aspect": 1.7778
+          },
+          "title": "Lecture 2 — Claude Chat, Cowork and Claude Code",
+          "archived_reason": "superseded by the 7-min cut M03-S05 (What is Claude, 24:12–30:51); the first 24 min re-teach M01's AI/chatbot/agent slides",
+          "archived_on": "2026-11-04"
+        },
+        {
+          "file": "M03-L03_Google-AI-Studio-Gemini_63bNPgeoxmA.mp4",
+          "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
+          "youtube_id": "63bNPgeoxmA",
+          "minutes": 28,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "YTDown.com_YouTube_What-is-Google-AI-Studio_Media_63bNPgeoxmA_001_1080p.mp4",
+          "kind": "core",
+          "order": "L03",
+          "bunny": {
+            "guid": "646e8a0a-e2a9-4dbc-99a7-f04e6905a527",
+            "status": "ready",
+            "version": 1,
+            "source": "drive-fetch",
+            "uploaded_at": "2026-08-26T13:37:21.018425Z",
+            "length_sec": 1685,
+            "aspect": 1.7778
+          },
+          "title": "Lecture 3 — Google AI Studio and Gemini",
+          "archived_reason": "split: the Gemini/AI Studio demo (00:00–18:31 + 26:42–28:05) is now M03-L04; the Idea Filter segment (19:01–26:41) is now M01-L04",
           "archived_on": "2026-11-04"
         }
       ]
