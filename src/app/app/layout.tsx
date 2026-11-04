@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation'
 import { supabaseServer } from '@/lib/supabase/server'
 import { modules, phases, unlockState, hasFullAccess } from '@/lib/mastery/course'
+import { enrolledLongEnough } from '@/lib/mastery/access'
 import '../mastery/mastery.css'
 import './app.css'
 
@@ -14,14 +15,14 @@ export default async function AppLayout({ children }: { children: React.ReactNod
 
   if (!user) return <div className={fonts}>{children}</div>  // /app/login renders here
 
-  const { data: profile } = await sb.from('mastery_profiles').select('status, full_name').eq('id', user.id).single()
+  const { data: profile } = await sb.from('mastery_profiles').select('status, full_name, enrolled_at, created_at').eq('id', user.id).single()
   const { data: adminRow } = await sb.from('mastery_admins').select('email').eq('email', (user.email ?? '').toLowerCase()).maybeSingle()
   const isAdmin = Boolean(adminRow)
   if (profile?.status !== 'active') redirect('/app/login?pending=1')
 
   const { data: rows } = await sb.from('mastery_progress').select('lesson_file').eq('user_id', user.id)
   const done = new Set((rows ?? []).map((r) => r.lesson_file))
-  const state = unlockState(done, isAdmin || hasFullAccess(user.email))
+  const state = unlockState(done, isAdmin || hasFullAccess(user.email) || enrolledLongEnough(profile?.enrolled_at, profile?.created_at))
   const totalCore = modules.reduce((n, m) => n + state[m.id].total, 0)
   const doneCore = modules.reduce((n, m) => n + state[m.id].doneCount, 0)
 
