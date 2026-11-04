@@ -1,6 +1,7 @@
 import { notFound, redirect } from 'next/navigation'
-import { requireStudent, isAdminUser } from '@/lib/mastery/auth'
-import { moduleFor, unlockState, hasFullAccess, titleOf, lessonSlug, lessonLabel, isDone } from '@/lib/mastery/course'
+import { requireStudent } from '@/lib/mastery/auth'
+import { moduleFor, unlockState, titleOf, lessonSlug, lessonLabel, isDone } from '@/lib/mastery/course'
+import { unlockAllFor } from '@/lib/mastery/access'
 import { autoCompleteWatched } from '@/lib/mastery/progress'
 
 export default async function ModulePage({ params }: { params: Promise<{ moduleId: string }> }) {
@@ -10,7 +11,7 @@ export default async function ModulePage({ params }: { params: Promise<{ moduleI
   await autoCompleteWatched(user.id, user.email)
   const { data: rows } = await sb.from('mastery_progress').select('lesson_file').eq('user_id', user.id)
   const done = new Set((rows ?? []).map((r) => r.lesson_file))
-  const s = unlockState(done, (await isAdminUser(user.email)) || hasFullAccess(user.email))[m.id]
+  const s = unlockState(done, await unlockAllFor(sb, user))[m.id]
   if (!s.unlocked) redirect('/app')
 
   return (
