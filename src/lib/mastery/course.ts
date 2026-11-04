@@ -31,7 +31,24 @@ export function hasFullAccess(email?: string | null) {
   return Boolean(email && FULL_ACCESS_EMAILS.has(email.toLowerCase()))
 }
 
-export function unlockState(done: Set<string>, unlockAll = false) {
+/** When a lesson is cut out of an older recording and the original is archived, a student who
+ *  completed the original must not lose the credit — progress rows are keyed on the file name,
+ *  so without this every cut re-locks the next module for everyone who had finished it.
+ *  Map: new lesson file → the archived file(s) it was cut from. */
+const CREDIT_FROM: Record<string, string[]> = {}
+for (const m of course.modules as unknown as (Module & { lessons: (Lesson & { cut_from?: string | null })[] })[]) {
+  for (const l of m.lessons) if (l.cut_from) CREDIT_FROM[l.file] = [...(CREDIT_FROM[l.file] ?? []), l.cut_from]
+}
+/** The student's completed set plus every current lesson whose archived source they completed. */
+export function withCredit(done: Set<string>) {
+  const out = new Set(done)
+  for (const [file, sources] of Object.entries(CREDIT_FROM)) if (sources.some((s) => done.has(s))) out.add(file)
+  return out
+}
+export const isDone = (done: Set<string>, file: string) => done.has(file) || (CREDIT_FROM[file] ?? []).some((s) => done.has(s))
+
+export function unlockState(rawDone: Set<string>, unlockAll = false) {
+  const done = withCredit(rawDone)
   const state: Record<string, { unlocked: boolean; complete: boolean; doneCount: number; total: number }> = {}
   let prevComplete = true
   for (const m of modules) {

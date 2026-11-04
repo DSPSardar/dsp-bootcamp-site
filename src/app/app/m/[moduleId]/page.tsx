@@ -1,6 +1,6 @@
 import { notFound, redirect } from 'next/navigation'
 import { requireStudent, isAdminUser } from '@/lib/mastery/auth'
-import { moduleFor, unlockState, hasFullAccess, titleOf, lessonSlug, lessonLabel } from '@/lib/mastery/course'
+import { moduleFor, unlockState, hasFullAccess, titleOf, lessonSlug, lessonLabel, isDone } from '@/lib/mastery/course'
 import { autoCompleteWatched } from '@/lib/mastery/progress'
 
 export default async function ModulePage({ params }: { params: Promise<{ moduleId: string }> }) {
@@ -30,7 +30,7 @@ export default async function ModulePage({ params }: { params: Promise<{ moduleI
             <div className="lesson" key={l.file}>
               <div><div className="k">{lessonLabel(m, l)} · {l.kind}</div><div className="n"><a href={`/app/m/${m.id}/${lessonSlug(l.file)}`}>{titleOf(l)}</a>{!ready && <span className="muted"> — video coming soon</span>}</div></div>
               <span className="m">{l.minutes} min</span>
-              <span className="tick">{done.has(l.file) ? '✓ done' : ''}</span>
+              <span className="tick">{isDone(done, l.file) ? '✓ done' : ''}</span>
             </div>
           )
         })}
