@@ -2,7 +2,7 @@ import { notFound, redirect } from 'next/navigation'
 import { revalidatePath } from 'next/cache'
 import { supabaseServer } from '@/lib/supabase/server'
 import { requireStudent, isAdminUser } from '@/lib/mastery/auth'
-import { moduleFor, unlockState, hasFullAccess, titleOf, lessonSlug, lessonLabel } from '@/lib/mastery/course'
+import { moduleFor, unlockState, hasFullAccess, titleOf, lessonSlug, lessonLabel, isDone } from '@/lib/mastery/course'
 import BunnyPlayer from '@/components/mastery/BunnyPlayer'
 import WatchTracker from '@/components/mastery/WatchTracker'
 import { postAsosEvent } from '@/lib/mastery/asos'
@@ -22,7 +22,7 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
   const { data: rows } = await sb.from('mastery_progress').select('lesson_file').eq('user_id', user.id)
   const done = new Set((rows ?? []).map((r) => r.lesson_file))
   if (!unlockState(done, (await isAdminUser(user.email)) || hasFullAccess(user.email))[m.id].unlocked) redirect('/app')
-  const isDone = done.has(l.file)
+  const lessonDone = isDone(done, l.file)
 
   // A lesson only counts once the player says they watched most of it. Stops
   // click-through completion and makes the progress record defensible.
@@ -33,7 +33,7 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
   const watchedSecs = view?.seconds ?? 0
   const watchedFrac = lessonSecs > 0 ? watchedSecs / lessonSecs : 0
   const hasVideo = l.bunny?.status === 'ready'
-  const canComplete = isDone || !hasVideo || watchedFrac >= WATCH_THRESHOLD
+  const canComplete = lessonDone || !hasVideo || watchedFrac >= WATCH_THRESHOLD
   const idx = m.lessons.findIndex((x) => x.file === l.file)
   const nextL = m.lessons.slice(idx + 1).find((x) => x.bunny?.status === 'ready')
 
@@ -68,13 +68,13 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
         <h1 style={{ marginTop: 8 }}>{titleOf(l)}</h1>
         <p className="muted">{lessonLabel(m, l)} · {l.kind} · {l.minutes} min{(l as { instructor?: string }).instructor ? ` · with ${(l as { instructor?: string }).instructor}` : ''}</p>
         <div style={{ marginTop: 18 }}>
-          {l.bunny?.status === 'ready' ? <><WatchTracker lesson={l.file} unlockAt={WATCH_THRESHOLD} initialFrac={isDone ? 1 : watchedFrac} /><BunnyPlayer videoId={l.bunny.guid} title={titleOf(l)} aspect={(l.bunny as { aspect?: number }).aspect} eager /></> : <p className="note">This lesson is being prepared and will appear here soon.</p>}
+          {l.bunny?.status === 'ready' ? <><WatchTracker lesson={l.file} unlockAt={WATCH_THRESHOLD} initialFrac={lessonDone ? 1 : watchedFrac} /><BunnyPlayer videoId={l.bunny.guid} title={titleOf(l)} aspect={(l.bunny as { aspect?: number }).aspect} eager /></> : <p className="note">This lesson is being prepared and will appear here soon.</p>}
         </div>
         <div style={{ display: 'flex', gap: 12, marginTop: 18, flexWrap: 'wrap' }}>
           <form action={toggle} className="inline">
-            <button className={`btn ${isDone ? 'btn-ghost' : 'btn-gold'}`} type="submit" disabled={!canComplete}
+            <button className={`btn ${lessonDone ? 'btn-ghost' : 'btn-gold'}`} type="submit" disabled={!canComplete}
               title={canComplete ? undefined : 'Watch the lesson through to mark it complete — this button unlocks by itself at 80%'}>
-              {isDone ? '✓ Complete — undo' : canComplete ? 'Mark lesson complete' : `Watched ${Math.round(watchedFrac * 100)}% — completes itself at 80%`}
+              {lessonDone ? '✓ Complete — undo' : canComplete ? 'Mark lesson complete' : `Watched ${Math.round(watchedFrac * 100)}% — completes itself at 80%`}
             </button>
           </form>
           {!canComplete && <a className="btn btn-ghost" href={`/app/m/${m.id}/${lessonSlug(l.file)}`}>Already watched it? Refresh ↻</a>}
