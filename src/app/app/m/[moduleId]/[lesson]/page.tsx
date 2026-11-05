@@ -15,7 +15,13 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
   const foundModule = moduleFor(moduleId); if (!foundModule) notFound()
   const m = foundModule
   const moduleId_ = m.id
-  const found = m.lessons.find((x) => lessonSlug(x.file) === lesson); if (!found) notFound()
+  const found = m.lessons.find((x) => lessonSlug(x.file) === lesson)
+  // An archived or renamed lesson (old bookmark, "continue" link, WhatsApp link) must never 404:
+  // send the student to the lesson cut from it if one exists, otherwise to the module page.
+  if (!found) {
+    const successor = m.lessons.find((x) => (x as { cut_from?: string | null }).cut_from?.slice(0, 7) === lesson)
+    redirect(successor ? `/app/m/${m.id}/${lessonSlug(successor.file)}` : `/app/m/${m.id}`)
+  }
   const l = found
   const lessonFile = l.file
   const { sb, user } = await requireStudent()
