@@ -1041,6 +1041,28 @@
       "badge_after": "Builder",
       "lessons": [
         {
+          "file": "M06-L02_Git-and-GitHub-with-Claude-Code.mp4",
+          "folder": "Phase-1-Builder/M06-Git-GitHub",
+          "youtube_id": null,
+          "minutes": 19,
+          "source": "NEW",
+          "status": "NEW",
+          "chapters": [],
+          "master": "M06-L02_Git-and-GitHub-with-Claude-Code_v1.mp4",
+          "kind": "core",
+          "order": "L02",
+          "source_note": "cut from the 26 Aug 2026 live class from 19:05",
+          "bunny": {
+            "guid": "2d13fd6f-f243-4e3a-b110-c2934be58220",
+            "status": "ready",
+            "version": 1,
+            "uploaded_at": "2026-08-27T06:37:38.244Z",
+            "length_sec": 1160,
+            "aspect": 1.7778
+          },
+          "title": "Lecture 1 — Git and GitHub with Claude Code"
+        },
+        {
           "file": "M06-S01_Git-GitHub-Basics-Vibe-Coders_wbeQ0EZ4ri4.mp4",
           "folder": "Phase-1-Builder/M06-Git-GitHub",
           "youtube_id": "wbeQ0EZ4ri4",
@@ -1080,29 +1102,7 @@
             "length_sec": 2785,
             "aspect": 1.7778
           },
-          "title": "Lecture 1 — Push Your Frontend to GitHub with Claude Code"
-        },
-        {
-          "file": "M06-L02_Git-and-GitHub-with-Claude-Code.mp4",
-          "folder": "Phase-1-Builder/M06-Git-GitHub",
-          "youtube_id": null,
-          "minutes": 19,
-          "source": "NEW",
-          "status": "NEW",
-          "chapters": [],
-          "master": "M06-L02_Git-and-GitHub-with-Claude-Code_v1.mp4",
-          "kind": "core",
-          "order": "L02",
-          "source_note": "cut from the 26 Aug 2026 live class from 19:05",
-          "bunny": {
-            "guid": "2d13fd6f-f243-4e3a-b110-c2934be58220",
-            "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-27T06:37:38.244Z",
-            "length_sec": 1160,
-            "aspect": 1.7778
-          },
-          "title": "Lecture 2 — Git and GitHub with Claude Code"
+          "title": "Lecture 2 — Push Your Frontend to GitHub with Claude Code"
         }
       ],
       "build_project": "AI Employee on GitHub — public repo, 10+ commits, branch + restore",
