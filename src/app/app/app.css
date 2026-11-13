@@ -6,7 +6,10 @@
 .app main{padding:40px 0 80px}
 .app .grid{display:grid;grid-template-columns:280px 1fr;gap:32px;align-items:start}
 @media(max-width:900px){.app .grid{grid-template-columns:1fr}}
+@media(max-width:640px){.app .topbar .wrap{height:auto;min-height:60px;flex-wrap:wrap;gap:2px 12px;padding-top:8px;padding-bottom:8px}.app .topbar .logo{white-space:nowrap}.app .panel{padding:20px}}
 .app .side{position:sticky;top:80px;display:flex;flex-direction:column;gap:8px}
+/* Phone and tablet: the lesson comes first, the module list follows it */
+@media(max-width:900px){.app .grid>section{order:-1;min-width:0}.app .side{position:static}.app main{padding-top:20px}}
 .app .mod{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:rgba(19,43,82,.5);text-decoration:none;color:var(--cream)}
 .app .mod.locked{opacity:.45;pointer-events:none}
 .app .mod.on{border-color:var(--gold)}

@@ -2,7 +2,7 @@ import { notFound, redirect } from 'next/navigation'
 import { revalidatePath } from 'next/cache'
 import { supabaseServer } from '@/lib/supabase/server'
 import { requireStudent } from '@/lib/mastery/auth'
-import { moduleFor, unlockState, titleOf, lessonSlug, lessonLabel, isDone } from '@/lib/mastery/course'
+import { moduleFor, modules, unlockState, titleOf, lessonSlug, lessonLabel, isDone } from '@/lib/mastery/course'
 import { unlockAllFor } from '@/lib/mastery/access'
 import BunnyPlayer from '@/components/mastery/BunnyPlayer'
 import WatchTracker from '@/components/mastery/WatchTracker'
@@ -28,7 +28,8 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
   await autoCompleteWatched(user.id, user.email)
   const { data: rows } = await sb.from('mastery_progress').select('lesson_file').eq('user_id', user.id)
   const done = new Set((rows ?? []).map((r) => r.lesson_file))
-  if (!unlockState(done, await unlockAllFor(sb, user))[m.id].unlocked) redirect('/app')
+  const st = unlockState(done, await unlockAllFor(sb, user))
+  if (!st[m.id].unlocked) redirect('/app')
   const lessonDone = isDone(done, l.file)
 
   // A lesson only counts once the player says they watched most of it. Stops
@@ -43,6 +44,9 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
   const canComplete = lessonDone || !hasVideo || watchedFrac >= WATCH_THRESHOLD
   const idx = m.lessons.findIndex((x) => x.file === l.file)
   const nextL = m.lessons.slice(idx + 1).find((x) => x.bunny?.status === 'ready')
+  // Last lesson of a module: offer the next module (only once it is open to this student).
+  const nextM = nextL ? undefined : modules[modules.findIndex((x) => x.id === m.id) + 1]
+  const nextMOpen = Boolean(nextM && st[nextM.id]?.unlocked)
 
   async function toggle() {
     'use server'
@@ -86,6 +90,8 @@ export default async function LessonPage({ params }: { params: Promise<{ moduleI
           </form>
           {!canComplete && <a className="btn btn-ghost" href={`/app/m/${m.id}/${lessonSlug(l.file)}`}>Already watched it? Refresh ↻</a>}
           {nextL && <a className="btn btn-ghost" href={`/app/m/${m.id}/${lessonSlug(nextL.file)}`}>Next: {titleOf(nextL)} →</a>}
+          {nextM && nextMOpen && <a className="btn btn-ghost" href={`/app/m/${nextM.id}`}>Next module: {nextM.id} · {nextM.title} →</a>}
+          {nextM && !nextMOpen && <a className="btn btn-ghost" href={`/app/m/${m.id}`}>Back to {m.id} — finish it to open {nextM.id} →</a>}
         </div>
       </div>
       {/* Stuck at 1am with nobody to ask — this is the answer to that. */}
