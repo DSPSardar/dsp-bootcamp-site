@@ -13,7 +13,7 @@ function applyFilter(q: string): number {
   return n
 }
 
-export default function StudentSearch({ total }: { total: number }) {
+export default function StudentSearch({ total, noun = 'students' }: { total: number; noun?: string }) {
   const [q, setQ] = useState('')
   const [shown, setShown] = useState(total)
   const update = (value: string) => { setQ(value); setShown(applyFilter(value)) }
@@ -30,7 +30,7 @@ export default function StudentSearch({ total }: { total: number }) {
         style={{ flex: '1 1 280px', padding: '10px 14px', borderRadius: 8, border: '1px solid var(--line)',
           background: 'transparent', color: 'inherit', fontSize: 16 }}
       />
-      <span className="muted" style={{ fontSize: 13 }}>{shown} of {total} students</span>
+      <span className="muted" style={{ fontSize: 13 }}>{shown} of {total} {noun}</span>
       {q && <button type="button" className="muted" onClick={() => update('')}
         style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 13 }}>clear</button>}
     </div>

@@ -20,9 +20,13 @@ async function requireAdmin() {
 export default async function AdminPage() {
   await requireAdmin()
   const admin = supabaseAdmin()
-  const { data } = await admin.from('mastery_enrol_requests').select('*').order('created_at', { ascending: false }).limit(100)
+  const { data } = await admin.from('mastery_enrol_requests').select('*').order('created_at', { ascending: false }).limit(1000)
   const rows = (data ?? []) as Req[]
-  const signed = await Promise.all(rows.map(async (r) => (r.proof_path ? (await admin.storage.from('mastery-proofs').createSignedUrl(r.proof_path, 3600)).data?.signedUrl ?? null : null)))
+  // One batched call for every proof link: the list is no longer capped at the newest 100.
+  const paths = rows.map((r) => r.proof_path).filter((x): x is string => Boolean(x))
+  const { data: links } = paths.length ? await admin.storage.from('mastery-proofs').createSignedUrls(paths, 3600) : { data: [] }
+  const byPath = new Map((links ?? []).map((x) => [x.path, x.signedUrl] as const))
+  const signed = rows.map((r) => (r.proof_path ? byPath.get(r.proof_path) ?? null : null))
 
   return (
     <>
@@ -32,7 +36,7 @@ export default async function AdminPage() {
         <p className="muted">Approving sends the student a sign-in email and starts their one month of supervised support.</p>
       </div>
       {rows.length === 0 && <div className="panel"><p className="muted">No requests yet.</p></div>}
-      {rows.length > 0 && <StudentSearch total={rows.length} />}
+      {rows.length > 0 && <StudentSearch total={rows.length} noun="requests" />}
       {rows.map((r, i) => (
         <div className="panel" key={r.id} data-student={`${r.email} ${r.full_name ?? ''} ${r.phone ?? ''}`.toLowerCase()}>
           <h2 style={{ marginBottom: 4 }}>{r.full_name} <span className="muted" style={{ fontSize: 14 }}>· {r.status}</span></h2>
