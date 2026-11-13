@@ -2231,19 +2231,24 @@
           "source": "NEW",
           "status": "NEW",
           "chapters": [],
-          "master": "M15-L02_Finding-Clients-Worldwide_v1.mp4",
+          "master": "M15-L02_Finding-Clients-Worldwide_v2.mp4",
           "kind": "core",
           "order": "L02",
           "source_note": "live class, 27 Aug 2026",
           "bunny": {
-            "guid": "bd24af1d-a235-4027-ae86-bc168d4f5089",
+            "guid": "3b3c9e6a-faee-4bc0-ba90-d4a9e45f922b",
             "status": "ready",
-            "version": 1,
-            "uploaded_at": "2026-08-27T17:56:59.957Z",
-            "length_sec": 3129,
+            "version": 2,
+            "uploaded_at": "2026-11-13T13:51:45.921592Z",
+            "length_sec": 3117,
             "aspect": 1.7778
           },
-          "title": "Lecture 2 — 10 Ways to Find Clients Worldwide"
+          "title": "Lecture 2 — 10 Ways to Find Clients Worldwide",
+          "previous_bunny": {
+            "guid": "bd24af1d-a235-4027-ae86-bc168d4f5089",
+            "note": "v1 master had a broken index; Bunny encoded only 13:53. Kept, not deleted.",
+            "replaced_at": "2026-11-13"
+          }
         }
       ],
       "build_project": "Your First Proposal — discovery sheet + proposal + 3 outreach messages",
