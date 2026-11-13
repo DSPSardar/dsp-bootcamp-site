@@ -169,7 +169,7 @@ export default function StableVideoFrame(props: ComponentProps<'iframe'>) {
       <button
         type="button"
         onClick={onButton}
-        style={{ position: 'absolute', right: 8, top: 8, zIndex: 1, padding: '6px 10px', borderRadius: 8, border: '1px solid #8893a5', background: '#0A1730', color: '#fff', cursor: 'pointer', fontSize: 12 }}
+        style={{ position: 'absolute', right: 0, top: '100%', marginTop: 8, zIndex: 1, padding: '6px 10px', borderRadius: 8, border: '1px solid #8893a5', background: '#0A1730', color: '#fff', cursor: 'pointer', fontSize: 12 }}
         title="Restarts the player and resumes from where you were. Your saved lesson progress is kept."
       >
         Video stuck? Reload video
