@@ -1695,7 +1695,7 @@
             "length_sec": 761,
             "aspect": 1.7778
           },
-          "title": "Short — What is an API? What is MCP?"
+          "title": "Lecture 1 — What is an API? What is MCP?"
         },
         {
           "file": "M10-L01_MCP-Explained_CjVBozQx3jc.mp4",
@@ -1707,7 +1707,7 @@
           "chapters": [],
           "kind": "core",
           "order": "L01",
-          "title": "Lecture 1 — MCP Explained: What It Is and Why It Matters",
+          "title": "Lecture 2 — MCP Explained: What It Is and Why It Matters",
           "bunny": {
             "guid": "55e651f6-0c67-4efa-8f22-cd05803b85b5",
             "status": "ready",
@@ -1977,7 +1977,7 @@
       "title": "Deployment",
       "phase": "3",
       "phase_name": "Production",
-      "outcome": "Put CafeBot on a public HTTPS URL with hosted backend, env vars and go-live QA.",
+      "outcome": "Put your AI Employee on a public HTTPS URL with hosted backend, env vars and go-live QA.",
       "downloads": [
         "Deploy checklist",
         "Vercel + Railway guide",
@@ -2029,7 +2029,7 @@
           "master": "M13-L03_Build-and-Deploy-Agents-with-Vercel_83G2n_gxvT4.mp4"
         }
       ],
-      "build_project": "AI Employee LIVE — public URL verified by AI Coach",
+      "build_project": "AI Employee LIVE — on a public URL",
       "vault_files": [
         "Deploy-Checklist.md",
         "Vercel-Railway-Guide.md",
