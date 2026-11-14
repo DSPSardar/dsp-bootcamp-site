@@ -125,7 +125,8 @@
             "version": 0,
             "uploaded_at": "2026-11-03T22:03:04.888Z",
             "length_sec": 588,
-            "thumbnail": "thumbnail.jpg"
+            "thumbnail": "thumbnail.jpg",
+            "aspect": 1.7778
           }
         },
         {
@@ -147,7 +148,8 @@
             "version": 0,
             "uploaded_at": "2026-11-03T22:11:33.604Z",
             "length_sec": 459,
-            "thumbnail": "thumbnail.jpg"
+            "thumbnail": "thumbnail.jpg",
+            "aspect": 1.7778
           }
         }
       ],
@@ -565,30 +567,31 @@
             "version": 0,
             "uploaded_at": "2026-11-03T22:12:44.804Z",
             "length_sec": 398,
-            "thumbnail": "thumbnail.jpg"
+            "thumbnail": "thumbnail.jpg",
+            "aspect": 1.7778
           }
         },
         {
-          "file": "M03-L01_Claude-Masterclass-Pt1-Setup-Workflows_piOULSKw5pc.mp4",
+          "file": "M03-L05_What-is-Claude-Now-Nov-2026.mp4",
           "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
-          "youtube_id": "piOULSKw5pc",
-          "minutes": 54,
-          "source": "DOWNLOAD",
-          "status": "To download",
+          "youtube_id": null,
+          "minutes": 29,
+          "source": "ZOOM 2026-11-14",
+          "status": "Replaces M03-L01_Claude-Masterclass-Pt1-Setup-Workflows_piOULSKw5pc.mp4",
           "chapters": [],
-          "master": "M03-L01_Claude-Masterclass-Pt1-Setup-Workflows_piOULSKw5pc_v2.mp4",
+          "master": "M03-L05_What-is-Claude-Now-Nov-2026_v0.mp4",
           "kind": "core",
-          "order": "L01",
+          "order": "L05",
+          "title": "Lecture 1 — Claude Masterclass: What is Claude Now (November 2026 Update)",
+          "cut_from": "M03-L01_Claude-Masterclass-Pt1-Setup-Workflows_piOULSKw5pc.mp4",
           "bunny": {
-            "guid": "25932e5b-699e-41e7-bae4-d3660a518123",
+            "guid": "9fbd1ea6-7c8f-4fa7-8650-ecf06a2df437",
             "status": "ready",
-            "version": 2,
-            "uploaded_at": "2026-08-28T08:20:03.965Z",
-            "length_sec": 3234,
+            "version": 0,
+            "uploaded_at": "2026-11-14T12:57:51.345Z",
+            "length_sec": 1743,
             "aspect": 1.7778
-          },
-          "source_note": "live class 25 Aug 2026 — Claude masterclass (updated)",
-          "title": "Lecture 1 — Claude Masterclass: Setup, New Features and Workflows"
+          }
         },
         {
           "file": "M03-L04_Google-AI-Studio-and-Gemini.mp4",
@@ -609,7 +612,8 @@
             "version": 0,
             "uploaded_at": "2026-11-03T22:12:06.590Z",
             "length_sec": 1194,
-            "thumbnail": "thumbnail.jpg"
+            "thumbnail": "thumbnail.jpg",
+            "aspect": 1.7778
           }
         }
       ],
@@ -640,6 +644,13 @@
           "type": "pdf",
           "bytes": 3677696,
           "path": "_SLIDES/M03-Claude-ChatGPT-Gemini/M03-D03_From-ChatGPT-to-GPT-6-Astra.pdf"
+        },
+        {
+          "file": "M03-D04_What-is-Claude-Now-Nov-2026.pdf",
+          "title": "What is Claude Now — November 2026 Update",
+          "type": "pdf",
+          "bytes": 8192156,
+          "path": "_SLIDES/M03-Claude-ChatGPT-Gemini/M03-D04_What-is-Claude-Now-Nov-2026.pdf"
         }
       ],
       "slides_zip": "_SLIDES/_ZIP/M03-slides.zip",
@@ -737,6 +748,30 @@
           "title": "Lecture 3 — Google AI Studio and Gemini",
           "archived_reason": "split: the Gemini/AI Studio demo (00:00–18:31 + 26:42–28:05) is now M03-L04; the Idea Filter segment (19:01–26:41) is now M01-L04",
           "archived_on": "2026-11-04"
+        },
+        {
+          "file": "M03-L01_Claude-Masterclass-Pt1-Setup-Workflows_piOULSKw5pc.mp4",
+          "folder": "Phase-0-Zero/M03-Claude-ChatGPT-Gemini",
+          "youtube_id": "piOULSKw5pc",
+          "minutes": 54,
+          "source": "DOWNLOAD",
+          "status": "To download",
+          "chapters": [],
+          "master": "M03-L01_Claude-Masterclass-Pt1-Setup-Workflows_piOULSKw5pc_v2.mp4",
+          "kind": "core",
+          "order": "L01",
+          "bunny": {
+            "guid": "25932e5b-699e-41e7-bae4-d3660a518123",
+            "status": "ready",
+            "version": 2,
+            "uploaded_at": "2026-08-28T08:20:03.965Z",
+            "length_sec": 3234,
+            "aspect": 1.7778
+          },
+          "source_note": "live class 25 Aug 2026 — Claude masterclass (updated)",
+          "title": "Lecture 1 — Claude Masterclass: Setup, New Features and Workflows",
+          "archived_reason": "Replaced by the 14 Nov 2026 recording (M03-L05) on Sardar's instruction",
+          "archived_on": "2026-11-14"
         }
       ]
     },
@@ -794,7 +829,8 @@
             "version": 0,
             "uploaded_at": "2026-11-03T22:06:00.125Z",
             "length_sec": 929,
-            "thumbnail": "thumbnail.jpg"
+            "thumbnail": "thumbnail.jpg",
+            "aspect": 1.7778
           }
         },
         {
