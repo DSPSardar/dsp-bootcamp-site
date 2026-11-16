@@ -665,6 +665,9 @@ export const guides = [
   { path: '/what-is-an-ai-employee', title: 'What Is an AI Employee?', updated: '2026-09-08', live: true, footer: true },
   { path: '/claude-code-course-pakistan', title: 'Claude Code Course in Pakistan (+ Anthropic certificates)', updated: '2026-10-10', live: true, footer: true },
   { path: '/ai-course-for-overseas-pakistanis', title: 'AI Course for Overseas Pakistanis', updated: '2026-10-13', live: true, footer: true },
+  // added 2026-11-17: the free 30-day Urdu course for non-coders (Urdu, RTL).
+  // Companion page to the daily social series; every part points at /mastery.
+  { path: '/learn-claude-urdu', title: 'Learn Claude in Urdu: 30-Day Course for Non-Coders', updated: '2026-11-17', live: true, footer: true },
   // updated 2026-09-28: the two self-descriptions on the page said "an AI
   // agents training company" (pre-15-Sep positioning). Visible copy changed,
   // so the date moves with it (the PR-#26 rule). The survey data itself is
