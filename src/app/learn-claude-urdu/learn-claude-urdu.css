@@ -33,6 +33,7 @@
 .dsp-site .lcu .rule{width:110px;height:5px;background:var(--accent);border-radius:5px;margin:18px 0}
 .dsp-site .lcu .hero p{font-size:clamp(20px,4.6vw,27px);line-height:2.3;max-width:34em}
 .dsp-site .lcu .hero .for{color:var(--muted);font-size:18px;margin-top:8px}
+.dsp-site .lcu .hero .alt{font-size:17px;margin-top:4px}
 
 /* nav */
 .dsp-site .lcu nav{padding:18px 0;border-bottom:1px solid var(--line)}

@@ -667,7 +667,11 @@ export const guides = [
   { path: '/ai-course-for-overseas-pakistanis', title: 'AI Course for Overseas Pakistanis', updated: '2026-10-13', live: true, footer: true },
   // added 2026-11-17: the free 30-day Urdu course for non-coders (Urdu, RTL).
   // Companion page to the daily social series; every part points at /mastery.
-  { path: '/learn-claude-urdu', title: 'Learn Claude in Urdu: 30-Day Course for Non-Coders', updated: '2026-11-17', live: true, footer: true },
+  // updated 2026-11-20: hero now links to the English edition (visible copy).
+  { path: '/learn-claude-urdu', title: 'Learn Claude in Urdu: 30-Day Course for Non-Coders', updated: '2026-11-20', live: true, footer: true },
+  // added 2026-11-20: the English edition of the same 30-day course, lesson
+  // for lesson. The two pages are hreflang alternates of each other.
+  { path: '/learn-claude', title: 'Learn Claude: 30-Day Course for Non-Coders', updated: '2026-11-20', live: true, footer: true },
   // updated 2026-09-28: the two self-descriptions on the page said "an AI
   // agents training company" (pre-15-Sep positioning). Visible copy changed,
   // so the date moves with it (the PR-#26 rule). The survey data itself is

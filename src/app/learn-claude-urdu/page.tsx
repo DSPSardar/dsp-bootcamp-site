@@ -19,12 +19,14 @@ import { COURSE_HTML } from './content'
 import './learn-claude-urdu.css'
 
 const PATH = '/learn-claude-urdu'
+// The English edition of the same course (added 2026-11-20).
+const ENGLISH_PATH = '/learn-claude'
 const SEO_TITLE = 'Learn Claude in Urdu: 30-Day Course for Non-Coders | DSP'
 const DESCRIPTION =
   'Learn Claude in Urdu, one step a day: a 30-day course for non-coders covering Claude chat, Cowork, Claude Code, which model to use, websites, AI agents, SEO and GEO.'
 // Content-change date. The `guides` registry entry in src/config/site.ts
 // must carry the same value (scripts/check-guide-dates.mjs).
-const UPDATED = '2026-11-17'
+const UPDATED = '2026-11-20'
 
 const nastaliq = Noto_Nastaliq_Urdu({
   subsets: ['arabic'],
@@ -39,7 +41,10 @@ const nastaliq = Noto_Nastaliq_Urdu({
 export const metadata: Metadata = {
   title: { absolute: SEO_TITLE },
   description: DESCRIPTION,
-  alternates: { canonical: PATH },
+  alternates: {
+    canonical: PATH,
+    languages: { en: ENGLISH_PATH, ur: PATH },
+  },
   openGraph: {
     type: 'article',
     url: PATH,
