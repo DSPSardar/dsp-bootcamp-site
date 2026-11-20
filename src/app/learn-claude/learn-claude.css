@@ -1,0 +1,98 @@
+/* src/app/learn-claude/learn-claude.css — styles for the English 30-day
+   course page only. Same palette and layout as the Urdu page
+   (learn-claude-urdu.css), re-set for left-to-right Latin text. Every rule is
+   scoped under .dsp-site .lce so it cannot leak into, or be overridden by,
+   the company-page styles. */
+.dsp-site .lce{
+  /* layout: one reading column (max 860px), brochure hero, 30-card map, then lessons in seven parts */
+  --ground:#0F1B2D;
+  --panel:#16263D;
+  --line:#2C3B52;
+  --ink:#F4F1EA;
+  --muted:#B9C2D0;
+  --accent:#F2B544;
+  --latin:var(--font-inter),system-ui,sans-serif;
+  color-scheme:dark;
+}
+.dsp-site .lce, .dsp-site .lce *{box-sizing:border-box}
+.dsp-site .lce{margin:0;background:var(--ground);color:var(--ink);font-family:var(--latin);font-size:18px;line-height:1.7}
+.dsp-site .lce a{color:var(--accent)}
+.dsp-site .lce a:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.dsp-site .lce .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+.dsp-site .lce h1, .dsp-site .lce h2, .dsp-site .lce h3{margin:0;font-weight:700;text-wrap:balance;font-family:var(--latin);letter-spacing:-.01em;text-transform:none}
+.dsp-site .lce p{margin:0;max-width:none;color:inherit}
+.dsp-site .lce ul, .dsp-site .lce ol{list-style-position:outside}
+
+/* hero */
+.dsp-site .lce .hero{padding:44px 0 36px;border-bottom:1px solid var(--line)}
+.dsp-site .lce .hero-top{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.dsp-site .lce .pill{border:2px solid var(--accent);color:var(--accent);border-radius:60px;padding:6px 20px;font-size:15px;font-weight:700;line-height:1.4}
+.dsp-site .lce .brand{font-size:13px;font-weight:700;letter-spacing:1px;color:var(--muted)}
+.dsp-site .lce .hero h1{font-size:clamp(48px,12vw,96px);line-height:1.05;margin-top:28px;letter-spacing:-.03em}
+.dsp-site .lce .hero .sub{font-size:clamp(26px,6vw,44px);line-height:1.2;color:var(--accent);font-weight:700;margin-top:10px}
+.dsp-site .lce .rule{width:110px;height:5px;background:var(--accent);border-radius:5px;margin:24px 0}
+.dsp-site .lce .hero p{font-size:clamp(19px,4.2vw,24px);line-height:1.5;max-width:34em}
+.dsp-site .lce .hero .for{color:var(--muted);font-size:17px;line-height:1.7;margin-top:14px}
+.dsp-site .lce .hero .alt{font-size:16px;margin-top:14px}
+
+/* nav */
+.dsp-site .lce nav{padding:18px 0;border-bottom:1px solid var(--line)}
+.dsp-site .lce nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.dsp-site .lce nav a{display:block;text-decoration:none;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:40px;padding:8px 16px;font-size:15px;line-height:1.4}
+.dsp-site .lce nav a:hover{border-color:var(--accent);color:var(--accent)}
+
+.dsp-site .lce section{padding:48px 0;border-bottom:1px solid var(--line)}
+.dsp-site .lce .kicker{color:var(--muted);font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;line-height:1.5}
+.dsp-site .lce h2{font-size:clamp(28px,6.4vw,42px);line-height:1.2;color:var(--accent);margin-top:6px}
+.dsp-site .lce .lead{font-size:19px;max-width:36em;margin-top:12px}
+
+/* 30-day map */
+.dsp-site .lce .map{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.dsp-site .lce .map a{display:flex;gap:16px;align-items:center;text-decoration:none;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:14px 16px;height:100%}
+.dsp-site .lce .map a:hover{border-color:var(--accent)}
+.dsp-site .lce .num{flex:none;width:48px;height:48px;border-radius:50%;background:var(--accent);color:var(--ground);font-weight:700;font-size:20px;display:flex;align-items:center;justify-content:center;line-height:1}
+.dsp-site .lce .map b{display:block;font-size:18px;line-height:1.3}
+.dsp-site .lce .map span.d{display:block;color:var(--muted);font-size:14px;line-height:1.4;margin-top:3px}
+
+/* cards */
+.dsp-site .lce .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:24px}
+.dsp-site .lce .card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:8px}
+.dsp-site .lce .card h3{font-size:22px;line-height:1.3;margin-top:4px}
+.dsp-site .lce .card p{font-size:16px;line-height:1.6}
+.dsp-site .lce .tag{align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:.5px;color:var(--accent);border:1px solid var(--line);border-radius:30px;padding:4px 12px;line-height:1.4}
+.dsp-site .lce .use{color:var(--muted)}
+.dsp-site .lce .note{margin-top:22px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px 20px;font-size:16px;display:flex;flex-direction:column;gap:10px}
+.dsp-site .lce .note b{color:var(--accent)}
+
+/* lessons */
+.dsp-site .lce .part{margin-top:8px}
+.dsp-site .lce .lesson{padding:30px 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
+.dsp-site .lce .lesson:first-of-type{border-top:0}
+.dsp-site .lce .lesson-head{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.dsp-site .lce .lesson h3{font-size:clamp(22px,5vw,28px);line-height:1.25}
+.dsp-site .lce .lesson p{max-width:38em}
+.dsp-site .lce .task{margin-top:6px;border:1px solid var(--accent);border-radius:16px;padding:14px 18px;font-size:17px;max-width:38em}
+.dsp-site .lce .task b{color:var(--accent)}
+.dsp-site .lce ol.steps, .dsp-site .lce ul.plain{margin:6px 0 0;padding:0 0 0 24px;max-width:38em;display:flex;flex-direction:column;gap:8px}
+.dsp-site .lce ol.steps li, .dsp-site .lce ul.plain li{margin:0;padding:0 0 0 6px}
+.dsp-site .lce ol.steps li::marker{font-weight:700;color:var(--accent)}
+.dsp-site .lce ul.plain li::marker{color:var(--accent)}
+
+/* table */
+.dsp-site .lce .tablebox{overflow-x:auto;margin-top:8px;border:1px solid var(--line);border-radius:18px}
+.dsp-site .lce table{border-collapse:collapse;width:100%;min-width:520px;background:var(--panel)}
+.dsp-site .lce th, .dsp-site .lce td{text-align:left;padding:12px 18px;border-bottom:1px solid var(--line);font-size:16px;line-height:1.5;vertical-align:top}
+.dsp-site .lce th{color:var(--accent)}
+.dsp-site .lce tr:last-child td{border-bottom:0}
+
+/* cta */
+.dsp-site .lce .cta{padding:52px 0 64px;border-bottom:0}
+.dsp-site .lce .cta h2{color:var(--ink);font-size:clamp(36px,8.4vw,60px);line-height:1.1;letter-spacing:-.02em}
+.dsp-site .lce .linkbox{margin-top:24px;border:2px solid var(--accent);border-radius:22px;padding:18px 24px;display:flex;flex-direction:column;gap:6px;max-width:560px}
+.dsp-site .lce .linkbox .lab{color:var(--accent);font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.dsp-site .lce .linkbox a{font-weight:700;font-size:clamp(16px,4.2vw,22px);color:var(--ink);overflow-wrap:anywhere;line-height:1.4}
+.dsp-site .lce .wa{margin-top:18px;display:flex;flex-wrap:wrap;gap:12px;align-items:baseline;font-size:17px;color:var(--muted)}
+.dsp-site .lce .wa .num-wa{color:var(--ink);font-weight:700;font-size:20px}
+
+/* The site header is sticky: keep in-page jump targets clear of it. */
+.dsp-site .lce [id]{scroll-margin-top:96px}
