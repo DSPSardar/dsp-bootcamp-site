@@ -208,9 +208,9 @@ const welcomeVideo: JsonLd | null =
     ? {
         '@type': 'VideoObject',
         '@id': WELCOME_VIDEO_ID,
-        name: 'Welcome to DSP AI Agent Mastery',
+        name: 'How to do the AI Agentic and Claude course, from basic to advanced level',
         description:
-          'A seven-minute walkthrough of the DSP AI Agent Mastery student dashboard: how modules unlock, where templates, prompts and slides live, and how students share their builds. Recorded by Sardar Ghaffar.',
+          'An eight-minute screen recording by Sardar Ghaffar showing the ASOS sales dashboard at Rs. 8 million in revenue, Facebook insights at 15 million views in 2026, and the DSP AI Agent Mastery student dashboard.',
         thumbnailUrl: `${site.url}${mastery.welcomePoster}`,
         uploadDate: welcomeVideoId.uploaded_at,
         ...(welcomeVideoId.length_sec ? { duration: isoDuration(welcomeVideoId.length_sec) } : {}),
