@@ -2444,7 +2444,7 @@
       "status": "Located",
       "chapters": [],
       "kind": "welcome",
-      "note": "Student dashboard Start-here video only. Public /mastery uses 00-W03. Do not change unless Sardar asks.",
+      "note": "Student dashboard Start-here video only. Public /mastery uses 00-W05. Do not change unless Sardar asks.",
       "bunny": {
         "guid": "9e8e4a5e-3924-4c08-adc9-fbbabaca108d",
         "status": "ready",
@@ -2455,6 +2455,27 @@
         "aspect": 1.7778
       },
       "master": "00-W04_Student-Course-Guide_v1.mp4"
+    },
+    {
+      "file": "00-W05_8-Million-PKR-with-Claude.mp4",
+      "folder": "00-Welcome",
+      "title": "Rs. 8 million with Claude — live dashboard proof",
+      "youtube_id": null,
+      "minutes": 8,
+      "source": "LOCAL",
+      "status": "Located",
+      "chapters": [],
+      "kind": "welcome",
+      "note": "Public /mastery sales video since 25 Nov 2026 (replaced 00-W03). Customer names on ASOS screens are blurred in the master.",
+      "bunny": {
+        "guid": "be070cd1-f767-4320-813d-b5e25a86523c",
+        "status": "ready",
+        "version": 0,
+        "uploaded_at": "2026-11-25T15:14:43.102Z",
+        "length_sec": 469,
+        "aspect": 1.7778
+      },
+      "master": "00-W05_8-Million-PKR-with-Claude_v0.mp4"
     }
   ],
   "vault": [
